@@ -144,9 +144,8 @@ body {
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
-  }
-  html {
-    @apply font-sans;
+    background-color: var(--color-sand);
+    color: var(--color-charcoal);
+    font-family: var(--font-sans);
   }
 }

@@ -10,6 +10,8 @@ import { Experiences } from "@/components/sections/Experiences";
 import { SpecialOffers } from "@/components/sections/SpecialOffers";
 import { GalleryPreview } from "@/components/sections/GalleryPreview";
 import { BookingCta } from "@/components/sections/BookingCta";
+import { MapLocation } from "@/components/sections/MapLocation";
+import { WaveDivider } from "@/components/common/WaveDivider";
 
 export default function HomePage() {
   const data = getHomePageData();
@@ -21,12 +23,18 @@ export default function HomePage() {
       <main id="main-content">
         <HeroImage hero={data.hero} />
         <Welcome data={data.welcome} />
+        <WaveDivider from="fill-sand" to="fill-ivory" />
         <RoomsPreview data={data.roomsPreview} />
+        <WaveDivider from="fill-ivory" to="fill-sand" />
         <Amenities data={data.amenities} />
+        <WaveDivider from="fill-sand" to="fill-ivory" />
         <Experiences data={data.experiences} />
+        <WaveDivider from="fill-ivory" to="fill-sand" />
         <SpecialOffers data={data.offers} />
+        <WaveDivider from="fill-sand" to="fill-ivory" />
         <GalleryPreview data={data.galleryPreview} />
         <BookingCta data={data.bookingCta} />
+        <MapLocation contact={contact} />
       </main>
       <Footer contact={contact} />
       <WhatsAppButton

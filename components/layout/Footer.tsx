@@ -1,4 +1,13 @@
-import { Facebook, Instagram, Youtube, Star } from "lucide-react";
+import {
+  Facebook,
+  Instagram,
+  Youtube,
+  Star,
+  MessageCircle,
+  Mail,
+  MapPin,
+} from "lucide-react";
+import { Separator } from "@/components/ui/separator";
 import type { ContactData } from "@/lib/types";
 
 const iconMap: Record<string, React.FC<{ size?: number }>> = {
@@ -67,22 +76,24 @@ export function Footer({ contact }: FooterProps) {
             <h4 className="font-sans text-sm font-semibold uppercase tracking-widest mb-4">
               Contact
             </h4>
-            <ul className="space-y-2 text-sm text-white/70">
+            <ul className="space-y-3 text-sm text-white/70">
               <li>
                 <a
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-white transition-colors duration-200"
+                  className="flex items-center gap-2 hover:text-white transition-colors duration-200"
                 >
+                  <MessageCircle size={16} className="text-brand-teal shrink-0" />
                   WhatsApp
                 </a>
               </li>
               <li>
                 <a
                   href={`mailto:${contact.email}`}
-                  className="hover:text-white transition-colors duration-200"
+                  className="flex items-center gap-2 hover:text-white transition-colors duration-200"
                 >
+                  <Mail size={16} className="text-brand-teal shrink-0" />
                   {contact.email}
                 </a>
               </li>
@@ -91,8 +102,9 @@ export function Footer({ contact }: FooterProps) {
                   href={contact.googleMapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-white transition-colors duration-200"
+                  className="flex items-center gap-2 hover:text-white transition-colors duration-200"
                 >
+                  <MapPin size={16} className="text-brand-teal shrink-0" />
                   Get Directions
                 </a>
               </li>
@@ -118,7 +130,9 @@ export function Footer({ contact }: FooterProps) {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-white/10 text-center text-sm text-white/40">
+        <Separator className="mt-12 mb-8 bg-white/10" />
+
+        <div className="text-center text-sm text-white/40">
           &copy; {new Date().getFullYear()} {contact.hotelName}. All rights
           reserved.
         </div>

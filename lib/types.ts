@@ -104,10 +104,16 @@ export interface SocialLink {
   icon: string;
 }
 
+export interface Coordinates {
+  lat: number;
+  lng: number;
+}
+
 export interface ContactData {
   hotelName: string;
   stars: number;
   address: string[];
+  coordinates: Coordinates;
   whatsapp: string;
   whatsappGreeting: string;
   email: string;
