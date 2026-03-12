@@ -1,0 +1,164 @@
+{
+  "hero": {
+    "title": "Orlowsky Discovery",
+    "subtitle": "Your sanctuary on the shores of Candidasa, East Bali",
+    "cta": "Book Your Stay",
+    "ctaHref": "#booking",
+    "image": "/images/hero/hero-main.jpg",
+    "imageAlt": "Aerial view of Orlowsky Discovery Hotel pool and ocean in Candidasa, Bali"
+  },
+  "welcome": {
+    "label": "Welcome",
+    "heading": "A Hidden Gem in East Bali",
+    "description": "Nestled along the tranquil coast of Candidasa, Orlowsky Discovery Hotel offers an intimate escape where Balinese charm meets modern comfort. Wake up to ocean breezes, explore vibrant coral reefs, and unwind in our tropical gardens — far from the crowds, close to paradise.",
+    "image": "/images/welcome/welcome-garden.jpg",
+    "imageAlt": "Tropical garden and pool area of the hotel at sunset"
+  },
+  "roomsPreview": {
+    "label": "Accommodations",
+    "heading": "Rooms & Villas",
+    "subtext": "From garden-view cottages to oceanfront villas, each space is designed for relaxation.",
+    "rooms": [
+      {
+        "title": "Ocean View Villa",
+        "description": "Spacious villa with private terrace overlooking the Bali Sea",
+        "image": "/images/rooms/rooms-villa.jpg",
+        "imageAlt": "Luxurious ocean view villa with private terrace",
+        "href": "/rooms"
+      },
+      {
+        "title": "Garden Cottage",
+        "description": "Cozy cottage surrounded by lush tropical gardens",
+        "image": "/images/rooms/rooms-cottage.jpg",
+        "imageAlt": "Charming garden cottage with tropical plants",
+        "href": "/rooms"
+      },
+      {
+        "title": "Deluxe Suite",
+        "description": "Elegant suite with panoramic views and premium amenities",
+        "image": "/images/rooms/rooms-suite.jpg",
+        "imageAlt": "Modern deluxe suite with king bed and ocean view",
+        "href": "/rooms"
+      }
+    ]
+  },
+  "amenities": {
+    "label": "Amenities",
+    "heading": "Everything You Need",
+    "items": [
+      {
+        "icon": "UtensilsCrossed",
+        "title": "Restaurant",
+        "description": "Indonesian and international cuisine with ocean views"
+      },
+      {
+        "icon": "Sparkles",
+        "title": "Spa & Yoga",
+        "description": "Traditional Balinese treatments and daily yoga sessions"
+      },
+      {
+        "icon": "Waves",
+        "title": "Swimming Pool",
+        "description": "Oceanfront infinity pool surrounded by tropical gardens"
+      },
+      {
+        "icon": "Wifi",
+        "title": "Free Wi-Fi",
+        "description": "High-speed internet throughout the hotel"
+      }
+    ]
+  },
+  "experiences": {
+    "label": "Experiences",
+    "heading": "Discover East Bali",
+    "subtext": "Curated adventures to make your stay unforgettable.",
+    "items": [
+      {
+        "title": "Excursion Programs",
+        "description": "Explore temples, rice terraces, and hidden waterfalls",
+        "image": "/images/experiences/experiences-excursions.jpg",
+        "imageAlt": "Bali rice terraces with lush green landscape",
+        "href": "/excursions"
+      },
+      {
+        "title": "Diving & Snorkeling",
+        "description": "Discover vibrant coral reefs and the famous USAT Liberty shipwreck",
+        "image": "/images/experiences/experiences-diving.jpg",
+        "imageAlt": "Colorful coral reef underwater in Bali",
+        "href": "/diving"
+      },
+      {
+        "title": "Events & Celebrations",
+        "description": "Weddings, anniversaries, and private events in a tropical setting",
+        "image": "/images/experiences/experiences-events.jpg",
+        "imageAlt": "Elegant outdoor event setup with ocean backdrop",
+        "href": "/events"
+      },
+      {
+        "title": "Car & Bike Rental",
+        "description": "Freedom to explore Bali at your own pace",
+        "image": "/images/experiences/experiences-rental.jpg",
+        "imageAlt": "Scooter parked on scenic Bali road",
+        "href": "/rental"
+      }
+    ]
+  },
+  "offers": {
+    "label": "Special Offers",
+    "heading": "Current Deals",
+    "offers": [
+      {
+        "title": "Early Bird Discount",
+        "description": "Book 30 days in advance and save 20% on any room category",
+        "price": "from $65/night",
+        "image": "/images/offers/offers-early-bird.jpg",
+        "imageAlt": "Hotel pool at sunrise with loungers",
+        "active": true
+      },
+      {
+        "title": "Honeymoon Package",
+        "description": "Villa upgrade, spa treatment for two, romantic dinner, and airport transfer",
+        "price": "from $180/night",
+        "image": "/images/offers/offers-honeymoon.jpg",
+        "imageAlt": "Romantic dinner setup on the beach at sunset",
+        "active": true
+      }
+    ]
+  },
+  "galleryPreview": {
+    "label": "Gallery",
+    "heading": "Glimpses of Paradise",
+    "images": [
+      {
+        "src": "/images/gallery/gallery-ocean.jpg",
+        "alt": "Crystal clear ocean water near the hotel"
+      },
+      {
+        "src": "/images/gallery/gallery-pool.jpg",
+        "alt": "Hotel swimming pool at golden hour"
+      },
+      {
+        "src": "/images/gallery/gallery-temple.jpg",
+        "alt": "Traditional Balinese temple nearby"
+      },
+      {
+        "src": "/images/gallery/gallery-breakfast.jpg",
+        "alt": "Tropical breakfast spread"
+      },
+      {
+        "src": "/images/gallery/gallery-sunset.jpg",
+        "alt": "Sunset view from the hotel terrace"
+      },
+      {
+        "src": "/images/gallery/gallery-garden.jpg",
+        "alt": "Tropical garden path in the hotel grounds"
+      }
+    ]
+  },
+  "bookingCta": {
+    "heading": "Ready to Discover Paradise?",
+    "subtext": "Reserve your stay at Orlowsky Discovery Hotel and experience the magic of East Bali.",
+    "bookingUrl": "https://secure.guestpro.net/odch",
+    "fallbackCta": "Book Now"
+  }
+}

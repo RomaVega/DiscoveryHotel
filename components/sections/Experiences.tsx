@@ -1,0 +1,52 @@
+import Image from "next/image";
+import Link from "next/link";
+import { FadeIn } from "@/components/common/FadeIn";
+import { SectionHeading } from "@/components/common/SectionHeading";
+import type { ExperiencesData } from "@/lib/types";
+
+interface ExperiencesProps {
+  data: ExperiencesData;
+}
+
+export function Experiences({ data }: ExperiencesProps) {
+  return (
+    <section id="experiences" className="py-24 md:py-32 bg-ivory">
+      <div className="max-w-7xl mx-auto px-6">
+        <FadeIn>
+          <SectionHeading
+            label={data.label}
+            heading={data.heading}
+            subtext={data.subtext}
+          />
+        </FadeIn>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+          {data.items.map((item, i) => (
+            <FadeIn key={item.title} delay={i * 0.1}>
+              <Link href={item.href} className="group block">
+                <div className="relative aspect-[16/9] overflow-hidden">
+                  <Image
+                    src={item.image}
+                    alt={item.imageAlt}
+                    fill
+                    sizes="(max-width: 640px) 100vw, 50vw"
+                    className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                    <h3 className="font-serif text-2xl font-light">
+                      {item.title}
+                    </h3>
+                    <p className="mt-1 text-sm text-white/70 leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              </Link>
+            </FadeIn>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

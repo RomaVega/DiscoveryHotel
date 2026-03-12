@@ -1,0 +1,29 @@
+{
+  "hotelName": "Orlowsky Discovery Hotel",
+  "stars": 4,
+  "address": [
+    "Jalan Pantai Indah 06, Candidasa",
+    "Karangasem 80851, Bali — Indonesia"
+  ],
+  "whatsapp": "6281234567890",
+  "whatsappGreeting": "Hello! I'd like to know more about Orlowsky Discovery Hotel.",
+  "email": "2794140@gmail.com",
+  "socials": [
+    {
+      "platform": "Facebook",
+      "url": "https://facebook.com/orlowskydiscovery",
+      "icon": "Facebook"
+    },
+    {
+      "platform": "Instagram",
+      "url": "https://instagram.com/orlowskydiscovery",
+      "icon": "Instagram"
+    },
+    {
+      "platform": "YouTube",
+      "url": "https://youtube.com/@orlowskydiscovery",
+      "icon": "Youtube"
+    }
+  ],
+  "googleMapsUrl": "https://maps.google.com/?q=Orlowsky+Discovery+Hotel+Candidasa+Bali"
+}
