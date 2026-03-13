@@ -6,7 +6,9 @@ export interface NavLink {
 }
 
 export interface HeroData {
-  title: string;
+  titleLine1: string;
+  titleLine2: string;
+  titleLine3: string;
   subtitle: string;
   cta: string;
   ctaHref: string;

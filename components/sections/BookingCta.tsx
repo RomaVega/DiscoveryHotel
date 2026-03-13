@@ -8,7 +8,7 @@ interface BookingCtaProps {
 
 export function BookingCta({ data }: BookingCtaProps) {
   return (
-    <section id="booking" className="py-24 md:py-32 bg-deep-teal">
+    <section id="booking" className="pt-12 md:pt-32 pb-12 md:pb-32 bg-deep-teal">
       <div className="max-w-3xl mx-auto px-6 text-center">
         <FadeIn>
           <h2 className="font-serif font-light text-4xl md:text-5xl text-white">

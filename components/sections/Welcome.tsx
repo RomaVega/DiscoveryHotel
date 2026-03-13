@@ -9,9 +9,9 @@ interface WelcomeProps {
 
 export function Welcome({ data }: WelcomeProps) {
   return (
-    <section className="py-24 md:py-32 bg-sand">
+    <section className="pt-12 md:pt-32 pb-4 md:pb-12 bg-sand">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <FadeIn>
             <SectionHeading
               label={data.label}
@@ -24,15 +24,14 @@ export function Welcome({ data }: WelcomeProps) {
           </FadeIn>
 
           <FadeIn delay={0.2}>
-            <div className="relative aspect-[4/3] overflow-hidden">
-              <Image
-                src={data.image}
-                alt={data.imageAlt}
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover"
-              />
-            </div>
+            <Image
+              src={data.image}
+              alt={data.imageAlt}
+              width={0}
+              height={0}
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="w-full h-auto max-h-[580px] object-contain"
+            />
           </FadeIn>
         </div>
       </div>

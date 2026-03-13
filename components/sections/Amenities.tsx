@@ -22,7 +22,7 @@ interface AmenitiesProps {
 
 export function Amenities({ data }: AmenitiesProps) {
   return (
-    <section id="amenities" className="py-24 md:py-32 bg-sand">
+    <section id="amenities" className="pt-12 md:pt-32 pb-12 md:pb-32 bg-sand">
       <div className="max-w-7xl mx-auto px-6">
         <FadeIn>
           <SectionHeading label={data.label} heading={data.heading} />

@@ -19,6 +19,7 @@ interface GalleryPreviewProps {
 
 export function GalleryPreview({ data }: GalleryPreviewProps) {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [expanded, setExpanded] = useState(false);
 
   const openLightbox = (index: number) => setLightboxIndex(index);
   const closeLightbox = () => setLightboxIndex(null);
@@ -51,40 +52,52 @@ export function GalleryPreview({ data }: GalleryPreviewProps) {
     lightboxIndex !== null ? data.images[lightboxIndex] : null;
 
   return (
-    <section id="gallery" className="py-24 md:py-32 bg-ivory">
+    <section id="gallery" className="pt-12 md:pt-32 pb-12 md:pb-32 bg-ivory">
       <div className="max-w-7xl mx-auto px-6">
         <FadeIn>
           <SectionHeading label={data.label} heading={data.heading} />
         </FadeIn>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {data.images.map((img, i) => (
-            <FadeIn key={img.src} delay={i * 0.1}>
-              <button
-                onClick={() => openLightbox(i)}
-                className="relative aspect-square overflow-hidden group w-full focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2"
-              >
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  sizes="(max-width: 768px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
-                />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
-                  <ZoomIn
-                    size={28}
-                    className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        <div className="relative">
+          <div className={`grid grid-cols-2 md:grid-cols-3 gap-4 overflow-hidden transition-all duration-700 ease-in-out ${expanded ? "max-h-[9999px]" : "max-h-[420px] md:max-h-[680px]"}`}>
+            {data.images.map((img, i) => (
+              <FadeIn key={img.src} delay={Math.min(i, 5) * 0.1}>
+                <button
+                  onClick={() => openLightbox(i)}
+                  className="relative aspect-square group w-full focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2"
+                >
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    fill
+                    sizes="(max-width: 768px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                   />
-                </div>
-              </button>
-            </FadeIn>
-          ))}
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
+                    <ZoomIn
+                      size={28}
+                      className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    />
+                  </div>
+                </button>
+              </FadeIn>
+            ))}
+          </div>
+
+          {/* Peek gradient */}
+          {!expanded && (
+            <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-ivory via-ivory/60 to-transparent pointer-events-none" style={{ backdropFilter: "blur(2px)", WebkitBackdropFilter: "blur(2px)", maskImage: "linear-gradient(to top, black 40%, transparent 100%)", WebkitMaskImage: "linear-gradient(to top, black 40%, transparent 100%)" }} />
+          )}
         </div>
 
         <FadeIn>
           <div className="mt-12 text-center">
-            <PrimaryButton href="#booking">View Full Gallery</PrimaryButton>
+            <button
+              onClick={() => setExpanded(!expanded)}
+              className="inline-block bg-brand-teal hover:bg-deep-teal text-white font-sans font-semibold px-8 py-3 rounded-sm tracking-wide uppercase text-sm transition-colors duration-300"
+            >
+              {expanded ? "Show Less" : "Show More"}
+            </button>
           </div>
         </FadeIn>
       </div>

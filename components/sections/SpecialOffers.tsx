@@ -15,7 +15,7 @@ export function SpecialOffers({ data }: SpecialOffersProps) {
   if (activeOffers.length === 0) return null;
 
   return (
-    <section id="offers" className="py-24 md:py-32 bg-sand">
+    <section id="offers" className="pt-12 md:pt-32 pb-12 md:pb-32 bg-sand">
       <div className="max-w-7xl mx-auto px-6">
         <FadeIn>
           <SectionHeading label={data.label} heading={data.heading} />
@@ -24,8 +24,8 @@ export function SpecialOffers({ data }: SpecialOffersProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {activeOffers.map((offer, i) => (
             <FadeIn key={offer.title} delay={i * 0.1}>
-              <div className="bg-ivory overflow-hidden group h-full flex flex-col">
-                <div className="relative aspect-[16/9] overflow-hidden shrink-0">
+              <div className="bg-ivory group h-full flex flex-col">
+                <div className="relative aspect-[16/9] shrink-0">
                   <Image
                     src={offer.image}
                     alt={offer.imageAlt}
@@ -33,7 +33,7 @@ export function SpecialOffers({ data }: SpecialOffersProps) {
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                   />
-                  <Badge className="absolute top-4 left-4 bg-brand-teal hover:bg-brand-teal text-white font-sans text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-none">
+                  <Badge className="absolute top-4 left-4 bg-brand-teal hover:bg-brand-teal text-white font-sans text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-sm">
                     Special Offer
                   </Badge>
                 </div>
@@ -48,7 +48,7 @@ export function SpecialOffers({ data }: SpecialOffersProps) {
                     {offer.price}
                   </p>
                   <div className="mt-6">
-                    <PrimaryButton href="#booking">Book This Offer</PrimaryButton>
+                    <PrimaryButton href="https://secure.guestpro.net/odch" external>Book This Offer</PrimaryButton>
                   </div>
                 </div>
               </div>

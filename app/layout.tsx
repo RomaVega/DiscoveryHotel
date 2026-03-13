@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Cormorant_Garamond } from "next/font/google";
+import { LoadingScreen } from "@/components/layout/LoadingScreen";
 import "./globals.css";
 
 const inter = Inter({
@@ -12,9 +13,11 @@ const inter = Inter({
 const cormorant = Cormorant_Garamond({
   variable: "--font-serif",
   subsets: ["latin"],
-  weight: ["300", "400"],
+  weight: ["300", "400", "500", "600"],
+  style: ["normal", "italic"],
   display: "swap",
 });
+
 
 export const metadata: Metadata = {
   title: "Orlowsky Discovery Hotel | Candidasa, Bali",
@@ -28,8 +31,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.variable}>
-      <body className={`${inter.variable} ${cormorant.variable} antialiased`}>
+    <html lang="en" className={inter.variable} suppressHydrationWarning>
+      <body className={`${inter.variable} ${cormorant.variable} antialiased`} suppressHydrationWarning>
+        <script dangerouslySetInnerHTML={{ __html: `(function(){var h=new Date().getHours();if(h<6||h>=20||window.matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.classList.add('night');})();` }} />
+        <LoadingScreen />
         {children}
       </body>
     </html>

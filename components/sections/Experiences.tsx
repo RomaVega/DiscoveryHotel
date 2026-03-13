@@ -10,7 +10,7 @@ interface ExperiencesProps {
 
 export function Experiences({ data }: ExperiencesProps) {
   return (
-    <section id="experiences" className="py-24 md:py-32 bg-ivory">
+    <section id="experiences" className="pt-12 md:pt-32 pb-12 md:pb-32 bg-ivory">
       <div className="max-w-7xl mx-auto px-6">
         <FadeIn>
           <SectionHeading
@@ -24,7 +24,7 @@ export function Experiences({ data }: ExperiencesProps) {
           {data.items.map((item, i) => (
             <FadeIn key={item.title} delay={i * 0.1}>
               <Link href={item.href} className="group block">
-                <div className="relative aspect-[16/9] overflow-hidden">
+                <div className="relative aspect-[16/9]">
                   <Image
                     src={item.image}
                     alt={item.imageAlt}

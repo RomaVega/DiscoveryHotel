@@ -16,7 +16,7 @@ export function PrimaryButton({
 }: PrimaryButtonProps) {
   const styles = cn(
     "inline-block bg-brand-teal hover:bg-deep-teal text-white font-sans font-semibold",
-    "px-8 py-3 rounded-none tracking-wide uppercase text-sm",
+    "px-8 py-3 rounded-sm tracking-wide uppercase text-sm",
     "transition-colors duration-300",
     "focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2",
     className

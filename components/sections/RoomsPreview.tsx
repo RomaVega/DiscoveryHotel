@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { FadeIn } from "@/components/common/FadeIn";
 import { SectionHeading } from "@/components/common/SectionHeading";
 import { SpotlightCard } from "@/components/aceternity/spotlight-card";
@@ -11,7 +10,7 @@ interface RoomsPreviewProps {
 
 export function RoomsPreview({ data }: RoomsPreviewProps) {
   return (
-    <section id="rooms" className="py-24 md:py-32 bg-ivory">
+    <section id="rooms" className="pt-12 md:pt-32 pb-12 md:pb-32 bg-ivory">
       <div className="max-w-7xl mx-auto px-6">
         <FadeIn>
           <SectionHeading
@@ -21,12 +20,12 @@ export function RoomsPreview({ data }: RoomsPreviewProps) {
           />
         </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {data.rooms.map((room, i) => (
             <FadeIn key={room.title} delay={i * 0.1}>
               <SpotlightCard>
-                <Link href={room.href} className="group block">
-                  <div className="relative aspect-[3/4] overflow-hidden">
+                <a href={room.href} target="_blank" rel="noopener noreferrer" className="group block">
+                  <div className="relative aspect-[3/4]">
                     <Image
                       src={room.image}
                       alt={room.imageAlt}
@@ -44,7 +43,7 @@ export function RoomsPreview({ data }: RoomsPreviewProps) {
                       </p>
                     </div>
                   </div>
-                </Link>
+                </a>
               </SpotlightCard>
             </FadeIn>
           ))}

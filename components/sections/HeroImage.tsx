@@ -72,41 +72,42 @@ export function HeroImage({ hero }: HeroImageProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          <motion.div
-            className="flex justify-center gap-1.5 mb-6"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            {Array.from({ length: 4 }).map((_, i) => (
-              <Star key={i} size={14} fill="currentColor" className="text-brand-teal" />
-            ))}
-          </motion.div>
-
-          <h1 className="font-serif font-light text-5xl md:text-7xl lg:text-8xl tracking-wide">
-            {hero.title}
+          <h1 className="font-serif font-semibold tracking-wide text-shadow-strong text-center">
+            <span className="block text-[7.5vw] md:text-[3.25rem] lg:text-[4rem] mb-3 uppercase text-shadow-strong">
+              {hero.titleLine1}
+            </span>
+            <span className="block text-[7.5vw] md:text-[3.25rem] lg:text-[4rem] leading-tight uppercase whitespace-nowrap text-shadow-strong">
+              {hero.titleLine2}
+            </span>
+            <div className="mt-4 w-fit mx-auto">
+              <span className="block text-[5.5vw] md:text-[2rem] lg:text-[2.75rem] tracking-[0.4em] uppercase font-semibold text-shadow-strong">
+                {hero.titleLine3}
+              </span>
+              <motion.div
+                className="mt-3 flex justify-between pr-[0.65rem] md:pr-[0.8rem] lg:pr-[1.1rem]"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+              >
+                {Array.from({ length: 4 }).map((_, i) => (
+                  <Star key={i} size={18} fill="currentColor" className="text-[#e8c05a] drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]" />
+                ))}
+              </motion.div>
+            </div>
           </h1>
 
-          <motion.div
-            className="mt-1 h-px w-24 mx-auto bg-brand-teal/60"
-            initial={{ width: 0 }}
-            animate={{ width: 96 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-          />
-
-          <p className="mt-6 font-sans text-lg md:text-xl text-white/80 max-w-xl mx-auto leading-relaxed">
+          <p className="mt-6 font-serif italic font-medium text-2xl md:text-3xl text-white/85 max-w-xl mx-auto leading-relaxed text-shadow-subtitle">
             {hero.subtitle}
           </p>
 
-          <motion.a
+          <a
             href={hero.ctaHref}
-            className="mt-10 inline-block bg-brand-teal hover:bg-deep-teal text-white font-sans font-semibold px-10 py-4 tracking-wide uppercase text-sm transition-all duration-300 hover:shadow-lg hover:shadow-brand-teal/20 focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.7 }}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-10 inline-block bg-transparent hover:bg-white/10 text-white border border-brand-teal hover:border-brand-teal/80 rounded-sm font-sans font-semibold px-10 py-4 tracking-wide uppercase text-sm transition-all duration-300 animate-border-glow focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2"
           >
             {hero.cta}
-          </motion.a>
+          </a>
         </motion.div>
       </div>
 
@@ -121,16 +122,6 @@ export function HeroImage({ hero }: HeroImageProps) {
         </button>
       )}
 
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
-        animate={{ y: [0, 8, 0] }}
-        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <div className="w-6 h-10 rounded-full border-2 border-white/40 flex justify-center pt-2">
-          <div className="w-1 h-2 rounded-full bg-white/70" />
-        </div>
-      </motion.div>
     </section>
   );
 }
