@@ -2,7 +2,6 @@ import Image from "next/image";
 import { FadeIn } from "@/components/common/FadeIn";
 import { SectionHeading } from "@/components/common/SectionHeading";
 import { PrimaryButton } from "@/components/common/PrimaryButton";
-import { Badge } from "@/components/ui/badge";
 import type { OffersData } from "@/lib/types";
 
 interface SpecialOffersProps {
@@ -24,8 +23,8 @@ export function SpecialOffers({ data }: SpecialOffersProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {activeOffers.map((offer, i) => (
             <FadeIn key={offer.title} delay={i * 0.1}>
-              <div className="bg-ivory group h-full flex flex-col">
-                <div className="relative aspect-[16/9] shrink-0">
+              <div className="bg-ivory group h-full flex flex-col overflow-hidden">
+                <div className="relative aspect-[16/9] shrink-0 overflow-hidden">
                   <Image
                     src={offer.image}
                     alt={offer.imageAlt}
@@ -33,11 +32,11 @@ export function SpecialOffers({ data }: SpecialOffersProps) {
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                   />
-                  <Badge className="absolute top-4 left-4 bg-brand-teal hover:bg-brand-teal text-white font-sans text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-sm">
-                    Special Offer
-                  </Badge>
                 </div>
-                <div className="p-8 flex flex-col flex-1">
+                <div className="p-5 md:p-8 flex flex-col flex-1">
+                  <span className="font-sans text-[11px] font-medium uppercase tracking-[0.2em] text-brand-teal mb-3">
+                    Special Offer
+                  </span>
                   <h3 className="font-serif text-2xl font-light text-charcoal">
                     {offer.title}
                   </h3>

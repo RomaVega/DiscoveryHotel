@@ -107,7 +107,7 @@ export function HeroImage({ hero }: HeroImageProps) {
 
           <motion.span
             {...fadeUp(0.7)}
-            className="block text-5xl md:text-7xl lg:text-8xl italic font-light mt-3 leading-tight"
+            className="block text-3xl md:text-5xl lg:text-7xl italic font-light mt-3 leading-tight"
           >
             {hero.titleLine2}
           </motion.span>
@@ -154,7 +154,7 @@ export function HeroImage({ hero }: HeroImageProps) {
 
       {/* Scroll indicator */}
       <motion.div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 hidden md:flex flex-col items-center gap-2"
         initial={reducedMotion ? { opacity: 1 } : { opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={reducedMotion ? undefined : { delay: 2.2, duration: 0.8 }}

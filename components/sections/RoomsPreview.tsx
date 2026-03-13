@@ -38,7 +38,7 @@ export function RoomsPreview({ data }: RoomsPreviewProps) {
                       <h3 className="font-serif text-2xl font-light">
                         {room.title}
                       </h3>
-                      <p className="mt-2 text-sm text-white/80 leading-relaxed opacity-0 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
+                      <p className="mt-2 text-sm text-white/80 leading-relaxed md:opacity-0 md:translate-y-2 transition-all duration-300 md:group-hover:opacity-100 md:group-hover:translate-y-0">
                         {room.description}
                       </p>
                     </div>

@@ -24,7 +24,7 @@ export function Experiences({ data }: ExperiencesProps) {
           {data.items.map((item, i) => (
             <FadeIn key={item.title} delay={i * 0.1}>
               <Link href={item.href} className="group block">
-                <div className="relative aspect-[16/9]">
+                <div className="relative aspect-[16/9] overflow-hidden">
                   <Image
                     src={item.image}
                     alt={item.imageAlt}
@@ -37,7 +37,7 @@ export function Experiences({ data }: ExperiencesProps) {
                     <h3 className="font-serif text-2xl font-light">
                       {item.title}
                     </h3>
-                    <p className="mt-1 text-sm text-white/70 leading-relaxed">
+                    <p className="mt-2 text-sm text-white/70 leading-relaxed md:opacity-0 md:translate-y-2 transition-all duration-300 md:group-hover:opacity-100 md:group-hover:translate-y-0">
                       {item.description}
                     </p>
                   </div>

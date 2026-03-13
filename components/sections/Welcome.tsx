@@ -18,20 +18,21 @@ export function Welcome({ data }: WelcomeProps) {
               heading={data.heading}
               centered={false}
             />
-            <p className="text-stone text-lg leading-relaxed -mt-8">
+            <p className="text-stone text-lg leading-relaxed -mt-10">
               {data.description}
             </p>
           </FadeIn>
 
           <FadeIn delay={0.2}>
-            <Image
-              src={data.image}
-              alt={data.imageAlt}
-              width={0}
-              height={0}
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="w-full h-auto max-h-[580px] object-contain"
-            />
+            <div className="relative aspect-[3/2] md:aspect-[4/5] w-full">
+              <Image
+                src={data.image}
+                alt={data.imageAlt}
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </div>
           </FadeIn>
         </div>
       </div>

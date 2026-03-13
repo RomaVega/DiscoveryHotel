@@ -58,7 +58,7 @@ export function Navbar() {
           "fixed top-0 left-0 right-0 z-50 transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)]",
           scrolled
             ? "bg-parchment shadow-sm opacity-100 translate-y-0"
-            : "md:opacity-0 md:-translate-y-3 md:pointer-events-none"
+            : "md:opacity-0 md:-translate-y-3 md:pointer-events-none pointer-events-auto"
         )}
       >
         <a
@@ -129,7 +129,7 @@ export function Navbar() {
             <button
               className={cn(
                 "p-2 focus-visible:ring-2 focus-visible:ring-brand-teal transition-all duration-300",
-                scrolled ? "text-charcoal opacity-100" : "text-white opacity-30"
+                scrolled ? "text-charcoal" : "text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]"
               )}
               aria-label="Open menu"
               onClick={() => setMenuOpen(true)}

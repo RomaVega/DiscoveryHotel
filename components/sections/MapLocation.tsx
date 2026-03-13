@@ -25,11 +25,11 @@ export function MapLocation({ contact }: MapLocationProps) {
         <FadeIn delay={0.2}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
             {/* Map */}
-            <div className="md:col-span-2 relative aspect-[16/9] md:aspect-[2/1] shadow-lg">
+            <div className="md:col-span-2 relative aspect-[16/9] md:aspect-[2/1] border border-charcoal/10 overflow-hidden">
               <iframe
                 src={embedUrl}
                 title="Orlowsky Discovery Hotel location on Google Maps"
-                className="absolute inset-0 w-full h-full border-0"
+                className="absolute inset-0 w-full h-full border-0 grayscale-[0.3] contrast-[0.95]"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 allowFullScreen
@@ -37,7 +37,7 @@ export function MapLocation({ contact }: MapLocationProps) {
             </div>
 
             {/* Address card */}
-            <div className="bg-ivory p-8 shadow-lg h-full flex flex-col justify-center">
+            <div className="bg-ivory p-8 border border-charcoal/5 h-full flex flex-col justify-center">
               <div className="flex items-start gap-3 mb-6">
                 <MapPin size={20} className="text-brand-teal shrink-0 mt-1" />
                 <div>

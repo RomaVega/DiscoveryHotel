@@ -4,7 +4,6 @@ import {
   Facebook,
   Instagram,
   Youtube,
-  Star,
   MessageCircle,
   Mail,
   MapPin,
@@ -57,16 +56,18 @@ export function Footer({ contact }: FooterProps) {
                 unoptimized
                 className="object-contain mb-3"
               />
-              <h3 className="font-serif text-xl font-semibold tracking-wide uppercase text-black">
+              <h3 className="font-serif text-xl font-light tracking-wide uppercase text-charcoal">
                 <span className="block">Orlowsky</span>
                 <span className="block">Discovery Candidasa</span>
                 <span className="block">Hotel</span>
               </h3>
             </Link>
-            <div className="flex gap-0.5 mb-4 justify-center">
+            <div className="flex items-center gap-2 mb-4 justify-center text-charcoal/30">
+              <span className="block h-px w-4 bg-charcoal/20" />
               {Array.from({ length: contact.stars }).map((_, i) => (
-                <Star key={i} size={14} fill="currentColor" className="text-[#e8c05a]" />
+                <span key={i} className="text-[9px]">✦</span>
               ))}
+              <span className="block h-px w-4 bg-charcoal/20" />
             </div>
           </div>
 

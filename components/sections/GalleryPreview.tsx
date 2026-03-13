@@ -191,7 +191,7 @@ export function GalleryPreview({ data }: GalleryPreviewProps) {
               <button
                 onClick={closeLightbox}
                 aria-label="Close lightbox"
-                className="absolute -top-4 -right-4 z-20 w-8 h-8 flex items-center justify-center rounded-full bg-white text-charcoal shadow-lg hover:bg-white/90 transition-colors duration-200"
+                className="absolute top-2 right-2 md:-top-4 md:-right-4 z-20 w-8 h-8 flex items-center justify-center rounded-full bg-white text-charcoal shadow-lg hover:bg-white/90 transition-colors duration-200"
               >
                 <X size={14} strokeWidth={2.5} />
               </button>

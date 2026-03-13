@@ -22,6 +22,7 @@ export default function HomePage() {
       <Navbar />
       <main id="main-content">
         <HeroImage hero={data.hero} />
+        <WaveDivider from="fill-sand" to="fill-sand" />
         <Welcome data={data.welcome} />
         <WaveDivider from="fill-sand" to="fill-ivory" />
         <RoomsPreview data={data.roomsPreview} />
@@ -33,7 +34,9 @@ export default function HomePage() {
         <SpecialOffers data={data.offers} />
         <WaveDivider from="fill-sand" to="fill-ivory" />
         <GalleryPreview data={data.galleryPreview} />
+        <WaveDivider from="fill-ivory" to="fill-deep-teal" />
         <BookingCta data={data.bookingCta} />
+        <WaveDivider from="fill-deep-teal" to="fill-sand" />
         <MapLocation contact={contact} />
       </main>
       <Footer contact={contact} />

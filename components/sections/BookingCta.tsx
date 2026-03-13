@@ -11,7 +11,7 @@ export function BookingCta({ data }: BookingCtaProps) {
     <section id="booking" className="pt-12 md:pt-32 pb-12 md:pb-32 bg-deep-teal">
       <div className="max-w-3xl mx-auto px-6 text-center">
         <FadeIn>
-          <h2 className="font-serif font-light text-4xl md:text-5xl text-white">
+          <h2 className="font-serif font-light text-3xl md:text-5xl text-white">
             {data.heading}
           </h2>
           <p className="mt-4 text-lg text-white/70 leading-relaxed">
