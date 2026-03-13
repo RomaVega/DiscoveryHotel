@@ -72,7 +72,7 @@ export function HeroImage({ hero }: HeroImageProps) {
       )}
 
       {/* Soft cinematic gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/50" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/50" />
 
       {/* Content */}
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center text-white">
