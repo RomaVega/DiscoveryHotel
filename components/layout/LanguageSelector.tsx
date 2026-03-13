@@ -2,20 +2,20 @@
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, Check } from "lucide-react";
+import { Globe, Check } from "lucide-react";
 import { useLanguage, type Locale } from "@/lib/language-context";
 import { cn } from "@/lib/utils";
 
 const LANGUAGES: {
   code: Locale;
+  label: string;
   native: string;
-  flag: string;
   available: boolean;
 }[] = [
-  { code: "en", native: "English", flag: "🇬🇧", available: true },
-  { code: "ru", native: "Русский", flag: "🇷🇺", available: true },
-  { code: "es", native: "Español", flag: "🇪🇸", available: false },
-  { code: "zh", native: "中文", flag: "🇨🇳", available: false },
+  { code: "en", label: "EN", native: "English", available: true },
+  { code: "ru", label: "RU", native: "Русский", available: true },
+  { code: "es", label: "ES", native: "Español", available: false },
+  { code: "zh", label: "中文", native: "中文", available: false },
 ];
 
 interface LanguageSelectorProps {
@@ -28,6 +28,7 @@ export function LanguageSelector({ variant = "dark" }: LanguageSelectorProps) {
   const [open, setOpen] = useState(false);
   const [dropPos, setDropPos] = useState({ top: 0, right: 0 });
   const triggerRef = useRef<HTMLButtonElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const current = LANGUAGES.find((l) => l.code === locale) ?? LANGUAGES[0];
 
@@ -50,7 +51,13 @@ export function LanguageSelector({ variant = "dark" }: LanguageSelectorProps) {
   useEffect(() => {
     if (!open) return;
     const handleClickOutside = (e: MouseEvent) => {
-      if (triggerRef.current && !triggerRef.current.contains(e.target as Node)) {
+      const target = e.target as Node;
+      if (
+        triggerRef.current &&
+        !triggerRef.current.contains(target) &&
+        dropdownRef.current &&
+        !dropdownRef.current.contains(target)
+      ) {
         setOpen(false);
       }
     };
@@ -63,14 +70,11 @@ export function LanguageSelector({ variant = "dark" }: LanguageSelectorProps) {
     };
   }, [open]);
 
-  const triggerClass =
-    variant === "light"
-      ? "text-white/75 hover:text-white"
-      : "text-charcoal/60 hover:text-charcoal";
+  const isLight = variant === "light";
 
   return (
     <>
-      {/* Trigger */}
+      {/* Trigger — compact pill with globe icon */}
       <button
         ref={triggerRef}
         onClick={handleOpen}
@@ -78,32 +82,51 @@ export function LanguageSelector({ variant = "dark" }: LanguageSelectorProps) {
         aria-expanded={open}
         aria-haspopup="menu"
         className={cn(
-          "flex items-center gap-1.5 font-sans text-[11px] font-medium tracking-[0.14em] uppercase transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2",
-          triggerClass
+          "group relative flex items-center gap-1.5 py-1.5 px-3 rounded-full transition-all duration-200",
+          "font-sans text-[11px] font-semibold tracking-[0.16em] uppercase",
+          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2",
+          isLight
+            ? "text-white/80 hover:text-white hover:bg-white/10 border border-white/20 hover:border-white/35"
+            : "text-charcoal/60 hover:text-charcoal hover:bg-charcoal/5 border border-charcoal/15 hover:border-charcoal/25"
         )}
       >
-        <span className="text-sm leading-none">{current.flag}</span>
-        <span>{current.code.toUpperCase()}</span>
-        <motion.span
-          className="flex items-center"
+        <Globe
+          size={13}
+          strokeWidth={1.8}
+          className="opacity-70 group-hover:opacity-100 transition-opacity duration-200"
+        />
+        <span>{current.label}</span>
+        <motion.svg
+          width="8"
+          height="8"
+          viewBox="0 0 8 8"
+          fill="none"
+          className="opacity-50 group-hover:opacity-70 transition-opacity"
           animate={{ rotate: open ? 180 : 0 }}
           transition={{ duration: 0.2, ease: "easeInOut" }}
         >
-          <ChevronDown size={11} strokeWidth={2.5} />
-        </motion.span>
+          <path
+            d="M1.5 3L4 5.5L6.5 3"
+            stroke="currentColor"
+            strokeWidth="1.3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </motion.svg>
       </button>
 
-      {/* Dropdown — rendered via fixed positioning to escape stacking context */}
+      {/* Dropdown — fixed positioning to escape stacking context */}
       <AnimatePresence>
         {open && (
           <motion.div
+            ref={dropdownRef}
             role="menu"
             aria-label="Select language"
             style={{ top: dropPos.top, right: dropPos.right }}
-            className="fixed w-52 bg-ivory shadow-[0_12px_48px_rgba(0,0,0,0.14)] border border-charcoal/8 overflow-hidden z-[9999]"
-            initial={{ opacity: 0, y: -8, scale: 0.97 }}
+            className="fixed w-48 bg-ivory rounded-sm shadow-[0_8px_40px_rgba(0,0,0,0.12)] border border-charcoal/8 overflow-hidden z-[9999]"
+            initial={{ opacity: 0, y: -6, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -8, scale: 0.97 }}
+            exit={{ opacity: 0, y: -6, scale: 0.98 }}
             transition={{ duration: 0.18, ease: [0.25, 0.1, 0.25, 1] }}
           >
             {LANGUAGES.map((lang, i) => {
@@ -122,29 +145,53 @@ export function LanguageSelector({ variant = "dark" }: LanguageSelectorProps) {
                     }
                   }}
                   className={cn(
-                    "w-full flex items-center gap-3 px-5 py-3.5 text-left transition-colors duration-150",
+                    "w-full flex items-center gap-3 px-4 py-3 text-left transition-colors duration-150",
                     i > 0 && "border-t border-charcoal/5",
-                    lang.available ? "cursor-pointer hover:bg-sand" : "cursor-default",
-                    isActive && "bg-sand/50"
+                    lang.available
+                      ? "cursor-pointer hover:bg-sand/70"
+                      : "cursor-default",
+                    isActive && "bg-sand/40"
                   )}
                 >
-                  <span className="text-lg leading-none shrink-0">{lang.flag}</span>
+                  {/* Language code badge */}
+                  <span
+                    className={cn(
+                      "shrink-0 w-7 text-center font-sans text-[10px] font-bold tracking-[0.08em] uppercase",
+                      isActive
+                        ? "text-brand-teal"
+                        : lang.available
+                          ? "text-charcoal/40"
+                          : "text-charcoal/20"
+                    )}
+                  >
+                    {lang.label}
+                  </span>
 
+                  {/* Native name */}
                   <span className="flex-1 min-w-0">
                     <span
                       className={cn(
-                        "block font-serif text-sm",
-                        lang.available ? "text-charcoal" : "text-charcoal/30"
+                        "block font-serif text-[13px]",
+                        isActive
+                          ? "text-charcoal"
+                          : lang.available
+                            ? "text-charcoal/70"
+                            : "text-charcoal/25"
                       )}
                     >
                       {lang.native}
                     </span>
                   </span>
 
+                  {/* Status indicator */}
                   {isActive ? (
-                    <Check size={13} strokeWidth={2.5} className="text-brand-teal shrink-0" />
+                    <Check
+                      size={12}
+                      strokeWidth={2.5}
+                      className="text-brand-teal shrink-0"
+                    />
                   ) : !lang.available ? (
-                    <span className="shrink-0 font-sans text-[9px] font-medium uppercase tracking-[0.12em] text-stone/45 bg-sand border border-charcoal/8 px-1.5 py-0.5">
+                    <span className="shrink-0 font-sans text-[8px] font-semibold uppercase tracking-[0.14em] text-stone/40 border border-charcoal/8 rounded-sm px-1.5 py-0.5">
                       Soon
                     </span>
                   ) : null}

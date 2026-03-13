@@ -38,11 +38,13 @@ export default function HomePage() {
         <BookingCta data={data.bookingCta} />
         <WaveDivider from="fill-deep-teal" to="fill-sand" />
         <MapLocation contact={contact} />
+        <WaveDivider from="fill-sand" to="fill-deep-teal" />
       </main>
       <Footer contact={contact} />
       <WhatsAppButton
         phone={contact.whatsapp}
         greeting={contact.whatsappGreeting}
+        contacts={contact.whatsappContacts}
       />
     </>
   );

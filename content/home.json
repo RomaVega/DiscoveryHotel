@@ -19,11 +19,11 @@
   "welcome": {
     "label": {
       "en": "Welcome",
-      "ru": "Добро пожаловать"
+      "ru": "Welcome"
     },
     "heading": {
       "en": "A Hidden Gem in East Bali",
-      "ru": "Скрытая жемчужина Восточного Бали"
+      "ru": "A Hidden Gem in East Bali"
     },
     "description": {
       "en": "Nestled along the tranquil coast of Candidasa, Orlowsky Discovery Hotel offers an intimate escape where Balinese charm meets modern comfort. Wake up to ocean breezes, explore vibrant coral reefs, and unwind in our tropical gardens — far from the crowds, close to paradise.",
@@ -35,11 +35,11 @@
   "roomsPreview": {
     "label": {
       "en": "Accommodations",
-      "ru": "Размещение"
+      "ru": "Accommodations"
     },
     "heading": {
       "en": "Rooms & Villas",
-      "ru": "Номера и виллы"
+      "ru": "Rooms & Villas"
     },
     "subtext": {
       "en": "From garden-view cottages to oceanfront villas, each space is designed for relaxation.",
@@ -49,7 +49,7 @@
       {
         "title": {
           "en": "Deluxe Cottage",
-          "ru": "Делюкс Коттедж"
+          "ru": "Deluxe Cottage"
         },
         "description": {
           "en": "Charming cottage with tropical garden views and modern Balinese comforts",
@@ -62,7 +62,7 @@
       {
         "title": {
           "en": "Three Bedrooms Pool Villa",
-          "ru": "Вилла с тремя спальнями и бассейном"
+          "ru": "Three Bedrooms Pool Villa"
         },
         "description": {
           "en": "Spacious private villa with three bedrooms and your own pool, perfect for families or groups",
@@ -77,18 +77,18 @@
   "amenities": {
     "label": {
       "en": "Amenities",
-      "ru": "Удобства"
+      "ru": "Amenities"
     },
     "heading": {
       "en": "Everything You Need",
-      "ru": "Всё необходимое"
+      "ru": "Everything You Need"
     },
     "items": [
       {
         "icon": "UtensilsCrossed",
         "title": {
           "en": "Restaurant",
-          "ru": "Ресторан"
+          "ru": "Restaurant"
         },
         "description": {
           "en": "Indonesian and international cuisine with ocean views",
@@ -99,7 +99,7 @@
         "icon": "Sparkles",
         "title": {
           "en": "Spa & Yoga",
-          "ru": "Спа и йога"
+          "ru": "Spa & Yoga"
         },
         "description": {
           "en": "Traditional Balinese treatments and daily yoga sessions",
@@ -110,7 +110,7 @@
         "icon": "Waves",
         "title": {
           "en": "Swimming Pool",
-          "ru": "Бассейн"
+          "ru": "Swimming Pool"
         },
         "description": {
           "en": "Oceanfront infinity pool surrounded by tropical gardens",
@@ -121,7 +121,7 @@
         "icon": "Wifi",
         "title": {
           "en": "Free Wi-Fi",
-          "ru": "Бесплатный Wi-Fi"
+          "ru": "Free Wi-Fi"
         },
         "description": {
           "en": "High-speed internet throughout the hotel",
@@ -133,11 +133,11 @@
   "experiences": {
     "label": {
       "en": "Experiences",
-      "ru": "Впечатления"
+      "ru": "Experiences"
     },
     "heading": {
       "en": "Discover East Bali",
-      "ru": "Откройте Восточный Бали"
+      "ru": "Discover East Bali"
     },
     "subtext": {
       "en": "Curated adventures to make your stay unforgettable.",
@@ -147,7 +147,7 @@
       {
         "title": {
           "en": "Excursion Programs",
-          "ru": "Экскурсионные программы"
+          "ru": "Excursion Programs"
         },
         "description": {
           "en": "Explore temples, rice terraces, and hidden waterfalls",
@@ -160,7 +160,7 @@
       {
         "title": {
           "en": "Diving & Snorkeling",
-          "ru": "Дайвинг и снорклинг"
+          "ru": "Diving & Snorkeling"
         },
         "description": {
           "en": "Discover vibrant coral reefs and the famous USAT Liberty shipwreck",
@@ -173,7 +173,7 @@
       {
         "title": {
           "en": "Events & Celebrations",
-          "ru": "Мероприятия и торжества"
+          "ru": "Events & Celebrations"
         },
         "description": {
           "en": "Weddings, anniversaries, and private events in a tropical setting",
@@ -186,7 +186,7 @@
       {
         "title": {
           "en": "Car & Bike Rental",
-          "ru": "Аренда авто и мото"
+          "ru": "Car & Bike Rental"
         },
         "description": {
           "en": "Freedom to explore Bali at your own pace",
@@ -201,17 +201,17 @@
   "offers": {
     "label": {
       "en": "Special Offers",
-      "ru": "Специальные предложения"
+      "ru": "Special Offers"
     },
     "heading": {
       "en": "Current Deals",
-      "ru": "Актуальные акции"
+      "ru": "Current Deals"
     },
     "offers": [
       {
         "title": {
           "en": "Early Bird Discount",
-          "ru": "Скидка за раннее бронирование"
+          "ru": "Early Bird Discount"
         },
         "description": {
           "en": "Book 30 days in advance and save 20% on any room category",
@@ -228,7 +228,7 @@
       {
         "title": {
           "en": "Honeymoon Package",
-          "ru": "Медовый месяц"
+          "ru": "Honeymoon Package"
         },
         "description": {
           "en": "Villa upgrade, spa treatment for two, romantic dinner, and airport transfer",
@@ -247,7 +247,7 @@
   "galleryPreview": {
     "label": {
       "en": "Gallery",
-      "ru": "Галерея"
+      "ru": "Gallery"
     },
     "heading": {
       "en": "Glimpses of Paradise",
@@ -270,7 +270,7 @@
   "bookingCta": {
     "heading": {
       "en": "Ready to Discover East Bali?",
-      "ru": "Готовы открыть Восточный Бали?"
+      "ru": "Ready to Discover East Bali?"
     },
     "subtext": {
       "en": "Reserve your stay at Orlowsky Discovery Hotel and experience the magic of East Bali.",

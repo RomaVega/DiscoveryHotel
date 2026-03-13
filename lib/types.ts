@@ -113,6 +113,13 @@ export interface Coordinates {
   lng: number;
 }
 
+export interface WhatsAppContact {
+  label: string;
+  number: string;
+  greeting: string;
+  locale: "ru" | "en" | "all";
+}
+
 export interface ContactData {
   hotelName: string;
   stars: number;
@@ -120,6 +127,7 @@ export interface ContactData {
   coordinates: Coordinates;
   whatsapp: string;
   whatsappGreeting: string;
+  whatsappContacts: WhatsAppContact[];
   email: string;
   socials: SocialLink[];
   googleMapsUrl: string;

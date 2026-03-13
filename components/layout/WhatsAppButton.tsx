@@ -1,16 +1,19 @@
-"use client"; // Uses framer-motion for bounce animation and scroll visibility
+"use client"; // Uses framer-motion for bounce animation, scroll visibility, and locale detection
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle } from "lucide-react";
+import { useLanguage } from "@/lib/language-context";
+import type { WhatsAppContact } from "@/lib/types";
 
 interface WhatsAppButtonProps {
   phone: string;
   greeting: string;
+  contacts?: WhatsAppContact[];
 }
 
-export function WhatsAppButton({ phone, greeting }: WhatsAppButtonProps) {
-  const url = `https://wa.me/${phone}?text=${encodeURIComponent(greeting)}`;
+export function WhatsAppButton({ phone, greeting, contacts }: WhatsAppButtonProps) {
+  const { locale } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -18,6 +21,12 @@ export function WhatsAppButton({ phone, greeting }: WhatsAppButtonProps) {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  /* Pick the first contact matching the current locale, or fall back to props */
+  const match = contacts?.find((c) => c.locale === locale) ?? contacts?.find((c) => c.locale === "en");
+  const finalPhone = match?.number ?? phone;
+  const finalGreeting = match?.greeting ?? greeting;
+  const url = `https://wa.me/${finalPhone}?text=${encodeURIComponent(finalGreeting)}`;
 
   return (
     <AnimatePresence>

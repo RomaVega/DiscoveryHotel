@@ -1,33 +1,36 @@
 {
   "nav": {
     "skipToContent": "Перейти к содержимому",
-    "rooms": "Номера",
-    "amenities": "Удобства",
-    "experiences": "Экскурсии",
-    "offers": "Акции",
-    "gallery": "Галерея",
-    "contact": "Контакты",
-    "bookNow": "Забронировать"
+    "rooms": "Rooms",
+    "amenities": "Amenities",
+    "experiences": "Experiences",
+    "offers": "Offers",
+    "gallery": "Gallery",
+    "contact": "Contact",
+    "bookNow": "Book Now"
   },
   "footer": {
-    "explore": "Навигация",
-    "experiences": "Впечатления",
-    "contact": "Контакты",
+    "explore": "Explore",
+    "experiences": "Experiences",
+    "contact": "Contact",
     "getDirections": "Как добраться",
+    "whatsappRu": "WhatsApp (Россия)",
+    "whatsappHotel": "WhatsApp (Hotel)",
+    "paymentNote": "Возможна оплата в России наличными и безналичным переводом",
     "allRightsReserved": "Все права защищены",
     "links": {
-      "rooms": "Номера",
-      "amenities": "Удобства",
-      "experiences": "Экскурсии",
-      "offers": "Акции",
-      "gallery": "Галерея"
+      "rooms": "Rooms",
+      "amenities": "Amenities",
+      "experiences": "Experiences",
+      "offers": "Offers",
+      "gallery": "Gallery"
     },
     "experienceLinks": {
-      "sightseeing": "Обзорные туры",
-      "ubud": "Достопримечательности Убуда",
-      "diving": "Дайвинг",
-      "trekking": "Треккинг",
-      "volcano": "Тур на вулкан"
+      "sightseeing": "Sightseeing Tours",
+      "ubud": "Ubud Attractions",
+      "diving": "Diving",
+      "trekking": "Trekking",
+      "volcano": "Volcano Tour"
     }
   },
   "hero": {
@@ -43,12 +46,12 @@
     "closeLightbox": "Закрыть галерею"
   },
   "offers": {
-    "specialOffer": "Спецпредложение",
-    "bookThisOffer": "Забронировать"
+    "specialOffer": "Special Offer",
+    "bookThisOffer": "Book This Offer"
   },
   "map": {
-    "label": "Расположение",
-    "heading": "Найдите нас в Кандидасе",
+    "label": "Location",
+    "heading": "Find Us in Candidasa",
     "subtext": "На тихом побережье Кандидасы, Восточный Бали — вдали от толпы, рядом со всем необходимым.",
     "address": "Адрес",
     "viewOnMaps": "Открыть в Google Maps"

@@ -71,7 +71,7 @@ export function Navbar() {
           "fixed top-0 left-0 right-0 z-50 transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)]",
           scrolled
             ? "bg-parchment shadow-sm opacity-100 translate-y-0"
-            : "md:opacity-0 md:-translate-y-3 md:pointer-events-none pointer-events-auto"
+            : "lg:opacity-0 lg:-translate-y-3 lg:pointer-events-none pointer-events-auto"
         )}
       >
         <a
@@ -106,13 +106,13 @@ export function Navbar() {
           </Link>
 
           {/* Desktop navigation */}
-          <ul className="hidden md:flex items-center gap-8">
+          <ul className="hidden lg:flex items-center gap-5 xl:gap-8">
             {links.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
                   className={cn(
-                    "relative font-sans text-sm font-medium tracking-wide transition-colors duration-200",
+                    "relative whitespace-nowrap font-sans text-[13px] xl:text-sm font-medium tracking-wide transition-colors duration-200",
                     activeSection === link.href.replace("#", "")
                       ? "text-charcoal"
                       : "text-charcoal/60 hover:text-charcoal"
@@ -142,7 +142,7 @@ export function Navbar() {
                 href="https://secure.guestpro.net/odch"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-sans text-xs font-semibold text-charcoal bg-transparent hover:bg-brand-teal/10 border border-brand-teal rounded-sm px-5 py-2 tracking-wide uppercase transition-all duration-200"
+                className="whitespace-nowrap shrink-0 font-sans text-xs font-semibold text-charcoal bg-transparent hover:bg-brand-teal/10 border border-brand-teal rounded-sm px-5 py-2 tracking-wide uppercase transition-all duration-200"
               >
                 {tl.nav.bookNow}
               </a>
@@ -150,7 +150,7 @@ export function Navbar() {
           </ul>
 
           {/* Mobile right side — language selector + hamburger */}
-          <div className="md:hidden flex items-center gap-4">
+          <div className="lg:hidden flex items-center gap-4">
             <LanguageSelector
               variant={scrolled ? "dark" : "light"}
             />
@@ -174,7 +174,7 @@ export function Navbar() {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            className="fixed inset-0 z-[60] flex flex-col bg-parchment md:hidden"
+            className="fixed inset-0 z-[60] flex flex-col bg-parchment lg:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
