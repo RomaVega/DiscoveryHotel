@@ -1,15 +1,11 @@
-"use client"; // Uses Dialog state for lightbox
+"use client"; // Uses lightbox state and keyboard navigation
 
 import { useState, useCallback, useEffect } from "react";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
+import { ChevronLeft, ChevronRight, X, ZoomIn } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { FadeIn } from "@/components/common/FadeIn";
 import { SectionHeading } from "@/components/common/SectionHeading";
-import {
-  Dialog,
-  DialogContent,
-  DialogTitle,
-} from "@/components/ui/dialog";
 import type { GalleryPreviewData } from "@/lib/types";
 
 interface GalleryPreviewProps {
@@ -39,12 +35,19 @@ export function GalleryPreview({ data }: GalleryPreviewProps) {
 
   useEffect(() => {
     if (lightboxIndex === null) return;
+
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === "ArrowRight") goNext();
       if (e.key === "ArrowLeft") goPrev();
+      if (e.key === "Escape") closeLightbox();
     };
     window.addEventListener("keydown", handleKey);
-    return () => window.removeEventListener("keydown", handleKey);
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      window.removeEventListener("keydown", handleKey);
+      document.body.style.overflow = "";
+    };
   }, [lightboxIndex, goNext, goPrev]);
 
   const currentImage =
@@ -85,7 +88,15 @@ export function GalleryPreview({ data }: GalleryPreviewProps) {
 
           {/* Peek gradient */}
           {!expanded && (
-            <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-ivory via-ivory/60 to-transparent pointer-events-none" style={{ backdropFilter: "blur(2px)", WebkitBackdropFilter: "blur(2px)", maskImage: "linear-gradient(to top, black 40%, transparent 100%)", WebkitMaskImage: "linear-gradient(to top, black 40%, transparent 100%)" }} />
+            <div
+              className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-ivory via-ivory/60 to-transparent pointer-events-none"
+              style={{
+                backdropFilter: "blur(2px)",
+                WebkitBackdropFilter: "blur(2px)",
+                maskImage: "linear-gradient(to top, black 40%, transparent 100%)",
+                WebkitMaskImage: "linear-gradient(to top, black 40%, transparent 100%)",
+              }}
+            />
           )}
         </div>
 
@@ -101,66 +112,93 @@ export function GalleryPreview({ data }: GalleryPreviewProps) {
         </FadeIn>
       </div>
 
-      {/* Lightbox */}
-      <Dialog
-        open={lightboxIndex !== null}
-        onOpenChange={(open) => !open && closeLightbox()}
-      >
-        <DialogContent
-          showCloseButton={false}
-          className="fixed inset-4 sm:inset-8 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] sm:w-[calc(100%-4rem)] max-w-5xl h-[calc(100vh-4rem)] sm:h-[calc(100vh-8rem)] sm:max-w-5xl p-0 bg-black/95 border-none rounded-none ring-0 gap-0"
-        >
-          <DialogTitle className="sr-only">
-            {currentImage?.alt ?? "Gallery image"}
-          </DialogTitle>
-
-          {/* Close button */}
-          <button
-            onClick={closeLightbox}
-            aria-label="Close lightbox"
-            className="absolute top-4 right-4 z-20 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-white/70 hover:text-white hover:bg-white/20 transition-colors"
+      {/* Compact Lightbox */}
+      <AnimatePresence>
+        {lightboxIndex !== null && currentImage && (
+          <motion.div
+            className="fixed inset-0 z-50 flex items-center justify-center"
+            role="dialog"
+            aria-modal="true"
+            aria-label={currentImage.alt}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
           >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
-          </button>
+            {/* Backdrop with blur */}
+            <motion.div
+              className="absolute inset-0 bg-black/60 backdrop-blur-md"
+              onClick={closeLightbox}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            />
 
-          {currentImage && (
-            <div className="relative w-full h-full">
-              <Image
-                src={currentImage.src}
-                alt={currentImage.alt}
-                fill
-                sizes="90vw"
-                className="object-contain"
-              />
-            </div>
-          )}
+            {/* Card */}
+            <motion.div
+              className="relative z-10 w-[90vw] max-w-lg bg-white/5 border border-white/10 p-3 shadow-2xl"
+              initial={{ opacity: 0, scale: 0.95, y: 10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 10 }}
+              transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+            >
+              {/* Image container */}
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-black">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={lightboxIndex}
+                    className="absolute inset-0"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Image
+                      src={currentImage.src}
+                      alt={currentImage.alt}
+                      fill
+                      sizes="(max-width: 512px) 90vw, 512px"
+                      className="object-cover"
+                    />
+                  </motion.div>
+                </AnimatePresence>
+              </div>
 
-          {/* Navigation */}
-          <button
-            onClick={goPrev}
-            aria-label="Previous image"
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-white/70 hover:text-white hover:bg-white/20 transition-colors"
-          >
-            <ChevronLeft size={24} />
-          </button>
+              {/* Bottom bar */}
+              <div className="flex items-center justify-between pt-3 px-1">
+                <button
+                  onClick={goPrev}
+                  aria-label="Previous image"
+                  className="w-9 h-9 flex items-center justify-center rounded-full text-white/50 hover:text-white hover:bg-white/10 transition-colors duration-200"
+                >
+                  <ChevronLeft size={20} />
+                </button>
 
-          <button
-            onClick={goNext}
-            aria-label="Next image"
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-white/70 hover:text-white hover:bg-white/20 transition-colors"
-          >
-            <ChevronRight size={24} />
-          </button>
+                <span className="font-sans text-xs tracking-[0.15em] text-white/40 uppercase">
+                  {lightboxIndex + 1} / {data.images.length}
+                </span>
 
-          {/* Counter */}
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 font-sans text-sm text-white/50">
-            {lightboxIndex !== null ? lightboxIndex + 1 : 0} / {data.images.length}
-          </div>
-        </DialogContent>
-      </Dialog>
+                <button
+                  onClick={goNext}
+                  aria-label="Next image"
+                  className="w-9 h-9 flex items-center justify-center rounded-full text-white/50 hover:text-white hover:bg-white/10 transition-colors duration-200"
+                >
+                  <ChevronRight size={20} />
+                </button>
+              </div>
+
+              {/* Close button */}
+              <button
+                onClick={closeLightbox}
+                aria-label="Close lightbox"
+                className="absolute -top-4 -right-4 z-20 w-8 h-8 flex items-center justify-center rounded-full bg-white text-charcoal shadow-lg hover:bg-white/90 transition-colors duration-200"
+              >
+                <X size={14} strokeWidth={2.5} />
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

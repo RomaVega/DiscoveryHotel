@@ -2,7 +2,7 @@
 
 import { useState, useRef } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Pause, Play } from "lucide-react";
 import type { HeroData } from "@/lib/types";
 
@@ -10,15 +10,23 @@ interface HeroImageProps {
   hero: HeroData;
 }
 
-const fadeUp = (delay: number) => ({
-  initial: { opacity: 0, y: 10 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.8, delay, ease: [0.25, 0.1, 0.25, 1] as const },
-});
-
 export function HeroImage({ hero }: HeroImageProps) {
   const [paused, setPaused] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const reducedMotion = useReducedMotion();
+
+  const fadeUp = (delay: number) =>
+    reducedMotion
+      ? { initial: { opacity: 1 }, animate: { opacity: 1 } }
+      : {
+          initial: { opacity: 0, y: 10 },
+          animate: { opacity: 1, y: 0 },
+          transition: {
+            duration: 0.8,
+            delay,
+            ease: [0.25, 0.1, 0.25, 1] as const,
+          },
+        };
 
   const toggleVideo = () => {
     const video = videoRef.current;
@@ -99,7 +107,7 @@ export function HeroImage({ hero }: HeroImageProps) {
 
           <motion.span
             {...fadeUp(0.7)}
-            className="block text-4xl md:text-6xl lg:text-7xl font-light mt-3 leading-tight"
+            className="block text-5xl md:text-7xl lg:text-8xl italic font-light mt-3 leading-tight"
           >
             {hero.titleLine2}
           </motion.span>
@@ -143,6 +151,34 @@ export function HeroImage({ hero }: HeroImageProps) {
           {hero.cta}
         </motion.a>
       </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
+        initial={reducedMotion ? { opacity: 1 } : { opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={reducedMotion ? undefined : { delay: 2.2, duration: 0.8 }}
+      >
+        <span className="font-sans text-[10px] tracking-[0.2em] uppercase text-white/40">
+          Scroll
+        </span>
+        <motion.span
+          className="block w-px h-8 bg-white/30 origin-top"
+          initial={reducedMotion ? undefined : { scaleY: 0 }}
+          animate={reducedMotion ? undefined : { scaleY: [0, 1, 0] }}
+          transition={
+            reducedMotion
+              ? undefined
+              : {
+                  duration: 2,
+                  repeat: Infinity,
+                  repeatDelay: 0.5,
+                  ease: "easeInOut",
+                  delay: 2.5,
+                }
+          }
+        />
+      </motion.div>
 
       {/* Video pause button */}
       {hero.video && (
