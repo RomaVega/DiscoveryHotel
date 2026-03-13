@@ -22,7 +22,6 @@ export default function HomePage() {
       <Navbar />
       <main id="main-content">
         <HeroImage hero={data.hero} />
-        <WaveDivider from="fill-sand" to="fill-sand" />
         <Welcome data={data.welcome} />
         <WaveDivider from="fill-sand" to="fill-ivory" />
         <RoomsPreview data={data.roomsPreview} />

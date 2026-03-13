@@ -87,7 +87,7 @@ export function HeroImage({ hero }: HeroImageProps) {
       {/* Content */}
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center text-white">
         {/* Logo */}
-        <motion.div {...fadeUp(0.3)}>
+        <motion.div {...fadeUp(0.2)}>
           <Image
             src="/images/logo/logo-dark.svg"
             alt="Orlowsky Discovery Hotel logo"
@@ -101,21 +101,21 @@ export function HeroImage({ hero }: HeroImageProps) {
         {/* Title block */}
         <h1 className="font-serif text-shadow-subtle text-center">
           <motion.span
-            {...fadeUp(0.5)}
+            {...fadeUp(0.3)}
             className="block text-lg md:text-xl tracking-[0.25em] uppercase font-light"
           >
             {hero.titleLine1}
           </motion.span>
 
           <motion.span
-            {...fadeUp(0.7)}
+            {...fadeUp(0.45)}
             className="block text-3xl md:text-5xl lg:text-7xl italic font-light mt-3 leading-tight"
           >
             {hero.titleLine2}
           </motion.span>
 
           <motion.span
-            {...fadeUp(0.9)}
+            {...fadeUp(0.55)}
             className="block text-sm md:text-base tracking-[0.3em] uppercase font-light mt-3"
           >
             {hero.titleLine3}
@@ -124,7 +124,7 @@ export function HeroImage({ hero }: HeroImageProps) {
 
         {/* Star divider */}
         <motion.div
-          {...fadeUp(1.1)}
+          {...fadeUp(0.65)}
           className="mt-6 flex items-center gap-4 text-white/50"
         >
           <span className="block h-px w-10 bg-white/30" />
@@ -136,7 +136,7 @@ export function HeroImage({ hero }: HeroImageProps) {
 
         {/* Subtitle */}
         <motion.p
-          {...fadeUp(1.3)}
+          {...fadeUp(0.75)}
           className="mt-5 font-sans font-light text-xs md:text-sm tracking-[0.2em] uppercase text-white/60"
         >
           {t(hero.subtitle)}
@@ -144,7 +144,7 @@ export function HeroImage({ hero }: HeroImageProps) {
 
         {/* CTA */}
         <motion.a
-          {...fadeUp(1.6)}
+          {...fadeUp(0.9)}
           href={hero.ctaHref}
           target="_blank"
           rel="noopener noreferrer"
@@ -159,7 +159,7 @@ export function HeroImage({ hero }: HeroImageProps) {
         className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 hidden md:flex flex-col items-center gap-2"
         initial={reducedMotion ? { opacity: 1 } : { opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={reducedMotion ? undefined : { delay: 2.2, duration: 0.8 }}
+        transition={reducedMotion ? undefined : { delay: 1.5, duration: 0.8 }}
       >
         <span className="font-sans text-[10px] tracking-[0.2em] uppercase text-white/40">
           {tl.hero.scroll}
@@ -176,7 +176,7 @@ export function HeroImage({ hero }: HeroImageProps) {
                   repeat: Infinity,
                   repeatDelay: 0.5,
                   ease: "easeInOut",
-                  delay: 2.5,
+                  delay: 1.8,
                 }
           }
         />

@@ -36,7 +36,7 @@ export function Amenities({ data }: AmenitiesProps) {
           />
         </FadeIn>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
           {data.items.map((item, i) => {
             const Icon = iconMap[item.icon];
             return (
