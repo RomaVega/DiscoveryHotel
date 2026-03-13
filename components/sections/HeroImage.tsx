@@ -1,20 +1,27 @@
 "use client"; // Uses framer-motion for hero animation and video element
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Star, Pause, Play } from "lucide-react";
+import { Pause, Play } from "lucide-react";
 import type { HeroData } from "@/lib/types";
 
 interface HeroImageProps {
   hero: HeroData;
 }
 
+const fadeUp = (delay: number) => ({
+  initial: { opacity: 0, y: 10 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.8, delay, ease: [0.25, 0.1, 0.25, 1] as const },
+});
+
 export function HeroImage({ hero }: HeroImageProps) {
   const [paused, setPaused] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   const toggleVideo = () => {
-    const video = document.querySelector<HTMLVideoElement>("#hero-video");
+    const video = videoRef.current;
     if (video) {
       if (video.paused) {
         video.play();
@@ -30,13 +37,15 @@ export function HeroImage({ hero }: HeroImageProps) {
     <section className="relative h-screen w-full overflow-hidden">
       {hero.video ? (
         <video
-          id="hero-video"
+          ref={videoRef}
           autoPlay
           muted
           loop
           playsInline
+          poster={hero.image}
           className="absolute inset-0 h-full w-full object-cover"
         >
+          <source src={hero.video.replace(".mp4", ".webm")} type="video/webm" />
           <source src={hero.video} type="video/mp4" />
         </video>
       ) : (
@@ -62,53 +71,77 @@ export function HeroImage({ hero }: HeroImageProps) {
         />
       )}
 
-      {/* Cinematic gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/60" />
+      {/* Soft cinematic gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/50" />
 
       {/* Content */}
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center text-white">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-        >
-          <h1 className="font-serif font-semibold tracking-wide text-shadow-strong text-center">
-            <span className="block text-[7.5vw] md:text-[3.25rem] lg:text-[4rem] mb-3 uppercase text-shadow-strong">
-              {hero.titleLine1}
-            </span>
-            <span className="block text-[7.5vw] md:text-[3.25rem] lg:text-[4rem] leading-tight uppercase whitespace-nowrap text-shadow-strong">
-              {hero.titleLine2}
-            </span>
-            <div className="mt-4 w-fit mx-auto">
-              <span className="block text-[5.5vw] md:text-[2rem] lg:text-[2.75rem] tracking-[0.4em] uppercase font-semibold text-shadow-strong">
-                {hero.titleLine3}
-              </span>
-              <motion.div
-                className="mt-3 flex justify-between pr-[0.65rem] md:pr-[0.8rem] lg:pr-[1.1rem]"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-              >
-                {Array.from({ length: 4 }).map((_, i) => (
-                  <Star key={i} size={18} fill="currentColor" className="text-[#e8c05a] drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]" />
-                ))}
-              </motion.div>
-            </div>
-          </h1>
-
-          <p className="mt-6 font-serif italic font-medium text-2xl md:text-3xl text-white/85 max-w-xl mx-auto leading-relaxed text-shadow-subtitle">
-            {hero.subtitle}
-          </p>
-
-          <a
-            href={hero.ctaHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-10 inline-block bg-transparent hover:bg-white/10 text-white border border-brand-teal hover:border-brand-teal/80 rounded-sm font-sans font-semibold px-10 py-4 tracking-wide uppercase text-sm transition-all duration-300 animate-border-glow focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2"
-          >
-            {hero.cta}
-          </a>
+        {/* Logo */}
+        <motion.div {...fadeUp(0.3)}>
+          <Image
+            src="/images/logo/logo-dark.svg"
+            alt="Orlowsky Discovery Hotel logo"
+            width={90}
+            height={90}
+            priority
+            className="mb-6 drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]"
+          />
         </motion.div>
+
+        {/* Title block */}
+        <h1 className="font-serif text-shadow-subtle text-center">
+          <motion.span
+            {...fadeUp(0.5)}
+            className="block text-lg md:text-xl tracking-[0.25em] uppercase font-light"
+          >
+            {hero.titleLine1}
+          </motion.span>
+
+          <motion.span
+            {...fadeUp(0.7)}
+            className="block text-4xl md:text-6xl lg:text-7xl font-light mt-3 leading-tight"
+          >
+            {hero.titleLine2}
+          </motion.span>
+
+          <motion.span
+            {...fadeUp(0.9)}
+            className="block text-sm md:text-base tracking-[0.3em] uppercase font-light mt-3"
+          >
+            {hero.titleLine3}
+          </motion.span>
+        </h1>
+
+        {/* Star divider */}
+        <motion.div
+          {...fadeUp(1.1)}
+          className="mt-6 flex items-center gap-4 text-white/50"
+        >
+          <span className="block h-px w-10 bg-white/30" />
+          {"✦ ✦ ✦ ✦".split(" ").map((star, i) => (
+            <span key={i} className="text-sm md:text-base">{star}</span>
+          ))}
+          <span className="block h-px w-10 bg-white/30" />
+        </motion.div>
+
+        {/* Subtitle */}
+        <motion.p
+          {...fadeUp(1.3)}
+          className="mt-5 font-sans font-light text-xs md:text-sm tracking-[0.2em] uppercase text-white/60"
+        >
+          {hero.subtitle}
+        </motion.p>
+
+        {/* CTA */}
+        <motion.a
+          {...fadeUp(1.6)}
+          href={hero.ctaHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-10 inline-block border border-white/30 hover:border-white/60 bg-transparent hover:bg-white/5 text-white font-sans font-light tracking-[0.15em] uppercase text-xs md:text-sm px-10 py-4 transition-all duration-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2"
+        >
+          {hero.cta}
+        </motion.a>
       </div>
 
       {/* Video pause button */}
@@ -121,7 +154,6 @@ export function HeroImage({ hero }: HeroImageProps) {
           {paused ? <Play size={18} /> : <Pause size={18} />}
         </button>
       )}
-
     </section>
   );
 }

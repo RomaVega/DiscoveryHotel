@@ -46,16 +46,8 @@ html.night #loading-screen { background-color: #111111; }
   animation: border-glow 2.8s ease-in-out 1.5s infinite both;
 }
 
-@utility text-shadow-hero {
-  text-shadow: 0 2px 32px rgba(0, 0, 0, 0.9);
-}
-
-@utility text-shadow-strong {
-  text-shadow: 0 0 8px rgba(0, 0, 0, 1), 0 2px 6px rgba(0, 0, 0, 1), 0 4px 20px rgba(0, 0, 0, 1), 0 8px 48px rgba(0, 0, 0, 1);
-}
-
-@utility text-shadow-subtitle {
-  text-shadow: 0 1px 16px rgba(0, 0, 0, 0.85);
+@utility text-shadow-subtle {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 @utility no-scrollbar {

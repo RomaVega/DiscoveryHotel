@@ -3,11 +3,12 @@
     "titleLine1": "Orlowsky",
     "titleLine2": "Discovery Candidasa",
     "titleLine3": "Hotel",
-    "subtitle": "Your sanctuary on the shores of East Bali",
+    "subtitle": "Cottages & Villas · Candidasa, East Bali",
     "cta": "Book Your Stay",
     "ctaHref": "https://secure.guestpro.net/odch",
     "image": "/images/hero/hero-main.jpg",
-    "imageAlt": "Aerial view of Orlowsky Discovery Hotel pool and ocean in Candidasa, Bali"
+    "imageAlt": "Aerial view of Orlowsky Discovery Hotel pool and ocean in Candidasa, Bali",
+    "video": "/video/hero.mp4"
   },
   "welcome": {
     "label": "Welcome",
