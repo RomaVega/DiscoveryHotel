@@ -1,3 +1,5 @@
+"use client"; // Uses useLanguage for translated labels
+
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -10,6 +12,7 @@ import {
 } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import type { ContactData } from "@/lib/types";
+import { useLanguage } from "@/lib/language-context";
 
 const iconMap: Record<string, React.FC<{ size?: number }>> = {
   Facebook,
@@ -17,28 +20,29 @@ const iconMap: Record<string, React.FC<{ size?: number }>> = {
   Youtube,
 };
 
-const experienceLinks = [
-  { label: "Sightseeing Tours", href: "/excursions" },
-  { label: "Ubud Attractions", href: "/excursions" },
-  { label: "Diving", href: "/diving" },
-  { label: "Trekking", href: "/excursions" },
-  { label: "Volcano Tour", href: "/excursions" },
-];
-
-const footerLinks = [
-  { label: "Rooms", href: "#rooms" },
-  { label: "Amenities", href: "#amenities" },
-  { label: "Experiences", href: "#experiences" },
-  { label: "Offers", href: "#offers" },
-  { label: "Gallery", href: "#gallery" },
-];
-
 interface FooterProps {
   contact: ContactData;
 }
 
 export function Footer({ contact }: FooterProps) {
+  const { tl } = useLanguage();
   const whatsappUrl = `https://wa.me/${contact.whatsapp}?text=${encodeURIComponent(contact.whatsappGreeting)}`;
+
+  const footerLinks = [
+    { label: tl.footer.links.rooms, href: "#rooms" },
+    { label: tl.footer.links.amenities, href: "#amenities" },
+    { label: tl.footer.links.experiences, href: "#experiences" },
+    { label: tl.footer.links.offers, href: "#offers" },
+    { label: tl.footer.links.gallery, href: "#gallery" },
+  ];
+
+  const experienceLinks = [
+    { label: tl.footer.experienceLinks.sightseeing, href: "/excursions" },
+    { label: tl.footer.experienceLinks.ubud, href: "/excursions" },
+    { label: tl.footer.experienceLinks.diving, href: "/diving" },
+    { label: tl.footer.experienceLinks.trekking, href: "/excursions" },
+    { label: tl.footer.experienceLinks.volcano, href: "/excursions" },
+  ];
 
   return (
     <footer id="contact" className="bg-parchment text-charcoal">
@@ -47,7 +51,10 @@ export function Footer({ contact }: FooterProps) {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10 md:gap-8 md:gap-10">
           {/* Hotel info — full width on mobile */}
           <div className="col-span-2 md:col-span-1">
-            <Link href="/" className="flex flex-col items-center text-center mb-2 hover:opacity-80 transition-opacity duration-200">
+            <Link
+              href="/"
+              className="flex flex-col items-center text-center mb-2 hover:opacity-80 transition-opacity duration-200"
+            >
               <Image
                 src="/images/logo/logo-dark.svg"
                 alt="Orlowsky Discovery Hotel"
@@ -65,7 +72,9 @@ export function Footer({ contact }: FooterProps) {
             <div className="flex items-center gap-2 mb-4 justify-center text-charcoal/30">
               <span className="block h-px w-4 bg-charcoal/20" />
               {Array.from({ length: contact.stars }).map((_, i) => (
-                <span key={i} className="text-[9px]">✦</span>
+                <span key={i} className="text-[9px]">
+                  ✦
+                </span>
               ))}
               <span className="block h-px w-4 bg-charcoal/20" />
             </div>
@@ -74,7 +83,7 @@ export function Footer({ contact }: FooterProps) {
           {/* Quick links — left column on mobile */}
           <div className="col-span-1 md:col-span-1">
             <h4 className="font-sans text-sm font-semibold uppercase tracking-widest mb-4">
-              Explore
+              {tl.footer.explore}
             </h4>
             <ul className="space-y-2">
               {footerLinks.map((link) => (
@@ -93,7 +102,7 @@ export function Footer({ contact }: FooterProps) {
           {/* Experiences — right column on mobile */}
           <div className="col-span-1 md:col-span-1">
             <h4 className="font-sans text-sm font-semibold uppercase tracking-widest mb-4">
-              Experiences
+              {tl.footer.experiences}
             </h4>
             <ul className="space-y-2">
               {experienceLinks.map((link) => (
@@ -112,7 +121,7 @@ export function Footer({ contact }: FooterProps) {
           {/* Contact — full width on mobile */}
           <div className="col-span-2 md:col-span-1">
             <h4 className="font-sans text-sm font-semibold uppercase tracking-widest mb-4">
-              Contact
+              {tl.footer.contact}
             </h4>
             <ul className="space-y-3 text-sm text-charcoal/60">
               <li>
@@ -122,7 +131,10 @@ export function Footer({ contact }: FooterProps) {
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 hover:text-charcoal transition-colors duration-200"
                 >
-                  <MessageCircle size={16} className="text-brand-teal shrink-0" />
+                  <MessageCircle
+                    size={16}
+                    className="text-brand-teal shrink-0"
+                  />
                   WhatsApp
                 </a>
               </li>
@@ -143,7 +155,7 @@ export function Footer({ contact }: FooterProps) {
                   className="flex items-center gap-2 hover:text-charcoal transition-colors duration-200"
                 >
                   <MapPin size={16} className="text-brand-teal shrink-0" />
-                  Get Directions
+                  {tl.footer.getDirections}
                 </a>
               </li>
             </ul>
@@ -171,8 +183,8 @@ export function Footer({ contact }: FooterProps) {
         <Separator className="mt-12 mb-8 bg-charcoal/15" />
 
         <div className="text-center text-sm text-charcoal/40">
-          &copy; {new Date().getFullYear()} {contact.hotelName}. All rights
-          reserved.
+          &copy; {new Date().getFullYear()} {contact.hotelName}.{" "}
+          {tl.footer.allRightsReserved}.
         </div>
       </div>
     </footer>

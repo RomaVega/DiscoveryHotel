@@ -1,5 +1,7 @@
 /* Single source of truth for all data shapes */
 
+export type LocalizedString = string | { en: string; ru: string };
+
 export interface NavLink {
   label: string;
   href: string;
@@ -9,8 +11,8 @@ export interface HeroData {
   titleLine1: string;
   titleLine2: string;
   titleLine3: string;
-  subtitle: string;
-  cta: string;
+  subtitle: LocalizedString;
+  cta: LocalizedString;
   ctaHref: string;
   image: string;
   imageAlt: string;
@@ -18,67 +20,67 @@ export interface HeroData {
 }
 
 export interface WelcomeData {
-  label: string;
-  heading: string;
-  description: string;
+  label: LocalizedString;
+  heading: LocalizedString;
+  description: LocalizedString;
   image: string;
   imageAlt: string;
 }
 
 export interface RoomCard {
-  title: string;
-  description: string;
+  title: LocalizedString;
+  description: LocalizedString;
   image: string;
   imageAlt: string;
   href: string;
 }
 
 export interface RoomsPreviewData {
-  label: string;
-  heading: string;
-  subtext: string;
+  label: LocalizedString;
+  heading: LocalizedString;
+  subtext: LocalizedString;
   rooms: RoomCard[];
 }
 
 export interface Amenity {
   icon: string;
-  title: string;
-  description: string;
+  title: LocalizedString;
+  description: LocalizedString;
 }
 
 export interface AmenitiesData {
-  label: string;
-  heading: string;
+  label: LocalizedString;
+  heading: LocalizedString;
   items: Amenity[];
 }
 
 export interface ExperienceCard {
-  title: string;
-  description: string;
+  title: LocalizedString;
+  description: LocalizedString;
   image: string;
   imageAlt: string;
   href: string;
 }
 
 export interface ExperiencesData {
-  label: string;
-  heading: string;
-  subtext: string;
+  label: LocalizedString;
+  heading: LocalizedString;
+  subtext: LocalizedString;
   items: ExperienceCard[];
 }
 
 export interface Offer {
-  title: string;
-  description: string;
-  price: string;
+  title: LocalizedString;
+  description: LocalizedString;
+  price: LocalizedString;
   image: string;
   imageAlt: string;
   active: boolean;
 }
 
 export interface OffersData {
-  label: string;
-  heading: string;
+  label: LocalizedString;
+  heading: LocalizedString;
   offers: Offer[];
 }
 
@@ -88,16 +90,16 @@ export interface GalleryImage {
 }
 
 export interface GalleryPreviewData {
-  label: string;
-  heading: string;
+  label: LocalizedString;
+  heading: LocalizedString;
   images: GalleryImage[];
 }
 
 export interface BookingCtaData {
-  heading: string;
-  subtext: string;
+  heading: LocalizedString;
+  subtext: LocalizedString;
   bookingUrl: string;
-  fallbackCta: string;
+  fallbackCta: LocalizedString;
 }
 
 export interface SocialLink {

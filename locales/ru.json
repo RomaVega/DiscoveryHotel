@@ -1,0 +1,56 @@
+{
+  "nav": {
+    "skipToContent": "Перейти к содержимому",
+    "rooms": "Номера",
+    "amenities": "Удобства",
+    "experiences": "Экскурсии",
+    "offers": "Акции",
+    "gallery": "Галерея",
+    "contact": "Контакты",
+    "bookNow": "Забронировать"
+  },
+  "footer": {
+    "explore": "Навигация",
+    "experiences": "Впечатления",
+    "contact": "Контакты",
+    "getDirections": "Как добраться",
+    "allRightsReserved": "Все права защищены",
+    "links": {
+      "rooms": "Номера",
+      "amenities": "Удобства",
+      "experiences": "Экскурсии",
+      "offers": "Акции",
+      "gallery": "Галерея"
+    },
+    "experienceLinks": {
+      "sightseeing": "Обзорные туры",
+      "ubud": "Достопримечательности Убуда",
+      "diving": "Дайвинг",
+      "trekking": "Треккинг",
+      "volcano": "Тур на вулкан"
+    }
+  },
+  "hero": {
+    "scroll": "Листать",
+    "pauseVideo": "Пауза",
+    "playVideo": "Воспроизвести"
+  },
+  "gallery": {
+    "showMore": "Показать больше",
+    "showLess": "Свернуть",
+    "previousImage": "Предыдущее фото",
+    "nextImage": "Следующее фото",
+    "closeLightbox": "Закрыть галерею"
+  },
+  "offers": {
+    "specialOffer": "Спецпредложение",
+    "bookThisOffer": "Забронировать"
+  },
+  "map": {
+    "label": "Расположение",
+    "heading": "Найдите нас в Кандидасе",
+    "subtext": "На тихом побережье Кандидасы, Восточный Бали — вдали от толпы, рядом со всем необходимым.",
+    "address": "Адрес",
+    "viewOnMaps": "Открыть в Google Maps"
+  }
+}

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { Pause, Play } from "lucide-react";
 import type { HeroData } from "@/lib/types";
+import { useLanguage } from "@/lib/language-context";
 
 interface HeroImageProps {
   hero: HeroData;
@@ -14,6 +15,7 @@ export function HeroImage({ hero }: HeroImageProps) {
   const [paused, setPaused] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const reducedMotion = useReducedMotion();
+  const { t, tl } = useLanguage();
 
   const fadeUp = (delay: number) =>
     reducedMotion
@@ -137,7 +139,7 @@ export function HeroImage({ hero }: HeroImageProps) {
           {...fadeUp(1.3)}
           className="mt-5 font-sans font-light text-xs md:text-sm tracking-[0.2em] uppercase text-white/60"
         >
-          {hero.subtitle}
+          {t(hero.subtitle)}
         </motion.p>
 
         {/* CTA */}
@@ -148,7 +150,7 @@ export function HeroImage({ hero }: HeroImageProps) {
           rel="noopener noreferrer"
           className="mt-10 inline-block border border-white/30 hover:border-white/60 bg-transparent hover:bg-white/5 text-white font-sans font-light tracking-[0.15em] uppercase text-xs md:text-sm px-10 py-4 transition-all duration-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2"
         >
-          {hero.cta}
+          {t(hero.cta)}
         </motion.a>
       </div>
 
@@ -160,7 +162,7 @@ export function HeroImage({ hero }: HeroImageProps) {
         transition={reducedMotion ? undefined : { delay: 2.2, duration: 0.8 }}
       >
         <span className="font-sans text-[10px] tracking-[0.2em] uppercase text-white/40">
-          Scroll
+          {tl.hero.scroll}
         </span>
         <motion.span
           className="block w-px h-8 bg-white/30 origin-top"
@@ -184,7 +186,7 @@ export function HeroImage({ hero }: HeroImageProps) {
       {hero.video && (
         <button
           onClick={toggleVideo}
-          aria-label={paused ? "Play video" : "Pause video"}
+          aria-label={paused ? tl.hero.playVideo : tl.hero.pauseVideo}
           className="absolute bottom-8 right-8 z-10 flex items-center justify-center w-10 h-10 rounded-full bg-black/30 backdrop-blur-sm text-white/70 hover:text-white hover:bg-black/50 transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-brand-teal"
         >
           {paused ? <Play size={18} /> : <Pause size={18} />}

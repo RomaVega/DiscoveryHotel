@@ -6,20 +6,32 @@ import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/lib/language-context";
+import { LanguageSelector } from "@/components/layout/LanguageSelector";
 
-const links = [
-  { label: "Rooms", href: "#rooms" },
-  { label: "Amenities", href: "#amenities" },
-  { label: "Experiences", href: "#experiences" },
-  { label: "Offers", href: "#offers" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "Contact", href: "#contact" },
+const SECTION_IDS = [
+  "rooms",
+  "amenities",
+  "experiences",
+  "offers",
+  "gallery",
+  "contact",
 ];
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
+  const { tl } = useLanguage();
+
+  const links = [
+    { label: tl.nav.rooms, href: "#rooms" },
+    { label: tl.nav.amenities, href: "#amenities" },
+    { label: tl.nav.experiences, href: "#experiences" },
+    { label: tl.nav.offers, href: "#offers" },
+    { label: tl.nav.gallery, href: "#gallery" },
+    { label: tl.nav.contact, href: "#contact" },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -28,7 +40,6 @@ export function Navbar() {
   }, []);
 
   useEffect(() => {
-    const sectionIds = links.map((l) => l.href.replace("#", ""));
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
@@ -37,7 +48,7 @@ export function Navbar() {
       },
       { rootMargin: "-40% 0px -50% 0px" }
     );
-    for (const id of sectionIds) {
+    for (const id of SECTION_IDS) {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
     }
@@ -46,7 +57,9 @@ export function Navbar() {
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [menuOpen]);
 
   const closeMenu = useCallback(() => setMenuOpen(false), []);
@@ -65,15 +78,18 @@ export function Navbar() {
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 bg-brand-teal text-white px-4 py-2 font-sans text-sm"
         >
-          Skip to content
+          {tl.nav.skipToContent}
         </a>
 
         <nav className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
+          {/* Logo */}
           <Link
             href="/"
             className={cn(
               "flex items-center gap-3 transition-all duration-500",
-              scrolled ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2 pointer-events-none"
+              scrolled
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 -translate-y-2 pointer-events-none"
             )}
           >
             <Image
@@ -106,12 +122,21 @@ export function Navbar() {
                   <span
                     className={cn(
                       "absolute -bottom-1 left-0 h-0.5 bg-brand-teal transition-all duration-300",
-                      activeSection === link.href.replace("#", "") ? "w-full" : "w-0"
+                      activeSection === link.href.replace("#", "")
+                        ? "w-full"
+                        : "w-0"
                     )}
                   />
                 </a>
               </li>
             ))}
+
+            <li className="h-4 w-px bg-charcoal/20" aria-hidden="true" />
+
+            <li>
+              <LanguageSelector variant="dark" />
+            </li>
+
             <li>
               <a
                 href="https://secure.guestpro.net/odch"
@@ -119,17 +144,22 @@ export function Navbar() {
                 rel="noopener noreferrer"
                 className="font-sans text-xs font-semibold text-charcoal bg-transparent hover:bg-brand-teal/10 border border-brand-teal rounded-sm px-5 py-2 tracking-wide uppercase transition-all duration-200"
               >
-                Book Now
+                {tl.nav.bookNow}
               </a>
             </li>
           </ul>
 
-          {/* Mobile right side */}
-          <div className="md:hidden flex items-center gap-3">
+          {/* Mobile right side — language selector + hamburger */}
+          <div className="md:hidden flex items-center gap-4">
+            <LanguageSelector
+              variant={scrolled ? "dark" : "light"}
+            />
             <button
               className={cn(
                 "p-2 focus-visible:ring-2 focus-visible:ring-brand-teal transition-all duration-300",
-                scrolled ? "text-charcoal" : "text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]"
+                scrolled
+                  ? "text-charcoal"
+                  : "text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]"
               )}
               aria-label="Open menu"
               onClick={() => setMenuOpen(true)}
@@ -140,7 +170,7 @@ export function Navbar() {
         </nav>
       </header>
 
-      {/* Full-screen mobile menu — parchment style */}
+      {/* Full-screen mobile menu */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -150,7 +180,7 @@ export function Navbar() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.35, ease: "easeInOut" }}
           >
-            {/* Header row */}
+            {/* Header row — logo + close only */}
             <div className="flex items-center justify-between px-6 py-4 border-b border-charcoal/10">
               <div className="flex items-center gap-3">
                 <Image
@@ -182,7 +212,11 @@ export function Navbar() {
                   className="w-full"
                   initial={{ opacity: 0, x: -12 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3, delay: 0.08 + i * 0.05, ease: "easeOut" }}
+                  transition={{
+                    duration: 0.3,
+                    delay: 0.08 + i * 0.05,
+                    ease: "easeOut",
+                  }}
                 >
                   <a
                     href={link.href}
@@ -213,7 +247,7 @@ export function Navbar() {
                   onClick={closeMenu}
                   className="inline-block text-charcoal border border-brand-teal rounded-sm font-sans font-semibold text-sm px-8 py-3 tracking-widest uppercase transition-all duration-200 hover:bg-brand-teal/10"
                 >
-                  Book Now
+                  {tl.nav.bookNow}
                 </a>
               </motion.div>
             </nav>

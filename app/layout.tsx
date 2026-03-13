@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Cormorant_Garamond } from "next/font/google";
 import { LoadingScreen } from "@/components/layout/LoadingScreen";
+import { LanguageProvider } from "@/lib/language-context";
 import "./globals.css";
 
 const inter = Inter({
@@ -34,8 +35,10 @@ export default function RootLayout({
     <html lang="en" className={inter.variable} suppressHydrationWarning>
       <body className={`${inter.variable} ${cormorant.variable} antialiased`} suppressHydrationWarning>
         <script dangerouslySetInnerHTML={{ __html: `(function(){var h=new Date().getHours();if(h<6||h>=20||window.matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.classList.add('night');})();` }} />
-        <LoadingScreen />
-        {children}
+        <LanguageProvider>
+          <LoadingScreen />
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );

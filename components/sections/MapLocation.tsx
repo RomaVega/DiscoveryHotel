@@ -1,13 +1,17 @@
+"use client"; // Uses useLanguage for translated labels
+
 import { MapPin, Navigation } from "lucide-react";
 import { FadeIn } from "@/components/common/FadeIn";
 import { SectionHeading } from "@/components/common/SectionHeading";
 import type { ContactData } from "@/lib/types";
+import { useLanguage } from "@/lib/language-context";
 
 interface MapLocationProps {
   contact: ContactData;
 }
 
 export function MapLocation({ contact }: MapLocationProps) {
+  const { tl } = useLanguage();
   const { lat, lng } = contact.coordinates;
   const embedUrl = `https://www.google.com/maps?q=${lat},${lng}&z=15&output=embed`;
 
@@ -16,9 +20,9 @@ export function MapLocation({ contact }: MapLocationProps) {
       <div className="max-w-7xl mx-auto px-6">
         <FadeIn>
           <SectionHeading
-            label="Location"
-            heading="Find Us in Candidasa"
-            subtext="Nestled on the tranquil coast of Candidasa, East Bali — away from the crowds, close to everything."
+            label={tl.map.label}
+            heading={tl.map.heading}
+            subtext={tl.map.subtext}
           />
         </FadeIn>
 
@@ -39,10 +43,13 @@ export function MapLocation({ contact }: MapLocationProps) {
             {/* Address card */}
             <div className="bg-ivory p-8 border border-charcoal/5 h-full flex flex-col justify-center">
               <div className="flex items-start gap-3 mb-6">
-                <MapPin size={20} className="text-brand-teal shrink-0 mt-1" />
+                <MapPin
+                  size={20}
+                  className="text-brand-teal shrink-0 mt-1"
+                />
                 <div>
                   <h3 className="font-sans text-sm font-semibold uppercase tracking-widest text-charcoal mb-2">
-                    Address
+                    {tl.map.address}
                   </h3>
                   {contact.address.map((line) => (
                     <p key={line} className="text-stone text-sm leading-relaxed">
@@ -59,7 +66,7 @@ export function MapLocation({ contact }: MapLocationProps) {
                 className="inline-flex items-center justify-center gap-2 bg-brand-teal hover:bg-deep-teal text-white font-sans font-semibold px-6 py-3 rounded-sm tracking-wide uppercase text-sm transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2"
               >
                 <Navigation size={16} />
-                View on Google Maps
+                {tl.map.viewOnMaps}
               </a>
             </div>
           </div>

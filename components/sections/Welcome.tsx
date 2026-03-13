@@ -1,25 +1,30 @@
+"use client"; // Uses useLanguage for content translation
+
 import Image from "next/image";
 import { FadeIn } from "@/components/common/FadeIn";
 import { SectionHeading } from "@/components/common/SectionHeading";
 import type { WelcomeData } from "@/lib/types";
+import { useLanguage } from "@/lib/language-context";
 
 interface WelcomeProps {
   data: WelcomeData;
 }
 
 export function Welcome({ data }: WelcomeProps) {
+  const { t } = useLanguage();
+
   return (
     <section className="pt-12 md:pt-32 pb-4 md:pb-12 bg-sand">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <FadeIn>
             <SectionHeading
-              label={data.label}
-              heading={data.heading}
+              label={t(data.label)}
+              heading={t(data.heading)}
               centered={false}
             />
             <p className="text-stone text-lg leading-relaxed -mt-10">
-              {data.description}
+              {t(data.description)}
             </p>
           </FadeIn>
 

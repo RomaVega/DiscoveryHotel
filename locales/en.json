@@ -1,0 +1,56 @@
+{
+  "nav": {
+    "skipToContent": "Skip to content",
+    "rooms": "Rooms",
+    "amenities": "Amenities",
+    "experiences": "Experiences",
+    "offers": "Offers",
+    "gallery": "Gallery",
+    "contact": "Contact",
+    "bookNow": "Book Now"
+  },
+  "footer": {
+    "explore": "Explore",
+    "experiences": "Experiences",
+    "contact": "Contact",
+    "getDirections": "Get Directions",
+    "allRightsReserved": "All rights reserved",
+    "links": {
+      "rooms": "Rooms",
+      "amenities": "Amenities",
+      "experiences": "Experiences",
+      "offers": "Offers",
+      "gallery": "Gallery"
+    },
+    "experienceLinks": {
+      "sightseeing": "Sightseeing Tours",
+      "ubud": "Ubud Attractions",
+      "diving": "Diving",
+      "trekking": "Trekking",
+      "volcano": "Volcano Tour"
+    }
+  },
+  "hero": {
+    "scroll": "Scroll",
+    "pauseVideo": "Pause video",
+    "playVideo": "Play video"
+  },
+  "gallery": {
+    "showMore": "Show More",
+    "showLess": "Show Less",
+    "previousImage": "Previous image",
+    "nextImage": "Next image",
+    "closeLightbox": "Close lightbox"
+  },
+  "offers": {
+    "specialOffer": "Special Offer",
+    "bookThisOffer": "Book This Offer"
+  },
+  "map": {
+    "label": "Location",
+    "heading": "Find Us in Candidasa",
+    "subtext": "Nestled on the tranquil coast of Candidasa, East Bali — away from the crowds, close to everything.",
+    "address": "Address",
+    "viewOnMaps": "View on Google Maps"
+  }
+}

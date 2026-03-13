@@ -3,35 +3,71 @@
     "titleLine1": "Orlowsky",
     "titleLine2": "Discovery Candidasa",
     "titleLine3": "Hotel",
-    "subtitle": "Cottages & Villas · Candidasa, East Bali",
-    "cta": "Book Your Stay",
+    "subtitle": {
+      "en": "Cottages & Villas · Candidasa, East Bali",
+      "ru": "Коттеджи и виллы · Кандидаса, Восточный Бали"
+    },
+    "cta": {
+      "en": "Book Your Stay",
+      "ru": "Забронировать"
+    },
     "ctaHref": "https://secure.guestpro.net/odch",
     "image": "/images/hero/hero-main.jpg",
     "imageAlt": "Aerial view of Orlowsky Discovery Hotel pool and ocean in Candidasa, Bali",
     "video": "/video/hero.mp4"
   },
   "welcome": {
-    "label": "Welcome",
-    "heading": "A Hidden Gem in East Bali",
-    "description": "Nestled along the tranquil coast of Candidasa, Orlowsky Discovery Hotel offers an intimate escape where Balinese charm meets modern comfort. Wake up to ocean breezes, explore vibrant coral reefs, and unwind in our tropical gardens — far from the crowds, close to paradise.",
+    "label": {
+      "en": "Welcome",
+      "ru": "Добро пожаловать"
+    },
+    "heading": {
+      "en": "A Hidden Gem in East Bali",
+      "ru": "Скрытая жемчужина Восточного Бали"
+    },
+    "description": {
+      "en": "Nestled along the tranquil coast of Candidasa, Orlowsky Discovery Hotel offers an intimate escape where Balinese charm meets modern comfort. Wake up to ocean breezes, explore vibrant coral reefs, and unwind in our tropical gardens — far from the crowds, close to paradise.",
+      "ru": "Расположенный на тихом побережье Кандидасы, Orlowsky Discovery Hotel — это уютное убежище, где балийское очарование сочетается с современным комфортом. Просыпайтесь под шум морского бриза, исследуйте яркие коралловые рифы и отдыхайте в наших тропических садах — вдали от суеты, у порога рая."
+    },
     "image": "/images/welcome/gem.jpeg",
     "imageAlt": "Tropical garden and pool area of the hotel at sunset"
   },
   "roomsPreview": {
-    "label": "Accommodations",
-    "heading": "Rooms & Villas",
-    "subtext": "From garden-view cottages to oceanfront villas, each space is designed for relaxation.",
+    "label": {
+      "en": "Accommodations",
+      "ru": "Размещение"
+    },
+    "heading": {
+      "en": "Rooms & Villas",
+      "ru": "Номера и виллы"
+    },
+    "subtext": {
+      "en": "From garden-view cottages to oceanfront villas, each space is designed for relaxation.",
+      "ru": "От коттеджей с видом на сад до вилл у океана — каждый уголок создан для отдыха."
+    },
     "rooms": [
       {
-        "title": "Deluxe Cottage",
-        "description": "Charming cottage with tropical garden views and modern Balinese comforts",
+        "title": {
+          "en": "Deluxe Cottage",
+          "ru": "Делюкс Коттедж"
+        },
+        "description": {
+          "en": "Charming cottage with tropical garden views and modern Balinese comforts",
+          "ru": "Уютный коттедж с видом на тропический сад и современными балийскими удобствами"
+        },
         "image": "/images/rooms/deluxe-cottage.jpg",
         "imageAlt": "Deluxe Cottage at Orlowsky Discovery Hotel",
         "href": "https://secure.guestpro.net/odch"
       },
       {
-        "title": "Three Bedrooms Pool Villa",
-        "description": "Spacious private villa with three bedrooms and your own pool, perfect for families or groups",
+        "title": {
+          "en": "Three Bedrooms Pool Villa",
+          "ru": "Вилла с тремя спальнями и бассейном"
+        },
+        "description": {
+          "en": "Spacious private villa with three bedrooms and your own pool, perfect for families or groups",
+          "ru": "Просторная частная вилла с тремя спальнями и собственным бассейном — идеально для семей и компаний"
+        },
         "image": "/images/rooms/pool-villa.jpg",
         "imageAlt": "Three Bedrooms Pool Villa at Orlowsky Discovery Hotel",
         "href": "https://secure.guestpro.net/odch"
@@ -39,60 +75,123 @@
     ]
   },
   "amenities": {
-    "label": "Amenities",
-    "heading": "Everything You Need",
+    "label": {
+      "en": "Amenities",
+      "ru": "Удобства"
+    },
+    "heading": {
+      "en": "Everything You Need",
+      "ru": "Всё необходимое"
+    },
     "items": [
       {
         "icon": "UtensilsCrossed",
-        "title": "Restaurant",
-        "description": "Indonesian and international cuisine with ocean views"
+        "title": {
+          "en": "Restaurant",
+          "ru": "Ресторан"
+        },
+        "description": {
+          "en": "Indonesian and international cuisine with ocean views",
+          "ru": "Индонезийская и интернациональная кухня с видом на океан"
+        }
       },
       {
         "icon": "Sparkles",
-        "title": "Spa & Yoga",
-        "description": "Traditional Balinese treatments and daily yoga sessions"
+        "title": {
+          "en": "Spa & Yoga",
+          "ru": "Спа и йога"
+        },
+        "description": {
+          "en": "Traditional Balinese treatments and daily yoga sessions",
+          "ru": "Традиционные балийские процедуры и ежедневные занятия йогой"
+        }
       },
       {
         "icon": "Waves",
-        "title": "Swimming Pool",
-        "description": "Oceanfront infinity pool surrounded by tropical gardens"
+        "title": {
+          "en": "Swimming Pool",
+          "ru": "Бассейн"
+        },
+        "description": {
+          "en": "Oceanfront infinity pool surrounded by tropical gardens",
+          "ru": "Бассейн с видом на океан, окружённый тропическими садами"
+        }
       },
       {
         "icon": "Wifi",
-        "title": "Free Wi-Fi",
-        "description": "High-speed internet throughout the hotel"
+        "title": {
+          "en": "Free Wi-Fi",
+          "ru": "Бесплатный Wi-Fi"
+        },
+        "description": {
+          "en": "High-speed internet throughout the hotel",
+          "ru": "Высокоскоростной интернет на всей территории отеля"
+        }
       }
     ]
   },
   "experiences": {
-    "label": "Experiences",
-    "heading": "Discover East Bali",
-    "subtext": "Curated adventures to make your stay unforgettable.",
+    "label": {
+      "en": "Experiences",
+      "ru": "Впечатления"
+    },
+    "heading": {
+      "en": "Discover East Bali",
+      "ru": "Откройте Восточный Бали"
+    },
+    "subtext": {
+      "en": "Curated adventures to make your stay unforgettable.",
+      "ru": "Незабываемые приключения, которые сделают ваш отдых особенным."
+    },
     "items": [
       {
-        "title": "Excursion Programs",
-        "description": "Explore temples, rice terraces, and hidden waterfalls",
+        "title": {
+          "en": "Excursion Programs",
+          "ru": "Экскурсионные программы"
+        },
+        "description": {
+          "en": "Explore temples, rice terraces, and hidden waterfalls",
+          "ru": "Храмы, рисовые террасы и скрытые водопады"
+        },
         "image": "/images/experiences/experiences-excursions.jpg",
         "imageAlt": "Bali rice terraces with lush green landscape",
         "href": "/excursions"
       },
       {
-        "title": "Diving & Snorkeling",
-        "description": "Discover vibrant coral reefs and the famous USAT Liberty shipwreck",
+        "title": {
+          "en": "Diving & Snorkeling",
+          "ru": "Дайвинг и снорклинг"
+        },
+        "description": {
+          "en": "Discover vibrant coral reefs and the famous USAT Liberty shipwreck",
+          "ru": "Яркие коралловые рифы и знаменитый корабль-призрак USAT Liberty"
+        },
         "image": "/images/experiences/experiences-diving.jpg",
         "imageAlt": "Colorful coral reef underwater in Bali",
         "href": "/diving"
       },
       {
-        "title": "Events & Celebrations",
-        "description": "Weddings, anniversaries, and private events in a tropical setting",
+        "title": {
+          "en": "Events & Celebrations",
+          "ru": "Мероприятия и торжества"
+        },
+        "description": {
+          "en": "Weddings, anniversaries, and private events in a tropical setting",
+          "ru": "Свадьбы, юбилеи и частные мероприятия в тропическом окружении"
+        },
         "image": "/images/experiences/experiences-events.jpg",
         "imageAlt": "Elegant outdoor event setup with ocean backdrop",
         "href": "/events"
       },
       {
-        "title": "Car & Bike Rental",
-        "description": "Freedom to explore Bali at your own pace",
+        "title": {
+          "en": "Car & Bike Rental",
+          "ru": "Аренда авто и мото"
+        },
+        "description": {
+          "en": "Freedom to explore Bali at your own pace",
+          "ru": "Свобода исследовать Бали в своём ритме"
+        },
         "image": "/images/rental/rental.png",
         "imageAlt": "Scooter parked on scenic Bali road",
         "href": "/rental"
@@ -100,21 +199,45 @@
     ]
   },
   "offers": {
-    "label": "Special Offers",
-    "heading": "Current Deals",
+    "label": {
+      "en": "Special Offers",
+      "ru": "Специальные предложения"
+    },
+    "heading": {
+      "en": "Current Deals",
+      "ru": "Актуальные акции"
+    },
     "offers": [
       {
-        "title": "Early Bird Discount",
-        "description": "Book 30 days in advance and save 20% on any room category",
-        "price": "from $65/night",
+        "title": {
+          "en": "Early Bird Discount",
+          "ru": "Скидка за раннее бронирование"
+        },
+        "description": {
+          "en": "Book 30 days in advance and save 20% on any room category",
+          "ru": "Забронируйте за 30 дней и сэкономьте 20% на любой категории номеров"
+        },
+        "price": {
+          "en": "from $65/night",
+          "ru": "от $65/ночь"
+        },
         "image": "/images/offers/early-bird.png",
         "imageAlt": "Hotel pool at sunrise with loungers",
         "active": true
       },
       {
-        "title": "Honeymoon Package",
-        "description": "Villa upgrade, spa treatment for two, romantic dinner, and airport transfer",
-        "price": "from $180/night",
+        "title": {
+          "en": "Honeymoon Package",
+          "ru": "Медовый месяц"
+        },
+        "description": {
+          "en": "Villa upgrade, spa treatment for two, romantic dinner, and airport transfer",
+          "ru": "Апгрейд до виллы, спа-процедуры для двоих, романтический ужин и трансфер из аэропорта"
+        },
+        "price": {
+          "en": "from $180/night",
+          "ru": "от $180/ночь"
+        },
         "image": "/images/honeymoon/honeymoon.png",
         "imageAlt": "Romantic dinner setup on the beach at sunset",
         "active": true
@@ -122,8 +245,14 @@
     ]
   },
   "galleryPreview": {
-    "label": "Gallery",
-    "heading": "Glimpses of Paradise",
+    "label": {
+      "en": "Gallery",
+      "ru": "Галерея"
+    },
+    "heading": {
+      "en": "Glimpses of Paradise",
+      "ru": "Glimpses of Paradise"
+    },
     "images": [
       { "src": "/images/gallery/g1.jpg", "alt": "Orlowsky Discovery Hotel" },
       { "src": "/images/gallery/g2.jpg", "alt": "Orlowsky Discovery Hotel" },
@@ -139,9 +268,18 @@
     ]
   },
   "bookingCta": {
-    "heading": "Ready to Discover East Bali?",
-    "subtext": "Reserve your stay at Orlowsky Discovery Hotel and experience the magic of East Bali.",
+    "heading": {
+      "en": "Ready to Discover East Bali?",
+      "ru": "Готовы открыть Восточный Бали?"
+    },
+    "subtext": {
+      "en": "Reserve your stay at Orlowsky Discovery Hotel and experience the magic of East Bali.",
+      "ru": "Забронируйте номер в Orlowsky Discovery Hotel и ощутите магию Восточного Бали."
+    },
     "bookingUrl": "https://secure.guestpro.net/odch",
-    "fallbackCta": "Book Now"
+    "fallbackCta": {
+      "en": "Book Now",
+      "ru": "Забронировать"
+    }
   }
 }
