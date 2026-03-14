@@ -10,18 +10,22 @@ export function LoadingScreen() {
   useEffect(() => {
     history.scrollRestoration = "manual";
 
-    const savedY = parseInt(sessionStorage.getItem("scrollY") || "0", 10);
+    let savedY = 0;
+    try {
+      savedY = parseInt(sessionStorage.getItem("scrollY") || "0", 10);
+    } catch { /* sessionStorage unavailable (Safari private mode) */ }
 
     const hide = () => {
       setTimeout(() => {
         setVisible(false);
         requestAnimationFrame(() => window.scrollTo(0, savedY));
-        sessionStorage.removeItem("scrollY");
+        try { sessionStorage.removeItem("scrollY"); } catch { /* ignore */ }
       }, 600);
     };
 
-    const saveScroll = () =>
-      sessionStorage.setItem("scrollY", String(window.scrollY));
+    const saveScroll = () => {
+      try { sessionStorage.setItem("scrollY", String(window.scrollY)); } catch { /* ignore */ }
+    };
     window.addEventListener("beforeunload", saveScroll);
 
     if (document.readyState === "complete") {
