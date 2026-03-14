@@ -59,23 +59,22 @@ export function Footer({ contact }: FooterProps) {
             <Image
               src="/images/logo/logo-dark.svg"
               alt="Orlowsky Discovery Hotel"
-              width={48}
-              height={48}
+              width={80}
+              height={80}
               unoptimized
-              className="object-contain mb-3 sm:mb-4 brightness-0 invert"
+              className="object-contain mb-3 sm:mb-4"
             />
-            <h3 className="font-serif text-xl sm:text-2xl font-light tracking-[0.15em] uppercase text-white">
-              Orlowsky Discovery
+            <h3 className="font-serif text-xl sm:text-2xl font-semibold tracking-[0.15em] uppercase text-white flex flex-col items-center">
+              <span>Orlowsky</span>
+              <span>Discovery Candidasa</span>
+              <span>Hotel</span>
             </h3>
-            <p className="font-sans text-[10px] sm:text-[11px] tracking-[0.25em] uppercase text-white/40 mt-1.5">
-              Candidasa · East Bali
-            </p>
           </Link>
-          <div className="flex items-center gap-2.5 mt-4 sm:mt-5 text-white/25">
+          <div className="flex items-center gap-2.5 mt-4 sm:mt-5 text-amber-400">
             <span className="block h-px w-6 sm:w-8 bg-white/15" />
             {Array.from({ length: contact.stars }).map((_, i) => (
-              <span key={i} className="text-[8px]">
-                ✦
+              <span key={i} className="text-base">
+                ★
               </span>
             ))}
             <span className="block h-px w-6 sm:w-8 bg-white/15" />
@@ -83,7 +82,7 @@ export function Footer({ contact }: FooterProps) {
         </div>
 
         {/* Columns — mobile: centered, 2-col for links; desktop: 4-col */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 sm:gap-x-8 gap-y-10 sm:gap-y-12 text-center sm:text-left">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 sm:gap-x-8 gap-y-10 sm:gap-y-12 text-left">
           {/* Explore */}
           <div>
             <h4 className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-white/50 mb-4 sm:mb-5">
@@ -127,7 +126,7 @@ export function Footer({ contact }: FooterProps) {
             <h4 className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-white/50 mb-4 sm:mb-5">
               {tl.footer.contact}
             </h4>
-            <ul className="space-y-3 inline-flex flex-col items-center sm:items-start">
+            <ul className="space-y-3 flex flex-col items-start">
               {/* Russian WhatsApp numbers */}
               {isRu && ruContacts.length > 0 && (
                 <li>
@@ -189,7 +188,7 @@ export function Footer({ contact }: FooterProps) {
             </ul>
 
             {/* Social icons — under contacts */}
-            <div className="flex justify-center sm:justify-start gap-5 mt-5">
+            <div className="flex justify-start gap-5 mt-5">
               {contact.socials.map((social) => {
                 const Icon = iconMap[social.icon];
                 return Icon ? (
@@ -213,7 +212,7 @@ export function Footer({ contact }: FooterProps) {
             <h4 className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-white/50 mb-4 sm:mb-5">
               Location
             </h4>
-            <div className="inline-flex flex-col items-center sm:items-start gap-3">
+            <div className="flex flex-col items-start gap-3">
               <div className="flex items-start gap-2">
                 <MapPin size={14} className="text-brand-teal shrink-0 mt-0.5" />
                 <address className="not-italic text-[13px] sm:text-sm text-white/60 leading-relaxed">

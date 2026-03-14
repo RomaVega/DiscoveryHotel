@@ -35,7 +35,7 @@ export function RoomsPreview({ data }: RoomsPreviewProps) {
                   rel="noopener noreferrer"
                   className="group block"
                 >
-                  <div className="relative aspect-[3/4]">
+                  <div className="relative aspect-[4/3]">
                     <Image
                       src={room.image}
                       alt={room.imageAlt}

@@ -102,7 +102,7 @@ export function HeroImage({ hero }: HeroImageProps) {
         <h1 className="font-serif text-shadow-subtle text-center">
           <motion.span
             {...fadeUp(0.3)}
-            className="block text-lg md:text-xl tracking-[0.25em] uppercase font-light"
+            className="block text-3xl md:text-5xl lg:text-7xl italic font-light"
           >
             {hero.titleLine1}
           </motion.span>
@@ -125,10 +125,10 @@ export function HeroImage({ hero }: HeroImageProps) {
         {/* Star divider */}
         <motion.div
           {...fadeUp(0.65)}
-          className="mt-6 flex items-center gap-4 text-white/50"
+          className="mt-6 flex items-center gap-4 text-amber-400"
         >
           <span className="block h-px w-10 bg-white/30" />
-          {"✦ ✦ ✦ ✦".split(" ").map((star, i) => (
+          {"★ ★ ★ ★".split(" ").map((star, i) => (
             <span key={i} className="text-sm md:text-base">{star}</span>
           ))}
           <span className="block h-px w-10 bg-white/30" />
