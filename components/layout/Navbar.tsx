@@ -86,7 +86,7 @@ export function Navbar() {
           <Link
             href="/"
             className={cn(
-              "flex items-center gap-3 transition-all duration-500",
+              "flex items-center gap-2 transition-all duration-500",
               scrolled
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 -translate-y-2 pointer-events-none"
@@ -95,12 +95,12 @@ export function Navbar() {
             <Image
               src="/images/logo/logo-dark.svg"
               alt="Orlowsky Discovery Hotel"
-              width={40}
-              height={40}
+              width={36}
+              height={36}
               unoptimized
               className="object-contain shrink-0"
             />
-            <span className="font-serif text-xl font-semibold text-black tracking-wide uppercase">
+            <span className="font-serif text-lg font-semibold text-black tracking-wide uppercase whitespace-nowrap">
               Orlowsky Discovery
             </span>
           </Link>
@@ -150,7 +150,7 @@ export function Navbar() {
           </ul>
 
           {/* Mobile right side — language selector + hamburger */}
-          <div className="lg:hidden flex items-center gap-4">
+          <div className="lg:hidden flex items-center gap-2">
             <div className={cn("transition-all duration-500", scrolled ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none")}>
               <LanguageSelector variant="dark" />
             </div>
