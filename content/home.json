@@ -8,7 +8,7 @@
       "ru": "Коттеджи и виллы · Кандидаса, Восточный Бали"
     },
     "cta": {
-      "en": "Book Your Stay",
+      "en": "Book Stay",
       "ru": "Забронировать"
     },
     "ctaHref": "https://secure.guestpro.net/odch",
@@ -55,7 +55,7 @@
           "en": "Charming cottage with tropical garden views and modern Balinese comforts",
           "ru": "Уютный коттедж с видом на тропический сад и современными балийскими удобствами"
         },
-        "image": "/images/rooms/deluxe-cottage.jpg",
+        "image": "/images/rooms/Deluxe Cottage.jpg",
         "imageAlt": "Deluxe Cottage at Orlowsky Discovery Hotel",
         "href": "https://secure.guestpro.net/odch"
       },
@@ -68,7 +68,7 @@
           "en": "Spacious private villa with three bedrooms and your own pool, perfect for families or groups",
           "ru": "Просторная частная вилла с тремя спальнями и собственным бассейном — идеально для семей и компаний"
         },
-        "image": "/images/rooms/pool-villa.jpg",
+        "image": "/images/rooms/Pool Villa.jpg",
         "imageAlt": "Three Bedrooms Pool Villa at Orlowsky Discovery Hotel",
         "href": "https://secure.guestpro.net/odch"
       }
@@ -84,50 +84,56 @@
       "ru": "Everything You Need"
     },
     "items": [
-      {
-        "icon": "UtensilsCrossed",
-        "title": {
-          "en": "Restaurant",
-          "ru": "Restaurant"
-        },
-        "description": {
-          "en": "Indonesian and international cuisine with ocean views",
-          "ru": "Индонезийская и интернациональная кухня с видом на океан"
-        }
-      },
-      {
-        "icon": "Sparkles",
-        "title": {
-          "en": "Spa & Yoga",
-          "ru": "Spa & Yoga"
-        },
-        "description": {
-          "en": "Traditional Balinese treatments and daily yoga sessions",
-          "ru": "Традиционные балийские процедуры и ежедневные занятия йогой"
-        }
-      },
-      {
-        "icon": "Waves",
-        "title": {
-          "en": "Swimming Pool",
-          "ru": "Swimming Pool"
-        },
-        "description": {
-          "en": "Oceanfront infinity pool surrounded by tropical gardens",
-          "ru": "Бассейн с видом на океан, окружённый тропическими садами"
-        }
-      },
-      {
-        "icon": "Wifi",
-        "title": {
-          "en": "Free Wi-Fi",
-          "ru": "Free Wi-Fi"
-        },
-        "description": {
-          "en": "High-speed internet throughout the hotel",
-          "ru": "Высокоскоростной интернет на всей территории отеля"
-        }
-      }
+      { "icon": "Waves", "title": "Swimming Pool", "description": "" },
+      { "icon": "Wifi", "title": "Fast Wi-Fi", "description": "" },
+      { "icon": "UtensilsCrossed", "title": "Restaurant", "description": "" },
+      { "icon": "Sparkles", "title": "SPA", "description": "" },
+      { "icon": "Umbrella", "title": "Private Beach Area", "description": "" },
+      { "icon": "Coffee", "title": "Breakfast", "description": "" },
+      { "icon": "Ban", "title": "Non Smoking Rooms", "description": "" },
+      { "icon": "Droplets", "title": "Free Toiletries", "description": "" },
+      { "icon": "Droplet", "title": "Bottled Water", "description": "" },
+      { "icon": "Leaf", "title": "Garden", "description": "" },
+      { "icon": "RefreshCw", "title": "Currency Exchange", "description": "" },
+      { "icon": "Shirt", "title": "Laundry Bag", "description": "" },
+      { "icon": "Wind", "title": "Hairdryer", "description": "" },
+      { "icon": "Info", "title": "Tourism Information", "description": "" },
+      { "icon": "Thermometer", "title": "Air Conditioner", "description": "" },
+      { "icon": "Activity", "title": "Doctor on Call", "description": "" },
+      { "icon": "MapPin", "title": "Beach", "description": "" },
+      { "icon": "Monitor", "title": "Desk", "description": "" },
+      { "icon": "CloudRain", "title": "Shower", "description": "" },
+      { "icon": "Flame", "title": "Fire Extinguishers", "description": "" },
+      { "icon": "ShowerHead", "title": "Rain and Hand Showers", "description": "" },
+      { "icon": "Phone", "title": "Telephone", "description": "" },
+      { "icon": "PhoneCall", "title": "Internal Phone", "description": "" },
+      { "icon": "Accessibility", "title": "Accessibility", "description": "" },
+      { "icon": "Home", "title": "Terrace", "description": "" },
+      { "icon": "Layers", "title": "Clothes Rack", "description": "" },
+      { "icon": "Bath", "title": "Private Bathroom", "description": "" },
+      { "icon": "Briefcase", "title": "Luggage Storage", "description": "" },
+      { "icon": "Car", "title": "Free Parking", "description": "" },
+      { "icon": "Shield", "title": "24 Hour Security", "description": "" },
+      { "icon": "RefreshCcw", "title": "Dry Cleaning", "description": "" },
+      { "icon": "PlaneLanding", "title": "Airport Shuttle", "description": "" },
+      { "icon": "Bell", "title": "24h Receptionist", "description": "" },
+      { "icon": "Wine", "title": "Welcome Drink", "description": "" },
+      { "icon": "Star", "title": "Daily Housekeeping", "description": "" },
+      { "icon": "Building2", "title": "Balcony", "description": "" },
+      { "icon": "Bike", "title": "Motorbike Rental", "description": "" },
+      { "icon": "GlassWater", "title": "Bar", "description": "" },
+      { "icon": "WashingMachine", "title": "Laundry (Additional Charge)", "description": "" },
+      { "icon": "Map", "title": "Tour Organisation", "description": "" },
+      { "icon": "Plug", "title": "Electric Kettle", "description": "" },
+      { "icon": "Bus", "title": "Transport Service", "description": "" },
+      { "icon": "CupSoda", "title": "Tea and Coffee Set", "description": "" },
+      { "icon": "Package", "title": "Minibar", "description": "" },
+      { "icon": "Hand", "title": "Massage", "description": "" },
+      { "icon": "Newspaper", "title": "Towel", "description": "" },
+      { "icon": "Sun", "title": "Sun Umbrellas", "description": "" },
+      { "icon": "ConciergeBell", "title": "Room Service", "description": "" },
+      { "icon": "Tv", "title": "Smart TV", "description": "" },
+      { "icon": "Shirt", "title": "Laundry Bag", "description": "" }
     ]
   },
   "experiences": {
@@ -221,7 +227,7 @@
           "en": "from $65/night",
           "ru": "от $65/ночь"
         },
-        "image": "/images/offers/early-bird.png",
+        "image": "/images/offers/early-bird.jpg",
         "imageAlt": "Hotel pool at sunrise with loungers",
         "active": true
       },
@@ -254,9 +260,6 @@
       "ru": "Glimpses of Paradise"
     },
     "images": [
-      { "src": "/images/gallery/g1.jpg", "alt": "Orlowsky Discovery Hotel" },
-      { "src": "/images/gallery/g2.jpg", "alt": "Orlowsky Discovery Hotel" },
-      { "src": "/images/gallery/g3.jpg", "alt": "Orlowsky Discovery Hotel" },
       { "src": "/images/gallery/g4.jpg", "alt": "Orlowsky Discovery Hotel" },
       { "src": "/images/gallery/g5.jpg", "alt": "Orlowsky Discovery Hotel" },
       { "src": "/images/gallery/g6.jpg", "alt": "Orlowsky Discovery Hotel" },

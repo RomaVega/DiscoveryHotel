@@ -29,12 +29,23 @@ export function Welcome({ data }: WelcomeProps) {
           </FadeIn>
 
           <FadeIn delay={0.2}>
-            <div className="relative aspect-[3/2] md:aspect-[4/5] w-full">
+            {/* Mobile image */}
+            <div className="relative aspect-[1/1] w-full md:hidden">
+              <Image
+                src="/images/welcome/mobile.png"
+                alt={data.imageAlt}
+                fill
+                sizes="100vw"
+                className="object-cover"
+              />
+            </div>
+            {/* Desktop image */}
+            <div className="relative hidden md:block aspect-[4/5] w-full">
               <Image
                 src={data.image}
                 alt={data.imageAlt}
                 fill
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="50vw"
                 className="object-cover"
               />
             </div>

@@ -33,25 +33,26 @@ export function RoomsPreview({ data }: RoomsPreviewProps) {
                   href={room.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group block"
+                  className="group block relative aspect-[4/3] overflow-hidden"
                 >
-                  <div className="relative aspect-[4/3]">
-                    <Image
-                      src={room.image}
-                      alt={room.imageAlt}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                      className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-                    <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                      <h3 className="font-serif text-2xl font-light">
-                        {t(room.title)}
-                      </h3>
-                      <p className="mt-2 text-sm text-white/80 leading-relaxed md:opacity-0 md:translate-y-2 transition-all duration-300 md:group-hover:opacity-100 md:group-hover:translate-y-0">
-                        {t(room.description)}
-                      </p>
-                    </div>
+                  <Image
+                    src={room.image}
+                    alt={room.imageAlt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                    <h3 className="font-serif text-2xl font-light">
+                      {t(room.title)}
+                    </h3>
+                    <p className="mt-2 text-sm text-white/80 leading-relaxed">
+                      {t(room.description)}
+                    </p>
+                    <span className="mt-4 inline-block border border-white/60 hover:border-white hover:scale-[1.04] active:scale-[0.97] text-white font-sans font-semibold px-6 py-2 rounded-full tracking-wide text-xs transition-all duration-300">
+                      See More
+                    </span>
                   </div>
                 </a>
               </SpotlightCard>

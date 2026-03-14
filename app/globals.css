@@ -39,15 +39,28 @@ html.night #loading-screen { background-color: #111111; }
 
 @keyframes border-glow {
   0%, 100% { box-shadow: 0 0 0px rgba(76, 168, 181, 0); }
-  50% { box-shadow: 0 0 14px rgba(76, 168, 181, 0.75), 0 0 28px rgba(76, 168, 181, 0.25); }
+  50% { box-shadow: 0 0 12px rgba(76, 168, 181, 0.6), 0 0 24px rgba(76, 168, 181, 0.2); }
 }
 
 @utility animate-border-glow {
   animation: border-glow 2.8s ease-in-out 1.5s infinite both;
 }
 
+@keyframes border-glow-white {
+  0%, 100% { box-shadow: 0 0 0px rgba(255, 255, 255, 0); }
+  50% { box-shadow: 0 0 14px rgba(255, 255, 255, 0.25), 0 0 28px rgba(255, 255, 255, 0.075); }
+}
+
+@utility animate-border-glow-white {
+  animation: border-glow-white 2.8s ease-in-out 1.5s infinite both;
+}
+
 @utility text-shadow-subtle {
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+@utility text-shadow-strong {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8), 0 4px 24px rgba(0, 0, 0, 0.5);
 }
 
 @utility no-scrollbar {

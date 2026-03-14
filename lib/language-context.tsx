@@ -13,7 +13,7 @@ import type { LocalizedString } from "@/lib/types";
 import enLocale from "@/locales/en.json";
 import ruLocale from "@/locales/ru.json";
 
-export type Locale = "en" | "ru" | "es" | "zh";
+export type Locale = "en" | "ru" | "id" | "zh";
 
 type LocaleData = typeof enLocale;
 

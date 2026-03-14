@@ -48,7 +48,7 @@ export function Footer({ contact }: FooterProps) {
   ];
 
   return (
-    <footer id="contact" className="bg-deep-teal text-white">
+    <footer id="contact" className="bg-parchment text-charcoal">
       <div className="max-w-7xl mx-auto px-6 pt-16 sm:pt-20 pb-10 sm:pb-12">
         {/* Logo + tagline — centered */}
         <div className="flex flex-col items-center mb-10 sm:mb-16">
@@ -64,73 +64,34 @@ export function Footer({ contact }: FooterProps) {
               unoptimized
               className="object-contain mb-3 sm:mb-4"
             />
-            <h3 className="font-serif text-xl sm:text-2xl font-semibold tracking-[0.15em] uppercase text-white flex flex-col items-center">
+            <h3 className="font-serif text-xl sm:text-2xl font-semibold tracking-[0.15em] uppercase text-charcoal flex flex-col items-center">
               <span>Orlowsky</span>
               <span>Discovery Candidasa</span>
               <span>Hotel</span>
             </h3>
           </Link>
           <div className="flex items-center gap-2.5 mt-4 sm:mt-5 text-amber-400">
-            <span className="block h-px w-6 sm:w-8 bg-white/15" />
+            <span className="block h-px w-6 sm:w-8 bg-charcoal/15" />
             {Array.from({ length: contact.stars }).map((_, i) => (
               <span key={i} className="text-base">
                 ★
               </span>
             ))}
-            <span className="block h-px w-6 sm:w-8 bg-white/15" />
+            <span className="block h-px w-6 sm:w-8 bg-charcoal/15" />
           </div>
         </div>
 
-        {/* Columns — mobile: centered, 2-col for links; desktop: 4-col */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 sm:gap-x-8 gap-y-10 sm:gap-y-12 text-left">
-          {/* Explore */}
-          <div>
-            <h4 className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-white/50 mb-4 sm:mb-5">
-              {tl.footer.explore}
-            </h4>
-            <ul className="space-y-2 sm:space-y-2.5">
-              {footerLinks.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="font-sans text-[13px] sm:text-sm text-white/60 hover:text-white transition-colors duration-200"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Experiences */}
-          <div>
-            <h4 className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-white/50 mb-4 sm:mb-5">
-              {tl.footer.experiences}
-            </h4>
-            <ul className="space-y-2 sm:space-y-2.5">
-              {experienceLinks.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="font-sans text-[13px] sm:text-sm text-white/60 hover:text-white transition-colors duration-200"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact — full width on mobile, centered */}
-          <div className="col-span-2 sm:col-span-1">
-            <h4 className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-white/50 mb-4 sm:mb-5">
+        {/* Columns */}
+        <div className="flex flex-col items-center gap-8 md:flex-row md:items-start md:gap-x-8">
+          {/* Contact */}
+          <div className="w-full text-center md:text-left md:flex-1 md:min-w-0">
+            <h4 className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/50 mb-4 sm:mb-5 underline underline-offset-4 decoration-charcoal/20">
               {tl.footer.contact}
             </h4>
-            <ul className="space-y-3 flex flex-col items-start">
-              {/* Russian WhatsApp numbers */}
+            <ul className="space-y-3 flex flex-col items-center md:items-start">
               {isRu && ruContacts.length > 0 && (
                 <li>
-                  <p className="font-sans text-[10px] uppercase tracking-[0.15em] text-white/35 mb-1.5">
+                  <p className="font-sans text-[10px] uppercase tracking-[0.15em] text-charcoal/35 mb-1.5">
                     {tl.footer.whatsappRu}
                   </p>
                   <div className="space-y-1.5">
@@ -140,7 +101,7 @@ export function Footer({ contact }: FooterProps) {
                         href={`https://wa.me/${c.number}?text=${encodeURIComponent(c.greeting)}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-[13px] sm:text-sm text-white/60 hover:text-white transition-colors duration-200"
+                        className="flex items-center gap-2 text-[13px] sm:text-sm text-charcoal/60 hover:text-charcoal transition-colors duration-200"
                       >
                         <MessageCircle size={14} className="text-brand-teal shrink-0" />
                         {c.label}
@@ -150,11 +111,10 @@ export function Footer({ contact }: FooterProps) {
                 </li>
               )}
 
-              {/* English / Indonesian WhatsApp */}
               {enContacts.length > 0 && (
                 <li>
                   {isRu && (
-                    <p className="font-sans text-[10px] uppercase tracking-[0.15em] text-white/35 mb-1.5">
+                    <p className="font-sans text-[10px] uppercase tracking-[0.15em] text-charcoal/35 mb-1.5">
                       {tl.footer.whatsappHotel}
                     </p>
                   )}
@@ -165,7 +125,7 @@ export function Footer({ contact }: FooterProps) {
                         href={`https://wa.me/${c.number}?text=${encodeURIComponent(c.greeting)}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-[13px] sm:text-sm text-white/60 hover:text-white transition-colors duration-200"
+                        className="flex items-center gap-2 text-[13px] sm:text-sm text-charcoal/60 hover:text-charcoal transition-colors duration-200"
                       >
                         <MessageCircle size={14} className="text-brand-teal shrink-0" />
                         {c.label}
@@ -175,11 +135,10 @@ export function Footer({ contact }: FooterProps) {
                 </li>
               )}
 
-              {/* Email */}
               <li className="pt-1">
                 <a
                   href={`mailto:${contact.email}`}
-                  className="flex items-center gap-2 text-[13px] sm:text-sm text-white/60 hover:text-white transition-colors duration-200"
+                  className="flex items-center gap-2 text-[13px] sm:text-sm text-charcoal/60 hover:text-charcoal transition-colors duration-200"
                 >
                   <Mail size={14} className="text-brand-teal shrink-0" />
                   {contact.email}
@@ -187,8 +146,7 @@ export function Footer({ contact }: FooterProps) {
               </li>
             </ul>
 
-            {/* Social icons — under contacts */}
-            <div className="flex justify-start gap-5 mt-5">
+            <div className="flex justify-center md:justify-start gap-5 mt-5">
               {contact.socials.map((social) => {
                 const Icon = iconMap[social.icon];
                 return Icon ? (
@@ -198,7 +156,7 @@ export function Footer({ contact }: FooterProps) {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.platform}
-                    className="text-white/30 hover:text-white transition-colors duration-200"
+                    className="text-charcoal/30 hover:text-charcoal transition-colors duration-200"
                   >
                     <Icon size={18} />
                   </a>
@@ -208,14 +166,14 @@ export function Footer({ contact }: FooterProps) {
           </div>
 
           {/* Location */}
-          <div className="col-span-2 sm:col-span-1">
-            <h4 className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-white/50 mb-4 sm:mb-5">
+          <div className="w-full text-center md:text-left md:flex-1 md:min-w-0">
+            <h4 className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/50 mb-4 sm:mb-5 underline underline-offset-4 decoration-charcoal/20">
               Location
             </h4>
-            <div className="flex flex-col items-start gap-3">
+            <div className="flex flex-col items-center md:items-start gap-3">
               <div className="flex items-start gap-2">
                 <MapPin size={14} className="text-brand-teal shrink-0 mt-0.5" />
-                <address className="not-italic text-[13px] sm:text-sm text-white/60 leading-relaxed">
+                <address className="not-italic text-[13px] sm:text-sm text-charcoal/60 leading-relaxed text-left">
                   {contact.address.map((line) => (
                     <span key={line} className="block">
                       {line}
@@ -227,23 +185,65 @@ export function Footer({ contact }: FooterProps) {
                 href={contact.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 font-sans text-xs text-brand-teal hover:text-white transition-colors duration-200 tracking-wide"
+                className="inline-flex items-center gap-1.5 font-sans text-xs text-brand-teal hover:text-deep-teal transition-colors duration-200 tracking-wide"
               >
                 {tl.footer.getDirections}
                 <span aria-hidden="true">→</span>
               </a>
             </div>
           </div>
+
+          {/* Divider */}
+          <div className="w-full border-t border-charcoal/10 md:w-px md:border-t-0 md:border-l md:self-stretch" />
+
+          {/* Experiences */}
+          <div className="w-full text-center md:text-left md:flex-1 md:min-w-0">
+            <h4 className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/50 mb-4 sm:mb-5 underline underline-offset-4 decoration-charcoal/20">
+              {tl.footer.experiences}
+            </h4>
+            <ul className="space-y-2 sm:space-y-2.5">
+              {experienceLinks.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    className="font-sans text-[13px] sm:text-sm text-charcoal/60 hover:text-charcoal transition-colors duration-200"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Explore */}
+          <div className="w-full text-center md:text-left md:flex-1 md:min-w-0">
+            <h4 className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/50 mb-4 sm:mb-5 underline underline-offset-4 decoration-charcoal/20">
+              {tl.footer.explore}
+            </h4>
+            <ul className="space-y-2 sm:space-y-2.5">
+              {footerLinks.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    className="font-sans text-[13px] sm:text-sm text-charcoal/60 hover:text-charcoal transition-colors duration-200"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
         </div>
 
         {/* Payment note — Russian locale only */}
         {isRu && tl.footer.paymentNote && (
           <div className="mt-10 sm:mt-12 flex justify-center">
-            <div className="relative border-l-2 border-brand-teal pl-4 sm:pl-5 pr-4 sm:pr-5 py-3 shadow-[0_0_20px_rgba(76,168,181,0.12)] max-w-sm">
+            <div className="relative border-l-2 border-brand-teal pl-4 sm:pl-5 pr-4 sm:pr-5 py-3 max-w-sm">
               <p className="font-sans text-[10px] font-semibold uppercase tracking-[0.18em] text-brand-teal mb-1">
                 Payment in Russia
               </p>
-              <p className="font-sans text-[12px] sm:text-[13px] text-white/70 leading-relaxed">
+              <p className="font-sans text-[12px] sm:text-[13px] text-charcoal/70 leading-relaxed">
                 {tl.footer.paymentNote}
               </p>
             </div>
@@ -252,13 +252,13 @@ export function Footer({ contact }: FooterProps) {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-white/8">
-        <div className="max-w-7xl mx-auto px-6 py-4 sm:py-5 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-3">
-          <p className="font-sans text-[11px] sm:text-xs text-white/30 tracking-wide">
-            &copy; {new Date().getFullYear()} {contact.hotelName}. {tl.footer.allRightsReserved}.
-          </p>
-          <p className="font-sans text-[10px] text-white/20 tracking-wider uppercase">
+      <div className="border-t border-charcoal/10">
+        <div className="max-w-7xl mx-auto px-6 py-4 sm:py-5 flex flex-col items-center gap-1.5">
+          <p className="font-sans text-[10px] text-charcoal/20 tracking-wider uppercase">
             Candidasa · Karangasem · Bali
+          </p>
+          <p className="font-sans text-[11px] sm:text-xs text-charcoal/30 tracking-wide">
+            &copy; {new Date().getFullYear()} {contact.hotelName}. {tl.footer.allRightsReserved}.
           </p>
         </div>
       </div>

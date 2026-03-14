@@ -14,7 +14,7 @@ const LANGUAGES: {
 }[] = [
   { code: "en", label: "EN", native: "English", available: true },
   { code: "ru", label: "RU", native: "Русский", available: true },
-  { code: "es", label: "ES", native: "Español", available: false },
+  { code: "id", label: "ID", native: "Indonesia", available: false },
   { code: "zh", label: "中文", native: "中文", available: false },
 ];
 

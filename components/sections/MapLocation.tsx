@@ -63,7 +63,7 @@ export function MapLocation({ contact }: MapLocationProps) {
                 href={contact.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-brand-teal hover:bg-deep-teal text-white font-sans font-semibold px-6 py-3 rounded-sm tracking-wide uppercase text-sm transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2"
+                className="inline-flex items-center justify-center gap-2 bg-transparent border border-brand-teal text-brand-teal hover:border-deep-teal hover:text-deep-teal hover:scale-[1.04] active:scale-[0.97] font-sans font-semibold px-5 py-2 rounded-full tracking-wide uppercase text-xs transition-all duration-300 focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2"
               >
                 <Navigation size={16} />
                 {tl.map.viewOnMaps}

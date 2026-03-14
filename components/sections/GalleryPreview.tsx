@@ -1,6 +1,6 @@
 "use client"; // Uses lightbox state and keyboard navigation
 
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, X, ZoomIn } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -17,6 +17,7 @@ interface GalleryPreviewProps {
 export function GalleryPreview({ data }: GalleryPreviewProps) {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [expanded, setExpanded] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
   const { t, tl } = useLanguage();
 
   const total = data.images.length;
@@ -57,7 +58,7 @@ export function GalleryPreview({ data }: GalleryPreviewProps) {
     lightboxIndex !== null ? data.images[lightboxIndex] : null;
 
   return (
-    <section id="gallery" className="pt-12 md:pt-32 pb-12 md:pb-32 bg-ivory">
+    <section id="gallery" ref={sectionRef} className="pt-12 md:pt-32 pb-12 md:pb-32 bg-ivory">
       <div className="max-w-7xl mx-auto px-6">
         <FadeIn>
           <SectionHeading label={t(data.label)} heading={t(data.heading)} />
@@ -112,8 +113,14 @@ export function GalleryPreview({ data }: GalleryPreviewProps) {
         <FadeIn>
           <div className="mt-12 text-center">
             <button
-              onClick={() => setExpanded(!expanded)}
-              className="inline-block bg-brand-teal hover:bg-deep-teal text-white font-sans font-semibold px-8 py-3 rounded-sm tracking-wide uppercase text-sm transition-colors duration-300"
+              onClick={() => {
+                const wasExpanded = expanded;
+                setExpanded(!expanded);
+                if (wasExpanded) {
+                  setTimeout(() => sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 50);
+                }
+              }}
+              className="inline-block bg-transparent border border-brand-teal text-brand-teal hover:border-deep-teal hover:text-deep-teal hover:scale-[1.04] active:scale-[0.97] font-sans font-semibold px-5 py-2 rounded-full tracking-wide uppercase text-xs transition-all duration-300"
             >
               {expanded ? tl.gallery.showLess : tl.gallery.showMore}
             </button>

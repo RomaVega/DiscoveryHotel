@@ -44,7 +44,7 @@ export function HeroImage({ hero }: HeroImageProps) {
   };
 
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <section className="relative h-[92vh] w-full overflow-hidden">
       {hero.video ? (
         <video
           ref={videoRef}
@@ -91,56 +91,68 @@ export function HeroImage({ hero }: HeroImageProps) {
           <Image
             src="/images/logo/logo-dark.svg"
             alt="Orlowsky Discovery Hotel logo"
-            width={90}
-            height={90}
+            width={140}
+            height={140}
             priority
-            className="mb-6 drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]"
+            className="w-24 h-24 md:w-[140px] md:h-[140px] mb-4 md:mb-6 drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]"
           />
         </motion.div>
 
         {/* Title block */}
-        <h1 className="font-serif text-shadow-subtle text-center">
+        <h1 className="font-serif text-shadow-strong text-center">
           <motion.span
             {...fadeUp(0.3)}
-            className="block text-3xl md:text-5xl lg:text-7xl italic font-light"
+            className="block text-3xl md:text-3xl tracking-[0.25em] uppercase font-light"
           >
             {hero.titleLine1}
           </motion.span>
 
           <motion.span
             {...fadeUp(0.45)}
-            className="block text-3xl md:text-5xl lg:text-7xl italic font-light mt-3 leading-tight"
+            className="block text-5xl md:text-5xl lg:text-7xl italic font-light mt-5 md:mt-3 leading-tight"
           >
             {hero.titleLine2}
           </motion.span>
 
-          <motion.span
-            {...fadeUp(0.55)}
-            className="block text-sm md:text-base tracking-[0.3em] uppercase font-light mt-3"
-          >
-            {hero.titleLine3}
-          </motion.span>
+          <div className="w-fit mx-auto mt-12 md:mt-14">
+            <motion.span
+              {...fadeUp(0.55)}
+              className="block text-xl md:text-2xl lg:text-3xl tracking-[0.3em] uppercase font-light"
+            >
+              {hero.titleLine3}
+            </motion.span>
+
+            {/* Stars aligned to width of titleLine3 */}
+            <div className="relative">
+              <span className="absolute right-full top-1/2 -translate-y-1/2 mr-3 block h-px w-8 bg-white/30" />
+              <motion.div
+                {...fadeUp(0.65)}
+                className="mt-2 flex justify-between text-amber-400 text-sm md:text-base translate-x-[1px] pr-[0.34rem] md:pr-[0.45rem] lg:pr-[0.56rem]"
+              >
+                {"★ ★ ★ ★".split(" ").map((star, i) => (
+                  <span key={i}>{star}</span>
+                ))}
+              </motion.div>
+              <span className="absolute left-full top-1/2 -translate-y-1/2 ml-3 block h-px w-8 bg-white/30" />
+            </div>
+          </div>
         </h1>
 
-        {/* Star divider */}
-        <motion.div
-          {...fadeUp(0.65)}
-          className="mt-6 flex items-center gap-4 text-amber-400"
-        >
-          <span className="block h-px w-10 bg-white/30" />
-          {"★ ★ ★ ★".split(" ").map((star, i) => (
-            <span key={i} className="text-sm md:text-base">{star}</span>
-          ))}
-          <span className="block h-px w-10 bg-white/30" />
-        </motion.div>
-
         {/* Subtitle */}
-        <motion.p
-          {...fadeUp(0.75)}
-          className="mt-5 font-sans font-light text-xs md:text-sm tracking-[0.2em] uppercase text-white/60"
-        >
-          {t(hero.subtitle)}
-        </motion.p>
+        <div className="mt-5 flex flex-col items-center gap-2">
+          <motion.p
+            {...fadeUp(0.75)}
+            className="font-sans font-light text-sm md:text-sm tracking-[0.2em] uppercase text-white/75 text-shadow-strong"
+          >
+            Cottages &amp; Villas
+          </motion.p>
+          <motion.p
+            {...fadeUp(0.85)}
+            className="font-sans font-light text-xs md:text-xs tracking-[0.18em] uppercase text-white/55 text-shadow-strong"
+          >
+            Bar&nbsp;·&nbsp;Restaurant&nbsp;·&nbsp;Ayurvedic Spa
+          </motion.p>
+        </div>
 
         {/* CTA */}
         <motion.a
@@ -148,39 +160,12 @@ export function HeroImage({ hero }: HeroImageProps) {
           href={hero.ctaHref}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-10 inline-block border border-white/30 hover:border-white/60 bg-transparent hover:bg-white/5 text-white font-sans font-light tracking-[0.15em] uppercase text-xs md:text-sm px-10 py-4 transition-all duration-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2"
+          className="mt-24 md:mt-20 inline-block bg-transparent hover:bg-white/10 text-white border border-brand-teal hover:border-brand-teal/80 rounded-full font-sans font-semibold px-8 py-3 tracking-wide uppercase text-sm transition-all duration-300 animate-border-glow hover:[box-shadow:0_0_18px_rgba(76,168,181,0.6)] focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2"
         >
           {t(hero.cta)}
         </motion.a>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 hidden md:flex flex-col items-center gap-2"
-        initial={reducedMotion ? { opacity: 1 } : { opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={reducedMotion ? undefined : { delay: 1.5, duration: 0.8 }}
-      >
-        <span className="font-sans text-[10px] tracking-[0.2em] uppercase text-white/40">
-          {tl.hero.scroll}
-        </span>
-        <motion.span
-          className="block w-px h-8 bg-white/30 origin-top"
-          initial={reducedMotion ? undefined : { scaleY: 0 }}
-          animate={reducedMotion ? undefined : { scaleY: [0, 1, 0] }}
-          transition={
-            reducedMotion
-              ? undefined
-              : {
-                  duration: 2,
-                  repeat: Infinity,
-                  repeatDelay: 0.5,
-                  ease: "easeInOut",
-                  delay: 1.8,
-                }
-          }
-        />
-      </motion.div>
 
       {/* Video pause button */}
       {hero.video && (

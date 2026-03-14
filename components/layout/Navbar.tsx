@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X } from "lucide-react";
+import { Menu, X, BedDouble, Sparkles, Compass, Tag, Camera, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/lib/language-context";
@@ -25,12 +25,12 @@ export function Navbar() {
   const { tl } = useLanguage();
 
   const links = [
-    { label: tl.nav.rooms, href: "#rooms" },
-    { label: tl.nav.amenities, href: "#amenities" },
-    { label: tl.nav.experiences, href: "#experiences" },
-    { label: tl.nav.offers, href: "#offers" },
-    { label: tl.nav.gallery, href: "#gallery" },
-    { label: tl.nav.contact, href: "#contact" },
+    { label: tl.nav.rooms, href: "#rooms", icon: BedDouble },
+    { label: tl.nav.amenities, href: "#amenities", icon: Sparkles },
+    { label: tl.nav.experiences, href: "#experiences", icon: Compass },
+    { label: tl.nav.offers, href: "#offers", icon: Tag },
+    { label: tl.nav.gallery, href: "#gallery", icon: Camera },
+    { label: tl.nav.contact, href: "#contact", icon: Phone },
   ];
 
   useEffect(() => {
@@ -142,7 +142,7 @@ export function Navbar() {
                 href="https://secure.guestpro.net/odch"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="whitespace-nowrap shrink-0 font-sans text-xs font-semibold text-charcoal bg-transparent hover:bg-brand-teal/10 border border-brand-teal rounded-sm px-5 py-2 tracking-wide uppercase transition-all duration-200"
+                className="whitespace-nowrap shrink-0 font-sans text-xs font-semibold text-charcoal bg-transparent hover:bg-brand-teal/10 border border-brand-teal rounded-full px-5 py-2 tracking-wide transition-all duration-200"
               >
                 {tl.nav.bookNow}
               </a>
@@ -151,15 +151,15 @@ export function Navbar() {
 
           {/* Mobile right side — language selector + hamburger */}
           <div className="lg:hidden flex items-center gap-4">
-            <LanguageSelector
-              variant={scrolled ? "dark" : "light"}
-            />
+            <div className={cn("transition-all duration-500", scrolled ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none")}>
+              <LanguageSelector variant="dark" />
+            </div>
             <button
               className={cn(
                 "p-2 focus-visible:ring-2 focus-visible:ring-brand-teal transition-all duration-300",
                 scrolled
-                  ? "text-charcoal"
-                  : "text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]"
+                  ? "text-charcoal opacity-100"
+                  : "text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)] opacity-30"
               )}
               aria-label="Open menu"
               onClick={() => setMenuOpen(true)}
@@ -222,12 +222,13 @@ export function Navbar() {
                     href={link.href}
                     onClick={closeMenu}
                     className={cn(
-                      "block py-5 font-serif text-2xl font-semibold tracking-wide transition-colors duration-200",
+                      "flex items-center justify-center gap-3 py-5 font-serif text-2xl font-semibold tracking-wide transition-colors duration-200",
                       activeSection === link.href.replace("#", "")
                         ? "text-black"
                         : "text-charcoal/70 hover:text-black"
                     )}
                   >
+                    <link.icon size={20} strokeWidth={1.5} className="text-brand-teal shrink-0" />
                     {link.label}
                   </a>
                   <div className="h-px bg-charcoal/10" />
@@ -238,14 +239,14 @@ export function Navbar() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.3, delay: 0.45 }}
-                className="mt-16"
+                className="mt-24"
               >
                 <a
                   href="https://secure.guestpro.net/odch"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={closeMenu}
-                  className="inline-block text-charcoal border border-brand-teal rounded-sm font-sans font-semibold text-sm px-8 py-3 tracking-widest uppercase transition-all duration-200 hover:bg-brand-teal/10"
+                  className="inline-block text-charcoal border border-brand-teal rounded-full font-sans font-semibold text-sm px-8 py-3 tracking-widest transition-all duration-200 hover:bg-brand-teal/10 hover:scale-[1.04] active:scale-[0.97] animate-border-glow hover:[box-shadow:0_0_18px_rgba(76,168,181,0.6)]"
                 >
                   {tl.nav.bookNow}
                 </a>

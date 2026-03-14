@@ -54,12 +54,14 @@ export function SpecialOffers({ data }: SpecialOffersProps) {
                     {t(offer.price)}
                   </p>
                   <div className="mt-6">
-                    <PrimaryButton
+                    <a
                       href="https://secure.guestpro.net/odch"
-                      external
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block bg-transparent border border-brand-teal text-brand-teal hover:bg-brand-teal hover:text-white hover:scale-[1.04] active:scale-[0.97] font-sans font-semibold px-5 py-2 rounded-full tracking-wide uppercase text-xs transition-all duration-300"
                     >
                       {tl.offers.bookThisOffer}
-                    </PrimaryButton>
+                    </a>
                   </div>
                 </div>
               </div>
