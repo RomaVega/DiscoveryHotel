@@ -127,7 +127,7 @@ export function HeroImage({ hero }: HeroImageProps) {
               <span className="absolute right-full top-1/2 -translate-y-1/2 mr-3 block h-px w-8 bg-white/30" />
               <motion.div
                 {...fadeUp(0.65)}
-                className="mt-2 flex justify-between text-amber-400 text-sm md:text-base translate-x-[1px] pr-[0.34rem] md:pr-[0.45rem] lg:pr-[0.56rem]"
+                className="mt-2 flex justify-between text-sm md:text-base translate-x-[1px] pr-[0.34rem] md:pr-[0.45rem] lg:pr-[0.56rem]" style={{ color: "#C9A84C" }}
               >
                 {"★ ★ ★ ★".split(" ").map((star, i) => (
                   <span key={i}>{star}</span>
@@ -160,7 +160,7 @@ export function HeroImage({ hero }: HeroImageProps) {
           href={hero.ctaHref}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-24 md:mt-20 inline-block bg-transparent hover:bg-white/10 text-white border border-brand-teal hover:border-brand-teal/80 rounded-full font-sans font-semibold px-8 py-3 tracking-wide uppercase text-sm transition-all duration-300 animate-border-glow hover:[box-shadow:0_0_18px_rgba(76,168,181,0.6)] focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2"
+          className="mt-24 md:mt-20 inline-block bg-transparent hover:bg-white/10 text-white border border-white/60 hover:border-white rounded-full font-sans font-light px-10 py-3.5 tracking-[0.25em] uppercase text-xs transition-all duration-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2"
         >
           {t(hero.cta)}
         </motion.a>

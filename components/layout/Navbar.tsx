@@ -95,18 +95,20 @@ export function Navbar() {
             <Image
               src="/images/logo/logo-dark.svg"
               alt="Orlowsky Discovery Hotel"
-              width={36}
-              height={36}
+              width={44}
+              height={44}
               unoptimized
               className="object-contain shrink-0"
             />
-            <span className="font-serif text-lg font-semibold text-black tracking-wide uppercase whitespace-nowrap">
-              Orlowsky Discovery
+            <span className="font-serif font-semibold text-black tracking-wide uppercase leading-tight flex flex-col items-center lg:flex-row lg:items-baseline">
+              <span className="text-lg text-black lg:hidden">Orlowsky</span>
+              <span className="text-lg text-black lg:hidden">Discovery Candidasa</span>
+              <span className="hidden text-base text-black lg:inline">Orlowsky Discovery Candidasa</span>
             </span>
           </Link>
 
           {/* Desktop navigation */}
-          <ul className="hidden lg:flex items-center gap-5 xl:gap-8">
+          <ul className="hidden lg:flex items-center gap-4 xl:gap-6">
             {links.map((link) => (
               <li key={link.href}>
                 <a
@@ -159,7 +161,7 @@ export function Navbar() {
                 "p-2 focus-visible:ring-2 focus-visible:ring-brand-teal transition-all duration-300",
                 scrolled
                   ? "text-charcoal opacity-100"
-                  : "text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)] opacity-30"
+                  : "text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)] opacity-40"
               )}
               aria-label="Open menu"
               onClick={() => setMenuOpen(true)}
@@ -181,18 +183,19 @@ export function Navbar() {
             transition={{ duration: 0.35, ease: "easeInOut" }}
           >
             {/* Header row — logo + close only */}
-            <div className="flex items-center justify-between px-6 py-4 border-b border-charcoal/10">
-              <div className="flex items-center gap-3">
+            <div className="flex items-center justify-between px-6 py-3 border-b border-charcoal/10">
+              <div className="flex items-center gap-2">
                 <Image
                   src="/images/logo/logo-dark.svg"
                   alt="Orlowsky Discovery Hotel"
-                  width={36}
-                  height={36}
+                  width={44}
+                  height={44}
                   unoptimized
-                  className="object-contain"
+                  className="object-contain shrink-0"
                 />
-                <span className="font-serif text-lg font-semibold text-black tracking-wide uppercase">
-                  Orlowsky Discovery
+                <span className="font-serif font-semibold text-black tracking-wide uppercase leading-tight flex flex-col items-center">
+                  <span className="text-lg text-black">Orlowsky</span>
+                  <span className="text-lg text-black">Discovery Candidasa</span>
                 </span>
               </div>
               <button
@@ -246,7 +249,7 @@ export function Navbar() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={closeMenu}
-                  className="inline-block text-charcoal border border-brand-teal rounded-full font-sans font-semibold text-sm px-8 py-3 tracking-widest transition-all duration-200 hover:bg-brand-teal/10 hover:scale-[1.04] active:scale-[0.97] animate-border-glow hover:[box-shadow:0_0_18px_rgba(76,168,181,0.6)]"
+                  className="inline-block text-charcoal border border-brand-teal rounded-full font-sans font-semibold text-sm px-8 py-3 tracking-widest transition-all duration-200 hover:bg-brand-teal/10 hover:scale-[1.04] active:scale-[0.97]"
                 >
                   {tl.nav.bookNow}
                 </a>

@@ -28,7 +28,7 @@ const iconMap: Record<string, LucideIcon> = {
   Pipette, CupSoda, Newspaper, ConciergeBell,
 };
 
-const VISIBLE_COUNT = 6;
+const VISIBLE_COUNT = 15;
 
 interface AmenitiesProps {
   data: AmenitiesData;

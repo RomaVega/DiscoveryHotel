@@ -6,8 +6,10 @@ import { motion, AnimatePresence } from "framer-motion";
 
 export function LoadingScreen() {
   const [visible, setVisible] = useState(true);
+  const [startAngle, setStartAngle] = useState<number | null>(null);
 
   useEffect(() => {
+    setStartAngle(Math.floor(Math.random() * 360));
     history.scrollRestoration = "manual";
 
     let savedY = 0;
@@ -47,24 +49,46 @@ export function LoadingScreen() {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.9, ease: "easeInOut" }}
         >
-          <div id="loading-logo" className="text-center">
+          <div id="loading-logo" className="relative flex items-center justify-center" style={{ width: 280, height: 280 }}>
+            {/* Logo centered */}
             <Image
               src="/images/logo/logo-dark.svg"
               alt="Orlowsky Discovery Candidasa Hotel"
-              width={200}
+              width={120}
               height={120}
               priority
               unoptimized
-              className="mx-auto"
+              className="relative z-10"
             />
 
-            {/* Animated teal line */}
-            <motion.div
-              className="mt-6 h-[3px] bg-brand-teal mx-auto origin-left"
-              initial={{ scaleX: 0, width: 80 }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 0.9, delay: 0.3, ease: "easeInOut" }}
-            />
+            {/* Circular progress ring — only mount after random angle is ready */}
+            {startAngle !== null && <motion.svg
+              className="absolute inset-0"
+              width={280}
+              height={280}
+              viewBox="0 0 280 280"
+              aria-hidden="true"
+              initial={{ opacity: 0, rotate: startAngle ?? 0 }}
+              animate={{ opacity: 1, rotate: (startAngle ?? 0) + 360 }}
+              transition={{
+                opacity: { duration: 0.5, delay: 0.3 },
+                rotate: { duration: 1.6, ease: "linear", repeat: Infinity, repeatDelay: 0 },
+              }}
+              style={{ originX: "140px", originY: "140px" }}
+            >
+              {/* Fixed partial arc — ~12% of circumference */}
+              <circle
+                cx={140}
+                cy={140}
+                r={125}
+                fill="none"
+                stroke="#4ca8b5"
+                strokeWidth={1.5}
+                strokeLinecap="round"
+                strokeDasharray={`${2 * Math.PI * 125 * 0.12} ${2 * Math.PI * 125 * 0.88}`}
+                transform="rotate(-90 140 140)"
+              />
+            </motion.svg>}
           </div>
         </motion.div>
       )}

@@ -82,8 +82,8 @@ export function LanguageSelector({ variant = "dark" }: LanguageSelectorProps) {
         aria-expanded={open}
         aria-haspopup="menu"
         className={cn(
-          "group relative flex items-center gap-1.5 py-1.5 px-3 rounded-full transition-all duration-200",
-          "font-sans text-[11px] font-semibold tracking-[0.16em] uppercase",
+          "group relative flex items-center gap-1 py-1 px-2 md:py-1.5 md:px-3 rounded-full transition-all duration-200",
+          "font-sans text-[10px] md:text-[11px] font-semibold tracking-[0.16em] uppercase",
           "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2",
           isLight
             ? "text-white/80 hover:text-white hover:bg-white/10 border border-white/20 hover:border-white/35"
@@ -93,7 +93,7 @@ export function LanguageSelector({ variant = "dark" }: LanguageSelectorProps) {
         <Globe
           size={13}
           strokeWidth={1.8}
-          className="opacity-70 group-hover:opacity-100 transition-opacity duration-200"
+          className="hidden md:block opacity-70 group-hover:opacity-100 transition-opacity duration-200"
         />
         <span>{current.label}</span>
         <motion.svg
