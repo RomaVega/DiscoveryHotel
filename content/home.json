@@ -3,6 +3,7 @@
     "titleLine1": "Orlowsky",
     "titleLine2": "Discovery Candidasa",
     "titleLine3": "Hotel",
+    "titleLine4": "Bali",
     "subtitle": {
       "en": "Cottages & Villas · Candidasa, East Bali",
       "ru": "Коттеджи и виллы · Кандидаса, Восточный Бали"
@@ -106,7 +107,7 @@
       { "icon": "Map", "title": "Tour Organisation", "description": "" },
       { "icon": "Bus", "title": "Transport Service", "description": "" },
       { "icon": "Package", "title": "Minibar", "description": "" },
-      { "icon": "Hand", "title": "Massage", "description": "" },
+      { "icon": "Hand", "title": "Massage", "description": "", "hideMobile": true },
       { "icon": "ConciergeBell", "title": "Room Service", "description": "" },
       { "icon": "Tv", "title": "Smart TV", "description": "" }
     ]

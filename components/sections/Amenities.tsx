@@ -53,11 +53,18 @@ export function Amenities({ data }: AmenitiesProps) {
         </FadeIn>
 
         <div className="relative">
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 md:gap-4">
+          {/* On mobile: overflow-hidden + max-h clips to 3.5 rows (6 full + 2 half-visible).
+              ~380px ≈ 3×(card ~97px) + 3×(gap 12px) + half-row 49px. Tune if card heights change. */}
+          <div
+            className={[
+              "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 md:gap-4",
+              !expanded ? "overflow-hidden max-h-[358px] sm:max-h-none sm:overflow-visible" : "",
+            ].join(" ")}
+          >
             {visibleItems.map((item, i) => {
               const Icon = iconMap[item.icon];
               return (
-                <FadeIn key={i} delay={Math.min(i, 5) * 0.07}>
+                <FadeIn key={i} delay={Math.min(i, 5) * 0.07} className={item.hideMobile ? "hidden sm:block" : undefined}>
                   <div className="flex flex-col items-center text-center bg-ivory/60 border border-charcoal/5 px-3 py-5 rounded-sm">
                     {Icon && (
                       <Icon size={22} strokeWidth={1.3} className="text-brand-teal mb-3" />
@@ -71,9 +78,20 @@ export function Amenities({ data }: AmenitiesProps) {
             })}
           </div>
 
-          {/* Gradient mask when collapsed */}
+          {/* Mobile peek gradient — starts at row 4 only, light fade so items 7&8 stay 50%+ visible */}
           {!expanded && items.length > VISIBLE_COUNT && (
-            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-sand via-sand/80 to-transparent pointer-events-none" />
+            <div
+              className="sm:hidden absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-sand/80 via-sand/40 to-transparent pointer-events-none"
+              style={{
+                backdropFilter: "blur(1px)",
+                WebkitBackdropFilter: "blur(1px)",
+              }}
+            />
+          )}
+
+          {/* Desktop gradient mask when collapsed */}
+          {!expanded && items.length > VISIBLE_COUNT && (
+            <div className="hidden sm:block absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-sand via-sand/80 to-transparent pointer-events-none" />
           )}
         </div>
 
@@ -84,8 +102,13 @@ export function Amenities({ data }: AmenitiesProps) {
               onClick={() => {
                 const wasExpanded = expanded;
                 setExpanded((v) => !v);
-                if (wasExpanded) {
-                  setTimeout(() => sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 50);
+                if (wasExpanded && sectionRef.current) {
+                  setTimeout(() => {
+                    const navEl = document.querySelector("nav");
+                    const navHeight = navEl?.getBoundingClientRect().height ?? 72;
+                    const sectionTop = sectionRef.current!.getBoundingClientRect().top + window.scrollY;
+                    window.scrollTo({ top: sectionTop - navHeight, behavior: "smooth" });
+                  }, 50);
                 }
               }}
               className="inline-block bg-transparent border border-brand-teal text-brand-teal hover:border-deep-teal hover:text-deep-teal hover:scale-[1.04] active:scale-[0.97] font-sans font-semibold px-8 py-3 rounded-full tracking-wide uppercase text-xs transition-all duration-300"

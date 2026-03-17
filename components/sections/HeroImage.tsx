@@ -1,6 +1,6 @@
 "use client"; // Uses framer-motion for hero animation and video element
 
-import { useState, useRef } from "react";
+import { useState, useRef, useLayoutEffect, useEffect } from "react";
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { Pause, Play } from "lucide-react";
@@ -13,9 +13,40 @@ interface HeroImageProps {
 
 export function HeroImage({ hero }: HeroImageProps) {
   const [paused, setPaused] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
   const videoRef = useRef<HTMLVideoElement>(null);
   const reducedMotion = useReducedMotion();
   const { t, tl } = useLanguage();
+
+
+  const line1Ref = useRef<HTMLSpanElement>(null);
+  const line2Ref = useRef<HTMLSpanElement>(null);
+  const line3Ref = useRef<HTMLSpanElement>(null);
+
+  // Measure all title lines, find the widest, then stretch the narrower ones via letter-spacing.
+  useLayoutEffect(() => {
+    const sync = () => {
+      // Reset all including line3 to clear any residual inline style
+      [line1Ref, line2Ref, line3Ref].forEach(r => { if (r.current) r.current.style.letterSpacing = ""; });
+      const refs = [line1Ref, line2Ref].map(r => r.current).filter(Boolean) as HTMLSpanElement[];
+      const widths = refs.map(el => el.getBoundingClientRect().width);
+      const max = Math.max(...widths);
+      refs.forEach((el, i) => {
+        const diff = max - widths[i];
+        const chars = (el.textContent ?? "").length;
+        if (diff > 0 && chars > 0) el.style.letterSpacing = `${diff / chars}px`;
+      });
+    };
+    sync();
+    window.addEventListener("resize", sync);
+    return () => window.removeEventListener("resize", sync);
+  }, []);
 
   const fadeUp = (delay: number) =>
     reducedMotion
@@ -85,7 +116,11 @@ export function HeroImage({ hero }: HeroImageProps) {
       <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/50" />
 
       {/* Content */}
-      <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center text-white">
+      <motion.div
+        className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center text-white"
+        animate={{ opacity: scrolled ? 0 : 1 }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
+      >
         {/* Logo */}
         <motion.div {...fadeUp(0.2)}>
           <Image
@@ -102,17 +137,26 @@ export function HeroImage({ hero }: HeroImageProps) {
         <h1 className="font-serif text-shadow-strong text-center">
           <motion.span
             {...fadeUp(0.3)}
-            className="block text-3xl md:text-3xl tracking-[0.25em] uppercase font-light"
+            className="block text-[2.25rem] md:text-[3rem] lg:text-[3.75rem] tracking-[0.22em] uppercase font-light leading-none"
           >
-            {hero.titleLine1}
+            <span ref={line1Ref}>{hero.titleLine1}</span>
           </motion.span>
 
           <motion.span
             {...fadeUp(0.45)}
-            className="block text-5xl md:text-5xl lg:text-7xl italic font-light mt-5 md:mt-3 leading-tight"
+            className="block text-[2.625rem] md:text-[3.25rem] lg:text-[4rem] italic font-light mt-3 md:mt-4 leading-snug"
           >
-            {hero.titleLine2}
+            <span ref={line2Ref}>{hero.titleLine2}</span>
           </motion.span>
+
+          {hero.titleLine4 && (
+            <motion.span
+              {...fadeUp(0.55)}
+              className="block text-[2.625rem] md:text-[3.25rem] lg:text-[4rem] italic font-light mt-1 md:mt-2 leading-snug"
+            >
+              <span ref={line3Ref}>{hero.titleLine4}</span>
+            </motion.span>
+          )}
 
           <div className="w-fit mx-auto mt-12 md:mt-14">
             <motion.span
@@ -164,7 +208,7 @@ export function HeroImage({ hero }: HeroImageProps) {
         >
           {t(hero.cta)}
         </motion.a>
-      </div>
+      </motion.div>
 
 
       {/* Video pause button */}

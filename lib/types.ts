@@ -11,6 +11,7 @@ export interface HeroData {
   titleLine1: string;
   titleLine2: string;
   titleLine3: string;
+  titleLine4?: string;
   subtitle: LocalizedString;
   cta: LocalizedString;
   ctaHref: string;
@@ -46,6 +47,7 @@ export interface Amenity {
   icon: string;
   title: LocalizedString;
   description: LocalizedString;
+  hideMobile?: boolean;
 }
 
 export interface AmenitiesData {

@@ -11,7 +11,14 @@ import { SpecialOffers } from "@/components/sections/SpecialOffers";
 import { GalleryPreview } from "@/components/sections/GalleryPreview";
 import { BookingCta } from "@/components/sections/BookingCta";
 import { MapLocation } from "@/components/sections/MapLocation";
-import { WaveDivider } from "@/components/common/WaveDivider";
+import { ScrollDivider } from "@/components/common/ScrollDivider";
+
+// Design token colors (mirrors globals.css @theme)
+const C = {
+  sand:     "#f5f0e8",
+  ivory:    "#faf8f4",
+  deepTeal: "#2a6b74",
+};
 
 export default function HomePage() {
   const data = getHomePageData();
@@ -22,22 +29,20 @@ export default function HomePage() {
       <Navbar />
       <main id="main-content">
         <HeroImage hero={data.hero} />
+        <ScrollDivider above={C.sand}     below={C.sand}     />
         <Welcome data={data.welcome} />
-        <WaveDivider from="fill-sand" to="fill-ivory" />
+        <ScrollDivider above={C.sand}     below={C.ivory}    />
         <RoomsPreview data={data.roomsPreview} />
-        <WaveDivider from="fill-ivory" to="fill-sand" />
+        <ScrollDivider above={C.ivory}    below={C.sand}     />
         <Amenities data={data.amenities} />
-        <WaveDivider from="fill-sand" to="fill-ivory" />
+        <ScrollDivider above={C.sand}     below={C.ivory}    />
         <Experiences data={data.experiences} />
-        <WaveDivider from="fill-ivory" to="fill-sand" />
+        <ScrollDivider above={C.ivory}    below={C.sand}     />
         <SpecialOffers data={data.offers} />
-        <WaveDivider from="fill-sand" to="fill-ivory" />
+        <ScrollDivider above={C.sand}     below={C.ivory}    />
         <GalleryPreview data={data.galleryPreview} />
-        <WaveDivider from="fill-ivory" to="fill-deep-teal" />
         <BookingCta data={data.bookingCta} />
-        <WaveDivider from="fill-deep-teal" to="fill-sand" />
         <MapLocation contact={contact} />
-        <WaveDivider from="fill-sand" to="fill-deep-teal" />
       </main>
       <Footer contact={contact} />
       <WhatsAppButton

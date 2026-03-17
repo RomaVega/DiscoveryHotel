@@ -116,8 +116,13 @@ export function GalleryPreview({ data }: GalleryPreviewProps) {
               onClick={() => {
                 const wasExpanded = expanded;
                 setExpanded(!expanded);
-                if (wasExpanded) {
-                  setTimeout(() => sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 50);
+                if (wasExpanded && sectionRef.current) {
+                  setTimeout(() => {
+                    const navEl = document.querySelector("nav");
+                    const navHeight = navEl?.getBoundingClientRect().height ?? 72;
+                    const sectionTop = sectionRef.current!.getBoundingClientRect().top + window.scrollY;
+                    window.scrollTo({ top: sectionTop - navHeight, behavior: "smooth" });
+                  }, 50);
                 }
               }}
               className="inline-block bg-transparent border border-brand-teal text-brand-teal hover:border-deep-teal hover:text-deep-teal hover:scale-[1.04] active:scale-[0.97] font-sans font-semibold px-5 py-2 rounded-full tracking-wide uppercase text-xs transition-all duration-300"
