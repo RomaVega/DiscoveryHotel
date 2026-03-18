@@ -39,6 +39,7 @@ export function RoomsPreview({ data }: RoomsPreviewProps) {
                     src={room.image}
                     alt={room.imageAlt}
                     fill
+                    quality={90}
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover"
                   />

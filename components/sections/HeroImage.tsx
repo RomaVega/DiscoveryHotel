@@ -84,7 +84,7 @@ export function HeroImage({ hero }: HeroImageProps) {
   };
 
   return (
-    <section className="relative h-[92vh] md:h-[105vh] w-full overflow-hidden">
+    <section className="relative h-dvh md:h-[105vh] w-full overflow-hidden bg-black">
       {hero.video ? (
         <video
           ref={videoRef}
@@ -222,7 +222,7 @@ export function HeroImage({ hero }: HeroImageProps) {
           href={hero.ctaHref}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-24 md:mt-20 inline-block bg-transparent hover:bg-white/10 text-white border border-white/60 hover:border-white rounded-full font-sans font-light px-10 py-3.5 tracking-[0.25em] uppercase text-xs transition-all duration-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2"
+          className="mt-10 md:mt-20 inline-block bg-transparent hover:bg-white/10 text-white border border-white/60 hover:border-white rounded-full font-sans font-light px-10 py-3.5 tracking-[0.25em] uppercase text-xs transition-all duration-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2"
         >
           {t(hero.cta)}
         </motion.a>
@@ -232,7 +232,7 @@ export function HeroImage({ hero }: HeroImageProps) {
       {/* Scroll indicator */}
       {!scrolled && (
         <motion.div
-          className="absolute bottom-20 left-1/2 -translate-x-1/2 z-10"
+          className="absolute bottom-10 md:bottom-20 left-1/2 -translate-x-1/2 z-10"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, y: [0, 8, 0] }}
           transition={{
@@ -251,7 +251,7 @@ export function HeroImage({ hero }: HeroImageProps) {
         <button
           onClick={toggleVideo}
           aria-label={paused ? tl.hero.playVideo : tl.hero.pauseVideo}
-          className="absolute bottom-8 right-8 z-10 flex items-center justify-center w-10 h-10 rounded-full bg-black/30 backdrop-blur-sm text-white/70 hover:text-white hover:bg-black/50 transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-brand-teal"
+          className="absolute bottom-12 right-4 md:bottom-8 md:right-8 z-10 flex items-center justify-center w-10 h-10 rounded-full bg-black/30 backdrop-blur-sm text-white/70 hover:text-white hover:bg-black/50 transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-brand-teal"
         >
           {paused ? <Play size={18} /> : <Pause size={18} />}
         </button>

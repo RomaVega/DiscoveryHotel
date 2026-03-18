@@ -100,9 +100,9 @@ export function Navbar() {
               unoptimized
               className="object-contain shrink-0"
             />
-            <span className="font-serif font-semibold text-black tracking-wide uppercase leading-tight flex flex-col items-center lg:flex-row lg:items-baseline">
-              <span className="text-lg text-black lg:hidden">Orlowsky</span>
-              <span className="text-lg text-black lg:hidden">Discovery Candidasa</span>
+            <span className="font-serif font-semibold text-black tracking-wide uppercase leading-tight flex flex-col items-start lg:flex-row lg:items-baseline">
+              <span className="text-sm text-black lg:hidden">Orlowsky</span>
+              <span className="text-sm text-black lg:hidden">Discovery Candidasa</span>
               <span className="hidden text-base text-black lg:inline">Orlowsky Discovery Candidasa</span>
             </span>
           </Link>
@@ -193,9 +193,9 @@ export function Navbar() {
                   unoptimized
                   className="object-contain shrink-0"
                 />
-                <span className="font-serif font-semibold text-black tracking-wide uppercase leading-tight flex flex-col items-center">
-                  <span className="text-lg text-black">Orlowsky</span>
-                  <span className="text-lg text-black">Discovery Candidasa</span>
+                <span className="font-serif font-semibold text-black tracking-wide uppercase leading-tight flex flex-col items-start">
+                  <span className="text-sm text-black">Orlowsky</span>
+                  <span className="text-sm text-black">Discovery Candidasa</span>
                 </span>
               </div>
               <button
