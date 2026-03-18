@@ -37,14 +37,14 @@ export function SpecialOffers({ data }: SpecialOffersProps) {
                     alt={offer.imageAlt}
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                    className="object-cover"
                   />
                 </div>
                 <div className="p-5 md:p-8 flex flex-col flex-1">
                   <span className="font-sans text-[11px] font-medium uppercase tracking-[0.2em] text-brand-teal mb-3">
                     {tl.offers.specialOffer}
                   </span>
-                  <h3 className="font-serif text-2xl font-light text-charcoal">
+                  <h3 className="font-serif text-2xl font-semibold text-charcoal">
                     {t(offer.title)}
                   </h3>
                   <p className="mt-2 text-stone leading-relaxed flex-1">

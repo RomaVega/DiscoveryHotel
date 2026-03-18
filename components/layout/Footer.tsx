@@ -67,10 +67,10 @@ export function Footer({ contact }: FooterProps) {
             <h3 className="font-serif text-xl sm:text-2xl font-semibold tracking-[0.15em] uppercase text-charcoal flex flex-col items-center">
               <span>Orlowsky</span>
               <span>Discovery Candidasa</span>
-              <span>Hotel</span>
+              <span className="mt-3">Hotel</span>
             </h3>
           </Link>
-          <div className="flex items-center gap-2.5 mt-4 sm:mt-5" style={{ color: "#C9A84C" }}>
+          <div className="flex items-center gap-2.5 mt-1.5" style={{ color: "#C9A84C" }}>
             <span className="block h-px w-6 sm:w-8 bg-charcoal/15" />
             {Array.from({ length: contact.stars }).map((_, i) => (
               <span key={i} className="text-base">
@@ -233,7 +233,6 @@ export function Footer({ contact }: FooterProps) {
               ))}
             </ul>
           </div>
-
         </div>
 
         {/* Payment note — Russian locale only */}

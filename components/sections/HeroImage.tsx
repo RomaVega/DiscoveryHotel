@@ -75,7 +75,7 @@ export function HeroImage({ hero }: HeroImageProps) {
   };
 
   return (
-    <section className="relative h-[92vh] w-full overflow-hidden">
+    <section className="relative h-[92vh] md:h-[105vh] w-full overflow-hidden">
       {hero.video ? (
         <video
           ref={videoRef}
@@ -210,6 +210,23 @@ export function HeroImage({ hero }: HeroImageProps) {
         </motion.a>
       </motion.div>
 
+
+      {/* Scroll indicator */}
+      {!scrolled && (
+        <motion.div
+          className="absolute bottom-20 left-1/2 -translate-x-1/2 z-10"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, y: [0, 8, 0] }}
+          transition={{
+            opacity: { delay: 1.8, duration: 0.8 },
+            y: { delay: 1.8, duration: 1.6, ease: "easeInOut", repeat: Infinity, repeatDelay: 0.4 },
+          }}
+        >
+          <svg width="28" height="16" viewBox="0 0 28 16" fill="none" aria-hidden="true">
+            <polyline points="2,2 14,13 26,2" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.7" />
+          </svg>
+        </motion.div>
+      )}
 
       {/* Video pause button */}
       {hero.video && (

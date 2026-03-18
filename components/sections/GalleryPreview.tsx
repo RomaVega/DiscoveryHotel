@@ -1,4 +1,4 @@
-"use client"; // Uses lightbox state and keyboard navigation
+"use client"; // Uses lightbox state, keyboard navigation, and touch swipe
 
 import { useState, useCallback, useEffect, useRef } from "react";
 import Image from "next/image";
@@ -16,46 +16,48 @@ interface GalleryPreviewProps {
 
 export function GalleryPreview({ data }: GalleryPreviewProps) {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [direction, setDirection] = useState(0); // -1 = left, 1 = right
   const [expanded, setExpanded] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const { t, tl } = useLanguage();
 
   const total = data.images.length;
-  const openLightbox = (index: number) => setLightboxIndex(index);
+  const openLightbox = (index: number) => { setDirection(0); setLightboxIndex(index); };
   const closeLightbox = () => setLightboxIndex(null);
 
-  // Stable callbacks for prev/next buttons — use functional update to avoid stale closure
-  const goNext = useCallback(
-    () => setLightboxIndex((i) => (i !== null ? (i + 1) % total : null)),
-    [total]
-  );
-  const goPrev = useCallback(
-    () => setLightboxIndex((i) => (i !== null ? (i - 1 + total) % total : null)),
-    [total]
-  );
+  const goNext = useCallback(() => {
+    setDirection(1);
+    setLightboxIndex((i) => (i !== null ? (i + 1) % total : null));
+  }, [total]);
 
-  // Keyboard navigation — uses functional update directly, no dependency on goNext/goPrev
+  const goPrev = useCallback(() => {
+    setDirection(-1);
+    setLightboxIndex((i) => (i !== null ? (i - 1 + total) % total : null));
+  }, [total]);
+
+  // Keyboard navigation
   useEffect(() => {
     if (lightboxIndex === null) return;
-
     const handleKey = (e: KeyboardEvent) => {
-      if (e.key === "ArrowRight")
-        setLightboxIndex((i) => (i !== null ? (i + 1) % total : null));
-      if (e.key === "ArrowLeft")
-        setLightboxIndex((i) => (i !== null ? (i - 1 + total) % total : null));
+      if (e.key === "ArrowRight") goNext();
+      if (e.key === "ArrowLeft") goPrev();
       if (e.key === "Escape") setLightboxIndex(null);
     };
     window.addEventListener("keydown", handleKey);
     document.body.style.overflow = "hidden";
-
     return () => {
       window.removeEventListener("keydown", handleKey);
       document.body.style.overflow = "";
     };
-  }, [lightboxIndex, total]);
+  }, [lightboxIndex, goNext, goPrev]);
 
-  const currentImage =
-    lightboxIndex !== null ? data.images[lightboxIndex] : null;
+  const currentImage = lightboxIndex !== null ? data.images[lightboxIndex] : null;
+
+  const slideVariants = {
+    enter: (d: number) => ({ x: d * 60, opacity: 0 }),
+    center: { x: 0, opacity: 1 },
+    exit: (d: number) => ({ x: d * -60, opacity: 0 }),
+  };
 
   return (
     <section id="gallery" ref={sectionRef} className="pt-12 md:pt-32 pb-12 md:pb-32 bg-ivory">
@@ -103,8 +105,7 @@ export function GalleryPreview({ data }: GalleryPreviewProps) {
                 backdropFilter: "blur(2px)",
                 WebkitBackdropFilter: "blur(2px)",
                 maskImage: "linear-gradient(to top, black 40%, transparent 100%)",
-                WebkitMaskImage:
-                  "linear-gradient(to top, black 40%, transparent 100%)",
+                WebkitMaskImage: "linear-gradient(to top, black 40%, transparent 100%)",
               }}
             />
           )}
@@ -133,7 +134,7 @@ export function GalleryPreview({ data }: GalleryPreviewProps) {
         </FadeIn>
       </div>
 
-      {/* Compact Lightbox */}
+      {/* Lightbox */}
       <AnimatePresence>
         {lightboxIndex !== null && currentImage && (
           <motion.div
@@ -146,7 +147,7 @@ export function GalleryPreview({ data }: GalleryPreviewProps) {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
-            {/* Backdrop with blur */}
+            {/* Backdrop */}
             <motion.div
               className="absolute inset-0 bg-black/60 backdrop-blur-md"
               onClick={closeLightbox}
@@ -163,23 +164,33 @@ export function GalleryPreview({ data }: GalleryPreviewProps) {
               exit={{ opacity: 0, scale: 0.95, y: 10 }}
               transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
             >
-              {/* Image container */}
+              {/* Image container — swipeable on mobile */}
               <div className="relative aspect-[4/3] w-full overflow-hidden bg-black">
-                <AnimatePresence mode="wait">
+                <AnimatePresence mode="wait" custom={direction}>
                   <motion.div
                     key={lightboxIndex}
                     className="absolute inset-0"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.2 }}
+                    custom={direction}
+                    variants={slideVariants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
+                    drag="x"
+                    dragConstraints={{ left: 0, right: 0 }}
+                    dragElastic={0.15}
+                    onDragEnd={(_e, info) => {
+                      if (info.offset.x < -50) goNext();
+                      else if (info.offset.x > 50) goPrev();
+                    }}
                   >
                     <Image
                       src={currentImage.src}
                       alt={currentImage.alt}
                       fill
                       sizes="(max-width: 512px) 90vw, 512px"
-                      className="object-cover"
+                      className="object-cover pointer-events-none"
+                      draggable={false}
                     />
                   </motion.div>
                 </AnimatePresence>
@@ -194,11 +205,9 @@ export function GalleryPreview({ data }: GalleryPreviewProps) {
                 >
                   <ChevronLeft size={20} />
                 </button>
-
                 <span className="font-sans text-xs tracking-[0.15em] text-white/40 uppercase">
                   {lightboxIndex + 1} / {total}
                 </span>
-
                 <button
                   onClick={goNext}
                   aria-label={tl.gallery.nextImage}

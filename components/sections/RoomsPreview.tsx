@@ -44,10 +44,10 @@ export function RoomsPreview({ data }: RoomsPreviewProps) {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                    <h3 className="font-serif text-2xl font-light">
+                    <h3 className="font-serif text-2xl font-semibold drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]">
                       {t(room.title)}
                     </h3>
-                    <p className="mt-2 text-sm text-white/80 leading-relaxed">
+                    <p className="mt-2 text-sm text-white/95 leading-relaxed drop-shadow-[0_1px_6px_rgba(0,0,0,0.9)]">
                       {t(room.description)}
                     </p>
                     <span className="mt-4 inline-block border border-white/60 hover:border-white hover:scale-[1.04] active:scale-[0.97] text-white font-sans font-semibold px-6 py-2 rounded-full tracking-wide text-xs transition-all duration-300">

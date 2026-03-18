@@ -1,4 +1,4 @@
-"use client"; // Tracks scroll direction to animate SVG path morphing
+"use client"; // Tracks scroll direction and touch movement to animate SVG path morphing
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
@@ -25,33 +25,76 @@ export function ScrollDivider({ above, below }: ScrollDividerProps) {
   const lastY = useRef(0);
   const lastDir = useRef<"down" | "up" | "idle">("idle");
   const settleTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const touching = useRef(false);
+  const touchStartY = useRef(0);
 
   useEffect(() => {
     lastY.current = window.scrollY;
 
-    const onScroll = () => {
-      if (prefersReduced) return;
-      const y = window.scrollY;
-      const dir = y > lastY.current ? "down" : "up";
-      lastY.current = y;
-
-      // Skip setState if direction hasn't changed — avoids redundant re-renders
-      if (dir !== lastDir.current) {
-        lastDir.current = dir;
-        setPath(PATHS[dir]);
-      }
-
+    const clearSettle = () => {
       if (settleTimer.current) clearTimeout(settleTimer.current);
+    };
+
+    const scheduleSettle = () => {
+      clearSettle();
       settleTimer.current = setTimeout(() => {
         lastDir.current = "idle";
         setPath(PATHS.idle);
       }, 50);
     };
 
+    const applyDir = (dir: "down" | "up") => {
+      if (dir !== lastDir.current) {
+        lastDir.current = dir;
+        setPath(PATHS[dir]);
+      }
+    };
+
+    // Scroll (desktop + non-touch scroll)
+    const onScroll = () => {
+      if (prefersReduced || touching.current) return;
+      const y = window.scrollY;
+      const dir = y > lastY.current ? "down" : "up";
+      lastY.current = y;
+      applyDir(dir);
+      scheduleSettle();
+    };
+
+    // Touch — curve persists while finger is down, settles on lift
+    const onTouchStart = (e: TouchEvent) => {
+      if (prefersReduced) return;
+      touching.current = true;
+      touchStartY.current = e.touches[0].clientY;
+      clearSettle();
+    };
+
+    const onTouchMove = (e: TouchEvent) => {
+      if (prefersReduced) return;
+      const deltaY = touchStartY.current - e.touches[0].clientY;
+      const dir = deltaY > 0 ? "down" : "up";
+      applyDir(dir);
+      // No settle timer — curve holds while finger is on screen
+    };
+
+    const onTouchEnd = () => {
+      if (prefersReduced) return;
+      touching.current = false;
+      scheduleSettle();
+    };
+
     window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("touchstart", onTouchStart, { passive: true });
+    window.addEventListener("touchmove", onTouchMove, { passive: true });
+    window.addEventListener("touchend", onTouchEnd, { passive: true });
+    window.addEventListener("touchcancel", onTouchEnd, { passive: true });
+
     return () => {
       window.removeEventListener("scroll", onScroll);
-      if (settleTimer.current) clearTimeout(settleTimer.current);
+      window.removeEventListener("touchstart", onTouchStart);
+      window.removeEventListener("touchmove", onTouchMove);
+      window.removeEventListener("touchend", onTouchEnd);
+      window.removeEventListener("touchcancel", onTouchEnd);
+      clearSettle();
     };
   }, [prefersReduced]);
 

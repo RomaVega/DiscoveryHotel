@@ -53,12 +53,12 @@
           "ru": "Deluxe Cottage"
         },
         "description": {
-          "en": "Charming cottage with tropical garden views and modern Balinese comforts",
+          "en": "Charming cottage with tropical garden views",
           "ru": "Уютный коттедж с видом на тропический сад и современными балийскими удобствами"
         },
         "image": "/images/rooms/Deluxe Cottage.jpg",
         "imageAlt": "Deluxe Cottage at Orlowsky Discovery Hotel",
-        "href": "https://secure.guestpro.net/odch"
+        "href": "https://secure.guestpro.net/odch/room-type/9951a5c1-a10a-4a6c-abf8-585eaf574b16"
       },
       {
         "title": {
@@ -66,12 +66,12 @@
           "ru": "Three Bedrooms Pool Villa"
         },
         "description": {
-          "en": "Spacious private villa with three bedrooms and your own pool, perfect for families or groups",
-          "ru": "Просторная частная вилла с тремя спальнями и собственным бассейном — идеально для семей и компаний"
+          "en": "Spacious villa with three bedrooms and your own pool",
+          "ru": "Просторная вилла с тремя спальнями и собственным бассейном."
         },
         "image": "/images/rooms/Pool Villa.jpg",
         "imageAlt": "Three Bedrooms Pool Villa at Orlowsky Discovery Hotel",
-        "href": "https://secure.guestpro.net/odch"
+        "href": "https://secure.guestpro.net/odch/room-type/ee0cdd19-1045-481f-9e36-b8287e343c24"
       }
     ]
   },
@@ -95,7 +95,7 @@
       { "icon": "RefreshCw", "title": "Currency Exchange", "description": "" },
       { "icon": "Activity", "title": "Doctor on Call", "description": "" },
       { "icon": "MapPin", "title": "Beach", "description": "" },
-      { "icon": "Accessibility", "title": "Accessibility", "description": "" },
+      { "icon": "Accessibility", "title": "Accessibility", "description": "", "hideDesktop": true },
       { "icon": "Car", "title": "Free Parking", "description": "" },
       { "icon": "Shield", "title": "24 Hour Security", "description": "" },
       { "icon": "PlaneLanding", "title": "Airport Shuttle", "description": "" },

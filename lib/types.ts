@@ -48,6 +48,7 @@ export interface Amenity {
   title: LocalizedString;
   description: LocalizedString;
   hideMobile?: boolean;
+  hideDesktop?: boolean;
 }
 
 export interface AmenitiesData {
