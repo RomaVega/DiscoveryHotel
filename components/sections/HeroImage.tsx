@@ -1,4 +1,4 @@
-"use client"; // Uses framer-motion for hero animation and video element
+"use client"; // Uses framer-motion for hero animation, video element, and matchMedia
 
 import { useState, useRef, useLayoutEffect, useEffect } from "react";
 import Image from "next/image";
@@ -14,6 +14,15 @@ interface HeroImageProps {
 export function HeroImage({ hero }: HeroImageProps) {
   const [paused, setPaused] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px)");
+    setIsMobile(mq.matches);
+    const onChange = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -86,8 +95,17 @@ export function HeroImage({ hero }: HeroImageProps) {
           poster={hero.image}
           className="absolute inset-0 h-full w-full object-cover"
         >
-          <source src={hero.video.replace(".mp4", ".webm")} type="video/webm" />
-          <source src={hero.video} type="video/mp4" />
+          {isMobile && hero.videoMobile ? (
+            <>
+              <source src={hero.videoMobile.replace(".mp4", ".webm")} type="video/webm" />
+              <source src={hero.videoMobile} type="video/mp4" />
+            </>
+          ) : (
+            <>
+              <source src={hero.video.replace(".mp4", ".webm")} type="video/webm" />
+              <source src={hero.video} type="video/mp4" />
+            </>
+          )}
         </video>
       ) : (
         <Image

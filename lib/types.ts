@@ -18,6 +18,7 @@ export interface HeroData {
   image: string;
   imageAlt: string;
   video?: string;
+  videoMobile?: string;
 }
 
 export interface WelcomeData {

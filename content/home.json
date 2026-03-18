@@ -15,7 +15,8 @@
     "ctaHref": "https://secure.guestpro.net/odch",
     "image": "/images/hero/hero-main.jpg",
     "imageAlt": "Aerial view of Orlowsky Discovery Hotel pool and ocean in Candidasa, Bali",
-    "video": "/video/hero.mp4"
+    "video": "/video/hero-desktop.mp4",
+    "videoMobile": "/video/hero-mobile.mp4"
   },
   "welcome": {
     "label": {
