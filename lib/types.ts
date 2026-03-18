@@ -33,6 +33,7 @@ export interface RoomCard {
   title: LocalizedString;
   description: LocalizedString;
   image: string;
+  imageMobile?: string;
   imageAlt: string;
   href: string;
 }
