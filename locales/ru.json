@@ -49,6 +49,10 @@
     "specialOffer": "Special Offer",
     "bookThisOffer": "Book This Offer"
   },
+  "reviews": {
+    "label": "Отзывы",
+    "heading": "Что Говорят Наши Гости"
+  },
   "map": {
     "label": "Location",
     "heading": "Find Us in Candidasa",

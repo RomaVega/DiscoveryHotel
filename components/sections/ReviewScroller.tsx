@@ -83,7 +83,7 @@ function shuffle<T>(arr: T[]): T[] {
 }
 
 export function ReviewScroller({ reviews }: ReviewScrollerProps) {
-  const { t } = useLanguage();
+  const { t, tl } = useLanguage();
   // Start with original order (matches SSR), shuffle after hydration
   const [shuffled, setShuffled] = useState<Review[]>(reviews);
   useEffect(() => { setShuffled(shuffle(reviews)); }, [reviews]);
@@ -195,10 +195,10 @@ export function ReviewScroller({ reviews }: ReviewScrollerProps) {
     <section className="py-16 md:py-20 bg-sand overflow-hidden" aria-label="Guest reviews">
       <div className="max-w-7xl mx-auto px-6 mb-10 text-center">
         <p className="font-sans text-xs tracking-widest uppercase text-brand-teal mb-3">
-          Guest Reviews
+          {tl.reviews.label}
         </p>
         <h2 className="font-serif text-3xl md:text-4xl font-light text-charcoal">
-          What Our Guests Say
+          {tl.reviews.heading}
         </h2>
       </div>
 

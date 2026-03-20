@@ -5,7 +5,10 @@
       "country": "United Kingdom",
       "date": "January 2025",
       "rating": 5,
-      "text": "Best hotel we've stayed at in Bali. Far from the tourist crowds, the reef right off the beach is stunning. Already planning to return.",
+      "text": {
+        "en": "Best hotel we've stayed at in Bali. Far from the tourist crowds, the reef right off the beach is stunning. Already planning to return.",
+        "ru": "Лучший отель на Бали, в котором мы когда-либо останавливались. Вдали от туристической суеты риф прямо у берега просто великолепен. Уже планируем вернуться."
+      },
       "source": "booking"
     },
     {
@@ -13,7 +16,10 @@
       "country": "France",
       "date": "December 2024",
       "rating": 5,
-      "text": "We came for a honeymoon and it exceeded every expectation. The candlelit dinner by the water was unforgettable. Merci mille fois!",
+      "text": {
+        "en": "We came for a honeymoon and it exceeded every expectation. The candlelit dinner by the water was unforgettable. Merci mille fois!",
+        "ru": "Приехали в медовый месяц — отель превзошёл все ожидания. Ужин при свечах у воды был незабываемым. Огромное спасибо!"
+      },
       "source": "google"
     },
     {
@@ -21,7 +27,10 @@
       "country": "Australia",
       "date": "November 2024",
       "rating": 5,
-      "text": "Candidasa is a gem and this hotel does it justice. Diving at Liberty wreck was incredible — the team organised everything perfectly.",
+      "text": {
+        "en": "Candidasa is a gem and this hotel does it justice. Diving at Liberty wreck was incredible — the team organised everything perfectly.",
+        "ru": "Кандидаса — настоящая жемчужина, и этот отель полностью ей соответствует. Дайвинг на затонувшем Liberty был невероятным — команда организовала всё безупречно."
+      },
       "source": "booking"
     },
     {
@@ -29,7 +38,10 @@
       "country": "Italy",
       "date": "October 2024",
       "rating": 5,
-      "text": "The garden cottages are beautiful — spacious, well-designed, with perfect AC. Breakfast was fresh and delicious every morning.",
+      "text": {
+        "en": "The garden cottages are beautiful — spacious, well-designed, with perfect AC. Breakfast was fresh and delicious every morning.",
+        "ru": "Коттеджи с садом прекрасны — просторные, стильные, с отличным кондиционером. Завтрак каждое утро был свежим и вкусным."
+      },
       "source": "booking"
     },
     {
@@ -37,7 +49,10 @@
       "country": "United States",
       "date": "February 2025",
       "rating": 5,
-      "text": "Hidden gem in East Bali. No loud parties, no crowds — just nature, kindness, and incredibly good food. This is what Bali should be.",
+      "text": {
+        "en": "Hidden gem in East Bali. No loud parties, no crowds — just nature, kindness, and incredibly good food. This is what Bali should be.",
+        "ru": "Скрытая жемчужина Восточного Бали. Никаких шумных вечеринок, никакой толпы — только природа, доброта и невероятно вкусная еда. Вот каким должен быть Бали."
+      },
       "source": "google"
     },
     {
@@ -45,7 +60,10 @@
       "country": "Netherlands",
       "date": "January 2025",
       "rating": 5,
-      "text": "Snorkelling from the beach was incredible — rich coral, sea turtles, the works. Very peaceful atmosphere. Highly recommend.",
+      "text": {
+        "en": "Snorkelling from the beach was incredible — rich coral, sea turtles, the works. Very peaceful atmosphere. Highly recommend.",
+        "ru": "Снорклинг прямо с пляжа был потрясающим — богатые кораллы, морские черепахи, всё как мечталось. Очень спокойная атмосфера. Настоятельно рекомендую."
+      },
       "source": "booking"
     },
     {
@@ -53,7 +71,10 @@
       "country": "Japan",
       "date": "December 2024",
       "rating": 5,
-      "text": "Such a calm and beautiful resort. The staff went out of their way to make our stay special. The pool view at sunset is breathtaking.",
+      "text": {
+        "en": "Such a calm and beautiful resort. The staff went out of their way to make our stay special. The pool view at sunset is breathtaking.",
+        "ru": "Такой спокойный и красивый курорт. Персонал сделал всё возможное, чтобы наше пребывание было особенным. Вид на бассейн на закате захватывает дух."
+      },
       "source": "google"
     },
     {
@@ -61,7 +82,10 @@
       "country": "Canada",
       "date": "November 2024",
       "rating": 5,
-      "text": "We spent 10 days here and didn't want to leave. The location is ideal — tranquil but close to Amed and Ubud. Perfect base for East Bali.",
+      "text": {
+        "en": "We spent 10 days here and didn't want to leave. The location is ideal — tranquil but close to Amed and Ubud. Perfect base for East Bali.",
+        "ru": "Провели здесь 10 дней и не хотели уезжать. Расположение идеальное — тихое, но близко к Амеду и Убуду. Идеальная база для Восточного Бали."
+      },
       "source": "booking"
     },
     {
@@ -113,7 +137,10 @@
       "country": "Germany",
       "date": "February 2025",
       "rating": 5,
-      "text": "We drove up from Seminyak specifically for East Bali and this hotel was the perfect base. The reef in front teems with life — we spotted a sea turtle on our first snorkel.",
+      "text": {
+        "en": "We drove up from Seminyak specifically for East Bali and this hotel was the perfect base. The reef in front teems with life — we spotted a sea turtle on our first snorkel.",
+        "ru": "Специально приехали из Семиньяка ради Восточного Бали, и этот отель стал идеальной базой. Риф прямо у отеля кишит жизнью — уже в первый снорклинг мы увидели морскую черепаху."
+      },
       "source": "google"
     },
     {
@@ -121,7 +148,10 @@
       "country": "Germany",
       "date": "January 2025",
       "rating": 5,
-      "text": "The breakfast with fresh tropical fruit every morning set the tone perfectly. Staff organised a Kintamani volcano sunrise drive that was worth the early alarm.",
+      "text": {
+        "en": "The breakfast with fresh tropical fruit every morning set the tone perfectly. Staff organised a Kintamani volcano sunrise drive that was worth the early alarm.",
+        "ru": "Завтрак со свежими тропическими фруктами каждое утро задавал идеальный тон дню. Персонал организовал поездку на рассвет к вулкану Кинтамани — ради этого стоило встать пораньше."
+      },
       "source": "booking"
     },
     {
@@ -129,7 +159,10 @@
       "country": "Spain",
       "date": "December 2024",
       "rating": 5,
-      "text": "This little gem sits quietly above an incredible reef. We booked for five nights and extended to nine. The pool at sunset is worth the trip alone.",
+      "text": {
+        "en": "This little gem sits quietly above an incredible reef. We booked for five nights and extended to nine. The pool at sunset is worth the trip alone.",
+        "ru": "Этот маленький рай тихо расположился над невероятным рифом. Мы забронировали на пять ночей и продлили до девяти. Бассейн на закате сам по себе стоит поездки."
+      },
       "source": "booking"
     },
     {
@@ -137,7 +170,10 @@
       "country": "Spain",
       "date": "March 2025",
       "rating": 5,
-      "text": "Far from the chaos of Kuta, this is the Bali I was hoping to find. Warm staff, a beautiful pool, and the beach just a short walk away.",
+      "text": {
+        "en": "Far from the chaos of Kuta, this is the Bali I was hoping to find. Warm staff, a beautiful pool, and the beach just a short walk away.",
+        "ru": "Вдали от хаоса Куты — именно такой Бали я и мечтала найти. Приветливый персонал, красивый бассейн и пляж в нескольких шагах."
+      },
       "source": "google"
     },
     {
@@ -145,7 +181,10 @@
       "country": "South Korea",
       "date": "January 2025",
       "rating": 5,
-      "text": "The cottage was spotless and peaceful with a beautiful garden view. Staff made every day feel effortless. Will absolutely return for the diving.",
+      "text": {
+        "en": "The cottage was spotless and peaceful with a beautiful garden view. Staff made every day feel effortless. Will absolutely return for the diving.",
+        "ru": "Коттедж был безупречно чистым и тихим с красивым видом на сад. Персонал сделал каждый день лёгким и беззаботным. Обязательно вернёмся ради дайвинга."
+      },
       "source": "booking"
     },
     {
@@ -153,7 +192,10 @@
       "country": "Brazil",
       "date": "November 2024",
       "rating": 5,
-      "text": "I've stayed in many hotels across Southeast Asia. This one stands out for its warmth and authenticity. The chef's fish dish was the best meal of my Bali trip.",
+      "text": {
+        "en": "I've stayed in many hotels across Southeast Asia. This one stands out for its warmth and authenticity. The chef's fish dish was the best meal of my Bali trip.",
+        "ru": "Я останавливался во многих отелях по всей Юго-Восточной Азии. Этот выделяется теплотой и аутентичностью. Рыбное блюдо от шеф-повара стало лучшей едой за всё путешествие."
+      },
       "source": "google"
     },
     {
@@ -161,7 +203,10 @@
       "country": "Israel",
       "date": "February 2025",
       "rating": 5,
-      "text": "Quiet, beautiful, and completely stress-free. The spa massage after a full day of diving was pure heaven. One of our best holidays ever.",
+      "text": {
+        "en": "Quiet, beautiful, and completely stress-free. The spa massage after a full day of diving was pure heaven. One of our best holidays ever.",
+        "ru": "Тихо, красиво и никакого стресса. Спа-массаж после целого дня дайвинга был настоящим раем. Один из лучших отпусков в нашей жизни."
+      },
       "source": "booking"
     },
     {
@@ -169,7 +214,10 @@
       "country": "Sweden",
       "date": "December 2024",
       "rating": 5,
-      "text": "We came for Liberty wreck diving and stayed for the peace of this place. Exceptional dive shop nearby and the hotel sorted everything without any fuss.",
+      "text": {
+        "en": "We came for Liberty wreck diving and stayed for the peace of this place. Exceptional dive shop nearby and the hotel sorted everything without any fuss.",
+        "ru": "Приехали ради дайвинга на затонувшем Liberty, а остались из-за покоя этого места. Отличный дайв-центр рядом, и отель организовал всё без лишних хлопот."
+      },
       "source": "google"
     },
     {
@@ -177,7 +225,10 @@
       "country": "Switzerland",
       "date": "January 2025",
       "rating": 5,
-      "text": "Swiss precision meets Balinese soul at this hotel. Everything just works — and beautifully. The garden view from our cottage felt like waking into a painting.",
+      "text": {
+        "en": "Swiss precision meets Balinese soul at this hotel. Everything just works — and beautifully. The garden view from our cottage felt like waking into a painting.",
+        "ru": "В этом отеле швейцарская точность встречается с балийской душой. Здесь всё работает — и работает прекрасно. Вид на сад из нашего коттеджа был словно пробуждение внутри картины."
+      },
       "source": "booking"
     },
     {
@@ -185,7 +236,10 @@
       "country": "Poland",
       "date": "March 2025",
       "rating": 5,
-      "text": "Candidasa is a revelation — calm, real, unspoiled. This hotel captures it perfectly. The staff remembered our coffee order by day two.",
+      "text": {
+        "en": "Candidasa is a revelation — calm, real, unspoiled. This hotel captures it perfectly. The staff remembered our coffee order by day two.",
+        "ru": "Кандидаса — это откровение: спокойная, настоящая, нетронутая. Этот отель передаёт это в полной мере. Персонал запомнил наш заказ кофе уже на второй день."
+      },
       "source": "google"
     },
     {
@@ -193,7 +247,10 @@
       "country": "Czech Republic",
       "date": "February 2025",
       "rating": 5,
-      "text": "We were looking for a true escape and found it. No beach clubs, no noise — just ocean, coral, kindness and the best nasi goreng of the whole trip.",
+      "text": {
+        "en": "We were looking for a true escape and found it. No beach clubs, no noise — just ocean, coral, kindness and the best nasi goreng of the whole trip.",
+        "ru": "Мы искали настоящее уединение — и нашли его. Никаких пляжных клубов, никакого шума — только океан, кораллы, доброта и лучший наси горенг за всю поездку."
+      },
       "source": "booking"
     },
     {
@@ -201,7 +258,10 @@
       "country": "UAE",
       "date": "January 2025",
       "rating": 5,
-      "text": "A perfect retreat. Clean, tasteful rooms and a staff that genuinely cares. The private beach area at sunrise is magical.",
+      "text": {
+        "en": "A perfect retreat. Clean, tasteful rooms and a staff that genuinely cares. The private beach area at sunrise is magical.",
+        "ru": "Идеальное место для отдыха. Чистые, стильные номера и персонал, которому действительно не всё равно. Частная пляжная зона на рассвете — просто волшебство."
+      },
       "source": "google"
     },
     {
@@ -209,7 +269,10 @@
       "country": "India",
       "date": "December 2024",
       "rating": 5,
-      "text": "East Bali is completely different from what tourists usually see. This hotel is the best way to experience it — peaceful, beautiful, and the food is superb.",
+      "text": {
+        "en": "East Bali is completely different from what tourists usually see. This hotel is the best way to experience it — peaceful, beautiful, and the food is superb.",
+        "ru": "Восточный Бали совершенно не похож на то, что туристы обычно видят. Этот отель — лучший способ познакомиться с ним: тихий, красивый, с превосходной кухней."
+      },
       "source": "booking"
     },
     {
@@ -217,7 +280,10 @@
       "country": "Singapore",
       "date": "February 2025",
       "rating": 5,
-      "text": "We've done many Bali trips and always ended up in the same places. This time we ventured east and won't go back. The coral reef at the beach is exceptional.",
+      "text": {
+        "en": "We've done many Bali trips and always ended up in the same places. This time we ventured east and won't go back. The coral reef at the beach is exceptional.",
+        "ru": "Мы много раз бывали на Бали и всегда оказывались в одних и тех же местах. В этот раз решились поехать на восток — и не пожалеем. Коралловый риф у пляжа исключителен."
+      },
       "source": "google"
     },
     {
@@ -225,7 +291,10 @@
       "country": "New Zealand",
       "date": "January 2025",
       "rating": 5,
-      "text": "Travelling from the other side of the world was worth every hour. The hotel is warm and intimate, the reef is stunning, and Candidasa itself is a gem.",
+      "text": {
+        "en": "Travelling from the other side of the world was worth every hour. The hotel is warm and intimate, the reef is stunning, and Candidasa itself is a gem.",
+        "ru": "Путешествие с другого конца света стоило каждого часа в дороге. Отель тёплый и уютный, риф потрясающий, а сама Кандидаса — настоящая жемчужина."
+      },
       "source": "booking"
     },
     {
@@ -233,7 +302,10 @@
       "country": "Ireland",
       "date": "March 2025",
       "rating": 5,
-      "text": "A hidden paradise. Friendly, unhurried, genuinely beautiful. The garden at dusk with the sound of the ocean is something I'll carry home with me.",
+      "text": {
+        "en": "A hidden paradise. Friendly, unhurried, genuinely beautiful. The garden at dusk with the sound of the ocean is something I'll carry home with me.",
+        "ru": "Скрытый рай. Дружелюбный, неторопливый, по-настоящему красивый. Сад в сумерках под звук океана — это то, что я увезу с собой домой."
+      },
       "source": "google"
     },
     {
@@ -241,7 +313,10 @@
       "country": "Belgium",
       "date": "December 2024",
       "rating": 5,
-      "text": "We've been coming to Bali for fifteen years and only just discovered East Bali. This is what we've been missing — quiet, authentic, and beautifully run.",
+      "text": {
+        "en": "We've been coming to Bali for fifteen years and only just discovered East Bali. This is what we've been missing — quiet, authentic, and beautifully run.",
+        "ru": "Мы приезжали на Бали пятнадцать лет и только сейчас открыли для себя Восточный Бали. Вот чего нам не хватало — тихого, аутентичного и прекрасно организованного места."
+      },
       "source": "booking"
     },
     {
@@ -249,7 +324,10 @@
       "country": "Denmark",
       "date": "February 2025",
       "rating": 5,
-      "text": "The staff here are among the kindest I've encountered anywhere in the world. Nothing was too much trouble. Simply a joy to stay.",
+      "text": {
+        "en": "The staff here are among the kindest I've encountered anywhere in the world. Nothing was too much trouble. Simply a joy to stay.",
+        "ru": "Персонал здесь — одни из самых добрых людей, которых я встречала во всём мире. Ни одна просьба не была лишней. Пребывание здесь было сплошным удовольствием."
+      },
       "source": "google"
     },
     {
@@ -257,7 +335,10 @@
       "country": "Norway",
       "date": "January 2025",
       "rating": 5,
-      "text": "Came for the diving, stayed for the whole experience. The hotel team arranged transfers, boat, and gear — everything went flawlessly.",
+      "text": {
+        "en": "Came for the diving, stayed for the whole experience. The hotel team arranged transfers, boat, and gear — everything went flawlessly.",
+        "ru": "Приехал ради дайвинга, остался ради всего остального. Команда отеля организовала трансфер, лодку и снаряжение — всё прошло безупречно."
+      },
       "source": "booking"
     },
     {
@@ -265,7 +346,10 @@
       "country": "Austria",
       "date": "March 2025",
       "rating": 5,
-      "text": "Beautiful property with incredibly warm staff. The pool is stunning and the surrounding garden is lush. A genuine slice of paradise far from the tourist trail.",
+      "text": {
+        "en": "Beautiful property with incredibly warm staff. The pool is stunning and the surrounding garden is lush. A genuine slice of paradise far from the tourist trail.",
+        "ru": "Прекрасная территория с невероятно тёплым персоналом. Бассейн великолепен, окружающий сад пышный и зелёный. Настоящий кусочек рая вдали от туристических маршрутов."
+      },
       "source": "google"
     },
     {
@@ -273,7 +357,10 @@
       "country": "Portugal",
       "date": "December 2024",
       "rating": 5,
-      "text": "Candidasa is a revelation and this hotel does it justice. We had five perfect nights here. The freshly caught fish at the restaurant was outstanding.",
+      "text": {
+        "en": "Candidasa is a revelation and this hotel does it justice. We had five perfect nights here. The freshly caught fish at the restaurant was outstanding.",
+        "ru": "Кандидаса — откровение, и этот отель ей полностью соответствует. Мы провели здесь пять идеальных ночей. Свежевыловленная рыба в ресторане была превосходной."
+      },
       "source": "booking"
     },
     {
@@ -281,7 +368,10 @@
       "country": "Ukraine",
       "date": "February 2025",
       "rating": 5,
-      "text": "Quiet and beautiful — everything you could want from a Bali holiday without the crowds. Staff are warm and helpful. The beach area is lovely.",
+      "text": {
+        "en": "Quiet and beautiful — everything you could want from a Bali holiday without the crowds. Staff are warm and helpful. The beach area is lovely.",
+        "ru": "Тихо и красиво — всё, что можно пожелать от отпуска на Бали без толп туристов. Персонал тёплый и отзывчивый. Пляжная зона восхитительна."
+      },
       "source": "google"
     },
     {
@@ -289,7 +379,10 @@
       "country": "Finland",
       "date": "January 2025",
       "rating": 5,
-      "text": "We arrived stressed and left completely renewed. The combination of quiet rooms, a beautiful pool, and excellent food worked on us like medicine.",
+      "text": {
+        "en": "We arrived stressed and left completely renewed. The combination of quiet rooms, a beautiful pool, and excellent food worked on us like medicine.",
+        "ru": "Приехали в стрессе, уехали совершенно обновлёнными. Сочетание тихих номеров, красивого бассейна и превосходной еды подействовало на нас как лекарство."
+      },
       "source": "booking"
     },
     {
@@ -297,7 +390,10 @@
       "country": "Mexico",
       "date": "March 2025",
       "rating": 5,
-      "text": "One of the best decisions of our whole trip was choosing to stay here. East Bali is so different — calmer, greener, more authentic. Perfect hotel.",
+      "text": {
+        "en": "One of the best decisions of our whole trip was choosing to stay here. East Bali is so different — calmer, greener, more authentic. Perfect hotel.",
+        "ru": "Один из лучших выборов за всё путешествие — остановиться именно здесь. Восточный Бали такой другой — спокойнее, зеленее, аутентичнее. Идеальный отель."
+      },
       "source": "google"
     },
     {
@@ -305,7 +401,10 @@
       "country": "South Africa",
       "date": "December 2024",
       "rating": 5,
-      "text": "First time in Bali and I was overwhelmed by how peaceful this corner is. The staff looked after us brilliantly and the diving exceeded every expectation.",
+      "text": {
+        "en": "First time in Bali and I was overwhelmed by how peaceful this corner is. The staff looked after us brilliantly and the diving exceeded every expectation.",
+        "ru": "Первый раз на Бали — и я был поражён тем, насколько тихим оказался этот уголок. Персонал заботился о нас блестяще, а дайвинг превзошёл все ожидания."
+      },
       "source": "booking"
     },
     {
@@ -313,7 +412,10 @@
       "country": "Argentina",
       "date": "February 2025",
       "rating": 5,
-      "text": "A genuinely magical place. The sunset over the ocean from the pool terrace was breathtaking. The hotel team made our anniversary truly unforgettable.",
+      "text": {
+        "en": "A genuinely magical place. The sunset over the ocean from the pool terrace was breathtaking. The hotel team made our anniversary truly unforgettable.",
+        "ru": "По-настоящему волшебное место. Закат над океаном с террасы у бассейна захватывал дыхание. Команда отеля сделала нашу годовщину по-настоящему незабываемой."
+      },
       "source": "google"
     },
     {
@@ -321,7 +423,10 @@
       "country": "Hungary",
       "date": "January 2025",
       "rating": 5,
-      "text": "Exactly what we were looking for — peaceful, beautiful, away from the crowds. The outdoor breakfast surrounded by tropical plants each morning was extraordinary.",
+      "text": {
+        "en": "Exactly what we were looking for — peaceful, beautiful, away from the crowds. The outdoor breakfast surrounded by tropical plants each morning was extraordinary.",
+        "ru": "Именно то, что мы искали — тихое, красивое, вдали от толп. Завтрак на свежем воздухе в окружении тропических растений каждое утро был необыкновенным."
+      },
       "source": "booking"
     },
     {
@@ -329,7 +434,10 @@
       "country": "Greece",
       "date": "March 2025",
       "rating": 5,
-      "text": "Having grown up by the sea I'm picky about coastal hotels. This one earned every star. The reef, the staff, the food — all exceptional.",
+      "text": {
+        "en": "Having grown up by the sea I'm picky about coastal hotels. This one earned every star. The reef, the staff, the food — all exceptional.",
+        "ru": "Выросшая у моря, я придирчиво отношусь к прибрежным отелям. Этот заслужил каждую звезду. Риф, персонал, еда — всё исключительно."
+      },
       "source": "google"
     },
     {
@@ -337,7 +445,10 @@
       "country": "China",
       "date": "December 2024",
       "rating": 5,
-      "text": "Beautiful hotel in a wonderful location. Everything was clean, well-organised, and the staff could not have been more helpful. Perfect Bali escape.",
+      "text": {
+        "en": "Beautiful hotel in a wonderful location. Everything was clean, well-organised, and the staff could not have been more helpful. Perfect Bali escape.",
+        "ru": "Красивый отель в замечательном месте. Всё чисто, хорошо организовано, а персонал не мог быть более внимательным. Идеальный побег на Бали."
+      },
       "source": "booking"
     },
     {
@@ -345,7 +456,10 @@
       "country": "Malaysia",
       "date": "February 2025",
       "rating": 5,
-      "text": "We're just a short flight from Bali but had never visited Candidasa. This hotel made us feel like we'd found a secret. Already planning to return.",
+      "text": {
+        "en": "We're just a short flight from Bali but had never visited Candidasa. This hotel made us feel like we'd found a secret. Already planning to return.",
+        "ru": "До Бали от нас лететь недолго, но в Кандидасе мы никогда не бывали. Этот отель заставил нас почувствовать себя первооткрывателями. Уже планируем вернуться."
+      },
       "source": "google"
     },
     {
@@ -353,7 +467,10 @@
       "country": "Thailand",
       "date": "January 2025",
       "rating": 5,
-      "text": "We've visited Bali many times and always stayed in Seminyak. A friend recommended East Bali and this hotel. We will never make that mistake again.",
+      "text": {
+        "en": "We've visited Bali many times and always stayed in Seminyak. A friend recommended East Bali and this hotel. We will never make that mistake again.",
+        "ru": "Мы много раз бывали на Бали и всегда останавливались в Семиньяке. Друг посоветовал Восточный Бали и этот отель. Больше мы не совершим ту ошибку."
+      },
       "source": "booking"
     },
     {
@@ -361,7 +478,10 @@
       "country": "Taiwan",
       "date": "March 2025",
       "rating": 5,
-      "text": "Perfect getaway from Taipei's pace. The tranquility here is total. Beautiful gardens, warm staff, and a beach that feels entirely your own.",
+      "text": {
+        "en": "Perfect getaway from Taipei's pace. The tranquility here is total. Beautiful gardens, warm staff, and a beach that feels entirely your own.",
+        "ru": "Идеальный побег от темпа Тайбэя. Здесь царит полное спокойствие. Красивые сады, тёплый персонал и пляж, который кажется только твоим."
+      },
       "source": "google"
     },
     {
@@ -369,7 +489,10 @@
       "country": "United Kingdom",
       "date": "February 2025",
       "rating": 5,
-      "text": "Stumbled across this gem while researching East Bali. Six nights flew by. The staff, the food, the reef — all wonderful. Already booked for next year.",
+      "text": {
+        "en": "Stumbled across this gem while researching East Bali. Six nights flew by. The staff, the food, the reef — all wonderful. Already booked for next year.",
+        "ru": "Наткнулась на эту жемчужину, изучая Восточный Бали. Шесть ночей пролетели мгновенно. Персонал, еда, риф — всё замечательно. Уже забронировала на следующий год."
+      },
       "source": "booking"
     },
     {
@@ -377,7 +500,10 @@
       "country": "United States",
       "date": "January 2025",
       "rating": 5,
-      "text": "We almost skipped East Bali for another Ubud stay. So glad we didn't. This hotel is understated elegance in a breathtaking location.",
+      "text": {
+        "en": "We almost skipped East Bali for another Ubud stay. So glad we didn't. This hotel is understated elegance in a breathtaking location.",
+        "ru": "Мы чуть не пропустили Восточный Бали ради очередного пребывания в Убуде. Как хорошо, что не пропустили. Этот отель — сдержанная элегантность в захватывающем месте."
+      },
       "source": "google"
     },
     {
@@ -385,7 +511,10 @@
       "country": "France",
       "date": "March 2025",
       "rating": 5,
-      "text": "A genuine discovery. The setting is magnificent, the staff are attentive, and the local cuisine is delicious. East Bali is something special.",
+      "text": {
+        "en": "A genuine discovery. The setting is magnificent, the staff are attentive, and the local cuisine is delicious. East Bali is something special.",
+        "ru": "Настоящее открытие. Обстановка великолепна, персонал внимателен, местная кухня восхитительна. Восточный Бали — это нечто особенное."
+      },
       "source": "booking"
     },
     {
@@ -393,7 +522,10 @@
       "country": "Canada",
       "date": "January 2025",
       "rating": 5,
-      "text": "We combined a week here with a few days in Ubud and this was the highlight. The hotel has a quiet magic that's hard to put into words.",
+      "text": {
+        "en": "We combined a week here with a few days in Ubud and this was the highlight. The hotel has a quiet magic that's hard to put into words.",
+        "ru": "Мы совместили неделю здесь с несколькими днями в Убуде, и это стало главным впечатлением. В отеле есть тихая магия, которую сложно передать словами."
+      },
       "source": "google"
     },
     {
@@ -401,7 +533,10 @@
       "country": "Australia",
       "date": "February 2025",
       "rating": 5,
-      "text": "Perth to Candidasa is a long way but absolutely worth it. The diving at Liberty wreck is world-class and this hotel is the perfect base for it.",
+      "text": {
+        "en": "Perth to Candidasa is a long way but absolutely worth it. The diving at Liberty wreck is world-class and this hotel is the perfect base for it.",
+        "ru": "Из Перта до Кандидасы далеко, но оно того абсолютно стоит. Дайвинг на Liberty — мирового класса, и этот отель идеальная база для него."
+      },
       "source": "booking"
     },
     {
@@ -409,7 +544,10 @@
       "country": "Italy",
       "date": "January 2025",
       "rating": 5,
-      "text": "We travel every year looking for somewhere authentic and unhurried. We found it here. The whole stay felt like a gift.",
+      "text": {
+        "en": "We travel every year looking for somewhere authentic and unhurried. We found it here. The whole stay felt like a gift.",
+        "ru": "Мы путешествуем каждый год в поисках аутентичного и неторопливого места. Мы нашли его здесь. Всё пребывание ощущалось как подарок."
+      },
       "source": "google"
     },
     {
@@ -417,7 +555,10 @@
       "country": "Czech Republic",
       "date": "December 2024",
       "rating": 5,
-      "text": "The coral garden right off the beach is one of the best snorkelling spots I've ever seen. Hotel staff are genuinely lovely. Will be back.",
+      "text": {
+        "en": "The coral garden right off the beach is one of the best snorkelling spots I've ever seen. Hotel staff are genuinely lovely. Will be back.",
+        "ru": "Коралловый сад прямо у пляжа — одно из лучших мест для снорклинга, которые я когда-либо видел. Персонал отеля по-настоящему замечательный. Вернусь."
+      },
       "source": "booking"
     }
   ]

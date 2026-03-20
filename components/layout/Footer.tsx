@@ -144,6 +144,17 @@ export function Footer({ contact }: FooterProps) {
                   {contact.email}
                 </a>
               </li>
+
+              {isRu && tl.footer.paymentNote && (
+                <li className="pt-1">
+                  <p className="font-sans text-[10px] uppercase tracking-[0.15em] text-charcoal/35 mb-1.5">
+                    Payment in Russia
+                  </p>
+                  <p className="font-sans text-[13px] sm:text-sm text-charcoal/60 leading-relaxed">
+                    {tl.footer.paymentNote}
+                  </p>
+                </li>
+              )}
             </ul>
 
             <div className="flex justify-center md:justify-start gap-5 mt-5">
@@ -235,19 +246,6 @@ export function Footer({ contact }: FooterProps) {
           </div>
         </div>
 
-        {/* Payment note — Russian locale only */}
-        {isRu && tl.footer.paymentNote && (
-          <div className="mt-10 sm:mt-12 flex justify-center">
-            <div className="relative border-l-2 border-brand-teal pl-4 sm:pl-5 pr-4 sm:pr-5 py-3 max-w-sm">
-              <p className="font-sans text-[10px] font-semibold uppercase tracking-[0.18em] text-brand-teal mb-1">
-                Payment in Russia
-              </p>
-              <p className="font-sans text-[12px] sm:text-[13px] text-charcoal/70 leading-relaxed">
-                {tl.footer.paymentNote}
-              </p>
-            </div>
-          </div>
-        )}
       </div>
 
       {/* Bottom bar */}
