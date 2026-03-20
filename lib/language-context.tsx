@@ -44,7 +44,13 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     try {
       const stored = localStorage.getItem("odch-lang");
-      if (isSupportedLocale(stored)) setLocaleState(stored);
+      if (isSupportedLocale(stored)) {
+        setLocaleState(stored);
+      } else {
+        // No saved preference — detect from browser/system language
+        const lang = navigator.languages?.[0] ?? navigator.language ?? "";
+        if (lang.toLowerCase().startsWith("ru")) setLocaleState("ru");
+      }
     } catch {
       // localStorage unavailable (SSR safety)
     }
