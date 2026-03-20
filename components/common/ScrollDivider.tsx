@@ -27,6 +27,7 @@ export function ScrollDivider({ above, below }: ScrollDividerProps) {
   const settleTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const touching = useRef(false);
   const touchStartY = useRef(0);
+  const touchStartX = useRef(0);
 
   useEffect(() => {
     lastY.current = window.scrollY;
@@ -65,12 +66,16 @@ export function ScrollDivider({ above, below }: ScrollDividerProps) {
       if (prefersReduced) return;
       touching.current = true;
       touchStartY.current = e.touches[0].clientY;
+      touchStartX.current = e.touches[0].clientX;
       clearSettle();
     };
 
     const onTouchMove = (e: TouchEvent) => {
       if (prefersReduced) return;
       const deltaY = touchStartY.current - e.touches[0].clientY;
+      const deltaX = touchStartX.current - e.touches[0].clientX;
+      // Ignore horizontal swipes (e.g. review scroller)
+      if (Math.abs(deltaX) > Math.abs(deltaY)) return;
       const dir = deltaY > 0 ? "down" : "up";
       applyDir(dir);
       // No settle timer — curve holds while finger is on screen

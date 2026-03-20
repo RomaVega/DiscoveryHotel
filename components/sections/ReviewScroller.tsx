@@ -36,6 +36,7 @@ function SourceBadge({ source }: { source: Review["source"] }) {
 function ReviewCard({ review, t }: { review: Review; t: (v: Review["text"]) => string }) {
   const author = t(review.author);
   const text = t(review.text);
+
   return (
     <article
       className="shrink-0 w-72 bg-ivory rounded-sm border border-charcoal/8 px-6 py-5 flex flex-col gap-3 select-none"
@@ -51,15 +52,15 @@ function ReviewCard({ review, t }: { review: Review; t: (v: Review["text"]) => s
         ))}
       </div>
 
-      <p className="font-serif text-[15px] leading-relaxed text-charcoal/85 line-clamp-4">
+      <p className="font-sans text-[13px] leading-relaxed text-charcoal/80 line-clamp-4">
         &ldquo;{text}&rdquo;
       </p>
 
       <div className="flex items-end justify-between gap-2 pt-1 border-t border-charcoal/8">
-        <div>
-          <p className="font-sans text-xs font-semibold text-charcoal">{author}</p>
+        <div className="min-w-0">
+          <p className="font-sans text-xs font-semibold text-charcoal truncate">{author}</p>
           {review.country && (
-            <p className="font-sans text-[10px] text-stone/70 mt-0.5">{review.country} · {review.date}</p>
+            <p className="font-sans text-[10px] text-stone/70 mt-0.5 truncate">{review.country} · {review.date}</p>
           )}
         </div>
         <SourceBadge source={review.source} />
@@ -129,6 +130,34 @@ export function ReviewScroller({ reviews }: ReviewScrollerProps) {
   }, []);
 
   const handleTouchEnd = useCallback(() => { pausedRef.current = false; }, []);
+
+  // Non-passive native listener — prevents browser horizontal scroll/navigation during swipe
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    let startX = 0;
+    let startY = 0;
+    let isHorizontal: boolean | null = null;
+    const onStart = (e: TouchEvent) => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+      isHorizontal = null;
+    };
+    const onMove = (e: TouchEvent) => {
+      if (isHorizontal === null) {
+        const dx = Math.abs(e.touches[0].clientX - startX);
+        const dy = Math.abs(e.touches[0].clientY - startY);
+        isHorizontal = dx > dy;
+      }
+      if (isHorizontal) e.preventDefault();
+    };
+    track.addEventListener("touchstart", onStart, { passive: true });
+    track.addEventListener("touchmove", onMove, { passive: false });
+    return () => {
+      track.removeEventListener("touchstart", onStart);
+      track.removeEventListener("touchmove", onMove);
+    };
+  }, []);
 
   useEffect(() => {
     const track = trackRef.current;
