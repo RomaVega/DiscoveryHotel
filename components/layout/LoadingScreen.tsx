@@ -24,10 +24,11 @@ export function LoadingScreen() {
 
     const hide = () => {
       setTimeout(() => {
+        // Scroll to saved position BEFORE fade starts — prevents hero flash at wrong position
+        if (savedY > 0) window.scrollTo(0, savedY);
         setPhase("exiting");
         setTimeout(() => {
           setPhase("gone");
-          requestAnimationFrame(() => window.scrollTo(0, savedY));
           try { sessionStorage.removeItem("scrollY"); } catch { /* ignore */ }
         }, 600);
       }, 400);

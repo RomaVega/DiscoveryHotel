@@ -83,6 +83,15 @@ html.night #loading-screen { background-color: #111111; }
     0 8px 40px rgba(0, 0, 0, 0.6);
 }
 
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@utility animate-marquee {
+  animation: marquee 50s linear infinite;
+}
+
 @utility no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;

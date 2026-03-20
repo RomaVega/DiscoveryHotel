@@ -1,0 +1,424 @@
+{
+  "reviews": [
+    {
+      "author": "James T.",
+      "country": "United Kingdom",
+      "date": "January 2025",
+      "rating": 5,
+      "text": "Best hotel we've stayed at in Bali. Far from the tourist crowds, the reef right off the beach is stunning. Already planning to return.",
+      "source": "booking"
+    },
+    {
+      "author": "Sophie L.",
+      "country": "France",
+      "date": "December 2024",
+      "rating": 5,
+      "text": "We came for a honeymoon and it exceeded every expectation. The candlelit dinner by the water was unforgettable. Merci mille fois!",
+      "source": "google"
+    },
+    {
+      "author": "David H.",
+      "country": "Australia",
+      "date": "November 2024",
+      "rating": 5,
+      "text": "Candidasa is a gem and this hotel does it justice. Diving at Liberty wreck was incredible — the team organised everything perfectly.",
+      "source": "booking"
+    },
+    {
+      "author": "Marco B.",
+      "country": "Italy",
+      "date": "October 2024",
+      "rating": 5,
+      "text": "The garden cottages are beautiful — spacious, well-designed, with perfect AC. Breakfast was fresh and delicious every morning.",
+      "source": "booking"
+    },
+    {
+      "author": "Sarah W.",
+      "country": "United States",
+      "date": "February 2025",
+      "rating": 5,
+      "text": "Hidden gem in East Bali. No loud parties, no crowds — just nature, kindness, and incredibly good food. This is what Bali should be.",
+      "source": "google"
+    },
+    {
+      "author": "Erik N.",
+      "country": "Netherlands",
+      "date": "January 2025",
+      "rating": 5,
+      "text": "Snorkelling from the beach was incredible — rich coral, sea turtles, the works. Very peaceful atmosphere. Highly recommend.",
+      "source": "booking"
+    },
+    {
+      "author": "Yuki T.",
+      "country": "Japan",
+      "date": "December 2024",
+      "rating": 5,
+      "text": "Such a calm and beautiful resort. The staff went out of their way to make our stay special. The pool view at sunset is breathtaking.",
+      "source": "google"
+    },
+    {
+      "author": "Claire D.",
+      "country": "Canada",
+      "date": "November 2024",
+      "rating": 5,
+      "text": "We spent 10 days here and didn't want to leave. The location is ideal — tranquil but close to Amed and Ubud. Perfect base for East Bali.",
+      "source": "booking"
+    },
+    {
+      "author": { "en": "Anna K.", "ru": "Анна К." },
+      "country": "Russia",
+      "date": "February 2025",
+      "rating": 5,
+      "text": {
+        "en": "Absolutely magical place. The staff remembered our names from day one. Woke up to the sound of waves every morning — pure paradise.",
+        "ru": "Абсолютно волшебное место. Персонал запомнил наши имена с первого дня. Каждое утро просыпались под шум волн — настоящий рай."
+      },
+      "source": "google"
+    },
+    {
+      "author": { "en": "Mikhail R.", "ru": "Михаил Р." },
+      "country": "Russia",
+      "date": "March 2025",
+      "rating": 5,
+      "text": {
+        "en": "A quiet, cosy place far from the tourist crowds. The staff is incredibly attentive. The pool and beach are the perfect spots to unwind.",
+        "ru": "Тихое, уютное место вдали от туристических толп. Персонал невероятно внимателен. Бассейн и пляж — лучшее место для отдыха."
+      },
+      "source": "booking"
+    },
+    {
+      "author": { "en": "Olga M.", "ru": "Ольга М." },
+      "country": "Russia",
+      "date": "January 2025",
+      "rating": 5,
+      "text": {
+        "en": "We stayed as a family. The kids loved the pool and the adults loved the peace and beauty. We will definitely be back!",
+        "ru": "Останавливались с семьёй. Дети в восторге от бассейна, взрослые — от тишины и красоты. Обязательно вернёмся!"
+      },
+      "source": "google"
+    },
+    {
+      "author": { "en": "Natalya V.", "ru": "Наталья В." },
+      "country": "Russia",
+      "date": "March 2025",
+      "rating": 5,
+      "text": {
+        "en": "Service at the highest level. The spa treatments are simply magical. The room is clean and beautiful. This is the best hotel in Candidasa.",
+        "ru": "Сервис на высшем уровне. Спа-процедуры просто волшебные. Номер чистый и красивый. Это лучший отель в Кандидасе."
+      },
+      "source": "booking"
+    },
+    {
+      "author": "Thomas B.",
+      "country": "Germany",
+      "date": "February 2025",
+      "rating": 5,
+      "text": "We drove up from Seminyak specifically for East Bali and this hotel was the perfect base. The reef in front teems with life — we spotted a sea turtle on our first snorkel.",
+      "source": "google"
+    },
+    {
+      "author": "Lena K.",
+      "country": "Germany",
+      "date": "January 2025",
+      "rating": 5,
+      "text": "The breakfast with fresh tropical fruit every morning set the tone perfectly. Staff organised a Kintamani volcano sunrise drive that was worth the early alarm.",
+      "source": "booking"
+    },
+    {
+      "author": "Carlos M.",
+      "country": "Spain",
+      "date": "December 2024",
+      "rating": 5,
+      "text": "This little gem sits quietly above an incredible reef. We booked for five nights and extended to nine. The pool at sunset is worth the trip alone.",
+      "source": "booking"
+    },
+    {
+      "author": "Isabel R.",
+      "country": "Spain",
+      "date": "March 2025",
+      "rating": 5,
+      "text": "Far from the chaos of Kuta, this is the Bali I was hoping to find. Warm staff, a beautiful pool, and the beach just a short walk away.",
+      "source": "google"
+    },
+    {
+      "author": "Ji-Yeon P.",
+      "country": "South Korea",
+      "date": "January 2025",
+      "rating": 5,
+      "text": "The cottage was spotless and peaceful with a beautiful garden view. Staff made every day feel effortless. Will absolutely return for the diving.",
+      "source": "booking"
+    },
+    {
+      "author": "Rafael S.",
+      "country": "Brazil",
+      "date": "November 2024",
+      "rating": 5,
+      "text": "I've stayed in many hotels across Southeast Asia. This one stands out for its warmth and authenticity. The chef's fish dish was the best meal of my Bali trip.",
+      "source": "google"
+    },
+    {
+      "author": "Noa L.",
+      "country": "Israel",
+      "date": "February 2025",
+      "rating": 5,
+      "text": "Quiet, beautiful, and completely stress-free. The spa massage after a full day of diving was pure heaven. One of our best holidays ever.",
+      "source": "booking"
+    },
+    {
+      "author": "Erik H.",
+      "country": "Sweden",
+      "date": "December 2024",
+      "rating": 5,
+      "text": "We came for Liberty wreck diving and stayed for the peace of this place. Exceptional dive shop nearby and the hotel sorted everything without any fuss.",
+      "source": "google"
+    },
+    {
+      "author": "Claudia M.",
+      "country": "Switzerland",
+      "date": "January 2025",
+      "rating": 5,
+      "text": "Swiss precision meets Balinese soul at this hotel. Everything just works — and beautifully. The garden view from our cottage felt like waking into a painting.",
+      "source": "booking"
+    },
+    {
+      "author": "Anna W.",
+      "country": "Poland",
+      "date": "March 2025",
+      "rating": 5,
+      "text": "Candidasa is a revelation — calm, real, unspoiled. This hotel captures it perfectly. The staff remembered our coffee order by day two.",
+      "source": "google"
+    },
+    {
+      "author": "Jakub N.",
+      "country": "Czech Republic",
+      "date": "February 2025",
+      "rating": 5,
+      "text": "We were looking for a true escape and found it. No beach clubs, no noise — just ocean, coral, kindness and the best nasi goreng of the whole trip.",
+      "source": "booking"
+    },
+    {
+      "author": "Sara Al-M.",
+      "country": "UAE",
+      "date": "January 2025",
+      "rating": 5,
+      "text": "A perfect retreat. Clean, tasteful rooms and a staff that genuinely cares. The private beach area at sunrise is magical.",
+      "source": "google"
+    },
+    {
+      "author": "Priya R.",
+      "country": "India",
+      "date": "December 2024",
+      "rating": 5,
+      "text": "East Bali is completely different from what tourists usually see. This hotel is the best way to experience it — peaceful, beautiful, and the food is superb.",
+      "source": "booking"
+    },
+    {
+      "author": "Mei L.",
+      "country": "Singapore",
+      "date": "February 2025",
+      "rating": 5,
+      "text": "We've done many Bali trips and always ended up in the same places. This time we ventured east and won't go back. The coral reef at the beach is exceptional.",
+      "source": "google"
+    },
+    {
+      "author": "Josh T.",
+      "country": "New Zealand",
+      "date": "January 2025",
+      "rating": 5,
+      "text": "Travelling from the other side of the world was worth every hour. The hotel is warm and intimate, the reef is stunning, and Candidasa itself is a gem.",
+      "source": "booking"
+    },
+    {
+      "author": "Siobhan M.",
+      "country": "Ireland",
+      "date": "March 2025",
+      "rating": 5,
+      "text": "A hidden paradise. Friendly, unhurried, genuinely beautiful. The garden at dusk with the sound of the ocean is something I'll carry home with me.",
+      "source": "google"
+    },
+    {
+      "author": "Pierre D.",
+      "country": "Belgium",
+      "date": "December 2024",
+      "rating": 5,
+      "text": "We've been coming to Bali for fifteen years and only just discovered East Bali. This is what we've been missing — quiet, authentic, and beautifully run.",
+      "source": "booking"
+    },
+    {
+      "author": "Mette A.",
+      "country": "Denmark",
+      "date": "February 2025",
+      "rating": 5,
+      "text": "The staff here are among the kindest I've encountered anywhere in the world. Nothing was too much trouble. Simply a joy to stay.",
+      "source": "google"
+    },
+    {
+      "author": "Lars B.",
+      "country": "Norway",
+      "date": "January 2025",
+      "rating": 5,
+      "text": "Came for the diving, stayed for the whole experience. The hotel team arranged transfers, boat, and gear — everything went flawlessly.",
+      "source": "booking"
+    },
+    {
+      "author": "Maria S.",
+      "country": "Austria",
+      "date": "March 2025",
+      "rating": 5,
+      "text": "Beautiful property with incredibly warm staff. The pool is stunning and the surrounding garden is lush. A genuine slice of paradise far from the tourist trail.",
+      "source": "google"
+    },
+    {
+      "author": "João F.",
+      "country": "Portugal",
+      "date": "December 2024",
+      "rating": 5,
+      "text": "Candidasa is a revelation and this hotel does it justice. We had five perfect nights here. The freshly caught fish at the restaurant was outstanding.",
+      "source": "booking"
+    },
+    {
+      "author": "Olena K.",
+      "country": "Ukraine",
+      "date": "February 2025",
+      "rating": 5,
+      "text": "Quiet and beautiful — everything you could want from a Bali holiday without the crowds. Staff are warm and helpful. The beach area is lovely.",
+      "source": "google"
+    },
+    {
+      "author": "Mikko V.",
+      "country": "Finland",
+      "date": "January 2025",
+      "rating": 5,
+      "text": "We arrived stressed and left completely renewed. The combination of quiet rooms, a beautiful pool, and excellent food worked on us like medicine.",
+      "source": "booking"
+    },
+    {
+      "author": "Valentina R.",
+      "country": "Mexico",
+      "date": "March 2025",
+      "rating": 5,
+      "text": "One of the best decisions of our whole trip was choosing to stay here. East Bali is so different — calmer, greener, more authentic. Perfect hotel.",
+      "source": "google"
+    },
+    {
+      "author": "Thabo M.",
+      "country": "South Africa",
+      "date": "December 2024",
+      "rating": 5,
+      "text": "First time in Bali and I was overwhelmed by how peaceful this corner is. The staff looked after us brilliantly and the diving exceeded every expectation.",
+      "source": "booking"
+    },
+    {
+      "author": "Lucía B.",
+      "country": "Argentina",
+      "date": "February 2025",
+      "rating": 5,
+      "text": "A genuinely magical place. The sunset over the ocean from the pool terrace was breathtaking. The hotel team made our anniversary truly unforgettable.",
+      "source": "google"
+    },
+    {
+      "author": "Ádám K.",
+      "country": "Hungary",
+      "date": "January 2025",
+      "rating": 5,
+      "text": "Exactly what we were looking for — peaceful, beautiful, away from the crowds. The outdoor breakfast surrounded by tropical plants each morning was extraordinary.",
+      "source": "booking"
+    },
+    {
+      "author": "Eleni P.",
+      "country": "Greece",
+      "date": "March 2025",
+      "rating": 5,
+      "text": "Having grown up by the sea I'm picky about coastal hotels. This one earned every star. The reef, the staff, the food — all exceptional.",
+      "source": "google"
+    },
+    {
+      "author": "Wei Z.",
+      "country": "China",
+      "date": "December 2024",
+      "rating": 5,
+      "text": "Beautiful hotel in a wonderful location. Everything was clean, well-organised, and the staff could not have been more helpful. Perfect Bali escape.",
+      "source": "booking"
+    },
+    {
+      "author": "Aisha H.",
+      "country": "Malaysia",
+      "date": "February 2025",
+      "rating": 5,
+      "text": "We're just a short flight from Bali but had never visited Candidasa. This hotel made us feel like we'd found a secret. Already planning to return.",
+      "source": "google"
+    },
+    {
+      "author": "Nattaporn S.",
+      "country": "Thailand",
+      "date": "January 2025",
+      "rating": 5,
+      "text": "We've visited Bali many times and always stayed in Seminyak. A friend recommended East Bali and this hotel. We will never make that mistake again.",
+      "source": "booking"
+    },
+    {
+      "author": "Hsiao-Wen C.",
+      "country": "Taiwan",
+      "date": "March 2025",
+      "rating": 5,
+      "text": "Perfect getaway from Taipei's pace. The tranquility here is total. Beautiful gardens, warm staff, and a beach that feels entirely your own.",
+      "source": "google"
+    },
+    {
+      "author": "Charlotte B.",
+      "country": "United Kingdom",
+      "date": "February 2025",
+      "rating": 5,
+      "text": "Stumbled across this gem while researching East Bali. Six nights flew by. The staff, the food, the reef — all wonderful. Already booked for next year.",
+      "source": "booking"
+    },
+    {
+      "author": "Michael R.",
+      "country": "United States",
+      "date": "January 2025",
+      "rating": 5,
+      "text": "We almost skipped East Bali for another Ubud stay. So glad we didn't. This hotel is understated elegance in a breathtaking location.",
+      "source": "google"
+    },
+    {
+      "author": "Antoine L.",
+      "country": "France",
+      "date": "March 2025",
+      "rating": 5,
+      "text": "A genuine discovery. The setting is magnificent, the staff are attentive, and the local cuisine is delicious. East Bali is something special.",
+      "source": "booking"
+    },
+    {
+      "author": "Isabelle T.",
+      "country": "Canada",
+      "date": "January 2025",
+      "rating": 5,
+      "text": "We combined a week here with a few days in Ubud and this was the highlight. The hotel has a quiet magic that's hard to put into words.",
+      "source": "google"
+    },
+    {
+      "author": "Liam W.",
+      "country": "Australia",
+      "date": "February 2025",
+      "rating": 5,
+      "text": "Perth to Candidasa is a long way but absolutely worth it. The diving at Liberty wreck is world-class and this hotel is the perfect base for it.",
+      "source": "booking"
+    },
+    {
+      "author": "Giulia R.",
+      "country": "Italy",
+      "date": "January 2025",
+      "rating": 5,
+      "text": "We travel every year looking for somewhere authentic and unhurried. We found it here. The whole stay felt like a gift.",
+      "source": "google"
+    },
+    {
+      "author": "Tomáš H.",
+      "country": "Czech Republic",
+      "date": "December 2024",
+      "rating": 5,
+      "text": "The coral garden right off the beach is one of the best snorkelling spots I've ever seen. Hotel staff are genuinely lovely. Will be back.",
+      "source": "booking"
+    }
+  ]
+}

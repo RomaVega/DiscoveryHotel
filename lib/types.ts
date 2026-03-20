@@ -138,6 +138,19 @@ export interface ContactData {
   googleMapsUrl: string;
 }
 
+export interface Review {
+  author: LocalizedString;
+  country?: string;
+  date: string;
+  rating: number; // 1–5
+  text: LocalizedString;
+  source: "booking" | "google";
+}
+
+export interface ReviewsData {
+  reviews: Review[];
+}
+
 export interface HomePageData {
   hero: HeroData;
   welcome: WelcomeData;

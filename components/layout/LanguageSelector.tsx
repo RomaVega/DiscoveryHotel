@@ -26,21 +26,24 @@ interface LanguageSelectorProps {
 export function LanguageSelector({ variant = "dark" }: LanguageSelectorProps) {
   const { locale, setLocale } = useLanguage();
   const [open, setOpen] = useState(false);
-  const [dropPos, setDropPos] = useState({ top: 0, right: 0 });
+  const [dropPos, setDropPos] = useState<{ top?: number; bottom?: number; right: number }>({ right: 0 });
   const triggerRef = useRef<HTMLButtonElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const current = LANGUAGES.find((l) => l.code === locale) ?? LANGUAGES[0];
 
-  /** Recalculate dropdown anchor on each open */
+  /** Recalculate dropdown anchor on each open — opens upward if near bottom */
   const updatePosition = useCallback(() => {
     const el = triggerRef.current;
     if (!el) return;
     const r = el.getBoundingClientRect();
-    setDropPos({
-      top: r.bottom + 10,
-      right: window.innerWidth - r.right,
-    });
+    const dropHeight = 180; // approx height of dropdown
+    const spaceBelow = window.innerHeight - r.bottom;
+    if (spaceBelow < dropHeight + 16) {
+      setDropPos({ bottom: window.innerHeight - r.top + 10, right: window.innerWidth - r.right });
+    } else {
+      setDropPos({ top: r.bottom + 10, right: window.innerWidth - r.right });
+    }
   }, []);
 
   const handleOpen = () => {
@@ -122,11 +125,11 @@ export function LanguageSelector({ variant = "dark" }: LanguageSelectorProps) {
             ref={dropdownRef}
             role="menu"
             aria-label="Select language"
-            style={{ top: dropPos.top, right: dropPos.right }}
+            style={{ top: dropPos.top, bottom: dropPos.bottom, right: dropPos.right }}
             className="fixed w-48 bg-ivory rounded-sm shadow-[0_8px_40px_rgba(0,0,0,0.12)] border border-charcoal/8 overflow-hidden z-[9999]"
-            initial={{ opacity: 0, y: -6, scale: 0.98 }}
+            initial={{ opacity: 0, y: dropPos.bottom ? 6 : -6, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -6, scale: 0.98 }}
+            exit={{ opacity: 0, y: dropPos.bottom ? 6 : -6, scale: 0.98 }}
             transition={{ duration: 0.18, ease: [0.25, 0.1, 0.25, 1] }}
           >
             {LANGUAGES.map((lang, i) => {

@@ -1,4 +1,4 @@
-import { getHomePageData, getContactData } from "@/lib/content";
+import { getHomePageData, getContactData, getReviewsData } from "@/lib/content";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -9,6 +9,7 @@ import { Amenities } from "@/components/sections/Amenities";
 import { Experiences } from "@/components/sections/Experiences";
 import { SpecialOffers } from "@/components/sections/SpecialOffers";
 import { GalleryPreview } from "@/components/sections/GalleryPreview";
+import { ReviewScroller } from "@/components/sections/ReviewScroller";
 import { BookingCta } from "@/components/sections/BookingCta";
 import { MapLocation } from "@/components/sections/MapLocation";
 import { ScrollDivider } from "@/components/common/ScrollDivider";
@@ -23,6 +24,7 @@ const C = {
 export default function HomePage() {
   const data = getHomePageData();
   const contact = getContactData();
+  const { reviews } = getReviewsData();
 
   return (
     <>
@@ -41,6 +43,8 @@ export default function HomePage() {
         <SpecialOffers data={data.offers} />
         <ScrollDivider above={C.sand}     below={C.ivory}    />
         <GalleryPreview data={data.galleryPreview} />
+        <ScrollDivider above={C.ivory}    below={C.sand}     />
+        <ReviewScroller reviews={reviews} />
         <BookingCta data={data.bookingCta} />
         <MapLocation contact={contact} />
       </main>

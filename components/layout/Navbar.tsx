@@ -81,7 +81,7 @@ export function Navbar() {
           {tl.nav.skipToContent}
         </a>
 
-        <nav className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
+        <nav className="max-w-7xl mx-auto flex items-center justify-between px-8 lg:px-6 py-3">
           {/* Logo */}
           <Link
             href="/"
@@ -100,10 +100,8 @@ export function Navbar() {
               unoptimized
               className="object-contain shrink-0"
             />
-            <span className="font-serif font-semibold text-black tracking-wide uppercase leading-tight flex flex-col items-start lg:flex-row lg:items-baseline">
-              <span className="text-sm text-black lg:hidden">Orlowsky</span>
-              <span className="text-sm text-black lg:hidden">Discovery Candidasa</span>
-              <span className="hidden text-base text-black lg:inline">Orlowsky Discovery Candidasa</span>
+            <span className="font-serif font-semibold text-black tracking-wide uppercase leading-tight text-base">
+              Orlowsky Discovery Candidasa
             </span>
           </Link>
 
@@ -151,14 +149,11 @@ export function Navbar() {
             </li>
           </ul>
 
-          {/* Mobile right side — language selector + hamburger */}
+          {/* Mobile right side — hamburger only */}
           <div className="lg:hidden flex items-center gap-2">
-            <div className={cn("transition-all duration-500", scrolled ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none")}>
-              <LanguageSelector variant="dark" />
-            </div>
             <button
               className={cn(
-                "p-2 focus-visible:ring-2 focus-visible:ring-brand-teal transition-all duration-300",
+                "p-2 -mr-2 focus-visible:ring-2 focus-visible:ring-brand-teal transition-all duration-300",
                 scrolled
                   ? "text-charcoal opacity-100"
                   : "text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)] opacity-40"
@@ -182,8 +177,8 @@ export function Navbar() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.35, ease: "easeInOut" }}
           >
-            {/* Header row — logo + close only */}
-            <div className="flex items-center justify-between px-6 py-3 border-b border-charcoal/10">
+            {/* Header row — centered logo + brand, close top-right */}
+            <div className="flex items-center justify-between px-8 py-3 border-b border-charcoal/10">
               <div className="flex items-center gap-2">
                 <Image
                   src="/images/logo/logo-dark.svg"
@@ -193,15 +188,14 @@ export function Navbar() {
                   unoptimized
                   className="object-contain shrink-0"
                 />
-                <span className="font-serif font-semibold text-black tracking-wide uppercase leading-tight flex flex-col items-start">
-                  <span className="text-sm text-black">Orlowsky</span>
-                  <span className="text-sm text-black">Discovery Candidasa</span>
+                <span className="font-serif font-semibold text-black tracking-wide uppercase leading-tight">
+                  <span className="text-base text-black">Orlowsky Discovery Candidasa</span>
                 </span>
               </div>
               <button
                 onClick={closeMenu}
                 aria-label="Close menu"
-                className="p-2 text-charcoal/60 hover:text-charcoal transition-colors"
+                className="p-2 -mr-2 text-charcoal/60 hover:text-charcoal transition-colors"
               >
                 <X size={22} />
               </button>
@@ -225,14 +219,16 @@ export function Navbar() {
                     href={link.href}
                     onClick={closeMenu}
                     className={cn(
-                      "flex items-center justify-center gap-3 py-5 font-serif text-2xl font-semibold tracking-wide transition-colors duration-200",
+                      "relative flex items-center justify-center py-5 font-serif text-2xl font-semibold tracking-wide transition-colors duration-200",
                       activeSection === link.href.replace("#", "")
                         ? "text-black"
                         : "text-charcoal/70 hover:text-black"
                     )}
                   >
-                    <link.icon size={20} strokeWidth={1.5} className="text-brand-teal shrink-0" />
-                    {link.label}
+                    <span className="relative">
+                      <link.icon size={20} strokeWidth={1.5} className="text-brand-teal shrink-0 absolute right-full mr-3 top-1/2 -translate-y-1/2" />
+                      {link.label}
+                    </span>
                   </a>
                   <div className="h-px bg-charcoal/10" />
                 </motion.div>
@@ -242,17 +238,25 @@ export function Navbar() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.3, delay: 0.45 }}
-                className="mt-24"
+                className="mt-24 flex justify-center"
               >
                 <a
                   href="https://secure.guestpro.net/odch"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={closeMenu}
-                  className="inline-block text-charcoal border border-brand-teal rounded-full font-sans font-semibold text-sm px-8 py-3 tracking-widest transition-all duration-200 hover:bg-brand-teal/10 hover:scale-[1.04] active:scale-[0.97]"
+                  className="text-charcoal border border-brand-teal rounded-full font-sans font-semibold text-sm px-8 py-3 tracking-widest transition-all duration-200 hover:bg-brand-teal/10 hover:scale-[1.04] active:scale-[0.97]"
                 >
                   {tl.nav.bookNow}
                 </a>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3, delay: 0.55 }}
+                className="mt-6 flex justify-center"
+              >
+                <LanguageSelector variant="dark" />
               </motion.div>
             </nav>
           </motion.div>

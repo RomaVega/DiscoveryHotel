@@ -258,7 +258,7 @@
     },
     "bookingUrl": "https://secure.guestpro.net/odch",
     "fallbackCta": {
-      "en": "Book Now",
+      "en": "Book Stay",
       "ru": "Забронировать"
     }
   }
