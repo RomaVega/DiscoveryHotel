@@ -186,6 +186,72 @@ Branch naming: `feat/`, `fix/`, `content/` + short description.
 
 ---
 
+## SEO — Adding a New Language
+
+When the site is complete and a new language is ready (e.g. Indonesian `id`, Chinese `zh`), use the prompt below to have an AI perform the full SEO setup for that language.
+
+> **Готов добавить индонезийский или китайский?**
+> Просто скопируй промпт ниже, замени `[LANGUAGE_NAME]` и `[LOCALE_CODE]` — и ИИ сделает всё по инструкции.
+>
+> | Язык | `[LANGUAGE_NAME]` | `[LOCALE_CODE]` |
+> |---|---|---|
+> | Индонезийский | Indonesian | `id` |
+> | Китайский | Chinese | `zh` |
+
+---
+
+### Prompt: Add SEO-optimised language version
+
+```
+The site is a static Next.js 15 App Router hotel website (output: "export") for Orlowsky Discovery Hotel, Candidasa, Bali. Domain: https://discoveryhot.com.
+
+Multilingual SEO architecture:
+- English pages: /rooms, /dining, /spa, etc.
+- Russian pages: /ru/rooms, /ru/dining, /ru/spa, etc. (see app/ru/)
+- Each locale has its own LanguageProvider defaultLocale in app/ru/layout.tsx
+- Translations: locales/en.json and locales/ru.json
+- Content: content/*.json with { "en": "...", "ru": "..." } LocalizedString fields
+- Sitemap: app/sitemap.ts (includes all locales)
+- SEO constants: lib/site.ts
+
+Task: add full SEO support for the "[LANGUAGE_NAME]" language (locale code: "[LOCALE_CODE]", e.g. "id" or "zh").
+
+Steps to complete:
+
+1. Create locales/[LOCALE_CODE].json — translate every key from locales/en.json into [LANGUAGE_NAME]. Match the neutral-professional tone of the English version. Keep hotel name "Orlowsky Discovery Hotel" untranslated.
+
+2. Add "[LOCALE_CODE]" to LOCALE_FILES in lib/language-context.tsx and to the Locale type if not already present.
+
+3. Add "[LOCALE_CODE]" field to every LocalizedString object in all content/*.json files. Translate from the English value. Keep proper nouns (Candidasa, Bali, USAT Liberty, etc.) as-is.
+
+4. Create app/[LOCALE_CODE]/layout.tsx — identical pattern to app/ru/layout.tsx but with defaultLocale="[LOCALE_CODE]" and lang="[LOCALE_CODE]".
+
+5. Create all locale pages under app/[LOCALE_CODE]/ — one page per English route (see Pages table in this README). Each page must have:
+   - Translated title and description metadata in [LANGUAGE_NAME]
+   - alternates.canonical pointing to /[LOCALE_CODE]/[path]
+   - alternates.languages with all active locales (en, ru, [LOCALE_CODE], x-default)
+   - openGraph with translated title/description and correct image URL
+   - Identical component body to the English page
+
+6. Update app/sitemap.ts — add /[LOCALE_CODE]/ routes for all content pages (same pattern as ruRoutes).
+
+7. Update app/layout.tsx alternates.languages — add "[LOCALE_CODE]": `${SITE_URL}/[LOCALE_CODE]/`.
+
+8. Update all existing English and Russian page metadata — add "[LOCALE_CODE]" to their alternates.languages.
+
+9. Run npx tsc --noEmit and npm run build. Fix any errors. Build must pass with all pages generated.
+
+10. Run node scripts/check-images.js — all image references must be valid.
+
+SEO quality criteria:
+- All translated text must read naturally — no machine-literal translations
+- page title ≤ 60 chars, description 120–160 chars
+- Every page has a unique title and description (no duplicates across locale)
+- hreflang is consistent: every language version references all other language versions
+```
+
+---
+
 ## Design Tokens
 
 | Token | Value | Usage |

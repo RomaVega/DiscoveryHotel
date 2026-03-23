@@ -1,39 +1,39 @@
 {
   "nav": {
     "skipToContent": "Перейти к содержимому",
-    "rooms": "Rooms",
-    "amenities": "Dining",
-    "experiences": "Experiences",
-    "offers": "Offers",
-    "gallery": "Gallery",
-    "contact": "Contact",
+    "rooms": "Номера",
+    "amenities": "Ресторан",
+    "experiences": "Впечатления",
+    "offers": "Спецпредложения",
+    "gallery": "Галерея",
+    "contact": "Контакты",
     "about": "О нас",
-    "bookNow": "Book Stay"
+    "bookNow": "Забронировать"
   },
   "footer": {
-    "explore": "Explore",
-    "experiences": "Experiences",
-    "contact": "Contact",
+    "explore": "Разделы",
+    "experiences": "Впечатления",
+    "contact": "Контакты",
     "about": "О нас",
     "getDirections": "Открыть в Google Maps",
     "whatsappRu": "WhatsApp (Россия)",
-    "whatsappHotel": "WhatsApp (Hotel)",
+    "whatsappHotel": "WhatsApp (отель)",
     "paymentNote": "Возможна оплата в России наличными и безналичным переводом",
     "allRightsReserved": "Все права защищены",
     "links": {
-      "rooms": "Rooms",
-      "amenities": "Dining",
-      "experiences": "Experiences",
-      "offers": "Offers",
-      "gallery": "Gallery",
+      "rooms": "Номера",
+      "amenities": "Ресторан",
+      "experiences": "Впечатления",
+      "offers": "Спецпредложения",
+      "gallery": "Галерея",
       "about": "О нас"
     },
     "experienceLinks": {
-      "sightseeing": "Sightseeing Tours",
-      "ubud": "Ubud Attractions",
-      "diving": "Diving",
-      "trekking": "Trekking",
-      "volcano": "Volcano Tour"
+      "sightseeing": "Экскурсионные туры",
+      "ubud": "Достопримечательности Убуда",
+      "diving": "Дайвинг",
+      "trekking": "Треккинг",
+      "volcano": "Тур к вулкану"
     }
   },
   "hero": {
@@ -49,17 +49,17 @@
     "closeLightbox": "Закрыть галерею"
   },
   "offers": {
-    "specialOffer": "Special Offer",
-    "bookThisOffer": "Book This Offer"
+    "specialOffer": "Специальное предложение",
+    "bookThisOffer": "Забронировать"
   },
   "reviews": {
-    "label": "Отзывы",
-    "heading": "Что Говорят Наши Гости"
+    "label": "Отзывы гостей",
+    "heading": "Что говорят наши гости"
   },
   "map": {
-    "label": "Location",
-    "heading": "Find Us in Candidasa",
-    "subtext": "На тихом побережье Кандидасы, Восточный Бали — вдали от толпы, рядом со всем необходимым.",
+    "label": "Расположение",
+    "heading": "Как нас найти в Кандидасе",
+    "subtext": "На тихом побережье Кандидасы, Восточный Бали — вдали от суеты, рядом со всем необходимым.",
     "address": "Адрес",
     "viewOnMaps": "Открыть в Google Maps"
   }

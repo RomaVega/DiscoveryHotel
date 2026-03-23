@@ -1,24 +1,29 @@
+import { SITE_URL } from "@/lib/site";
 import { getHomePageData, getContactData } from "@/lib/content";
 import { InnerPageLayout } from "@/components/layout/InnerPageLayout";
 import { PageHero } from "@/components/sections/PageHero";
 import { SpecialOffers } from "@/components/sections/SpecialOffers";
-import { SITE_URL } from "@/lib/site";
 
 export const metadata = {
-  title: "Special Offers & Packages — Orlowsky Discovery Hotel, Bali",
-  description: "Early bird rates, honeymoon packages, and long-stay discounts at Orlowsky Discovery Hotel, Candidasa, East Bali. Book direct for the best price.",
+  title: "Спецпредложения и Скидки — Orlowsky Discovery Hotel, Бали",
+  description: "Скидка 20% при раннем бронировании и пакет для молодожёнов с романтическим ужином и спа. Прямое бронирование в Orlowsky Discovery Hotel, Кандидаса.",
   alternates: {
-    canonical: `${SITE_URL}/offers`,
+    canonical: `${SITE_URL}/ru/offers`,
+    languages: {
+      "en": `${SITE_URL}/offers`,
+      "ru": `${SITE_URL}/ru/offers`,
+      "x-default": `${SITE_URL}/offers`,
+    },
   },
   openGraph: {
-    title: "Special Offers & Packages — Orlowsky Discovery Hotel, Bali",
-    description: "Early bird rates, honeymoon packages, and long-stay discounts at Orlowsky Discovery Hotel, Candidasa, East Bali. Book direct for the best price.",
-    url: `${SITE_URL}/offers`,
+    title: "Спецпредложения и Скидки — Orlowsky Discovery Hotel, Бали",
+    description: "Скидка 20% при раннем бронировании и пакет для молодожёнов с романтическим ужином и спа. Прямое бронирование в Orlowsky Discovery Hotel, Кандидаса.",
+    url: `${SITE_URL}/ru/offers`,
     images: [{ url: `${SITE_URL}/images/offers/early-bird.jpg`, width: 1200, height: 630 }],
   },
 };
 
-export default function OffersPage() {
+export default function OffersRuPage() {
   const data = getHomePageData();
   const contact = getContactData();
 

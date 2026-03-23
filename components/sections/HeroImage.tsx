@@ -16,28 +16,26 @@ export function HeroImage({ hero }: HeroImageProps) {
   const contentRef = useRef<HTMLDivElement>(null);
   const indicatorRef = useRef<HTMLDivElement>(null);
   const pauseBtnRef = useRef<HTMLDivElement>(null);
-  const isHiddenRef = useRef(false);
 
-  // One-way hide: text shows on load, fades on first scroll, never returns
+  // Two-way: hide on scroll down, restore on scroll back to top
   useEffect(() => {
-    const hide = () => {
-      if (isHiddenRef.current) return;
-      if (window.scrollY <= 3) return;
-      isHiddenRef.current = true;
+    const onScroll = () => {
+      const atTop = window.scrollY <= 3;
       if (contentRef.current) {
         contentRef.current.style.transition = "opacity 0.3s ease-out";
-        contentRef.current.style.opacity = "0";
-        contentRef.current.style.pointerEvents = "none";
+        contentRef.current.style.opacity = atTop ? "1" : "0";
+        contentRef.current.style.pointerEvents = atTop ? "" : "none";
       }
       if (indicatorRef.current) {
         indicatorRef.current.style.transition = "opacity 0.3s ease-out";
-        indicatorRef.current.style.opacity = "0";
+        indicatorRef.current.style.opacity = atTop ? "1" : "0";
       }
-      if (pauseBtnRef.current) pauseBtnRef.current.style.display = "block";
-      window.removeEventListener("scroll", hide);
+      if (pauseBtnRef.current) {
+        pauseBtnRef.current.style.display = atTop ? "none" : "block";
+      }
     };
-    window.addEventListener("scroll", hide, { passive: true });
-    return () => window.removeEventListener("scroll", hide);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
   const videoRef = useRef<HTMLVideoElement>(null);
   const reducedMotion = useReducedMotion();
