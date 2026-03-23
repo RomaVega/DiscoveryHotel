@@ -1,9 +1,6 @@
 import type {
   HomePageData, ContactData, ReviewsData,
   RoomsPageData, DiningPageData, SpaPageData, TransferPageData,
-  ExcursionsPageData, DivingPageData, EventsPageData, CarRentalPageData,
-  AboutPageData, LocationPageData, WeddingsPageData, FaqPageData,
-  LegalPageData, ExperiencesHubData,
 } from "./types";
 
 import homeData from "@/content/home.json";

@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { FadeIn } from "@/components/common/FadeIn";
 import { SectionHeading } from "@/components/common/SectionHeading";
-import { PrimaryButton } from "@/components/common/PrimaryButton";
 import type { OffersData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
 

@@ -375,7 +375,7 @@ export interface AboutPageData {
 export interface NearbyAttraction {
   name: LocalizedString;
   description: LocalizedString;
-  distance: string;
+  distance: LocalizedString;
 }
 
 export interface GettingHere {

@@ -25,7 +25,7 @@ export function LocationDetail({ data }: LocationDetailProps) {
               <div key={i} className="bg-ivory p-6 shadow-sm">
                 <div className="flex items-center gap-2 mb-3">
                   <MapPin size={16} className="text-brand-teal" />
-                  <span className="text-xs text-stone font-sans">{attraction.distance}</span>
+                  <span className="text-xs text-stone font-sans">{t(attraction.distance)}</span>
                 </div>
                 <h3 className="font-serif text-lg font-semibold text-charcoal">{t(attraction.name)}</h3>
                 <p className="mt-2 text-stone text-sm leading-relaxed">{t(attraction.description)}</p>
