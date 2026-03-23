@@ -16,7 +16,7 @@ function ExcursionGroup({ section }: { section: ExcursionSection }) {
   const whatsappBase = "https://wa.me/6282236655582?text=";
 
   return (
-    <div className="mb-20 last:mb-0">
+    <div>
       <h2 className="font-serif text-3xl md:text-4xl font-light text-charcoal text-center mb-3">
         {t(section.title)}
       </h2>
@@ -26,7 +26,7 @@ function ExcursionGroup({ section }: { section: ExcursionSection }) {
         </p>
       )}
       {items.length > 0 && (
-        <div className="bg-ivory shadow-sm overflow-hidden divide-y divide-sand">
+        <div className="flex flex-col gap-6">
           {items.map((item, i) => {
             const msg = encodeURIComponent(
               locale === "ru"
@@ -34,7 +34,7 @@ function ExcursionGroup({ section }: { section: ExcursionSection }) {
                 : `Hello! I'd like to book the excursion: ${typeof item.name === "object" ? item.name.en : item.name}`
             );
             return (
-              <div key={i} className="p-6 md:p-8 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8">
+              <div key={i} className="bg-ivory shadow-sm p-6 md:p-8 flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-8">
                 <div className="flex-1">
                   <h3 className="font-serif text-lg font-semibold text-charcoal">{t(item.name)}</h3>
                   <p className="text-stone text-sm mt-2 leading-relaxed">{t(item.description)}</p>
@@ -47,14 +47,16 @@ function ExcursionGroup({ section }: { section: ExcursionSection }) {
                     )}
                   </div>
                 </div>
-                <a
-                  href={`${whatsappBase}${msg}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="shrink-0 inline-block font-sans text-xs font-semibold tracking-wide border border-brand-teal text-brand-teal hover:bg-brand-teal hover:text-white px-5 py-2.5 rounded-full transition-all duration-200 whitespace-nowrap"
-                >
-                  {bookingText}
-                </a>
+                <div className="flex justify-center sm:block">
+                  <a
+                    href={`${whatsappBase}${msg}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="shrink-0 inline-block font-sans text-xs font-semibold tracking-wide border border-brand-teal text-brand-teal hover:bg-brand-teal hover:text-white px-5 py-2.5 rounded-full transition-all duration-200 whitespace-nowrap"
+                  >
+                    {bookingText}
+                  </a>
+                </div>
               </div>
             );
           })}
@@ -76,11 +78,13 @@ export function ExcursionsDetail({ data }: ExcursionsDetailProps) {
   return (
     <section className="py-16 md:py-28 bg-sand">
       <div className="max-w-4xl mx-auto px-6">
-        {sections.map((section, i) => (
-          <FadeIn key={i}>
-            <ExcursionGroup section={section} />
-          </FadeIn>
-        ))}
+        <div className="flex flex-col gap-16 md:gap-24">
+          {sections.map((section, i) => (
+            <FadeIn key={i}>
+              <ExcursionGroup section={section} />
+            </FadeIn>
+          ))}
+        </div>
       </div>
     </section>
   );

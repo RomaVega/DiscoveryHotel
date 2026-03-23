@@ -15,7 +15,7 @@ export function Experiences({ data }: ExperiencesProps) {
   const { t } = useLanguage();
 
   return (
-    <section id="experiences" className="pt-12 md:pt-32 pb-12 md:pb-32 bg-ivory">
+    <section id="experiences" className="pt-12 md:pt-32 pb-12 md:pb-32 bg-sand">
       <div className="max-w-7xl mx-auto px-6">
         <FadeIn>
           <SectionHeading

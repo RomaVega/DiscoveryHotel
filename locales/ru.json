@@ -7,13 +7,15 @@
     "offers": "Offers",
     "gallery": "Gallery",
     "contact": "Contact",
+    "about": "О нас",
     "bookNow": "Book Stay"
   },
   "footer": {
     "explore": "Explore",
     "experiences": "Experiences",
     "contact": "Contact",
-    "getDirections": "Как добраться",
+    "about": "О нас",
+    "getDirections": "Открыть в Google Maps",
     "whatsappRu": "WhatsApp (Россия)",
     "whatsappHotel": "WhatsApp (Hotel)",
     "paymentNote": "Возможна оплата в России наличными и безналичным переводом",
@@ -23,7 +25,8 @@
       "amenities": "Dining",
       "experiences": "Experiences",
       "offers": "Offers",
-      "gallery": "Gallery"
+      "gallery": "Gallery",
+      "about": "О нас"
     },
     "experienceLinks": {
       "sightseeing": "Sightseeing Tours",

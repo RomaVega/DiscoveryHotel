@@ -6,6 +6,7 @@ import { HeroImage } from "@/components/sections/HeroImage";
 import { Welcome } from "@/components/sections/Welcome";
 import { RoomsPreview } from "@/components/sections/RoomsPreview";
 import { Amenities } from "@/components/sections/Amenities";
+import { DiningPreview } from "@/components/sections/DiningPreview";
 import { Experiences } from "@/components/sections/Experiences";
 import { SpecialOffers } from "@/components/sections/SpecialOffers";
 import { GalleryPreview } from "@/components/sections/GalleryPreview";
@@ -36,14 +37,16 @@ export default function HomePage() {
         <ScrollDivider above={C.sand}     below={C.ivory}    />
         <RoomsPreview data={data.roomsPreview} />
         <ScrollDivider above={C.ivory}    below={C.sand}     />
+        <DiningPreview />
+        <ScrollDivider above={C.sand}     below={C.ivory}    />
         <Amenities data={data.amenities} />
-        <ScrollDivider above={C.sand}     below={C.ivory}    />
+        <ScrollDivider above={C.ivory}    below={C.sand}     />
         <Experiences data={data.experiences} />
-        <ScrollDivider above={C.ivory}    below={C.sand}     />
-        <SpecialOffers data={data.offers} />
         <ScrollDivider above={C.sand}     below={C.ivory}    />
-        <GalleryPreview data={data.galleryPreview} />
+        <SpecialOffers data={data.offers} />
         <ScrollDivider above={C.ivory}    below={C.sand}     />
+        <GalleryPreview data={data.galleryPreview} />
+        <ScrollDivider above={C.sand}     below={C.ivory}    />
         <ReviewScroller reviews={reviews} />
         <BookingCta data={data.bookingCta} />
         <MapLocation contact={contact} />

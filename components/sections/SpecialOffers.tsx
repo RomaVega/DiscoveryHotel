@@ -9,28 +9,31 @@ import { useLanguage } from "@/lib/language-context";
 
 interface SpecialOffersProps {
   data: OffersData;
+  hideHeading?: boolean;
 }
 
-export function SpecialOffers({ data }: SpecialOffersProps) {
+export function SpecialOffers({ data, hideHeading }: SpecialOffersProps) {
   const { t, tl } = useLanguage();
   const activeOffers = data.offers.filter((o) => o.active);
 
   if (activeOffers.length === 0) return null;
 
   return (
-    <section id="offers" className="pt-12 md:pt-32 pb-12 md:pb-32 bg-sand">
+    <section id="offers" className="pt-12 md:pt-32 pb-12 md:pb-32 bg-ivory">
       <div className="max-w-7xl mx-auto px-6">
-        <FadeIn>
-          <SectionHeading
-            label={t(data.label)}
-            heading={t(data.heading)}
-          />
-        </FadeIn>
+        {!hideHeading && (
+          <FadeIn>
+            <SectionHeading
+              label={t(data.label)}
+              heading={t(data.heading)}
+            />
+          </FadeIn>
+        )}
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {activeOffers.map((offer, i) => (
             <FadeIn key={i} delay={i * 0.1}>
-              <div className="bg-ivory group h-full flex flex-col overflow-hidden">
+              <div className="bg-sand shadow-md group h-full flex flex-col overflow-hidden">
                 <div className="relative aspect-[16/9] shrink-0 overflow-hidden">
                   <Image
                     src={offer.image}

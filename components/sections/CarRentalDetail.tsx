@@ -9,10 +9,17 @@ interface CarRentalDetailProps {
   data: CarRentalPageData;
 }
 
+const WHATSAPP = "6282236655582";
+
 export function CarRentalDetail({ data }: CarRentalDetailProps) {
-  const { t } = useLanguage();
+  const { t, locale } = useLanguage();
+  const isRu = locale === "ru";
+  const ctaMsg = encodeURIComponent(isRu
+    ? "Здравствуйте! Хочу арендовать автомобиль / мотоцикл."
+    : "Hello! I'd like to arrange a car or bike rental.");
 
   return (
+    <div>
     <section className="py-16 md:py-32 bg-sand">
       <div className="max-w-5xl mx-auto px-6">
         {/* Vehicles */}
@@ -50,5 +57,32 @@ export function CarRentalDetail({ data }: CarRentalDetailProps) {
         )}
       </div>
     </section>
+
+      {/* ── CTA ── */}
+      <section className="pt-12 md:pt-32 pb-12 md:pb-32 bg-deep-teal">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <FadeIn>
+            <h2 className="font-serif font-light text-3xl md:text-5xl text-white">
+              {isRu ? "Готовы объездить Восточный Бали?" : "Ready to Ride East Bali?"}
+            </h2>
+            <p className="mt-4 text-lg text-white/70 leading-relaxed">
+              {isRu
+                ? "Напишите нам — мы подберём транспорт и расскажем о лучших маршрутах из Кандидасы."
+                : "Message us and we'll arrange the perfect vehicle for your Bali adventure from Candidasa."}
+            </p>
+            <div className="mt-8">
+              <a
+                href={`https://wa.me/${WHATSAPP}?text=${ctaMsg}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-transparent hover:bg-white/10 border border-white hover:border-white/80 text-white font-sans font-semibold px-5 py-2 rounded-full tracking-wide uppercase text-xs transition-all duration-300"
+              >
+                {isRu ? "Написать нам" : "Message Us Now"}
+              </a>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+    </div>
   );
 }

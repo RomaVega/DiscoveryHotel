@@ -354,13 +354,20 @@ export interface AboutSection {
   title: LocalizedString;
   description: LocalizedString;
   image?: string;
-  imageAlt?: string;
+  imageAlt?: LocalizedString;
+}
+
+export interface AboutStat {
+  value: string;
+  label: LocalizedString;
 }
 
 export interface AboutPageData {
   label: LocalizedString;
   heading: LocalizedString;
   subtext: LocalizedString;
+  intro?: LocalizedString;
+  stats?: AboutStat[];
   sections: AboutSection[];
 }
 

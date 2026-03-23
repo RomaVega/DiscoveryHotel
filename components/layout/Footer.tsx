@@ -37,6 +37,7 @@ export function Footer({ contact }: FooterProps) {
     { label: tl.footer.links.experiences, href: "/experiences" },
     { label: tl.footer.links.offers, href: "/offers" },
     { label: tl.footer.links.gallery, href: "/gallery" },
+    { label: tl.footer.links.about, href: "/about" },
   ];
 
   const experienceLinks = [

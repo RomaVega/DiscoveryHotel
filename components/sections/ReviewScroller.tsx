@@ -192,7 +192,7 @@ export function ReviewScroller({ reviews }: ReviewScrollerProps) {
   }, []);
 
   return (
-    <section className="py-16 md:py-20 bg-sand overflow-hidden" aria-label="Guest reviews">
+    <section className="py-16 md:py-20 bg-ivory overflow-hidden" aria-label="Guest reviews">
       <div className="max-w-7xl mx-auto px-6 mb-10 text-center">
         <p className="font-sans text-xs tracking-widest uppercase text-brand-teal mb-3">
           {tl.reviews.label}

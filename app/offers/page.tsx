@@ -18,9 +18,9 @@ export default function OffersPage() {
         image="/images/offers/early-bird.jpg"
         imageAlt="Hotel pool at sunrise"
         heading={data.offers.heading}
-        subtext={{ en: "Book direct for early bird rates, honeymoon packages, and exclusive deals at Orlowsky Discovery Hotel, Candidasa, Bali.", ru: "Бронируйте напрямую — ранние цены, медовый месяц и эксклюзивные предложения в отеле Orlowsky Discovery, Кандидаса, Бали." }}
+        subtext={{ en: "Book direct for early bird rates, honeymoon packages, and other exclusive deals at Orlowsky Discovery Hotel, Candidasa, Bali.", ru: "Бронируйте напрямую — ранние цены, медовый месяц и другие эксклюзивные предложения в отеле Orlowsky Discovery, Кандидаса, Бали." }}
       />
-      <SpecialOffers data={data.offers} />
+      <SpecialOffers data={data.offers} hideHeading />
     </InnerPageLayout>
   );
 }

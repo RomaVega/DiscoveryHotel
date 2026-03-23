@@ -35,7 +35,7 @@ export function Amenities({ data }: AmenitiesProps) {
   const { t } = useLanguage();
 
   return (
-    <section id="amenities" className="pt-12 md:pt-32 pb-12 md:pb-32 bg-sand">
+    <section id="amenities" className="pt-12 md:pt-32 pb-12 md:pb-32 bg-ivory">
       <div className="max-w-7xl mx-auto px-6">
         <FadeIn>
           <SectionHeading

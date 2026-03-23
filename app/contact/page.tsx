@@ -1,4 +1,4 @@
-import { getContactData, getHomePageData } from "@/lib/content";
+import { getContactData } from "@/lib/content";
 import { InnerPageLayout } from "@/components/layout/InnerPageLayout";
 import { PageHero } from "@/components/sections/PageHero";
 import { ContactDetail } from "@/components/sections/ContactDetail";
@@ -20,8 +20,8 @@ export default function ContactPage() {
         heading={{ en: "Contact Orlowsky Discovery Hotel, Candidasa", ru: "Контакты отеля Orlowsky Discovery, Кандидаса" }}
         subtext={{ en: "WhatsApp, email, address, and directions to our hotel on the seafront of Candidasa, East Bali.", ru: "WhatsApp, email, адрес и маршрут до нашего отеля на набережной Кандидасы, Восточный Бали." }}
       />
-      <ContactDetail contact={contact} />
       <MapLocation contact={contact} />
+      <ContactDetail contact={contact} />
     </InnerPageLayout>
   );
 }

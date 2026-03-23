@@ -7,13 +7,15 @@
     "offers": "Offers",
     "gallery": "Gallery",
     "contact": "Contact",
+    "about": "About",
     "bookNow": "Book Stay"
   },
   "footer": {
     "explore": "Explore",
     "experiences": "Experiences",
     "contact": "Contact",
-    "getDirections": "Get Directions",
+    "about": "About",
+    "getDirections": "Open in Google Maps",
     "whatsappRu": "WhatsApp (Russia)",
     "whatsappHotel": "WhatsApp (Hotel)",
     "paymentNote": "",
@@ -23,7 +25,8 @@
       "amenities": "Dining",
       "experiences": "Experiences",
       "offers": "Offers",
-      "gallery": "Gallery"
+      "gallery": "Gallery",
+      "about": "About"
     },
     "experienceLinks": {
       "sightseeing": "Sightseeing Tours",

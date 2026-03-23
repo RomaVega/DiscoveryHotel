@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import { Menu, X, BedDouble, Sparkles, Compass, Tag, Camera, Phone } from "lucide-react";
+import { Menu, X, BedDouble, Sparkles, Compass, Tag, Camera, Info } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/lib/language-context";
@@ -12,9 +12,10 @@ import { LanguageSelector } from "@/components/layout/LanguageSelector";
 
 interface NavbarProps {
   alwaysVisible?: boolean;
+  scrollThreshold?: number; // fraction of viewport height, default 0.9
 }
 
-export function Navbar({ alwaysVisible = false }: NavbarProps) {
+export function Navbar({ alwaysVisible = false, scrollThreshold = 0.9 }: NavbarProps) {
   const [scrolled, setScrolled] = useState(alwaysVisible);
   const [menuOpen, setMenuOpen] = useState(false);
   const { tl } = useLanguage();
@@ -26,15 +27,15 @@ export function Navbar({ alwaysVisible = false }: NavbarProps) {
     { label: tl.nav.experiences, href: "/experiences", icon: Compass },
     { label: tl.nav.offers, href: "/offers", icon: Tag },
     { label: tl.nav.gallery, href: "/gallery", icon: Camera },
-    { label: tl.nav.contact, href: "/contact", icon: Phone },
+    { label: tl.nav.about, href: "/about", icon: Info },
   ];
 
   useEffect(() => {
     if (alwaysVisible) { setScrolled(true); return; }
-    const onScroll = () => setScrolled(window.scrollY > window.innerHeight * 0.9);
+    const onScroll = () => setScrolled(window.scrollY > window.innerHeight * scrollThreshold);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, [alwaysVisible]);
+  }, [alwaysVisible, scrollThreshold]);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
