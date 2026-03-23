@@ -1,0 +1,233 @@
+{
+  "label": {
+    "en": "Transport",
+    "ru": "Транспорт"
+  },
+  "heading": {
+    "en": "Airport Transfer from Bali Airport to Candidasa",
+    "ru": "Трансфер из аэропорта Бали в Кандидасу"
+  },
+  "subtext": {
+    "en": "Private air-conditioned transfer from Ngurah Rai International Airport (DPS) to Candidasa, East Bali. Fixed rates, English-speaking drivers, available 24/7.",
+    "ru": "Частный трансфер с кондиционером из международного аэропорта Нгурах Рай (DPS) в Кандидасу, Восточный Бали. Фиксированные тарифы, круглосуточно."
+  },
+  "features": [
+    {
+      "title": {
+        "en": "Private AC Vehicle",
+        "ru": "Частный автомобиль с кондиционером"
+      },
+      "description": {
+        "en": "Comfortable, air-conditioned vehicles for a smooth and relaxing ride from the airport to the hotel.",
+        "ru": "Комфортабельные автомобили с кондиционером для спокойной и приятной поездки из аэропорта до отеля."
+      },
+      "icon": "Car"
+    },
+    {
+      "title": {
+        "en": "Complimentary Water",
+        "ru": "Бесплатная вода"
+      },
+      "description": {
+        "en": "Chilled mineral water provided for every passenger throughout the journey.",
+        "ru": "Охлаждённая минеральная вода для каждого пассажира на протяжении всей поездки."
+      },
+      "icon": "GlassWater"
+    },
+    {
+      "title": {
+        "en": "English-Speaking Driver",
+        "ru": "Англоговорящий водитель"
+      },
+      "description": {
+        "en": "Our professional drivers speak English and are happy to answer questions about Bali along the way.",
+        "ru": "Наши профессиональные водители говорят по-английски и с удовольствием расскажут о Бали по дороге."
+      },
+      "icon": "MessageCircle"
+    }
+  ],
+  "routes": [
+    {
+      "destination": {
+        "en": "Ngurah Rai Airport / Kuta / Nusa Dua / Jimbaran / Uluwatu",
+        "ru": "Аэропорт Нгурах-Рай / Кута / Нуса-Дуа / Джимбаран / Улувату"
+      },
+      "oneWay": "$40",
+      "roundTrip": "$70",
+      "maxPassengers": 4,
+      "note": {
+        "en": "Additional charge applies for 5 or more passengers",
+        "ru": "Дополнительная плата при 5 и более пассажирах"
+      }
+    },
+    {
+      "destination": {
+        "en": "Bedugul",
+        "ru": "Бедугул"
+      },
+      "oneWay": null,
+      "roundTrip": null,
+      "maxPassengers": null,
+      "note": {
+        "en": "Price on request — contact the hotel",
+        "ru": "Цена по запросу — свяжитесь с отелем"
+      }
+    },
+    {
+      "destination": {
+        "en": "Kintamani",
+        "ru": "Кинтамани"
+      },
+      "oneWay": null,
+      "roundTrip": null,
+      "maxPassengers": null,
+      "note": {
+        "en": "Price on request — contact the hotel",
+        "ru": "Цена по запросу — свяжитесь с отелем"
+      }
+    },
+    {
+      "destination": {
+        "en": "Lovina",
+        "ru": "Ловина"
+      },
+      "oneWay": null,
+      "roundTrip": null,
+      "maxPassengers": null,
+      "note": {
+        "en": "Price on request — contact the hotel",
+        "ru": "Цена по запросу — свяжитесь с отелем"
+      }
+    },
+    {
+      "destination": {
+        "en": "Pemuteran",
+        "ru": "Пемутеран"
+      },
+      "oneWay": null,
+      "roundTrip": null,
+      "maxPassengers": null,
+      "note": {
+        "en": "Price on request — contact the hotel",
+        "ru": "Цена по запросу — свяжитесь с отелем"
+      }
+    },
+    {
+      "destination": {
+        "en": "Padangbay",
+        "ru": "Паданг-Бай"
+      },
+      "oneWay": null,
+      "roundTrip": null,
+      "maxPassengers": null,
+      "note": {
+        "en": "Price on request — contact the hotel",
+        "ru": "Цена по запросу — свяжитесь с отелем"
+      }
+    },
+    {
+      "destination": {
+        "en": "Sidemen",
+        "ru": "Сидемен"
+      },
+      "oneWay": null,
+      "roundTrip": null,
+      "maxPassengers": null,
+      "note": {
+        "en": "Price on request — contact the hotel",
+        "ru": "Цена по запросу — свяжитесь с отелем"
+      }
+    },
+    {
+      "destination": {
+        "en": "Kastala",
+        "ru": "Кастала"
+      },
+      "oneWay": null,
+      "roundTrip": null,
+      "maxPassengers": null,
+      "note": {
+        "en": "Price on request — contact the hotel",
+        "ru": "Цена по запросу — свяжитесь с отелем"
+      }
+    },
+    {
+      "destination": {
+        "en": "Tirtagangga",
+        "ru": "Тиртаганга"
+      },
+      "oneWay": null,
+      "roundTrip": null,
+      "maxPassengers": null,
+      "note": {
+        "en": "Price on request — contact the hotel",
+        "ru": "Цена по запросу — свяжитесь с отелем"
+      }
+    },
+    {
+      "destination": {
+        "en": "Amed / Tulamben",
+        "ru": "Амед / Туламбен"
+      },
+      "oneWay": null,
+      "roundTrip": null,
+      "maxPassengers": null,
+      "note": {
+        "en": "Price on request — contact the hotel",
+        "ru": "Цена по запросу — свяжитесь с отелем"
+      }
+    }
+  ],
+  "localRoutes": [
+    {
+      "destination": {
+        "en": "White Sand Beach",
+        "ru": "Пляж Уайт-Сэнд"
+      },
+      "price": "IDR 310,000",
+      "type": {
+        "en": "Two-way",
+        "ru": "В обе стороны"
+      }
+    },
+    {
+      "destination": {
+        "en": "Tenganan Village",
+        "ru": "Деревня Тенганан"
+      },
+      "price": "IDR 310,000",
+      "type": {
+        "en": "Two-way",
+        "ru": "В обе стороны"
+      }
+    },
+    {
+      "destination": {
+        "en": "Amlapura",
+        "ru": "Амлапура"
+      },
+      "price": "IDR 330,000",
+      "type": {
+        "en": "Two-way",
+        "ru": "В обе стороны"
+      }
+    }
+  ],
+  "bookingCta": {
+    "heading": {
+      "en": "Book Your Transfer",
+      "ru": "Заказать трансфер"
+    },
+    "subtext": {
+      "en": "We respond within 5–10 minutes during business hours. Private AC vehicle with English-speaking driver.",
+      "ru": "Мы отвечаем в течение 5–10 минут в рабочее время. Частный автомобиль с кондиционером и водителем, говорящим по-английски."
+    },
+    "bookingUrl": "https://secure.guestpro.net/odch",
+    "fallbackCta": {
+      "en": "Contact Us",
+      "ru": "Связаться с нами"
+    }
+  },
+  "image": "/images/gallery/g5.jpg",
+  "imageAlt": "Private transfer vehicle at Ngurah Rai Airport, Bali"
+}

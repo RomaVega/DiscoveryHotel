@@ -12,12 +12,14 @@ import { cn } from "@/lib/utils";
 
 interface GalleryPreviewProps {
   data: GalleryPreviewData;
+  defaultExpanded?: boolean;
+  hideHeading?: boolean;
 }
 
-export function GalleryPreview({ data }: GalleryPreviewProps) {
+export function GalleryPreview({ data, defaultExpanded = false, hideHeading = false }: GalleryPreviewProps) {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [direction, setDirection] = useState(0); // -1 = left, 1 = right
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(defaultExpanded);
   const sectionRef = useRef<HTMLElement>(null);
   const { t, tl } = useLanguage();
 
@@ -62,39 +64,49 @@ export function GalleryPreview({ data }: GalleryPreviewProps) {
   return (
     <section id="gallery" ref={sectionRef} className="pt-12 md:pt-32 pb-12 md:pb-32 bg-ivory">
       <div className="max-w-7xl mx-auto px-6">
-        <FadeIn>
-          <SectionHeading label={t(data.label)} heading={t(data.heading)} />
-        </FadeIn>
+        {!hideHeading && (
+          <FadeIn>
+            <SectionHeading label={t(data.label)} heading={t(data.heading)} />
+          </FadeIn>
+        )}
 
         <div className="relative">
           <div
             className={cn(
-              "grid grid-cols-2 md:grid-cols-3 gap-4 overflow-hidden transition-all duration-700 ease-in-out",
+              "grid grid-cols-1 gap-1 overflow-hidden transition-all duration-700 ease-in-out",
+              "md:grid-cols-4 md:auto-rows-[210px]",
               expanded ? "max-h-[9999px]" : "max-h-[420px] md:max-h-[680px]"
             )}
           >
-            {data.images.map((img, i) => (
-              <FadeIn key={img.src} delay={Math.min(i, 5) * 0.1}>
-                <button
-                  onClick={() => openLightbox(i)}
-                  className="relative aspect-square group w-full focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2"
-                >
-                  <Image
-                    src={img.src}
-                    alt={img.alt}
-                    fill
-                    sizes="(max-width: 768px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
-                  />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
-                    <ZoomIn
-                      size={28}
-                      className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            {data.images.map((img, i) => {
+              const isBig = i % 5 === 0;
+              return (
+                <FadeIn key={img.src} delay={Math.min(i, 5) * 0.1}>
+                  <button
+                    onClick={() => openLightbox(i)}
+                    className={cn(
+                      "relative w-full h-full group focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2",
+                      "aspect-[4/3] md:aspect-auto",
+                      isBig ? "md:col-span-2 md:row-span-2" : "md:col-span-1 md:row-span-1"
+                    )}
+                  >
+                    <Image
+                      src={img.src}
+                      alt={img.alt}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
+                      className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                     />
-                  </div>
-                </button>
-              </FadeIn>
-            ))}
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
+                      <ZoomIn
+                        size={28}
+                        className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      />
+                    </div>
+                  </button>
+                </FadeIn>
+              );
+            })}
           </div>
 
           {/* Peek gradient */}

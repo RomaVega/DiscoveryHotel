@@ -1,0 +1,107 @@
+{
+  "label": {
+    "en": "Rental",
+    "ru": "Аренда"
+  },
+  "heading": {
+    "en": "Car & Bike Rental in Candidasa, East Bali",
+    "ru": "Аренда автомобиля и мотоцикла в Кандидасе, Восточный Бали"
+  },
+  "subtext": {
+    "en": "Scooters from Rp 20,000/hr, cars with or without driver, electric bikes. Hotel pickup and drop-off. Explore East Bali, Ubud, Kintamani, and beyond at your own pace.",
+    "ru": "Скутеры от Rp 20 000/ч, автомобили с водителем и без, электровелосипеды. Подача и возврат в отеле. Исследуйте Восточный Бали, Убуд, Кинтамани в своём темпе."
+  },
+  "vehicles": [
+    {
+      "title": {
+        "en": "Scooter / Motorbike",
+        "ru": "Скутер / мотобайк"
+      },
+      "description": {
+        "en": "The most popular way to explore Bali. Rent a scooter starting from Rp 20,000 per hour and discover hidden beaches, local warungs, and scenic coastal roads at your own pace.",
+        "ru": "Самый популярный способ исследовать Бали. Арендуйте скутер от Rp 20 000 в час и открывайте скрытые пляжи, местные варунги и живописные прибрежные дороги в своём ритме."
+      },
+      "price": {
+        "en": "from Rp 20,000/hour",
+        "ru": "от Rp 20 000/час"
+      },
+      "image": "/images/rental/rental-scooter.jpg",
+      "imageAlt": {
+        "en": "Scooter available for rent at the hotel",
+        "ru": "Скутер для аренды в отеле"
+      }
+    },
+    {
+      "title": {
+        "en": "Car Without Driver",
+        "ru": "Автомобиль без водителя"
+      },
+      "description": {
+        "en": "For experienced drivers who prefer independence. Rent a well-maintained car for any duration — hourly, daily, or weekly — and create your own Bali itinerary.",
+        "ru": "Для опытных водителей, предпочитающих самостоятельность. Арендуйте ухоженный автомобиль на любой срок — по часам, на день или неделю — и составьте свой маршрут по Бали."
+      },
+      "price": {
+        "en": "Contact hotel for rates",
+        "ru": "Уточняйте стоимость в отеле"
+      },
+      "image": "/images/rental/rental-car.jpg",
+      "imageAlt": {
+        "en": "Rental car parked at the hotel",
+        "ru": "Арендный автомобиль у отеля"
+      }
+    },
+    {
+      "title": {
+        "en": "Car With Driver",
+        "ru": "Автомобиль с водителем"
+      },
+      "description": {
+        "en": "Sit back and enjoy the scenery while our English-speaking driver takes you wherever you want to go. Available for half-day trips, full-day tours, or multi-day adventures.",
+        "ru": "Расслабьтесь и наслаждайтесь видами, пока наш англоговорящий водитель отвезёт вас куда угодно. Доступно для поездок на полдня, на целый день или многодневных путешествий."
+      },
+      "price": {
+        "en": "Contact hotel for rates",
+        "ru": "Уточняйте стоимость в отеле"
+      },
+      "image": "/images/rental/rental-car-driver.jpg",
+      "imageAlt": {
+        "en": "Car with driver service at the hotel",
+        "ru": "Услуга автомобиля с водителем в отеле"
+      }
+    },
+    {
+      "title": {
+        "en": "Electric Bike",
+        "ru": "Электровелосипед"
+      },
+      "description": {
+        "en": "An eco-friendly way to explore the Candidasa area. Our electric bikes make it easy to ride along the coast, visit nearby villages, and enjoy the tropical breeze without breaking a sweat.",
+        "ru": "Экологичный способ исследовать район Кандидасы. Наши электровелосипеды позволяют легко кататься вдоль побережья, посещать соседние деревни и наслаждаться тропическим бризом без усилий."
+      },
+      "price": {
+        "en": "Contact hotel for rates",
+        "ru": "Уточняйте стоимость в отеле"
+      },
+      "image": "/images/rental/rental-ebike.jpg",
+      "imageAlt": {
+        "en": "Electric bike available for rent",
+        "ru": "Электровелосипед для аренды"
+      }
+    }
+  ],
+  "bookingCta": {
+    "heading": {
+      "en": "Rent a Vehicle",
+      "ru": "Арендовать транспорт"
+    },
+    "subtext": {
+      "en": "Contact us to check availability and arrange your rental.",
+      "ru": "Свяжитесь с нами для проверки наличия и оформления аренды."
+    },
+    "bookingUrl": "https://secure.guestpro.net/odch",
+    "fallbackCta": {
+      "en": "Contact Us",
+      "ru": "Связаться с нами"
+    }
+  }
+}

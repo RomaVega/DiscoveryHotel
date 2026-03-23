@@ -1,0 +1,215 @@
+{
+  "label": {
+    "en": "Marine Adventures",
+    "ru": "Морские приключения"
+  },
+  "heading": {
+    "en": "Diving & Snorkeling in East Bali — Tulamben & Candidasa Reef",
+    "ru": "Дайвинг и снорклинг в Восточном Бали — Туламбен и риф Кандидасы"
+  },
+  "subtext": {
+    "en": "USAT Liberty shipwreck in Tulamben, Candidasa coral reef, and manta rays at Nusa Penida. Beginner to advanced programs with certified instructors.",
+    "ru": "Корабль USAT Liberty в Туламбене, коралловый риф Кандидасы и манты Нуса-Пениды. Программы для начинающих и продвинутых с сертифицированными инструкторами."
+  },
+  "features": [
+    {
+      "title": {
+        "en": "Experienced Instructors",
+        "ru": "Опытные инструкторы"
+      },
+      "description": {
+        "en": "Our certified dive instructors bring years of experience in Bali's waters, ensuring your safety and an unforgettable underwater adventure.",
+        "ru": "Наши сертифицированные инструкторы по дайвингу обладают многолетним опытом в водах Бали, гарантируя вашу безопасность и незабываемое подводное приключение."
+      },
+      "icon": "Award"
+    },
+    {
+      "title": {
+        "en": "Quality Equipment",
+        "ru": "Качественное оборудование"
+      },
+      "description": {
+        "en": "All dive and snorkeling equipment is provided, regularly serviced, and maintained to the highest international safety standards.",
+        "ru": "Всё оборудование для дайвинга и снорклинга предоставляется, регулярно обслуживается и содержится в соответствии с высшими международными стандартами безопасности."
+      },
+      "icon": "Shield"
+    },
+    {
+      "title": {
+        "en": "Training for All Levels",
+        "ru": "Обучение для всех уровней"
+      },
+      "description": {
+        "en": "Whether you have never dived before or hold an advanced certification, we have the right program to match your experience and ambitions.",
+        "ru": "Независимо от того, погружались ли вы раньше или имеете продвинутый сертификат, у нас есть подходящая программа для вашего уровня и амбиций."
+      },
+      "icon": "GraduationCap"
+    }
+  ],
+  "programs": [
+    {
+      "name": {
+        "en": "Discover Scuba Diving",
+        "ru": "Знакомство с дайвингом"
+      },
+      "description": {
+        "en": "The perfect introduction for first-time divers. Begin with a pool session to learn the basics, then experience your first ocean dive under the close supervision of a certified instructor. No prior experience required.",
+        "ru": "Идеальное знакомство для тех, кто ныряет впервые. Начните с занятия в бассейне, чтобы освоить основы, а затем совершите первое погружение в океане под тщательным наблюдением сертифицированного инструктора. Предыдущий опыт не требуется."
+      },
+      "level": {
+        "en": "Beginner",
+        "ru": "Начальный"
+      },
+      "includes": {
+        "en": "Pool session + ocean dive, equipment, instructor",
+        "ru": "Занятие в бассейне + погружение в океане, оборудование, инструктор"
+      }
+    },
+    {
+      "name": {
+        "en": "Fun Dive",
+        "ru": "Рекреационный дайвинг"
+      },
+      "description": {
+        "en": "For certified divers who want to explore Bali's best dive sites. Join guided dives to stunning coral walls, vibrant reefs, and fascinating marine life. Bring your certification card and dive in.",
+        "ru": "Для сертифицированных дайверов, желающих исследовать лучшие дайв-сайты Бали. Погружения с гидом к потрясающим коралловым стенам, ярким рифам и удивительной морской жизни. Возьмите сертификат и ныряйте."
+      },
+      "level": {
+        "en": "Certified divers",
+        "ru": "Сертифицированные дайверы"
+      },
+      "includes": {
+        "en": "Guided dive, equipment, transport to dive site",
+        "ru": "Погружение с гидом, оборудование, транспорт до дайв-сайта"
+      }
+    },
+    {
+      "name": {
+        "en": "PADI Open Water Course",
+        "ru": "Курс PADI Open Water"
+      },
+      "description": {
+        "en": "Earn your internationally recognized PADI Open Water certification. This multi-day course covers theory, confined water practice, and four open water dives, qualifying you to dive independently to 18 meters worldwide.",
+        "ru": "Получите международно признанный сертификат PADI Open Water. Этот многодневный курс включает теорию, практику в закрытой воде и четыре погружения в открытой воде, что даёт право на самостоятельные погружения до 18 метров по всему миру."
+      },
+      "level": {
+        "en": "Beginner to certified",
+        "ru": "От начального до сертифицированного"
+      },
+      "includes": {
+        "en": "Theory sessions, pool training, 4 ocean dives, PADI certification, equipment",
+        "ru": "Теоретические занятия, тренировки в бассейне, 4 погружения в океане, сертификация PADI, оборудование"
+      }
+    },
+    {
+      "name": {
+        "en": "Snorkeling Trips",
+        "ru": "Снорклинг-туры"
+      },
+      "description": {
+        "en": "No diving certification needed — just a mask, snorkel, and a sense of adventure. Float above pristine coral gardens and encounter tropical fish, sea turtles, and colorful marine life just below the surface.",
+        "ru": "Сертификат дайвера не нужен — только маска, трубка и жажда приключений. Парите над нетронутыми коралловыми садами и встречайте тропических рыб, морских черепах и красочный подводный мир прямо у поверхности."
+      },
+      "level": {
+        "en": "All levels",
+        "ru": "Для всех уровней"
+      },
+      "includes": {
+        "en": "Snorkeling equipment, boat transport, guide",
+        "ru": "Оборудование для снорклинга, лодка, гид"
+      }
+    }
+  ],
+  "diveSites": [
+    {
+      "name": {
+        "en": "USAT Liberty Wreck, Tulamben",
+        "ru": "Корабль USAT Liberty, Туламбен"
+      },
+      "description": {
+        "en": "One of the world's most famous wreck dives. This WWII US Army cargo ship rests just 30 meters from shore, covered in vibrant coral and teeming with marine life. Accessible to snorkelers and divers of all levels.",
+        "ru": "Одно из самых знаменитых затонувших судов в мире. Этот американский военный грузовой корабль времён Второй мировой войны лежит всего в 30 метрах от берега, покрытый яркими кораллами и полный морской жизни. Доступен для снорклеров и дайверов всех уровней."
+      },
+      "image": "/images/diving/diving-liberty.jpg",
+      "imageAlt": {
+        "en": "USAT Liberty shipwreck covered in coral at Tulamben",
+        "ru": "Корабль USAT Liberty, покрытый кораллами, в Туламбене"
+      }
+    },
+    {
+      "name": {
+        "en": "Candidasa Reef",
+        "ru": "Риф Кандидасы"
+      },
+      "description": {
+        "en": "Our local house reef is just minutes from the hotel, featuring stunning coral formations, reef sharks, sea turtles, and a rich variety of tropical fish.",
+        "ru": "Наш местный домашний риф находится в нескольких минутах от отеля и отличается потрясающими коралловыми формациями, рифовыми акулами, морскими черепахами и богатым разнообразием тропических рыб."
+      },
+      "image": "/images/diving/diving-candidasa.jpg",
+      "imageAlt": {
+        "en": "Colorful coral reef at Candidasa",
+        "ru": "Яркий коралловый риф Кандидасы"
+      }
+    },
+    {
+      "name": {
+        "en": "Mimpang & Biaha Islands",
+        "ru": "Острова Мимпанг и Биаха"
+      },
+      "description": {
+        "en": "Dramatic rock formations rising from the sea, surrounded by strong currents that attract large pelagic fish, ocean sunfish (mola mola), and occasionally hammerhead sharks.",
+        "ru": "Драматичные скальные образования, возвышающиеся из моря, окружённые сильными течениями, которые привлекают крупных пелагических рыб, рыбу-луну (мола-мола) и иногда молотоголовых акул."
+      },
+      "image": "/images/diving/diving-mimpang.jpg",
+      "imageAlt": {
+        "en": "Rocky islands of Mimpang and Biaha off Candidasa coast",
+        "ru": "Скалистые острова Мимпанг и Биаха у побережья Кандидасы"
+      }
+    },
+    {
+      "name": {
+        "en": "Amed",
+        "ru": "Амед"
+      },
+      "description": {
+        "en": "A peaceful fishing village with excellent shore-entry dive sites, Japanese wreck, vibrant coral gardens, and a relaxed atmosphere perfect for multi-dive days.",
+        "ru": "Спокойная рыбацкая деревня с отличными дайв-сайтами у берега, японским кораблём, яркими коралловыми садами и расслабленной атмосферой, идеальной для многодневного дайвинга."
+      },
+      "image": "/images/diving/diving-amed.jpg",
+      "imageAlt": {
+        "en": "Amed coastline with traditional fishing boats",
+        "ru": "Побережье Амеда с традиционными рыбацкими лодками"
+      }
+    },
+    {
+      "name": {
+        "en": "Nusa Penida — Manta Point",
+        "ru": "Нуса-Пенида — Манта Пойнт"
+      },
+      "description": {
+        "en": "Encounter majestic manta rays at their cleaning station off Nusa Penida. This world-renowned site offers thrilling drift dives and the chance to swim alongside these gentle giants.",
+        "ru": "Встретьте величественных мант на их станции очистки у Нуса-Пениды. Этот всемирно известный дайв-сайт предлагает захватывающие дрифт-дайвы и возможность поплавать рядом с этими нежными гигантами."
+      },
+      "image": "/images/diving/diving-manta.jpg",
+      "imageAlt": {
+        "en": "Manta ray swimming at Manta Point, Nusa Penida",
+        "ru": "Манта в водах Манта Пойнт, Нуса-Пенида"
+      }
+    }
+  ],
+  "bookingCta": {
+    "heading": {
+      "en": "Ready to Dive?",
+      "ru": "Готовы нырнуть?"
+    },
+    "subtext": {
+      "en": "Contact us to arrange your experience. We respond within 5-10 minutes during business hours.",
+      "ru": "Свяжитесь с нами, чтобы организовать ваш опыт. Мы отвечаем в течение 5–10 минут в рабочее время."
+    },
+    "bookingUrl": "https://secure.guestpro.net/odch",
+    "fallbackCta": {
+      "en": "Contact Us",
+      "ru": "Связаться с нами"
+    }
+  }
+}

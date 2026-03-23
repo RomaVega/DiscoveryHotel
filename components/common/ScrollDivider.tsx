@@ -11,13 +11,13 @@ interface ScrollDividerProps {
 // All paths share the same command structure (M C L L Z) for morph compatibility.
 // viewBox: 0 0 1440 60. Scrolling DOWN → curve arches UP (opposite direction). Vice versa.
 const PATHS = {
-  down: "M0,45 C480,5  960,5  1440,45 L1440,60 L0,60 Z", // arch up
+  down: "M0,52 C480,2  960,2  1440,52 L1440,60 L0,60 Z", // arch up
   idle: "M0,30 C480,30 960,30 1440,30 L1440,60 L0,60 Z", // flat
-  up:   "M0,15 C480,55 960,55 1440,15 L1440,60 L0,60 Z", // arch down
+  up:   "M0,8  C480,58 960,58 1440,8  L1440,60 L0,60 Z", // arch down
 };
 
 const SPRING = { type: "spring" as const, stiffness: 600, damping: 28 };
-const SETTLE = { type: "tween"  as const, duration: 0.25, ease: "easeOut" as const };
+const SETTLE = { type: "tween"  as const, duration: 0.15, ease: "easeOut" as const };
 
 export function ScrollDivider({ above, below }: ScrollDividerProps) {
   const prefersReduced = useReducedMotion();
@@ -41,7 +41,7 @@ export function ScrollDivider({ above, below }: ScrollDividerProps) {
       settleTimer.current = setTimeout(() => {
         lastDir.current = "idle";
         setPath(PATHS.idle);
-      }, 50);
+      }, 30);
     };
 
     const applyDir = (dir: "down" | "up") => {

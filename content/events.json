@@ -1,0 +1,116 @@
+{
+  "label": {
+    "en": "Celebrations",
+    "ru": "Торжества"
+  },
+  "heading": {
+    "en": "Events & Private Celebrations — Oceanfront Venue in Bali",
+    "ru": "Мероприятия и торжества — площадка у океана на Бали"
+  },
+  "subtext": {
+    "en": "Weddings, anniversaries, corporate retreats, and private dinners at our oceanfront venue in Candidasa. Capacity up to 200 guests, European and Balinese ceremony styles.",
+    "ru": "Свадьбы, юбилеи, корпоративные мероприятия и частные ужины на нашей площадке у океана в Кандидасе. До 200 гостей, европейские и балийские стили."
+  },
+  "venue": {
+    "description": {
+      "en": "Our versatile venue options include an oceanfront terrace, lush tropical gardens, and our semi-circular seaside restaurant accommodating 52 to 120 guests.",
+      "ru": "Наши варианты площадок включают террасу на берегу океана, пышные тропические сады и полукруглый ресторан у моря, вмещающий от 52 до 120 гостей."
+    },
+    "capacity": {
+      "min": 52,
+      "max": 120
+    }
+  },
+  "services": [
+    {
+      "title": {
+        "en": "European-Style Weddings",
+        "ru": "Свадьбы в европейском стиле"
+      },
+      "description": {
+        "en": "Celebrate your love with an elegant European-style ceremony on our oceanfront lawn or garden terrace. White floral arches, fine dining, and a sunset reception by the sea.",
+        "ru": "Отпразднуйте свою любовь элегантной церемонией в европейском стиле на нашей лужайке у океана или садовой террасе. Белые цветочные арки, изысканный ужин и приём на закате у моря."
+      },
+      "image": "/images/events/events-european-wedding.jpg",
+      "imageAlt": {
+        "en": "European-style wedding ceremony at the oceanfront",
+        "ru": "Свадебная церемония в европейском стиле на берегу океана"
+      }
+    },
+    {
+      "title": {
+        "en": "Balinese-Style Weddings",
+        "ru": "Свадьбы в балийском стиле"
+      },
+      "description": {
+        "en": "Experience an authentic Balinese wedding ceremony with local priests, traditional offerings, and sacred rituals performed in our tropical garden, creating memories steeped in island culture.",
+        "ru": "Проведите аутентичную балийскую свадебную церемонию с местными священниками, традиционными подношениями и священными ритуалами в нашем тропическом саду, создавая воспоминания, пропитанные островной культурой."
+      },
+      "image": "/images/events/events-balinese-wedding.jpg",
+      "imageAlt": {
+        "en": "Traditional Balinese wedding ceremony in tropical garden",
+        "ru": "Традиционная балийская свадебная церемония в тропическом саду"
+      }
+    },
+    {
+      "title": {
+        "en": "Corporate Events & Team Building",
+        "ru": "Корпоративные мероприятия и тимбилдинг"
+      },
+      "description": {
+        "en": "Inspire your team in paradise. Our flexible venue spaces, full catering services, and activity programs make the perfect setting for conferences, retreats, and team-building events.",
+        "ru": "Вдохновите свою команду в раю. Наши гибкие площадки, полный кейтеринг и программы активностей создают идеальные условия для конференций, корпоративных выездов и тимбилдинга."
+      },
+      "image": "/images/events/events-corporate.jpg",
+      "imageAlt": {
+        "en": "Corporate event setup in the hotel restaurant",
+        "ru": "Оформление корпоративного мероприятия в ресторане отеля"
+      }
+    },
+    {
+      "title": {
+        "en": "Full Catering Service",
+        "ru": "Полный кейтеринг"
+      },
+      "description": {
+        "en": "Our kitchen team crafts custom menus tailored to your event, from elegant multi-course dinners to casual buffets and outdoor BBQ parties.",
+        "ru": "Наша кухня разрабатывает индивидуальные меню для вашего мероприятия — от элегантных ужинов на несколько блюд до шведского стола и вечеринок-барбекю на открытом воздухе."
+      },
+      "image": "/images/events/events-catering.jpg",
+      "imageAlt": {
+        "en": "Beautifully arranged catering spread for an event",
+        "ru": "Красиво оформленный кейтеринг для мероприятия"
+      }
+    },
+    {
+      "title": {
+        "en": "Decoration & Entertainment",
+        "ru": "Декорации и развлечения"
+      },
+      "description": {
+        "en": "Professional decoration styling, traditional Balinese dance performances, live music, and coordination with photographers and videographers to capture every moment.",
+        "ru": "Профессиональное оформление, выступления традиционных балийских танцоров, живая музыка и координация с фотографами и видеографами для запечатления каждого момента."
+      },
+      "image": "/images/events/events-entertainment.jpg",
+      "imageAlt": {
+        "en": "Balinese dancers performing at an evening event",
+        "ru": "Балийские танцоры на вечернем мероприятии"
+      }
+    }
+  ],
+  "bookingCta": {
+    "heading": {
+      "en": "Ready to Book?",
+      "ru": "Готовы забронировать?"
+    },
+    "subtext": {
+      "en": "Contact us to arrange your experience. We respond within 5-10 minutes during business hours.",
+      "ru": "Свяжитесь с нами, чтобы организовать ваш опыт. Мы отвечаем в течение 5–10 минут в рабочее время."
+    },
+    "bookingUrl": "https://secure.guestpro.net/odch",
+    "fallbackCta": {
+      "en": "Contact Us",
+      "ru": "Связаться с нами"
+    }
+  }
+}

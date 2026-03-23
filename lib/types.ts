@@ -63,7 +63,7 @@ export interface ExperienceCard {
   title: LocalizedString;
   description: LocalizedString;
   image: string;
-  imageAlt: string;
+  imageAlt: LocalizedString;
   href: string;
 }
 
@@ -97,6 +97,7 @@ export interface GalleryImage {
 export interface GalleryPreviewData {
   label: LocalizedString;
   heading: LocalizedString;
+  subtext?: LocalizedString;
   images: GalleryImage[];
 }
 
@@ -160,4 +161,277 @@ export interface HomePageData {
   offers: OffersData;
   galleryPreview: GalleryPreviewData;
   bookingCta: BookingCtaData;
+}
+
+/* ─── Rooms Page ─── */
+export interface RoomDetail {
+  title: LocalizedString;
+  description: LocalizedString;
+  size: string;
+  image: string;
+  imageAlt: LocalizedString;
+  href: string;
+  amenities: LocalizedString[];
+  highlights?: LocalizedString[];
+}
+
+export interface RoomsPageData {
+  label: LocalizedString;
+  heading: LocalizedString;
+  subtext: LocalizedString;
+  rooms: RoomDetail[];
+  bookingCta: BookingCtaData;
+}
+
+/* ─── Dining Page ─── */
+export interface DiningFeature {
+  icon: string;
+  title: LocalizedString;
+  description: LocalizedString;
+}
+
+export interface DiningPageData {
+  label: LocalizedString;
+  heading: LocalizedString;
+  subtext: LocalizedString;
+  hours: string;
+  capacity: string;
+  features: DiningFeature[];
+  menuHighlights: {
+    title: LocalizedString;
+    items: LocalizedString[];
+  }[];
+  image?: string;
+  imageAlt?: string;
+  bookingCta: BookingCtaData;
+}
+
+/* ─── Spa Page ─── */
+export interface SpaTreatment {
+  name: LocalizedString;
+  description: LocalizedString;
+  duration: string;
+  price: string;
+}
+
+export interface SpaProgram {
+  name: LocalizedString;
+  description: LocalizedString;
+  duration: string;
+  price: string;
+  includes: LocalizedString[];
+}
+
+export interface SpaPageData {
+  label: LocalizedString;
+  heading: LocalizedString;
+  subtext: LocalizedString;
+  hours: string;
+  note: LocalizedString;
+  programs: SpaProgram[];
+  ayurvedicTreatments: SpaTreatment[];
+  balineseTreatments: SpaTreatment[];
+  image: string;
+  imageAlt: string;
+  bookingCta: BookingCtaData;
+}
+
+/* ─── Transfer Page ─── */
+export interface TransferRoute {
+  destination: LocalizedString;
+  oneWay: string;
+  roundTrip: string;
+}
+
+export interface LocalRoute {
+  destination: LocalizedString;
+  price: string;
+}
+
+export interface TransferPageData {
+  label: LocalizedString;
+  heading: LocalizedString;
+  subtext: LocalizedString;
+  features: LocalizedString[];
+  routes: TransferRoute[];
+  localRoutes: LocalRoute[];
+  otherDestinations: LocalizedString[];
+  image: string;
+  imageAlt: string;
+  bookingCta: BookingCtaData;
+}
+
+/* ─── Excursions Page ─── */
+export interface ExcursionItem {
+  name: LocalizedString;
+  description: LocalizedString;
+  duration?: LocalizedString;
+  price?: LocalizedString;
+}
+
+export interface ExcursionSection {
+  title: LocalizedString;
+  description?: LocalizedString;
+  items?: ExcursionItem[];
+  highlights?: ExcursionItem[];
+}
+
+export interface ExcursionsPageData {
+  label: LocalizedString;
+  heading: LocalizedString;
+  subtext: LocalizedString;
+  sightseeing?: ExcursionSection;
+  waterActivities?: ExcursionSection;
+  trekking?: ExcursionSection;
+  cycling?: ExcursionSection;
+  organizedTours?: ExcursionSection;
+  bookingCta: BookingCtaData;
+}
+
+/* ─── Diving Page ─── */
+export interface DiveSite {
+  name: LocalizedString;
+  description: LocalizedString;
+  image?: string;
+}
+
+export interface DiveProgram {
+  name: LocalizedString;
+  description: LocalizedString;
+  duration?: string;
+  price?: string;
+  level: LocalizedString;
+}
+
+export interface DivingPageData {
+  label: LocalizedString;
+  heading: LocalizedString;
+  subtext: LocalizedString;
+  programs: DiveProgram[];
+  diveSites: DiveSite[];
+  image: string;
+  imageAlt: string;
+  bookingCta: BookingCtaData;
+}
+
+/* ─── Events Page ─── */
+export interface EventService {
+  title: LocalizedString;
+  description: LocalizedString;
+  image: string;
+  imageAlt: LocalizedString;
+}
+
+export interface EventsPageData {
+  label: LocalizedString;
+  heading: LocalizedString;
+  subtext: LocalizedString;
+  services: EventService[];
+  venueFeatures: LocalizedString[];
+  bookingCta: BookingCtaData;
+}
+
+/* ─── Car Rental Page ─── */
+export interface RentalVehicle {
+  title: LocalizedString;
+  description: LocalizedString;
+  price: LocalizedString;
+  image?: string;
+  imageAlt?: LocalizedString;
+}
+
+export interface CarRentalPageData {
+  label: LocalizedString;
+  heading: LocalizedString;
+  subtext: LocalizedString;
+  vehicles: RentalVehicle[];
+  terms: LocalizedString[];
+  bookingCta: BookingCtaData;
+}
+
+/* ─── About Page ─── */
+export interface AboutSection {
+  title: LocalizedString;
+  description: LocalizedString;
+  image?: string;
+  imageAlt?: string;
+}
+
+export interface AboutPageData {
+  label: LocalizedString;
+  heading: LocalizedString;
+  subtext: LocalizedString;
+  sections: AboutSection[];
+}
+
+/* ─── Location Page ─── */
+export interface NearbyAttraction {
+  name: LocalizedString;
+  description: LocalizedString;
+  distance: string;
+}
+
+export interface GettingHere {
+  from: LocalizedString;
+  description: LocalizedString;
+  duration: string;
+}
+
+export interface LocationPageData {
+  label: LocalizedString;
+  heading: LocalizedString;
+  subtext: LocalizedString;
+  nearbyAttractions: NearbyAttraction[];
+  gettingHere: GettingHere[];
+}
+
+/* ─── Weddings Page ─── */
+export interface WeddingPackage {
+  title: LocalizedString;
+  description: LocalizedString;
+  features?: LocalizedString[];
+  image: string;
+  imageAlt: LocalizedString;
+}
+
+export interface WeddingsPageData {
+  label: LocalizedString;
+  heading: LocalizedString;
+  subtext: LocalizedString;
+  packages: WeddingPackage[];
+  bookingCta: BookingCtaData;
+}
+
+/* ─── FAQ Page ─── */
+export interface FaqItem {
+  question: LocalizedString;
+  answer: LocalizedString;
+}
+
+export interface FaqPageData {
+  label: LocalizedString;
+  heading: LocalizedString;
+  subtext?: LocalizedString;
+  items: FaqItem[];
+}
+
+/* ─── Legal Pages ─── */
+export interface LegalSection {
+  title: LocalizedString;
+  content: LocalizedString;
+}
+
+export interface LegalPageData {
+  label: LocalizedString;
+  heading: LocalizedString;
+  lastUpdated: string;
+  sections: LegalSection[];
+}
+
+/* ─── Experiences Hub Page ─── */
+export interface ExperiencesHubData {
+  label: LocalizedString;
+  heading: LocalizedString;
+  subtext: LocalizedString;
+  categories: ExperienceCard[];
 }

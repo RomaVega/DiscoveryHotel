@@ -1,0 +1,103 @@
+{
+  "label": {
+    "en": "Legal",
+    "ru": "Правовая информация"
+  },
+  "heading": {
+    "en": "Terms & Conditions",
+    "ru": "Условия и положения"
+  },
+  "lastUpdated": "2024-12-01",
+  "sections": [
+    {
+      "title": {
+        "en": "Reservations & Booking",
+        "ru": "Бронирование"
+      },
+      "content": {
+        "en": "All reservations are subject to availability and confirmation by the hotel. A valid credit card or advance payment may be required to guarantee your booking. Rates are quoted per room per night and are subject to applicable taxes and service charges. Special rates and promotional offers are subject to specific terms and conditions as stated at the time of booking.",
+        "ru": "Все бронирования зависят от наличия мест и подтверждения отелем. Для гарантии бронирования может потребоваться действующая кредитная карта или предоплата. Тарифы указаны за номер за ночь и подлежат применимым налогам и сервисным сборам. Специальные тарифы и акционные предложения подчиняются отдельным условиям, указанным при бронировании."
+      }
+    },
+    {
+      "title": {
+        "en": "Check-In & Check-Out",
+        "ru": "Заезд и выезд"
+      },
+      "content": {
+        "en": "Check-in time is 14:00 and check-out time is 12:00. Early check-in and late check-out are available upon request and subject to availability. Additional charges may apply for late check-out. Guests are required to present a valid passport or government-issued ID upon check-in.",
+        "ru": "Время заезда — 14:00, время выезда — 12:00. Ранний заезд и поздний выезд доступны по запросу при наличии свободных номеров. За поздний выезд может взиматься дополнительная плата. При заезде необходимо предъявить действующий паспорт или удостоверение личности государственного образца."
+      }
+    },
+    {
+      "title": {
+        "en": "Cancellation Policy",
+        "ru": "Политика отмены"
+      },
+      "content": {
+        "en": "Free cancellation is available up to 48 hours before the scheduled check-in date. Cancellations made within 48 hours of check-in or no-shows will be charged the first night's rate. For group bookings and special event reservations, different cancellation terms may apply as specified at the time of booking.",
+        "ru": "Бесплатная отмена доступна не позднее чем за 48 часов до запланированной даты заезда. При отмене менее чем за 48 часов до заезда или неявке взимается стоимость первой ночи. Для групповых бронирований и бронирований мероприятий могут применяться особые условия отмены, указанные при бронировании."
+      }
+    },
+    {
+      "title": {
+        "en": "Payment",
+        "ru": "Оплата"
+      },
+      "content": {
+        "en": "We accept Visa, Mastercard, and cash payments in Indonesian Rupiah (IDR) and US Dollars (USD). Full payment is due upon check-out unless otherwise arranged. The hotel reserves the right to pre-authorize the credit card provided at the time of booking. Currency exchange services are available at the reception.",
+        "ru": "Мы принимаем Visa, Mastercard и наличные в индонезийских рупиях (IDR) и долларах США (USD). Полная оплата производится при выезде, если не оговорено иное. Отель оставляет за собой право на предварительную авторизацию кредитной карты, указанной при бронировании. Обмен валюты доступен на ресепшене."
+      }
+    },
+    {
+      "title": {
+        "en": "Guest Conduct",
+        "ru": "Правила поведения"
+      },
+      "content": {
+        "en": "Guests are expected to respect the hotel property, staff, and fellow guests. Smoking is permitted only in designated outdoor areas. The hotel reserves the right to refuse service or ask guests to leave the premises if their behavior is deemed disruptive, dangerous, or in violation of hotel policies. Pets are not permitted on the property.",
+        "ru": "Гости обязаны уважать собственность отеля, персонал и других гостей. Курение разрешено только в специально отведённых зонах на открытом воздухе. Отель оставляет за собой право отказать в обслуживании или попросить гостей покинуть территорию, если их поведение является деструктивным, опасным или нарушает правила отеля. Проживание с домашними животными не допускается."
+      }
+    },
+    {
+      "title": {
+        "en": "Liability",
+        "ru": "Ответственность"
+      },
+      "content": {
+        "en": "The hotel is not responsible for the loss, theft, or damage of personal belongings left in rooms or on hotel premises. In-room safes are provided for the storage of valuables. The hotel shall not be held liable for any injury, loss, or damage arising from the use of hotel facilities, activities, or services arranged through the hotel, including but not limited to excursions, diving, spa treatments, and transfers.",
+        "ru": "Отель не несёт ответственности за потерю, кражу или повреждение личных вещей, оставленных в номерах или на территории отеля. В номерах предусмотрены сейфы для хранения ценностей. Отель не несёт ответственности за травмы, потери или ущерб, возникшие в результате использования гостиничных объектов, мероприятий или услуг, организованных через отель, включая, но не ограничиваясь экскурсиями, дайвингом, спа-процедурами и трансферами."
+      }
+    },
+    {
+      "title": {
+        "en": "Force Majeure",
+        "ru": "Форс-мажор"
+      },
+      "content": {
+        "en": "The hotel shall not be liable for failure to perform its obligations due to circumstances beyond its reasonable control, including but not limited to natural disasters, volcanic activity, severe weather, government restrictions, pandemics, or civil unrest.",
+        "ru": "Отель не несёт ответственности за неисполнение обязательств по обстоятельствам, не зависящим от него, включая, но не ограничиваясь стихийными бедствиями, вулканической активностью, неблагоприятными погодными условиями, правительственными ограничениями, пандемиями или гражданскими волнениями."
+      }
+    },
+    {
+      "title": {
+        "en": "Governing Law",
+        "ru": "Применимое право"
+      },
+      "content": {
+        "en": "These terms and conditions are governed by the laws of the Republic of Indonesia. Any disputes arising from your stay or use of hotel services shall be subject to the jurisdiction of the courts of Bali, Indonesia.",
+        "ru": "Настоящие условия и положения регулируются законодательством Республики Индонезия. Любые споры, возникающие в связи с вашим пребыванием или использованием услуг отеля, подлежат юрисдикции судов Бали, Индонезия."
+      }
+    },
+    {
+      "title": {
+        "en": "Contact",
+        "ru": "Контакты"
+      },
+      "content": {
+        "en": "For questions about these terms and conditions, please contact: Orlowsky Discovery Hotel, Jalan Pantai Indah 06, Candidasa, Karangasem 80851, Bali, Indonesia. Email: 2794140@gmail.com.",
+        "ru": "По вопросам, связанным с настоящими условиями, обращайтесь: Orlowsky Discovery Hotel, Jalan Pantai Indah 06, Candidasa, Karangasem 80851, Bali, Indonesia. Email: 2794140@gmail.com."
+      }
+    }
+  ]
+}

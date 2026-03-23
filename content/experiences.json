@@ -1,0 +1,96 @@
+{
+  "label": {
+    "en": "Experiences",
+    "ru": "Впечатления"
+  },
+  "heading": {
+    "en": "Experiences in East Bali — Tours, Diving, Spa & More",
+    "ru": "Опыт и впечатления в Восточном Бали — экскурсии, дайвинг, спа"
+  },
+  "subtext": {
+    "en": "Guided tours to Bali temples and volcanoes, diving at Tulamben and Nusa Penida, Ayurvedic spa, oceanfront events, and car rental — all from Candidasa.",
+    "ru": "Экскурсии к храмам и вулканам, дайвинг в Туламбене и Нуса-Пениде, аюрведический спа, мероприятия у океана и аренда авто — всё из Кандидасы."
+  },
+  "categories": [
+    {
+      "title": {
+        "en": "Excursion Programs",
+        "ru": "Экскурсионные программы"
+      },
+      "description": {
+        "en": "Explore sacred temples, emerald rice terraces, and hidden waterfalls with our expert local guides. Full-day and half-day tours across East Bali and beyond.",
+        "ru": "Исследуйте священные храмы, изумрудные рисовые террасы и скрытые водопады с нашими опытными местными гидами. Полнодневные и полудневные туры по Восточному Бали и за его пределы."
+      },
+      "image": "/images/experiences/experiences-excursions.jpg",
+      "imageAlt": {
+        "en": "Bali rice terraces with lush green landscape",
+        "ru": "Рисовые террасы Бали с пышным зелёным ландшафтом"
+      },
+      "href": "/experiences/excursions"
+    },
+    {
+      "title": {
+        "en": "Diving & Snorkeling",
+        "ru": "Дайвинг и снорклинг"
+      },
+      "description": {
+        "en": "Discover vibrant coral reefs, the legendary USAT Liberty wreck in Tulamben, and majestic manta rays at Nusa Penida. Programs for beginners and certified divers.",
+        "ru": "Откройте для себя яркие коралловые рифы, легендарный корабль USAT Liberty в Туламбене и величественных мант на Нуса-Пениде. Программы для новичков и сертифицированных дайверов."
+      },
+      "image": "/images/experiences/experiences-diving.jpg",
+      "imageAlt": {
+        "en": "Colorful coral reef underwater in Bali",
+        "ru": "Яркий коралловый риф под водой на Бали"
+      },
+      "href": "/experiences/diving"
+    },
+    {
+      "title": {
+        "en": "Events & Celebrations",
+        "ru": "Мероприятия и торжества"
+      },
+      "description": {
+        "en": "Host your dream wedding, anniversary, or corporate event in our oceanfront venue. European and traditional Balinese ceremonies, full catering, and professional planning.",
+        "ru": "Проведите свадьбу мечты, юбилей или корпоративное мероприятие на нашей площадке у океана. Европейские и традиционные балийские церемонии, кейтеринг и профессиональная организация."
+      },
+      "image": "/images/experiences/experiences-events.jpg",
+      "imageAlt": {
+        "en": "Elegant outdoor event setup with ocean backdrop",
+        "ru": "Элегантное оформление мероприятия на открытом воздухе с видом на океан"
+      },
+      "href": "/experiences/events"
+    },
+    {
+      "title": {
+        "en": "Car & Bike Rental",
+        "ru": "Аренда авто и мото"
+      },
+      "description": {
+        "en": "Explore Bali at your own pace. Rent a scooter from Rp 20,000/hour, a car with or without driver, or try our electric bikes for an eco-friendly adventure.",
+        "ru": "Исследуйте Бали в своём темпе. Арендуйте скутер от Rp 20,000/час, автомобиль с водителем или без, или попробуйте наши электровелосипеды для экологичного путешествия."
+      },
+      "image": "/images/rental/rental.png",
+      "imageAlt": {
+        "en": "Scooter parked on scenic Bali road",
+        "ru": "Скутер на живописной дороге Бали"
+      },
+      "href": "/experiences/car-rental"
+    },
+    {
+      "title": {
+        "en": "Ayurvedic Spa",
+        "ru": "Аюрведический спа"
+      },
+      "description": {
+        "en": "Restore balance with authentic Ayurvedic treatments and traditional Balinese therapies, delivered by therapists trained under Kerala masters.",
+        "ru": "Восстановите баланс с помощью аутентичных аюрведических процедур и традиционных балийских терапий от мастеров, обученных в Керале."
+      },
+      "image": "/images/gallery/g3.jpg",
+      "imageAlt": {
+        "en": "Ayurvedic spa treatment room with tropical garden view",
+        "ru": "Кабинет аюрведического спа с видом на тропический сад"
+      },
+      "href": "/spa"
+    }
+  ]
+}

@@ -32,19 +32,19 @@ export function Footer({ contact }: FooterProps) {
   const enContacts = contact.whatsappContacts.filter((c) => c.locale === "en");
 
   const footerLinks = [
-    { label: tl.footer.links.rooms, href: "#rooms" },
-    { label: tl.footer.links.amenities, href: "#amenities" },
-    { label: tl.footer.links.experiences, href: "#experiences" },
-    { label: tl.footer.links.offers, href: "#offers" },
-    { label: tl.footer.links.gallery, href: "#gallery" },
+    { label: tl.footer.links.rooms, href: "/rooms" },
+    { label: tl.footer.links.amenities, href: "/dining" },
+    { label: tl.footer.links.experiences, href: "/experiences" },
+    { label: tl.footer.links.offers, href: "/offers" },
+    { label: tl.footer.links.gallery, href: "/gallery" },
   ];
 
   const experienceLinks = [
-    { label: tl.footer.experienceLinks.sightseeing, href: "/excursions" },
-    { label: tl.footer.experienceLinks.ubud, href: "/excursions" },
-    { label: tl.footer.experienceLinks.diving, href: "/diving" },
-    { label: tl.footer.experienceLinks.trekking, href: "/excursions" },
-    { label: tl.footer.experienceLinks.volcano, href: "/excursions" },
+    { label: tl.footer.experienceLinks.sightseeing, href: "/experiences/excursions" },
+    { label: tl.footer.experienceLinks.ubud, href: "/experiences/excursions" },
+    { label: tl.footer.experienceLinks.diving, href: "/experiences/diving" },
+    { label: tl.footer.experienceLinks.trekking, href: "/experiences/excursions" },
+    { label: tl.footer.experienceLinks.volcano, href: "/experiences/excursions" },
   ];
 
   return (
@@ -215,12 +215,12 @@ export function Footer({ contact }: FooterProps) {
             <ul className="space-y-2 sm:space-y-2.5">
               {experienceLinks.map((link) => (
                 <li key={link.label}>
-                  <a
+                  <Link
                     href={link.href}
                     className="font-sans text-[13px] sm:text-sm text-charcoal/60 hover:text-charcoal transition-colors duration-200"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -234,12 +234,12 @@ export function Footer({ contact }: FooterProps) {
             <ul className="space-y-2 sm:space-y-2.5">
               {footerLinks.map((link) => (
                 <li key={link.label}>
-                  <a
+                  <Link
                     href={link.href}
                     className="font-sans text-[13px] sm:text-sm text-charcoal/60 hover:text-charcoal transition-colors duration-200"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

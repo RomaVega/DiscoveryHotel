@@ -1,0 +1,64 @@
+{
+  "label": {
+    "en": "Our Story",
+    "ru": "О нас"
+  },
+  "heading": {
+    "en": "Orlowsky Discovery Hotel — Candidasa, East Bali",
+    "ru": "Отель Orlowsky Discovery — Кандидаса, Восточный Бали"
+  },
+  "subtext": {
+    "en": "A boutique seafront hotel in Candidasa, Karangasem — 5-star hospitality, tropical gardens, private pool villas, and Ayurvedic spa, away from Bali's crowds.",
+    "ru": "Бутик-отель на берегу моря в Кандидасе, Карангасем — тропические сады, виллы с бассейном и аюрведический спа вдали от туристических толп."
+  },
+  "sections": [
+    {
+      "id": "story",
+      "title": {
+        "en": "A Seaside Sanctuary",
+        "ru": "Убежище на берегу моря"
+      },
+      "description": {
+        "en": "Orlowsky Discovery Hotel is a tropical hotel on the Candidasa seafront, surrounded by palm trees and vibrant Balinese flowers. Set in a quiet, cozy resort town overlooking the sea and coastal islands, we offer a peaceful escape from the busier tourist areas of Bali. Just 15 minutes from Tenganan Village, 45 minutes from the Royal Palaces of Karangasem, and 1.5 hours from Ngurah Rai International Airport.",
+        "ru": "Orlowsky Discovery Hotel — тропический отель на набережной Кандидасы, окружённый пальмами и яркими балийскими цветами. Расположенный в тихом уютном курортном городке с видом на море и прибрежные острова, мы предлагаем спокойный отдых вдали от шумных туристических районов Бали. Всего 15 минут от деревни Тенганан, 45 минут от Королевских дворцов Карангасема и 1,5 часа от международного аэропорта Нгурах-Рай."
+      },
+      "image": "/images/about/about-hotel.jpg",
+      "imageAlt": {
+        "en": "Aerial view of Orlowsky Discovery Hotel on the Candidasa seafront",
+        "ru": "Вид сверху на Orlowsky Discovery Hotel на набережной Кандидасы"
+      }
+    },
+    {
+      "id": "philosophy",
+      "title": {
+        "en": "Our Philosophy",
+        "ru": "Наша философия"
+      },
+      "description": {
+        "en": "We believe in creating a space where guests feel at home while experiencing the authentic beauty of Bali. Every detail — from the tropical gardens to the Ayurvedic spa treatments — is designed to nurture relaxation, connection, and discovery. Whether you come for a romantic dinner, a wedding ceremony, a corporate event, or simply to unwind by the pool, we ensure every moment feels personal and unhurried.",
+        "ru": "Мы верим в создание пространства, где гости чувствуют себя как дома, переживая подлинную красоту Бали. Каждая деталь — от тропических садов до аюрведических спа-процедур — создана для отдыха, единения и открытий. Приезжайте на романтический ужин, свадебную церемонию, корпоративное мероприятие или просто отдохнуть у бассейна — мы позаботимся, чтобы каждый момент был особенным и неспешным."
+      },
+      "image": "/images/about/about-philosophy.jpg",
+      "imageAlt": {
+        "en": "Tropical garden pathway at the hotel",
+        "ru": "Тропическая садовая дорожка в отеле"
+      }
+    },
+    {
+      "id": "amenities",
+      "title": {
+        "en": "What Awaits You",
+        "ru": "Что вас ждёт"
+      },
+      "description": {
+        "en": "Our property features 4 luxury villas (230 m² each) and 14 luxury cottages (46 m² each), a seaside restaurant and bar, a swimming pool, private beach area, and a full Ayurvedic spa. Guests can enjoy snorkeling, diving, traditional Balinese massage, vehicle rentals, and guided excursions — all arranged directly through the hotel. From romantic seaside dinners to destination weddings and corporate events, every experience is crafted with care.",
+        "ru": "На территории отеля расположены 4 роскошные виллы (по 230 м² каждая) и 14 роскошных коттеджей (по 46 м² каждый), ресторан и бар у моря, бассейн, частный пляж и полноценный аюрведический спа. Гостям доступны снорклинг, дайвинг, традиционный балийский массаж, аренда транспорта и экскурсии с гидом — всё организуется прямо через отель. От романтических ужинов на берегу до свадебных церемоний и корпоративных мероприятий — каждое впечатление создаётся с заботой."
+      },
+      "image": "/images/about/about-amenities.jpg",
+      "imageAlt": {
+        "en": "Hotel swimming pool surrounded by tropical gardens",
+        "ru": "Бассейн отеля в окружении тропических садов"
+      }
+    }
+  ]
+}

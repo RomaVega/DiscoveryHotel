@@ -154,7 +154,7 @@ export function HeroImage({ hero }: HeroImageProps) {
             width={140}
             height={140}
             priority
-            className="w-24 h-24 md:w-[120px] md:h-[120px] mb-4 md:mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]"
+            className="w-24 h-24 md:w-[96px] md:h-[96px] lg:w-[108px] lg:h-[108px] mb-4 md:mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]"
           />
         </motion.div>
 
@@ -162,14 +162,14 @@ export function HeroImage({ hero }: HeroImageProps) {
         <h1 className="font-serif text-shadow-strong text-center">
           <motion.span
             {...fadeUp(0.3)}
-            className="block text-[2.25rem] md:text-[2.75rem] lg:text-[3.5rem] tracking-[0.22em] uppercase font-light leading-none"
+            className="block text-[2.25rem] md:text-[2.25rem] lg:text-[2.5rem] tracking-[0.22em] uppercase font-light leading-none"
           >
             <span ref={line1Ref}>{hero.titleLine1}</span>
           </motion.span>
 
           <motion.span
             {...fadeUp(0.45)}
-            className="block text-[2.625rem] md:text-[3rem] lg:text-[3.75rem] italic font-light mt-3 md:mt-3 leading-snug"
+            className="block text-[2.625rem] md:text-[2.625rem] lg:text-[2.875rem] italic font-light mt-3 md:mt-3 leading-snug"
           >
             <span ref={line2Ref}>{hero.titleLine2}</span>
           </motion.span>
@@ -177,7 +177,7 @@ export function HeroImage({ hero }: HeroImageProps) {
           {hero.titleLine4 && (
             <motion.span
               {...fadeUp(0.55)}
-              className="block text-[2.625rem] md:text-[3rem] lg:text-[3.75rem] italic font-light mt-1 md:mt-2 leading-snug"
+              className="block text-[2.625rem] md:text-[2.625rem] lg:text-[2.875rem] italic font-light mt-1 md:mt-2 leading-snug"
             >
               <span ref={line3Ref}>{hero.titleLine4}</span>
             </motion.span>
@@ -186,7 +186,7 @@ export function HeroImage({ hero }: HeroImageProps) {
           <div className="w-fit mx-auto mt-10 md:mt-10">
             <motion.span
               {...fadeUp(0.55)}
-              className="block text-xl md:text-xl lg:text-2xl tracking-[0.3em] uppercase font-semibold"
+              className="block text-xl md:text-xl lg:text-xl tracking-[0.3em] uppercase font-semibold"
             >
               {hero.titleLine3}
             </motion.span>
@@ -229,7 +229,7 @@ export function HeroImage({ hero }: HeroImageProps) {
           href={hero.ctaHref}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-10 md:mt-20 inline-block bg-black/15 hover:bg-black/30 text-white border border-white/60 hover:border-white rounded-full font-sans font-light px-10 py-3.5 tracking-[0.25em] uppercase text-xs transition-all duration-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"
+          className="mt-10 md:mt-10 inline-block bg-black/15 hover:bg-black/30 text-white border border-white/60 hover:border-white rounded-full font-sans font-light px-8 py-3 tracking-[0.22em] uppercase text-xs transition-all duration-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"
         >
           {t(hero.cta)}
         </motion.a>

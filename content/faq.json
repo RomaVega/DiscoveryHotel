@@ -1,0 +1,106 @@
+{
+  "label": {
+    "en": "FAQ",
+    "ru": "Вопросы и ответы"
+  },
+  "heading": {
+    "en": "Frequently Asked Questions",
+    "ru": "Часто задаваемые вопросы"
+  },
+  "items": [
+    {
+      "question": {
+        "en": "What are the check-in and check-out times?",
+        "ru": "Во сколько заезд и выезд?"
+      },
+      "answer": {
+        "en": "Check-in is at 14:00 and check-out is at 12:00. Early check-in and late check-out may be available upon request, subject to availability.",
+        "ru": "Заезд в 14:00, выезд в 12:00. Ранний заезд и поздний выезд возможны по запросу при наличии свободных номеров."
+      }
+    },
+    {
+      "question": {
+        "en": "Do you offer airport transfer?",
+        "ru": "Есть ли трансфер из аэропорта?"
+      },
+      "answer": {
+        "en": "Yes, we offer private airport transfer with an air-conditioned vehicle, mineral water, and English-speaking driver. The fare is $40 one-way or $70 round trip for up to 4 passengers.",
+        "ru": "Да, мы предлагаем частный трансфер из аэропорта на автомобиле с кондиционером, минеральной водой и англоговорящим водителем. Стоимость — $40 в одну сторону или $70 в обе стороны для 4 пассажиров."
+      }
+    },
+    {
+      "question": {
+        "en": "Is Wi-Fi available at the hotel?",
+        "ru": "Есть ли Wi-Fi в отеле?"
+      },
+      "answer": {
+        "en": "Yes, free high-speed Wi-Fi is available throughout the hotel — in your room, the restaurant, pool area, and all common spaces.",
+        "ru": "Да, бесплатный скоростной Wi-Fi доступен по всей территории отеля — в номерах, ресторане, у бассейна и во всех общих зонах."
+      }
+    },
+    {
+      "question": {
+        "en": "What payment methods do you accept?",
+        "ru": "Какие способы оплаты вы принимаете?"
+      },
+      "answer": {
+        "en": "We accept major credit cards (Visa, Mastercard) and cash in Indonesian Rupiah (IDR) and US Dollars (USD). Currency exchange is available at the hotel reception.",
+        "ru": "Мы принимаем основные кредитные карты (Visa, Mastercard) и наличные в индонезийских рупиях (IDR) и долларах США (USD). Обмен валюты доступен на ресепшене отеля."
+      }
+    },
+    {
+      "question": {
+        "en": "Do I need a visa to visit Bali?",
+        "ru": "Нужна ли виза для поездки на Бали?"
+      },
+      "answer": {
+        "en": "Most nationalities can obtain a Visa on Arrival (VOA) valid for 30 days, which can be extended once for an additional 30 days. We recommend checking the latest visa requirements with the Indonesian embassy in your country before traveling.",
+        "ru": "Граждане большинства стран могут получить визу по прибытии (VOA) сроком на 30 дней с возможностью однократного продления ещё на 30 дней. Рекомендуем уточнить актуальные визовые требования в посольстве Индонезии в вашей стране перед поездкой."
+      }
+    },
+    {
+      "question": {
+        "en": "When is the best time to visit?",
+        "ru": "Когда лучше всего приезжать?"
+      },
+      "answer": {
+        "en": "The dry season from April to October is the most popular time to visit, with sunny skies and comfortable temperatures. However, Bali is a year-round destination, and the wet season (November to March) brings lush greenery and fewer tourists.",
+        "ru": "Сухой сезон с апреля по октябрь — самое популярное время для визита, с солнечной погодой и комфортной температурой. Однако Бали прекрасен круглый год, а влажный сезон (ноябрь — март) приносит пышную зелень и меньше туристов."
+      }
+    },
+    {
+      "question": {
+        "en": "What languages are spoken at the hotel?",
+        "ru": "На каких языках говорят в отеле?"
+      },
+      "answer": {
+        "en": "Our staff speaks English, Indonesian, and Russian. We are happy to assist guests in all three languages.",
+        "ru": "Наш персонал говорит на английском, индонезийском и русском языках. Мы с удовольствием поможем гостям на всех трёх языках."
+      }
+    },
+    {
+      "question": {
+        "en": "Are children welcome?",
+        "ru": "Принимаете ли вы гостей с детьми?"
+      },
+      "answer": {
+        "en": "Absolutely! Children are welcome at Orlowsky Discovery Hotel. We have a kids club and our villas are especially well-suited for families. Extra beds and baby cots can be arranged upon request.",
+        "ru": "Конечно! Дети приветствуются в Orlowsky Discovery Hotel. У нас есть детский клуб, а наши виллы особенно хорошо подходят для семей. Дополнительные кровати и детские кроватки предоставляются по запросу."
+      }
+    },
+    {
+      "question": {
+        "en": "Are pets allowed?",
+        "ru": "Можно ли с домашними животными?"
+      },
+      "answer": {
+        "en": "Unfortunately, pets are not allowed at the hotel. We apologize for any inconvenience and are happy to help you find nearby pet care services if needed.",
+        "ru": "К сожалению, проживание с домашними животными не допускается. Приносим извинения за неудобства и с удовольствием поможем найти ближайшие сервисы по уходу за животными при необходимости."
+      }
+    }
+  ],
+  "subtext": {
+    "en": "Common questions about check-in, transfers, payment, visa, rooms, and activities at Orlowsky Discovery Hotel in Candidasa, East Bali.",
+    "ru": "Часто задаваемые вопросы о заселении, трансфере, оплате, визе, номерах и активностях в отеле Orlowsky Discovery в Кандидасе, Восточный Бали."
+  }
+}

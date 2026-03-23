@@ -1,0 +1,150 @@
+{
+  "label": {
+    "en": "Weddings",
+    "ru": "Свадьбы"
+  },
+  "heading": {
+    "en": "Destination Weddings in Bali — Candidasa Oceanfront",
+    "ru": "Свадьбы на Бали — площадка у океана в Кандидасе"
+  },
+  "subtext": {
+    "en": "European and traditional Balinese ceremonies on the shores of the Bali Sea. Full planning, catering, accommodation, and transfers at Orlowsky Discovery Hotel, Candidasa.",
+    "ru": "Европейские и балийские церемонии на берегу Балийского моря. Организация, кейтеринг, проживание и трансферы в отеле Orlowsky Discovery, Кандидаса."
+  },
+  "packages": [
+    {
+      "title": {
+        "en": "European-Style Ceremony",
+        "ru": "Церемония в европейском стиле"
+      },
+      "description": {
+        "en": "An elegant oceanfront ceremony with white floral arrangements, a dedicated wedding arch, professional coordination, and a sunset reception dinner. Our team handles every detail — from the ceremony setup to the farewell brunch.",
+        "ru": "Элегантная церемония на берегу океана с белыми цветочными композициями, свадебной аркой, профессиональной координацией и праздничным ужином на закате. Наша команда позаботится о каждой детали — от оформления церемонии до прощального бранча."
+      },
+      "venue": {
+        "en": "Oceanfront lawn or restaurant terrace",
+        "ru": "Лужайка у океана или терраса ресторана"
+      },
+      "image": "/images/weddings/weddings-european.jpg",
+      "imageAlt": {
+        "en": "European-style wedding ceremony on the oceanfront",
+        "ru": "Свадебная церемония в европейском стиле на берегу океана"
+      }
+    },
+    {
+      "title": {
+        "en": "Traditional Balinese Ceremony",
+        "ru": "Традиционная балийская церемония"
+      },
+      "description": {
+        "en": "Experience the magic of a Balinese wedding with local priests, sacred offerings, and ancient rituals performed in our tropical garden. A truly unique cultural celebration that blends spirituality, beauty, and centuries of island tradition.",
+        "ru": "Ощутите магию балийской свадьбы с местными священниками, священными подношениями и древними ритуалами в нашем тропическом саду. По-настоящему уникальное культурное торжество, соединяющее духовность, красоту и многовековые островные традиции."
+      },
+      "venue": {
+        "en": "Tropical garden or beachfront",
+        "ru": "Тропический сад или побережье"
+      },
+      "image": "/images/weddings/weddings-balinese.jpg",
+      "imageAlt": {
+        "en": "Traditional Balinese wedding ceremony in the garden",
+        "ru": "Традиционная балийская свадебная церемония в саду"
+      }
+    },
+    {
+      "title": {
+        "en": "Beach Wedding",
+        "ru": "Свадьба на пляже"
+      },
+      "description": {
+        "en": "Exchange vows with your toes in the sand and the sound of waves as your soundtrack. Our beachfront ceremony combines barefoot elegance with the natural beauty of Candidasa's coastline.",
+        "ru": "Произнесите клятвы босиком на песке под звуки волн. Наша церемония на пляже сочетает непринуждённую элегантность с природной красотой побережья Кандидасы."
+      },
+      "venue": {
+        "en": "Private beach area",
+        "ru": "Частный пляж"
+      },
+      "image": "/images/weddings/weddings-beach.jpg",
+      "imageAlt": {
+        "en": "Beach wedding ceremony at sunset",
+        "ru": "Свадебная церемония на пляже на закате"
+      }
+    }
+  ],
+  "services": [
+    {
+      "title": {
+        "en": "Wedding Planning",
+        "ru": "Организация свадьбы"
+      },
+      "description": {
+        "en": "Our dedicated events team manages every detail from initial concept to the last dance, ensuring a stress-free celebration.",
+        "ru": "Наша команда по организации мероприятий берёт на себя все детали — от первоначальной концепции до последнего танца, обеспечивая праздник без забот."
+      }
+    },
+    {
+      "title": {
+        "en": "Catering & Menu Design",
+        "ru": "Кейтеринг и дизайн меню"
+      },
+      "description": {
+        "en": "Custom menus crafted by our kitchen team — from formal multi-course dinners to relaxed beachside buffets and cocktail receptions.",
+        "ru": "Индивидуальные меню от нашей кухни — от формальных ужинов из нескольких блюд до непринуждённых шведских столов на пляже и коктейльных приёмов."
+      }
+    },
+    {
+      "title": {
+        "en": "Decoration & Styling",
+        "ru": "Декорации и оформление"
+      },
+      "description": {
+        "en": "Professional floral arrangements, lighting design, table styling, and thematic decoration tailored to your wedding vision.",
+        "ru": "Профессиональные цветочные композиции, световой дизайн, оформление столов и тематические декорации по вашему замыслу."
+      }
+    },
+    {
+      "title": {
+        "en": "Entertainment",
+        "ru": "Развлечения"
+      },
+      "description": {
+        "en": "Traditional Balinese dance performances, live music, and DJ services to create the perfect atmosphere for your celebration.",
+        "ru": "Выступления традиционных балийских танцоров, живая музыка и услуги DJ для создания идеальной атмосферы вашего торжества."
+      }
+    },
+    {
+      "title": {
+        "en": "Photography Coordination",
+        "ru": "Координация фотосъёмки"
+      },
+      "description": {
+        "en": "We coordinate with professional photographers and videographers to capture every precious moment of your special day.",
+        "ru": "Мы координируем работу профессиональных фотографов и видеографов для запечатления каждого драгоценного момента вашего особенного дня."
+      }
+    },
+    {
+      "title": {
+        "en": "Guest Accommodation",
+        "ru": "Размещение гостей"
+      },
+      "description": {
+        "en": "Accommodate your wedding party in our 4 luxury pool villas and 14 deluxe cottages, keeping everyone together in one beautiful tropical setting.",
+        "ru": "Разместите гостей свадьбы в наших 4 роскошных виллах с бассейном и 14 коттеджах Делюкс, собрав всех вместе в прекрасном тропическом окружении."
+      }
+    }
+  ],
+  "bookingCta": {
+    "heading": {
+      "en": "Plan Your Celebration",
+      "ru": "Спланируйте ваше торжество"
+    },
+    "subtext": {
+      "en": "Contact us to discuss your dream event.",
+      "ru": "Свяжитесь с нами, чтобы обсудить ваше мероприятие."
+    },
+    "bookingUrl": "https://secure.guestpro.net/odch",
+    "fallbackCta": {
+      "en": "Contact Us",
+      "ru": "Связаться с нами"
+    }
+  }
+}

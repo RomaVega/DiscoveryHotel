@@ -1,0 +1,346 @@
+{
+  "label": {
+    "en": "Adventures",
+    "ru": "Приключения"
+  },
+  "heading": {
+    "en": "Bali Day Tours & Excursions from Candidasa",
+    "ru": "Однодневные туры и экскурсии по Бали из Кандидасы"
+  },
+  "subtext": {
+    "en": "Guided tours to Besakih Temple, Kintamani volcano, Ubud, Tegallalang rice terraces, water temples, and hidden waterfalls in East Bali.",
+    "ru": "Туры к храму Бесаких, вулкану Кинтамани, Убуду, террасам Тегаллаланг, храмам воды и скрытым водопадам Восточного Бали."
+  },
+  "sightseeing": {
+    "title": {
+      "en": "Sightseeing Tours",
+      "ru": "Обзорные экскурсии"
+    },
+    "description": {
+      "en": "Explore Bali's most iconic landmarks with our knowledgeable local guides.",
+      "ru": "Исследуйте самые знаковые достопримечательности Бали с нашими опытными местными гидами."
+    },
+    "highlights": [
+      {
+        "name": {
+          "en": "Besakih Temple, Kintamani & Ubud",
+          "ru": "Храм Бесаких, Кинтамани и Убуд"
+        },
+        "description": {
+          "en": "Visit the Mother Temple of Bali, enjoy panoramic views of Mount Batur and Lake Batur, and explore the artistic heart of Ubud.",
+          "ru": "Посетите главный храм Бали, насладитесь панорамным видом на гору Батур и озеро Батур и исследуйте творческое сердце Убуда."
+        }
+      },
+      {
+        "name": {
+          "en": "Ubud Monkey Forest",
+          "ru": "Лес обезьян в Убуде"
+        },
+        "description": {
+          "en": "Walk through ancient banyan trees and moss-covered temples in this sacred sanctuary home to over 700 Balinese macaques.",
+          "ru": "Прогуляйтесь среди древних баньянов и храмов, покрытых мхом, в этом священном святилище, где обитает более 700 балийских макак."
+        }
+      },
+      {
+        "name": {
+          "en": "Ubud Royal Palace",
+          "ru": "Королевский дворец Убуда"
+        },
+        "description": {
+          "en": "Admire traditional Balinese architecture and nightly dance performances at the historic Puri Saren Agung.",
+          "ru": "Полюбуйтесь традиционной балийской архитектурой и вечерними танцевальными представлениями в историческом Пури Сарен Агунг."
+        }
+      },
+      {
+        "name": {
+          "en": "Ubud Art Market",
+          "ru": "Художественный рынок Убуда"
+        },
+        "description": {
+          "en": "Browse handcrafted souvenirs, batik textiles, woven bags, and paintings by local Balinese artisans.",
+          "ru": "Осмотрите изделия ручной работы, батик, плетёные сумки и картины местных балийских мастеров."
+        }
+      },
+      {
+        "name": {
+          "en": "Tegallalang Rice Terraces",
+          "ru": "Рисовые террасы Тегаллаланг"
+        },
+        "description": {
+          "en": "Marvel at the dramatic cascading rice paddies carved into the hillside, showcasing the ancient Balinese subak irrigation system.",
+          "ru": "Полюбуйтесь захватывающими каскадными рисовыми террасами, вырезанными на склоне холма, демонстрирующими древнюю балийскую ирригационную систему субак."
+        }
+      },
+      {
+        "name": {
+          "en": "Puri Saren Palace",
+          "ru": "Дворец Пури Сарен"
+        },
+        "description": {
+          "en": "Experience the cultural richness of Ubud at this royal compound, featuring intricate stone carvings and traditional pavilions.",
+          "ru": "Ощутите культурное богатство Убуда в этом королевском комплексе с изысканной каменной резьбой и традиционными павильонами."
+        }
+      },
+      {
+        "name": {
+          "en": "Goa Gajah (Elephant Cave)",
+          "ru": "Гоа Гаджа (Пещера слона)"
+        },
+        "description": {
+          "en": "Explore this 9th-century archaeological site featuring a carved cave entrance, bathing fountains, and ancient rock-wall reliefs.",
+          "ru": "Исследуйте этот археологический памятник IX века с резным входом в пещеру, купальными фонтанами и древними наскальными рельефами."
+        }
+      },
+      {
+        "name": {
+          "en": "Tirta Empul Temple",
+          "ru": "Храм Тирта Эмпул"
+        },
+        "description": {
+          "en": "Witness the sacred purification ritual at this holy water temple, where Balinese Hindus bathe in natural spring fountains.",
+          "ru": "Станьте свидетелем священного ритуала очищения в этом храме святой воды, где балийские индуисты совершают омовение в природных источниках."
+        }
+      }
+    ]
+  },
+  "waterActivities": {
+    "title": {
+      "en": "Water Activities",
+      "ru": "Водные развлечения"
+    },
+    "description": {
+      "en": "Explore the rich marine life of East Bali's coast with fishing and snorkeling adventures.",
+      "ru": "Исследуйте богатый подводный мир побережья Восточного Бали с рыбалкой и снорклингом."
+    },
+    "items": [
+      {
+        "name": {
+          "en": "Fishing Trip",
+          "ru": "Рыбалка"
+        },
+        "description": {
+          "en": "Head out to sea with local fishermen for a 3 to 6 hour fishing adventure in the rich waters off East Bali's coast.",
+          "ru": "Выходите в море с местными рыбаками на 3–6-часовую рыбалку в богатых водах у побережья Восточного Бали."
+        },
+        "duration": {
+          "en": "3–6 hours",
+          "ru": "3–6 часов"
+        },
+        "price": "IDR 620,000 – 800,000"
+      },
+      {
+        "name": {
+          "en": "Snorkeling & Boat Safari",
+          "ru": "Снорклинг и морское сафари"
+        },
+        "description": {
+          "en": "Glide over vibrant coral gardens and tropical fish on a 2.5-hour boat safari along the Candidasa coastline.",
+          "ru": "Парите над яркими коралловыми садами и тропическими рыбами во время 2,5-часового морского сафари вдоль побережья Кандидасы."
+        },
+        "duration": {
+          "en": "2.5 hours",
+          "ru": "2,5 часа"
+        },
+        "price": "IDR 460,000 – 520,000"
+      }
+    ]
+  },
+  "trekking": {
+    "title": {
+      "en": "Trekking",
+      "ru": "Треккинг"
+    },
+    "description": {
+      "en": "Hike through traditional villages, lush jungles, and volcanic landscapes with experienced guides.",
+      "ru": "Пешие маршруты через традиционные деревни, тропические джунгли и вулканические ландшафты с опытными гидами."
+    },
+    "items": [
+      {
+        "name": {
+          "en": "Bebandem to Tenganan Trek",
+          "ru": "Трек Бебандем — Тенганан"
+        },
+        "description": {
+          "en": "Walk through rice paddies and traditional villages from Bebandem to the ancient Aga village of Tenganan, famous for its unique double-ikat weaving.",
+          "ru": "Прогулка через рисовые поля и традиционные деревни от Бебандема до древней деревни Ага Тенганан, знаменитой уникальным двойным ткачеством икат."
+        },
+        "price": "IDR 525,000 – 625,000"
+      },
+      {
+        "name": {
+          "en": "Gumung to Candidasa Trek",
+          "ru": "Трек Гумунг — Кандидаса"
+        },
+        "description": {
+          "en": "A scenic trek from the hills of Gumung down to the coast of Candidasa, passing through coconut groves and local farming communities.",
+          "ru": "Живописный трек от холмов Гумунга до побережья Кандидасы через кокосовые рощи и местные фермерские общины."
+        },
+        "price": "IDR 525,000 – 625,000"
+      },
+      {
+        "name": {
+          "en": "Mount Batur Sunrise Trek",
+          "ru": "Восхождение на вулкан Батур"
+        },
+        "description": {
+          "en": "Begin before dawn and reach the summit of Mount Batur in time for a breathtaking sunrise over the caldera and Lake Batur.",
+          "ru": "Начните до рассвета и поднимитесь на вершину горы Батур, чтобы встретить захватывающий рассвет над кальдерой и озером Батур."
+        },
+        "price": "IDR 1,275,000 – 1,625,000"
+      },
+      {
+        "name": {
+          "en": "Mount Agung Trek",
+          "ru": "Восхождение на вулкан Агунг"
+        },
+        "description": {
+          "en": "Challenge yourself with a trek to the summit of Bali's highest and most sacred peak, Mount Agung, at 3,031 meters above sea level.",
+          "ru": "Бросьте себе вызов восхождением на вершину самой высокой и священной горы Бали — вулкана Агунг высотой 3 031 метр над уровнем моря."
+        },
+        "price": "IDR 1,275,000 – 1,625,000"
+      }
+    ]
+  },
+  "cycling": {
+    "title": {
+      "en": "Cycling Tours",
+      "ru": "Велосипедные туры"
+    },
+    "description": {
+      "en": "Explore East Bali on two wheels with guided cycling adventures through villages, rice terraces, and coastal roads.",
+      "ru": "Исследуйте Восточный Бали на двух колёсах с велосипедными турами через деревни, рисовые террасы и прибрежные дороги."
+    },
+    "items": [
+      {
+        "name": {
+          "en": "East Bali Mountain to Sea",
+          "ru": "Восточный Бали: от гор до моря"
+        },
+        "description": {
+          "en": "A spectacular cycling journey from the cool mountain highlands to the warm coastal shores. Includes a 2-hour scenic drive to the starting point followed by 3 hours of downhill cycling through villages, rice fields, and plantations.",
+          "ru": "Захватывающее велосипедное путешествие от прохладных горных высот до тёплого побережья. Включает 2-часовую живописную поездку до начальной точки и 3 часа спуска на велосипеде через деревни, рисовые поля и плантации."
+        },
+        "duration": {
+          "en": "2h drive + 3h cycling",
+          "ru": "2 ч на авто + 3 ч на велосипеде"
+        },
+        "price": "IDR 875,000 – 975,000"
+      }
+    ]
+  },
+  "organizedTours": {
+    "title": {
+      "en": "Organized Day Tours",
+      "ru": "Организованные однодневные туры"
+    },
+    "description": {
+      "en": "Full-day guided tours to Bali's most popular destinations with private transport and professional guides.",
+      "ru": "Однодневные экскурсии с гидом к самым популярным местам Бали с частным транспортом и профессиональными гидами."
+    },
+    "items": [
+      {
+        "name": {
+          "en": "Klungkung Tour",
+          "ru": "Тур в Клунгкунг"
+        },
+        "description": {
+          "en": "Visit the historic Kertha Gosa justice pavilion, the floating pavilion of Taman Gili, and the Klungkung Royal Palace.",
+          "ru": "Посетите исторический павильон правосудия Керта Госа, плавучий павильон Таман Гили и Королевский дворец Клунгкунга."
+        },
+        "price": "IDR 500,000 – 610,000"
+      },
+      {
+        "name": {
+          "en": "Ubud Tour",
+          "ru": "Тур в Убуд"
+        },
+        "description": {
+          "en": "A full day in Bali's cultural capital — visit the Monkey Forest, Royal Palace, art galleries, rice terraces, and the vibrant Ubud Market.",
+          "ru": "Целый день в культурной столице Бали — Лес обезьян, Королевский дворец, арт-галереи, рисовые террасы и красочный рынок Убуда."
+        },
+        "price": "IDR 650,000 – 800,000"
+      },
+      {
+        "name": {
+          "en": "Kuta Tour",
+          "ru": "Тур в Куту"
+        },
+        "description": {
+          "en": "Explore Kuta Beach, shop at famous surf boutiques and malls, and enjoy the vibrant nightlife of southern Bali.",
+          "ru": "Исследуйте пляж Куты, шоппинг в знаменитых сёрф-бутиках и торговых центрах, и насладитесь яркой ночной жизнью южного Бали."
+        },
+        "price": "IDR 750,000 – 985,000"
+      },
+      {
+        "name": {
+          "en": "Kintamani Tour",
+          "ru": "Тур в Кинтамани"
+        },
+        "description": {
+          "en": "Journey to the highlands for stunning views of Mount Batur, its caldera, and Lake Batur, with stops at local coffee plantations.",
+          "ru": "Путешествие в высокогорье ради потрясающих видов на гору Батур, её кальдеру и озеро Батур с остановками на местных кофейных плантациях."
+        },
+        "price": "IDR 800,000 – 930,000"
+      },
+      {
+        "name": {
+          "en": "Besakih Tour",
+          "ru": "Тур к храму Бесаких"
+        },
+        "description": {
+          "en": "Visit the Mother Temple of Bali, the largest and holiest Hindu temple complex on the island, set on the slopes of Mount Agung.",
+          "ru": "Посетите Мать всех храмов Бали — крупнейший и священнейший индуистский храмовый комплекс на острове, расположенный на склонах горы Агунг."
+        },
+        "price": "IDR 800,000 – 990,000"
+      },
+      {
+        "name": {
+          "en": "Bedugul Tour",
+          "ru": "Тур в Бедугул"
+        },
+        "description": {
+          "en": "Discover the iconic Ulun Danu Beratan temple on the lake, the Bali Botanical Garden, and the cool mountain climate of Bedugul.",
+          "ru": "Откройте для себя знаменитый храм Улун Дану Братан на озере, Ботанический сад Бали и прохладный горный климат Бедугула."
+        },
+        "price": "IDR 1,200,000 – 1,400,000"
+      },
+      {
+        "name": {
+          "en": "Lovina Tour",
+          "ru": "Тур в Ловину"
+        },
+        "description": {
+          "en": "Travel to Bali's north coast to see wild dolphins at sunrise, visit hot springs, and explore the serene black-sand beaches of Lovina.",
+          "ru": "Отправляйтесь на северное побережье Бали, чтобы увидеть диких дельфинов на рассвете, посетить горячие источники и исследовать спокойные пляжи с чёрным песком Ловины."
+        },
+        "price": "IDR 1,200,000 – 1,400,000"
+      },
+      {
+        "name": {
+          "en": "Island Hopping Adventure",
+          "ru": "Островное приключение"
+        },
+        "description": {
+          "en": "A full-day boat tour visiting the stunning islands near Bali — crystal-clear waters, snorkeling, and pristine white-sand beaches.",
+          "ru": "Однодневный тур на лодке по потрясающим островам вблизи Бали — кристально чистая вода, снорклинг и нетронутые пляжи с белым песком."
+        },
+        "price": "$85 per person"
+      }
+    ]
+  },
+  "bookingCta": {
+    "heading": {
+      "en": "Ready to Book?",
+      "ru": "Готовы забронировать?"
+    },
+    "subtext": {
+      "en": "Contact us to arrange your experience. We respond within 5-10 minutes during business hours.",
+      "ru": "Свяжитесь с нами, чтобы организовать ваш опыт. Мы отвечаем в течение 5–10 минут в рабочее время."
+    },
+    "bookingUrl": "https://secure.guestpro.net/odch",
+    "fallbackCta": {
+      "en": "Contact Us",
+      "ru": "Связаться с нами"
+    }
+  }
+}

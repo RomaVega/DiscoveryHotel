@@ -1,7 +1,8 @@
-"use client"; // Uses useState, scroll listener, IntersectionObserver
+"use client"; // Uses useState, scroll listener, usePathname
 
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { Menu, X, BedDouble, Sparkles, Compass, Tag, Camera, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -9,51 +10,31 @@ import { cn } from "@/lib/utils";
 import { useLanguage } from "@/lib/language-context";
 import { LanguageSelector } from "@/components/layout/LanguageSelector";
 
-const SECTION_IDS = [
-  "rooms",
-  "amenities",
-  "experiences",
-  "offers",
-  "gallery",
-  "contact",
-];
+interface NavbarProps {
+  alwaysVisible?: boolean;
+}
 
-export function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState("");
+export function Navbar({ alwaysVisible = false }: NavbarProps) {
+  const [scrolled, setScrolled] = useState(alwaysVisible);
   const [menuOpen, setMenuOpen] = useState(false);
   const { tl } = useLanguage();
+  const pathname = usePathname();
 
   const links = [
-    { label: tl.nav.rooms, href: "#rooms", icon: BedDouble },
-    { label: tl.nav.amenities, href: "#amenities", icon: Sparkles },
-    { label: tl.nav.experiences, href: "#experiences", icon: Compass },
-    { label: tl.nav.offers, href: "#offers", icon: Tag },
-    { label: tl.nav.gallery, href: "#gallery", icon: Camera },
-    { label: tl.nav.contact, href: "#contact", icon: Phone },
+    { label: tl.nav.rooms, href: "/rooms", icon: BedDouble },
+    { label: tl.nav.amenities, href: "/dining", icon: Sparkles },
+    { label: tl.nav.experiences, href: "/experiences", icon: Compass },
+    { label: tl.nav.offers, href: "/offers", icon: Tag },
+    { label: tl.nav.gallery, href: "/gallery", icon: Camera },
+    { label: tl.nav.contact, href: "/contact", icon: Phone },
   ];
 
   useEffect(() => {
+    if (alwaysVisible) { setScrolled(true); return; }
     const onScroll = () => setScrolled(window.scrollY > window.innerHeight * 0.9);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) setActiveSection(entry.target.id);
-        }
-      },
-      { rootMargin: "-40% 0px -50% 0px" }
-    );
-    for (const id of SECTION_IDS) {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    }
-    return () => observer.disconnect();
-  }, []);
+  }, [alwaysVisible]);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
@@ -63,6 +44,9 @@ export function Navbar() {
   }, [menuOpen]);
 
   const closeMenu = useCallback(() => setMenuOpen(false), []);
+
+  const isActive = (href: string) =>
+    pathname === href || (href !== "/" && pathname.startsWith(href + "/"));
 
   return (
     <>
@@ -109,11 +93,11 @@ export function Navbar() {
           <ul className="hidden lg:flex items-center gap-4 xl:gap-6">
             {links.map((link) => (
               <li key={link.href}>
-                <a
+                <Link
                   href={link.href}
                   className={cn(
                     "relative whitespace-nowrap font-sans text-[13px] xl:text-sm font-medium tracking-wide transition-colors duration-200",
-                    activeSection === link.href.replace("#", "")
+                    isActive(link.href)
                       ? "text-charcoal"
                       : "text-charcoal/60 hover:text-charcoal"
                   )}
@@ -122,12 +106,10 @@ export function Navbar() {
                   <span
                     className={cn(
                       "absolute -bottom-1 left-0 h-0.5 bg-brand-teal transition-all duration-300",
-                      activeSection === link.href.replace("#", "")
-                        ? "w-full"
-                        : "w-0"
+                      isActive(link.href) ? "w-full" : "w-0"
                     )}
                   />
-                </a>
+                </Link>
               </li>
             ))}
 
@@ -215,21 +197,19 @@ export function Navbar() {
                     ease: "easeOut",
                   }}
                 >
-                  <a
+                  <Link
                     href={link.href}
                     onClick={closeMenu}
                     className={cn(
                       "relative flex items-center justify-center py-5 font-serif text-2xl font-semibold tracking-wide transition-colors duration-200",
-                      activeSection === link.href.replace("#", "")
-                        ? "text-black"
-                        : "text-charcoal/70 hover:text-black"
+                      isActive(link.href) ? "text-black" : "text-charcoal/70 hover:text-black"
                     )}
                   >
                     <span className="relative">
                       <link.icon size={20} strokeWidth={1.5} className="text-brand-teal shrink-0 absolute right-full mr-3 top-1/2 -translate-y-1/2" />
                       {link.label}
                     </span>
-                  </a>
+                  </Link>
                   <div className="h-px bg-charcoal/10" />
                 </motion.div>
               ))}

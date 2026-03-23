@@ -1,0 +1,150 @@
+{
+  "label": {
+    "en": "Location",
+    "ru": "Расположение"
+  },
+  "heading": {
+    "en": "Location — Candidasa, Karangasem, East Bali",
+    "ru": "Расположение — Кандидаса, Карангасем, Восточный Бали"
+  },
+  "subtext": {
+    "en": "On the quiet seafront of Candidasa village, 1.5 hours from Ngurah Rai Airport. Near Besakih Temple, Tirta Gangga, Amed, and Tulamben dive sites.",
+    "ru": "На тихой набережной деревни Кандидаса, 1,5 часа от аэропорта. Рядом с храмом Бесаких, Тирта Гангга, Амедом и дайв-сайтами Туламбена."
+  },
+  "address": {
+    "en": "Jalan Pantai Indah 06, Candidasa, Karangasem 80851, Bali, Indonesia",
+    "ru": "Jalan Pantai Indah 06, Кандидаса, Карангасем 80851, Бали, Индонезия"
+  },
+  "nearbyAttractions": [
+    {
+      "name": {
+        "en": "Tenganan Village",
+        "ru": "Деревня Тенганан"
+      },
+      "description": {
+        "en": "One of Bali's oldest traditional Aga villages, famous for its unique double-ikat weaving, ancient customs, and annual Pandanus War festival.",
+        "ru": "Одна из старейших традиционных деревень Ага на Бали, знаменитая уникальным двойным ткачеством икат, древними обычаями и ежегодным фестивалем Войны Пандануса."
+      },
+      "distance": {
+        "en": "15 minutes",
+        "ru": "15 минут"
+      }
+    },
+    {
+      "name": {
+        "en": "Royal Palaces of Karangasem",
+        "ru": "Королевские дворцы Карангасема"
+      },
+      "description": {
+        "en": "Majestic water palaces including Tirtagangga and Taman Ujung, showcasing Balinese royal architecture surrounded by ornamental gardens and lotus ponds.",
+        "ru": "Величественные водные дворцы, включая Тиртаганга и Таман Уджунг, демонстрирующие королевскую балийскую архитектуру в окружении декоративных садов и лотосовых прудов."
+      },
+      "distance": {
+        "en": "45 minutes",
+        "ru": "45 минут"
+      }
+    },
+    {
+      "name": {
+        "en": "Ngurah Rai International Airport",
+        "ru": "Международный аэропорт Нгурах-Рай"
+      },
+      "description": {
+        "en": "Bali's main international airport with direct flights from major cities worldwide. Private transfer service available from the hotel.",
+        "ru": "Главный международный аэропорт Бали с прямыми рейсами из крупнейших городов мира. Доступен частный трансфер от отеля."
+      },
+      "distance": {
+        "en": "1.5 hours",
+        "ru": "1,5 часа"
+      }
+    },
+    {
+      "name": {
+        "en": "Candidasa Coral Reef",
+        "ru": "Коралловый риф Кандидасы"
+      },
+      "description": {
+        "en": "A vibrant coral reef just offshore, home to tropical fish, sea turtles, and colorful marine life — perfect for snorkeling and diving.",
+        "ru": "Яркий коралловый риф у побережья, где обитают тропические рыбы, морские черепахи и красочная морская фауна — идеален для снорклинга и дайвинга."
+      },
+      "distance": {
+        "en": "At doorstep",
+        "ru": "У порога отеля"
+      }
+    },
+    {
+      "name": {
+        "en": "White Sand Beach (Pantai Pasir Putih)",
+        "ru": "Пляж Уайт-Сэнд (Пантай Пасир Путих)"
+      },
+      "description": {
+        "en": "A hidden gem — one of East Bali's most beautiful white-sand beaches, tucked behind coconut groves with calm turquoise waters.",
+        "ru": "Скрытая жемчужина — один из красивейших пляжей Восточного Бали с белым песком, спрятанный за кокосовыми рощами с спокойной бирюзовой водой."
+      },
+      "distance": {
+        "en": "10 minutes",
+        "ru": "10 минут"
+      }
+    },
+    {
+      "name": {
+        "en": "Rice Terraces",
+        "ru": "Рисовые террасы"
+      },
+      "description": {
+        "en": "Lush green rice terraces stretching across the hillsides of East Bali, carved over centuries using the traditional subak irrigation system.",
+        "ru": "Пышные зелёные рисовые террасы, простирающиеся по склонам холмов Восточного Бали, созданные веками с помощью традиционной ирригационной системы субак."
+      },
+      "distance": {
+        "en": "20 minutes",
+        "ru": "20 минут"
+      }
+    },
+    {
+      "name": {
+        "en": "Ancient Temples",
+        "ru": "Древние храмы"
+      },
+      "description": {
+        "en": "East Bali is home to some of the island's most sacred temples, including the Mother Temple of Besakih on the slopes of Mount Agung.",
+        "ru": "В Восточном Бали находятся некоторые из самых священных храмов острова, включая Мать всех храмов Бесаких на склонах горы Агунг."
+      },
+      "distance": {
+        "en": "30–60 minutes",
+        "ru": "30–60 минут"
+      }
+    }
+  ],
+  "gettingHere": [
+    {
+      "from": {
+        "en": "From Ngurah Rai Airport",
+        "ru": "Из аэропорта Нгурах-Рай"
+      },
+      "description": {
+        "en": "Approximately 1.5 hours by car via the eastern coastal road. We offer private airport transfer with air-conditioned vehicle, mineral water, and English-speaking driver for $40 one-way or $70 round trip.",
+        "ru": "Примерно 1,5 часа на автомобиле по восточной прибрежной дороге. Мы предлагаем частный трансфер из аэропорта на автомобиле с кондиционером, минеральной водой и англоговорящим водителем за $40 в одну сторону или $70 в обе стороны."
+      }
+    },
+    {
+      "from": {
+        "en": "From Ubud",
+        "ru": "Из Убуда"
+      },
+      "description": {
+        "en": "About 1 hour and 15 minutes by car, passing through scenic rice terraces and traditional villages along the way. A beautiful drive through the heart of Bali.",
+        "ru": "Около 1 часа 15 минут на автомобиле через живописные рисовые террасы и традиционные деревни. Красивая поездка через сердце Бали."
+      }
+    },
+    {
+      "from": {
+        "en": "From Kuta / Seminyak",
+        "ru": "Из Куты / Семиньяка"
+      },
+      "description": {
+        "en": "Approximately 2 hours by car via the coastal bypass road. Alternatively, enjoy the scenic inland route through Gianyar and Klungkung for a longer but more picturesque drive.",
+        "ru": "Примерно 2 часа на автомобиле по прибрежной объездной дороге. Как вариант — живописный внутренний маршрут через Гианьяр и Клунгкунг для более долгой, но красивой поездки."
+      }
+    }
+  ]
+}

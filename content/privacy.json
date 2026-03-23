@@ -1,0 +1,83 @@
+{
+  "label": {
+    "en": "Legal",
+    "ru": "Правовая информация"
+  },
+  "heading": {
+    "en": "Privacy Policy",
+    "ru": "Политика конфиденциальности"
+  },
+  "lastUpdated": "2024-12-01",
+  "sections": [
+    {
+      "title": {
+        "en": "Information We Collect",
+        "ru": "Информация, которую мы собираем"
+      },
+      "content": {
+        "en": "When you make a reservation, contact us, or use our website, we may collect personal information including your name, email address, phone number, passport or ID details, payment information, and travel dates. We collect this information to process bookings, provide guest services, and improve your experience at Orlowsky Discovery Hotel.",
+        "ru": "При бронировании, обращении к нам или использовании нашего сайта мы можем собирать личную информацию, включая ваше имя, адрес электронной почты, номер телефона, данные паспорта или удостоверения личности, платёжную информацию и даты поездки. Мы собираем эту информацию для обработки бронирований, предоставления гостевых услуг и улучшения вашего опыта в Orlowsky Discovery Hotel."
+      }
+    },
+    {
+      "title": {
+        "en": "How We Use Your Information",
+        "ru": "Как мы используем вашу информацию"
+      },
+      "content": {
+        "en": "Your personal information is used to confirm and manage reservations, communicate with you about your stay, process payments, send booking confirmations and pre-arrival information, respond to inquiries and requests, and comply with legal obligations. We do not sell your personal information to third parties.",
+        "ru": "Ваша личная информация используется для подтверждения и управления бронированиями, связи с вами относительно вашего пребывания, обработки платежей, отправки подтверждений бронирования и информации перед прибытием, ответа на запросы и обращения, а также выполнения юридических обязательств. Мы не продаём вашу личную информацию третьим лицам."
+      }
+    },
+    {
+      "title": {
+        "en": "Cookies",
+        "ru": "Файлы cookie"
+      },
+      "content": {
+        "en": "Our website uses cookies to enhance your browsing experience, remember your language preferences, and analyze website traffic. You can manage cookie preferences through your browser settings. Essential cookies are required for the website to function properly. Analytics cookies help us understand how visitors interact with our website.",
+        "ru": "Наш сайт использует файлы cookie для улучшения просмотра, запоминания языковых предпочтений и анализа трафика. Вы можете управлять настройками cookie через параметры браузера. Основные cookie необходимы для корректной работы сайта. Аналитические cookie помогают нам понять, как посетители взаимодействуют с нашим сайтом."
+      }
+    },
+    {
+      "title": {
+        "en": "Third-Party Services",
+        "ru": "Сторонние сервисы"
+      },
+      "content": {
+        "en": "We use GuestPro for online reservations and payment processing. When you make a booking through our website, your information is shared with GuestPro in accordance with their privacy policy. We may also use Google Analytics to understand website usage patterns. These third-party services have their own privacy policies governing the use of your information.",
+        "ru": "Мы используем GuestPro для онлайн-бронирований и обработки платежей. При бронировании через наш сайт ваша информация передаётся в GuestPro в соответствии с их политикой конфиденциальности. Мы также можем использовать Google Analytics для понимания паттернов использования сайта. Эти сторонние сервисы имеют собственные политики конфиденциальности, регулирующие использование вашей информации."
+      }
+    },
+    {
+      "title": {
+        "en": "Data Security",
+        "ru": "Безопасность данных"
+      },
+      "content": {
+        "en": "We take appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. All payment transactions are encrypted and processed through secure channels.",
+        "ru": "Мы принимаем соответствующие технические и организационные меры для защиты вашей личной информации от несанкционированного доступа, изменения, раскрытия или уничтожения. Все платёжные транзакции шифруются и обрабатываются через безопасные каналы."
+      }
+    },
+    {
+      "title": {
+        "en": "Your Rights",
+        "ru": "Ваши права"
+      },
+      "content": {
+        "en": "You have the right to access, correct, or delete your personal information held by us. You may also request a copy of your data or withdraw consent for non-essential data processing. To exercise these rights, please contact us at 2794140@gmail.com.",
+        "ru": "Вы имеете право на доступ, исправление или удаление вашей личной информации, хранящейся у нас. Вы также можете запросить копию ваших данных или отозвать согласие на необязательную обработку данных. Для реализации этих прав свяжитесь с нами по адресу 2794140@gmail.com."
+      }
+    },
+    {
+      "title": {
+        "en": "Contact Us",
+        "ru": "Свяжитесь с нами"
+      },
+      "content": {
+        "en": "If you have questions about this privacy policy or how we handle your personal information, please contact us at: Orlowsky Discovery Hotel, Jalan Pantai Indah 06, Candidasa, Karangasem 80851, Bali, Indonesia. Email: 2794140@gmail.com.",
+        "ru": "Если у вас есть вопросы о данной политике конфиденциальности или обработке вашей личной информации, свяжитесь с нами: Orlowsky Discovery Hotel, Jalan Pantai Indah 06, Candidasa, Karangasem 80851, Bali, Indonesia. Email: 2794140@gmail.com."
+      }
+    }
+  ]
+}

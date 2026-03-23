@@ -86,31 +86,133 @@
       "ru": "Everything You Need"
     },
     "items": [
-      { "icon": "Waves", "title": "Swimming Pool", "description": "" },
-      { "icon": "Wifi", "title": "Fast Wi-Fi", "description": "" },
-      { "icon": "UtensilsCrossed", "title": "Restaurant", "description": "" },
-      { "icon": "Sparkles", "title": "SPA", "description": "" },
-      { "icon": "Umbrella", "title": "Private Beach Area", "description": "" },
-      { "icon": "Coffee", "title": "Breakfast", "description": "" },
-      { "icon": "Ban", "title": "Non Smoking Rooms", "description": "" },
-      { "icon": "RefreshCw", "title": "Currency Exchange", "description": "" },
-      { "icon": "Activity", "title": "Doctor on Call", "description": "" },
-      { "icon": "MapPin", "title": "Beach", "description": "" },
-      { "icon": "Accessibility", "title": "Accessibility", "description": "", "hideDesktop": true },
-      { "icon": "Car", "title": "Free Parking", "description": "" },
-      { "icon": "Shield", "title": "24 Hour Security", "description": "" },
-      { "icon": "PlaneLanding", "title": "Airport Shuttle", "description": "" },
-      { "icon": "Bell", "title": "24h Receptionist", "description": "" },
-      { "icon": "Star", "title": "Daily Housekeeping", "description": "" },
-      { "icon": "Bike", "title": "Motorbike Rental", "description": "" },
-      { "icon": "GlassWater", "title": "Bar", "description": "" },
-      { "icon": "WashingMachine", "title": "Laundry", "description": "" },
-      { "icon": "Map", "title": "Tour Organisation", "description": "" },
-      { "icon": "Bus", "title": "Transport Service", "description": "" },
-      { "icon": "Package", "title": "Minibar", "description": "" },
-      { "icon": "Hand", "title": "Massage", "description": "", "hideMobile": true },
-      { "icon": "ConciergeBell", "title": "Room Service", "description": "" },
-      { "icon": "Tv", "title": "Smart TV", "description": "" }
+      {
+        "icon": "Waves",
+        "title": "Swimming Pool",
+        "description": ""
+      },
+      {
+        "icon": "Wifi",
+        "title": "Fast Wi-Fi",
+        "description": ""
+      },
+      {
+        "icon": "UtensilsCrossed",
+        "title": "Restaurant",
+        "description": ""
+      },
+      {
+        "icon": "Sparkles",
+        "title": "SPA",
+        "description": ""
+      },
+      {
+        "icon": "Umbrella",
+        "title": "Private Beach Area",
+        "description": ""
+      },
+      {
+        "icon": "Coffee",
+        "title": "Breakfast",
+        "description": ""
+      },
+      {
+        "icon": "Ban",
+        "title": "Non Smoking Rooms",
+        "description": ""
+      },
+      {
+        "icon": "RefreshCw",
+        "title": "Currency Exchange",
+        "description": ""
+      },
+      {
+        "icon": "Activity",
+        "title": "Doctor on Call",
+        "description": ""
+      },
+      {
+        "icon": "MapPin",
+        "title": "Beach",
+        "description": ""
+      },
+      {
+        "icon": "Accessibility",
+        "title": "Accessibility",
+        "description": "",
+        "hideDesktop": true
+      },
+      {
+        "icon": "Car",
+        "title": "Free Parking",
+        "description": ""
+      },
+      {
+        "icon": "Shield",
+        "title": "24 Hour Security",
+        "description": ""
+      },
+      {
+        "icon": "PlaneLanding",
+        "title": "Airport Shuttle",
+        "description": ""
+      },
+      {
+        "icon": "Bell",
+        "title": "24h Receptionist",
+        "description": ""
+      },
+      {
+        "icon": "Star",
+        "title": "Daily Housekeeping",
+        "description": ""
+      },
+      {
+        "icon": "Bike",
+        "title": "Motorbike Rental",
+        "description": ""
+      },
+      {
+        "icon": "GlassWater",
+        "title": "Bar",
+        "description": ""
+      },
+      {
+        "icon": "WashingMachine",
+        "title": "Laundry",
+        "description": ""
+      },
+      {
+        "icon": "Map",
+        "title": "Tour Organisation",
+        "description": ""
+      },
+      {
+        "icon": "Bus",
+        "title": "Transport Service",
+        "description": ""
+      },
+      {
+        "icon": "Package",
+        "title": "Minibar",
+        "description": ""
+      },
+      {
+        "icon": "Hand",
+        "title": "Massage",
+        "description": "",
+        "hideMobile": true
+      },
+      {
+        "icon": "ConciergeBell",
+        "title": "Room Service",
+        "description": ""
+      },
+      {
+        "icon": "Tv",
+        "title": "Smart TV",
+        "description": ""
+      }
     ]
   },
   "experiences": {
@@ -230,22 +332,62 @@
   "galleryPreview": {
     "label": {
       "en": "Gallery",
-      "ru": "Gallery"
+      "ru": "Галерея"
     },
     "heading": {
-      "en": "Glimpses of Paradise",
-      "ru": "Glimpses of Paradise"
+      "en": "Photo Gallery",
+      "ru": "Фотогалерея"
     },
     "images": [
-      { "src": "/images/gallery/g4.jpg", "alt": "Orlowsky Discovery Hotel" },
-      { "src": "/images/gallery/g5.jpg", "alt": "Orlowsky Discovery Hotel" },
-      { "src": "/images/gallery/g6.jpg", "alt": "Orlowsky Discovery Hotel" },
-      { "src": "/images/gallery/g7.jpg", "alt": "Orlowsky Discovery Hotel" },
-      { "src": "/images/gallery/g8.jpg", "alt": "Orlowsky Discovery Hotel" },
-      { "src": "/images/gallery/g9.jpg", "alt": "Orlowsky Discovery Hotel" },
-      { "src": "/images/gallery/g10.jpg", "alt": "Orlowsky Discovery Hotel" },
-      { "src": "/images/gallery/g11.jpg", "alt": "Orlowsky Discovery Hotel" }
-    ]
+      {
+        "src": "/images/gallery/g1.jpg",
+        "alt": "Tropical garden and bungalows at Orlowsky Discovery Hotel, Candidasa"
+      },
+      {
+        "src": "/images/gallery/g2.jpg",
+        "alt": "Private swimming pool surrounded by palm trees, Orlowsky Discovery Hotel"
+      },
+      {
+        "src": "/images/gallery/g3.jpg",
+        "alt": "Garden walkway at Orlowsky Discovery Hotel, East Bali"
+      },
+      {
+        "src": "/images/gallery/g4.jpg",
+        "alt": "Aerial view of Orlowsky Discovery Hotel, Candidasa, East Bali"
+      },
+      {
+        "src": "/images/gallery/g5.jpg",
+        "alt": "Beachfront at Candidasa with views across the Bali Sea"
+      },
+      {
+        "src": "/images/gallery/g6.jpg",
+        "alt": "Candidasa coastline from Orlowsky Discovery Hotel, Karangasem"
+      },
+      {
+        "src": "/images/gallery/g7.jpg",
+        "alt": "Hotel room interior at Orlowsky Discovery Hotel, Candidasa"
+      },
+      {
+        "src": "/images/gallery/g8.jpg",
+        "alt": "Tropical flowers and garden at Orlowsky Discovery Hotel, Bali"
+      },
+      {
+        "src": "/images/gallery/g9.jpg",
+        "alt": "Oceanfront restaurant terrace at Orlowsky Discovery Hotel, Candidasa"
+      },
+      {
+        "src": "/images/gallery/g10.jpg",
+        "alt": "Hotel pool at sunset, Orlowsky Discovery Hotel, East Bali"
+      },
+      {
+        "src": "/images/gallery/g11.jpg",
+        "alt": "Balinese architecture and tropical greenery at Orlowsky Discovery Hotel"
+      }
+    ],
+    "subtext": {
+      "en": "Villas, tropical gardens, pool, oceanfront restaurant and Ayurvedic spa in Candidasa, East Bali.",
+      "ru": "Виллы, тропические сады, бассейн, ресторан у океана и аюрведический спа в Кандидасе, Восточный Бали."
+    }
   },
   "bookingCta": {
     "heading": {

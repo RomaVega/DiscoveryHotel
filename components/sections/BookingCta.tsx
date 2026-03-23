@@ -27,7 +27,7 @@ export function BookingCta({ data }: BookingCtaProps) {
               href={data.bookingUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-transparent hover:bg-white/10 border border-white hover:border-white/80 text-white font-sans font-semibold px-5 py-2 rounded-full tracking-wide uppercase text-xs transition-all duration-300 animate-border-glow-white hover:[box-shadow:0_0_20px_rgba(255,255,255,0.3)]"
+              className="inline-block bg-transparent hover:bg-white/10 border border-white hover:border-white/80 text-white font-sans font-semibold px-5 py-2 rounded-full tracking-wide uppercase text-xs transition-all duration-300"
             >
               {t(data.fallbackCta)}
             </a>

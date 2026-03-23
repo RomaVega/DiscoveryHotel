@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { FadeIn } from "@/components/common/FadeIn";
 import { SectionHeading } from "@/components/common/SectionHeading";
-import { SpotlightCard } from "@/components/aceternity/spotlight-card";
 import type { RoomsPreviewData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
 
@@ -28,13 +27,8 @@ export function RoomsPreview({ data }: RoomsPreviewProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {data.rooms.map((room, i) => (
             <FadeIn key={i} delay={i * 0.1}>
-              <SpotlightCard>
-                <a
-                  href={room.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group block relative aspect-[4/3] overflow-hidden"
-                >
+              <div className="bg-ivory shadow-md group h-full flex flex-col overflow-hidden">
+                <div className="relative aspect-video shrink-0 overflow-hidden">
                   <Image
                     src={room.image}
                     alt={room.imageAlt}
@@ -42,20 +36,26 @@ export function RoomsPreview({ data }: RoomsPreviewProps) {
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/5 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                    <h3 className="font-serif text-2xl font-semibold drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]">
-                      {t(room.title)}
-                    </h3>
-                    <p className="mt-2 text-sm text-white/95 leading-relaxed drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]">
-                      {t(room.description)}
-                    </p>
-                    <span className="mt-4 inline-block border border-white/60 hover:border-white hover:scale-[1.04] active:scale-[0.97] text-white font-sans font-semibold px-6 py-2 rounded-full tracking-wide text-xs transition-all duration-300">
-                      See More
-                    </span>
+                </div>
+                <div className="p-5 md:p-8 flex flex-col flex-1">
+                  <h3 className="font-serif text-2xl font-semibold text-charcoal">
+                    {t(room.title)}
+                  </h3>
+                  <p className="mt-2 text-stone leading-relaxed flex-1">
+                    {t(room.description)}
+                  </p>
+                  <div className="mt-6">
+                    <a
+                      href={room.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block bg-transparent border border-brand-teal text-brand-teal hover:bg-brand-teal hover:text-white hover:scale-[1.04] active:scale-[0.97] font-sans font-semibold px-5 py-2 rounded-full tracking-wide text-xs transition-all duration-300"
+                    >
+                      {t({ en: "See More", ru: "Подробнее" })}
+                    </a>
                   </div>
-                </a>
-              </SpotlightCard>
+                </div>
+              </div>
             </FadeIn>
           ))}
         </div>

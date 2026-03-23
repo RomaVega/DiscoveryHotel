@@ -1,0 +1,121 @@
+{
+  "label": {
+    "en": "Dining",
+    "ru": "Ресторан"
+  },
+  "heading": {
+    "en": "Oceanfront Restaurant & Bar",
+    "ru": "Ресторан и бар на берегу океана"
+  },
+  "subtext": {
+    "en": "Fresh Seafood, Balinese and International Cuisine in Candidasa, East Bali.",
+    "ru": "Свежие морепродукты, балийская и международная кухня в Кандидасе, Восточный Бали."
+  },
+  "hours": "07:00 – 22:00",
+  "capacity": "52–120",
+  "features": [
+    {
+      "title": {
+        "en": "Seaside Dining",
+        "ru": "Ужин у моря"
+      },
+      "description": {
+        "en": "Our semi-circular restaurant sits directly on the seafront, seating 52 to 120 guests with panoramic ocean views. Enjoy breakfast, lunch, and dinner in an unforgettable setting.",
+        "ru": "Наш полукруглый ресторан расположен прямо на берегу моря и вмещает от 52 до 120 гостей с панорамным видом на океан. Наслаждайтесь завтраком, обедом и ужином в незабываемой обстановке."
+      },
+      "icon": "Waves"
+    },
+    {
+      "title": {
+        "en": "International Cuisine",
+        "ru": "Мировая кухня"
+      },
+      "description": {
+        "en": "Fresh seafood, authentic Balinese and Indonesian dishes, vegetarian options, and international favorites prepared by our skilled kitchen team.",
+        "ru": "Свежие морепродукты, аутентичные балийские и индонезийские блюда, вегетарианские опции и лучшие блюда мировой кухни от наших опытных поваров."
+      },
+      "icon": "UtensilsCrossed"
+    },
+    {
+      "title": {
+        "en": "Set Menus & Buffet",
+        "ru": "Сет-меню и шведский стол"
+      },
+      "description": {
+        "en": "Choose from curated set menus starting at $18, a la carte selections, festive buffets, and outdoor BBQ evenings under the stars.",
+        "ru": "Выбирайте из сет-меню от $18, блюд а-ля карт, праздничных шведских столов и вечерних барбекю под открытым небом."
+      },
+      "icon": "ChefHat"
+    },
+    {
+      "title": {
+        "en": "Drinks & Cocktails",
+        "ru": "Напитки и коктейли"
+      },
+      "description": {
+        "en": "Signature cocktails, fine wines, premium spirits, cold beer, fresh juices, smoothies, and traditional Balinese Arak — all served at our oceanfront bar.",
+        "ru": "Фирменные коктейли, вина, крепкие напитки, пиво, свежевыжатые соки, смузи и традиционный балийский арак — всё в нашем баре на берегу."
+      },
+      "icon": "Wine"
+    },
+    {
+      "title": {
+        "en": "Room Service & Delivery",
+        "ru": "Обслуживание номеров и доставка"
+      },
+      "description": {
+        "en": "Room service is available throughout the day. We also offer free delivery within the Candidasa area for your convenience.",
+        "ru": "Обслуживание номеров доступно в течение всего дня. Также мы предлагаем бесплатную доставку по территории Кандидасы."
+      },
+      "icon": "Truck"
+    },
+    {
+      "title": {
+        "en": "Digital Menu & Chef Specials",
+        "ru": "Цифровое меню и блюда от шефа"
+      },
+      "description": {
+        "en": "Scan the QR code at your table for our full digital menu, updated daily with chef's specials featuring the freshest local ingredients.",
+        "ru": "Сканируйте QR-код за столом для доступа к полному цифровому меню, которое ежедневно обновляется специальными предложениями от шеф-повара из свежайших местных продуктов."
+      },
+      "icon": "QrCode"
+    },
+    {
+      "title": {
+        "en": "Cultural Performances",
+        "ru": "Культурные мероприятия"
+      },
+      "description": {
+        "en": "Weekly Balinese dance performances and traditional Barong Dance shows accompany your dining experience, bringing the island's rich culture to your table.",
+        "ru": "Еженедельные выступления балийских танцоров и традиционный танец Баронг сопровождают ваш ужин, привнося богатую культуру острова прямо к вашему столу."
+      },
+      "icon": "Music"
+    },
+    {
+      "title": {
+        "en": "Catering & Custom Menus",
+        "ru": "Кейтеринг и индивидуальное меню"
+      },
+      "description": {
+        "en": "Planning a celebration or corporate event? We offer full catering services and custom menu design tailored to your preferences and dietary requirements.",
+        "ru": "Планируете торжество или корпоративное мероприятие? Мы предлагаем полный кейтеринг и разработку индивидуального меню с учётом ваших пожеланий и диетических требований."
+      },
+      "icon": "CalendarHeart"
+    }
+  ],
+  "bookingCta": {
+    "heading": {
+      "en": "Make a Table Reservation",
+      "ru": "Забронировать столик"
+    },
+    "subtext": {
+      "en": "Join us for breakfast, lunch, or dinner — daily from 07:00 to 22:00.",
+      "ru": "Приходите на завтрак, обед или ужин — ежедневно с 07:00 до 22:00."
+    },
+    "bookingUrl": "https://secure.guestpro.net/odch",
+    "fallbackCta": {
+      "en": "Book a Table",
+      "ru": "Забронировать столик"
+    }
+  }
+}

@@ -1,0 +1,175 @@
+{
+  "label": {
+    "en": "Accommodations",
+    "ru": "Размещение"
+  },
+  "heading": {
+    "en": "Rooms & Villas in Candidasa, Bali",
+    "ru": "Номера и виллы в Кандидасе, Бали"
+  },
+  "subtext": {
+    "en": "Pool villa with private pool · Deluxe Cottage with garden terrace · Candidasa, East Bali",
+    "ru": "Вилла с бассейном · Коттедж с садовой террасой · Кандидаса, Восточный Бали"
+  },
+  "rooms": [
+    {
+      "title": {
+        "en": "Three Bedroom Pool Villa",
+        "ru": "Вилла с тремя спальнями и бассейном"
+      },
+      "description": {
+        "en": "A luxurious two-story villa with 230 m² of living space, three en-suite bedrooms, a private swimming pool, fully equipped kitchen, and a spacious lounge. Perfect for families or groups seeking the ultimate tropical retreat with complete privacy and modern amenities.",
+        "ru": "Роскошная двухэтажная вилла площадью 230 м² с тремя спальнями, ванными комнатами при каждой, собственным бассейном, полностью оборудованной кухней и просторной гостиной. Идеальный выбор для семей и компаний, ценящих уединение и современный комфорт."
+      },
+      "size": "230",
+      "bedrooms": 3,
+      "amenities": [
+        {
+          "en": "Private swimming pool",
+          "ru": "Собственный бассейн"
+        },
+        {
+          "en": "3 en-suite bedrooms",
+          "ru": "3 спальни с ванными"
+        },
+        {
+          "en": "Fully equipped kitchen",
+          "ru": "Полностью оборудованная кухня"
+        },
+        {
+          "en": "Spacious lounge area",
+          "ru": "Просторная гостиная"
+        },
+        {
+          "en": "50\" Smart TV",
+          "ru": "50\" Smart TV"
+        },
+        {
+          "en": "Air conditioning",
+          "ru": "Кондиционер"
+        },
+        {
+          "en": "In-room safe",
+          "ru": "Сейф в номере"
+        },
+        {
+          "en": "Minibar",
+          "ru": "Минибар"
+        },
+        {
+          "en": "Coffee & tea making facilities",
+          "ru": "Принадлежности для чая и кофе"
+        },
+        {
+          "en": "Complimentary daily water",
+          "ru": "Бесплатная вода ежедневно"
+        },
+        {
+          "en": "Kitchenette",
+          "ru": "Мини-кухня"
+        },
+        {
+          "en": "Hairdryer",
+          "ru": "Фен"
+        },
+        {
+          "en": "Iron on request",
+          "ru": "Утюг по запросу"
+        },
+        {
+          "en": "Daily housekeeping",
+          "ru": "Ежедневная уборка"
+        }
+      ],
+      "image": "/images/rooms/pool-villa.jpg",
+      "imageAlt": {
+        "en": "Three Bedroom Pool Villa with private pool at Orlowsky Discovery Hotel",
+        "ru": "Вилла с тремя спальнями и собственным бассейном в Orlowsky Discovery Hotel"
+      },
+      "href": "https://secure.guestpro.net/odch/booking"
+    },
+    {
+      "title": {
+        "en": "Deluxe Cottage",
+        "ru": "Коттедж Делюкс"
+      },
+      "description": {
+        "en": "An elegant 46 m² cottage featuring a comfortable bedroom, spacious living room, and modern rain shower. Enjoy tranquil garden views from your private terrace, complete with all the amenities you need for a relaxing stay in East Bali.",
+        "ru": "Элегантный коттедж площадью 46 м² с уютной спальней, просторной гостиной и современным тропическим душем. Наслаждайтесь видом на сад с личной террасы и всеми удобствами для безмятежного отдыха на Восточном Бали."
+      },
+      "size": "46",
+      "bedrooms": 1,
+      "amenities": [
+        {
+          "en": "Spacious living room",
+          "ru": "Просторная гостиная"
+        },
+        {
+          "en": "Rain shower",
+          "ru": "Тропический душ"
+        },
+        {
+          "en": "Garden view terrace",
+          "ru": "Терраса с видом на сад"
+        },
+        {
+          "en": "32\" LED TV",
+          "ru": "32\" LED TV"
+        },
+        {
+          "en": "Air conditioning",
+          "ru": "Кондиционер"
+        },
+        {
+          "en": "In-room safe",
+          "ru": "Сейф в номере"
+        },
+        {
+          "en": "Minibar",
+          "ru": "Минибар"
+        },
+        {
+          "en": "Coffee & tea making facilities",
+          "ru": "Принадлежности для чая и кофе"
+        },
+        {
+          "en": "Complimentary daily water",
+          "ru": "Бесплатная вода ежедневно"
+        },
+        {
+          "en": "Wardrobe",
+          "ru": "Гардероб"
+        },
+        {
+          "en": "Hairdryer",
+          "ru": "Фен"
+        },
+        {
+          "en": "Daily housekeeping",
+          "ru": "Ежедневная уборка"
+        }
+      ],
+      "image": "/images/rooms/deluxe-cottage.jpg",
+      "imageAlt": {
+        "en": "Deluxe Cottage with garden view at Orlowsky Discovery Hotel",
+        "ru": "Коттедж Делюкс с видом на сад в Orlowsky Discovery Hotel"
+      },
+      "href": "https://secure.guestpro.net/odch/booking"
+    }
+  ],
+  "bookingCta": {
+    "heading": {
+      "en": "Book Your Stay",
+      "ru": "Забронировать номер"
+    },
+    "subtext": {
+      "en": "Reserve your room at Orlowsky Discovery Hotel directly through our booking system.",
+      "ru": "Забронируйте номер в отеле Orlowsky Discovery напрямую через нашу систему бронирования."
+    },
+    "bookingUrl": "https://secure.guestpro.net/odch",
+    "fallbackCta": {
+      "en": "Book Now",
+      "ru": "Забронировать"
+    }
+  }
+}
