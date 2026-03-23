@@ -1,4 +1,4 @@
-import { getContactData } from "@/lib/content";
+import { getContactData, getAboutPageData } from "@/lib/content";
 import { InnerPageLayout } from "@/components/layout/InnerPageLayout";
 import { PageHero } from "@/components/sections/PageHero";
 import { AboutDetail } from "@/components/sections/AboutDetail";
@@ -20,8 +20,7 @@ export const metadata = {
 
 export default function AboutPage() {
   const contact = getContactData();
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  const data = require("@/content/about.json");
+  const data = getAboutPageData();
 
   return (
     <InnerPageLayout contact={contact}>

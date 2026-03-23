@@ -1,15 +1,9 @@
 "use client"; // Uses useLanguage for locale-based contact filtering
 
 import { FadeIn } from "@/components/common/FadeIn";
-import { Facebook, Instagram, Youtube } from "lucide-react";
 import type { ContactData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
-
-const iconMap: Record<string, React.FC<{ size?: number; className?: string }>> = {
-  Facebook,
-  Instagram,
-  Youtube,
-};
+import { socialIconMap } from "@/lib/social-icons";
 
 interface ContactDetailProps {
   contact: ContactData;
@@ -77,7 +71,7 @@ export function ContactDetail({ contact }: ContactDetailProps) {
             </address>
             <div className="flex gap-5 mt-8">
               {contact.socials.map((social) => {
-                const Icon = iconMap[social.icon];
+                const Icon = socialIconMap[social.icon];
                 return Icon ? (
                   <a
                     key={social.platform}

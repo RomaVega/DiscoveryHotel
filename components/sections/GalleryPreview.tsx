@@ -6,6 +6,7 @@ import { ChevronLeft, ChevronRight, X, ZoomIn } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FadeIn } from "@/components/common/FadeIn";
 import { SectionHeading } from "@/components/common/SectionHeading";
+import { SecondaryButton } from "@/components/common/SecondaryButton";
 import type { GalleryPreviewData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
 import { cn } from "@/lib/utils";
@@ -21,11 +22,27 @@ export function GalleryPreview({ data, defaultExpanded = false, hideHeading = fa
   const [direction, setDirection] = useState(0); // -1 = left, 1 = right
   const [expanded, setExpanded] = useState(defaultExpanded);
   const sectionRef = useRef<HTMLElement>(null);
+  const triggerRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const closeBtnRef = useRef<HTMLButtonElement>(null);
   const { t, tl } = useLanguage();
 
   const total = data.images.length;
+
   const openLightbox = (index: number) => { setDirection(0); setLightboxIndex(index); };
-  const closeLightbox = () => setLightboxIndex(null);
+
+  const closeLightbox = () => {
+    const idx = lightboxIndex;
+    setLightboxIndex(null);
+    // Return focus to the image button that opened the lightbox
+    setTimeout(() => { triggerRefs.current[idx!]?.focus(); }, 0);
+  };
+
+  // Move focus into lightbox when it opens
+  useEffect(() => {
+    if (lightboxIndex !== null) {
+      setTimeout(() => { closeBtnRef.current?.focus(); }, 50);
+    }
+  }, [lightboxIndex]);
 
   const goNext = useCallback(() => {
     setDirection(1);
@@ -83,6 +100,7 @@ export function GalleryPreview({ data, defaultExpanded = false, hideHeading = fa
               return (
                 <FadeIn key={img.src} delay={Math.min(i, 5) * 0.1}>
                   <button
+                    ref={(el) => { triggerRefs.current[i] = el; }}
                     onClick={() => openLightbox(i)}
                     className={cn(
                       "relative w-full h-full group focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2",
@@ -125,7 +143,7 @@ export function GalleryPreview({ data, defaultExpanded = false, hideHeading = fa
 
         <FadeIn>
           <div className="mt-12 text-center">
-            <button
+            <SecondaryButton
               onClick={() => {
                 const wasExpanded = expanded;
                 setExpanded(!expanded);
@@ -138,10 +156,9 @@ export function GalleryPreview({ data, defaultExpanded = false, hideHeading = fa
                   }, 50);
                 }
               }}
-              className="inline-block bg-transparent border border-brand-teal text-brand-teal hover:border-deep-teal hover:text-deep-teal hover:scale-[1.04] active:scale-[0.97] font-sans font-semibold px-5 py-2 rounded-full tracking-wide uppercase text-xs transition-all duration-300"
             >
               {expanded ? tl.gallery.showLess : tl.gallery.showMore}
-            </button>
+            </SecondaryButton>
           </div>
         </FadeIn>
       </div>
@@ -231,9 +248,10 @@ export function GalleryPreview({ data, defaultExpanded = false, hideHeading = fa
 
               {/* Close button */}
               <button
+                ref={closeBtnRef}
                 onClick={closeLightbox}
                 aria-label={tl.gallery.closeLightbox}
-                className="absolute top-2 right-2 md:-top-4 md:-right-4 z-20 w-8 h-8 flex items-center justify-center rounded-full bg-white text-charcoal shadow-lg hover:bg-white/90 transition-colors duration-200"
+                className="absolute top-2 right-2 md:-top-4 md:-right-4 z-20 w-8 h-8 flex items-center justify-center rounded-full bg-white text-charcoal shadow-lg hover:bg-white/90 transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-brand-teal"
               >
                 <X size={14} strokeWidth={2.5} />
               </button>

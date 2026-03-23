@@ -3,6 +3,7 @@
 import { FadeIn } from "@/components/common/FadeIn";
 import type { ExcursionsPageData, ExcursionSection } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
+import { getWhatsAppNumber } from "@/lib/whatsapp";
 
 interface ExcursionsDetailProps {
   data: ExcursionsPageData;
@@ -13,7 +14,7 @@ function ExcursionGroup({ section }: { section: ExcursionSection }) {
   const items = section.items ?? section.highlights ?? [];
 
   const bookingText = locale === "ru" ? "Забронировать" : "Book Now";
-  const whatsappBase = "https://wa.me/6282236655582?text=";
+  const whatsappBase = `https://wa.me/${getWhatsAppNumber()}?text=`;
 
   return (
     <div>

@@ -15,10 +15,12 @@
     "experiences": "Впечатления",
     "contact": "Контакты",
     "about": "О нас",
+    "location": "Расположение",
     "getDirections": "Открыть в Google Maps",
     "whatsappRu": "WhatsApp (Россия)",
     "whatsappHotel": "WhatsApp (отель)",
     "paymentNote": "Возможна оплата в России наличными и безналичным переводом",
+    "paymentInRussia": "Оплата в России",
     "allRightsReserved": "Все права защищены",
     "links": {
       "rooms": "Номера",
