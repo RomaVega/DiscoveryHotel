@@ -2,7 +2,7 @@
 
 import {
   Waves, Wifi, UtensilsCrossed, Sparkles, Umbrella, Coffee,
-  Ban, Droplets, Droplet, Leaf, RefreshCw, Shirt, Wind, Info,
+  Ban, Coins, Droplets, Droplet, Leaf, RefreshCw, Shirt, Wind, Info,
   Thermometer, Activity, MapPin, Monitor, CloudRain, Flame,
   Phone, PhoneCall, Accessibility, Home, Layers, Briefcase,
   Car, Shield, RefreshCcw, Bell, Wine, Zap, Star, Building2,
@@ -18,7 +18,7 @@ import { useLanguage } from "@/lib/language-context";
 
 const iconMap: Record<string, LucideIcon> = {
   Waves, Wifi, UtensilsCrossed, Sparkles, Umbrella, Coffee,
-  Ban, Droplets, Droplet, Leaf, RefreshCw, Shirt, Wind, Info,
+  Ban, Coins, Droplets, Droplet, Leaf, RefreshCw, Shirt, Wind, Info,
   Thermometer, Activity, MapPin, Monitor, CloudRain, Flame,
   Phone, PhoneCall, Accessibility, Home, Layers, Briefcase,
   Car, Shield, RefreshCcw, Bell, Wine, Zap, Star, Building2,

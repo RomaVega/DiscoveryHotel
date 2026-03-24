@@ -13,25 +13,13 @@
   "whatsappGreeting": "Hello! I'd like to know more about Orlowsky Discovery Hotel.",
   "whatsappContacts": [
     {
-      "label": "+7 926-641-44-73",
-      "number": "79266414473",
-      "greeting": "Здравствуйте! Хочу узнать больше об Orlowsky Discovery Hotel.",
-      "locale": "ru"
-    },
-    {
-      "label": "+7 926-641-44-83",
-      "number": "79266414483",
-      "greeting": "Здравствуйте! Хочу узнать больше об Orlowsky Discovery Hotel.",
-      "locale": "ru"
-    },
-    {
       "label": "+62 822 3665 5582",
       "number": "6282236655582",
       "greeting": "Hello! I'd like to know more about Orlowsky Discovery Hotel.",
       "locale": "en"
     }
   ],
-  "email": "2794140@gmail.com",
+  "email": "info@orlowsky.co.id",
   "socials": [
     {
       "platform": "Facebook",

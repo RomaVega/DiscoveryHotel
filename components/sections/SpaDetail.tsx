@@ -103,7 +103,7 @@ export function SpaDetail({ data }: SpaDetailProps) {
               return (
                 <div key={i} className="bg-ivory shadow-sm p-6 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8">
                   <div className="flex-1">
-                    <h3 className="font-serif text-xl font-semibold text-charcoal">{t(program.name)}</h3>
+                    <h3 className="font-serif text-2xl font-semibold text-charcoal">{t(program.name)}</h3>
                     <p className="mt-2 text-stone text-sm leading-relaxed">{t(program.description)}</p>
                     <div className="flex flex-wrap gap-4 mt-3">
                       <span className="text-xs text-stone/70 font-sans">{program.duration}</span>

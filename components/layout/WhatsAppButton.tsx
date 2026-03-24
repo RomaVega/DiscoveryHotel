@@ -36,17 +36,19 @@ interface WhatsAppButtonProps {
   phone: string;
   greeting: string;
   contacts?: WhatsAppContact[];
+  alwaysVisible?: boolean;
 }
 
-export function WhatsAppButton({ phone, greeting, contacts }: WhatsAppButtonProps) {
+export function WhatsAppButton({ phone, greeting, contacts, alwaysVisible = false }: WhatsAppButtonProps) {
   const { locale } = useLanguage();
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(alwaysVisible);
 
   useEffect(() => {
+    if (alwaysVisible) return;
     const onScroll = () => setScrolled(window.scrollY > 400);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [alwaysVisible]);
 
   const match = contacts?.find((c) => c.locale === locale) ?? contacts?.find((c) => c.locale === "en");
   const finalPhone = match?.number ?? phone;
@@ -69,7 +71,7 @@ export function WhatsAppButton({ phone, greeting, contacts }: WhatsAppButtonProp
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Chat on WhatsApp"
-            className="flex items-center justify-center opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2 drop-shadow-[0_12px_32px_rgba(37,211,102,0.7)] drop-shadow-[0_8px_24px_rgba(0,0,0,0.55)] drop-shadow-[0_2px_6px_rgba(0,0,0,0.35)]"
+            className="flex items-center justify-center opacity-85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2"
             animate={{ y: [0, -6, 0] }}
             transition={{ duration: 2.7, ease: "easeInOut", repeat: Infinity, repeatDelay: 1.8 }}
             whileHover={{ scale: 1.1, y: 0 }}

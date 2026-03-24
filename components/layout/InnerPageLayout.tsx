@@ -13,7 +13,7 @@ interface InnerPageLayoutProps {
 export function InnerPageLayout({ contact, children }: InnerPageLayoutProps) {
   return (
     <>
-      <Navbar scrollThreshold={0.3} />
+      <Navbar alwaysVisible />
       <main id="main-content">
         {children}
       </main>
@@ -22,6 +22,7 @@ export function InnerPageLayout({ contact, children }: InnerPageLayoutProps) {
         phone={contact.whatsapp}
         greeting={contact.whatsappGreeting}
         contacts={contact.whatsappContacts}
+        alwaysVisible
       />
     </>
   );

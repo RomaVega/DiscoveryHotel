@@ -26,7 +26,7 @@ export function CarRentalDetail({ data }: CarRentalDetailProps) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {data.vehicles.map((vehicle, i) => (
               <div key={i} className="bg-ivory p-6 shadow-sm flex flex-col">
-                <h3 className="font-serif text-xl font-semibold text-charcoal">{t(vehicle.title)}</h3>
+                <h3 className="font-serif text-2xl font-semibold text-charcoal">{t(vehicle.title)}</h3>
                 <p className="mt-2 text-stone text-sm leading-relaxed flex-1">{t(vehicle.description)}</p>
                 <div className="mt-4 pt-4 border-t border-sand">
                   <span className="font-sans font-semibold text-brand-teal">{t(vehicle.price)}</span>
@@ -66,7 +66,7 @@ export function CarRentalDetail({ data }: CarRentalDetailProps) {
             </h2>
             <p className="mt-4 text-lg text-white/70 leading-relaxed">
               {isRu
-                ? "Напишите нам — мы подберём транспорт и расскажем о лучших маршрутах из Кандидасы."
+                ? "Напишите нам — мы подберём транспорт и расскажем о лучших маршрутах из Чандидасы."
                 : "Message us and we'll arrange the perfect vehicle for your Bali adventure from Candidasa."}
             </p>
             <div className="mt-8">

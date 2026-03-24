@@ -104,7 +104,7 @@ export function EventsDetail({ data }: EventsDetailProps) {
             </h2>
             <p className="mt-4 text-lg text-white/70 leading-relaxed">
               {isRu
-                ? "Поделитесь вашей идеей — мы создадим незабываемое мероприятие на нашей площадке у океана в Кандидасе."
+                ? "Поделитесь вашей идеей — мы создадим незабываемое мероприятие на нашей площадке у океана в Чандидасе."
                 : "Share your vision — we'll design an unforgettable event at our oceanfront venue in Candidasa."}
             </p>
             <div className="mt-8">

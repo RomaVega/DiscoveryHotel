@@ -85,7 +85,7 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 0.9 }: NavbarP
               unoptimized
               className="object-contain shrink-0"
             />
-            <span className="font-serif font-semibold text-black tracking-wide uppercase leading-tight text-base">
+            <span className="font-serif font-semibold text-black tracking-wide uppercase leading-tight text-base text-center">
               Orlowsky Discovery Candidasa
             </span>
           </Link>

@@ -11,7 +11,7 @@ export function LegalPage({ data }: LegalPageProps) {
   const { t } = useLanguage();
 
   return (
-    <section className="py-16 md:py-32 bg-sand">
+    <section className="pt-24 pb-16 md:pt-32 md:pb-24 bg-sand">
       <div className="max-w-3xl mx-auto px-6">
         <h1 className="font-serif text-4xl font-light text-charcoal text-center mb-4">
           {t(data.heading)}

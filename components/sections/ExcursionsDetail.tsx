@@ -37,7 +37,7 @@ function ExcursionGroup({ section }: { section: ExcursionSection }) {
             return (
               <div key={i} className="bg-ivory shadow-sm p-6 md:p-8 flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-8">
                 <div className="flex-1">
-                  <h3 className="font-serif text-lg font-semibold text-charcoal">{t(item.name)}</h3>
+                  <h3 className="font-serif text-2xl font-semibold text-charcoal">{t(item.name)}</h3>
                   <p className="text-stone text-sm mt-2 leading-relaxed">{t(item.description)}</p>
                   <div className="flex flex-wrap gap-4 mt-2">
                     {item.duration && (

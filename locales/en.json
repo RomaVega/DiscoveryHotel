@@ -31,11 +31,11 @@
       "about": "About"
     },
     "experienceLinks": {
-      "sightseeing": "Sightseeing Tours",
-      "ubud": "Ubud Attractions",
-      "diving": "Diving",
-      "trekking": "Trekking",
-      "volcano": "Volcano Tour"
+      "excursions": "Excursion Programs",
+      "diving": "Diving & Snorkeling",
+      "events": "Events & Celebrations",
+      "carRental": "Car & Bike Rental",
+      "spa": "Ayurvedic Spa"
     }
   },
   "hero": {

@@ -5,11 +5,11 @@
   },
   "heading": {
     "en": "Diving & Snorkeling in East Bali — Tulamben & Candidasa Reef",
-    "ru": "Дайвинг и снорклинг в Восточном Бали — Туламбен и риф Кандидасы"
+    "ru": "Дайвинг и снорклинг в Восточном Бали — Туламбен и риф Чандидасы"
   },
   "subtext": {
     "en": "USAT Liberty shipwreck in Tulamben, Candidasa coral reef, and manta rays at Nusa Penida. Beginner to advanced programs with certified instructors.",
-    "ru": "Корабль USAT Liberty в Туламбене, коралловый риф Кандидасы и манты Нуса-Пениды. Программы для начинающих и продвинутых с сертифицированными инструкторами."
+    "ru": "Корабль USAT Liberty в Туламбене, коралловый риф Чандидасы и манты Нуса-Пениды. Программы для начинающих и продвинутых с сертифицированными инструкторами."
   },
   "features": [
     {
@@ -139,7 +139,7 @@
     {
       "name": {
         "en": "Candidasa Reef",
-        "ru": "Риф Кандидасы"
+        "ru": "Риф Чандидасы"
       },
       "description": {
         "en": "Our local house reef is just minutes from the hotel, featuring stunning coral formations, reef sharks, sea turtles, and a rich variety of tropical fish.",
@@ -148,7 +148,7 @@
       "image": "/images/diving/diving-candidasa.jpg",
       "imageAlt": {
         "en": "Colorful coral reef at Candidasa",
-        "ru": "Яркий коралловый риф Кандидасы"
+        "ru": "Яркий коралловый риф Чандидасы"
       }
     },
     {
@@ -163,7 +163,7 @@
       "image": "/images/diving/diving-mimpang.jpg",
       "imageAlt": {
         "en": "Rocky islands of Mimpang and Biaha off Candidasa coast",
-        "ru": "Скалистые острова Мимпанг и Биаха у побережья Кандидасы"
+        "ru": "Скалистые острова Мимпанг и Биаха у побережья Чандидасы"
       }
     },
     {

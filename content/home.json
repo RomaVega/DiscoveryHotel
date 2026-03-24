@@ -6,7 +6,7 @@
     "titleLine4": "Bali",
     "subtitle": {
       "en": "Cottages & Villas · Candidasa, East Bali",
-      "ru": "Коттеджи и виллы · Кандидаса, Восточный Бали"
+      "ru": "Коттеджи и виллы · Чандидаса, Восточный Бали"
     },
     "cta": {
       "en": "Book Stay",
@@ -25,11 +25,11 @@
     },
     "heading": {
       "en": "A Hidden Gem in East Bali",
-      "ru": "Затаённая жемчужина Восточного Бали"
+      "ru": "Скрытая жемчужина Восточного Бали"
     },
     "description": {
-      "en": "Nestled along the tranquil coast of Candidasa, Orlowsky Discovery Hotel offers an intimate escape where Balinese charm meets modern comfort. Wake up to ocean breezes, explore vibrant coral reefs, and unwind in our tropical gardens — far from the crowds, close to paradise.",
-      "ru": "Расположенный на тихом побережье Кандидасы, Orlowsky Discovery Hotel — это уютное убежище, где балийское очарование сочетается с современным комфортом. Просыпайтесь под шум морского бриза, исследуйте яркие коралловые рифы и отдыхайте в наших тропических садах — вдали от суеты, у порога рая."
+      "en": "Nestled on the tranquil coast of Candidasa in East Bali — far from the crowds, yet close to everything you need. Orlowsky Discovery Hotel offers an intimate escape where Balinese charm meets modern comfort. Wake up to ocean breezes, explore vibrant coral reefs, and unwind in our tropical gardens.",
+      "ru": "Расположенный на тихом побережье Чандидасы, Orlowsky Discovery Hotel — это уютное убежище, где балийское очарование сочетается с современным комфортом. Просыпайтесь под шум морского бриза, исследуйте яркие коралловые рифы и отдыхайте в наших тропических садах — вдали от суеты, в уединённом тропическом раю."
     },
     "image": "/images/welcome/Image.png",
     "imageAlt": "Tropical garden and pool area of the hotel at sunset"
@@ -54,8 +54,8 @@
           "ru": "Делюкс Коттедж"
         },
         "description": {
-          "en": "Charming cottage with tropical garden views",
-          "ru": "Уютный коттедж с видом на тропический сад и современными балийскими удобствами"
+          "en": "Charming cottage with Balinese garden views",
+          "ru": "Уютный коттедж с видом на балийский сад и современными удобствами."
         },
         "image": "/images/rooms/Deluxe Cottage.jpg",
         "imageAlt": "Deluxe Cottage at Orlowsky Discovery Hotel",
@@ -122,7 +122,7 @@
         "description": ""
       },
       {
-        "icon": "RefreshCw",
+        "icon": "Coins",
         "title": { "en": "Currency Exchange", "ru": "Обмен валюты" },
         "description": ""
       },
@@ -132,7 +132,7 @@
         "description": ""
       },
       {
-        "icon": "MapPin",
+        "icon": "Sun",
         "title": { "en": "Beach", "ru": "Пляж" },
         "description": ""
       },
@@ -163,7 +163,7 @@
         "description": ""
       },
       {
-        "icon": "Star",
+        "icon": "Shirt",
         "title": { "en": "Daily Housekeeping", "ru": "Ежедневная уборка" },
         "description": ""
       },
@@ -222,7 +222,7 @@
     },
     "heading": {
       "en": "Discover East Bali",
-      "ru": "Откройте Восточный Бали"
+      "ru": "Погрузитесь в Восточный Бали"
     },
     "subtext": {
       "en": "Curated adventures to make your stay unforgettable.",
@@ -386,7 +386,7 @@
     ],
     "subtext": {
       "en": "Villas, tropical gardens, pool, oceanfront restaurant and Ayurvedic spa in Candidasa, East Bali.",
-      "ru": "Виллы, тропические сады, бассейн, ресторан у океана и аюрведический спа в Кандидасе, Восточный Бали."
+      "ru": "Виллы, тропические сады, бассейн, ресторан у океана и аюрведический спа в Чандидасе, Восточный Бали."
     }
   },
   "bookingCta": {
@@ -395,8 +395,8 @@
       "ru": "Готовы Исследовать Восточный Бали?"
     },
     "subtext": {
-      "en": "Reserve your stay at Orlowsky Discovery Hotel and experience the magic of East Bali.",
-      "ru": "Забронируйте номер в Orlowsky Discovery Hotel и ощутите магию Восточного Бали."
+      "en": "Book your stay at Orlowsky Discovery Hotel and experience the true essence of East Bali.",
+      "ru": "Забронируйте проживание в Orlowsky Discovery Hotel и погрузитесь в атмосферу Восточного Бали."
     },
     "bookingUrl": "https://secure.guestpro.net/odch",
     "fallbackCta": {

@@ -29,16 +29,16 @@ export function Footer({ contact }: FooterProps) {
   ];
 
   const experienceLinks = [
-    { label: tl.footer.experienceLinks.sightseeing, href: "/experiences/excursions" },
-    { label: tl.footer.experienceLinks.ubud, href: "/experiences/excursions" },
-    { label: tl.footer.experienceLinks.diving, href: "/experiences/diving" },
-    { label: tl.footer.experienceLinks.trekking, href: "/experiences/excursions" },
-    { label: tl.footer.experienceLinks.volcano, href: "/experiences/excursions" },
+    { label: tl.footer.experienceLinks.excursions, href: "/experiences/excursions" },
+    { label: tl.footer.experienceLinks.diving,     href: "/experiences/diving" },
+    { label: tl.footer.experienceLinks.events,     href: "/experiences/events" },
+    { label: tl.footer.experienceLinks.carRental,  href: "/experiences/car-rental" },
+    { label: tl.footer.experienceLinks.spa,        href: "/spa" },
   ];
 
   return (
     <footer id="contact" className="bg-parchment text-charcoal">
-      <div className="max-w-7xl mx-auto px-6 pt-16 sm:pt-20 pb-10 sm:pb-12">
+      <div className="max-w-5xl mx-auto px-6 pt-16 sm:pt-20 pb-10 sm:pb-12">
         {/* Logo + tagline — centered */}
         <div className="flex flex-col items-center mb-10 sm:mb-16">
           <Link
@@ -74,7 +74,26 @@ export function Footer({ contact }: FooterProps) {
         <div className="flex flex-col items-center gap-8 md:flex-row md:items-start md:gap-x-8">
           {/* Contact */}
           <div className="w-full text-center md:text-left md:flex-1 md:min-w-0">
-            <h4 className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/50 mb-4 sm:mb-5 underline underline-offset-4 decoration-charcoal/20">
+            {/* Social icons — mobile only (above heading) */}
+            <div className="flex justify-center gap-5 mb-6 md:hidden">
+              {contact.socials.map((social) => {
+                const Icon = socialIconMap[social.icon];
+                return Icon ? (
+                  <a
+                    key={social.platform}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.platform}
+                    className="text-charcoal/30 hover:text-charcoal transition-colors duration-200"
+                  >
+                    <Icon size={social.icon === "Youtube" ? 28 : 24} className={social.icon === "Youtube" ? "relative -top-0.5" : ""} />
+                  </a>
+                ) : null;
+              })}
+            </div>
+
+            <h4 className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/50 mb-4 underline underline-offset-4 decoration-charcoal/20">
               {tl.footer.contact}
             </h4>
             <ul className="space-y-3 flex flex-col items-center md:items-start">
@@ -124,7 +143,7 @@ export function Footer({ contact }: FooterProps) {
                 </li>
               )}
 
-              <li className="pt-1">
+              <li>
                 <a
                   href={`mailto:${contact.email}`}
                   className="flex items-center gap-2 text-[13px] sm:text-sm text-charcoal/60 hover:text-charcoal transition-colors duration-200"
@@ -134,19 +153,10 @@ export function Footer({ contact }: FooterProps) {
                 </a>
               </li>
 
-              {isRu && tl.footer.paymentNote && (
-                <li className="pt-1">
-                  <p className="font-sans text-[10px] uppercase tracking-[0.15em] text-charcoal/35 mb-1.5">
-                    {tl.footer.paymentInRussia}
-                  </p>
-                  <p className="font-sans text-[13px] sm:text-sm text-charcoal/60 leading-relaxed">
-                    {tl.footer.paymentNote}
-                  </p>
-                </li>
-              )}
             </ul>
 
-            <div className="flex justify-center md:justify-start gap-5 mt-5">
+            {/* Social icons — desktop only (below email) */}
+            <div className="hidden md:flex justify-start gap-5 mt-5">
               {contact.socials.map((social) => {
                 const Icon = socialIconMap[social.icon];
                 return Icon ? (
@@ -158,7 +168,7 @@ export function Footer({ contact }: FooterProps) {
                     aria-label={social.platform}
                     className="text-charcoal/30 hover:text-charcoal transition-colors duration-200"
                   >
-                    <Icon size={18} />
+                    <Icon size={social.icon === "Youtube" ? 28 : 24} className={social.icon === "Youtube" ? "relative -top-0.5" : ""} />
                   </a>
                 ) : null;
               })}
@@ -190,9 +200,32 @@ export function Footer({ contact }: FooterProps) {
                 {tl.footer.getDirections}
                 <span aria-hidden="true">→</span>
               </a>
+
+              {/* Payment note — desktop only */}
+              {isRu && tl.footer.paymentNote && (
+                <div className="hidden md:block mt-4 -ml-[125px]">
+                  <p className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/50 mb-1.5 underline underline-offset-4 decoration-charcoal/20">
+                    {tl.footer.paymentInRussia}
+                  </p>
+                  <p className="font-sans text-[13px] text-brand-teal leading-relaxed font-medium whitespace-pre-line">
+                    {tl.footer.paymentNote}
+                  </p>
+                </div>
+              )}
             </div>
           </div>
 
+          {/* Payment note — mobile only, shown after Location */}
+          {isRu && tl.footer.paymentNote && (
+            <div className="w-full text-center md:hidden">
+              <p className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/50 mb-1.5 underline underline-offset-4 decoration-charcoal/20">
+                {tl.footer.paymentInRussia}
+              </p>
+              <p className="font-sans text-[13px] text-brand-teal leading-relaxed font-medium whitespace-pre-line">
+                {tl.footer.paymentNote}
+              </p>
+            </div>
+          )}
           {/* Divider */}
           <div className="w-full border-t border-charcoal/10 md:w-px md:border-t-0 md:border-l md:self-stretch" />
 
@@ -201,7 +234,7 @@ export function Footer({ contact }: FooterProps) {
             <h4 className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/50 mb-4 sm:mb-5 underline underline-offset-4 decoration-charcoal/20">
               {tl.footer.experiences}
             </h4>
-            <ul className="space-y-2 sm:space-y-2.5">
+            <ul className="space-y-1.5">
               {experienceLinks.map((link) => (
                 <li key={link.label}>
                   <Link
@@ -220,7 +253,7 @@ export function Footer({ contact }: FooterProps) {
             <h4 className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/50 mb-4 sm:mb-5 underline underline-offset-4 decoration-charcoal/20">
               {tl.footer.explore}
             </h4>
-            <ul className="space-y-2 sm:space-y-2.5">
+            <ul className="space-y-1.5">
               {footerLinks.map((link) => (
                 <li key={link.label}>
                   <Link
@@ -240,6 +273,15 @@ export function Footer({ contact }: FooterProps) {
       {/* Bottom bar */}
       <div className="border-t border-charcoal/10">
         <div className="max-w-7xl mx-auto px-6 py-4 sm:py-5 flex flex-col items-center gap-1.5">
+          <div className="flex items-center gap-1">
+            <Link href="/privacy" className="font-sans text-[10px] text-charcoal/30 hover:text-charcoal/60 transition-colors duration-200 tracking-wide">
+              {isRu ? "Политика конфиденциальности" : "Privacy Policy"}
+            </Link>
+            <span className="text-charcoal/20 text-[10px]">·</span>
+            <Link href="/terms" className="font-sans text-[10px] text-charcoal/30 hover:text-charcoal/60 transition-colors duration-200 tracking-wide">
+              {isRu ? "Условия использования" : "Terms of Service"}
+            </Link>
+          </div>
           <p className="font-sans text-[10px] text-charcoal/20 tracking-wider uppercase">
             Candidasa · Karangasem · Bali
           </p>
