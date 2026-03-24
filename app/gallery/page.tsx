@@ -2,10 +2,20 @@ import { getHomePageData, getContactData } from "@/lib/content";
 import { InnerPageLayout } from "@/components/layout/InnerPageLayout";
 import { PageHero } from "@/components/sections/PageHero";
 import { GalleryPreview } from "@/components/sections/GalleryPreview";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata = {
   title: "Photo Gallery — Orlowsky Discovery Hotel, Candidasa, Bali",
   description: "Photos of Orlowsky Discovery Hotel — pool villas, tropical gardens, oceanfront restaurant, Ayurvedic spa, and the beaches of Candidasa, East Bali.",
+  alternates: {
+    canonical: `${SITE_URL}/gallery`,
+  },
+  openGraph: {
+    title: "Photo Gallery — Orlowsky Discovery Hotel, Candidasa, Bali",
+    description: "Photos of Orlowsky Discovery Hotel — pool villas, tropical gardens, oceanfront restaurant, Ayurvedic spa, and the beaches of Candidasa, East Bali.",
+    url: `${SITE_URL}/gallery`,
+    images: [{ url: `${SITE_URL}/images/gallery/g4.jpg`, width: 1200, height: 630 }],
+  },
 };
 
 export default function GalleryPage() {

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { FadeIn } from "@/components/common/FadeIn";
 import { SectionHeading } from "@/components/common/SectionHeading";
+import { SecondaryButton } from "@/components/common/SecondaryButton";
 import type { RoomsPreviewData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
 
@@ -45,14 +46,9 @@ export function RoomsPreview({ data }: RoomsPreviewProps) {
                     {t(room.description)}
                   </p>
                   <div className="mt-6">
-                    <a
-                      href={room.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block bg-transparent border border-brand-teal text-brand-teal hover:bg-brand-teal hover:text-white hover:scale-[1.04] active:scale-[0.97] font-sans font-semibold px-5 py-2 rounded-full tracking-wide text-xs transition-all duration-300"
-                    >
+                    <SecondaryButton href={room.href} external>
                       {t({ en: "See More", ru: "Подробнее" })}
-                    </a>
+                    </SecondaryButton>
                   </div>
                 </div>
               </div>

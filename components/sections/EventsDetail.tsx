@@ -5,18 +5,17 @@ import { FadeIn } from "@/components/common/FadeIn";
 import type { EventsPageData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
 import { Check } from "lucide-react";
+import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 interface EventsDetailProps {
   data: EventsPageData;
 }
 
-const WHATSAPP = "6282236655582";
-
 export function EventsDetail({ data }: EventsDetailProps) {
   const { t, locale } = useLanguage();
   const isRu = locale === "ru";
 
-  const ctaMsg = encodeURIComponent(isRu
+  const ctaUrl = buildWhatsAppUrl(isRu
     ? "Здравствуйте! Хочу обсудить организацию мероприятия в вашем отеле."
     : "Hello! I'd like to discuss planning an event at your venue.");
 
@@ -110,7 +109,7 @@ export function EventsDetail({ data }: EventsDetailProps) {
             </p>
             <div className="mt-8">
               <a
-                href={`https://wa.me/${WHATSAPP}?text=${ctaMsg}`}
+                href={ctaUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-transparent hover:bg-white/10 border border-white hover:border-white/80 text-white font-sans font-semibold px-5 py-2 rounded-full tracking-wide uppercase text-xs transition-all duration-300"

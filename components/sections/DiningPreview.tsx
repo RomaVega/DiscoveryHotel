@@ -5,17 +5,16 @@ import { FadeIn } from "@/components/common/FadeIn";
 import { SectionHeading } from "@/components/common/SectionHeading";
 import { useLanguage } from "@/lib/language-context";
 import { UtensilsCrossed, ShoppingBag } from "lucide-react";
-
-const WHATSAPP = "6282236655582";
+import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 export function DiningPreview() {
   const { locale } = useLanguage();
   const isRu = locale === "ru";
 
-  const tableMsg = encodeURIComponent(isRu
+  const tableUrl = buildWhatsAppUrl(isRu
     ? "Здравствуйте! Хочу забронировать столик в ресторане."
     : "Hello! I'd like to book a table at the restaurant.");
-  const roomMsg = encodeURIComponent(isRu
+  const roomUrl = buildWhatsAppUrl(isRu
     ? "Здравствуйте! Хочу заказать доставку еды в номер."
     : "Hello! I'd like to order room dining.");
 
@@ -47,7 +46,7 @@ export function DiningPreview() {
                 </p>
               </div>
               <a
-                href={`https://wa.me/${WHATSAPP}?text=${tableMsg}`}
+                href={tableUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-sans text-[11px] tracking-[0.2em] uppercase text-brand-teal hover:text-deep-teal transition-colors duration-200 self-start"
@@ -70,7 +69,7 @@ export function DiningPreview() {
                 </p>
               </div>
               <a
-                href={`https://wa.me/${WHATSAPP}?text=${roomMsg}`}
+                href={roomUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-sans text-[11px] tracking-[0.2em] uppercase text-brand-teal hover:text-deep-teal transition-colors duration-200 self-start"

@@ -13,7 +13,7 @@ import type { LocalizedString } from "@/lib/types";
 import enLocale from "@/locales/en.json";
 import ruLocale from "@/locales/ru.json";
 
-export type Locale = "en" | "ru" | "id" | "zh";
+export type Locale = "en" | "ru";
 
 type LocaleData = typeof enLocale;
 
@@ -38,23 +38,29 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | null>(null);
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>("en");
+export function LanguageProvider({
+  children,
+  defaultLocale = "en",
+}: {
+  children: ReactNode;
+  defaultLocale?: Locale;
+}) {
+  const [locale, setLocaleState] = useState<Locale>(defaultLocale);
 
   useEffect(() => {
     try {
       const stored = localStorage.getItem("odch-lang");
       if (isSupportedLocale(stored)) {
         setLocaleState(stored);
-      } else {
-        // No saved preference — detect from browser/system language
+      } else if (defaultLocale === "en") {
+        // Auto-detect only on English routes — Russian routes keep their locale
         const lang = navigator.languages?.[0] ?? navigator.language ?? "";
         if (lang.toLowerCase().startsWith("ru")) setLocaleState("ru");
       }
     } catch {
       // localStorage unavailable (SSR safety)
     }
-  }, []);
+  }, [defaultLocale]);
 
   useEffect(() => {
     document.documentElement.lang = locale === "ru" ? "ru" : "en";

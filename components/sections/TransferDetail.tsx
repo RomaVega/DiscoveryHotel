@@ -3,7 +3,7 @@
 import { FadeIn } from "@/components/common/FadeIn";
 import type { TransferPageData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
-import { Car, Check } from "lucide-react";
+import { Check } from "lucide-react";
 
 interface TransferDetailProps {
   data: TransferPageData;
@@ -77,7 +77,7 @@ export function TransferDetail({ data }: TransferDetailProps) {
                 {t({ en: "Also available — contact us for pricing:", ru: "Также доступно — свяжитесь с нами для уточнения цены:" })}
               </p>
               <p className="text-charcoal text-sm leading-relaxed">
-                {data.otherDestinations.map((d, i) => t(d)).join(" · ")}
+                {data.otherDestinations.map((d) => t(d)).join(" · ")}
               </p>
             </div>
           </FadeIn>

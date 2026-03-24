@@ -3,10 +3,20 @@ import { InnerPageLayout } from "@/components/layout/InnerPageLayout";
 import { PageHero } from "@/components/sections/PageHero";
 import { ContactDetail } from "@/components/sections/ContactDetail";
 import { MapLocation } from "@/components/sections/MapLocation";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata = {
   title: "Contact — Orlowsky Discovery Hotel, Candidasa, Bali",
   description: "Contact Orlowsky Discovery Hotel in Candidasa, East Bali. WhatsApp, email, address, Google Maps directions, and booking enquiries.",
+  alternates: {
+    canonical: `${SITE_URL}/contact`,
+  },
+  openGraph: {
+    title: "Contact — Orlowsky Discovery Hotel, Candidasa, Bali",
+    description: "Contact Orlowsky Discovery Hotel in Candidasa, East Bali. WhatsApp, email, address, Google Maps directions, and booking enquiries.",
+    url: `${SITE_URL}/contact`,
+    images: [{ url: `${SITE_URL}/images/gallery/g5.jpg`, width: 1200, height: 630 }],
+  },
 };
 
 export default function ContactPage() {

@@ -5,8 +5,7 @@ import { FadeIn } from "@/components/common/FadeIn";
 import type { DiningPageData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
 import { UtensilsCrossed, ShoppingBag } from "lucide-react";
-
-const WHATSAPP = "6282236655582";
+import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 // Atmospheric hotel images cycled across feature sections
 const FEATURE_IMAGES = [
@@ -24,10 +23,10 @@ export function DiningDetail({ data }: DiningDetailProps) {
   const { t, locale } = useLanguage();
   const isRu = locale === "ru";
 
-  const tableMsg = encodeURIComponent(isRu
+  const tableUrl = buildWhatsAppUrl(isRu
     ? "Здравствуйте! Хочу забронировать столик в ресторане."
     : "Hello! I'd like to book a table at the restaurant.");
-  const roomMsg = encodeURIComponent(isRu
+  const roomUrl = buildWhatsAppUrl(isRu
     ? "Здравствуйте! Хочу заказать доставку еды в номер."
     : "Hello! I'd like to order room dining.");
 
@@ -61,7 +60,7 @@ export function DiningDetail({ data }: DiningDetailProps) {
       <FadeIn>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-charcoal/10 border-t border-charcoal/8">
             <a
-              href={`https://wa.me/${WHATSAPP}?text=${tableMsg}`}
+              href={tableUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-sand flex flex-col items-center text-center gap-5 py-24 px-10 group hover:bg-ivory transition-colors duration-300"
@@ -81,7 +80,7 @@ export function DiningDetail({ data }: DiningDetailProps) {
             </a>
 
             <a
-              href={`https://wa.me/${WHATSAPP}?text=${roomMsg}`}
+              href={roomUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-sand flex flex-col items-center text-center gap-5 py-24 px-10 group hover:bg-ivory transition-colors duration-300"

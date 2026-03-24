@@ -13,40 +13,20 @@ interface HeroImageProps {
 
 export function HeroImage({ hero }: HeroImageProps) {
   const [paused, setPaused] = useState(false);
-  const contentRef = useRef<HTMLDivElement>(null);
-  const indicatorRef = useRef<HTMLDivElement>(null);
-  const pauseBtnRef = useRef<HTMLDivElement>(null);
-  const isHiddenRef = useRef(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  // One-way hide: text shows on load, fades on first scroll, never returns
+  // Two-way: hide content on scroll down, restore on scroll back to top
   useEffect(() => {
-    const hide = () => {
-      if (isHiddenRef.current) return;
-      if (window.scrollY <= 3) return;
-      isHiddenRef.current = true;
-      if (contentRef.current) {
-        contentRef.current.style.transition = "opacity 0.3s ease-out";
-        contentRef.current.style.opacity = "0";
-        contentRef.current.style.pointerEvents = "none";
-      }
-      if (indicatorRef.current) {
-        indicatorRef.current.style.transition = "opacity 0.3s ease-out";
-        indicatorRef.current.style.opacity = "0";
-      }
-      if (pauseBtnRef.current) pauseBtnRef.current.style.display = "block";
-      window.removeEventListener("scroll", hide);
-    };
-    window.addEventListener("scroll", hide, { passive: true });
-    return () => window.removeEventListener("scroll", hide);
+    const onScroll = () => setScrolled(window.scrollY > 3);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const reducedMotion = useReducedMotion();
-  const { t, tl } = useLanguage();
-
-
   const line1Ref = useRef<HTMLSpanElement>(null);
   const line2Ref = useRef<HTMLSpanElement>(null);
   const line3Ref = useRef<HTMLSpanElement>(null);
+  const reducedMotion = useReducedMotion();
+  const { t, tl } = useLanguage();
 
   // Measure all title lines, find the widest, then stretch the narrower ones via letter-spacing.
   useLayoutEffect(() => {
@@ -143,8 +123,7 @@ export function HeroImage({ hero }: HeroImageProps) {
 
       {/* Content */}
       <div
-        ref={contentRef}
-        className="relative z-10 flex h-[100svh] md:h-[100vh] flex-col items-center justify-center px-6 text-center text-white"
+        className={`relative z-10 flex h-[100svh] md:h-[100vh] flex-col items-center justify-center px-6 text-center text-white transition-opacity duration-300 ${scrolled ? "opacity-0 pointer-events-none" : "opacity-100"}`}
       >
         {/* Logo */}
         <motion.div {...fadeUp(0.2)}>
@@ -237,7 +216,7 @@ export function HeroImage({ hero }: HeroImageProps) {
 
 
       {/* Scroll indicator */}
-      <div ref={indicatorRef}>
+      <div className={`transition-opacity duration-300 ${scrolled ? "opacity-0" : ""}`}>
         <motion.div
           className="absolute bottom-10 md:bottom-10 left-1/2 -translate-x-1/2 z-10"
           initial={{ opacity: 0 }}
@@ -263,8 +242,8 @@ export function HeroImage({ hero }: HeroImageProps) {
           {paused ? <Play size={18} /> : <Pause size={18} />}
         </button>
       )}
-      {/* Mobile: pause button appears after text fades */}
-      <div ref={pauseBtnRef} style={{ display: "none" }} className="md:hidden">
+      {/* Mobile: pause button appears after hero text fades on scroll */}
+      <div className={`md:hidden ${scrolled ? "block" : "hidden"}`}>
         {hero.video && (
           <button
             onClick={toggleVideo}

@@ -2,10 +2,20 @@ import { getHomePageData, getContactData } from "@/lib/content";
 import { InnerPageLayout } from "@/components/layout/InnerPageLayout";
 import { PageHero } from "@/components/sections/PageHero";
 import { SpecialOffers } from "@/components/sections/SpecialOffers";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata = {
   title: "Special Offers & Packages — Orlowsky Discovery Hotel, Bali",
   description: "Early bird rates, honeymoon packages, and long-stay discounts at Orlowsky Discovery Hotel, Candidasa, East Bali. Book direct for the best price.",
+  alternates: {
+    canonical: `${SITE_URL}/offers`,
+  },
+  openGraph: {
+    title: "Special Offers & Packages — Orlowsky Discovery Hotel, Bali",
+    description: "Early bird rates, honeymoon packages, and long-stay discounts at Orlowsky Discovery Hotel, Candidasa, East Bali. Book direct for the best price.",
+    url: `${SITE_URL}/offers`,
+    images: [{ url: `${SITE_URL}/images/offers/early-bird.jpg`, width: 1200, height: 630 }],
+  },
 };
 
 export default function OffersPage() {

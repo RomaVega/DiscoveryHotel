@@ -21,11 +21,11 @@
   "welcome": {
     "label": {
       "en": "Welcome",
-      "ru": "Welcome"
+      "ru": "Добро пожаловать"
     },
     "heading": {
       "en": "A Hidden Gem in East Bali",
-      "ru": "A Hidden Gem in East Bali"
+      "ru": "Затаённая жемчужина Восточного Бали"
     },
     "description": {
       "en": "Nestled along the tranquil coast of Candidasa, Orlowsky Discovery Hotel offers an intimate escape where Balinese charm meets modern comfort. Wake up to ocean breezes, explore vibrant coral reefs, and unwind in our tropical gardens — far from the crowds, close to paradise.",
@@ -37,11 +37,11 @@
   "roomsPreview": {
     "label": {
       "en": "Accommodations",
-      "ru": "Accommodations"
+      "ru": "Размещение"
     },
     "heading": {
       "en": "Rooms & Villas",
-      "ru": "Rooms & Villas"
+      "ru": "Номера и виллы"
     },
     "subtext": {
       "en": "From garden-view cottages to oceanfront villas, each space is designed for relaxation.",
@@ -51,7 +51,7 @@
       {
         "title": {
           "en": "Deluxe Cottage",
-          "ru": "Deluxe Cottage"
+          "ru": "Делюкс Коттедж"
         },
         "description": {
           "en": "Charming cottage with tropical garden views",
@@ -64,7 +64,7 @@
       {
         "title": {
           "en": "Three Bedrooms Pool Villa",
-          "ru": "Three Bedrooms Pool Villa"
+          "ru": "Вилла с тремя спальнями и бассейном"
         },
         "description": {
           "en": "Spacious villa with three bedrooms and your own pool",
@@ -79,138 +79,138 @@
   "amenities": {
     "label": {
       "en": "Amenities",
-      "ru": "Amenities"
+      "ru": "Удобства"
     },
     "heading": {
       "en": "Everything You Need",
-      "ru": "Everything You Need"
+      "ru": "Всё необходимое"
     },
     "items": [
       {
         "icon": "Waves",
-        "title": "Swimming Pool",
+        "title": { "en": "Swimming Pool", "ru": "Бассейн" },
         "description": ""
       },
       {
         "icon": "Wifi",
-        "title": "Fast Wi-Fi",
+        "title": { "en": "Fast Wi-Fi", "ru": "Быстрый Wi-Fi" },
         "description": ""
       },
       {
         "icon": "UtensilsCrossed",
-        "title": "Restaurant",
+        "title": { "en": "Restaurant", "ru": "Ресторан" },
         "description": ""
       },
       {
         "icon": "Sparkles",
-        "title": "SPA",
+        "title": { "en": "SPA", "ru": "СПА" },
         "description": ""
       },
       {
         "icon": "Umbrella",
-        "title": "Private Beach Area",
+        "title": { "en": "Private Beach Area", "ru": "Пляжная зона" },
         "description": ""
       },
       {
         "icon": "Coffee",
-        "title": "Breakfast",
+        "title": { "en": "Breakfast", "ru": "Завтрак" },
         "description": ""
       },
       {
         "icon": "Ban",
-        "title": "Non Smoking Rooms",
+        "title": { "en": "Non Smoking Rooms", "ru": "Номера для некурящих" },
         "description": ""
       },
       {
         "icon": "RefreshCw",
-        "title": "Currency Exchange",
+        "title": { "en": "Currency Exchange", "ru": "Обмен валюты" },
         "description": ""
       },
       {
         "icon": "Activity",
-        "title": "Doctor on Call",
+        "title": { "en": "Doctor on Call", "ru": "Врач по вызову" },
         "description": ""
       },
       {
         "icon": "MapPin",
-        "title": "Beach",
+        "title": { "en": "Beach", "ru": "Пляж" },
         "description": ""
       },
       {
         "icon": "Accessibility",
-        "title": "Accessibility",
+        "title": { "en": "Accessibility", "ru": "Доступность" },
         "description": "",
         "hideDesktop": true
       },
       {
         "icon": "Car",
-        "title": "Free Parking",
+        "title": { "en": "Free Parking", "ru": "Бесплатная парковка" },
         "description": ""
       },
       {
         "icon": "Shield",
-        "title": "24 Hour Security",
+        "title": { "en": "24 Hour Security", "ru": "Охрана 24 часа" },
         "description": ""
       },
       {
         "icon": "PlaneLanding",
-        "title": "Airport Shuttle",
+        "title": { "en": "Airport Shuttle", "ru": "Трансфер из аэропорта" },
         "description": ""
       },
       {
         "icon": "Bell",
-        "title": "24h Receptionist",
+        "title": { "en": "24h Receptionist", "ru": "Ресепшн 24/7" },
         "description": ""
       },
       {
         "icon": "Star",
-        "title": "Daily Housekeeping",
+        "title": { "en": "Daily Housekeeping", "ru": "Ежедневная уборка" },
         "description": ""
       },
       {
         "icon": "Bike",
-        "title": "Motorbike Rental",
+        "title": { "en": "Motorbike Rental", "ru": "Аренда мотоцикла" },
         "description": ""
       },
       {
         "icon": "GlassWater",
-        "title": "Bar",
+        "title": { "en": "Bar", "ru": "Бар" },
         "description": ""
       },
       {
         "icon": "WashingMachine",
-        "title": "Laundry",
+        "title": { "en": "Laundry", "ru": "Прачечная" },
         "description": ""
       },
       {
         "icon": "Map",
-        "title": "Tour Organisation",
+        "title": { "en": "Tour Organisation", "ru": "Организация экскурсий" },
         "description": ""
       },
       {
         "icon": "Bus",
-        "title": "Transport Service",
+        "title": { "en": "Transport Service", "ru": "Транспортные услуги" },
         "description": ""
       },
       {
         "icon": "Package",
-        "title": "Minibar",
+        "title": { "en": "Minibar", "ru": "Мини-бар" },
         "description": ""
       },
       {
         "icon": "Hand",
-        "title": "Massage",
+        "title": { "en": "Massage", "ru": "Массаж" },
         "description": "",
         "hideMobile": true
       },
       {
         "icon": "ConciergeBell",
-        "title": "Room Service",
+        "title": { "en": "Room Service", "ru": "Обслуживание в номере" },
         "description": ""
       },
       {
         "icon": "Tv",
-        "title": "Smart TV",
+        "title": { "en": "Smart TV", "ru": "Smart TV" },
         "description": ""
       }
     ]
@@ -218,11 +218,11 @@
   "experiences": {
     "label": {
       "en": "Experiences",
-      "ru": "Experiences"
+      "ru": "Впечатления"
     },
     "heading": {
       "en": "Discover East Bali",
-      "ru": "Discover East Bali"
+      "ru": "Откройте Восточный Бали"
     },
     "subtext": {
       "en": "Curated adventures to make your stay unforgettable.",
@@ -232,7 +232,7 @@
       {
         "title": {
           "en": "Excursion Programs",
-          "ru": "Excursion Programs"
+          "ru": "Экскурсионные программы"
         },
         "description": {
           "en": "Explore temples, rice terraces, and hidden waterfalls",
@@ -245,7 +245,7 @@
       {
         "title": {
           "en": "Diving & Snorkeling",
-          "ru": "Diving & Snorkeling"
+          "ru": "Дайвинг и снорклинг"
         },
         "description": {
           "en": "Discover vibrant coral reefs and the famous USAT Liberty shipwreck",
@@ -258,7 +258,7 @@
       {
         "title": {
           "en": "Events & Celebrations",
-          "ru": "Events & Celebrations"
+          "ru": "Мероприятия и торжества"
         },
         "description": {
           "en": "Weddings, anniversaries, and private events in a tropical setting",
@@ -271,7 +271,7 @@
       {
         "title": {
           "en": "Car & Bike Rental",
-          "ru": "Car & Bike Rental"
+          "ru": "Аренда авто и мото"
         },
         "description": {
           "en": "Freedom to explore Bali at your own pace",
@@ -286,17 +286,17 @@
   "offers": {
     "label": {
       "en": "Special Offers",
-      "ru": "Special Offers"
+      "ru": "Спецпредложения"
     },
     "heading": {
       "en": "Current Deals",
-      "ru": "Current Deals"
+      "ru": "Актуальные предложения"
     },
     "offers": [
       {
         "title": {
           "en": "Early Bird Discount",
-          "ru": "Early Bird Discount"
+          "ru": "Скидка за раннее бронирование"
         },
         "description": {
           "en": "Book 30 days in advance and save 20% on any room category",
@@ -313,7 +313,7 @@
       {
         "title": {
           "en": "Honeymoon Package",
-          "ru": "Honeymoon Package"
+          "ru": "Пакет для молодожёнов"
         },
         "description": {
           "en": "Villa upgrade, spa treatment for two, romantic dinner, and airport transfer",

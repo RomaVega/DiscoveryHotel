@@ -3,8 +3,7 @@
 import { FadeIn } from "@/components/common/FadeIn";
 import type { SpaPageData, SpaTreatment } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
-
-const WHATSAPP = "6282236655582";
+import { getWhatsAppNumber } from "@/lib/whatsapp";
 
 interface SpaDetailProps {
   data: SpaPageData;
@@ -54,7 +53,7 @@ export function SpaDetail({ data }: SpaDetailProps) {
   const { t, locale } = useLanguage();
   const isRu = locale === "ru";
   const bookText = isRu ? "Забронировать" : "Book Now";
-  const whatsappBase = `https://wa.me/${WHATSAPP}?text=`;
+  const whatsappBase = `https://wa.me/${getWhatsAppNumber()}?text=`;
 
   return (
     <div>

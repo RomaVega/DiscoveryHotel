@@ -15,10 +15,12 @@
     "experiences": "Experiences",
     "contact": "Contact",
     "about": "About",
+    "location": "Location",
     "getDirections": "Open in Google Maps",
     "whatsappRu": "WhatsApp (Russia)",
     "whatsappHotel": "WhatsApp (Hotel)",
     "paymentNote": "",
+    "paymentInRussia": "Payment in Russia",
     "allRightsReserved": "All rights reserved",
     "links": {
       "rooms": "Rooms",

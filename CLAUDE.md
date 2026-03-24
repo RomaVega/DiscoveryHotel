@@ -40,9 +40,9 @@ components/
   common/               # Reusable primitives (SectionHeading, FadeIn, PrimaryButton)
 content/                # All site content as JSON
 lib/
-  content.ts            # Typed JSON loaders
+  content.ts            # Typed JSON loaders — all pages must use these, never import JSON directly
   types.ts              # Single source of truth for all data shapes
-  validation.ts         # Runtime JSON shape checks — build fails on malformed content
+  validation.ts         # TODO: runtime JSON shape checks — not yet implemented
 public/images/          # Organized by section
 public/videos/          # hero.mp4, hero.webm
 ```
@@ -50,12 +50,12 @@ public/videos/          # hero.mp4, hero.webm
 ## Architecture Rules
 
 - **Pages are thin.** Import JSON → pass props to sections → return sections in order. No state, no effects, no styling in page files.
-- **Data flow:** `content/*.json` → `lib/types.ts` → page → section → static HTML → CDN.
+- **Data flow:** `content/*.json` → `lib/content.ts` (typed loaders) → page → section → static HTML → CDN.
 - **No `any`.** Strict mode. All types in `lib/types.ts`. Add type before adding JSON field.
 - **No runtime API calls** (except GuestPro iframe and gallery client-side slicing).
 - **Server Components by default.** Only add `"use client"` when component uses hooks/browser APIs. Comment the reason: `"use client"; // Uses IntersectionObserver`.
-- **No additional UI libraries.** Only: `framer-motion`, `class-variance-authority`, `clsx`, `tailwind-merge`.
-- Aceternity budget is final — no fourth component. Build new effects with Framer Motion + CSS.
+- **No additional UI libraries.** Only: `framer-motion`, `class-variance-authority`, `clsx`, `tailwind-merge`, `lucide-react`.
+- Aceternity budget is final — no fourth component. Each Aceternity component adds ~15–30 KB and requires copy-paste maintenance with no upstream updates. Build new effects with Framer Motion + CSS.
 
 ## Canonical Page Pattern
 
@@ -84,7 +84,7 @@ export default function RoomsPage() {
 }
 ```
 
-## Design Tokens (tailwind.config.ts — never raw hex in components)
+## Design Tokens (defined in `app/globals.css` under `@theme` — never raw hex in components)
 
 - `brand-teal` (#4ca8b5) — primary CTAs, max one per viewport height. **Fails WCAG on white for body text** — use only for large/decorative text or interactive elements.
 - `sand` (#f5f0e8) — page bg | `ivory` (#faf8f4) — card/modal bg
@@ -116,7 +116,8 @@ export default function RoomsPage() {
 
 - **SectionHeading:** optional uppercase label (Inter, brand-teal, `text-sm tracking-widest`), H2 with text-reveal (Cormorant Garamond), optional subtext.
 - **PrimaryButton:** `bg-brand-teal hover:bg-deep-teal text-white font-inter font-semibold px-8 py-3 rounded-none tracking-wide uppercase text-sm`.
-- **WhatsApp:** `https://wa.me/[number]?text=[encoded]`. Number from `contact.json`, international format, no `+`, no spaces.
+- **SecondaryButton:** `inline-block bg-transparent border border-brand-teal text-brand-teal hover:bg-brand-teal hover:text-white transition-all duration-300 px-5 py-2 rounded-full tracking-wide uppercase text-xs font-sans font-semibold`. Use for secondary CTAs (e.g., "View All", "Learn More"). Do not inline these styles — use the `SecondaryButton` component in `components/common/`. Supports `href` (internal or `external`) and `onClick` (renders as `<button>`).
+- **WhatsApp:** `https://wa.me/[number]?text=[encoded]`. Number from `process.env.NEXT_PUBLIC_WHATSAPP_NUMBER`, international format, no `+`, no spaces. Never hardcode the number in components.
 - **GuestPro:** iframe from `https://secure.guestpro.net/odch`. On failure/timeout >5s, fall back to "Book Now" button opening URL in new tab.
 - **Gallery:** First 20 SSG, then `IntersectionObserver` sentinel loads next 20 from bundled array (no network). Lightbox via shadcn Dialog.
 
@@ -144,7 +145,8 @@ LCP < 2.5s (`priority` on hero), CLS < 0.1, INP < 200ms, JS < 500 KB. Bundle bud
 
 ## Environment Variables
 
-- `NEXT_PUBLIC_WHATSAPP_NUMBER` (required) | `NEXT_PUBLIC_GA_MEASUREMENT_ID` (optional)
+- `NEXT_PUBLIC_WHATSAPP_NUMBER` (required) — used in all WhatsApp links, read via `process.env.NEXT_PUBLIC_WHATSAPP_NUMBER`. This is the single source of truth for the number; do not hardcode it elsewhere.
+- `NEXT_PUBLIC_GA_MEASUREMENT_ID` (optional)
 - Never put secrets in `NEXT_PUBLIC_` — they're inlined into client JS.
 
 ## Common Mistakes

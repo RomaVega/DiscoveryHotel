@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { FadeIn } from "@/components/common/FadeIn";
+import { SecondaryButton } from "@/components/common/SecondaryButton";
 import type { RoomsPageData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
 
@@ -59,14 +60,9 @@ export function RoomsDetail({ data }: RoomsDetailProps) {
                   )}
 
                   <div className="mt-8 flex justify-center">
-                    <a
-                      href={room.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block bg-transparent border border-brand-teal text-brand-teal hover:bg-brand-teal hover:text-white font-sans font-semibold px-6 py-3 rounded-full tracking-wide text-xs transition-all duration-300"
-                    >
+                    <SecondaryButton href={room.href} external>
                       {t({ en: "Book This Room", ru: "Забронировать" })}
-                    </a>
+                    </SecondaryButton>
                   </div>
                 </div>
               </div>

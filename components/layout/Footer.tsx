@@ -2,22 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import {
-  Facebook,
-  Instagram,
-  Youtube,
-  MessageCircle,
-  Mail,
-  MapPin,
-} from "lucide-react";
+import { MessageCircle, Mail, MapPin } from "lucide-react";
 import type { ContactData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
-
-const iconMap: Record<string, React.FC<{ size?: number }>> = {
-  Facebook,
-  Instagram,
-  Youtube,
-};
+import { socialIconMap } from "@/lib/social-icons";
 
 interface FooterProps {
   contact: ContactData;
@@ -149,7 +137,7 @@ export function Footer({ contact }: FooterProps) {
               {isRu && tl.footer.paymentNote && (
                 <li className="pt-1">
                   <p className="font-sans text-[10px] uppercase tracking-[0.15em] text-charcoal/35 mb-1.5">
-                    Payment in Russia
+                    {tl.footer.paymentInRussia}
                   </p>
                   <p className="font-sans text-[13px] sm:text-sm text-charcoal/60 leading-relaxed">
                     {tl.footer.paymentNote}
@@ -160,7 +148,7 @@ export function Footer({ contact }: FooterProps) {
 
             <div className="flex justify-center md:justify-start gap-5 mt-5">
               {contact.socials.map((social) => {
-                const Icon = iconMap[social.icon];
+                const Icon = socialIconMap[social.icon];
                 return Icon ? (
                   <a
                     key={social.platform}
@@ -180,7 +168,7 @@ export function Footer({ contact }: FooterProps) {
           {/* Location */}
           <div className="w-full text-center md:text-left md:flex-1 md:min-w-0">
             <h4 className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/50 mb-4 sm:mb-5 underline underline-offset-4 decoration-charcoal/20">
-              Location
+              {tl.footer.location}
             </h4>
             <div className="flex flex-col items-center md:items-start gap-3">
               <div className="flex items-start gap-2">
