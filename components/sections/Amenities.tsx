@@ -51,7 +51,7 @@ export function Amenities({ data }: AmenitiesProps) {
               <FadeIn key={i} delay={Math.min(i, 5) * 0.07} className={item.hideMobile ? "hidden md:flex" : item.hideDesktop ? "md:hidden" : undefined}>
                 <div className="flex items-center gap-4">
                   {Icon && (
-                    <Icon size={20} strokeWidth={1.2} className="text-stone shrink-0" />
+                    <Icon size={20} strokeWidth={1.2} className="text-brand-teal shrink-0" />
                   )}
                   <span className="font-sans text-sm text-charcoal">
                     {t(item.title)}
