@@ -101,6 +101,21 @@ export function DiningDetail({ data }: DiningDetailProps) {
         </div>
       </FadeIn>
 
+      {/* ── Quote strip ── */}
+      <FadeIn>
+        <div className="bg-sand py-20 px-6">
+          <div className="max-w-2xl mx-auto text-center">
+            <div className="w-px h-10 bg-brand-teal mx-auto mb-7" />
+            <p className="font-serif text-xl md:text-2xl font-light text-charcoal leading-relaxed italic">
+              {isRu
+                ? "Свежие морепродукты, балийские специи и вид на океан — каждый ужин здесь становится воспоминанием."
+                : "Fresh seafood, Balinese spices, and an ocean view — every dinner here becomes a memory."}
+            </p>
+            <div className="w-px h-10 bg-brand-teal mx-auto mt-7" />
+          </div>
+        </div>
+      </FadeIn>
+
       {/* ── Alternating image + text features (Option 1) ── */}
       <div>
         <div className="space-y-0">
