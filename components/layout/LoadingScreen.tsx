@@ -81,7 +81,7 @@ export function LoadingScreen() {
             cy={140}
             r={125}
             fill="none"
-            stroke="#4ca8b5"
+            stroke="#0abab5"
             strokeWidth={1.5}
             strokeLinecap="round"
             strokeDasharray={`${2 * Math.PI * 125 * 0.12} ${2 * Math.PI * 125 * 0.88}`}

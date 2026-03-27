@@ -102,7 +102,7 @@ html.night #loading-screen { background-color: #111111; }
 
 @theme {
   /* Brand colors */
-  --color-brand-teal: #4ca8b5;
+  --color-brand-teal: #0abab5;
   --color-logo-gold: #c9a84c;
   --color-deep-teal: #2a6b74;
   --color-parchment: #e8e3d5;
