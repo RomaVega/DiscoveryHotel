@@ -252,7 +252,7 @@
         },
         "image": "/images/experiences/experiences-excursions.jpg",
         "imageAlt": "Bali rice terraces with lush green landscape",
-        "href": "/excursions"
+        "href": "/experiences/excursions"
       },
       {
         "title": {
@@ -265,7 +265,7 @@
         },
         "image": "/images/experiences/experiences-diving.jpg",
         "imageAlt": "Colorful coral reef underwater in Bali",
-        "href": "/diving"
+        "href": "/experiences/diving"
       },
       {
         "title": {
@@ -278,7 +278,7 @@
         },
         "image": "/images/experiences/experiences-events.jpg",
         "imageAlt": "Elegant outdoor event setup with ocean backdrop",
-        "href": "/events"
+        "href": "/experiences/events"
       },
       {
         "title": {
@@ -291,7 +291,7 @@
         },
         "image": "/images/rental/rental.png",
         "imageAlt": "Scooter parked on scenic Bali road",
-        "href": "/rental"
+        "href": "/experiences/car-rental"
       }
     ]
   },
