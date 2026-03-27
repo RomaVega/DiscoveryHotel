@@ -58,7 +58,7 @@ export function CarRentalDetail({ data }: CarRentalDetailProps) {
     </section>
 
       {/* ── CTA ── */}
-      <section className="pt-12 md:pt-32 pb-12 md:pb-32 bg-brand-teal">
+      <section className="pt-12 md:pt-32 pb-12 md:pb-32 bg-deep-teal">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <FadeIn>
             <h2 className="font-serif font-light text-3xl md:text-5xl text-white">
