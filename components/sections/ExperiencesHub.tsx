@@ -29,8 +29,8 @@ export function ExperiencesHub({ data }: ExperiencesHubProps) {
             <div className="w-px h-10 bg-brand-teal mx-auto mb-7" />
             <p className="font-serif text-xl md:text-2xl font-light text-charcoal leading-relaxed italic">
               {isRu
-                ? "Восточный Бали — это не туристические маршруты. Это храмы без толп, вулканы на рассвете и риф, который мало кто видел."
-                : "East Bali is not a tourist trail. It is temples without crowds, volcanoes at dawn, and a reef few have seen."}
+                ? "Настоящий Восточный Бали: уединённые храмы, вулканы на рассвете и редкие рифы вдали от туристов."
+                : "Discover authentic East Bali: secluded temples, breathtaking volcano sunrises, and pristine reefs far from the tourist crowds."}
             </p>
             <div className="w-px h-10 bg-brand-teal mx-auto mt-7" />
           </div>
