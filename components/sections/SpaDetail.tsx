@@ -58,7 +58,7 @@ export function SpaDetail({ data }: SpaDetailProps) {
   return (
     <div>
       {/* ── Stats strip ── */}
-      <div className="bg-deep-teal py-10 px-6">
+      <div className="bg-brand-teal py-10 px-6">
         <div className="max-w-3xl mx-auto grid grid-cols-3 divide-x divide-white/15">
           <div className="text-center px-6">
             <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-white/40 mb-1.5">
