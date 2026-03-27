@@ -59,6 +59,13 @@
         },
         "image": "/images/rooms/Deluxe Cottage.jpg",
         "imageAlt": "Deluxe Cottage at Orlowsky Discovery Hotel",
+        "images": [
+          { "src": "/images/rooms/Deluxe Cottage.jpg", "alt": "Deluxe Cottage garden path and tropical exterior" },
+          { "src": "/images/rooms/Deluxe Cottage/unnamed (1).jpg", "alt": "Deluxe Cottage interior with Balinese thatched ceiling" },
+          { "src": "/images/Deluxe Cottage/443798403.jpg", "alt": "Deluxe Cottage bedroom with garden view" },
+          { "src": "/images/Deluxe Cottage/443798398.jpg", "alt": "Deluxe Cottage bedroom and en-suite bathroom" },
+          { "src": "/images/Deluxe Cottage/443798394.jpg", "alt": "Deluxe Cottage terrace with ocean view" }
+        ],
         "href": "https://secure.guestpro.net/odch/room-type/9951a5c1-a10a-4a6c-abf8-585eaf574b16"
       },
       {
@@ -82,7 +89,11 @@
           { "src": "/images/Three Bedrooms Pool Villa/170696909.jpg", "alt": "Pool Villa bedroom with garden view" },
           { "src": "/images/Three Bedrooms Pool Villa/443798386.jpg", "alt": "Pool Villa bathroom with modern fixtures" },
           { "src": "/images/Three Bedrooms Pool Villa/443798390.jpg", "alt": "Pool Villa pool deck at sunset" },
-          { "src": "/images/Three Bedrooms Pool Villa/172544231.jpg", "alt": "Pool Villa exterior and tropical landscaping" }
+          { "src": "/images/Three Bedrooms Pool Villa/172544231.jpg", "alt": "Pool Villa exterior and tropical landscaping" },
+          { "src": "/images/Three Bedrooms Pool Villa/170696898.jpg", "alt": "Pool Villa master bedroom with thatched ceiling" },
+          { "src": "/images/Three Bedrooms Pool Villa/170696906.jpg", "alt": "Pool Villa open-plan living and dining with pool view" },
+          { "src": "/images/Three Bedrooms Pool Villa/443798397.jpg", "alt": "Pool Villa spacious living area and kitchen opening to pool" },
+          { "src": "/images/Three Bedrooms Pool Villa/16427453.jpg", "alt": "Pool Villa living room with high thatched ceiling" }
         ],
         "href": "https://secure.guestpro.net/odch/room-type/ee0cdd19-1045-481f-9e36-b8287e343c24"
       }

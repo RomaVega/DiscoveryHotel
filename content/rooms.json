@@ -96,7 +96,11 @@
         { "src": "/images/Three Bedrooms Pool Villa/170696909.jpg", "alt": { "en": "Pool Villa bedroom with garden view", "ru": "Спальня виллы с видом на сад" } },
         { "src": "/images/Three Bedrooms Pool Villa/443798386.jpg", "alt": { "en": "Pool Villa bathroom with modern fixtures", "ru": "Ванная комната виллы с современной сантехникой" } },
         { "src": "/images/Three Bedrooms Pool Villa/443798390.jpg", "alt": { "en": "Pool Villa pool deck at sunset", "ru": "Бассейн виллы на закате" } },
-        { "src": "/images/Three Bedrooms Pool Villa/172544231.jpg", "alt": { "en": "Pool Villa exterior and tropical landscaping", "ru": "Экстерьер виллы и тропический ландшафт" } }
+        { "src": "/images/Three Bedrooms Pool Villa/172544231.jpg", "alt": { "en": "Pool Villa exterior and tropical landscaping", "ru": "Экстерьер виллы и тропический ландшафт" } },
+        { "src": "/images/Three Bedrooms Pool Villa/170696898.jpg", "alt": { "en": "Pool Villa master bedroom with thatched ceiling", "ru": "Главная спальня виллы с тростниковым потолком" } },
+        { "src": "/images/Three Bedrooms Pool Villa/170696906.jpg", "alt": { "en": "Pool Villa open-plan living and dining area with pool view", "ru": "Открытая гостиная и столовая виллы с видом на бассейн" } },
+        { "src": "/images/Three Bedrooms Pool Villa/443798397.jpg", "alt": { "en": "Pool Villa spacious living area and kitchen opening to pool", "ru": "Просторная гостиная и кухня с выходом к бассейну" } },
+        { "src": "/images/Three Bedrooms Pool Villa/16427453.jpg", "alt": { "en": "Pool Villa living room with high thatched ceiling", "ru": "Гостиная виллы с высоким тростниковым потолком" } }
       ],
       "href": "https://secure.guestpro.net/odch/booking"
     },
@@ -166,6 +170,13 @@
         "en": "Deluxe Cottage with garden view at Orlowsky Discovery Hotel",
         "ru": "Коттедж Делюкс с видом на сад в Orlowsky Discovery Hotel"
       },
+      "images": [
+        { "src": "/images/rooms/deluxe-cottage.jpg", "alt": { "en": "Deluxe Cottage garden path and tropical exterior", "ru": "Садовая дорожка и тропический экстерьер коттеджа" } },
+        { "src": "/images/rooms/Deluxe Cottage/unnamed (1).jpg", "alt": { "en": "Deluxe Cottage interior with Balinese thatched ceiling and garden view", "ru": "Интерьер коттеджа с балийским потолком и видом на сад" } },
+        { "src": "/images/Deluxe Cottage/443798403.jpg", "alt": { "en": "Deluxe Cottage bedroom with garden view and traditional décor", "ru": "Спальня коттеджа с видом на сад и традиционным декором" } },
+        { "src": "/images/Deluxe Cottage/443798398.jpg", "alt": { "en": "Deluxe Cottage bedroom and en-suite bathroom", "ru": "Спальня коттеджа и ванная комната" } },
+        { "src": "/images/Deluxe Cottage/443798394.jpg", "alt": { "en": "Deluxe Cottage terrace with ocean view", "ru": "Терраса коттеджа с видом на океан" } }
+      ],
       "href": "https://secure.guestpro.net/odch/booking"
     }
   ],
