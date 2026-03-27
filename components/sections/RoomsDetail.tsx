@@ -106,7 +106,6 @@ export function RoomsDetail({ data }: RoomsDetailProps) {
                     <SecondaryButton
                       href={room.href}
                       external
-                      className="bg-brand-teal text-white hover:bg-deep-teal hover:text-white border-brand-teal"
                     >
                       {t({ en: "Book This Room", ru: "Забронировать" })}
                     </SecondaryButton>
