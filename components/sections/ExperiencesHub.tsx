@@ -68,7 +68,7 @@ export function ExperiencesHub({ data }: ExperiencesHubProps) {
       </section>
 
       {/* ── CTA ── */}
-      <section className="pt-12 md:pt-32 pb-12 md:pb-32 bg-deep-teal">
+      <section className="pt-12 md:pt-32 pb-12 md:pb-32 bg-cta-teal">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <FadeIn>
             <h2 className="font-serif font-light text-3xl md:text-5xl text-white">

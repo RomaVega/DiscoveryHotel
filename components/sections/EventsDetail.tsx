@@ -22,7 +22,7 @@ export function EventsDetail({ data }: EventsDetailProps) {
   return (
     <div>
       {/* ── Venue stats strip ── */}
-      <div className="bg-deep-teal py-10 px-6">
+      <div className="bg-cta-teal py-10 px-6">
         <div className="max-w-3xl mx-auto grid grid-cols-3 divide-x divide-white/15">
           <div className="text-center px-6">
             <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-white/40 mb-1.5">
@@ -96,7 +96,7 @@ export function EventsDetail({ data }: EventsDetailProps) {
     </section>
 
       {/* ── CTA ── */}
-      <section className="pt-12 md:pt-32 pb-12 md:pb-32 bg-deep-teal">
+      <section className="pt-12 md:pt-32 pb-12 md:pb-32 bg-cta-teal">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <FadeIn>
             <h2 className="font-serif font-light text-3xl md:text-5xl text-white">
