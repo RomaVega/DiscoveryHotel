@@ -80,22 +80,18 @@
         "image": "/images/rooms/Pool Villa.jpg",
         "imageAlt": "Three Bedrooms Pool Villa at Orlowsky Discovery Hotel",
         "images": [
-          { "src": "/images/rooms/Pool Villa.jpg", "alt": "Three Bedroom Pool Villa aerial view with private pool" },
-          { "src": "/images/Three Bedrooms Pool Villa/170696380.jpg", "alt": "Pool Villa private swimming pool and tropical garden" },
-          { "src": "/images/Three Bedrooms Pool Villa/170696381.jpg", "alt": "Pool Villa outdoor terrace and lounge area" },
-          { "src": "/images/Three Bedrooms Pool Villa/170696901.jpg", "alt": "Pool Villa master bedroom with en-suite bathroom" },
-          { "src": "/images/Three Bedrooms Pool Villa/170696902.jpg", "alt": "Pool Villa spacious living room" },
-          { "src": "/images/Three Bedrooms Pool Villa/170696905.jpg", "alt": "Pool Villa fully equipped kitchen" },
-          { "src": "/images/Three Bedrooms Pool Villa/170696909.jpg", "alt": "Pool Villa bedroom with garden view" },
-          { "src": "/images/Three Bedrooms Pool Villa/443798386.jpg", "alt": "Pool Villa bathroom with modern fixtures" },
-          { "src": "/images/Three Bedrooms Pool Villa/443798390.jpg", "alt": "Pool Villa pool deck at sunset" },
-          { "src": "/images/Three Bedrooms Pool Villa/172544231.jpg", "alt": "Pool Villa exterior and tropical landscaping" },
-          { "src": "/images/Three Bedrooms Pool Villa/170696898.jpg", "alt": "Pool Villa master bedroom with thatched ceiling" },
-          { "src": "/images/Three Bedrooms Pool Villa/170696906.jpg", "alt": "Pool Villa open-plan living and dining with pool view" },
+          { "src": "/images/Three Bedrooms Pool Villa/443798431.jpg", "alt": "Pool Villa exterior with private pool and tropical garden" },
+          { "src": "/images/Three Bedrooms Pool Villa/87366051.jpg", "alt": "Pool Villa two-storey exterior surrounded by tropical greenery" },
+          { "src": "/images/Three Bedrooms Pool Villa/170696380.jpg", "alt": "Pool Villa master bedroom with warm lighting and thatched ceiling" },
+          { "src": "/images/Three Bedrooms Pool Villa/170696381.jpg", "alt": "Pool Villa bedroom with garden view and sheer curtains" },
+          { "src": "/images/Three Bedrooms Pool Villa/170696901.jpg", "alt": "Pool Villa twin bedroom with balcony access" },
+          { "src": "/images/Three Bedrooms Pool Villa/170696898.jpg", "alt": "Pool Villa bedroom with thatched ceiling and en-suite" },
+          { "src": "/images/Three Bedrooms Pool Villa/170696906.jpg", "alt": "Pool Villa open-plan living and dining area with pool view" },
           { "src": "/images/Three Bedrooms Pool Villa/443798397.jpg", "alt": "Pool Villa spacious living area and kitchen opening to pool" },
-          { "src": "/images/Three Bedrooms Pool Villa/16427453.jpg", "alt": "Pool Villa living room with high thatched ceiling" },
-          { "src": "/images/Three Bedrooms Pool Villa/87366051.jpg", "alt": "Pool Villa two-storey exterior with tropical garden" },
-          { "src": "/images/Three Bedrooms Pool Villa/88584993.jpg", "alt": "Pool Villa en-suite bathroom with double rain shower" }
+          { "src": "/images/Three Bedrooms Pool Villa/170696905.jpg", "alt": "Pool Villa fully equipped kitchen" },
+          { "src": "/images/Three Bedrooms Pool Villa/170696909.jpg", "alt": "Pool Villa marble en-suite bathroom with soaking tub" },
+          { "src": "/images/Three Bedrooms Pool Villa/87492962.jpg", "alt": "Pool Villa bathroom with ocean view window" },
+          { "src": "/images/Three Bedrooms Pool Villa/172544231.jpg", "alt": "Pool Villa en-suite with rain shower and soaking tub" }
         ],
         "href": "https://secure.guestpro.net/odch/room-type/ee0cdd19-1045-481f-9e36-b8287e343c24"
       }

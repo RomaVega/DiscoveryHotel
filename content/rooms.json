@@ -87,22 +87,18 @@
         "ru": "Вилла с тремя спальнями и собственным бассейном в Orlowsky Discovery Hotel"
       },
       "images": [
-        { "src": "/images/rooms/pool-villa.jpg", "alt": { "en": "Three Bedroom Pool Villa aerial view with private pool", "ru": "Вид сверху на виллу с тремя спальнями и бассейном" } },
-        { "src": "/images/Three Bedrooms Pool Villa/170696380.jpg", "alt": { "en": "Pool Villa private swimming pool and tropical garden", "ru": "Частный бассейн виллы и тропический сад" } },
-        { "src": "/images/Three Bedrooms Pool Villa/170696381.jpg", "alt": { "en": "Pool Villa outdoor terrace and lounge area", "ru": "Терраса и зона отдыха виллы" } },
-        { "src": "/images/Three Bedrooms Pool Villa/170696901.jpg", "alt": { "en": "Pool Villa master bedroom with en-suite bathroom", "ru": "Главная спальня виллы с ванной комнатой" } },
-        { "src": "/images/Three Bedrooms Pool Villa/170696902.jpg", "alt": { "en": "Pool Villa spacious living room", "ru": "Просторная гостиная виллы" } },
-        { "src": "/images/Three Bedrooms Pool Villa/170696905.jpg", "alt": { "en": "Pool Villa fully equipped kitchen", "ru": "Полностью оборудованная кухня виллы" } },
-        { "src": "/images/Three Bedrooms Pool Villa/170696909.jpg", "alt": { "en": "Pool Villa bedroom with garden view", "ru": "Спальня виллы с видом на сад" } },
-        { "src": "/images/Three Bedrooms Pool Villa/443798386.jpg", "alt": { "en": "Pool Villa bathroom with modern fixtures", "ru": "Ванная комната виллы с современной сантехникой" } },
-        { "src": "/images/Three Bedrooms Pool Villa/443798390.jpg", "alt": { "en": "Pool Villa pool deck at sunset", "ru": "Бассейн виллы на закате" } },
-        { "src": "/images/Three Bedrooms Pool Villa/172544231.jpg", "alt": { "en": "Pool Villa exterior and tropical landscaping", "ru": "Экстерьер виллы и тропический ландшафт" } },
-        { "src": "/images/Three Bedrooms Pool Villa/170696898.jpg", "alt": { "en": "Pool Villa master bedroom with thatched ceiling", "ru": "Главная спальня виллы с тростниковым потолком" } },
+        { "src": "/images/Three Bedrooms Pool Villa/443798431.jpg", "alt": { "en": "Pool Villa exterior with private pool and tropical garden", "ru": "Экстерьер виллы с частным бассейном и тропическим садом" } },
+        { "src": "/images/Three Bedrooms Pool Villa/87366051.jpg", "alt": { "en": "Pool Villa two-storey exterior surrounded by tropical greenery", "ru": "Двухэтажный экстерьер виллы в тропической зелени" } },
+        { "src": "/images/Three Bedrooms Pool Villa/170696380.jpg", "alt": { "en": "Pool Villa master bedroom with warm lighting and thatched ceiling", "ru": "Главная спальня виллы с тёплым освещением и тростниковым потолком" } },
+        { "src": "/images/Three Bedrooms Pool Villa/170696381.jpg", "alt": { "en": "Pool Villa bedroom with garden view and sheer curtains", "ru": "Спальня виллы с видом на сад и лёгкими занавесками" } },
+        { "src": "/images/Three Bedrooms Pool Villa/170696901.jpg", "alt": { "en": "Pool Villa twin bedroom with balcony access", "ru": "Спальня виллы с двумя кроватями и выходом на балкон" } },
+        { "src": "/images/Three Bedrooms Pool Villa/170696898.jpg", "alt": { "en": "Pool Villa bedroom with thatched ceiling and en-suite", "ru": "Спальня виллы с тростниковым потолком и ванной комнатой" } },
         { "src": "/images/Three Bedrooms Pool Villa/170696906.jpg", "alt": { "en": "Pool Villa open-plan living and dining area with pool view", "ru": "Открытая гостиная и столовая виллы с видом на бассейн" } },
         { "src": "/images/Three Bedrooms Pool Villa/443798397.jpg", "alt": { "en": "Pool Villa spacious living area and kitchen opening to pool", "ru": "Просторная гостиная и кухня с выходом к бассейну" } },
-        { "src": "/images/Three Bedrooms Pool Villa/16427453.jpg", "alt": { "en": "Pool Villa living room with high thatched ceiling", "ru": "Гостиная виллы с высоким тростниковым потолком" } },
-        { "src": "/images/Three Bedrooms Pool Villa/87366051.jpg", "alt": { "en": "Pool Villa two-storey exterior with tropical garden", "ru": "Двухэтажный экстерьер виллы с тропическим садом" } },
-        { "src": "/images/Three Bedrooms Pool Villa/88584993.jpg", "alt": { "en": "Pool Villa en-suite bathroom with double rain shower", "ru": "Ванная комната виллы с двойным тропическим душем" } }
+        { "src": "/images/Three Bedrooms Pool Villa/170696905.jpg", "alt": { "en": "Pool Villa fully equipped kitchen", "ru": "Полностью оборудованная кухня виллы" } },
+        { "src": "/images/Three Bedrooms Pool Villa/170696909.jpg", "alt": { "en": "Pool Villa marble en-suite bathroom with soaking tub", "ru": "Мраморная ванная комната виллы с ванной" } },
+        { "src": "/images/Three Bedrooms Pool Villa/87492962.jpg", "alt": { "en": "Pool Villa bathroom with ocean view window", "ru": "Ванная комната виллы с окном с видом на океан" } },
+        { "src": "/images/Three Bedrooms Pool Villa/172544231.jpg", "alt": { "en": "Pool Villa en-suite with rain shower and soaking tub", "ru": "Ванная комната виллы с тропическим душем и ванной" } }
       ],
       "href": "https://secure.guestpro.net/odch/booking"
     },

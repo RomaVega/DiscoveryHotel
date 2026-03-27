@@ -25,16 +25,25 @@ export function RoomSlideshow({
   autoAdvanceMs = 2000,
 }: RoomSlideshowProps) {
   const [current, setCurrent] = useState(0);
+  const [loaded, setLoaded] = useState<Record<number, boolean>>({ 0: false });
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const paused = useRef(false);
 
   const scheduleNext = useCallback(() => {
     if (timerRef.current) clearTimeout(timerRef.current);
     if (images.length <= 1 || paused.current) return;
-    timerRef.current = setTimeout(() => {
-      setCurrent((c) => (c + 1) % images.length);
-    }, autoAdvanceMs);
-  }, [images.length, autoAdvanceMs]);
+    const next = (current + 1) % images.length;
+    // Only advance once the next image is marked loaded
+    const advance = () => setCurrent(next);
+    if (loaded[next]) {
+      timerRef.current = setTimeout(advance, autoAdvanceMs);
+    } else {
+      // Poll briefly until loaded, then advance
+      timerRef.current = setTimeout(() => {
+        timerRef.current = setTimeout(advance, 200);
+      }, autoAdvanceMs);
+    }
+  }, [images.length, autoAdvanceMs, current, loaded]);
 
   useEffect(() => {
     scheduleNext();
@@ -83,6 +92,22 @@ export function RoomSlideshow({
       role="region"
       aria-label="Room photo slideshow"
     >
+      {/* Preload next slide silently */}
+      {images.length > 1 && (
+        <div className="absolute inset-0 opacity-0 pointer-events-none" aria-hidden="true">
+          <Image
+            src={images[(current + 1) % images.length].src}
+            alt=""
+            fill
+            sizes={sizes}
+            className="object-cover"
+            onLoad={() =>
+              setLoaded((prev) => ({ ...prev, [(current + 1) % images.length]: true }))
+            }
+          />
+        </div>
+      )}
+
       {/* Slides */}
       <AnimatePresence mode="sync" initial={false}>
         <motion.div
@@ -98,7 +123,9 @@ export function RoomSlideshow({
             alt={images[current].alt}
             fill
             sizes={sizes}
+            priority={current === 0}
             className="object-cover"
+            onLoad={() => setLoaded((prev) => ({ ...prev, [current]: true }))}
           />
         </motion.div>
       </AnimatePresence>
