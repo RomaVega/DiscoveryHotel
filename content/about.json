@@ -1,7 +1,7 @@
 {
   "label": {
     "en": "Our Story",
-    "ru": "О нас"
+    "ru": "О Нас"
   },
   "heading": {
     "en": "Orlowsky Discovery Hotel",
@@ -18,8 +18,8 @@
   "stats": [
     { "value": "4", "label": { "en": "Luxury Villas", "ru": "Виллы" } },
     { "value": "14", "label": { "en": "Deluxe Cottages", "ru": "Коттеджи" } },
-    { "value": "1.5h", "label": { "en": "From Airport", "ru": "От аэропорта" } },
-    { "value": "07:00", "label": { "en": "Restaurant Opens", "ru": "Ресторан открыт" } }
+    { "value": "1.5h", "label": { "en": "From Airport", "ru": "От Аэропорта" } },
+    { "value": "07:00", "label": { "en": "Restaurant Opens", "ru": "Ресторан Открыт" } }
   ],
   "sections": [
     {

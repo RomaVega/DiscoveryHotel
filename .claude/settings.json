@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gallery-dl --dest \"/Users/blink/Downloads/Orlowsky Booking.com\" --no-mtime \"https://www.booking.com/hotel/id/discorvery-candidasa-cottages-and-villas.en-gb.html\")",
+      "Bash(python3 -m playwright install chromium)",
+      "Bash(netlify status:*)",
+      "Bash(netlify deploy:*)",
+      "Bash(python3 -c \"import json; data=json.load\\(open\\(''''/Users/blink/DiscoveryHotel/content/rooms.json''''\\)\\); print\\(json.dumps\\(data, indent=2\\)\\)\")",
+      "Bash(python3 -c \":*)",
+      "Bash(mkdir -p \"/Users/blink/DiscoveryHotel/public/images/Deluxe Cottage\")",
+      "Bash(cp \"/Users/blink/Downloads/Orlowsky Booking.com/443798398.jpg\" \"/Users/blink/DiscoveryHotel/public/images/Deluxe Cottage/443798398.jpg\")",
+      "Bash(cp \"/Users/blink/Downloads/Orlowsky Booking.com/443798403.jpg\" \"/Users/blink/DiscoveryHotel/public/images/Deluxe Cottage/443798403.jpg\")",
+      "Bash(cp \"/Users/blink/Downloads/Orlowsky Booking.com/443798394.jpg\" \"/Users/blink/DiscoveryHotel/public/images/Deluxe Cottage/443798394.jpg\")",
+      "Bash(python3 -:*)",
+      "Bash(git restore:*)",
+      "Bash(sed -i '' 's/\"\"Что говорят наши гости\"\"/\"\"Что Говорят Наши Гости\"\"/' /Users/blink/DiscoveryHotel/locales/ru.json)",
+      "Bash(sed -i '' 's/\"\"Как нас найти в Чандидасе\"\"/\"\"Как Нас Найти в Чандидасе\"\"/' /Users/blink/DiscoveryHotel/locales/ru.json)"
+    ]
+  }
+}

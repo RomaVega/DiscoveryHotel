@@ -22,7 +22,7 @@ export function RoomSlideshow({
   images,
   sizes = "100vw",
   className,
-  autoAdvanceMs = 2000,
+  autoAdvanceMs = 3000,
 }: RoomSlideshowProps) {
   const [current, setCurrent] = useState(0);
   const [loaded, setLoaded] = useState<Record<number, boolean>>({ 0: false });

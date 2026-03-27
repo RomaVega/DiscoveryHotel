@@ -21,11 +21,11 @@
   "welcome": {
     "label": {
       "en": "Welcome",
-      "ru": "Добро пожаловать"
+      "ru": "Добро Пожаловать"
     },
     "heading": {
       "en": "A Hidden Gem in East Bali",
-      "ru": "Скрытая жемчужина Восточного Бали"
+      "ru": "Скрытая Жемчужина Восточного Бали"
     },
     "description": {
       "en": "Nestled on the tranquil coast of Candidasa in East Bali — far from the crowds, yet close to everything you need. Orlowsky Discovery Hotel offers an intimate escape where Balinese charm meets modern comfort. Wake up to ocean breezes, explore vibrant coral reefs, and unwind in our tropical gardens.",
@@ -41,7 +41,7 @@
     },
     "heading": {
       "en": "Rooms & Villas",
-      "ru": "Номера и виллы"
+      "ru": "Номера и Виллы"
     },
     "subtext": {
       "en": "From garden-view cottages to oceanfront villas, each space is designed for relaxation.",
@@ -60,11 +60,11 @@
         "image": "/images/rooms/Deluxe Cottage.jpg",
         "imageAlt": "Deluxe Cottage at Orlowsky Discovery Hotel",
         "images": [
-          { "src": "/images/rooms/Deluxe Cottage.jpg", "alt": "Deluxe Cottage garden path and tropical exterior" },
-          { "src": "/images/rooms/Deluxe Cottage/unnamed (1).jpg", "alt": "Deluxe Cottage interior with Balinese thatched ceiling" },
-          { "src": "/images/Deluxe Cottage/443798403.jpg", "alt": "Deluxe Cottage bedroom with garden view" },
-          { "src": "/images/Deluxe Cottage/443798398.jpg", "alt": "Deluxe Cottage bedroom and en-suite bathroom" },
-          { "src": "/images/Deluxe Cottage/443798394.jpg", "alt": "Deluxe Cottage terrace with ocean view" }
+          { "src": "/images/Deluxe Cottage/14459232.jpg", "alt": "Deluxe Cottage bedroom with traditional octagonal thatched ceiling" },
+          { "src": "/images/Deluxe Cottage/14459280.jpg", "alt": "Deluxe Cottage twin bedroom with Balinese thatched ceiling" },
+          { "src": "/images/Deluxe Cottage/14459213.jpg", "alt": "Deluxe Cottage lounge and bedroom with high thatched ceiling" },
+          { "src": "/images/Deluxe Cottage/443798403.jpg", "alt": "Deluxe Cottage bright bedroom with garden balcony" },
+          { "src": "/images/Deluxe Cottage/443798394.jpg", "alt": "Deluxe Cottage private terrace with ocean view" }
         ],
         "href": "https://secure.guestpro.net/odch/room-type/9951a5c1-a10a-4a6c-abf8-585eaf574b16"
       },
@@ -81,16 +81,16 @@
         "imageAlt": "Three Bedrooms Pool Villa at Orlowsky Discovery Hotel",
         "images": [
           { "src": "/images/Three Bedrooms Pool Villa/443798431.jpg", "alt": "Pool Villa exterior with private pool and tropical garden" },
-          { "src": "/images/Three Bedrooms Pool Villa/87366051.jpg", "alt": "Pool Villa two-storey exterior surrounded by tropical greenery" },
-          { "src": "/images/Three Bedrooms Pool Villa/170696380.jpg", "alt": "Pool Villa master bedroom with warm lighting and thatched ceiling" },
-          { "src": "/images/Three Bedrooms Pool Villa/170696381.jpg", "alt": "Pool Villa bedroom with garden view and sheer curtains" },
-          { "src": "/images/Three Bedrooms Pool Villa/170696901.jpg", "alt": "Pool Villa twin bedroom with balcony access" },
-          { "src": "/images/Three Bedrooms Pool Villa/170696898.jpg", "alt": "Pool Villa bedroom with thatched ceiling and en-suite" },
-          { "src": "/images/Three Bedrooms Pool Villa/170696906.jpg", "alt": "Pool Villa open-plan living and dining area with pool view" },
-          { "src": "/images/Three Bedrooms Pool Villa/443798397.jpg", "alt": "Pool Villa spacious living area and kitchen opening to pool" },
+          { "src": "/images/Three Bedrooms Pool Villa/170696380.jpg", "alt": "Pool Villa master bedroom with warm lighting" },
+          { "src": "/images/Three Bedrooms Pool Villa/170696381.jpg", "alt": "Pool Villa bedroom with garden view" },
+          { "src": "/images/Three Bedrooms Pool Villa/170696898.jpg", "alt": "Pool Villa bedroom with thatched ceiling" },
+          { "src": "/images/Three Bedrooms Pool Villa/170696901.jpg", "alt": "Pool Villa twin bedroom with balcony" },
+          { "src": "/images/Three Bedrooms Pool Villa/170696902.jpg", "alt": "Pool Villa bedroom with garden balcony access" },
+          { "src": "/images/Three Bedrooms Pool Villa/170696906.jpg", "alt": "Pool Villa open-plan living and dining with pool view" },
+          { "src": "/images/Three Bedrooms Pool Villa/87492960.jpg", "alt": "Pool Villa dining area and fully equipped kitchen" },
           { "src": "/images/Three Bedrooms Pool Villa/170696905.jpg", "alt": "Pool Villa fully equipped kitchen" },
-          { "src": "/images/Three Bedrooms Pool Villa/170696909.jpg", "alt": "Pool Villa marble en-suite bathroom with soaking tub" },
-          { "src": "/images/Three Bedrooms Pool Villa/87492962.jpg", "alt": "Pool Villa bathroom with ocean view window" },
+          { "src": "/images/Three Bedrooms Pool Villa/170696909.jpg", "alt": "Pool Villa marble en-suite with soaking tub" },
+          { "src": "/images/Three Bedrooms Pool Villa/87492962.jpg", "alt": "Pool Villa bathroom with ocean view" },
           { "src": "/images/Three Bedrooms Pool Villa/172544231.jpg", "alt": "Pool Villa en-suite with rain shower and soaking tub" }
         ],
         "href": "https://secure.guestpro.net/odch/room-type/ee0cdd19-1045-481f-9e36-b8287e343c24"
@@ -104,7 +104,7 @@
     },
     "heading": {
       "en": "Everything You Need",
-      "ru": "Всё необходимое"
+      "ru": "Всё Необходимое"
     },
     "items": [
       {
@@ -311,7 +311,7 @@
     },
     "heading": {
       "en": "Current Deals",
-      "ru": "Актуальные предложения"
+      "ru": "Актуальные Предложения"
     },
     "offers": [
       {
