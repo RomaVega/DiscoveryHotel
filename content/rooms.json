@@ -86,6 +86,18 @@
         "en": "Three Bedroom Pool Villa with private pool at Orlowsky Discovery Hotel",
         "ru": "Вилла с тремя спальнями и собственным бассейном в Orlowsky Discovery Hotel"
       },
+      "images": [
+        { "src": "/images/rooms/pool-villa.jpg", "alt": { "en": "Three Bedroom Pool Villa aerial view with private pool", "ru": "Вид сверху на виллу с тремя спальнями и бассейном" } },
+        { "src": "/images/Three Bedrooms Pool Villa/170696380.jpg", "alt": { "en": "Pool Villa private swimming pool and tropical garden", "ru": "Частный бассейн виллы и тропический сад" } },
+        { "src": "/images/Three Bedrooms Pool Villa/170696381.jpg", "alt": { "en": "Pool Villa outdoor terrace and lounge area", "ru": "Терраса и зона отдыха виллы" } },
+        { "src": "/images/Three Bedrooms Pool Villa/170696901.jpg", "alt": { "en": "Pool Villa master bedroom with en-suite bathroom", "ru": "Главная спальня виллы с ванной комнатой" } },
+        { "src": "/images/Three Bedrooms Pool Villa/170696902.jpg", "alt": { "en": "Pool Villa spacious living room", "ru": "Просторная гостиная виллы" } },
+        { "src": "/images/Three Bedrooms Pool Villa/170696905.jpg", "alt": { "en": "Pool Villa fully equipped kitchen", "ru": "Полностью оборудованная кухня виллы" } },
+        { "src": "/images/Three Bedrooms Pool Villa/170696909.jpg", "alt": { "en": "Pool Villa bedroom with garden view", "ru": "Спальня виллы с видом на сад" } },
+        { "src": "/images/Three Bedrooms Pool Villa/443798386.jpg", "alt": { "en": "Pool Villa bathroom with modern fixtures", "ru": "Ванная комната виллы с современной сантехникой" } },
+        { "src": "/images/Three Bedrooms Pool Villa/443798390.jpg", "alt": { "en": "Pool Villa pool deck at sunset", "ru": "Бассейн виллы на закате" } },
+        { "src": "/images/Three Bedrooms Pool Villa/172544231.jpg", "alt": { "en": "Pool Villa exterior and tropical landscaping", "ru": "Экстерьер виллы и тропический ландшафт" } }
+      ],
       "href": "https://secure.guestpro.net/odch/booking"
     },
     {

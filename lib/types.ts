@@ -2,6 +2,11 @@
 
 export type LocalizedString = string | { en: string; ru: string };
 
+export interface RoomSlide {
+  src: string;
+  alt: LocalizedString;
+}
+
 export interface NavLink {
   label: string;
   href: string;
@@ -35,6 +40,7 @@ export interface RoomCard {
   image: string;
   imageMobile?: string;
   imageAlt: string;
+  images?: RoomSlide[];
   href: string;
 }
 
@@ -170,6 +176,7 @@ export interface RoomDetail {
   size: string;
   image: string;
   imageAlt: LocalizedString;
+  images?: RoomSlide[];
   href: string;
   amenities: LocalizedString[];
   highlights?: LocalizedString[];

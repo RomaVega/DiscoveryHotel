@@ -72,6 +72,18 @@
         },
         "image": "/images/rooms/Pool Villa.jpg",
         "imageAlt": "Three Bedrooms Pool Villa at Orlowsky Discovery Hotel",
+        "images": [
+          { "src": "/images/rooms/Pool Villa.jpg", "alt": "Three Bedroom Pool Villa aerial view with private pool" },
+          { "src": "/images/Three Bedrooms Pool Villa/170696380.jpg", "alt": "Pool Villa private swimming pool and tropical garden" },
+          { "src": "/images/Three Bedrooms Pool Villa/170696381.jpg", "alt": "Pool Villa outdoor terrace and lounge area" },
+          { "src": "/images/Three Bedrooms Pool Villa/170696901.jpg", "alt": "Pool Villa master bedroom with en-suite bathroom" },
+          { "src": "/images/Three Bedrooms Pool Villa/170696902.jpg", "alt": "Pool Villa spacious living room" },
+          { "src": "/images/Three Bedrooms Pool Villa/170696905.jpg", "alt": "Pool Villa fully equipped kitchen" },
+          { "src": "/images/Three Bedrooms Pool Villa/170696909.jpg", "alt": "Pool Villa bedroom with garden view" },
+          { "src": "/images/Three Bedrooms Pool Villa/443798386.jpg", "alt": "Pool Villa bathroom with modern fixtures" },
+          { "src": "/images/Three Bedrooms Pool Villa/443798390.jpg", "alt": "Pool Villa pool deck at sunset" },
+          { "src": "/images/Three Bedrooms Pool Villa/172544231.jpg", "alt": "Pool Villa exterior and tropical landscaping" }
+        ],
         "href": "https://secure.guestpro.net/odch/room-type/ee0cdd19-1045-481f-9e36-b8287e343c24"
       }
     ]

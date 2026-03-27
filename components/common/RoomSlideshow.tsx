@@ -1,0 +1,153 @@
+"use client"; // Uses useState, useEffect for slideshow controls
+
+import { useState, useEffect, useCallback, useRef } from "react";
+import Image from "next/image";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { cn } from "@/lib/utils";
+
+interface SlideImage {
+  src: string;
+  alt: string;
+}
+
+interface RoomSlideshowProps {
+  images: SlideImage[];
+  sizes?: string;
+  className?: string;
+  autoAdvanceMs?: number;
+}
+
+export function RoomSlideshow({
+  images,
+  sizes = "100vw",
+  className,
+  autoAdvanceMs = 2000,
+}: RoomSlideshowProps) {
+  const [current, setCurrent] = useState(0);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const paused = useRef(false);
+
+  const scheduleNext = useCallback(() => {
+    if (timerRef.current) clearTimeout(timerRef.current);
+    if (images.length <= 1 || paused.current) return;
+    timerRef.current = setTimeout(() => {
+      setCurrent((c) => (c + 1) % images.length);
+    }, autoAdvanceMs);
+  }, [images.length, autoAdvanceMs]);
+
+  useEffect(() => {
+    scheduleNext();
+    return () => { if (timerRef.current) clearTimeout(timerRef.current); };
+  }, [current, scheduleNext]);
+
+  const prev = useCallback(() => {
+    setCurrent((c) => (c - 1 + images.length) % images.length);
+  }, [images.length]);
+
+  const next = useCallback(() => {
+    setCurrent((c) => (c + 1) % images.length);
+  }, [images.length]);
+
+  const handleKeyDown = useCallback(
+    (e: React.KeyboardEvent) => {
+      if (e.key === "ArrowLeft") prev();
+      if (e.key === "ArrowRight") next();
+    },
+    [prev, next]
+  );
+
+  if (images.length === 0) return null;
+
+  if (images.length === 1) {
+    return (
+      <div className={cn("relative overflow-hidden", className)}>
+        <Image
+          src={images[0].src}
+          alt={images[0].alt}
+          fill
+          sizes={sizes}
+          className="object-cover"
+        />
+      </div>
+    );
+  }
+
+  return (
+    <div
+      className={cn("relative overflow-hidden group", className)}
+      onMouseEnter={() => { paused.current = true; if (timerRef.current) clearTimeout(timerRef.current); }}
+      onMouseLeave={() => { paused.current = false; scheduleNext(); }}
+      onKeyDown={handleKeyDown}
+      tabIndex={-1}
+      role="region"
+      aria-label="Room photo slideshow"
+    >
+      {/* Slides */}
+      <AnimatePresence mode="sync" initial={false}>
+        <motion.div
+          key={current}
+          className="absolute inset-0"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.6, ease: "easeInOut" }}
+        >
+          <Image
+            src={images[current].src}
+            alt={images[current].alt}
+            fill
+            sizes={sizes}
+            className="object-cover"
+          />
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Prev arrow */}
+      <button
+        onClick={prev}
+        aria-label="Previous photo"
+        className="absolute left-3 top-1/2 -translate-y-1/2 z-10 p-1.5 bg-black/30 hover:bg-black/55 text-white rounded-full transition-all duration-200 opacity-0 group-hover:opacity-100 focus-visible:opacity-100 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-0"
+      >
+        <ChevronLeft size={18} strokeWidth={2} />
+      </button>
+
+      {/* Next arrow */}
+      <button
+        onClick={next}
+        aria-label="Next photo"
+        className="absolute right-3 top-1/2 -translate-y-1/2 z-10 p-1.5 bg-black/30 hover:bg-black/55 text-white rounded-full transition-all duration-200 opacity-0 group-hover:opacity-100 focus-visible:opacity-100 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-0"
+      >
+        <ChevronRight size={18} strokeWidth={2} />
+      </button>
+
+      {/* Dot indicators */}
+      <div
+        className="absolute bottom-3 left-0 right-0 flex justify-center gap-1.5 z-10"
+        role="tablist"
+        aria-label="Slideshow navigation"
+      >
+        {images.map((_, i) => (
+          <button
+            key={i}
+            role="tab"
+            aria-selected={i === current}
+            aria-label={`Photo ${i + 1} of ${images.length}`}
+            onClick={() => setCurrent(i)}
+            className={cn(
+              "h-1.5 rounded-full transition-all duration-300",
+              i === current
+                ? "w-5 bg-white"
+                : "w-1.5 bg-white/50 hover:bg-white/80"
+            )}
+          />
+        ))}
+      </div>
+
+      {/* Counter */}
+      <div className="absolute top-3 right-3 z-10 text-white/80 text-xs font-sans tabular-nums bg-black/25 px-2 py-0.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+        {current + 1} / {images.length}
+      </div>
+    </div>
+  );
+}

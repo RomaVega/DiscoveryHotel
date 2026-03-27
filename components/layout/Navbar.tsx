@@ -12,10 +12,10 @@ import { LanguageSelector } from "@/components/layout/LanguageSelector";
 
 interface NavbarProps {
   alwaysVisible?: boolean;
-  scrollThreshold?: number; // fraction of viewport height, default 0.9
+  scrollThreshold?: number; // pixels from top before navbar appears, default 80
 }
 
-export function Navbar({ alwaysVisible = false, scrollThreshold = 0.9 }: NavbarProps) {
+export function Navbar({ alwaysVisible = false, scrollThreshold = 80 }: NavbarProps) {
   const [scrolled, setScrolled] = useState(alwaysVisible);
   const [menuOpen, setMenuOpen] = useState(false);
   const { tl } = useLanguage();
@@ -32,7 +32,7 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 0.9 }: NavbarP
 
   useEffect(() => {
     if (alwaysVisible) { setScrolled(true); return; }
-    const onScroll = () => setScrolled(window.scrollY > window.innerHeight * scrollThreshold);
+    const onScroll = () => setScrolled(window.scrollY > scrollThreshold);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, [alwaysVisible, scrollThreshold]);

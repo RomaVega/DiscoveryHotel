@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { FadeIn } from "@/components/common/FadeIn";
 import { SecondaryButton } from "@/components/common/SecondaryButton";
+import { RoomSlideshow } from "@/components/common/RoomSlideshow";
 import type { RoomsPageData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
 import {
@@ -48,15 +49,23 @@ export function RoomsDetail({ data }: RoomsDetailProps) {
           {data.rooms.map((room, i) => (
             <FadeIn key={i}>
               <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-center ${i % 2 === 1 ? "lg:flex-row-reverse" : ""}`}>
-                <div className={`relative aspect-[4/3] overflow-hidden shadow-lg ${i % 2 === 1 ? "lg:order-2" : ""}`}>
-                  <Image
-                    src={room.image}
-                    alt={t(room.imageAlt)}
-                    fill
+                {room.images && room.images.length > 1 ? (
+                  <RoomSlideshow
+                    images={room.images.map((s) => ({ src: s.src, alt: t(s.alt) }))}
                     sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover"
+                    className={`aspect-[4/3] shadow-lg ${i % 2 === 1 ? "lg:order-2" : ""}`}
                   />
-                </div>
+                ) : (
+                  <div className={`relative aspect-[4/3] overflow-hidden shadow-lg ${i % 2 === 1 ? "lg:order-2" : ""}`}>
+                    <Image
+                      src={room.image}
+                      alt={t(room.imageAlt)}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="object-cover"
+                    />
+                  </div>
+                )}
                 <div className={i % 2 === 1 ? "lg:order-1" : ""}>
                   <h2 className="font-serif text-3xl md:text-4xl font-light text-charcoal">
                     {t(room.title)}
@@ -94,7 +103,11 @@ export function RoomsDetail({ data }: RoomsDetailProps) {
                   )}
 
                   <div className="mt-8 flex justify-center">
-                    <SecondaryButton href={room.href} external>
+                    <SecondaryButton
+                      href={room.href}
+                      external
+                      className="bg-brand-teal text-white hover:bg-deep-teal hover:text-white border-brand-teal"
+                    >
                       {t({ en: "Book This Room", ru: "Забронировать" })}
                     </SecondaryButton>
                   </div>

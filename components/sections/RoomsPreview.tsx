@@ -4,6 +4,7 @@ import Image from "next/image";
 import { FadeIn } from "@/components/common/FadeIn";
 import { SectionHeading } from "@/components/common/SectionHeading";
 import { SecondaryButton } from "@/components/common/SecondaryButton";
+import { RoomSlideshow } from "@/components/common/RoomSlideshow";
 import type { RoomsPreviewData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
 
@@ -29,15 +30,26 @@ export function RoomsPreview({ data }: RoomsPreviewProps) {
           {data.rooms.map((room, i) => (
             <FadeIn key={i} delay={i * 0.1}>
               <div className="bg-ivory shadow-md group h-full flex flex-col overflow-hidden">
-                <div className="relative aspect-video shrink-0 overflow-hidden">
-                  <Image
-                    src={room.image}
-                    alt={room.imageAlt}
-                    fill
+                {room.images && room.images.length > 1 ? (
+                  <RoomSlideshow
+                    images={room.images.map((s) => ({
+                      src: s.src,
+                      alt: typeof s.alt === "string" ? s.alt : s.alt.en,
+                    }))}
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover"
+                    className="aspect-video shrink-0"
                   />
-                </div>
+                ) : (
+                  <div className="relative aspect-video shrink-0 overflow-hidden">
+                    <Image
+                      src={room.image}
+                      alt={room.imageAlt}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover"
+                    />
+                  </div>
+                )}
                 <div className="p-5 md:p-8 flex flex-col flex-1">
                   <h3 className="font-serif text-2xl font-semibold text-charcoal">
                     {t(room.title)}
