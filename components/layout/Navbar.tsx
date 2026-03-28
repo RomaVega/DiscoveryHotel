@@ -27,7 +27,7 @@ function BrandLogo() {
         unoptimized
         className="object-contain shrink-0"
       />
-      <span className="font-serif font-semibold text-black tracking-wide uppercase leading-tight text-base">
+      <span className="font-serif font-semibold text-black tracking-wide uppercase leading-tight text-base text-center">
         Orlowsky{" "}<span className="whitespace-nowrap">Discovery Candidasa</span>
       </span>
     </Link>
@@ -198,12 +198,14 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80 }: NavbarPr
                     href={link.href}
                     onClick={closeMenu}
                     className={cn(
-                      "flex items-center justify-center gap-3 py-4 font-serif text-2xl font-semibold tracking-wide transition-colors duration-200",
+                      "flex items-center justify-center py-4 font-serif text-2xl font-semibold tracking-wide transition-colors duration-200",
                       isActive(link.href) ? "text-black" : "text-charcoal/70 hover:text-black"
                     )}
                   >
-                    <link.icon size={20} strokeWidth={1.5} className="text-brand-teal shrink-0" />
-                    {link.label}
+                    <span className="relative inline-flex items-center">
+                      <link.icon size={20} strokeWidth={1.5} className="text-brand-teal shrink-0 absolute -left-7 top-1/2 -translate-y-1/2" />
+                      {link.label}
+                    </span>
                   </Link>
                   <div className="h-px bg-charcoal/10" />
                 </motion.div>
