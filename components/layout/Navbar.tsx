@@ -160,20 +160,19 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80 }: NavbarPr
             exit={{ opacity: 0 }}
             transition={{ duration: 0.35, ease: "easeInOut" }}
           >
-            {/* Header row — logo + brand, close top-right */}
+            {/* Header row — matches navbar exactly */}
             <div className="flex items-center justify-between px-8 py-3 border-b border-charcoal/10 shrink-0">
               <div className="flex items-center gap-2">
                 <Image
                   src="/images/logo/logo-dark.svg"
                   alt="Orlowsky Discovery Hotel"
-                  width={40}
-                  height={40}
+                  width={44}
+                  height={44}
                   unoptimized
                   className="object-contain shrink-0"
                 />
-                <span className="font-serif font-semibold text-black tracking-wide uppercase leading-tight text-sm">
-                  <span className="block">Orlowsky</span>
-                  <span className="block">Discovery Candidasa</span>
+                <span className="font-serif font-semibold text-black tracking-wide uppercase leading-tight text-base text-center">
+                  Orlowsky Discovery Candidasa
                 </span>
               </div>
               <button
@@ -216,7 +215,7 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80 }: NavbarPr
             </nav>
 
             {/* Bottom actions — Book Stay + Language */}
-            <div className="shrink-0 flex flex-col items-center gap-4 px-8 py-6 border-t border-charcoal/10">
+            <div className="shrink-0 flex flex-col items-center gap-6 px-8 py-8">
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
