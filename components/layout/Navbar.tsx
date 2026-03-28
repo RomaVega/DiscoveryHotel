@@ -27,7 +27,7 @@ function BrandLogo() {
         unoptimized
         className="object-contain shrink-0"
       />
-      <span className="font-serif font-semibold text-black tracking-wide uppercase leading-tight text-base text-center">
+      <span className="font-serif font-semibold text-black tracking-widest uppercase leading-tight text-[17px] text-center">
         Orlowsky{" "}<span className="whitespace-nowrap">Discovery Candidasa</span>
       </span>
     </Link>
@@ -184,7 +184,7 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80 }: NavbarPr
                 aria-label="Close menu"
                 className="p-2 -mr-2 text-charcoal/60 hover:text-charcoal transition-colors shrink-0"
               >
-                <X size={22} />
+                <X size={24} />
               </button>
             </div>
 
