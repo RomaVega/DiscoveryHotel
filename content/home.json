@@ -579,6 +579,19 @@
         "image": "/images/rental/rental.png",
         "imageAlt": "Scooter parked on scenic Bali road",
         "href": "/experiences/car-rental"
+      },
+      {
+        "title": {
+          "en": "Ayurvedic Spa",
+          "ru": "Аюрведический Спа"
+        },
+        "description": {
+          "en": "Authentic Panchakarma, Shirodhara, and traditional Balinese massage by Kerala-trained therapists",
+          "ru": "Аутентичная Панчакарма, Широдхара и традиционный балийский массаж от терапевтов из Кералы"
+        },
+        "image": "/images/experiences/experiences-ayurvedic-spa.jpg",
+        "imageAlt": "Ayurvedic spa shirodhara treatment at Orlowsky Discovery Hotel",
+        "href": "/spa"
       }
     ]
   },

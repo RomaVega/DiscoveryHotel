@@ -10,9 +10,10 @@ interface PageHeroProps {
   imageAlt: string;
   heading: LocalizedString;
   subtext?: LocalizedString;
+  noOverlay?: boolean;
 }
 
-export function PageHero({ image, imageAlt, heading, subtext }: PageHeroProps) {
+export function PageHero({ image, imageAlt, heading, subtext, noOverlay }: PageHeroProps) {
   const { t } = useLanguage();
 
   return (
@@ -25,7 +26,7 @@ export function PageHero({ image, imageAlt, heading, subtext }: PageHeroProps) {
         sizes="100vw"
         className="object-cover"
       />
-      <div className="absolute inset-0 bg-black/40" />
+      {!noOverlay && <div className="absolute inset-0 bg-black/40" />}
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center text-white">
         <motion.h1
           initial={{ opacity: 0, y: 16 }}
@@ -40,7 +41,7 @@ export function PageHero({ image, imageAlt, heading, subtext }: PageHeroProps) {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="mt-4 max-w-2xl font-sans text-base md:text-lg text-white/90 leading-relaxed text-shadow-subtle"
+            className="mt-4 max-w-2xl font-sans text-base md:text-lg text-white/90 leading-relaxed text-shadow-strong"
           >
             {t(subtext)}
           </motion.p>

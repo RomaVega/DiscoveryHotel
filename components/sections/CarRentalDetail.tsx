@@ -34,7 +34,7 @@ export function CarRentalDetail({ data }: CarRentalDetailProps) {
                 <div key={i} className="bg-ivory p-6 shadow-sm flex flex-col">
                   <h3 className="font-serif text-2xl font-semibold text-charcoal">{t(vehicle.title)}</h3>
                   <p className="mt-2 text-stone text-sm leading-relaxed flex-1">{t(vehicle.description)}</p>
-                  <div className="mt-4 pt-4 border-t border-sand flex items-center justify-between gap-4">
+                  <div className="mt-4 pt-4 border-t border-sand flex flex-col items-center gap-3">
                     <span className="font-sans font-semibold text-brand-teal">{t(vehicle.price)}</span>
                     <SecondaryButton href={bookUrl} external>
                       {isRu ? "Забронировать" : "Book Now"}

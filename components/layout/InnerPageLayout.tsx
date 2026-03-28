@@ -13,7 +13,7 @@ interface InnerPageLayoutProps {
 export function InnerPageLayout({ contact, children }: InnerPageLayoutProps) {
   return (
     <>
-      <Navbar />
+      <Navbar alwaysVisible />
       <main id="main-content">
         {children}
       </main>

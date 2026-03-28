@@ -9,10 +9,11 @@ import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 // Atmospheric hotel images cycled across feature sections
 const FEATURE_IMAGES = [
-  "/images/gallery/g9.jpg",
-  "/images/gallery/g5.jpg",
-  "/images/gallery/g2.jpg",
-  "/images/gallery/g10.jpg",
+  "/images/restaurant/seaside-dining.jpg",
+  "/images/restaurant/international-cuisine.png",
+  "/images/restaurant/buffet.jpg",
+  "/images/restaurant/bar-drinks-and-coctails.jpg",
+  "/images/restaurant/room-service.png",
 ];
 
 interface DiningDetailProps {

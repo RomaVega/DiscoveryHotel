@@ -14,7 +14,7 @@ export const metadata = {
     title: "Diving & Snorkeling East Bali — Tulamben & Candidasa Reef",
     description: "Dive the USAT Liberty shipwreck at Tulamben, Candidasa coral reef, and manta rays at Nusa Penida. Beginner to advanced programs from Orlowsky Discovery Hotel.",
     url: `${SITE_URL}/experiences/diving`,
-    images: [{ url: `${SITE_URL}/images/experiences/diving-hawksbill-turtle-scuba-diver-candidasa-bali.jpg`, width: 1200, height: 630 }],
+    images: [{ url: `${SITE_URL}/images/diving/diving-hawksbill-turtle-scuba-diver-candidasa-bali.jpg`, width: 1200, height: 630 }],
   },
 };
 
@@ -25,7 +25,7 @@ export default function DivingPage() {
   return (
     <InnerPageLayout contact={contact}>
       <PageHero
-        image="/images/experiences/diving-hawksbill-turtle-scuba-diver-candidasa-bali.jpg"
+        image="/images/diving/diving-hawksbill-turtle-scuba-diver-candidasa-bali.jpg"
         imageAlt="Scuba diver observing hawksbill sea turtle on coral reef, Candidasa, Bali"
         heading={data.heading}
         subtext={data.subtext}

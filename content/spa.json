@@ -8,8 +8,8 @@
     "ru": "Аюрведический Спа и Балийский Массаж — Чандидаса, Бали"
   },
   "subtext": {
-    "en": "Kerala-trained therapists. Authentic Panchakarma, Shirodhara, and traditional Balinese massage. Open daily 09:00–21:00 in Candidasa, East Bali.",
-    "ru": "Терапевты из Кералы. Аутентичная Панчакарма, Широдхара и традиционный балийский массаж. Ежедневно 09:00–21:00 в Чандидасе, Восточный Бали."
+    "en": "Kerala-trained therapists. Authentic Panchakarma, Shirodhara, and traditional Balinese massage in Candidasa, East Bali.",
+    "ru": "Терапевты из Кералы. Аутентичная Панчакарма, Широдхара и традиционный балийский массаж в Чандидасе, Восточный Бали."
   },
   "hours": "09:00 – 21:00",
   "capacityPerHour": 4,
@@ -282,6 +282,6 @@
     "en": "All therapists trained by masters from Kerala, India and are certified. 10% discount with advance booking. Special rates for multi-day packages (3+ days).",
     "ru": "Все терапевты прошли обучение у мастеров из Кералы (Индия) и имеют сертификаты. Скидка 10% при предварительной записи. Специальные цены для пакетов от 3 дней."
   },
-  "image": "/images/gallery/g3.jpg",
+  "image": "/images/spa/ayurvedic-spa.jpg",
   "imageAlt": "Ayurvedic Spa at Orlowsky Discovery Hotel"
 }

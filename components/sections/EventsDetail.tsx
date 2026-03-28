@@ -49,10 +49,10 @@ export function EventsDetail({ data }: EventsDetailProps) {
         </div>
       </div>
 
-    <section className="pt-6 pb-6 md:py-32 bg-sand">
+    <section className="pt-6 pb-6 md:pt-32 md:pb-32 bg-sand">
       <div className="max-w-5xl mx-auto px-6">
         {/* Services */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 md:mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {data.services.map((service, i) => (
             <FadeIn key={i} delay={i * 0.1}>
               <div className="bg-ivory shadow-md overflow-hidden h-full flex flex-col">
@@ -62,13 +62,13 @@ export function EventsDetail({ data }: EventsDetailProps) {
                     alt={t(service.imageAlt)}
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover"
+                    className={`object-cover${i === 2 ? " brightness-125" : ""}`}
                   />
                 </div>
                 <div className="p-5 md:p-8 flex flex-col flex-1">
                   <h2 className="font-serif text-2xl font-semibold text-charcoal">{t(service.title)}</h2>
                   <p className="mt-2 text-stone leading-relaxed text-sm flex-1">{t(service.description)}</p>
-                  <div className="mt-6 flex justify-center md:justify-start">
+                  <div className="mt-6 flex justify-center">
                     <a
                       href={ctaUrl}
                       target="_blank"

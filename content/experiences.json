@@ -9,13 +9,13 @@
   },
   "subtext": {
     "en": "Temple tours, volcano treks, diving at Tulamben and Nusa Penida, Ayurvedic spa treatments, and private car rental — all arranged from the hotel.",
-    "ru": "Экскурсии к храмам, треккинг к вулканам, дайвинг в Туламбене и Нуса-Пениде, аюрведический спа и аренда авто — всё организуется через отель."
+    "ru": "Экскурсии по храмам, треккинг по вулканам, дайвинг в Туламбене и Нуса-Пениде, аюрведический спа и аренда авто — всё организуется через наш отель."
   },
   "categories": [
     {
       "title": {
         "en": "Excursion Programs",
-        "ru": "Экскурсионные программы"
+        "ru": "Экскурсионные Программы"
       },
       "description": {
         "en": "Explore sacred temples, emerald rice terraces, and hidden waterfalls with our expert local guides. Full-day and half-day tours across East Bali and beyond.",
@@ -31,7 +31,7 @@
     {
       "title": {
         "en": "Diving & Snorkeling",
-        "ru": "Дайвинг и снорклинг"
+        "ru": "Дайвинг и Снорклинг"
       },
       "description": {
         "en": "Discover vibrant coral reefs, the legendary USAT Liberty wreck in Tulamben, and majestic manta rays at Nusa Penida. Programs for beginners and certified divers.",
@@ -47,7 +47,7 @@
     {
       "title": {
         "en": "Events & Celebrations",
-        "ru": "Мероприятия и торжества"
+        "ru": "Мероприятия и Торжества"
       },
       "description": {
         "en": "Host your dream wedding, anniversary, or corporate event in our oceanfront venue. European and traditional Balinese ceremonies, full catering, and professional planning.",
@@ -63,11 +63,11 @@
     {
       "title": {
         "en": "Car & Bike Rental",
-        "ru": "Аренда авто и мото"
+        "ru": "Аренда Авто и Мото"
       },
       "description": {
-        "en": "Explore Bali at your own pace. Rent a scooter from Rp 20,000/hour, a car with or without driver, or try our electric bikes for an eco-friendly adventure.",
-        "ru": "Исследуйте Бали в своём темпе. Арендуйте скутер от Rp 20,000/час, автомобиль с водителем или без, или попробуйте наши электровелосипеды для экологичного путешествия."
+        "en": "Scooter, car with or without driver, electric bike. Hotel pickup and drop-off. Explore East Bali, Ubud, Kintamani, and beyond at your own pace.",
+        "ru": "Скутер, автомобиль с водителем или без него, электровелосипед. Удобный трансфер из отеля и обратно. Исследуйте Восточный Бали, Убуд, Кинтамани и окрестности в удобном для вас ритме."
       },
       "image": "/images/rental/rental.png",
       "imageAlt": {
@@ -79,13 +79,13 @@
     {
       "title": {
         "en": "Ayurvedic Spa",
-        "ru": "Аюрведический спа"
+        "ru": "Аюрведический Спа"
       },
       "description": {
         "en": "Restore balance with authentic Ayurvedic treatments and traditional Balinese therapies, delivered by therapists trained under Kerala masters.",
         "ru": "Восстановите баланс с помощью аутентичных аюрведических процедур и традиционных балийских терапий от мастеров, обученных в Керале."
       },
-      "image": "/images/gallery/g3.jpg",
+      "image": "/images/experiences/experiences-ayurvedic-spa.jpg",
       "imageAlt": {
         "en": "Ayurvedic Spa Treatment Room with Tropical Garden View",
         "ru": "Кабинет аюрведического спа с видом на тропический сад"

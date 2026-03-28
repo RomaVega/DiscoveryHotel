@@ -15,12 +15,12 @@ interface NavbarProps {
   scrollThreshold?: number; // pixels from top before navbar appears, default 80
 }
 
-/** Shared brand text — centered on mobile */
+/** Shared brand text */
 function BrandText() {
   return (
     <Link href="/" className="font-serif font-semibold text-black tracking-widest uppercase leading-tight text-[17px] text-center">
-      <span className="block lg:inline">Orlowsky</span>
-      <span className="block lg:inline"><span className="hidden lg:inline">{" "}</span>Discovery Candidasa</span>
+      <span className="block">Orlowsky</span>
+      <span className="block">Discovery Candidasa</span>
     </Link>
   );
 }
