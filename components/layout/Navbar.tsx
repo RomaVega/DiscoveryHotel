@@ -15,6 +15,25 @@ interface NavbarProps {
   scrollThreshold?: number; // pixels from top before navbar appears, default 80
 }
 
+/** Shared brand logo + text — used in both navbar and drawer so they match exactly */
+function BrandLogo() {
+  return (
+    <Link href="/" className="flex items-center gap-2">
+      <Image
+        src="/images/logo/logo-dark.svg"
+        alt="Orlowsky Discovery Hotel"
+        width={44}
+        height={44}
+        unoptimized
+        className="object-contain shrink-0"
+      />
+      <span className="font-serif font-semibold text-black tracking-wide uppercase leading-tight text-base">
+        Orlowsky{" "}<span className="whitespace-nowrap">Discovery Candidasa</span>
+      </span>
+    </Link>
+  );
+}
+
 export function Navbar({ alwaysVisible = false, scrollThreshold = 80 }: NavbarProps) {
   const [scrolled, setScrolled] = useState(alwaysVisible);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -68,27 +87,16 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80 }: NavbarPr
 
         <nav className="max-w-7xl mx-auto flex items-center justify-between px-8 lg:px-6 py-3">
           {/* Logo */}
-          <Link
-            href="/"
+          <div
             className={cn(
-              "flex items-center gap-2 transition-all duration-500",
+              "transition-all duration-500",
               scrolled
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 -translate-y-2 pointer-events-none"
             )}
           >
-            <Image
-              src="/images/logo/logo-dark.svg"
-              alt="Orlowsky Discovery Hotel"
-              width={44}
-              height={44}
-              unoptimized
-              className="object-contain shrink-0"
-            />
-            <span className="font-serif font-semibold text-black tracking-wide uppercase leading-tight text-base text-center">
-              Orlowsky Discovery Candidasa
-            </span>
-          </Link>
+            <BrandLogo />
+          </div>
 
           {/* Desktop navigation */}
           <ul className="hidden lg:flex items-center gap-4 xl:gap-6">
@@ -160,21 +168,9 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80 }: NavbarPr
             exit={{ opacity: 0 }}
             transition={{ duration: 0.35, ease: "easeInOut" }}
           >
-            {/* Header row — matches navbar exactly */}
+            {/* Header row — identical to navbar */}
             <div className="flex items-center justify-between px-8 py-3 border-b border-charcoal/10 shrink-0">
-              <div className="flex items-center gap-2">
-                <Image
-                  src="/images/logo/logo-dark.svg"
-                  alt="Orlowsky Discovery Hotel"
-                  width={44}
-                  height={44}
-                  unoptimized
-                  className="object-contain shrink-0"
-                />
-                <span className="font-serif font-semibold text-black tracking-wide uppercase leading-tight text-base text-center">
-                  Orlowsky Discovery Candidasa
-                </span>
-              </div>
+              <BrandLogo />
               <button
                 onClick={closeMenu}
                 aria-label="Close menu"
@@ -184,8 +180,8 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80 }: NavbarPr
               </button>
             </div>
 
-            {/* Nav links — centered vertically */}
-            <nav className="flex flex-col flex-1 justify-center items-center px-8 text-center overflow-y-auto">
+            {/* Nav links — centered in full remaining space */}
+            <nav className="flex-1 flex flex-col justify-center px-8 text-center">
               {links.map((link, i) => (
                 <motion.div
                   key={link.href}
@@ -214,8 +210,8 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80 }: NavbarPr
               ))}
             </nav>
 
-            {/* Bottom actions — Book Stay + Language */}
-            <div className="shrink-0 flex flex-col items-center gap-6 px-8 py-8">
+            {/* Bottom actions — pinned to bottom */}
+            <div className="shrink-0 flex flex-col items-center gap-5 px-8 pb-8 pt-4">
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -235,6 +231,7 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80 }: NavbarPr
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.3, delay: 0.55 }}
+                className="mt-3"
               >
                 <LanguageSelector variant="dark" />
               </motion.div>
