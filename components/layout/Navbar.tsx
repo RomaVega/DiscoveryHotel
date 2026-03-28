@@ -202,14 +202,12 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80 }: NavbarPr
                     href={link.href}
                     onClick={closeMenu}
                     className={cn(
-                      "relative flex items-center justify-center py-5 font-serif text-2xl font-semibold tracking-wide transition-colors duration-200",
+                      "relative flex items-center justify-center gap-3 py-5 font-serif text-2xl font-semibold tracking-wide transition-colors duration-200",
                       isActive(link.href) ? "text-black" : "text-charcoal/70 hover:text-black"
                     )}
                   >
-                    <span className="relative">
-                      <link.icon size={20} strokeWidth={1.5} className="text-brand-teal shrink-0 absolute right-full mr-3 top-1/2 -translate-y-1/2" />
-                      {link.label}
-                    </span>
+                    <link.icon size={20} strokeWidth={1.5} className="text-brand-teal shrink-0" />
+                    {link.label}
                   </Link>
                   <div className="h-px bg-charcoal/10" />
                 </motion.div>
