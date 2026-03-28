@@ -15,10 +15,20 @@ interface NavbarProps {
   scrollThreshold?: number; // pixels from top before navbar appears, default 80
 }
 
-/** Shared brand logo + text — used in both navbar and drawer so they match exactly */
+/** Shared brand text — centered on mobile */
+function BrandText() {
+  return (
+    <Link href="/" className="font-serif font-semibold text-black tracking-widest uppercase leading-tight text-[17px] text-center">
+      <span className="block lg:inline">Orlowsky</span>
+      <span className="block lg:inline"><span className="hidden lg:inline">{" "}</span>Discovery Candidasa</span>
+    </Link>
+  );
+}
+
+/** Shared brand logo — absolute left on mobile, inline on desktop */
 function BrandLogo() {
   return (
-    <Link href="/" className="flex items-center gap-2">
+    <Link href="/" className="absolute left-8 top-1/2 -translate-y-1/2 lg:static lg:translate-y-0">
       <Image
         src="/images/logo/logo-dark.svg"
         alt="Orlowsky Discovery Hotel"
@@ -27,10 +37,6 @@ function BrandLogo() {
         unoptimized
         className="object-contain shrink-0"
       />
-      <span className="font-serif font-semibold text-black tracking-widest uppercase leading-tight text-[17px] text-center">
-        <span className="block lg:inline">Orlowsky</span>
-        <span className="block lg:inline"><span className="hidden lg:inline">{" "}</span>Discovery Candidasa</span>
-      </span>
     </Link>
   );
 }
@@ -94,17 +100,18 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80 }: NavbarPr
           {tl.nav.skipToContent}
         </a>
 
-        <nav className="max-w-7xl mx-auto flex items-center justify-between px-8 lg:px-6 py-3">
-          {/* Logo */}
+        <nav className="relative max-w-7xl mx-auto flex items-center justify-center lg:justify-between px-8 lg:px-6 py-3">
+          {/* Logo + Brand text */}
           <div
             className={cn(
-              "transition-all duration-500",
+              "flex items-center gap-2 transition-all duration-500",
               scrolled
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 -translate-y-2 pointer-events-none"
             )}
           >
             <BrandLogo />
+            <BrandText />
           </div>
 
           {/* Desktop navigation */}
@@ -149,8 +156,8 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80 }: NavbarPr
             </li>
           </ul>
 
-          {/* Mobile right side — hamburger only */}
-          <div className="lg:hidden flex items-center gap-2">
+          {/* Mobile right side — hamburger absolute so brand stays centered */}
+          <div className="lg:hidden absolute right-8 top-1/2 -translate-y-1/2">
             <button
               className={cn(
                 "p-2 -mr-2 focus-visible:ring-2 focus-visible:ring-brand-teal transition-all duration-300",
@@ -178,12 +185,13 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80 }: NavbarPr
             transition={{ duration: 0.35, ease: "easeInOut" }}
           >
             {/* Header row — identical to navbar */}
-            <div className="flex items-center justify-between px-8 py-3 border-b border-charcoal/10 shrink-0">
+            <div className="relative flex items-center justify-center px-8 py-3 border-b border-charcoal/10 shrink-0">
               <BrandLogo />
+              <BrandText />
               <button
                 onClick={closeMenu}
                 aria-label="Close menu"
-                className="p-2 -mr-2 text-charcoal/60 hover:text-charcoal transition-colors shrink-0"
+                className="absolute right-8 top-1/2 -translate-y-1/2 p-2 -mr-2 text-charcoal/60 hover:text-charcoal transition-colors"
               >
                 <X size={24} />
               </button>
