@@ -57,9 +57,17 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80 }: NavbarPr
   }, [alwaysVisible, scrollThreshold]);
 
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "";
+    if (menuOpen) {
+      const scrollbarW = window.innerWidth - document.documentElement.clientWidth;
+      document.body.style.overflow = "hidden";
+      document.body.style.paddingRight = `${scrollbarW}px`;
+    } else {
+      document.body.style.overflow = "";
+      document.body.style.paddingRight = "";
+    }
     return () => {
       document.body.style.overflow = "";
+      document.body.style.paddingRight = "";
     };
   }, [menuOpen]);
 

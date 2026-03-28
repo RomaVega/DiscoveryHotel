@@ -166,19 +166,51 @@ export function RoomSlideshow({
       {/* Dots — always on mobile, hidden on desktop when thumbnails handle navigation */}
       {(!onNavigate || true) && (
         <div className={cn("absolute bottom-3 left-0 right-0 flex justify-center gap-1.5 z-10", onNavigate && "lg:hidden")} role="tablist">
-          {images.map((_, i) => (
-            <button
-              key={i}
-              role="tab"
-              aria-selected={i === current}
-              aria-label={`Photo ${i + 1} of ${images.length}`}
-              onClick={() => setCurrent(i)}
-              className={cn(
-                "h-1.5 rounded-full transition-all duration-300",
-                i === current ? "w-5 bg-white" : "w-1.5 bg-white/50 hover:bg-white/80"
-              )}
-            />
-          ))}
+          {images.map((_, i) => {
+            const total = images.length;
+            const maxVisible = 7;
+            if (total > maxVisible) {
+              // Sliding window: show maxVisible dots centered on current
+              let start = current - Math.floor(maxVisible / 2);
+              let end = start + maxVisible;
+              if (start < 0) { start = 0; end = maxVisible; }
+              if (end > total) { end = total; start = total - maxVisible; }
+              if (i < start || i >= end) return null;
+              // Scale down edge dots
+              const distFromEdge = Math.min(i - start, end - 1 - i);
+              const isEdge = distFromEdge === 0;
+              return (
+                <button
+                  key={i}
+                  role="tab"
+                  aria-selected={i === current}
+                  aria-label={`Photo ${i + 1} of ${total}`}
+                  onClick={() => setCurrent(i)}
+                  className={cn(
+                    "rounded-full transition-all duration-300",
+                    i === current
+                      ? "h-1.5 w-5 bg-white"
+                      : isEdge
+                        ? "h-1 w-1 bg-white/30"
+                        : "h-1.5 w-1.5 bg-white/50 hover:bg-white/80"
+                  )}
+                />
+              );
+            }
+            return (
+              <button
+                key={i}
+                role="tab"
+                aria-selected={i === current}
+                aria-label={`Photo ${i + 1} of ${total}`}
+                onClick={() => setCurrent(i)}
+                className={cn(
+                  "h-1.5 rounded-full transition-all duration-300",
+                  i === current ? "w-5 bg-white" : "w-1.5 bg-white/50 hover:bg-white/80"
+                )}
+              />
+            );
+          })}
         </div>
       )}
 
