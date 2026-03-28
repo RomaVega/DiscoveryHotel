@@ -141,26 +141,6 @@ export function GalleryPreview({ data, defaultExpanded = false, hideHeading = fa
           )}
         </div>
 
-        <FadeIn>
-          <div className="mt-12 text-center">
-            <SecondaryButton
-              onClick={() => {
-                const wasExpanded = expanded;
-                setExpanded(!expanded);
-                if (wasExpanded && sectionRef.current) {
-                  setTimeout(() => {
-                    const navEl = document.querySelector("nav");
-                    const navHeight = navEl?.getBoundingClientRect().height ?? 72;
-                    const sectionTop = sectionRef.current!.getBoundingClientRect().top + window.scrollY;
-                    window.scrollTo({ top: sectionTop - navHeight, behavior: "smooth" });
-                  }, 50);
-                }
-              }}
-            >
-              {expanded ? tl.gallery.showLess : tl.gallery.showMore}
-            </SecondaryButton>
-          </div>
-        </FadeIn>
       </div>
 
       {/* Lightbox */}

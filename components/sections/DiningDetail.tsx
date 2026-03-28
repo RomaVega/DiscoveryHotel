@@ -14,6 +14,9 @@ const FEATURE_IMAGES = [
   "/images/restaurant/buffet.jpg",
   "/images/restaurant/bar-drinks-and-coctails.jpg",
   "/images/restaurant/room-service.png",
+  "/images/restaurant/chef-specials.jpg",
+  "/images/restaurant/cultural-performance.jpg",
+  "/images/restaurant/celebration-menu.jpeg",
 ];
 
 interface DiningDetailProps {
@@ -117,6 +120,16 @@ export function DiningDetail({ data }: DiningDetailProps) {
                     <p className="text-stone leading-relaxed text-[15px]">
                       {t(feature.description)}
                     </p>
+                    {i === 5 && (
+                      <a
+                        href="https://secure.guestpro.net/odch/concierge/room-dining"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-6 inline-block font-sans text-sm font-semibold text-brand-teal hover:text-deep-teal underline underline-offset-4 transition-colors"
+                      >
+                        {isRu ? "Открыть полное меню →" : "View Full Digital Menu →"}
+                      </a>
+                    )}
                   </div>
                 </div>
               </FadeIn>

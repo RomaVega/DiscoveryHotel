@@ -14,7 +14,7 @@ export const metadata = {
     title: "Photo Gallery — Orlowsky Discovery Hotel, Candidasa, Bali",
     description: "Photos of Orlowsky Discovery Hotel — pool villas, tropical gardens, oceanfront restaurant, Ayurvedic spa, and the beaches of Candidasa, East Bali.",
     url: `${SITE_URL}/gallery`,
-    images: [{ url: `${SITE_URL}/images/gallery/g4.jpg`, width: 1200, height: 630 }],
+    images: [{ url: `${SITE_URL}/images/gallery/gallery-hero-orlowsky-discovery-hotel-candidasa.jpg`, width: 1200, height: 630 }],
   },
 };
 
@@ -25,10 +25,11 @@ export default function GalleryPage() {
   return (
     <InnerPageLayout contact={contact}>
       <PageHero
-        image="/images/gallery/g4.jpg"
-        imageAlt="Aerial view of hotel and tropical gardens"
+        image="/images/gallery/gallery-hero-orlowsky-discovery-hotel-candidasa.jpg"
+        imageAlt="Aerial view of Orlowsky Discovery Hotel, Candidasa, East Bali"
         heading={data.galleryPreview.heading}
         subtext={data.galleryPreview.subtext}
+        noOverlay
       />
       <GalleryPreview data={data.galleryPreview} defaultExpanded hideHeading />
     </InnerPageLayout>

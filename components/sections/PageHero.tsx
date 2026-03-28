@@ -32,7 +32,7 @@ export function PageHero({ image, imageAlt, heading, subtext, noOverlay }: PageH
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-shadow-strong"
+          className={`font-serif text-4xl md:text-5xl lg:text-6xl font-light ${noOverlay ? "text-shadow-tight" : "text-shadow-strong"}`}
         >
           {t(heading)}
         </motion.h1>
@@ -41,7 +41,7 @@ export function PageHero({ image, imageAlt, heading, subtext, noOverlay }: PageH
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="mt-4 max-w-2xl font-sans text-base md:text-lg text-white/90 leading-relaxed text-shadow-strong"
+            className={`mt-4 max-w-2xl font-sans text-base md:text-lg text-white/90 leading-relaxed ${noOverlay ? "text-shadow-tight" : "text-shadow-strong"}`}
           >
             {t(subtext)}
           </motion.p>

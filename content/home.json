@@ -652,48 +652,52 @@
     },
     "images": [
       {
-        "src": "/images/gallery/g1.jpg",
-        "alt": "Tropical garden and bungalows at Orlowsky Discovery Hotel, Candidasa"
+        "src": "/images/gallery/orlowsky-hotel-beachfront-exterior-candidasa.jpg",
+        "alt": "Beachfront exterior of Orlowsky Discovery Hotel, Candidasa, East Bali"
       },
       {
-        "src": "/images/gallery/g2.jpg",
-        "alt": "Private swimming pool surrounded by palm trees, Orlowsky Discovery Hotel"
+        "src": "/images/gallery/orlowsky-hotel-two-story-villa-private-pool.jpg",
+        "alt": "Two-storey villa with private pool at Orlowsky Discovery Hotel, Candidasa"
       },
       {
-        "src": "/images/gallery/g3.jpg",
-        "alt": "Garden walkway at Orlowsky Discovery Hotel, East Bali"
+        "src": "/images/gallery/orlowsky-hotel-private-villa-pool-east-bali.jpg",
+        "alt": "Private villa pool surrounded by tropical garden, Orlowsky Discovery Hotel"
       },
       {
-        "src": "/images/gallery/g4.jpg",
-        "alt": "Aerial view of Orlowsky Discovery Hotel, Candidasa, East Bali"
+        "src": "/images/gallery/orlowsky-hotel-infinity-pool-beachfront-candidasa.jpg",
+        "alt": "Infinity pool overlooking the beach at Orlowsky Discovery Hotel, Candidasa"
       },
       {
-        "src": "/images/gallery/g5.jpg",
-        "alt": "Beachfront at Candidasa with views across the Bali Sea"
+        "src": "/images/gallery/orlowsky-hotel-garden-villa-tropical-landscape.jpg",
+        "alt": "Garden villa among tropical landscape at Orlowsky Discovery Hotel, Bali"
       },
       {
-        "src": "/images/gallery/g6.jpg",
-        "alt": "Candidasa coastline from Orlowsky Discovery Hotel, Karangasem"
+        "src": "/images/gallery/orlowsky-hotel-oceanfront-terrace-deck.jpg",
+        "alt": "Oceanfront terrace deck at Orlowsky Discovery Hotel, Candidasa"
       },
       {
-        "src": "/images/gallery/g7.jpg",
-        "alt": "Hotel room interior at Orlowsky Discovery Hotel, Candidasa"
+        "src": "/images/gallery/orlowsky-hotel-restaurant-bar-candidasa.jpg",
+        "alt": "Restaurant and bar interior at Orlowsky Discovery Hotel, Candidasa"
       },
       {
-        "src": "/images/gallery/g8.jpg",
-        "alt": "Tropical flowers and garden at Orlowsky Discovery Hotel, Bali"
+        "src": "/images/gallery/orlowsky-hotel-luxury-bedroom-garden-doors.jpg",
+        "alt": "Luxury bedroom with garden-facing doors at Orlowsky Discovery Hotel, Bali"
       },
       {
-        "src": "/images/gallery/g9.jpg",
-        "alt": "Oceanfront restaurant terrace at Orlowsky Discovery Hotel, Candidasa"
+        "src": "/images/gallery/orlowsky-hotel-villa-living-room-ocean-view.jpg",
+        "alt": "Villa living room with ocean view at Orlowsky Discovery Hotel, East Bali"
       },
       {
-        "src": "/images/gallery/g10.jpg",
-        "alt": "Hotel pool at sunset, Orlowsky Discovery Hotel, East Bali"
+        "src": "/images/gallery/orlowsky-hotel-beach-pavilion-ocean-view.jpg",
+        "alt": "Beach pavilion with ocean view at Orlowsky Discovery Hotel, Candidasa"
       },
       {
-        "src": "/images/gallery/g11.jpg",
-        "alt": "Balinese architecture and tropical greenery at Orlowsky Discovery Hotel"
+        "src": "/images/gallery/orlowsky-hotel-yoga-deck-ocean-view.jpg",
+        "alt": "Yoga deck with ocean view at Orlowsky Discovery Hotel, East Bali"
+      },
+      {
+        "src": "/images/gallery/orlowsky-hotel-jetty-ocean-view-candidasa.jpg",
+        "alt": "Jetty and ocean view from Orlowsky Discovery Hotel, Candidasa, Bali"
       }
     ],
     "subtext": {
