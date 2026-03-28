@@ -28,7 +28,8 @@ function BrandLogo() {
         className="object-contain shrink-0"
       />
       <span className="font-serif font-semibold text-black tracking-widest uppercase leading-tight text-[17px] text-center">
-        Orlowsky{" "}<span className="whitespace-nowrap">Discovery Candidasa</span>
+        <span className="block lg:inline">Orlowsky</span>
+        <span className="block lg:inline"><span className="hidden lg:inline">{" "}</span>Discovery Candidasa</span>
       </span>
     </Link>
   );
