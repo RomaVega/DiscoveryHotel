@@ -160,32 +160,33 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80 }: NavbarPr
             exit={{ opacity: 0 }}
             transition={{ duration: 0.35, ease: "easeInOut" }}
           >
-            {/* Header row — centered logo + brand, close top-right */}
-            <div className="flex items-center justify-between px-8 py-3 border-b border-charcoal/10">
+            {/* Header row — logo + brand, close top-right */}
+            <div className="flex items-center justify-between px-8 py-3 border-b border-charcoal/10 shrink-0">
               <div className="flex items-center gap-2">
                 <Image
                   src="/images/logo/logo-dark.svg"
                   alt="Orlowsky Discovery Hotel"
-                  width={44}
-                  height={44}
+                  width={40}
+                  height={40}
                   unoptimized
                   className="object-contain shrink-0"
                 />
-                <span className="font-serif font-semibold text-black tracking-wide uppercase leading-tight">
-                  <span className="text-base text-black">Orlowsky Discovery Candidasa</span>
+                <span className="font-serif font-semibold text-black tracking-wide uppercase leading-tight text-sm">
+                  <span className="block">Orlowsky</span>
+                  <span className="block">Discovery Candidasa</span>
                 </span>
               </div>
               <button
                 onClick={closeMenu}
                 aria-label="Close menu"
-                className="p-2 -mr-2 text-charcoal/60 hover:text-charcoal transition-colors"
+                className="p-2 -mr-2 text-charcoal/60 hover:text-charcoal transition-colors shrink-0"
               >
                 <X size={22} />
               </button>
             </div>
 
-            {/* Nav links */}
-            <nav className="flex flex-col flex-1 justify-center items-center px-8 text-center">
+            {/* Nav links — centered vertically */}
+            <nav className="flex flex-col flex-1 justify-center items-center px-8 text-center overflow-y-auto">
               {links.map((link, i) => (
                 <motion.div
                   key={link.href}
@@ -202,7 +203,7 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80 }: NavbarPr
                     href={link.href}
                     onClick={closeMenu}
                     className={cn(
-                      "relative flex items-center justify-center gap-3 py-5 font-serif text-2xl font-semibold tracking-wide transition-colors duration-200",
+                      "flex items-center justify-center gap-3 py-4 font-serif text-2xl font-semibold tracking-wide transition-colors duration-200",
                       isActive(link.href) ? "text-black" : "text-charcoal/70 hover:text-black"
                     )}
                   >
@@ -212,12 +213,14 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80 }: NavbarPr
                   <div className="h-px bg-charcoal/10" />
                 </motion.div>
               ))}
+            </nav>
 
+            {/* Bottom actions — Book Stay + Language */}
+            <div className="shrink-0 flex flex-col items-center gap-4 px-8 py-6 border-t border-charcoal/10">
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.3, delay: 0.45 }}
-                className="mt-24 flex justify-center"
               >
                 <a
                   href="https://secure.guestpro.net/odch"
@@ -233,11 +236,10 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80 }: NavbarPr
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.3, delay: 0.55 }}
-                className="mt-6 flex justify-center"
               >
                 <LanguageSelector variant="dark" />
               </motion.div>
-            </nav>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
