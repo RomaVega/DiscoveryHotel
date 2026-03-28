@@ -29,6 +29,7 @@ export default function RoomsPage() {
         imageAlt="Aerial view of pool villas surrounded by tropical gardens"
         heading={data.heading}
         subtext={data.subtext}
+        noOverlay
       />
       <RoomsDetail data={data} />
     </InnerPageLayout>

@@ -49,7 +49,7 @@ export function DiningPreview() {
                 href={tableUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-sans text-[11px] tracking-[0.2em] uppercase text-brand-teal hover:text-deep-teal transition-colors duration-200 self-start"
+                className="font-sans text-[11px] tracking-[0.2em] uppercase text-brand-teal hover:text-deep-teal transition-colors duration-200 self-center"
               >
                 {isRu ? "Написать в WhatsApp →" : "Message on WhatsApp →"}
               </a>
@@ -72,7 +72,7 @@ export function DiningPreview() {
                 href={roomUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-sans text-[11px] tracking-[0.2em] uppercase text-brand-teal hover:text-deep-teal transition-colors duration-200 self-start"
+                className="font-sans text-[11px] tracking-[0.2em] uppercase text-brand-teal hover:text-deep-teal transition-colors duration-200 self-center"
               >
                 {isRu ? "Заказать онлайн →" : "Order Online →"}
               </a>

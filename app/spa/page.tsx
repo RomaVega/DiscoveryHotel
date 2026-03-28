@@ -29,6 +29,7 @@ export default function SpaPage() {
         imageAlt={data.imageAlt}
         heading={data.heading}
         subtext={data.subtext}
+        noOverlay
       />
       <SpaDetail data={data} />
     </InnerPageLayout>

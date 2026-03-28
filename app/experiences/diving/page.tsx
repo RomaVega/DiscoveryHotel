@@ -29,6 +29,7 @@ export default function DivingPage() {
         imageAlt="Scuba diver observing hawksbill sea turtle on coral reef, Candidasa, Bali"
         heading={data.heading}
         subtext={data.subtext}
+        noOverlay
       />
       <DivingDetail data={data} />
     </InnerPageLayout>

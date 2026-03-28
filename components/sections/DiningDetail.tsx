@@ -100,7 +100,7 @@ export function DiningDetail({ data }: DiningDetailProps) {
             const bg = i % 2 === 0 ? "bg-sand" : "bg-ivory";
             return (
               <FadeIn key={i}>
-                <div className={`flex flex-col lg:flex-row items-stretch ${i % 2 === 1 ? "lg:flex-row-reverse" : ""}`}>
+                <div className={`${bg} flex flex-col lg:flex-row items-stretch ${i % 2 === 1 ? "lg:flex-row-reverse" : ""}`}>
                   {/* Image */}
                   <div className="relative aspect-[4/3] lg:w-1/2 lg:aspect-auto lg:min-h-[420px] overflow-hidden">
                     <Image
@@ -112,7 +112,7 @@ export function DiningDetail({ data }: DiningDetailProps) {
                     />
                   </div>
                   {/* Text */}
-                  <div className={`lg:w-1/2 ${bg} flex flex-col justify-center px-10 md:px-16 lg:px-20 py-14`}>
+                  <div className="lg:w-1/2 flex flex-col justify-center px-10 md:px-16 lg:px-20 py-14">
                     <h3 className="font-serif text-3xl md:text-4xl font-light text-charcoal leading-tight">
                       {t(feature.title)}
                     </h3>

@@ -29,6 +29,7 @@ export default function ExperiencesPage() {
         imageAlt="Lush green rice terraces in East Bali"
         heading={data.heading}
         subtext={data.subtext}
+        noOverlay
       />
       <ExperiencesHub data={data} />
     </InnerPageLayout>

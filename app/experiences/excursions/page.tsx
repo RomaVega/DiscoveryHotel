@@ -29,6 +29,7 @@ export default function ExcursionsPage() {
         imageAlt="Bali temple with lush tropical gardens"
         heading={data.heading}
         subtext={data.subtext}
+        noOverlay
       />
       <ExcursionsDetail data={data} />
     </InnerPageLayout>

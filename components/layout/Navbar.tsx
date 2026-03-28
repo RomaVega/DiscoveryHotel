@@ -16,9 +16,9 @@ interface NavbarProps {
 }
 
 /** Shared brand text */
-function BrandText() {
+function BrandText({ onClick }: { onClick?: () => void }) {
   return (
-    <Link href="/" className="font-serif font-semibold text-black tracking-widest uppercase leading-tight text-[17px] text-center">
+    <Link href="/" onClick={onClick} className="font-serif font-semibold text-black tracking-widest uppercase leading-tight text-[17px] text-center">
       <span className="block">Orlowsky</span>
       <span className="block">Discovery Candidasa</span>
     </Link>
@@ -26,9 +26,9 @@ function BrandText() {
 }
 
 /** Shared brand logo — absolute left on mobile, inline on desktop */
-function BrandLogo() {
+function BrandLogo({ onClick }: { onClick?: () => void }) {
   return (
-    <Link href="/" className="absolute left-8 top-1/2 -translate-y-1/2 lg:static lg:translate-y-0">
+    <Link href="/" onClick={onClick} className="absolute left-8 top-1/2 -translate-y-1/2 lg:static lg:translate-y-0">
       <Image
         src="/images/logo/logo-dark.svg"
         alt="Orlowsky Discovery Hotel"
@@ -80,6 +80,11 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80 }: NavbarPr
 
   const closeMenu = useCallback(() => setMenuOpen(false), []);
 
+  const handleBrandClick = useCallback(() => {
+    closeMenu();
+    if (pathname === "/") window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [closeMenu, pathname]);
+
   const isActive = (href: string) =>
     pathname === href || (href !== "/" && pathname.startsWith(href + "/"));
 
@@ -101,17 +106,35 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80 }: NavbarPr
         </a>
 
         <nav className="relative max-w-7xl mx-auto flex items-center justify-center lg:justify-between px-8 lg:px-6 py-3">
-          {/* Logo + Brand text */}
+          {/* Logo — absolute on mobile, static on desktop, fades independently */}
+          <div className={cn(
+            "transition-opacity duration-500 lg:hidden",
+            scrolled ? "opacity-100" : "opacity-0 pointer-events-none"
+          )}>
+            <BrandLogo onClick={handleBrandClick} />
+          </div>
+          {/* Brand text + logo on desktop */}
           <div
             className={cn(
-              "flex items-center gap-2 transition-all duration-500",
+              "hidden lg:flex items-center gap-2 transition-all duration-500",
               scrolled
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 -translate-y-2 pointer-events-none"
             )}
           >
-            <BrandLogo />
-            <BrandText />
+            <BrandLogo onClick={handleBrandClick} />
+            <BrandText onClick={handleBrandClick} />
+          </div>
+          {/* Brand text mobile — fades with slide */}
+          <div
+            className={cn(
+              "lg:hidden transition-all duration-500",
+              scrolled
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 -translate-y-2 pointer-events-none"
+            )}
+          >
+            <BrandText onClick={handleBrandClick} />
           </div>
 
           {/* Desktop navigation */}
@@ -186,8 +209,8 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80 }: NavbarPr
           >
             {/* Header row — identical to navbar */}
             <div className="relative flex items-center justify-center px-8 py-3 border-b border-charcoal/10 shrink-0">
-              <BrandLogo />
-              <BrandText />
+              <BrandLogo onClick={handleBrandClick} />
+              <BrandText onClick={handleBrandClick} />
               <button
                 onClick={closeMenu}
                 aria-label="Close menu"

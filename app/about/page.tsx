@@ -29,6 +29,7 @@ export default function AboutPage() {
         imageAlt="Tropical garden and pool area of the hotel"
         heading={data.heading}
         subtext={data.subtext}
+        noOverlay
       />
       <AboutDetail data={data} />
     </InnerPageLayout>

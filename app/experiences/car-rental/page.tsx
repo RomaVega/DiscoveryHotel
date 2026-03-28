@@ -29,6 +29,7 @@ export default function CarRentalPage() {
         imageAlt="Scooter on a scenic Bali road"
         heading={data.heading}
         subtext={data.subtext}
+        noOverlay
       />
       <CarRentalDetail data={data} />
     </InnerPageLayout>
