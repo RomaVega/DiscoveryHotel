@@ -2,7 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { MessageCircle, Mail, MapPin } from "lucide-react";
+import {
+  MessageCircle, Mail, MapPin,
+  BedDouble, UtensilsCrossed, Compass, Tag, ImageIcon, Info,
+  Map, Waves, CalendarDays, Car, Sparkles,
+  type LucideIcon,
+} from "lucide-react";
 import type { ContactData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
 import { socialIconMap } from "@/lib/social-icons";
@@ -19,21 +24,21 @@ export function Footer({ contact }: FooterProps) {
   const ruContacts = contact.whatsappContacts.filter((c) => c.locale === "ru");
   const enContacts = contact.whatsappContacts.filter((c) => c.locale === "en");
 
-  const footerLinks = [
-    { label: tl.footer.links.rooms, href: "/rooms" },
-    { label: tl.footer.links.amenities, href: "/dining" },
-    { label: tl.footer.links.experiences, href: "/experiences" },
-    { label: tl.footer.links.offers, href: "/offers" },
-    { label: tl.footer.links.gallery, href: "/gallery" },
-    { label: tl.footer.links.about, href: "/about" },
+  const footerLinks: { label: string; href: string; icon: LucideIcon }[] = [
+    { label: tl.footer.links.rooms,       href: "/rooms",       icon: BedDouble },
+    { label: tl.footer.links.amenities,   href: "/dining",      icon: UtensilsCrossed },
+    { label: tl.footer.links.experiences, href: "/experiences", icon: Compass },
+    { label: tl.footer.links.offers,      href: "/offers",      icon: Tag },
+    { label: tl.footer.links.gallery,     href: "/gallery",     icon: ImageIcon },
+    { label: tl.footer.links.about,       href: "/about",       icon: Info },
   ];
 
-  const experienceLinks = [
-    { label: tl.footer.experienceLinks.excursions, href: "/experiences/excursions" },
-    { label: tl.footer.experienceLinks.diving,     href: "/experiences/diving" },
-    { label: tl.footer.experienceLinks.events,     href: "/experiences/events" },
-    { label: tl.footer.experienceLinks.carRental,  href: "/experiences/car-rental" },
-    { label: tl.footer.experienceLinks.spa,        href: "/spa" },
+  const experienceLinks: { label: string; href: string; icon: LucideIcon }[] = [
+    { label: tl.footer.experienceLinks.excursions, href: "/experiences/excursions", icon: Map },
+    { label: tl.footer.experienceLinks.diving,     href: "/experiences/diving",     icon: Waves },
+    { label: tl.footer.experienceLinks.events,     href: "/experiences/events",     icon: CalendarDays },
+    { label: tl.footer.experienceLinks.carRental,  href: "/experiences/car-rental", icon: Car },
+    { label: tl.footer.experienceLinks.spa,        href: "/spa",                    icon: Sparkles },
   ];
 
   return (
@@ -234,13 +239,14 @@ export function Footer({ contact }: FooterProps) {
             <h4 className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/50 mb-4 sm:mb-5 underline underline-offset-4 decoration-charcoal/20">
               {tl.footer.experiences}
             </h4>
-            <ul className="space-y-1.5">
+            <ul className="space-y-1.5 flex flex-col items-center md:items-start">
               {experienceLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="font-sans text-[13px] sm:text-sm text-charcoal/60 hover:text-charcoal transition-colors duration-200"
+                    className="relative inline-flex items-center gap-2 font-sans text-[13px] sm:text-sm text-charcoal/60 hover:text-charcoal transition-colors duration-200"
                   >
+                    <link.icon size={13} className="absolute -left-5 top-1/2 -translate-y-1/2 md:static md:translate-y-0 text-brand-teal shrink-0" strokeWidth={1.5} />
                     {link.label}
                   </Link>
                 </li>
@@ -253,13 +259,14 @@ export function Footer({ contact }: FooterProps) {
             <h4 className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/50 mb-4 sm:mb-5 underline underline-offset-4 decoration-charcoal/20">
               {tl.footer.explore}
             </h4>
-            <ul className="space-y-1.5">
+            <ul className="space-y-1.5 flex flex-col items-center md:items-start">
               {footerLinks.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="font-sans text-[13px] sm:text-sm text-charcoal/60 hover:text-charcoal transition-colors duration-200"
+                    className="relative inline-flex items-center gap-2 font-sans text-[13px] sm:text-sm text-charcoal/60 hover:text-charcoal transition-colors duration-200"
                   >
+                    <link.icon size={13} className="absolute -left-5 top-1/2 -translate-y-1/2 md:static md:translate-y-0 text-brand-teal shrink-0" strokeWidth={1.5} />
                     {link.label}
                   </Link>
                 </li>

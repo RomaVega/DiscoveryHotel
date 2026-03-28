@@ -41,7 +41,7 @@ export function Experiences({ data }: ExperiencesProps) {
                 <div className="p-5 md:p-8 flex flex-col flex-1">
                   <h3 className="font-serif text-2xl font-semibold text-charcoal">{t(item.title)}</h3>
                   <p className="mt-2 text-stone leading-relaxed flex-1">{t(item.description)}</p>
-                  <div className="mt-6">
+                  <div className="mt-6 flex justify-center md:justify-start">
                     <span className="inline-block bg-transparent border border-brand-teal text-brand-teal hover:bg-brand-teal hover:text-white hover:scale-[1.04] active:scale-[0.97] font-sans font-semibold px-5 py-2 rounded-full tracking-wide text-xs transition-all duration-300">
                       {t({ en: "See More", ru: "Подробнее" })}
                     </span>

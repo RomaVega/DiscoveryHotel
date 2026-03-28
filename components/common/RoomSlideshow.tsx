@@ -65,6 +65,22 @@ export function RoomSlideshow({
     setCurrent((current + 1) % images.length);
   }, [images.length, setCurrent, current]);
 
+  const touchStartX = useRef<number | null>(null);
+
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  }, []);
+
+  const handleTouchEnd = useCallback((e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const dx = e.changedTouches[0].clientX - touchStartX.current;
+    if (Math.abs(dx) > 40) {
+      if (dx < 0) next();
+      else prev();
+    }
+    touchStartX.current = null;
+  }, [next, prev]);
+
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent) => {
       if (e.key === "ArrowLeft") prev();
@@ -88,6 +104,8 @@ export function RoomSlideshow({
       className={cn("relative overflow-hidden group", className)}
       onMouseEnter={() => { paused.current = true; if (timerRef.current) clearTimeout(timerRef.current); }}
       onMouseLeave={() => { paused.current = false; scheduleNext(); }}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
       onKeyDown={handleKeyDown}
       tabIndex={-1}
       role="region"
@@ -145,9 +163,9 @@ export function RoomSlideshow({
         <ChevronRight size={18} strokeWidth={2} />
       </button>
 
-      {/* Dots */}
-      {!onNavigate && (
-        <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-1.5 z-10" role="tablist">
+      {/* Dots — always on mobile, hidden on desktop when thumbnails handle navigation */}
+      {(!onNavigate || true) && (
+        <div className={cn("absolute bottom-3 left-0 right-0 flex justify-center gap-1.5 z-10", onNavigate && "lg:hidden")} role="tablist">
           {images.map((_, i) => (
             <button
               key={i}

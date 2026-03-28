@@ -79,7 +79,7 @@ export function GalleryPreview({ data, defaultExpanded = false, hideHeading = fa
   };
 
   return (
-    <section id="gallery" ref={sectionRef} className="pt-12 md:pt-32 pb-12 md:pb-32 bg-sand">
+    <section id="gallery" ref={sectionRef} className="pt-6 md:pt-32 pb-6 md:pb-32 bg-sand">
       <div className="max-w-7xl mx-auto px-6">
         {!hideHeading && (
           <FadeIn>

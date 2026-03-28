@@ -68,65 +68,12 @@ function RoomCard({ room, reverse, t, isRu }: {
   const images = room.images?.map((s) => ({ src: s.src, alt: t(s.alt) })) ?? [];
 
   return (
-    <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-start`}>
+    <div className="lg:grid lg:grid-cols-2 lg:gap-x-16 lg:gap-y-0 lg:items-start">
 
-      {/* ── Left: slideshow + thumbnails ── */}
-      <div className={`flex flex-col ${reverse ? "lg:order-2" : ""}`}>
-        {images.length > 1 ? (
-          <RoomSlideshow
-            images={images}
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            className="aspect-[4/3] shadow-lg"
-            current={current}
-            onNavigate={setCurrent}
-          />
-        ) : (
-          <div className="relative aspect-[4/3] overflow-hidden shadow-lg">
-            <Image src={room.image} alt={t(room.imageAlt)} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
-          </div>
-        )}
-
-        {/* Thumbnail grid */}
-        {images.length > 1 && (
-          <div
-            ref={thumbRef}
-            className="mt-2 grid gap-1"
-            style={{ gridTemplateColumns: "repeat(auto-fill, minmax(68px, 1fr))" }}
-          >
-            {images.map((img, i) => (
-              <button
-                key={i}
-                data-index={i}
-                onClick={() => setCurrent(i)}
-                aria-label={`Photo ${i + 1}: ${img.alt}`}
-                className={cn(
-                  "relative overflow-hidden focus-visible:ring-2 focus-visible:ring-brand-teal transition-opacity duration-150",
-                  "aspect-[4/3]",
-                  i === current ? "ring-2 ring-brand-teal opacity-100" : "opacity-55 hover:opacity-85"
-                )}
-              >
-                <Image src={img.src} alt="" fill sizes="80px" className="object-cover" />
-              </button>
-            ))}
-          </div>
-        )}
-
-        {/* Book button — centered in remaining left-column space */}
-        <div className="flex-1 flex items-center justify-center mt-8">
-          <SecondaryButton href={room.href} external>
-            {isRu ? "Забронировать" : "Book This Room"}
-          </SecondaryButton>
-        </div>
-
-      </div>
-
-      {/* ── Right: info panel ── */}
-      <div className={reverse ? "lg:order-1" : ""}>
-
-        {/* Title */}
+      {/* ── Block 1: Title + stats + description (desktop: col 2 row 1) ── */}
+      <div className={`lg:col-start-2 lg:row-start-1 ${reverse ? "lg:col-start-1" : ""}`}>
         <h2 className="font-serif text-3xl md:text-4xl font-light text-charcoal mb-6">{t(room.title)}</h2>
 
-        {/* Stats row */}
         <div className="flex items-center gap-6 mb-6 pb-6 border-b border-charcoal/10">
           <div>
             <p className="font-sans text-[10px] tracking-[0.2em] uppercase text-stone mb-0.5">{isRu ? "Площадь" : "Size"}</p>
@@ -148,12 +95,61 @@ function RoomCard({ room, reverse, t, isRu }: {
           )}
         </div>
 
-        {/* Description */}
         <p className="text-stone leading-relaxed text-[15px]">{t(room.description)}</p>
+      </div>
 
-        {/* Key features */}
+      {/* ── Block 2: Slideshow + thumbnails + book (desktop: col 1 rows 1–2) ── */}
+      <div className={`flex flex-col mt-8 lg:mt-0 lg:col-start-1 lg:row-start-1 lg:row-span-2 ${reverse ? "lg:col-start-2" : ""}`}>
+        {images.length > 1 ? (
+          <RoomSlideshow
+            images={images}
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            className="aspect-[4/3] shadow-lg -mx-6 lg:mx-0"
+            current={current}
+            onNavigate={setCurrent}
+          />
+        ) : (
+          <div className="relative aspect-[4/3] overflow-hidden shadow-lg -mx-6 lg:mx-0">
+            <Image src={room.image} alt={t(room.imageAlt)} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
+          </div>
+        )}
+
+        {/* Thumbnail grid — desktop only */}
+        {images.length > 1 && (
+          <div
+            ref={thumbRef}
+            className="hidden lg:grid mt-2 gap-1"
+            style={{ gridTemplateColumns: "repeat(auto-fill, minmax(68px, 1fr))" }}
+          >
+            {images.map((img, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrent(i)}
+                aria-label={`Photo ${i + 1}: ${img.alt}`}
+                className={cn(
+                  "relative overflow-hidden focus-visible:ring-2 focus-visible:ring-brand-teal transition-opacity duration-150",
+                  "aspect-[4/3]",
+                  i === current ? "ring-2 ring-brand-teal opacity-100" : "opacity-55 hover:opacity-85"
+                )}
+              >
+                <Image src={img.src} alt="" fill sizes="80px" className="object-cover" />
+              </button>
+            ))}
+          </div>
+        )}
+
+        {/* Book button — desktop only in left col */}
+        <div className="hidden lg:flex flex-1 items-center justify-center mt-8">
+          <SecondaryButton href={room.href} external>
+            {isRu ? "Забронировать" : "Book This Room"}
+          </SecondaryButton>
+        </div>
+      </div>
+
+      {/* ── Block 3: Key features + amenities + book (desktop: col 2 row 2) ── */}
+      <div className={`mt-6 lg:col-start-2 lg:row-start-2 ${reverse ? "lg:col-start-1" : ""}`}>
         {room.keyFeatures && room.keyFeatures.length > 0 && (
-          <div className="flex flex-wrap gap-2 mt-6">
+          <div className="flex flex-wrap gap-2">
             {room.keyFeatures.map((f, fi) => (
               <span key={fi} className="border border-charcoal/20 text-stone font-sans text-[11px] tracking-wide px-3 py-1 rounded-full">
                 {t(f)}
@@ -162,7 +158,6 @@ function RoomCard({ room, reverse, t, isRu }: {
           </div>
         )}
 
-        {/* Grouped amenities */}
         {room.amenityGroups && room.amenityGroups.length > 0 ? (
           <div className="mt-8 space-y-5">
             {room.amenityGroups.map((group, gi) => (
@@ -196,8 +191,14 @@ function RoomCard({ room, reverse, t, isRu }: {
           </ul>
         ) : null}
 
-
+        {/* Book button — mobile only */}
+        <div className="lg:hidden flex justify-center mt-8">
+          <SecondaryButton href={room.href} external>
+            {isRu ? "Забронировать" : "Book This Room"}
+          </SecondaryButton>
+        </div>
       </div>
+
     </div>
   );
 }
@@ -214,7 +215,7 @@ export function RoomsDetail({ data }: RoomsDetailProps) {
     <section>
       {data.rooms.map((r, i) => (
         <div key={i} className={i % 2 === 0 ? "bg-white" : "bg-sand"}>
-          <div className="max-w-7xl mx-auto px-6 py-16 md:py-32">
+          <div className="max-w-7xl mx-auto px-6 pt-6 pb-10 md:py-32">
             <FadeIn>
               <RoomCard room={r} reverse={false} t={t} isRu={isRu} />
             </FadeIn>

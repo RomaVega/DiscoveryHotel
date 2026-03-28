@@ -38,7 +38,7 @@ export function ExperiencesHub({ data }: ExperiencesHubProps) {
       </FadeIn>
 
       {/* ── Cards grid ── */}
-      <section className="py-16 md:py-24 bg-sand">
+      <section className="pt-16 pb-6 md:py-24 bg-sand">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {data.categories.map((cat, i) => (
@@ -68,13 +68,13 @@ export function ExperiencesHub({ data }: ExperiencesHubProps) {
       </section>
 
       {/* ── CTA ── */}
-      <section className="pt-12 md:pt-32 pb-12 md:pb-32 bg-cta-teal">
+      <section className="pt-6 md:pt-32 pb-6 md:pb-32 bg-cta-teal">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <FadeIn>
-            <h2 className="font-serif font-light text-3xl md:text-5xl text-white">
+            <h2 className="font-serif font-light text-2xl md:text-5xl text-white">
               {isRu ? "Готовы Исследовать Восточный Бали?" : "Ready to Explore East Bali?"}
             </h2>
-            <p className="mt-4 text-lg text-white/70 leading-relaxed">
+            <p className="mt-4 text-sm md:text-lg text-white/70 leading-relaxed">
               {isRu
                 ? "Свяжитесь с нами — мы подберём экскурсии и впечатления специально для вас."
                 : "Get in touch and we'll arrange the perfect experiences for your stay."}

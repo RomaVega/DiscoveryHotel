@@ -77,7 +77,7 @@ export function ExcursionsDetail({ data }: ExcursionsDetailProps) {
   ].filter(Boolean) as ExcursionSection[];
 
   return (
-    <section className="py-16 md:py-28 bg-sand">
+    <section className="pt-6 pb-6 md:py-28 bg-sand">
       <div className="max-w-4xl mx-auto px-6">
         <div className="flex flex-col gap-16 md:gap-24">
           {sections.map((section, i) => (

@@ -12,13 +12,13 @@ export function BookingCta({ data }: BookingCtaProps) {
   const { t } = useLanguage();
 
   return (
-    <section id="booking" className="pt-12 md:pt-32 pb-12 md:pb-32 bg-cta-teal">
+    <section id="booking" className="pt-6 md:pt-32 pb-6 md:pb-32 bg-cta-teal">
       <div className="max-w-3xl mx-auto px-6 text-center">
         <FadeIn>
-          <h2 className="font-serif font-light text-3xl md:text-5xl text-white">
+          <h2 className="font-serif font-light text-2xl md:text-5xl text-white">
             {t(data.heading)}
           </h2>
-          <p className="mt-4 text-lg text-white/70 leading-relaxed">
+          <p className="mt-4 text-sm md:text-lg text-white/70 leading-relaxed">
             {t(data.subtext)}
           </p>
           <div className="mt-8">

@@ -1,6 +1,7 @@
 "use client"; // Uses useLanguage for content translation
 
 import { FadeIn } from "@/components/common/FadeIn";
+import { SecondaryButton } from "@/components/common/SecondaryButton";
 import type { CarRentalPageData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
 import { Check } from "lucide-react";
@@ -19,20 +20,29 @@ export function CarRentalDetail({ data }: CarRentalDetailProps) {
 
   return (
     <div>
-    <section className="py-16 md:py-32 bg-sand">
+    <section className="pt-6 pb-6 md:py-32 bg-sand">
       <div className="max-w-5xl mx-auto px-6">
         {/* Vehicles */}
         <FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            {data.vehicles.map((vehicle, i) => (
-              <div key={i} className="bg-ivory p-6 shadow-sm flex flex-col">
-                <h3 className="font-serif text-2xl font-semibold text-charcoal">{t(vehicle.title)}</h3>
-                <p className="mt-2 text-stone text-sm leading-relaxed flex-1">{t(vehicle.description)}</p>
-                <div className="mt-4 pt-4 border-t border-sand">
-                  <span className="font-sans font-semibold text-brand-teal">{t(vehicle.price)}</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 md:mb-16">
+            {data.vehicles.map((vehicle, i) => {
+              const vehicleName = typeof vehicle.title === "string" ? vehicle.title : vehicle.title.en;
+              const bookUrl = buildWhatsAppUrl(isRu
+                ? `Здравствуйте! Хочу арендовать: ${typeof vehicle.title === "string" ? vehicle.title : vehicle.title.ru}.`
+                : `Hello! I'd like to rent: ${vehicleName}.`);
+              return (
+                <div key={i} className="bg-ivory p-6 shadow-sm flex flex-col">
+                  <h3 className="font-serif text-2xl font-semibold text-charcoal">{t(vehicle.title)}</h3>
+                  <p className="mt-2 text-stone text-sm leading-relaxed flex-1">{t(vehicle.description)}</p>
+                  <div className="mt-4 pt-4 border-t border-sand flex items-center justify-between gap-4">
+                    <span className="font-sans font-semibold text-brand-teal">{t(vehicle.price)}</span>
+                    <SecondaryButton href={bookUrl} external>
+                      {isRu ? "Забронировать" : "Book Now"}
+                    </SecondaryButton>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </FadeIn>
 
@@ -58,16 +68,16 @@ export function CarRentalDetail({ data }: CarRentalDetailProps) {
     </section>
 
       {/* ── CTA ── */}
-      <section className="pt-12 md:pt-32 pb-12 md:pb-32 bg-cta-teal">
+      <section className="pt-6 md:pt-32 pb-6 md:pb-32 bg-cta-teal">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <FadeIn>
-            <h2 className="font-serif font-light text-3xl md:text-5xl text-white">
+            <h2 className="font-serif font-light text-2xl md:text-5xl text-white">
               {isRu ? "Готовы Объездить Восточный Бали?" : "Ready to Ride East Bali?"}
             </h2>
-            <p className="mt-4 text-lg text-white/70 leading-relaxed">
+            <p className="mt-4 text-sm md:text-lg text-white/70 leading-relaxed">
               {isRu
                 ? "Напишите нам — мы подберём транспорт и расскажем о лучших маршрутах из Чандидасы."
-                : "Message us and we'll arrange the perfect vehicle for your Bali adventure from Candidasa."}
+                : "Message us and we'll arrange the perfect vehicle for your Bali adventure in Candidasa."}
             </p>
             <div className="mt-8">
               <a

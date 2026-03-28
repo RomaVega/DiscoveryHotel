@@ -68,7 +68,7 @@ export function DiningDetail({ data }: DiningDetailProps) {
               ? "Забронируйте столик или закажите в номер — мы на связи."
               : "Reserve a table at the restaurant or order directly to your room."}
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-row flex-wrap items-center justify-center gap-4">
             <a
               href={tableUrl}
               target="_blank"

@@ -1,6 +1,7 @@
 "use client"; // Uses useLanguage for content translation
 
 import Image from "next/image";
+import Link from "next/link";
 import { FadeIn } from "@/components/common/FadeIn";
 import { SectionHeading } from "@/components/common/SectionHeading";
 import { SecondaryButton } from "@/components/common/SecondaryButton";
@@ -51,13 +52,15 @@ export function RoomsPreview({ data }: RoomsPreviewProps) {
                   </div>
                 )}
                 <div className="p-5 md:p-8 flex flex-col flex-1">
-                  <h3 className="font-serif text-2xl font-semibold text-charcoal">
-                    {t(room.title)}
-                  </h3>
-                  <p className="mt-2 text-stone leading-relaxed flex-1">
-                    {t(room.description)}
-                  </p>
-                  <div className="mt-6">
+                  <Link href="/rooms" className="group/text flex-1">
+                    <h3 className="font-serif text-2xl font-semibold text-charcoal group-hover/text:text-brand-teal transition-colors duration-200">
+                      {t(room.title)}
+                    </h3>
+                    <p className="mt-2 text-stone leading-relaxed">
+                      {t(room.description)}
+                    </p>
+                  </Link>
+                  <div className="mt-6 flex justify-center md:justify-start">
                     <SecondaryButton href={room.href} external>
                       {t({ en: "Book Now", ru: "Забронировать" })}
                     </SecondaryButton>

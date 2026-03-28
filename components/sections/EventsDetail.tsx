@@ -49,25 +49,35 @@ export function EventsDetail({ data }: EventsDetailProps) {
         </div>
       </div>
 
-    <section className="py-16 md:py-32 bg-sand">
+    <section className="pt-6 pb-6 md:py-32 bg-sand">
       <div className="max-w-5xl mx-auto px-6">
         {/* Services */}
-        <div className="space-y-16 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 md:mb-16">
           {data.services.map((service, i) => (
-            <FadeIn key={i}>
-              <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center`}>
-                <div className={`relative aspect-[4/3] overflow-hidden shadow-lg ${i % 2 === 1 ? "lg:order-2" : ""}`}>
+            <FadeIn key={i} delay={i * 0.1}>
+              <div className="bg-ivory shadow-md overflow-hidden h-full flex flex-col">
+                <div className="relative aspect-[4/3] shrink-0 overflow-hidden">
                   <Image
                     src={service.image}
                     alt={t(service.imageAlt)}
                     fill
-                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover"
                   />
                 </div>
-                <div className={i % 2 === 1 ? "lg:order-1" : ""}>
-                  <h2 className="font-serif text-3xl font-light text-charcoal">{t(service.title)}</h2>
-                  <p className="mt-4 text-stone leading-relaxed">{t(service.description)}</p>
+                <div className="p-5 md:p-8 flex flex-col flex-1">
+                  <h2 className="font-serif text-2xl font-semibold text-charcoal">{t(service.title)}</h2>
+                  <p className="mt-2 text-stone leading-relaxed text-sm flex-1">{t(service.description)}</p>
+                  <div className="mt-6 flex justify-center md:justify-start">
+                    <a
+                      href={ctaUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block bg-transparent border border-brand-teal text-brand-teal hover:bg-brand-teal hover:text-white hover:scale-[1.04] active:scale-[0.97] font-sans font-semibold px-5 py-2 rounded-full tracking-wide uppercase text-xs transition-all duration-300 focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2"
+                    >
+                      {isRu ? "Забронировать" : "Book Now"}
+                    </a>
+                  </div>
                 </div>
               </div>
             </FadeIn>
@@ -96,13 +106,13 @@ export function EventsDetail({ data }: EventsDetailProps) {
     </section>
 
       {/* ── CTA ── */}
-      <section className="pt-12 md:pt-32 pb-12 md:pb-32 bg-cta-teal">
+      <section className="pt-6 md:pt-32 pb-6 md:pb-32 bg-cta-teal">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <FadeIn>
-            <h2 className="font-serif font-light text-3xl md:text-5xl text-white">
+            <h2 className="font-serif font-light text-2xl md:text-5xl text-white">
               {isRu ? "Начните Планировать Торжество" : "Start Planning Your Celebration"}
             </h2>
-            <p className="mt-4 text-lg text-white/70 leading-relaxed">
+            <p className="mt-4 text-sm md:text-lg text-white/70 leading-relaxed">
               {isRu
                 ? "Поделитесь вашей идеей — мы создадим незабываемое мероприятие на нашей площадке у океана в Чандидасе."
                 : "Share your vision — we'll design an unforgettable event at our oceanfront venue in Candidasa."}

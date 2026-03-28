@@ -19,7 +19,7 @@ export function SpecialOffers({ data, hideHeading }: SpecialOffersProps) {
   if (activeOffers.length === 0) return null;
 
   return (
-    <section id="offers" className="pt-12 md:pt-32 pb-12 md:pb-32 bg-ivory">
+    <section id="offers" className="pt-6 md:pt-32 pb-6 md:pb-32 bg-ivory">
       <div className="max-w-7xl mx-auto px-6">
         {!hideHeading && (
           <FadeIn>
@@ -30,7 +30,7 @@ export function SpecialOffers({ data, hideHeading }: SpecialOffersProps) {
           </FadeIn>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {activeOffers.map((offer, i) => (
             <FadeIn key={i} delay={i * 0.1}>
               <div className="bg-sand shadow-md group h-full flex flex-col overflow-hidden">
@@ -56,7 +56,7 @@ export function SpecialOffers({ data, hideHeading }: SpecialOffersProps) {
                   <p className="mt-4 font-sans text-lg font-semibold text-brand-teal">
                     {t(offer.price)}
                   </p>
-                  <div className="mt-6">
+                  <div className="mt-6 flex justify-center md:justify-start">
                     <SecondaryButton href="https://secure.guestpro.net/odch" external>
                       {tl.offers.bookThisOffer}
                     </SecondaryButton>
