@@ -14,7 +14,10 @@
       "Bash(python3 -:*)",
       "Bash(git restore:*)",
       "Bash(sed -i '' 's/\"\"Что говорят наши гости\"\"/\"\"Что Говорят Наши Гости\"\"/' /Users/blink/DiscoveryHotel/locales/ru.json)",
-      "Bash(sed -i '' 's/\"\"Как нас найти в Чандидасе\"\"/\"\"Как Нас Найти в Чандидасе\"\"/' /Users/blink/DiscoveryHotel/locales/ru.json)"
+      "Bash(sed -i '' 's/\"\"Как нас найти в Чандидасе\"\"/\"\"Как Нас Найти в Чандидасе\"\"/' /Users/blink/DiscoveryHotel/locales/ru.json)",
+      "Bash(python3 /tmp/title_case_fix.py)",
+      "Bash(grep -v \"^--$\")",
+      "Bash(ipconfig getifaddr:*)"
     ]
   }
 }

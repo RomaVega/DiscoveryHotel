@@ -6,15 +6,11 @@ import { Globe, Check } from "lucide-react";
 import { useLanguage, type Locale } from "@/lib/language-context";
 import { cn } from "@/lib/utils";
 
-type LanguageOption =
-  | { code: Locale; label: string; native: string; available: true }
-  | { code: string; label: string; native: string; available: false };
+type LanguageOption = { code: Locale; label: string; native: string; available: true };
 
 const LANGUAGES: LanguageOption[] = [
   { code: "en", label: "EN", native: "English", available: true },
   { code: "ru", label: "RU", native: "Русский", available: true },
-  { code: "id", label: "ID", native: "Indonesia", available: false },
-  { code: "zh", label: "中文", native: "中文", available: false },
 ];
 
 interface LanguageSelectorProps {

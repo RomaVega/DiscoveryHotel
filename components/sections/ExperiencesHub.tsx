@@ -72,7 +72,7 @@ export function ExperiencesHub({ data }: ExperiencesHubProps) {
         <div className="max-w-3xl mx-auto px-6 text-center">
           <FadeIn>
             <h2 className="font-serif font-light text-3xl md:text-5xl text-white">
-              {isRu ? "Готовы исследовать Восточный Бали?" : "Ready to Explore East Bali?"}
+              {isRu ? "Готовы Исследовать Восточный Бали?" : "Ready to Explore East Bali?"}
             </h2>
             <p className="mt-4 text-lg text-white/70 leading-relaxed">
               {isRu

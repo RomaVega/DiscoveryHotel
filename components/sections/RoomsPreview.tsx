@@ -59,7 +59,7 @@ export function RoomsPreview({ data }: RoomsPreviewProps) {
                   </p>
                   <div className="mt-6">
                     <SecondaryButton href={room.href} external>
-                      {t({ en: "See More", ru: "Подробнее" })}
+                      {t({ en: "Book Now", ru: "Забронировать" })}
                     </SecondaryButton>
                   </div>
                 </div>

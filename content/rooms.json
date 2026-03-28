@@ -18,15 +18,15 @@
         "ru": "Вилла с тремя спальнями и бассейном"
       },
       "description": {
-        "en": "A luxurious two-story villa with 230 m² of living space, three en-suite bedrooms, a private swimming pool, fully equipped kitchen, and a spacious lounge. Perfect for families or groups seeking the ultimate tropical retreat with complete privacy and modern amenities.",
-        "ru": "Роскошная двухэтажная вилла площадью 230 м² с тремя спальнями, ванными комнатами при каждой, собственным бассейном, полностью оборудованной кухней и просторной гостиной. Идеальный выбор для семей и компаний, ценящих уединение и современный комфорт."
+        "en": "A spacious two-storey villa with private entrance, three en-suite bedrooms each featuring an extra-large double bed, three bathrooms with bathtub and shower, two living areas, and a fully equipped kitchen. Enjoy your own private swimming pool with stunning ocean and garden views. Fully air-conditioned, complete with a terrace, minibar, flat-screen TV, and daily housekeeping.",
+        "ru": "Просторная двухэтажная вилла с отдельным входом, тремя спальнями с двуспальными кроватями большого размера и собственными ванными комнатами, двумя гостиными и полностью оборудованной кухней. Наслаждайтесь собственным бассейном с захватывающим видом на океан и сад. Кондиционер во всех помещениях, терраса, минибар, телевизор с плоским экраном и ежедневная уборка."
       },
-      "size": "230",
+      "size": "135",
       "bedrooms": 3,
       "amenities": [
         {
           "en": "Private swimming pool",
-          "ru": "Собственный бассейн"
+          "ru": "Свой бассейн"
         },
         {
           "en": "3 en-suite bedrooms",
@@ -37,44 +37,44 @@
           "ru": "Полностью оборудованная кухня"
         },
         {
-          "en": "Spacious lounge area",
-          "ru": "Просторная гостиная"
+          "en": "2 living rooms",
+          "ru": "2 гостиные"
         },
         {
-          "en": "50\" Smart TV",
-          "ru": "50\" Smart TV"
+          "en": "Terrace with sea view",
+          "ru": "Терраса с видом на море"
+        },
+        {
+          "en": "Private entrance",
+          "ru": "Отдельный вход"
+        },
+        {
+          "en": "Flat-screen TV",
+          "ru": "Телевизор с плоским экраном"
         },
         {
           "en": "Air conditioning",
           "ru": "Кондиционер"
         },
         {
-          "en": "In-room safe",
-          "ru": "Сейф в номере"
-        },
-        {
           "en": "Minibar",
           "ru": "Минибар"
         },
         {
-          "en": "Coffee & tea making facilities",
-          "ru": "Принадлежности для чая и кофе"
+          "en": "In-room safe",
+          "ru": "Сейф в номере"
+        },
+        {
+          "en": "Breakfast",
+          "ru": "Завтрак"
         },
         {
           "en": "Complimentary daily water",
           "ru": "Бесплатная вода ежедневно"
         },
         {
-          "en": "Kitchenette",
-          "ru": "Мини-кухня"
-        },
-        {
           "en": "Hairdryer",
           "ru": "Фен"
-        },
-        {
-          "en": "Iron on request",
-          "ru": "Утюг по запросу"
         },
         {
           "en": "Daily housekeeping",
@@ -83,33 +83,418 @@
       ],
       "image": "/images/rooms/pool-villa.jpg",
       "imageAlt": {
-        "en": "Three Bedroom Pool Villa with private pool at Orlowsky Discovery Hotel",
+        "en": "Three Bedroom Pool Villa with Private Pool at Orlowsky Discovery Hotel",
         "ru": "Вилла с тремя спальнями и собственным бассейном в Orlowsky Discovery Hotel"
       },
       "images": [
-        { "src": "/images/Three Bedrooms Pool Villa/443798431.jpg", "alt": { "en": "Pool Villa exterior with private pool and tropical garden", "ru": "Экстерьер виллы с частным бассейном и тропическим садом" } },
-        { "src": "/images/Three Bedrooms Pool Villa/170696380.jpg", "alt": { "en": "Pool Villa master bedroom with warm lighting", "ru": "Главная спальня виллы с тёплым освещением" } },
-        { "src": "/images/Three Bedrooms Pool Villa/170696381.jpg", "alt": { "en": "Pool Villa bedroom with garden view", "ru": "Спальня виллы с видом на сад" } },
-        { "src": "/images/Three Bedrooms Pool Villa/170696898.jpg", "alt": { "en": "Pool Villa bedroom with thatched ceiling", "ru": "Спальня виллы с тростниковым потолком" } },
-        { "src": "/images/Three Bedrooms Pool Villa/170696901.jpg", "alt": { "en": "Pool Villa twin bedroom with balcony", "ru": "Спальня виллы с двумя кроватями и балконом" } },
-        { "src": "/images/Three Bedrooms Pool Villa/170696902.jpg", "alt": { "en": "Pool Villa bedroom with garden balcony access", "ru": "Спальня виллы с выходом на садовый балкон" } },
-        { "src": "/images/Three Bedrooms Pool Villa/170696906.jpg", "alt": { "en": "Pool Villa open-plan living and dining with pool view", "ru": "Открытая гостиная и столовая с видом на бассейн" } },
-        { "src": "/images/Three Bedrooms Pool Villa/87492960.jpg", "alt": { "en": "Pool Villa dining area and fully equipped kitchen", "ru": "Столовая зона и полностью оборудованная кухня виллы" } },
-        { "src": "/images/Three Bedrooms Pool Villa/170696905.jpg", "alt": { "en": "Pool Villa fully equipped kitchen", "ru": "Полностью оборудованная кухня виллы" } },
-        { "src": "/images/Three Bedrooms Pool Villa/170696909.jpg", "alt": { "en": "Pool Villa marble en-suite bathroom with soaking tub", "ru": "Мраморная ванная комната виллы с ванной" } },
-        { "src": "/images/Three Bedrooms Pool Villa/87492962.jpg", "alt": { "en": "Pool Villa bathroom with ocean view", "ru": "Ванная комната виллы с видом на океан" } },
-        { "src": "/images/Three Bedrooms Pool Villa/172544231.jpg", "alt": { "en": "Pool Villa en-suite with rain shower and soaking tub", "ru": "Ванная комната виллы с тропическим душем и ванной" } }
+        {
+          "src": "/images/Three Bedrooms Pool Villa/14459259.jpg",
+          "alt": {
+            "en": "Pool Villa bathroom with rolled towels and frangipani flowers",
+            "ru": "Ванная виллы со свёрнутыми полотенцами и цветами плюмерии"
+          }
+        },
+        {
+          "src": "/images/Three Bedrooms Pool Villa/16425574.jpg",
+          "alt": {
+            "en": "Pool Villa living room with leather sofa, TV and garden balcony",
+            "ru": "Гостиная виллы с кожаным диваном, телевизором и балконом в сад"
+          }
+        },
+        {
+          "src": "/images/Three Bedrooms Pool Villa/16427453.jpg",
+          "alt": {
+            "en": "Pool Villa spacious living room with leather sofas and thatched ceiling",
+            "ru": "Просторная гостиная виллы с кожаными диванами и соломенным потолком"
+          }
+        },
+        {
+          "src": "/images/Three Bedrooms Pool Villa/170696898.jpg",
+          "alt": {
+            "en": "Pool Villa master bedroom with double bed and garden view",
+            "ru": "Главная спальня виллы с двуспальной кроватью и видом на сад"
+          }
+        },
+        {
+          "src": "/images/Three Bedrooms Pool Villa/170696901.jpg",
+          "alt": {
+            "en": "Pool Villa twin bedroom with tropical balcony",
+            "ru": "Спальня виллы с двумя кроватями и тропическим балконом"
+          }
+        },
+        {
+          "src": "/images/Three Bedrooms Pool Villa/170696902.jpg",
+          "alt": {
+            "en": "Pool Villa twin bedroom with garden balcony view",
+            "ru": "Спальня виллы с видом на балкон в сад"
+          }
+        },
+        {
+          "src": "/images/Three Bedrooms Pool Villa/170696905.jpg",
+          "alt": {
+            "en": "Pool Villa private pool with terrace and tropical garden",
+            "ru": "Частный бассейн виллы с террасой и тропическим садом"
+          }
+        },
+        {
+          "src": "/images/Three Bedrooms Pool Villa/170696906.jpg",
+          "alt": {
+            "en": "Pool Villa open-plan living and dining area with kitchenette",
+            "ru": "Гостиная и столовая виллы открытой планировки с кухней"
+          }
+        },
+        {
+          "src": "/images/Three Bedrooms Pool Villa/170696909.jpg",
+          "alt": {
+            "en": "Pool Villa marble bathroom with soaking tub and stone shower",
+            "ru": "Мраморная ванная виллы с купальной ванной и каменным душем"
+          }
+        },
+        {
+          "src": "/images/Three Bedrooms Pool Villa/170696911.jpg",
+          "alt": {
+            "en": "Pool Villa double bedroom with bedside lamps and garden curtains",
+            "ru": "Двуспальная спальня виллы с прикроватными лампами и шторами"
+          }
+        },
+        {
+          "src": "/images/Three Bedrooms Pool Villa/170696913.jpg",
+          "alt": {
+            "en": "Pool Villa double bedroom with garden view and sheer curtains",
+            "ru": "Двуспальная спальня виллы с видом на сад"
+          }
+        },
+        {
+          "src": "/images/Three Bedrooms Pool Villa/172544231.jpg",
+          "alt": {
+            "en": "Pool Villa bathroom with soaking tub and rain shower",
+            "ru": "Ванная виллы с купальной ванной и тропическим душем"
+          }
+        },
+        {
+          "src": "/images/Three Bedrooms Pool Villa/18015225.jpg",
+          "alt": {
+            "en": "Pool Villa dining table with tropical flower arrangement",
+            "ru": "Обеденный стол виллы с тропической цветочной композицией"
+          }
+        },
+        {
+          "src": "/images/Three Bedrooms Pool Villa/443798380.jpg",
+          "alt": {
+            "en": "Pool Villa double bedroom with wardrobe and en-suite door",
+            "ru": "Двуспальная спальня виллы с гардеробом и дверью в ванную"
+          }
+        },
+        {
+          "src": "/images/Three Bedrooms Pool Villa/443798382.jpg",
+          "alt": {
+            "en": "Pool Villa airy double bedroom with garden balcony doors",
+            "ru": "Светлая двуспальная спальня виллы с дверями на балкон"
+          }
+        },
+        {
+          "src": "/images/Three Bedrooms Pool Villa/443798383.jpg",
+          "alt": {
+            "en": "Pool Villa living room with leather sofas under high thatched ceiling",
+            "ru": "Гостиная виллы с кожаными диванами под высоким потолком"
+          }
+        },
+        {
+          "src": "/images/Three Bedrooms Pool Villa/443798384.jpg",
+          "alt": {
+            "en": "Pool Villa bathroom with stone shower column and double vanity",
+            "ru": "Ванная виллы с каменной душевой колонной и двойной раковиной"
+          }
+        },
+        {
+          "src": "/images/Three Bedrooms Pool Villa/443798386.jpg",
+          "alt": {
+            "en": "Pool Villa bright living room with garden view",
+            "ru": "Светлая гостиная виллы с видом на сад"
+          }
+        },
+        {
+          "src": "/images/Three Bedrooms Pool Villa/443798387.jpg",
+          "alt": {
+            "en": "Pool Villa double bedroom with tropical garden doors",
+            "ru": "Двуспальная спальня виллы с дверями в тропический сад"
+          }
+        },
+        {
+          "src": "/images/Three Bedrooms Pool Villa/443798390.jpg",
+          "alt": {
+            "en": "Pool Villa living room with TV and leather sofa",
+            "ru": "Гостиная виллы с телевизором и кожаным диваном"
+          }
+        },
+        {
+          "src": "/images/Three Bedrooms Pool Villa/443798394.jpg",
+          "alt": {
+            "en": "Pool Villa upper terrace balcony with ocean and palm tree view",
+            "ru": "Балкон верхней террасы виллы с видом на океан и пальмы"
+          }
+        },
+        {
+          "src": "/images/Three Bedrooms Pool Villa/443798397.jpg",
+          "alt": {
+            "en": "Pool Villa open-plan living, dining and pool terrace",
+            "ru": "Гостиная, столовая и терраса с бассейном виллы"
+          }
+        },
+        {
+          "src": "/images/Three Bedrooms Pool Villa/443798398.jpg",
+          "alt": {
+            "en": "Pool Villa bathroom doorway connecting to double bedroom",
+            "ru": "Дверной проём ванной виллы, соединённой со спальней"
+          }
+        },
+        {
+          "src": "/images/Three Bedrooms Pool Villa/443798403.jpg",
+          "alt": {
+            "en": "Pool Villa double bedroom with flower petal decoration",
+            "ru": "Двуспальная спальня виллы с украшением из лепестков"
+          }
+        },
+        {
+          "src": "/images/Three Bedrooms Pool Villa/443798410.jpg",
+          "alt": {
+            "en": "Pool Villa exterior with private pool and upper balcony",
+            "ru": "Фасад виллы с частным бассейном и верхним балконом"
+          }
+        },
+        {
+          "src": "/images/Three Bedrooms Pool Villa/443798431.jpg",
+          "alt": {
+            "en": "Pool Villa two-storey exterior with pool and tropical garden",
+            "ru": "Двухэтажный фасад виллы с бассейном и тропическим садом"
+          }
+        },
+        {
+          "src": "/images/Three Bedrooms Pool Villa/450186507.jpg",
+          "alt": {
+            "en": "Pool Villa aerial view of private pool with lush garden",
+            "ru": "Вид сверху на частный бассейн виллы в окружении сада"
+          }
+        },
+        {
+          "src": "/images/Three Bedrooms Pool Villa/81536805.jpg",
+          "alt": {
+            "en": "Pool Villa bathroom with rain shower and stone vanity",
+            "ru": "Ванная виллы с тропическим душем и каменной раковиной"
+          }
+        },
+        {
+          "src": "/images/Three Bedrooms Pool Villa/831226198.jpg",
+          "alt": {
+            "en": "Pool Villa bed with towel swan and flower petal decoration",
+            "ru": "Кровать виллы с лебедем из полотенца и декором из лепестков"
+          }
+        },
+        {
+          "src": "/images/Three Bedrooms Pool Villa/87366051.jpg",
+          "alt": {
+            "en": "Pool Villa two-storey exterior with pool amid tropical foliage",
+            "ru": "Двухэтажная вилла с бассейном среди тропической зелени"
+          }
+        },
+        {
+          "src": "/images/Three Bedrooms Pool Villa/87492960.jpg",
+          "alt": {
+            "en": "Pool Villa dining area with round table and kitchenette",
+            "ru": "Столовая виллы с круглым столом и кухней"
+          }
+        },
+        {
+          "src": "/images/Three Bedrooms Pool Villa/87492962.jpg",
+          "alt": {
+            "en": "Pool Villa bathroom with ocean view window and vanity",
+            "ru": "Ванная виллы с окном с видом на океан и раковиной"
+          }
+        }
       ],
-      "href": "https://secure.guestpro.net/odch/booking"
+      "href": "https://secure.guestpro.net/odch/booking",
+      "bathrooms": 3,
+      "amenityGroups": [
+        {
+          "label": {
+            "en": "Kitchen",
+            "ru": "Кухня"
+          },
+          "items": [
+            {
+              "en": "Fully equipped kitchen",
+              "ru": "Полностью оборудованная кухня"
+            },
+            {
+              "en": "Refrigerator",
+              "ru": "Холодильник"
+            },
+            {
+              "en": "Microwave",
+              "ru": "Микроволновая печь"
+            },
+            {
+              "en": "Stovetop & oven",
+              "ru": "Плита и духовка"
+            },
+            {
+              "en": "Electric kettle",
+              "ru": "Электрический чайник"
+            },
+            {
+              "en": "Kitchenware & dining table",
+              "ru": "Посуда и обеденный стол"
+            }
+          ]
+        },
+        {
+          "label": {
+            "en": "Bathroom",
+            "ru": "Ванная комната"
+          },
+          "items": [
+            {
+              "en": "Bath & shower",
+              "ru": "Ванна и душ"
+            },
+            {
+              "en": "Bathrobe & towels",
+              "ru": "Халат и полотенца"
+            },
+            {
+              "en": "Free toiletries",
+              "ru": "Туалетные принадлежности"
+            },
+            {
+              "en": "Hairdryer",
+              "ru": "Фен"
+            }
+          ]
+        },
+        {
+          "label": {
+            "en": "Views",
+            "ru": "Виды"
+          },
+          "items": [
+            {
+              "en": "Sea view",
+              "ru": "Вид на море"
+            },
+            {
+              "en": "Pool view",
+              "ru": "Вид на бассейн"
+            },
+            {
+              "en": "Garden view",
+              "ru": "Вид на сад"
+            },
+            {
+              "en": "Mountain view",
+              "ru": "Вид на горы"
+            }
+          ]
+        },
+        {
+          "label": {
+            "en": "Facilities",
+            "ru": "Удобства"
+          },
+          "items": [
+            {
+              "en": "Private swimming pool",
+              "ru": "Свой бассейн"
+            },
+            {
+              "en": "Private entrance",
+              "ru": "Отдельный вход"
+            },
+            {
+              "en": "Terrace & balcony",
+              "ru": "Терраса и балкон"
+            },
+            {
+              "en": "Air conditioning",
+              "ru": "Кондиционер"
+            },
+            {
+              "en": "Flat-screen TV",
+              "ru": "Телевизор с плоским экраном"
+            },
+            {
+              "en": "Minibar",
+              "ru": "Минибар"
+            },
+            {
+              "en": "In-room safe",
+              "ru": "Сейф в номере"
+            },
+            {
+              "en": "Breakfast",
+              "ru": "Завтрак"
+            },
+            {
+              "en": "Daily housekeeping",
+              "ru": "Ежедневная уборка"
+            }
+          ]
+        }
+      ],
+      "keyFeatures": [
+        {
+          "en": "Private Pool",
+          "ru": "Свой бассейн"
+        },
+        {
+          "en": "Private Kitchen",
+          "ru": "Своя кухня"
+        },
+        {
+          "en": "Sea View",
+          "ru": "Вид на море"
+        },
+        {
+          "en": "Garden View",
+          "ru": "Вид на сад"
+        },
+        {
+          "en": "Pool View",
+          "ru": "Вид на бассейн"
+        },
+        {
+          "en": "Mountain View",
+          "ru": "Вид на горы"
+        },
+        {
+          "en": "Terrace & Balcony",
+          "ru": "Терраса и балкон"
+        },
+        {
+          "en": "Air Conditioning",
+          "ru": "Кондиционер"
+        },
+        {
+          "en": "Flat-screen TV",
+          "ru": "Телевизор"
+        },
+        {
+          "en": "Minibar",
+          "ru": "Минибар"
+        },
+        {
+          "en": "Free WiFi",
+          "ru": "Бесплатный Wi-Fi"
+        }
+      ]
     },
     {
       "title": {
-        "en": "Deluxe Cottage",
-        "ru": "Коттедж Делюкс"
+        "en": "Deluxe Cottage Garden View",
+        "ru": "Коттедж Делюкс с Видом на Сад"
       },
       "description": {
-        "en": "An elegant 46 m² cottage featuring a comfortable bedroom, spacious living room, and modern rain shower. Enjoy tranquil garden views from your private terrace, complete with all the amenities you need for a relaxing stay in East Bali.",
-        "ru": "Элегантный коттедж площадью 46 м² с уютной спальней, просторной гостиной и современным тропическим душем. Наслаждайтесь видом на сад с личной террасы и всеми удобствами для безмятежного отдыха на Восточном Бали."
+        "en": "An air-conditioned cottage offering a private entrance, balcony, terrace, and garden views. Inside you'll find a flat-screen satellite TV, minibar, and complimentary beverages. The en-suite bathroom comes with a hot shower, bathtub, and complimentary bath amenities.",
+        "ru": "Коттедж с кондиционером, отдельным входом, балконом, террасой и видом на сад. Внутри — телевизор со спутниковыми каналами, минибар и комплиментарные напитки. Собственная ванная комната оснащена горячим душем, ванной и бесплатными туалетными принадлежностями."
       },
       "size": "46",
       "bedrooms": 1,
@@ -143,8 +528,8 @@
           "ru": "Минибар"
         },
         {
-          "en": "Coffee & tea making facilities",
-          "ru": "Принадлежности для чая и кофе"
+          "en": "Breakfast",
+          "ru": "Завтрак"
         },
         {
           "en": "Complimentary daily water",
@@ -165,17 +550,326 @@
       ],
       "image": "/images/rooms/deluxe-cottage.jpg",
       "imageAlt": {
-        "en": "Deluxe Cottage with garden view at Orlowsky Discovery Hotel",
+        "en": "Deluxe Cottage with Garden View at Orlowsky Discovery Hotel",
         "ru": "Коттедж Делюкс с видом на сад в Orlowsky Discovery Hotel"
       },
       "images": [
-        { "src": "/images/Deluxe Cottage/14459232.jpg", "alt": { "en": "Deluxe Cottage bedroom with traditional octagonal thatched ceiling", "ru": "Спальня коттеджа с традиционным восьмиугольным тростниковым потолком" } },
-        { "src": "/images/Deluxe Cottage/14459280.jpg", "alt": { "en": "Deluxe Cottage twin bedroom with Balinese thatched ceiling", "ru": "Спальня коттеджа с двумя кроватями и балийским тростниковым потолком" } },
-        { "src": "/images/Deluxe Cottage/14459213.jpg", "alt": { "en": "Deluxe Cottage lounge and bedroom with high thatched ceiling", "ru": "Гостиная и спальня коттеджа с высоким тростниковым потолком" } },
-        { "src": "/images/Deluxe Cottage/443798403.jpg", "alt": { "en": "Deluxe Cottage bright bedroom with garden balcony", "ru": "Светлая спальня коттеджа с садовым балконом" } },
-        { "src": "/images/Deluxe Cottage/443798394.jpg", "alt": { "en": "Deluxe Cottage private terrace with ocean view", "ru": "Частная терраса коттеджа с видом на океан" } }
+        {
+          "src": "/images/Deluxe Cottage/14459213.jpg",
+          "alt": {
+            "en": "Deluxe Cottage sitting room with garden-view windows",
+            "ru": "Гостиная коттеджа с видом на сад"
+          }
+        },
+        {
+          "src": "/images/Deluxe Cottage/14459223.jpg",
+          "alt": {
+            "en": "Deluxe Cottage king bedroom with Balinese thatched ceiling",
+            "ru": "Спальня коттеджа с балийским тростниковым потолком"
+          }
+        },
+        {
+          "src": "/images/Deluxe Cottage/14459232.jpg",
+          "alt": {
+            "en": "Deluxe Cottage king bedroom with TV unit and sitting area",
+            "ru": "Спальня коттеджа с тумбой под ТВ и зоной отдыха"
+          }
+        },
+        {
+          "src": "/images/Deluxe Cottage/14459259.jpg",
+          "alt": {
+            "en": "Deluxe Cottage bathroom with rolled towels and plumeria",
+            "ru": "Ванная комната коттеджа с полотенцами и плюмерией"
+          }
+        },
+        {
+          "src": "/images/Deluxe Cottage/14459280.jpg",
+          "alt": {
+            "en": "Deluxe Cottage twin bedroom with thatched ceiling",
+            "ru": "Спальня коттеджа с двумя кроватями и тростниковым потолком"
+          }
+        },
+        {
+          "src": "/images/Deluxe Cottage/14459656.jpg",
+          "alt": {
+            "en": "Aerial view of Deluxe Cottages among coconut palms",
+            "ru": "Вид сверху на коттеджи среди кокосовых пальм"
+          }
+        },
+        {
+          "src": "/images/Deluxe Cottage/170696374.jpg",
+          "alt": {
+            "en": "Deluxe Cottage exterior with covered terrace and tropical garden",
+            "ru": "Экстерьер коттеджа с террасой и тропическим садом"
+          }
+        },
+        {
+          "src": "/images/Deluxe Cottage/170696378.jpg",
+          "alt": {
+            "en": "Deluxe Cottage king bedroom with warm lighting and garden windows",
+            "ru": "Спальня коттеджа с тёплым освещением и окнами в сад"
+          }
+        },
+        {
+          "src": "/images/Deluxe Cottage/170696380.jpg",
+          "alt": {
+            "en": "Deluxe Cottage king bedroom with glass doors open to garden",
+            "ru": "Спальня коттеджа со стеклянными дверями в сад"
+          }
+        },
+        {
+          "src": "/images/Deluxe Cottage/170696381.jpg",
+          "alt": {
+            "en": "Deluxe Cottage king bedroom with garden view and bedside lamps",
+            "ru": "Спальня коттеджа с видом на сад и прикроватными лампами"
+          }
+        },
+        {
+          "src": "/images/Deluxe Cottage/443798369.jpg",
+          "alt": {
+            "en": "Deluxe Cottage sitting area with kettle tray and wardrobe",
+            "ru": "Зона отдыха коттеджа с чайным подносом и гардеробом"
+          }
+        },
+        {
+          "src": "/images/Deluxe Cottage/443798371.jpg",
+          "alt": {
+            "en": "Deluxe Cottage king bedroom with thatched ceiling and ceiling fan",
+            "ru": "Спальня коттеджа с тростниковым потолком и вентилятором"
+          }
+        },
+        {
+          "src": "/images/Deluxe Cottage/443798372.jpg",
+          "alt": {
+            "en": "Deluxe Cottage anteroom with arch opening to bedroom",
+            "ru": "Прихожая коттеджа с аркой в спальню"
+          }
+        },
+        {
+          "src": "/images/Deluxe Cottage/443798373.jpg",
+          "alt": {
+            "en": "Deluxe Cottage sitting area with sheer curtains and high thatched ceiling",
+            "ru": "Зона отдыха коттеджа с прозрачными шторами и высоким потолком"
+          }
+        },
+        {
+          "src": "/images/Deluxe Cottage/443798374.jpg",
+          "alt": {
+            "en": "Deluxe Cottage king bedroom with TV and curtained windows",
+            "ru": "Спальня коттеджа с телевизором и шторами"
+          }
+        },
+        {
+          "src": "/images/Deluxe Cottage/443798375.jpg",
+          "alt": {
+            "en": "Deluxe Cottage anteroom with kettle tray and arch to bedroom",
+            "ru": "Прихожая коттеджа с чайным подносом и аркой в спальню"
+          }
+        },
+        {
+          "src": "/images/Deluxe Cottage/443798378.jpg",
+          "alt": {
+            "en": "Deluxe Cottage rain shower with stone-pebble floor",
+            "ru": "Тропический душ с каменным полом в коттедже"
+          }
+        },
+        {
+          "src": "/images/Deluxe Cottage/443798379.jpg",
+          "alt": {
+            "en": "Deluxe Cottage bathroom with vessel sink and rain shower",
+            "ru": "Ванная комната коттеджа с раковиной и тропическим душем"
+          }
+        },
+        {
+          "src": "/images/Deluxe Cottage/443798381.jpg",
+          "alt": {
+            "en": "Deluxe Cottage bathroom with double vanity and rain showers",
+            "ru": "Ванная комната коттеджа с двойной раковиной и тропическим душем"
+          }
+        },
+        {
+          "src": "/images/Deluxe Cottage/815318118.jpg",
+          "alt": {
+            "en": "Deluxe Cottage twin bedroom with yellow cushions and garden windows",
+            "ru": "Спальня коттеджа с двумя кроватями и окнами в сад"
+          }
+        },
+        {
+          "src": "/images/Deluxe Cottage/815318122.jpg",
+          "alt": {
+            "en": "Deluxe Cottage garden with frangipani tree and cottage roofs",
+            "ru": "Сад коттеджа с деревом франжипани и крышами коттеджей"
+          }
+        },
+        {
+          "src": "/images/Deluxe Cottage/831224058.jpg",
+          "alt": {
+            "en": "Deluxe Cottage private veranda entrance with tropical garden",
+            "ru": "Веранда коттеджа с входом и тропическим садом"
+          }
+        },
+        {
+          "src": "/images/Deluxe Cottage/88584993.jpg",
+          "alt": {
+            "en": "Deluxe Cottage bed with flower turndown service",
+            "ru": "Кровать коттеджа с декоративной сервировкой из цветов"
+          }
+        }
       ],
-      "href": "https://secure.guestpro.net/odch/booking"
+      "href": "https://secure.guestpro.net/odch/booking",
+      "bathrooms": 1,
+      "amenityGroups": [
+        {
+          "label": {
+            "en": "Bathroom",
+            "ru": "Ванная комната"
+          },
+          "items": [
+            {
+              "en": "Bath or shower",
+              "ru": "Ванна или душ"
+            },
+            {
+              "en": "Free toiletries",
+              "ru": "Туалетные принадлежности"
+            },
+            {
+              "en": "Towels",
+              "ru": "Полотенца"
+            },
+            {
+              "en": "Hairdryer",
+              "ru": "Фен"
+            },
+            {
+              "en": "Toilet paper",
+              "ru": "Туалетная бумага"
+            }
+          ]
+        },
+        {
+          "label": {
+            "en": "Views",
+            "ru": "Виды"
+          },
+          "items": [
+            {
+              "en": "Garden view",
+              "ru": "Вид на сад"
+            },
+            {
+              "en": "Mountain view",
+              "ru": "Вид на горы"
+            },
+            {
+              "en": "Landmark view",
+              "ru": "Вид на достопримечательности"
+            }
+          ]
+        },
+        {
+          "label": {
+            "en": "Facilities",
+            "ru": "Удобства"
+          },
+          "items": [
+            {
+              "en": "Private entrance",
+              "ru": "Отдельный вход"
+            },
+            {
+              "en": "Balcony & terrace",
+              "ru": "Балкон и терраса"
+            },
+            {
+              "en": "Air conditioning & fan",
+              "ru": "Кондиционер и вентилятор"
+            },
+            {
+              "en": "Flat-screen TV",
+              "ru": "Телевизор с плоским экраном"
+            },
+            {
+              "en": "Minibar",
+              "ru": "Минибар"
+            },
+            {
+              "en": "Refrigerator",
+              "ru": "Холодильник"
+            },
+            {
+              "en": "Electric kettle",
+              "ru": "Электрический чайник"
+            },
+            {
+              "en": "Tea/coffee maker",
+              "ru": "Принадлежности для чая и кофе"
+            },
+            {
+              "en": "Safety deposit box",
+              "ru": "Сейф"
+            },
+            {
+              "en": "Desk & seating area",
+              "ru": "Письменный стол и зона отдыха"
+            },
+            {
+              "en": "Wardrobe",
+              "ru": "Гардероб"
+            },
+            {
+              "en": "Ironing facilities",
+              "ru": "Принадлежности для глажки"
+            },
+            {
+              "en": "Breakfast",
+              "ru": "Завтрак"
+            },
+            {
+              "en": "Daily housekeeping",
+              "ru": "Ежедневная уборка"
+            }
+          ]
+        }
+      ],
+      "keyFeatures": [
+        {
+          "en": "Garden View",
+          "ru": "Вид на сад"
+        },
+        {
+          "en": "Mountain View",
+          "ru": "Вид на горы"
+        },
+        {
+          "en": "Landmark View",
+          "ru": "Вид на достопримечательности"
+        },
+        {
+          "en": "Balcony & Terrace",
+          "ru": "Балкон и терраса"
+        },
+        {
+          "en": "Private Bathroom",
+          "ru": "Собственная ванная"
+        },
+        {
+          "en": "Air Conditioning",
+          "ru": "Кондиционер"
+        },
+        {
+          "en": "Flat-screen TV",
+          "ru": "Телевизор"
+        },
+        {
+          "en": "Minibar",
+          "ru": "Минибар"
+        },
+        {
+          "en": "Free WiFi",
+          "ru": "Бесплатный Wi-Fi"
+        }
+      ]
     }
   ],
   "bookingCta": {

@@ -16,10 +16,34 @@
     "ru": "Вдали от шумного юга Бали — там, где море встречается с садом, а каждый день живёт в своём ритме."
   },
   "stats": [
-    { "value": "4", "label": { "en": "Luxury Villas", "ru": "Виллы" } },
-    { "value": "14", "label": { "en": "Deluxe Cottages", "ru": "Коттеджи" } },
-    { "value": "1.5h", "label": { "en": "From Airport", "ru": "От Аэропорта" } },
-    { "value": "07:00", "label": { "en": "Restaurant Opens", "ru": "Ресторан Открыт" } }
+    {
+      "value": "4",
+      "label": {
+        "en": "Luxury Villas",
+        "ru": "Виллы"
+      }
+    },
+    {
+      "value": "14",
+      "label": {
+        "en": "Deluxe Cottages",
+        "ru": "Коттеджи"
+      }
+    },
+    {
+      "value": "1.5h",
+      "label": {
+        "en": "From Airport",
+        "ru": "От Аэропорта"
+      }
+    },
+    {
+      "value": "07:00",
+      "label": {
+        "en": "Restaurant Opens",
+        "ru": "Ресторан Открыт"
+      }
+    }
   ],
   "sections": [
     {
@@ -34,7 +58,7 @@
       },
       "image": "/images/gallery/g6.jpg",
       "imageAlt": {
-        "en": "Orlowsky Discovery Hotel on the Candidasa seafront",
+        "en": "Orlowsky Discovery Hotel on the Candidasa Seafront",
         "ru": "Orlowsky Discovery Hotel на набережной Чандидасы"
       }
     },
@@ -50,7 +74,7 @@
       },
       "image": "/images/gallery/g3.jpg",
       "imageAlt": {
-        "en": "Tropical garden pathway at Orlowsky Discovery Hotel",
+        "en": "Tropical Garden Pathway at Orlowsky Discovery Hotel",
         "ru": "Тропическая садовая дорожка в отеле Orlowsky Discovery"
       }
     },
@@ -66,7 +90,7 @@
       },
       "image": "/images/gallery/g8.jpg",
       "imageAlt": {
-        "en": "Hotel swimming pool surrounded by tropical gardens",
+        "en": "Hotel Swimming Pool Surrounded by Tropical Gardens",
         "ru": "Бассейн отеля в окружении тропических садов"
       }
     }

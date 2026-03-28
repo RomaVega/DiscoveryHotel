@@ -26,9 +26,7 @@ export function DiningDetail({ data }: DiningDetailProps) {
   const tableUrl = buildWhatsAppUrl(isRu
     ? "Здравствуйте! Хочу забронировать столик в ресторане."
     : "Hello! I'd like to book a table at the restaurant.");
-  const roomUrl = buildWhatsAppUrl(isRu
-    ? "Здравствуйте! Хочу заказать доставку еды в номер."
-    : "Hello! I'd like to order room dining.");
+  const roomUrl = "https://secure.guestpro.net/odch/concierge/room-dining";
 
   return (
     <div>
@@ -58,60 +56,35 @@ export function DiningDetail({ data }: DiningDetailProps) {
 
       {/* ── CTAs ── */}
       <FadeIn>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-charcoal/10 border-t border-charcoal/8">
+        <div className="bg-ivory py-20 px-6 text-center border-t border-charcoal/8">
+          <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-stone mb-6">
+            {isRu ? "Ресторан" : "Dining"}
+          </p>
+          <h2 className="font-serif font-light text-3xl md:text-4xl text-charcoal mb-3">
+            {isRu ? "Как Вы Хотите Отужинать?" : "How Would You Like to Dine?"}
+          </h2>
+          <p className="text-stone text-sm leading-relaxed mb-10">
+            {isRu
+              ? "Забронируйте столик или закажите в номер — мы на связи."
+              : "Reserve a table at the restaurant or order directly to your room."}
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href={tableUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-sand flex flex-col items-center text-center gap-5 py-24 px-10 group hover:bg-ivory transition-colors duration-300"
+              className="inline-block bg-transparent border border-brand-teal text-brand-teal hover:bg-brand-teal hover:text-white hover:scale-[1.04] active:scale-[0.97] font-sans font-semibold px-5 py-2 rounded-full tracking-wide uppercase text-xs transition-all duration-300 focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2"
             >
-              <UtensilsCrossed size={22} className="text-brand-teal" />
-              <div>
-                <p className="font-serif text-2xl text-charcoal">
-                  {isRu ? "Забронировать столик" : "Book a Table"}
-                </p>
-                <p className="text-stone text-sm mt-2 leading-relaxed">
-                  {isRu ? "Сделать бронирование" : "Make a Reservation"}
-                </p>
-              </div>
-              <span className="font-sans text-[11px] tracking-[0.2em] uppercase text-brand-teal group-hover:text-deep-teal transition-colors duration-200">
-                {isRu ? "Написать →" : "Message →"}
-              </span>
+              {isRu ? "Забронировать столик" : "Book a Table"}
             </a>
-
             <a
               href={roomUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-sand flex flex-col items-center text-center gap-5 py-24 px-10 group hover:bg-ivory transition-colors duration-300"
+              className="inline-block bg-transparent border border-brand-teal text-brand-teal hover:bg-brand-teal hover:text-white hover:scale-[1.04] active:scale-[0.97] font-sans font-semibold px-5 py-2 rounded-full tracking-wide uppercase text-xs transition-all duration-300 focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2"
             >
-              <ShoppingBag size={22} className="text-brand-teal" />
-              <div>
-                <p className="font-serif text-2xl text-charcoal">
-                  {isRu ? "Доставка в номер" : "Room Dining"}
-                </p>
-                <p className="text-stone text-sm mt-2 leading-relaxed">
-                  {isRu ? "Заказать онлайн прямо в номер" : "Order Online to Your Room"}
-                </p>
-              </div>
-              <span className="font-sans text-[11px] tracking-[0.2em] uppercase text-brand-teal group-hover:text-deep-teal transition-colors duration-200">
-                {isRu ? "Заказать →" : "Order →"}
-              </span>
+              {isRu ? "Доставка в номер" : "In-Room Dining"}
             </a>
-        </div>
-      </FadeIn>
-
-      {/* ── Quote strip ── */}
-      <FadeIn>
-        <div className="bg-sand py-20 px-6">
-          <div className="max-w-2xl mx-auto text-center">
-            <div className="w-px h-10 bg-brand-teal mx-auto mb-7" />
-            <p className="font-serif text-xl md:text-2xl font-light text-charcoal leading-relaxed italic">
-              {isRu
-                ? "Свежие морепродукты, балийские специи и вид на океан — каждый ужин здесь становится воспоминанием."
-                : "Fresh seafood, Balinese spices, and an ocean view — every dinner here becomes a memory."}
-            </p>
-            <div className="w-px h-10 bg-brand-teal mx-auto mt-7" />
           </div>
         </div>
       </FadeIn>
@@ -120,7 +93,7 @@ export function DiningDetail({ data }: DiningDetailProps) {
       <div>
         <div className="space-y-0">
           {data.features.map((feature, i) => {
-            const bg = i % 2 === 0 ? "bg-ivory" : "bg-sand";
+            const bg = i % 2 === 0 ? "bg-sand" : "bg-ivory";
             return (
               <FadeIn key={i}>
                 <div className={`flex flex-col lg:flex-row items-stretch ${i % 2 === 1 ? "lg:flex-row-reverse" : ""}`}>

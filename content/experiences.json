@@ -23,7 +23,7 @@
       },
       "image": "/images/experiences/experiences-excursions.jpg",
       "imageAlt": {
-        "en": "Bali rice terraces with lush green landscape",
+        "en": "Bali Rice Terraces with Lush Green Landscape",
         "ru": "Рисовые террасы Бали с пышным зелёным ландшафтом"
       },
       "href": "/experiences/excursions"
@@ -39,7 +39,7 @@
       },
       "image": "/images/experiences/experiences-diving.jpg",
       "imageAlt": {
-        "en": "Colorful coral reef underwater in Bali",
+        "en": "Colorful Coral Reef Underwater in Bali",
         "ru": "Яркий коралловый риф под водой на Бали"
       },
       "href": "/experiences/diving"
@@ -55,7 +55,7 @@
       },
       "image": "/images/experiences/experiences-events.jpg",
       "imageAlt": {
-        "en": "Elegant outdoor event setup with ocean backdrop",
+        "en": "Elegant Outdoor Event Setup with Ocean Backdrop",
         "ru": "Элегантное оформление мероприятия на открытом воздухе с видом на океан"
       },
       "href": "/experiences/events"
@@ -71,7 +71,7 @@
       },
       "image": "/images/rental/rental.png",
       "imageAlt": {
-        "en": "Scooter parked on scenic Bali road",
+        "en": "Scooter Parked on Scenic Bali Road",
         "ru": "Скутер на живописной дороге Бали"
       },
       "href": "/experiences/car-rental"
@@ -87,7 +87,7 @@
       },
       "image": "/images/gallery/g3.jpg",
       "imageAlt": {
-        "en": "Ayurvedic spa treatment room with tropical garden view",
+        "en": "Ayurvedic Spa Treatment Room with Tropical Garden View",
         "ru": "Кабинет аюрведического спа с видом на тропический сад"
       },
       "href": "/spa"

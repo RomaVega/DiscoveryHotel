@@ -174,11 +174,15 @@ export interface RoomDetail {
   title: LocalizedString;
   description: LocalizedString;
   size: string;
+  bedrooms?: number;
+  bathrooms?: number;
   image: string;
   imageAlt: LocalizedString;
   images?: RoomSlide[];
   href: string;
+  keyFeatures?: LocalizedString[];
   amenities: LocalizedString[];
+  amenityGroups?: { label: LocalizedString; items: LocalizedString[] }[];
   highlights?: LocalizedString[];
 }
 

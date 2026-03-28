@@ -100,7 +100,7 @@ export function EventsDetail({ data }: EventsDetailProps) {
         <div className="max-w-3xl mx-auto px-6 text-center">
           <FadeIn>
             <h2 className="font-serif font-light text-3xl md:text-5xl text-white">
-              {isRu ? "Начните планировать торжество" : "Start Planning Your Celebration"}
+              {isRu ? "Начните Планировать Торжество" : "Start Planning Your Celebration"}
             </h2>
             <p className="mt-4 text-lg text-white/70 leading-relaxed">
               {isRu

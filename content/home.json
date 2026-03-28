@@ -50,8 +50,8 @@
     "rooms": [
       {
         "title": {
-          "en": "Deluxe Cottage",
-          "ru": "Делюкс Коттедж"
+          "en": "Deluxe Cottage Garden View",
+          "ru": "Коттедж Делюкс с Видом на Сад"
         },
         "description": {
           "en": "Charming cottage with Balinese garden views",
@@ -60,11 +60,98 @@
         "image": "/images/rooms/Deluxe Cottage.jpg",
         "imageAlt": "Deluxe Cottage at Orlowsky Discovery Hotel",
         "images": [
-          { "src": "/images/Deluxe Cottage/14459232.jpg", "alt": "Deluxe Cottage bedroom with traditional octagonal thatched ceiling" },
-          { "src": "/images/Deluxe Cottage/14459280.jpg", "alt": "Deluxe Cottage twin bedroom with Balinese thatched ceiling" },
-          { "src": "/images/Deluxe Cottage/14459213.jpg", "alt": "Deluxe Cottage lounge and bedroom with high thatched ceiling" },
-          { "src": "/images/Deluxe Cottage/443798403.jpg", "alt": "Deluxe Cottage bright bedroom with garden balcony" },
-          { "src": "/images/Deluxe Cottage/443798394.jpg", "alt": "Deluxe Cottage private terrace with ocean view" }
+          {
+            "src": "/images/Deluxe Cottage/14459213.jpg",
+            "alt": "Deluxe Cottage sitting room with garden-view windows"
+          },
+          {
+            "src": "/images/Deluxe Cottage/14459223.jpg",
+            "alt": "Deluxe Cottage king bedroom with Balinese thatched ceiling"
+          },
+          {
+            "src": "/images/Deluxe Cottage/14459232.jpg",
+            "alt": "Deluxe Cottage king bedroom with TV unit and sitting area"
+          },
+          {
+            "src": "/images/Deluxe Cottage/14459259.jpg",
+            "alt": "Deluxe Cottage bathroom with rolled towels and plumeria"
+          },
+          {
+            "src": "/images/Deluxe Cottage/14459280.jpg",
+            "alt": "Deluxe Cottage twin bedroom with thatched ceiling"
+          },
+          {
+            "src": "/images/Deluxe Cottage/14459656.jpg",
+            "alt": "Aerial view of Deluxe Cottages among coconut palms"
+          },
+          {
+            "src": "/images/Deluxe Cottage/170696374.jpg",
+            "alt": "Deluxe Cottage exterior with covered terrace and tropical garden"
+          },
+          {
+            "src": "/images/Deluxe Cottage/170696378.jpg",
+            "alt": "Deluxe Cottage king bedroom with warm lighting and garden windows"
+          },
+          {
+            "src": "/images/Deluxe Cottage/170696380.jpg",
+            "alt": "Deluxe Cottage king bedroom with glass doors open to garden"
+          },
+          {
+            "src": "/images/Deluxe Cottage/170696381.jpg",
+            "alt": "Deluxe Cottage king bedroom with garden view and bedside lamps"
+          },
+          {
+            "src": "/images/Deluxe Cottage/443798369.jpg",
+            "alt": "Deluxe Cottage sitting area with kettle tray and wardrobe"
+          },
+          {
+            "src": "/images/Deluxe Cottage/443798371.jpg",
+            "alt": "Deluxe Cottage king bedroom with thatched ceiling and ceiling fan"
+          },
+          {
+            "src": "/images/Deluxe Cottage/443798372.jpg",
+            "alt": "Deluxe Cottage anteroom with arch opening to bedroom"
+          },
+          {
+            "src": "/images/Deluxe Cottage/443798373.jpg",
+            "alt": "Deluxe Cottage sitting area with sheer curtains and high thatched ceiling"
+          },
+          {
+            "src": "/images/Deluxe Cottage/443798374.jpg",
+            "alt": "Deluxe Cottage king bedroom with TV and curtained windows"
+          },
+          {
+            "src": "/images/Deluxe Cottage/443798375.jpg",
+            "alt": "Deluxe Cottage anteroom with kettle tray and arch to bedroom"
+          },
+          {
+            "src": "/images/Deluxe Cottage/443798378.jpg",
+            "alt": "Deluxe Cottage rain shower with stone-pebble floor"
+          },
+          {
+            "src": "/images/Deluxe Cottage/443798379.jpg",
+            "alt": "Deluxe Cottage bathroom with vessel sink and rain shower"
+          },
+          {
+            "src": "/images/Deluxe Cottage/443798381.jpg",
+            "alt": "Deluxe Cottage bathroom with double vanity and rain showers"
+          },
+          {
+            "src": "/images/Deluxe Cottage/815318118.jpg",
+            "alt": "Deluxe Cottage twin bedroom with yellow cushions and garden windows"
+          },
+          {
+            "src": "/images/Deluxe Cottage/815318122.jpg",
+            "alt": "Deluxe Cottage garden with frangipani tree and cottage roofs"
+          },
+          {
+            "src": "/images/Deluxe Cottage/831224058.jpg",
+            "alt": "Deluxe Cottage private veranda entrance with tropical garden"
+          },
+          {
+            "src": "/images/Deluxe Cottage/88584993.jpg",
+            "alt": "Deluxe Cottage bed with flower turndown service"
+          }
         ],
         "href": "https://secure.guestpro.net/odch/room-type/9951a5c1-a10a-4a6c-abf8-585eaf574b16"
       },
@@ -80,18 +167,134 @@
         "image": "/images/rooms/Pool Villa.jpg",
         "imageAlt": "Three Bedrooms Pool Villa at Orlowsky Discovery Hotel",
         "images": [
-          { "src": "/images/Three Bedrooms Pool Villa/443798431.jpg", "alt": "Pool Villa exterior with private pool and tropical garden" },
-          { "src": "/images/Three Bedrooms Pool Villa/170696380.jpg", "alt": "Pool Villa master bedroom with warm lighting" },
-          { "src": "/images/Three Bedrooms Pool Villa/170696381.jpg", "alt": "Pool Villa bedroom with garden view" },
-          { "src": "/images/Three Bedrooms Pool Villa/170696898.jpg", "alt": "Pool Villa bedroom with thatched ceiling" },
-          { "src": "/images/Three Bedrooms Pool Villa/170696901.jpg", "alt": "Pool Villa twin bedroom with balcony" },
-          { "src": "/images/Three Bedrooms Pool Villa/170696902.jpg", "alt": "Pool Villa bedroom with garden balcony access" },
-          { "src": "/images/Three Bedrooms Pool Villa/170696906.jpg", "alt": "Pool Villa open-plan living and dining with pool view" },
-          { "src": "/images/Three Bedrooms Pool Villa/87492960.jpg", "alt": "Pool Villa dining area and fully equipped kitchen" },
-          { "src": "/images/Three Bedrooms Pool Villa/170696905.jpg", "alt": "Pool Villa fully equipped kitchen" },
-          { "src": "/images/Three Bedrooms Pool Villa/170696909.jpg", "alt": "Pool Villa marble en-suite with soaking tub" },
-          { "src": "/images/Three Bedrooms Pool Villa/87492962.jpg", "alt": "Pool Villa bathroom with ocean view" },
-          { "src": "/images/Three Bedrooms Pool Villa/172544231.jpg", "alt": "Pool Villa en-suite with rain shower and soaking tub" }
+          {
+            "src": "/images/Three Bedrooms Pool Villa/14459259.jpg",
+            "alt": "Pool Villa bathroom with rolled towels and frangipani flowers"
+          },
+          {
+            "src": "/images/Three Bedrooms Pool Villa/16425574.jpg",
+            "alt": "Pool Villa living room with leather sofa, TV and garden balcony"
+          },
+          {
+            "src": "/images/Three Bedrooms Pool Villa/16427453.jpg",
+            "alt": "Pool Villa spacious living room with leather sofas and thatched ceiling"
+          },
+          {
+            "src": "/images/Three Bedrooms Pool Villa/170696898.jpg",
+            "alt": "Pool Villa master bedroom with double bed and garden view"
+          },
+          {
+            "src": "/images/Three Bedrooms Pool Villa/170696901.jpg",
+            "alt": "Pool Villa twin bedroom with tropical balcony"
+          },
+          {
+            "src": "/images/Three Bedrooms Pool Villa/170696902.jpg",
+            "alt": "Pool Villa twin bedroom with garden balcony view"
+          },
+          {
+            "src": "/images/Three Bedrooms Pool Villa/170696905.jpg",
+            "alt": "Pool Villa private pool with terrace and tropical garden"
+          },
+          {
+            "src": "/images/Three Bedrooms Pool Villa/170696906.jpg",
+            "alt": "Pool Villa open-plan living and dining area with kitchenette"
+          },
+          {
+            "src": "/images/Three Bedrooms Pool Villa/170696909.jpg",
+            "alt": "Pool Villa marble bathroom with soaking tub and stone shower"
+          },
+          {
+            "src": "/images/Three Bedrooms Pool Villa/170696911.jpg",
+            "alt": "Pool Villa double bedroom with bedside lamps and garden curtains"
+          },
+          {
+            "src": "/images/Three Bedrooms Pool Villa/170696913.jpg",
+            "alt": "Pool Villa double bedroom with garden view and sheer curtains"
+          },
+          {
+            "src": "/images/Three Bedrooms Pool Villa/172544231.jpg",
+            "alt": "Pool Villa bathroom with soaking tub and rain shower"
+          },
+          {
+            "src": "/images/Three Bedrooms Pool Villa/18015225.jpg",
+            "alt": "Pool Villa dining table with tropical flower arrangement"
+          },
+          {
+            "src": "/images/Three Bedrooms Pool Villa/443798380.jpg",
+            "alt": "Pool Villa double bedroom with wardrobe and en-suite door"
+          },
+          {
+            "src": "/images/Three Bedrooms Pool Villa/443798382.jpg",
+            "alt": "Pool Villa airy double bedroom with garden balcony doors"
+          },
+          {
+            "src": "/images/Three Bedrooms Pool Villa/443798383.jpg",
+            "alt": "Pool Villa living room with leather sofas under high thatched ceiling"
+          },
+          {
+            "src": "/images/Three Bedrooms Pool Villa/443798384.jpg",
+            "alt": "Pool Villa bathroom with stone shower column and double vanity"
+          },
+          {
+            "src": "/images/Three Bedrooms Pool Villa/443798386.jpg",
+            "alt": "Pool Villa bright living room with garden view"
+          },
+          {
+            "src": "/images/Three Bedrooms Pool Villa/443798387.jpg",
+            "alt": "Pool Villa double bedroom with tropical garden doors"
+          },
+          {
+            "src": "/images/Three Bedrooms Pool Villa/443798390.jpg",
+            "alt": "Pool Villa living room with TV and leather sofa"
+          },
+          {
+            "src": "/images/Three Bedrooms Pool Villa/443798394.jpg",
+            "alt": "Pool Villa upper terrace balcony with ocean and palm tree view"
+          },
+          {
+            "src": "/images/Three Bedrooms Pool Villa/443798397.jpg",
+            "alt": "Pool Villa open-plan living, dining and pool terrace"
+          },
+          {
+            "src": "/images/Three Bedrooms Pool Villa/443798398.jpg",
+            "alt": "Pool Villa bathroom doorway connecting to double bedroom"
+          },
+          {
+            "src": "/images/Three Bedrooms Pool Villa/443798403.jpg",
+            "alt": "Pool Villa double bedroom with flower petal decoration"
+          },
+          {
+            "src": "/images/Three Bedrooms Pool Villa/443798410.jpg",
+            "alt": "Pool Villa exterior with private pool and upper balcony"
+          },
+          {
+            "src": "/images/Three Bedrooms Pool Villa/443798431.jpg",
+            "alt": "Pool Villa two-storey exterior with pool and tropical garden"
+          },
+          {
+            "src": "/images/Three Bedrooms Pool Villa/450186507.jpg",
+            "alt": "Pool Villa aerial view of private pool with lush garden"
+          },
+          {
+            "src": "/images/Three Bedrooms Pool Villa/81536805.jpg",
+            "alt": "Pool Villa bathroom with rain shower and stone vanity"
+          },
+          {
+            "src": "/images/Three Bedrooms Pool Villa/831226198.jpg",
+            "alt": "Pool Villa bed with towel swan and flower petal decoration"
+          },
+          {
+            "src": "/images/Three Bedrooms Pool Villa/87366051.jpg",
+            "alt": "Pool Villa two-storey exterior with pool amid tropical foliage"
+          },
+          {
+            "src": "/images/Three Bedrooms Pool Villa/87492960.jpg",
+            "alt": "Pool Villa dining area with round table and kitchenette"
+          },
+          {
+            "src": "/images/Three Bedrooms Pool Villa/87492962.jpg",
+            "alt": "Pool Villa bathroom with ocean view window and vanity"
+          }
         ],
         "href": "https://secure.guestpro.net/odch/room-type/ee0cdd19-1045-481f-9e36-b8287e343c24"
       }
@@ -109,129 +312,204 @@
     "items": [
       {
         "icon": "Waves",
-        "title": { "en": "Swimming Pool", "ru": "Бассейн" },
+        "title": {
+          "en": "Swimming Pool",
+          "ru": "Бассейн"
+        },
         "description": ""
       },
       {
         "icon": "Wifi",
-        "title": { "en": "Fast Wi-Fi", "ru": "Быстрый Wi-Fi" },
+        "title": {
+          "en": "Fast Wi-Fi",
+          "ru": "Быстрый Wi-Fi"
+        },
         "description": ""
       },
       {
         "icon": "UtensilsCrossed",
-        "title": { "en": "Restaurant", "ru": "Ресторан" },
+        "title": {
+          "en": "Restaurant",
+          "ru": "Ресторан"
+        },
         "description": ""
       },
       {
         "icon": "Sparkles",
-        "title": { "en": "SPA", "ru": "СПА" },
+        "title": {
+          "en": "SPA",
+          "ru": "СПА"
+        },
         "description": ""
       },
       {
         "icon": "Umbrella",
-        "title": { "en": "Private Beach Area", "ru": "Пляжная зона" },
+        "title": {
+          "en": "Private Beach Area",
+          "ru": "Пляжная зона"
+        },
         "description": ""
       },
       {
         "icon": "Coffee",
-        "title": { "en": "Breakfast", "ru": "Завтрак" },
+        "title": {
+          "en": "Breakfast",
+          "ru": "Завтрак"
+        },
         "description": ""
       },
       {
         "icon": "Ban",
-        "title": { "en": "Non Smoking Rooms", "ru": "Номера для некурящих" },
+        "title": {
+          "en": "Non Smoking Rooms",
+          "ru": "Номера для некурящих"
+        },
         "description": ""
       },
       {
         "icon": "Coins",
-        "title": { "en": "Currency Exchange", "ru": "Обмен валюты" },
+        "title": {
+          "en": "Currency Exchange",
+          "ru": "Обмен валюты"
+        },
         "description": ""
       },
       {
         "icon": "Activity",
-        "title": { "en": "Doctor on Call", "ru": "Врач по вызову" },
+        "title": {
+          "en": "Doctor on Call",
+          "ru": "Врач по вызову"
+        },
         "description": ""
       },
       {
         "icon": "Sun",
-        "title": { "en": "Beach", "ru": "Пляж" },
+        "title": {
+          "en": "Beach",
+          "ru": "Пляж"
+        },
         "description": ""
       },
       {
         "icon": "Accessibility",
-        "title": { "en": "Accessibility", "ru": "Доступность" },
+        "title": {
+          "en": "Accessibility",
+          "ru": "Доступность"
+        },
         "description": "",
         "hideDesktop": true
       },
       {
         "icon": "Car",
-        "title": { "en": "Free Parking", "ru": "Бесплатная парковка" },
+        "title": {
+          "en": "Free Parking",
+          "ru": "Бесплатная парковка"
+        },
         "description": ""
       },
       {
         "icon": "Shield",
-        "title": { "en": "24 Hour Security", "ru": "Охрана 24 часа" },
+        "title": {
+          "en": "24 Hour Security",
+          "ru": "Охрана 24 часа"
+        },
         "description": ""
       },
       {
         "icon": "PlaneLanding",
-        "title": { "en": "Airport Shuttle", "ru": "Трансфер из аэропорта" },
+        "title": {
+          "en": "Airport Shuttle",
+          "ru": "Трансфер из аэропорта"
+        },
         "description": ""
       },
       {
         "icon": "Bell",
-        "title": { "en": "24h Receptionist", "ru": "Ресепшн 24/7" },
+        "title": {
+          "en": "24h Receptionist",
+          "ru": "Ресепшн 24/7"
+        },
         "description": ""
       },
       {
         "icon": "Shirt",
-        "title": { "en": "Daily Housekeeping", "ru": "Ежедневная уборка" },
+        "title": {
+          "en": "Daily Housekeeping",
+          "ru": "Ежедневная уборка"
+        },
         "description": ""
       },
       {
         "icon": "Bike",
-        "title": { "en": "Motorbike Rental", "ru": "Аренда мотоцикла" },
+        "title": {
+          "en": "Motorbike Rental",
+          "ru": "Аренда мотоцикла"
+        },
         "description": ""
       },
       {
         "icon": "GlassWater",
-        "title": { "en": "Bar", "ru": "Бар" },
+        "title": {
+          "en": "Bar",
+          "ru": "Бар"
+        },
         "description": ""
       },
       {
         "icon": "WashingMachine",
-        "title": { "en": "Laundry", "ru": "Прачечная" },
+        "title": {
+          "en": "Laundry",
+          "ru": "Прачечная"
+        },
         "description": ""
       },
       {
         "icon": "Map",
-        "title": { "en": "Tour Organisation", "ru": "Организация экскурсий" },
+        "title": {
+          "en": "Tour Organisation",
+          "ru": "Организация экскурсий"
+        },
         "description": ""
       },
       {
         "icon": "Bus",
-        "title": { "en": "Transport Service", "ru": "Транспортные услуги" },
+        "title": {
+          "en": "Transport Service",
+          "ru": "Транспортные услуги"
+        },
         "description": ""
       },
       {
         "icon": "Package",
-        "title": { "en": "Minibar", "ru": "Мини-бар" },
+        "title": {
+          "en": "Minibar",
+          "ru": "Мини-бар"
+        },
         "description": ""
       },
       {
         "icon": "Hand",
-        "title": { "en": "Massage", "ru": "Массаж" },
+        "title": {
+          "en": "Massage",
+          "ru": "Массаж"
+        },
         "description": "",
         "hideMobile": true
       },
       {
         "icon": "ConciergeBell",
-        "title": { "en": "Room Service", "ru": "Обслуживание в номере" },
+        "title": {
+          "en": "Room Service",
+          "ru": "Обслуживание в номере"
+        },
         "description": ""
       },
       {
         "icon": "Tv",
-        "title": { "en": "Smart TV", "ru": "Smart TV" },
+        "title": {
+          "en": "Smart TV",
+          "ru": "Smart TV"
+        },
         "description": ""
       }
     ]

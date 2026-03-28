@@ -62,7 +62,7 @@ export function CarRentalDetail({ data }: CarRentalDetailProps) {
         <div className="max-w-3xl mx-auto px-6 text-center">
           <FadeIn>
             <h2 className="font-serif font-light text-3xl md:text-5xl text-white">
-              {isRu ? "Готовы объездить Восточный Бали?" : "Ready to Ride East Bali?"}
+              {isRu ? "Готовы Объездить Восточный Бали?" : "Ready to Ride East Bali?"}
             </h2>
             <p className="mt-4 text-lg text-white/70 leading-relaxed">
               {isRu

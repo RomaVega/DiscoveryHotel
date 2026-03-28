@@ -89,7 +89,10 @@
       "source": "booking"
     },
     {
-      "author": { "en": "Anna K.", "ru": "Анна К." },
+      "author": {
+        "en": "Anna K.",
+        "ru": "Анна К."
+      },
       "country": "Russia",
       "date": "February 2025",
       "rating": 5,
@@ -100,7 +103,10 @@
       "source": "google"
     },
     {
-      "author": { "en": "Mikhail R.", "ru": "Михаил Р." },
+      "author": {
+        "en": "Mikhail R.",
+        "ru": "Михаил Р."
+      },
       "country": "Russia",
       "date": "March 2025",
       "rating": 5,
@@ -111,7 +117,10 @@
       "source": "booking"
     },
     {
-      "author": { "en": "Olga M.", "ru": "Ольга М." },
+      "author": {
+        "en": "Olga M.",
+        "ru": "Ольга М."
+      },
       "country": "Russia",
       "date": "January 2025",
       "rating": 5,
@@ -122,7 +131,10 @@
       "source": "google"
     },
     {
-      "author": { "en": "Natalya V.", "ru": "Наталья В." },
+      "author": {
+        "en": "Natalya V.",
+        "ru": "Наталья В."
+      },
       "country": "Russia",
       "date": "March 2025",
       "rating": 5,

@@ -27,7 +27,7 @@
       },
       "image": "/images/rental/rental-scooter.jpg",
       "imageAlt": {
-        "en": "Scooter available for rent at the hotel",
+        "en": "Scooter Available for Rent at the Hotel",
         "ru": "Скутер для аренды в отеле"
       }
     },
@@ -46,13 +46,13 @@
       },
       "image": "/images/rental/rental-car.jpg",
       "imageAlt": {
-        "en": "Rental car parked at the hotel",
+        "en": "Rental Car Parked at the Hotel",
         "ru": "Арендный автомобиль у отеля"
       }
     },
     {
       "title": {
-        "en": "Car With Driver",
+        "en": "Car with Driver",
         "ru": "Автомобиль с водителем"
       },
       "description": {
@@ -65,7 +65,7 @@
       },
       "image": "/images/rental/rental-car-driver.jpg",
       "imageAlt": {
-        "en": "Car with driver service at the hotel",
+        "en": "Car with Driver Service at the Hotel",
         "ru": "Услуга автомобиля с водителем в отеле"
       }
     },
@@ -84,7 +84,7 @@
       },
       "image": "/images/rental/rental-ebike.jpg",
       "imageAlt": {
-        "en": "Electric bike available for rent",
+        "en": "Electric Bike Available for Rent",
         "ru": "Электровелосипед для аренды"
       }
     }
