@@ -92,7 +92,6 @@ export function HeroImage({ hero }: HeroImageProps) {
             poster={hero.image}
             className={`absolute inset-0 h-full w-full object-cover ${hero.videoMobile ? "hidden md:block" : ""}`}
           >
-            <source src={hero.video.replace(".mp4", ".webm")} type="video/webm" />
             <source src={hero.video} type="video/mp4" />
           </video>
         </>

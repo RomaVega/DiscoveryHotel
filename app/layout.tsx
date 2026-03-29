@@ -70,7 +70,7 @@ export default function RootLayout({
     <html lang="en" className={inter.variable} suppressHydrationWarning>
       <head>
         {/* Preload hero video for faster LCP */}
-        <link rel="preload" as="video" href="/video/hero-desktop.webm" type="video/webm" />
+        <link rel="preload" as="video" href="/video/orlowsky-hotel-candidasa-bali-hero.mp4" type="video/mp4" />
         {/* schema.org Hotel — structured data for Google rich results */}
         <script
           type="application/ld+json"
