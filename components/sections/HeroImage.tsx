@@ -17,11 +17,12 @@ export function HeroImage({ hero }: HeroImageProps) {
 
   // Two-way: hide content on scroll down, restore on scroll back to top
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 3);
+    const onScroll = () => setScrolled(window.scrollY > 1);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const mobileVideoRef = useRef<HTMLVideoElement>(null);
   const line1Ref = useRef<HTMLSpanElement>(null);
   const line2Ref = useRef<HTMLSpanElement>(null);
   const line3Ref = useRef<HTMLSpanElement>(null);
@@ -61,40 +62,40 @@ export function HeroImage({ hero }: HeroImageProps) {
         };
 
   const toggleVideo = () => {
-    const video = videoRef.current;
-    if (video) {
-      if (video.paused) {
-        video.play();
-        setPaused(false);
-      } else {
-        video.pause();
-        setPaused(true);
-      }
-    }
+    [videoRef, mobileVideoRef].forEach(ref => {
+      const video = ref.current;
+      if (!video) return;
+      if (video.paused) { video.play(); setPaused(false); }
+      else { video.pause(); setPaused(true); }
+    });
   };
 
   return (
-    <section className="relative h-[100svh] md:h-[100vh] w-full overflow-hidden bg-black">
+    <section className="relative h-[115svh] md:h-[110vh] w-full overflow-hidden bg-black">
       {hero.video ? (
-        <video
-          ref={videoRef}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          poster={hero.image}
-          className="absolute inset-0 h-full w-full object-cover"
-        >
+        <>
+          {/* Mobile video — portrait, shown below md breakpoint */}
           {hero.videoMobile && (
-            <>
-              <source src={hero.videoMobile.replace(".mp4", ".webm")} type="video/webm" media="(max-width: 767px)" />
-              <source src={hero.videoMobile} type="video/mp4" media="(max-width: 767px)" />
-            </>
+            <video
+              ref={mobileVideoRef}
+              autoPlay muted loop playsInline preload="metadata"
+              poster={hero.image}
+              className="absolute inset-0 h-full w-full object-cover md:hidden"
+            >
+              <source src={hero.videoMobile} type="video/mp4" />
+            </video>
           )}
-          <source src={hero.video.replace(".mp4", ".webm")} type="video/webm" />
-          <source src={hero.video} type="video/mp4" />
-        </video>
+          {/* Desktop video — landscape, shown at md+ */}
+          <video
+            ref={videoRef}
+            autoPlay muted loop playsInline preload="metadata"
+            poster={hero.image}
+            className={`absolute inset-0 h-full w-full object-cover ${hero.videoMobile ? "hidden md:block" : ""}`}
+          >
+            <source src={hero.video.replace(".mp4", ".webm")} type="video/webm" />
+            <source src={hero.video} type="video/mp4" />
+          </video>
+        </>
       ) : (
         <Image
           src={hero.image}
@@ -123,7 +124,7 @@ export function HeroImage({ hero }: HeroImageProps) {
 
       {/* Content */}
       <div
-        className={`relative z-10 flex h-[100svh] md:h-[100vh] flex-col items-center justify-center px-6 text-center text-white transition-opacity duration-300 ${scrolled ? "opacity-0 pointer-events-none" : "opacity-100"}`}
+        className={`relative z-10 flex h-[100svh] md:h-[100vh] flex-col items-center justify-center px-6 text-center text-white ${scrolled ? "opacity-0 pointer-events-none" : "opacity-100 transition-opacity duration-500"}`}
       >
         {/* Logo */}
         <motion.div {...fadeUp(0.2)}>
@@ -216,7 +217,7 @@ export function HeroImage({ hero }: HeroImageProps) {
 
 
       {/* Scroll indicator */}
-      <div className={`transition-opacity duration-300 ${scrolled ? "opacity-0" : ""}`}>
+      <div className={`${scrolled ? "opacity-0" : "transition-opacity duration-500"}`}>
         <motion.div
           className="absolute bottom-10 md:bottom-10 left-1/2 -translate-x-1/2 z-10"
           initial={{ opacity: 0 }}
