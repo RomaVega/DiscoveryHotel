@@ -35,7 +35,6 @@ function BrandLogo({ onClick }: { onClick?: () => void }) {
         alt="Orlowsky Discovery Hotel"
         width={44}
         height={44}
-        unoptimized
         className="object-contain shrink-0"
       />
     </Link>

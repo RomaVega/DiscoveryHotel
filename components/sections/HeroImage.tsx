@@ -74,7 +74,7 @@ export function HeroImage({ hero }: HeroImageProps) {
             <video
               ref={mobileVideoRef}
               autoPlay muted loop playsInline preload="metadata"
-              poster={hero.image}
+              poster={`${BASE_PATH}${hero.image}`}
               className="absolute inset-0 h-full w-full object-cover md:hidden"
             >
               <source src={`${BASE_PATH}${hero.videoMobile}`} type="video/mp4" />
@@ -84,7 +84,7 @@ export function HeroImage({ hero }: HeroImageProps) {
           <video
             ref={videoRef}
             autoPlay muted loop playsInline preload="metadata"
-            poster={hero.image}
+            poster={`${BASE_PATH}${hero.image}`}
             className={`absolute inset-0 h-full w-full object-cover ${hero.videoMobile ? "hidden md:block" : ""}`}
           >
             <source src={`${BASE_PATH}${hero.video}`} type="video/mp4" />

@@ -63,7 +63,6 @@ export function LoadingScreen() {
           width={120}
           height={120}
           priority
-          unoptimized
           className="relative z-10"
         />
         <svg
