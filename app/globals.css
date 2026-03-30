@@ -23,9 +23,10 @@
 }
 
 .loading-ring {
-  animation: fade-in-loading 0.5s ease 0.3s both, spin-loading 1.6s linear 0.3s infinite;
+  animation: spin-loading 1.4s linear infinite;
   will-change: transform;
-  transform-origin: 140px 140px;
+  transform-box: fill-box;
+  transform-origin: center;
 }
 
 @custom-variant data-open {
