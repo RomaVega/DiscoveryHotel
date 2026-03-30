@@ -9,6 +9,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/lib/language-context";
 import { LanguageSelector } from "@/components/layout/LanguageSelector";
+import { SecondaryButton } from "@/components/common/SecondaryButton";
 
 interface NavbarProps {
   alwaysVisible?: boolean;
@@ -168,14 +169,9 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80 }: NavbarPr
             </li>
 
             <li>
-              <a
-                href="https://secure.guestpro.net/odch"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="whitespace-nowrap shrink-0 font-sans text-xs font-semibold text-charcoal bg-transparent hover:bg-brand-teal/10 border border-brand-teal rounded-full px-5 py-2 tracking-wide transition-all duration-200"
-              >
+              <SecondaryButton href="https://secure.guestpro.net/odch" external className="whitespace-nowrap shrink-0">
                 {tl.nav.bookNow}
-              </a>
+              </SecondaryButton>
             </li>
           </ul>
 
@@ -259,15 +255,13 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80 }: NavbarPr
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.3, delay: 0.45 }}
               >
-                <a
+                <SecondaryButton
                   href="https://secure.guestpro.net/odch"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={closeMenu}
-                  className="text-charcoal border border-brand-teal rounded-full font-sans font-semibold text-sm px-8 py-3 tracking-widest transition-all duration-200 hover:bg-brand-teal/10 hover:scale-[1.04] active:scale-[0.97]"
+                  external
+                  className="px-8 py-3 text-sm tracking-widest"
                 >
                   {tl.nav.bookNow}
-                </a>
+                </SecondaryButton>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0 }}

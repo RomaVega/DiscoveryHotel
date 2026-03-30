@@ -1,14 +1,14 @@
 "use client"; // Uses useLanguage for content translation
 
 import { FadeIn } from "@/components/common/FadeIn";
+import { SecondaryButton } from "@/components/common/SecondaryButton";
 import type { DivingPageData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
+import { getWhatsAppNumber } from "@/lib/whatsapp";
 
 interface DivingDetailProps {
   data: DivingPageData;
 }
-
-const WHATSAPP = "6282236655582";
 
 export function DivingDetail({ data }: DivingDetailProps) {
   const { t, locale } = useLanguage();
@@ -41,14 +41,9 @@ export function DivingDetail({ data }: DivingDetailProps) {
                     </div>
                   )}
                   <div className="mt-4 flex justify-center">
-                    <a
-                      href={`https://wa.me/${WHATSAPP}?text=${msg}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block font-sans text-xs font-semibold tracking-wide border border-brand-teal text-brand-teal hover:bg-brand-teal hover:text-white px-5 py-2.5 rounded-full transition-all duration-200 whitespace-nowrap"
-                    >
+                    <SecondaryButton href={`https://wa.me/${getWhatsAppNumber()}?text=${msg}`} external>
                       {bookText}
-                    </a>
+                    </SecondaryButton>
                   </div>
                 </div>
               );

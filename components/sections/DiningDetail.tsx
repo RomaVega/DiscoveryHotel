@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import { FadeIn } from "@/components/common/FadeIn";
+import { SecondaryButton } from "@/components/common/SecondaryButton";
+import { StatsStrip } from "@/components/common/StatsStrip";
 import type { DiningPageData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
 import { UtensilsCrossed, ShoppingBag } from "lucide-react";
@@ -34,29 +36,12 @@ export function DiningDetail({ data }: DiningDetailProps) {
 
   return (
     <div>
-      {/* ── Stats strip (Option 3) ── */}
-      <div className="bg-cta-teal py-10 px-6">
-        <div className="max-w-3xl mx-auto grid grid-cols-3 divide-x divide-white/15">
-          <div className="text-center px-6">
-            <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-white/40 mb-1.5">
-              {isRu ? "Часы работы" : "Hours"}
-            </p>
-            <p className="font-serif text-xl md:text-2xl font-light text-white">{data.hours}</p>
-          </div>
-          <div className="text-center px-6">
-            <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-white/40 mb-1.5">
-              {isRu ? "Вместимость" : "Capacity"}
-            </p>
-            <p className="font-serif text-xl md:text-2xl font-light text-white">{data.capacity}</p>
-          </div>
-          <div className="text-center px-6">
-            <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-white/40 mb-1.5">
-              {isRu ? "Расположение" : "Location"}
-            </p>
-            <p className="font-serif text-xl md:text-2xl font-light text-white">Candidasa, Bali</p>
-          </div>
-        </div>
-      </div>
+      {/* ── Stats strip ── */}
+      <StatsStrip items={[
+        { label: t({ en: "Hours", ru: "Часы работы" }), value: data.hours },
+        { label: t({ en: "Capacity", ru: "Вместимость" }), value: data.capacity },
+        { label: t({ en: "Location", ru: "Расположение" }), value: "Candidasa, Bali" },
+      ]} />
 
       {/* ── CTAs ── */}
       <FadeIn>
@@ -73,22 +58,12 @@ export function DiningDetail({ data }: DiningDetailProps) {
               : "Reserve a table at the restaurant or order directly to your room."}
           </p>
           <div className="flex flex-row flex-wrap items-center justify-center gap-4">
-            <a
-              href={tableUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-transparent border border-brand-teal text-brand-teal hover:bg-brand-teal hover:text-white hover:scale-[1.04] active:scale-[0.97] font-sans font-semibold px-5 py-2 rounded-full tracking-wide uppercase text-xs transition-all duration-300 focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2"
-            >
-              {isRu ? "Забронировать столик" : "Book a Table"}
-            </a>
-            <a
-              href={roomUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-transparent border border-brand-teal text-brand-teal hover:bg-brand-teal hover:text-white hover:scale-[1.04] active:scale-[0.97] font-sans font-semibold px-5 py-2 rounded-full tracking-wide uppercase text-xs transition-all duration-300 focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2"
-            >
-              {isRu ? "Доставка в номер" : "In-Room Dining"}
-            </a>
+            <SecondaryButton href={tableUrl} external>
+              {t({ ru: "Забронировать столик", en: "Book a Table" })}
+            </SecondaryButton>
+            <SecondaryButton href={roomUrl} external>
+              {t({ ru: "Доставка в номер", en: "In-Room Dining" })}
+            </SecondaryButton>
           </div>
         </div>
       </FadeIn>

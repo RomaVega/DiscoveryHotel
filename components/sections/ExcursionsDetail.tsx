@@ -1,6 +1,7 @@
 "use client"; // Uses useLanguage for content translation
 
 import { FadeIn } from "@/components/common/FadeIn";
+import { SecondaryButton } from "@/components/common/SecondaryButton";
 import type { ExcursionsPageData, ExcursionSection } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
 import { getWhatsAppNumber } from "@/lib/whatsapp";
@@ -49,14 +50,9 @@ function ExcursionGroup({ section }: { section: ExcursionSection }) {
                   </div>
                 </div>
                 <div className="flex justify-center sm:block">
-                  <a
-                    href={`${whatsappBase}${msg}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="shrink-0 inline-block font-sans text-xs font-semibold tracking-wide border border-brand-teal text-brand-teal hover:bg-brand-teal hover:text-white px-5 py-2.5 rounded-full transition-all duration-200 whitespace-nowrap"
-                  >
+                  <SecondaryButton href={`${whatsappBase}${msg}`} external>
                     {bookingText}
-                  </a>
+                  </SecondaryButton>
                 </div>
               </div>
             );

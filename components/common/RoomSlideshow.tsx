@@ -164,7 +164,7 @@ export function RoomSlideshow({
       </button>
 
       {/* Dots — always on mobile, hidden on desktop when thumbnails handle navigation */}
-      {(!onNavigate || true) && (
+      {(!onNavigate) && (
         <div className={cn("absolute bottom-3 left-0 right-0 flex justify-center gap-1.5 z-10", onNavigate && "lg:hidden")} role="tablist">
           {images.map((_, i) => {
             const total = images.length;

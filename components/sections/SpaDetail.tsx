@@ -1,6 +1,8 @@
 "use client"; // Uses useLanguage for content translation
 
 import { FadeIn } from "@/components/common/FadeIn";
+import { SecondaryButton } from "@/components/common/SecondaryButton";
+import { StatsStrip } from "@/components/common/StatsStrip";
 import type { SpaPageData, SpaTreatment } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
 import { getWhatsAppNumber } from "@/lib/whatsapp";
@@ -36,14 +38,9 @@ function TreatmentCard({ treatment, bookText, whatsappBase }: {
         </div>
       </div>
       <div className="flex justify-center sm:block">
-        <a
-          href={`${whatsappBase}${msg}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="shrink-0 inline-block font-sans text-xs font-semibold tracking-wide border border-brand-teal text-brand-teal hover:bg-brand-teal hover:text-white px-5 py-2.5 rounded-full transition-all duration-200 whitespace-nowrap"
-        >
+        <SecondaryButton href={`${whatsappBase}${msg}`} external>
           {bookText}
-        </a>
+        </SecondaryButton>
       </div>
     </div>
   );
@@ -58,32 +55,11 @@ export function SpaDetail({ data }: SpaDetailProps) {
   return (
     <div>
       {/* ── Stats strip ── */}
-      <div className="bg-cta-teal py-10 px-6">
-        <div className="max-w-3xl mx-auto grid grid-cols-3 divide-x divide-white/15">
-          <div className="text-center px-6">
-            <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-white/40 mb-1.5">
-              {isRu ? "Часы работы" : "Hours"}
-            </p>
-            <p className="font-serif text-xl md:text-2xl font-light text-white">{data.hours}</p>
-          </div>
-          <div className="text-center px-6">
-            <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-white/40 mb-1.5">
-              {isRu ? "Терапевты" : "Therapists"}
-            </p>
-            <p className="font-serif text-xl md:text-2xl font-light text-white">
-              {isRu ? "Сертифицированы в Керале" : "Kerala-Certified"}
-            </p>
-          </div>
-          <div className="text-center px-6">
-            <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-white/40 mb-1.5">
-              {isRu ? "Раннее бронирование" : "Early Booking"}
-            </p>
-            <p className="font-serif text-xl md:text-2xl font-light text-white">
-              {isRu ? "Скидка 10%" : "10% Discount"}
-            </p>
-          </div>
-        </div>
-      </div>
+      <StatsStrip items={[
+        { label: t({ en: "Hours", ru: "Часы работы" }), value: data.hours },
+        { label: t({ en: "Therapists", ru: "Терапевты" }), value: t({ en: "Kerala-Certified", ru: "Сертифицированы в Керале" }) },
+        { label: t({ en: "Early Booking", ru: "Раннее бронирование" }), value: t({ en: "10% Discount", ru: "Скидка 10%" }) },
+      ]} />
 
     <section className="py-16 md:py-32 bg-sand">
       <div className="max-w-5xl mx-auto px-6">
@@ -111,14 +87,9 @@ export function SpaDetail({ data }: SpaDetailProps) {
                     </div>
                   </div>
                   <div className="flex justify-center sm:block">
-                    <a
-                      href={`${whatsappBase}${msg}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="shrink-0 inline-block font-sans text-xs font-semibold tracking-wide border border-brand-teal text-brand-teal hover:bg-brand-teal hover:text-white px-5 py-2.5 rounded-full transition-all duration-200 whitespace-nowrap"
-                    >
+                    <SecondaryButton href={`${whatsappBase}${msg}`} external>
                       {bookText}
-                    </a>
+                    </SecondaryButton>
                   </div>
                 </div>
               );

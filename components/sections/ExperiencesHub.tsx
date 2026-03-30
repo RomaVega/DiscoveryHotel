@@ -3,10 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FadeIn } from "@/components/common/FadeIn";
+import { SecondaryButton } from "@/components/common/SecondaryButton";
 import { useLanguage } from "@/lib/language-context";
+import { getWhatsAppNumber } from "@/lib/whatsapp";
 import type { ExperiencesHubData } from "@/lib/types";
-
-const WHATSAPP = "6282236655582";
 
 interface ExperiencesHubProps {
   data: ExperiencesHubData;
@@ -16,9 +16,10 @@ export function ExperiencesHub({ data }: ExperiencesHubProps) {
   const { t, locale } = useLanguage();
   const isRu = locale === "ru";
 
-  const ctaMsg = encodeURIComponent(isRu
-    ? "Здравствуйте! Хочу узнать подробнее о доступных экскурсиях и впечатлениях."
-    : "Hello! I'd like to find out more about available experiences and tours.");
+  const ctaMsg = encodeURIComponent(t({
+    ru: "Здравствуйте! Хочу узнать подробнее о доступных экскурсиях и впечатлениях.",
+    en: "Hello! I'd like to find out more about available experiences and tours.",
+  }));
 
   return (
     <div>
@@ -28,9 +29,10 @@ export function ExperiencesHub({ data }: ExperiencesHubProps) {
           <div className="max-w-2xl mx-auto text-center">
             <div className="w-px h-10 bg-brand-teal mx-auto mb-7" />
             <p className="font-serif text-xl md:text-2xl font-light text-charcoal leading-relaxed italic">
-              {isRu
-                ? "Настоящий Восточный Бали: уединённые храмы, вулканы на рассвете и редкие рифы вдали от туристов."
-                : "Discover authentic East Bali: secluded temples, breathtaking volcano sunrises, and pristine reefs far from the tourist crowds."}
+              {t({
+                ru: "Настоящий Восточный Бали: уединённые храмы, вулканы на рассвете и редкие рифы вдали от туристов.",
+                en: "Discover authentic East Bali: secluded temples, breathtaking volcano sunrises, and pristine reefs far from the tourist crowds.",
+              })}
             </p>
             <div className="w-px h-10 bg-brand-teal mx-auto mt-7" />
           </div>
@@ -72,22 +74,22 @@ export function ExperiencesHub({ data }: ExperiencesHubProps) {
         <div className="max-w-3xl mx-auto px-6 text-center">
           <FadeIn>
             <h2 className="font-serif font-light text-2xl md:text-5xl text-white">
-              {isRu ? "Готовы Исследовать Восточный Бали?" : "Ready to Explore East Bali?"}
+              {t({ ru: "Готовы Исследовать Восточный Бали?", en: "Ready to Explore East Bali?" })}
             </h2>
             <p className="mt-4 text-sm md:text-lg text-white/70 leading-relaxed">
-              {isRu
-                ? "Свяжитесь с нами — мы подберём экскурсии и впечатления специально для вас."
-                : "Get in touch and we'll arrange the perfect experiences for your stay."}
+              {t({
+                ru: "Свяжитесь с нами — мы подберём экскурсии и впечатления специально для вас.",
+                en: "Get in touch and we'll arrange the perfect experiences for your stay.",
+              })}
             </p>
             <div className="mt-8">
-              <a
-                href={`https://wa.me/${WHATSAPP}?text=${ctaMsg}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-transparent hover:bg-white/10 border border-white hover:border-white/80 text-white font-sans font-semibold px-5 py-2 rounded-full tracking-wide uppercase text-xs transition-all duration-300"
+              <SecondaryButton
+                href={`https://wa.me/${getWhatsAppNumber()}?text=${ctaMsg}`}
+                external
+                className="border-white text-white hover:bg-white/10 hover:border-white/80"
               >
-                {isRu ? "Написать нам" : "Message Us"}
-              </a>
+                {t({ ru: "Написать нам", en: "Message Us" })}
+              </SecondaryButton>
             </div>
           </FadeIn>
         </div>

@@ -37,7 +37,7 @@ export function CarRentalDetail({ data }: CarRentalDetailProps) {
                   <div className="mt-4 pt-4 border-t border-sand flex flex-col items-center gap-3">
                     <span className="font-sans font-semibold text-brand-teal">{t(vehicle.price)}</span>
                     <SecondaryButton href={bookUrl} external>
-                      {isRu ? "Забронировать" : "Book Now"}
+                      {t({ ru: "Забронировать", en: "Book Now" })}
                     </SecondaryButton>
                   </div>
                 </div>
@@ -72,22 +72,22 @@ export function CarRentalDetail({ data }: CarRentalDetailProps) {
         <div className="max-w-3xl mx-auto px-6 text-center">
           <FadeIn>
             <h2 className="font-serif font-light text-2xl md:text-5xl text-white">
-              {isRu ? "Готовы Объездить Восточный Бали?" : "Ready to Ride East Bali?"}
+              {t({ ru: "Готовы Объездить Восточный Бали?", en: "Ready to Ride East Bali?" })}
             </h2>
             <p className="mt-4 text-sm md:text-lg text-white/70 leading-relaxed">
-              {isRu
-                ? "Напишите нам — мы подберём транспорт и расскажем о лучших маршрутах из Чандидасы."
-                : "Message us and we'll arrange the perfect vehicle for your Bali adventure in Candidasa."}
+              {t({
+                ru: "Напишите нам — мы подберём транспорт и расскажем о лучших маршрутах из Чандидасы.",
+                en: "Message us and we'll arrange the perfect vehicle for your Bali adventure in Candidasa.",
+              })}
             </p>
             <div className="mt-8">
-              <a
+              <SecondaryButton
                 href={ctaUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-transparent hover:bg-white/10 border border-white hover:border-white/80 text-white font-sans font-semibold px-5 py-2 rounded-full tracking-wide uppercase text-xs transition-all duration-300"
+                external
+                className="border-white text-white hover:bg-white/10 hover:border-white/80"
               >
-                {isRu ? "Написать нам" : "Message Us Now"}
-              </a>
+                {t({ ru: "Написать нам", en: "Message Us Now" })}
+              </SecondaryButton>
             </div>
           </FadeIn>
         </div>

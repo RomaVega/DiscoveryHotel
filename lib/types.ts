@@ -208,7 +208,7 @@ export interface DiningPageData {
   hours: string;
   capacity: string;
   features: DiningFeature[];
-  menuHighlights: {
+  menuHighlights?: {
     title: LocalizedString;
     items: LocalizedString[];
   }[];
@@ -238,6 +238,8 @@ export interface SpaPageData {
   heading: LocalizedString;
   subtext: LocalizedString;
   hours: string;
+  capacityPerHour?: number;
+  discount?: LocalizedString;
   note: LocalizedString;
   programs: SpaProgram[];
   ayurvedicTreatments: SpaTreatment[];
@@ -259,14 +261,20 @@ export interface LocalRoute {
   price: string;
 }
 
+export interface TransferFeature {
+  title: LocalizedString;
+  description: LocalizedString;
+  icon?: string;
+}
+
 export interface TransferPageData {
   label: LocalizedString;
   heading: LocalizedString;
   subtext: LocalizedString;
-  features: LocalizedString[];
+  features: TransferFeature[];
   routes: TransferRoute[];
   localRoutes: LocalRoute[];
-  otherDestinations: LocalizedString[];
+  otherDestinations?: LocalizedString[];
   image: string;
   imageAlt: string;
   bookingCta: BookingCtaData;
@@ -318,10 +326,11 @@ export interface DivingPageData {
   label: LocalizedString;
   heading: LocalizedString;
   subtext: LocalizedString;
+  features?: { title: LocalizedString; description: LocalizedString; icon?: string }[];
   programs: DiveProgram[];
   diveSites: DiveSite[];
-  image: string;
-  imageAlt: string;
+  image?: string;
+  imageAlt?: string;
   bookingCta: BookingCtaData;
 }
 
@@ -333,12 +342,18 @@ export interface EventService {
   imageAlt: LocalizedString;
 }
 
+export interface EventVenue {
+  description: LocalizedString;
+  capacity: { min: number; max: number } | LocalizedString;
+}
+
 export interface EventsPageData {
   label: LocalizedString;
   heading: LocalizedString;
   subtext: LocalizedString;
+  venue?: EventVenue;
   services: EventService[];
-  venueFeatures: LocalizedString[];
+  venueFeatures?: LocalizedString[];
   bookingCta: BookingCtaData;
 }
 
@@ -356,7 +371,7 @@ export interface CarRentalPageData {
   heading: LocalizedString;
   subtext: LocalizedString;
   vehicles: RentalVehicle[];
-  terms: LocalizedString[];
+  terms?: LocalizedString[];
   bookingCta: BookingCtaData;
 }
 

@@ -1,6 +1,7 @@
 "use client"; // Uses useLanguage for content translation
 
 import { FadeIn } from "@/components/common/FadeIn";
+import { SecondaryButton } from "@/components/common/SecondaryButton";
 import type { BookingCtaData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
 
@@ -22,14 +23,13 @@ export function BookingCta({ data }: BookingCtaProps) {
             {t(data.subtext)}
           </p>
           <div className="mt-8">
-            <a
+            <SecondaryButton
               href={data.bookingUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-transparent hover:bg-white/10 border border-white hover:border-white/80 text-white font-sans font-semibold px-5 py-2 rounded-full tracking-wide uppercase text-xs transition-all duration-300"
+              external
+              className="border-white text-white hover:bg-white/10 hover:border-white/80"
             >
               {t(data.fallbackCta)}
-            </a>
+            </SecondaryButton>
           </div>
         </FadeIn>
       </div>
