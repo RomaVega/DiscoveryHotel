@@ -11,6 +11,8 @@ interface HeroImageProps {
   hero: HeroData;
 }
 
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 export function HeroImage({ hero }: HeroImageProps) {
   const [paused, setPaused] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -75,7 +77,7 @@ export function HeroImage({ hero }: HeroImageProps) {
               poster={hero.image}
               className="absolute inset-0 h-full w-full object-cover md:hidden"
             >
-              <source src={hero.videoMobile} type="video/mp4" />
+              <source src={`${BASE_PATH}${hero.videoMobile}`} type="video/mp4" />
             </video>
           )}
           {/* Desktop video — landscape, shown at md+ */}
@@ -85,7 +87,7 @@ export function HeroImage({ hero }: HeroImageProps) {
             poster={hero.image}
             className={`absolute inset-0 h-full w-full object-cover ${hero.videoMobile ? "hidden md:block" : ""}`}
           >
-            <source src={hero.video} type="video/mp4" />
+            <source src={`${BASE_PATH}${hero.video}`} type="video/mp4" />
           </video>
         </>
       ) : (
