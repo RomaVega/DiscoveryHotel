@@ -5,20 +5,17 @@ import Link from "next/link";
 import { FadeIn } from "@/components/common/FadeIn";
 import { useLanguage } from "@/lib/language-context";
 import type { ExperiencesHubData } from "@/lib/types";
-
-const WHATSAPP = "6282236655582";
+import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import { WhiteButton } from "@/components/common/WhiteButton";
 
 interface ExperiencesHubProps {
   data: ExperiencesHubData;
 }
 
 export function ExperiencesHub({ data }: ExperiencesHubProps) {
-  const { t, locale } = useLanguage();
-  const isRu = locale === "ru";
+  const { t, tl } = useLanguage();
 
-  const ctaMsg = encodeURIComponent(isRu
-    ? "Здравствуйте! Хочу узнать подробнее о доступных экскурсиях и впечатлениях."
-    : "Hello! I'd like to find out more about available experiences and tours.");
+  const ctaUrl = buildWhatsAppUrl(tl.experiences.whatsapp);
 
   return (
     <div>
@@ -28,9 +25,7 @@ export function ExperiencesHub({ data }: ExperiencesHubProps) {
           <div className="max-w-2xl mx-auto text-center">
             <div className="w-px h-10 bg-brand-teal mx-auto mb-7" />
             <p className="font-serif text-xl md:text-2xl font-light text-charcoal leading-relaxed italic">
-              {isRu
-                ? "Восточный Бали — это не туристические маршруты. Это храмы без толп, вулканы на рассвете и риф, который мало кто видел."
-                : "East Bali is not a tourist trail. It is temples without crowds, volcanoes at dawn, and a reef few have seen."}
+              {tl.experiences.pullQuote}
             </p>
             <div className="w-px h-10 bg-brand-teal mx-auto mt-7" />
           </div>
@@ -57,7 +52,7 @@ export function ExperiencesHub({ data }: ExperiencesHubProps) {
                     <h3 className="font-serif text-xl font-semibold text-charcoal">{t(cat.title)}</h3>
                     <p className="mt-2 text-stone text-sm leading-relaxed flex-1">{t(cat.description)}</p>
                     <span className="mt-4 inline-block text-brand-teal font-sans text-xs tracking-wide">
-                      {t({ en: "Learn More →", ru: "Подробнее →" })}
+                      {tl.common.learnMore}
                     </span>
                   </div>
                 </Link>
@@ -72,22 +67,15 @@ export function ExperiencesHub({ data }: ExperiencesHubProps) {
         <div className="max-w-3xl mx-auto px-6 text-center">
           <FadeIn>
             <h2 className="font-serif font-light text-3xl md:text-5xl text-white">
-              {isRu ? "Готовы исследовать Восточный Бали?" : "Ready to Explore East Bali?"}
+              {tl.experiences.ctaHeading}
             </h2>
             <p className="mt-4 text-lg text-white/70 leading-relaxed">
-              {isRu
-                ? "Свяжитесь с нами — мы подберём экскурсии и впечатления специально для вас."
-                : "Get in touch and we'll arrange the perfect experiences for your stay."}
+              {tl.experiences.ctaSubtext}
             </p>
             <div className="mt-8">
-              <a
-                href={`https://wa.me/${WHATSAPP}?text=${ctaMsg}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-transparent hover:bg-white/10 border border-white hover:border-white/80 text-white font-sans font-semibold px-5 py-2 rounded-full tracking-wide uppercase text-xs transition-all duration-300"
-              >
-                {isRu ? "Написать нам" : "Message Us"}
-              </a>
+              <WhiteButton href={ctaUrl} external>
+                {tl.experiences.messageUs}
+              </WhiteButton>
             </div>
           </FadeIn>
         </div>

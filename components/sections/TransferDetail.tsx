@@ -21,7 +21,7 @@ export function TransferDetail({ data }: TransferDetailProps) {
             {data.features.map((feature, i) => (
               <div key={i} className="flex items-center gap-2 text-charcoal">
                 <Check size={16} className="text-brand-teal" />
-                <span className="font-sans text-sm">{t(feature)}</span>
+                <span className="font-sans text-sm">{t(feature.title)}</span>
               </div>
             ))}
           </div>

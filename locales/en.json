@@ -64,5 +64,60 @@
     "subtext": "Nestled on the tranquil coast of Candidasa, East Bali — away from the crowds, close to everything.",
     "address": "Address",
     "viewOnMaps": "View on Google Maps"
+  },
+  "common": {
+    "bookNow": "Book Now",
+    "messageUs": "Message Us Now",
+    "learnMore": "Learn More →"
+  },
+  "dining": {
+    "hours": "Hours",
+    "capacity": "Capacity",
+    "location": "Location",
+    "bookTable": "Book a Table",
+    "makeReservation": "Make a Reservation",
+    "message": "Message →",
+    "roomDining": "Room Dining",
+    "orderToRoom": "Order Online to Your Room",
+    "order": "Order →",
+    "menu": "Menu",
+    "tableWhatsapp": "Hello! I'd like to book a table at the restaurant.",
+    "roomWhatsapp": "Hello! I'd like to order room dining."
+  },
+  "spa": {
+    "hours": "Hours",
+    "therapists": "Therapists",
+    "keralaCertified": "Kerala-Certified",
+    "earlyBooking": "Early Booking",
+    "earlyBookingDiscount": "10% Discount",
+    "signaturePrograms": "Signature Programs",
+    "ayurvedicTreatments": "Ayurvedic Treatments",
+    "balineseTitle": "Traditional Balinese"
+  },
+  "carRental": {
+    "rentalTerms": "Rental Terms",
+    "ctaHeading": "Ready to Ride East Bali?",
+    "ctaSubtext": "Message us and we'll arrange the perfect vehicle for your Bali adventure from Candidasa.",
+    "messageUs": "Message Us Now",
+    "whatsapp": "Hello! I'd like to arrange a car or bike rental."
+  },
+  "events": {
+    "capacityLabel": "Capacity",
+    "guestCapacity": "Up to 200 guests",
+    "ceremonyStylesLabel": "Ceremony Styles",
+    "ceremonyTypes": "European · Balinese",
+    "locationLabel": "Location",
+    "whatWeOffer": "What We Offer",
+    "ctaHeading": "Start Planning Your Celebration",
+    "ctaSubtext": "Share your vision — we'll design an unforgettable event at our oceanfront venue in Candidasa.",
+    "messageUs": "Message Us Now",
+    "whatsapp": "Hello! I'd like to discuss planning an event at your venue."
+  },
+  "experiences": {
+    "pullQuote": "East Bali is not a tourist trail. It is temples without crowds, volcanoes at dawn, and a reef few have seen.",
+    "ctaHeading": "Ready to Explore East Bali?",
+    "ctaSubtext": "Get in touch and we'll arrange the perfect experiences for your stay.",
+    "messageUs": "Message Us",
+    "whatsapp": "Hello! I'd like to find out more about available experiences and tours."
   }
 }

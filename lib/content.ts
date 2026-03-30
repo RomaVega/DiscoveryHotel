@@ -19,9 +19,8 @@ import carRentalData from "@/content/car-rental.json";
 import aboutData from "@/content/about.json";
 import experiencesData from "@/content/experiences.json";
 
-// Note: several JSON files contain extra fields (e.g. `bedrooms` in rooms.json)
-// not yet reflected in lib/types.ts. `as unknown as Type` is used until
-// types.ts is fully aligned with the JSON structure.
+// JSON files may contain extra fields not reflected in the types (e.g. `bedrooms`
+// in rooms.json). Optional fields in types.ts cover JSON fields absent from some files.
 
 export function getHomePageData(): HomePageData {
   return homeData as HomePageData;
@@ -36,41 +35,41 @@ export function getReviewsData(): ReviewsData {
 }
 
 export function getRoomsPageData(): RoomsPageData {
-  return roomsData as unknown as RoomsPageData;
+  return roomsData as RoomsPageData;
 }
 
 export function getDiningPageData(): DiningPageData {
-  return diningData as unknown as DiningPageData;
+  return diningData as DiningPageData;
 }
 
 export function getSpaPageData(): SpaPageData {
-  return spaData as unknown as SpaPageData;
+  return spaData as SpaPageData;
 }
 
 export function getTransferPageData(): TransferPageData {
-  return transferData as unknown as TransferPageData;
+  return transferData as TransferPageData;
 }
 
 export function getDivingPageData(): DivingPageData {
-  return divingData as unknown as DivingPageData;
+  return divingData as DivingPageData;
 }
 
 export function getExcursionsPageData(): ExcursionsPageData {
-  return excursionsData as unknown as ExcursionsPageData;
+  return excursionsData as ExcursionsPageData;
 }
 
 export function getEventsPageData(): EventsPageData {
-  return eventsData as unknown as EventsPageData;
+  return eventsData as EventsPageData;
 }
 
 export function getCarRentalPageData(): CarRentalPageData {
-  return carRentalData as unknown as CarRentalPageData;
+  return carRentalData as CarRentalPageData;
 }
 
 export function getAboutPageData(): AboutPageData {
-  return aboutData as unknown as AboutPageData;
+  return aboutData as AboutPageData;
 }
 
 export function getExperiencesHubData(): ExperiencesHubData {
-  return experiencesData as unknown as ExperiencesHubData;
+  return experiencesData as ExperiencesHubData;
 }

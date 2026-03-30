@@ -6,18 +6,16 @@ import type { EventsPageData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
 import { Check } from "lucide-react";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import { WhiteButton } from "@/components/common/WhiteButton";
 
 interface EventsDetailProps {
   data: EventsPageData;
 }
 
 export function EventsDetail({ data }: EventsDetailProps) {
-  const { t, locale } = useLanguage();
-  const isRu = locale === "ru";
+  const { t, tl } = useLanguage();
 
-  const ctaUrl = buildWhatsAppUrl(isRu
-    ? "Здравствуйте! Хочу обсудить организацию мероприятия в вашем отеле."
-    : "Hello! I'd like to discuss planning an event at your venue.");
+  const ctaUrl = buildWhatsAppUrl(tl.events.whatsapp);
 
   return (
     <div>
@@ -26,23 +24,23 @@ export function EventsDetail({ data }: EventsDetailProps) {
         <div className="max-w-3xl mx-auto grid grid-cols-3 divide-x divide-white/15">
           <div className="text-center px-6">
             <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-white/40 mb-1.5">
-              {isRu ? "Вместимость" : "Capacity"}
+              {tl.events.capacityLabel}
             </p>
             <p className="font-serif text-xl md:text-2xl font-light text-white">
-              {isRu ? "До 200 гостей" : "Up to 200 guests"}
+              {tl.events.guestCapacity}
             </p>
           </div>
           <div className="text-center px-6">
             <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-white/40 mb-1.5">
-              {isRu ? "Стили церемоний" : "Ceremony Styles"}
+              {tl.events.ceremonyStylesLabel}
             </p>
             <p className="font-serif text-xl md:text-2xl font-light text-white">
-              {isRu ? "Европейский · Балийский" : "European · Balinese"}
+              {tl.events.ceremonyTypes}
             </p>
           </div>
           <div className="text-center px-6">
             <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-white/40 mb-1.5">
-              {isRu ? "Расположение" : "Location"}
+              {tl.events.locationLabel}
             </p>
             <p className="font-serif text-xl md:text-2xl font-light text-white">Candidasa, Bali</p>
           </div>
@@ -78,7 +76,7 @@ export function EventsDetail({ data }: EventsDetailProps) {
         {data.venueFeatures && data.venueFeatures.length > 0 && (
           <FadeIn>
             <h2 className="font-serif text-3xl font-light text-charcoal text-center mb-8">
-              {t({ en: "What We Offer", ru: "Что мы предлагаем" })}
+              {tl.events.whatWeOffer}
             </h2>
             <div className="bg-ivory p-8 shadow-sm">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -100,22 +98,15 @@ export function EventsDetail({ data }: EventsDetailProps) {
         <div className="max-w-3xl mx-auto px-6 text-center">
           <FadeIn>
             <h2 className="font-serif font-light text-3xl md:text-5xl text-white">
-              {isRu ? "Начните планировать торжество" : "Start Planning Your Celebration"}
+              {tl.events.ctaHeading}
             </h2>
             <p className="mt-4 text-lg text-white/70 leading-relaxed">
-              {isRu
-                ? "Поделитесь вашей идеей — мы создадим незабываемое мероприятие на нашей площадке у океана в Кандидасе."
-                : "Share your vision — we'll design an unforgettable event at our oceanfront venue in Candidasa."}
+              {tl.events.ctaSubtext}
             </p>
             <div className="mt-8">
-              <a
-                href={ctaUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-transparent hover:bg-white/10 border border-white hover:border-white/80 text-white font-sans font-semibold px-5 py-2 rounded-full tracking-wide uppercase text-xs transition-all duration-300"
-              >
-                {isRu ? "Написать нам" : "Message Us Now"}
-              </a>
+              <WhiteButton href={ctaUrl} external>
+                {tl.events.messageUs}
+              </WhiteButton>
             </div>
           </FadeIn>
         </div>

@@ -168,6 +168,7 @@ export interface RoomDetail {
   title: LocalizedString;
   description: LocalizedString;
   size: string;
+  bedrooms?: number;
   image: string;
   imageAlt: LocalizedString;
   href: string;
@@ -219,7 +220,7 @@ export interface SpaProgram {
   description: LocalizedString;
   duration: string;
   price: string;
-  includes: LocalizedString[];
+  includes?: LocalizedString[];
 }
 
 export interface SpaPageData {
@@ -237,6 +238,12 @@ export interface SpaPageData {
 }
 
 /* ─── Transfer Page ─── */
+export interface TransferFeature {
+  title: LocalizedString;
+  description: LocalizedString;
+  icon: string;
+}
+
 export interface TransferRoute {
   destination: LocalizedString;
   oneWay: string;
@@ -252,10 +259,10 @@ export interface TransferPageData {
   label: LocalizedString;
   heading: LocalizedString;
   subtext: LocalizedString;
-  features: LocalizedString[];
+  features: TransferFeature[];
   routes: TransferRoute[];
   localRoutes: LocalRoute[];
-  otherDestinations: LocalizedString[];
+  otherDestinations?: LocalizedString[];
   image: string;
   imageAlt: string;
   bookingCta: BookingCtaData;
@@ -309,8 +316,8 @@ export interface DivingPageData {
   subtext: LocalizedString;
   programs: DiveProgram[];
   diveSites: DiveSite[];
-  image: string;
-  imageAlt: string;
+  image?: string;
+  imageAlt?: string;
   bookingCta: BookingCtaData;
 }
 
@@ -327,7 +334,7 @@ export interface EventsPageData {
   heading: LocalizedString;
   subtext: LocalizedString;
   services: EventService[];
-  venueFeatures: LocalizedString[];
+  venueFeatures?: LocalizedString[];
   bookingCta: BookingCtaData;
 }
 

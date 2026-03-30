@@ -20,15 +20,10 @@ interface DiningDetailProps {
 }
 
 export function DiningDetail({ data }: DiningDetailProps) {
-  const { t, locale } = useLanguage();
-  const isRu = locale === "ru";
+  const { t, tl } = useLanguage();
 
-  const tableUrl = buildWhatsAppUrl(isRu
-    ? "Здравствуйте! Хочу забронировать столик в ресторане."
-    : "Hello! I'd like to book a table at the restaurant.");
-  const roomUrl = buildWhatsAppUrl(isRu
-    ? "Здравствуйте! Хочу заказать доставку еды в номер."
-    : "Hello! I'd like to order room dining.");
+  const tableUrl = buildWhatsAppUrl(tl.dining.tableWhatsapp);
+  const roomUrl = buildWhatsAppUrl(tl.dining.roomWhatsapp);
 
   return (
     <div>
@@ -37,19 +32,19 @@ export function DiningDetail({ data }: DiningDetailProps) {
         <div className="max-w-3xl mx-auto grid grid-cols-3 divide-x divide-white/15">
           <div className="text-center px-6">
             <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-white/40 mb-1.5">
-              {isRu ? "Часы работы" : "Hours"}
+              {tl.dining.hours}
             </p>
             <p className="font-serif text-xl md:text-2xl font-light text-white">{data.hours}</p>
           </div>
           <div className="text-center px-6">
             <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-white/40 mb-1.5">
-              {isRu ? "Вместимость" : "Capacity"}
+              {tl.dining.capacity}
             </p>
             <p className="font-serif text-xl md:text-2xl font-light text-white">{data.capacity}</p>
           </div>
           <div className="text-center px-6">
             <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-white/40 mb-1.5">
-              {isRu ? "Расположение" : "Location"}
+              {tl.dining.location}
             </p>
             <p className="font-serif text-xl md:text-2xl font-light text-white">Candidasa, Bali</p>
           </div>
@@ -68,14 +63,14 @@ export function DiningDetail({ data }: DiningDetailProps) {
               <UtensilsCrossed size={22} className="text-brand-teal" />
               <div>
                 <p className="font-serif text-2xl text-charcoal">
-                  {isRu ? "Забронировать столик" : "Book a Table"}
+                  {tl.dining.bookTable}
                 </p>
                 <p className="text-stone text-sm mt-2 leading-relaxed">
-                  {isRu ? "Сделать бронирование" : "Make a Reservation"}
+                  {tl.dining.makeReservation}
                 </p>
               </div>
               <span className="font-sans text-[11px] tracking-[0.2em] uppercase text-brand-teal group-hover:text-deep-teal transition-colors duration-200">
-                {isRu ? "Написать →" : "Message →"}
+                {tl.dining.message}
               </span>
             </a>
 
@@ -88,14 +83,14 @@ export function DiningDetail({ data }: DiningDetailProps) {
               <ShoppingBag size={22} className="text-brand-teal" />
               <div>
                 <p className="font-serif text-2xl text-charcoal">
-                  {isRu ? "Доставка в номер" : "Room Dining"}
+                  {tl.dining.roomDining}
                 </p>
                 <p className="text-stone text-sm mt-2 leading-relaxed">
-                  {isRu ? "Заказать онлайн прямо в номер" : "Order Online to Your Room"}
+                  {tl.dining.orderToRoom}
                 </p>
               </div>
               <span className="font-sans text-[11px] tracking-[0.2em] uppercase text-brand-teal group-hover:text-deep-teal transition-colors duration-200">
-                {isRu ? "Заказать →" : "Order →"}
+                {tl.dining.order}
               </span>
             </a>
         </div>
@@ -144,7 +139,7 @@ export function DiningDetail({ data }: DiningDetailProps) {
             <div className="flex items-center justify-center gap-6 mb-16">
               <span className="flex-1 max-w-[120px] h-px bg-charcoal/15" />
               <h2 className="font-serif text-sm tracking-[0.35em] uppercase text-stone">
-                {isRu ? "Меню" : "Menu"}
+                {tl.dining.menu}
               </h2>
               <span className="flex-1 max-w-[120px] h-px bg-charcoal/15" />
             </div>

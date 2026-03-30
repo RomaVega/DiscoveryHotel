@@ -3,6 +3,7 @@ import { Inter, Cormorant_Garamond } from "next/font/google";
 import { LoadingScreen } from "@/components/layout/LoadingScreen";
 import { LanguageProvider } from "@/lib/language-context";
 import { SITE_URL, SITE_NAME, OG_IMAGE } from "@/lib/site";
+import { getWhatsAppNumber } from "@/lib/whatsapp";
 import "./globals.css";
 
 const inter = Inter({
@@ -81,7 +82,7 @@ export default function RootLayout({
               "name": SITE_NAME,
               "description": description,
               "url": SITE_URL,
-              "telephone": "+6282236655582",
+              "telephone": `+${getWhatsAppNumber()}`,
               "email": "2794140@gmail.com",
               "image": OG_IMAGE,
               "priceRange": "$$",

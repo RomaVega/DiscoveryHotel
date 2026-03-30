@@ -1,6 +1,7 @@
 "use client"; // Uses useLanguage for content translation
 
 import { FadeIn } from "@/components/common/FadeIn";
+import { SecondaryButton } from "@/components/common/SecondaryButton";
 import type { ExcursionsPageData, ExcursionSection } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
 import { getWhatsAppNumber } from "@/lib/whatsapp";
@@ -10,10 +11,10 @@ interface ExcursionsDetailProps {
 }
 
 function ExcursionGroup({ section }: { section: ExcursionSection }) {
-  const { t, locale } = useLanguage();
+  const { t, tl, locale } = useLanguage();
   const items = section.items ?? section.highlights ?? [];
 
-  const bookingText = locale === "ru" ? "Забронировать" : "Book Now";
+  const bookingText = tl.common.bookNow;
   const whatsappBase = `https://wa.me/${getWhatsAppNumber()}?text=`;
 
   return (
@@ -49,14 +50,13 @@ function ExcursionGroup({ section }: { section: ExcursionSection }) {
                   </div>
                 </div>
                 <div className="flex justify-center sm:block">
-                  <a
+                  <SecondaryButton
                     href={`${whatsappBase}${msg}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="shrink-0 inline-block font-sans text-xs font-semibold tracking-wide border border-brand-teal text-brand-teal hover:bg-brand-teal hover:text-white px-5 py-2.5 rounded-full transition-all duration-200 whitespace-nowrap"
+                    external
+                    className="shrink-0 whitespace-nowrap py-2.5"
                   >
                     {bookingText}
-                  </a>
+                  </SecondaryButton>
                 </div>
               </div>
             );

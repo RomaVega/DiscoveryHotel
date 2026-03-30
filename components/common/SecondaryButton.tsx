@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-const BASE_STYLES =
+export const SECONDARY_BTN_STYLES =
   "inline-block bg-transparent border border-brand-teal text-brand-teal " +
   "hover:bg-brand-teal hover:text-white hover:scale-[1.04] active:scale-[0.97] " +
   "font-sans font-semibold px-5 py-2 rounded-full tracking-wide uppercase text-xs " +
@@ -28,7 +28,7 @@ interface SecondaryButtonAsButton extends SecondaryButtonBase {
 type SecondaryButtonProps = SecondaryButtonAsLink | SecondaryButtonAsButton;
 
 export function SecondaryButton({ children, className, ...rest }: SecondaryButtonProps) {
-  const styles = cn(BASE_STYLES, className);
+  const styles = cn(SECONDARY_BTN_STYLES, className);
 
   if ("onClick" in rest && rest.onClick) {
     return (

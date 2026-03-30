@@ -59,7 +59,7 @@ export function Footer({ contact }: FooterProps) {
               <span className="mt-3">Hotel</span>
             </h3>
           </Link>
-          <div className="flex items-center gap-2.5 mt-1.5" style={{ color: "#C9A84C" }}>
+          <div className="flex items-center gap-2.5 mt-1.5 text-logo-gold">
             <span className="block h-px w-6 sm:w-8 bg-charcoal/15" />
             {Array.from({ length: contact.stars }).map((_, i) => (
               <span key={i} className="text-base">

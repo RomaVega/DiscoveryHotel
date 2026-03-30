@@ -3,6 +3,7 @@
 import { MapPin, Navigation } from "lucide-react";
 import { FadeIn } from "@/components/common/FadeIn";
 import { SectionHeading } from "@/components/common/SectionHeading";
+import { SecondaryButton } from "@/components/common/SecondaryButton";
 import type { ContactData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
 
@@ -59,15 +60,14 @@ export function MapLocation({ contact }: MapLocationProps) {
                 </div>
               </div>
 
-              <a
+              <SecondaryButton
                 href={contact.googleMapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-transparent border border-brand-teal text-brand-teal hover:border-deep-teal hover:text-deep-teal hover:scale-[1.04] active:scale-[0.97] font-sans font-semibold px-5 py-2 rounded-full tracking-wide uppercase text-xs transition-all duration-300 focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2"
+                external
+                className="inline-flex items-center justify-center gap-2 hover:bg-transparent hover:text-deep-teal hover:border-deep-teal"
               >
                 <Navigation size={16} />
                 {tl.map.viewOnMaps}
-              </a>
+              </SecondaryButton>
             </div>
           </div>
         </FadeIn>

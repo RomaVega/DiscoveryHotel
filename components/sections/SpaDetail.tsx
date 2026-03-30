@@ -1,6 +1,7 @@
 "use client"; // Uses useLanguage for content translation
 
 import { FadeIn } from "@/components/common/FadeIn";
+import { SecondaryButton } from "@/components/common/SecondaryButton";
 import type { SpaPageData, SpaTreatment } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
 import { getWhatsAppNumber } from "@/lib/whatsapp";
@@ -36,23 +37,22 @@ function TreatmentCard({ treatment, bookText, whatsappBase }: {
         </div>
       </div>
       <div className="flex justify-center sm:block">
-        <a
+        <SecondaryButton
           href={`${whatsappBase}${msg}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="shrink-0 inline-block font-sans text-xs font-semibold tracking-wide border border-brand-teal text-brand-teal hover:bg-brand-teal hover:text-white px-5 py-2.5 rounded-full transition-all duration-200 whitespace-nowrap"
+          external
+          className="shrink-0 whitespace-nowrap py-2.5"
         >
           {bookText}
-        </a>
+        </SecondaryButton>
       </div>
     </div>
   );
 }
 
 export function SpaDetail({ data }: SpaDetailProps) {
-  const { t, locale } = useLanguage();
+  const { t, tl, locale } = useLanguage();
   const isRu = locale === "ru";
-  const bookText = isRu ? "Забронировать" : "Book Now";
+  const bookText = tl.common.bookNow;
   const whatsappBase = `https://wa.me/${getWhatsAppNumber()}?text=`;
 
   return (
@@ -62,24 +62,24 @@ export function SpaDetail({ data }: SpaDetailProps) {
         <div className="max-w-3xl mx-auto grid grid-cols-3 divide-x divide-white/15">
           <div className="text-center px-6">
             <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-white/40 mb-1.5">
-              {isRu ? "Часы работы" : "Hours"}
+              {tl.spa.hours}
             </p>
             <p className="font-serif text-xl md:text-2xl font-light text-white">{data.hours}</p>
           </div>
           <div className="text-center px-6">
             <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-white/40 mb-1.5">
-              {isRu ? "Терапевты" : "Therapists"}
+              {tl.spa.therapists}
             </p>
             <p className="font-serif text-xl md:text-2xl font-light text-white">
-              {isRu ? "Сертифицированы в Керале" : "Kerala-Certified"}
+              {tl.spa.keralaCertified}
             </p>
           </div>
           <div className="text-center px-6">
             <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-white/40 mb-1.5">
-              {isRu ? "Раннее бронирование" : "Early Booking"}
+              {tl.spa.earlyBooking}
             </p>
             <p className="font-serif text-xl md:text-2xl font-light text-white">
-              {isRu ? "Скидка 10%" : "10% Discount"}
+              {tl.spa.earlyBookingDiscount}
             </p>
           </div>
         </div>
@@ -91,7 +91,7 @@ export function SpaDetail({ data }: SpaDetailProps) {
         {/* Programs */}
         <FadeIn>
           <h2 className="font-serif text-3xl font-light text-charcoal text-center mb-12">
-            {t({ en: "Signature Programs", ru: "Авторские программы" })}
+            {tl.spa.signaturePrograms}
           </h2>
           <div className="flex flex-col gap-6 mb-20">
             {data.programs.map((program, i) => {
@@ -111,14 +111,13 @@ export function SpaDetail({ data }: SpaDetailProps) {
                     </div>
                   </div>
                   <div className="flex justify-center sm:block">
-                    <a
+                    <SecondaryButton
                       href={`${whatsappBase}${msg}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="shrink-0 inline-block font-sans text-xs font-semibold tracking-wide border border-brand-teal text-brand-teal hover:bg-brand-teal hover:text-white px-5 py-2.5 rounded-full transition-all duration-200 whitespace-nowrap"
+                      external
+                      className="shrink-0 whitespace-nowrap py-2.5"
                     >
                       {bookText}
-                    </a>
+                    </SecondaryButton>
                   </div>
                 </div>
               );
@@ -129,7 +128,7 @@ export function SpaDetail({ data }: SpaDetailProps) {
         {/* Ayurvedic Treatments */}
         <FadeIn>
           <h2 className="font-serif text-3xl font-light text-charcoal text-center mb-12">
-            {t({ en: "Ayurvedic Treatments", ru: "Аюрведические процедуры" })}
+            {tl.spa.ayurvedicTreatments}
           </h2>
           <div className="flex flex-col gap-6 mb-20">
             {data.ayurvedicTreatments.map((treatment, i) => (
@@ -141,7 +140,7 @@ export function SpaDetail({ data }: SpaDetailProps) {
         {/* Balinese Treatments */}
         <FadeIn>
           <h2 className="font-serif text-3xl font-light text-charcoal text-center mb-12">
-            {t({ en: "Traditional Balinese", ru: "Традиционные балийские процедуры" })}
+            {tl.spa.balineseTitle}
           </h2>
           <div className="flex flex-col gap-6">
             {data.balineseTreatments.map((treatment, i) => (

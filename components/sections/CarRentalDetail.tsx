@@ -5,17 +5,15 @@ import type { CarRentalPageData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
 import { Check } from "lucide-react";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import { WhiteButton } from "@/components/common/WhiteButton";
 
 interface CarRentalDetailProps {
   data: CarRentalPageData;
 }
 
 export function CarRentalDetail({ data }: CarRentalDetailProps) {
-  const { t, locale } = useLanguage();
-  const isRu = locale === "ru";
-  const ctaUrl = buildWhatsAppUrl(isRu
-    ? "Здравствуйте! Хочу арендовать автомобиль / мотоцикл."
-    : "Hello! I'd like to arrange a car or bike rental.");
+  const { t, tl } = useLanguage();
+  const ctaUrl = buildWhatsAppUrl(tl.carRental.whatsapp);
 
   return (
     <div>
@@ -41,7 +39,7 @@ export function CarRentalDetail({ data }: CarRentalDetailProps) {
           <FadeIn>
             <div className="bg-ivory p-8 shadow-sm">
               <h3 className="font-serif text-xl font-semibold text-charcoal mb-4">
-                {t({ en: "Rental Terms", ru: "Условия аренды" })}
+                {tl.carRental.rentalTerms}
               </h3>
               <div className="space-y-3">
                 {data.terms.map((term, i) => (
@@ -62,22 +60,15 @@ export function CarRentalDetail({ data }: CarRentalDetailProps) {
         <div className="max-w-3xl mx-auto px-6 text-center">
           <FadeIn>
             <h2 className="font-serif font-light text-3xl md:text-5xl text-white">
-              {isRu ? "Готовы объездить Восточный Бали?" : "Ready to Ride East Bali?"}
+              {tl.carRental.ctaHeading}
             </h2>
             <p className="mt-4 text-lg text-white/70 leading-relaxed">
-              {isRu
-                ? "Напишите нам — мы подберём транспорт и расскажем о лучших маршрутах из Кандидасы."
-                : "Message us and we'll arrange the perfect vehicle for your Bali adventure from Candidasa."}
+              {tl.carRental.ctaSubtext}
             </p>
             <div className="mt-8">
-              <a
-                href={ctaUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-transparent hover:bg-white/10 border border-white hover:border-white/80 text-white font-sans font-semibold px-5 py-2 rounded-full tracking-wide uppercase text-xs transition-all duration-300"
-              >
-                {isRu ? "Написать нам" : "Message Us Now"}
-              </a>
+              <WhiteButton href={ctaUrl} external>
+                {tl.carRental.messageUs}
+              </WhiteButton>
             </div>
           </FadeIn>
         </div>

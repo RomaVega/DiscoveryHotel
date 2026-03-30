@@ -175,7 +175,7 @@ export function HeroImage({ hero }: HeroImageProps) {
               <span className="absolute right-full top-1/2 -translate-y-1/2 mr-3 block h-px w-8 bg-white/30" />
               <motion.div
                 {...fadeUp(0.65)}
-                className="mt-2 flex justify-between text-sm md:text-base translate-x-[1px] pr-[0.34rem] md:pr-[0.45rem] lg:pr-[0.56rem]" style={{ color: "#C9A84C" }}
+                className="mt-2 flex justify-between text-sm md:text-base translate-x-[1px] pr-[0.34rem] md:pr-[0.45rem] lg:pr-[0.56rem] text-logo-gold"
               >
                 {"★ ★ ★ ★".split(" ").map((star, i) => (
                   <span key={i}>{star}</span>

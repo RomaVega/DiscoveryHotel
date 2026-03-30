@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FadeIn } from "@/components/common/FadeIn";
 import { SectionHeading } from "@/components/common/SectionHeading";
+import { SECONDARY_BTN_STYLES } from "@/components/common/SecondaryButton";
 import type { ExperiencesData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
 
@@ -42,7 +43,7 @@ export function Experiences({ data }: ExperiencesProps) {
                   <h3 className="font-serif text-2xl font-semibold text-charcoal">{t(item.title)}</h3>
                   <p className="mt-2 text-stone leading-relaxed flex-1">{t(item.description)}</p>
                   <div className="mt-6">
-                    <span className="inline-block bg-transparent border border-brand-teal text-brand-teal hover:bg-brand-teal hover:text-white hover:scale-[1.04] active:scale-[0.97] font-sans font-semibold px-5 py-2 rounded-full tracking-wide text-xs transition-all duration-300">
+                    <span className={SECONDARY_BTN_STYLES}>
                       {t({ en: "See More", ru: "Подробнее" })}
                     </span>
                   </div>
