@@ -22,7 +22,10 @@ export function LoadingScreen() {
       savedY = parseInt(sessionStorage.getItem("scrollY") || "0", 10);
     } catch { /* sessionStorage unavailable (Safari private mode) */ }
 
+    let dismissed = false;
     const hide = () => {
+      if (dismissed) return;
+      dismissed = true;
       if (savedY > 0) window.scrollTo(0, savedY);
       setPhase("exiting");
       setTimeout(() => {
@@ -36,13 +39,29 @@ export function LoadingScreen() {
     };
     window.addEventListener("beforeunload", saveScroll);
 
+    // Primary: hide as soon as hero image signals it's ready
+    window.addEventListener("hero-ready", hide, { once: true });
+
+    // Fallback: after window.load give hero 1 s to signal, then dismiss anyway
+    // (handles pages without a hero section, or images already cached)
+    let grace: ReturnType<typeof setTimeout> | null = null;
+    const onLoad = () => { grace = setTimeout(hide, 1000); };
     if (document.readyState === "complete") {
-      hide();
+      grace = setTimeout(hide, 1000);
     } else {
-      window.addEventListener("load", hide, { once: true });
+      window.addEventListener("load", onLoad, { once: true });
     }
 
-    return () => window.removeEventListener("beforeunload", saveScroll);
+    // Safety net: never block longer than 10 s
+    const safety = setTimeout(hide, 10000);
+
+    return () => {
+      window.removeEventListener("hero-ready", hide);
+      window.removeEventListener("beforeunload", saveScroll);
+      window.removeEventListener("load", onLoad);
+      if (grace) clearTimeout(grace);
+      clearTimeout(safety);
+    };
   }, []);
 
   if (phase === "gone") return null;

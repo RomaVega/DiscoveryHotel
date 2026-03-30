@@ -13,6 +13,10 @@ interface HeroImageProps {
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
+function signalHeroReady() {
+  window.dispatchEvent(new CustomEvent("hero-ready"));
+}
+
 export function HeroImage({ hero }: HeroImageProps) {
   const [paused, setPaused] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -98,6 +102,7 @@ export function HeroImage({ hero }: HeroImageProps) {
           priority
           sizes="100vw"
           className="object-cover"
+          onLoad={signalHeroReady}
         />
       )}
 
@@ -110,6 +115,7 @@ export function HeroImage({ hero }: HeroImageProps) {
           priority
           sizes="100vw"
           className="object-cover -z-10"
+          onLoad={signalHeroReady}
         />
       )}
 
