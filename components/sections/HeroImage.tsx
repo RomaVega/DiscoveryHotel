@@ -2,7 +2,7 @@
 
 import { useState, useRef, useLayoutEffect, useEffect } from "react";
 import Image from "next/image";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Pause, Play } from "lucide-react";
 import type { HeroData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
@@ -14,6 +14,12 @@ interface HeroImageProps {
 export function HeroImage({ hero }: HeroImageProps) {
   const [paused, setPaused] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [appeared, setAppeared] = useState(false);
+
+  useEffect(() => {
+    const id = requestAnimationFrame(() => setAppeared(true));
+    return () => cancelAnimationFrame(id);
+  }, []);
 
   // Two-way: hide content on scroll down, restore on scroll back to top
   useEffect(() => {
@@ -26,7 +32,6 @@ export function HeroImage({ hero }: HeroImageProps) {
   const line1Ref = useRef<HTMLSpanElement>(null);
   const line2Ref = useRef<HTMLSpanElement>(null);
   const line3Ref = useRef<HTMLSpanElement>(null);
-  const reducedMotion = useReducedMotion();
   const { t, tl } = useLanguage();
 
   // Measure all title lines, find the widest, then stretch the narrower ones via letter-spacing.
@@ -48,18 +53,6 @@ export function HeroImage({ hero }: HeroImageProps) {
     return () => window.removeEventListener("resize", sync);
   }, []);
 
-  const fadeUp = (delay: number) =>
-    reducedMotion
-      ? { initial: { opacity: 1 }, animate: { opacity: 1 } }
-      : {
-          initial: { opacity: 0, y: 10 },
-          animate: { opacity: 1, y: 0 },
-          transition: {
-            duration: 0.8,
-            delay,
-            ease: [0.25, 0.1, 0.25, 1] as const,
-          },
-        };
 
   const toggleVideo = () => {
     [videoRef, mobileVideoRef].forEach(ref => {
@@ -121,66 +114,52 @@ export function HeroImage({ hero }: HeroImageProps) {
       {/* Soft cinematic gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/20" />
 
-      {/* Content */}
+      {/* Content — fades in on mount, disappears instantly on scroll */}
       <div
-        className={`relative z-10 flex h-[100svh] md:h-[100vh] flex-col items-center justify-center px-6 text-center text-white ${scrolled ? "opacity-0 pointer-events-none" : "opacity-100 transition-opacity duration-500"}`}
+        className={`relative z-10 flex h-[100svh] md:h-[100vh] flex-col items-center justify-center px-6 text-center text-white ${!scrolled ? "transition-opacity duration-500" : ""} ${scrolled || !appeared ? "opacity-0 pointer-events-none" : "opacity-100"}`}
       >
         {/* Logo */}
-        <motion.div {...fadeUp(0.2)}>
-          <Image
-            src="/images/logo/logo-dark.svg"
-            alt="Orlowsky Discovery Hotel logo"
-            width={140}
-            height={140}
-            priority
-            className="w-24 h-24 md:w-[96px] md:h-[96px] lg:w-[108px] lg:h-[108px] mb-4 md:mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]"
-          />
-        </motion.div>
+        <Image
+          src="/images/logo/logo-dark.svg"
+          alt="Orlowsky Discovery Hotel logo"
+          width={140}
+          height={140}
+          priority
+          className="w-24 h-24 md:w-[96px] md:h-[96px] lg:w-[108px] lg:h-[108px] mb-4 md:mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]"
+        />
 
         {/* Title block */}
         <h1 className="font-serif text-shadow-strong text-center">
-          <motion.span
-            {...fadeUp(0.3)}
-            className="block text-[2.25rem] md:text-[2.25rem] lg:text-[2.5rem] tracking-[0.22em] uppercase font-light leading-none"
-          >
+          <span className="block text-[2.25rem] md:text-[2.25rem] lg:text-[2.5rem] tracking-[0.22em] uppercase font-light leading-none">
             <span ref={line1Ref}>{hero.titleLine1}</span>
-          </motion.span>
+          </span>
 
-          <motion.span
-            {...fadeUp(0.45)}
-            className="block text-[2.625rem] md:text-[2.625rem] lg:text-[2.875rem] italic font-light mt-3 md:mt-3 leading-snug"
-          >
+          <span className="block text-[2.625rem] md:text-[2.625rem] lg:text-[2.875rem] italic font-light mt-3 md:mt-3 leading-snug">
             <span ref={line2Ref}>{hero.titleLine2}</span>
-          </motion.span>
+          </span>
 
           {hero.titleLine4 && (
-            <motion.span
-              {...fadeUp(0.55)}
-              className="block text-[2.625rem] md:text-[2.625rem] lg:text-[2.875rem] italic font-light mt-1 md:mt-2 leading-snug"
-            >
+            <span className="block text-[2.625rem] md:text-[2.625rem] lg:text-[2.875rem] italic font-light mt-1 md:mt-2 leading-snug">
               <span ref={line3Ref}>{hero.titleLine4}</span>
-            </motion.span>
+            </span>
           )}
 
           <div className="w-fit mx-auto mt-10 md:mt-10">
-            <motion.span
-              {...fadeUp(0.55)}
-              className="block text-xl md:text-xl lg:text-xl tracking-[0.3em] uppercase font-semibold"
-            >
+            <span className="block text-xl md:text-xl lg:text-xl tracking-[0.3em] uppercase font-semibold">
               {hero.titleLine3}
-            </motion.span>
+            </span>
 
             {/* Stars aligned to width of titleLine3 */}
             <div className="relative">
               <span className="absolute right-full top-1/2 -translate-y-1/2 mr-3 block h-px w-8 bg-white/30" />
-              <motion.div
-                {...fadeUp(0.65)}
-                className="mt-2 flex justify-between text-sm md:text-base translate-x-[1px] pr-[0.34rem] md:pr-[0.45rem] lg:pr-[0.56rem]" style={{ color: "#C9A84C" }}
+              <div
+                className="mt-2 flex justify-between text-sm md:text-base translate-x-[1px] pr-[0.34rem] md:pr-[0.45rem] lg:pr-[0.56rem]"
+                style={{ color: "#C9A84C" }}
               >
                 {"★ ★ ★ ★".split(" ").map((star, i) => (
                   <span key={i}>{star}</span>
                 ))}
-              </motion.div>
+              </div>
               <span className="absolute left-full top-1/2 -translate-y-1/2 ml-3 block h-px w-8 bg-white/30" />
             </div>
           </div>
@@ -188,43 +167,31 @@ export function HeroImage({ hero }: HeroImageProps) {
 
         {/* Subtitle */}
         <div className="mt-4 flex flex-col items-center gap-2">
-          <motion.p
-            {...fadeUp(0.75)}
-            className="font-sans font-light text-sm md:text-sm tracking-[0.2em] uppercase text-white/95 text-shadow-strong"
-          >
+          <p className="font-sans font-light text-sm md:text-sm tracking-[0.2em] uppercase text-white/95 text-shadow-strong">
             Cottages &amp; Villas
-          </motion.p>
-          <motion.p
-            {...fadeUp(0.85)}
-            className="font-sans font-light text-xs md:text-xs tracking-[0.18em] uppercase text-white/80 text-shadow-strong"
-          >
+          </p>
+          <p className="font-sans font-light text-xs md:text-xs tracking-[0.18em] uppercase text-white/80 text-shadow-strong">
             Bar&nbsp;·&nbsp;Restaurant&nbsp;·&nbsp;Ayurvedic Spa
-          </motion.p>
+          </p>
         </div>
 
         {/* CTA */}
-        <motion.a
-          {...fadeUp(0.9)}
+        <a
           href={hero.ctaHref}
           target="_blank"
           rel="noopener noreferrer"
           className="mt-10 md:mt-10 inline-block bg-black/15 hover:bg-black/30 text-white border border-white/60 hover:border-white rounded-full font-sans font-light px-8 py-3 tracking-[0.22em] uppercase text-xs transition-all duration-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"
         >
           {t(hero.cta)}
-        </motion.a>
+        </a>
       </div>
 
-
       {/* Scroll indicator */}
-      <div className={`${scrolled ? "opacity-0" : "transition-opacity duration-500"}`}>
+      <div className={`${!scrolled ? "transition-opacity duration-500" : ""} ${scrolled || !appeared ? "opacity-0" : ""}`}>
         <motion.div
           className="absolute bottom-10 md:bottom-10 left-1/2 -translate-x-1/2 z-10"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1, y: [0, 8, 0] }}
-          transition={{
-            opacity: { delay: 1.8, duration: 0.8 },
-            y: { delay: 1.8, duration: 1.6, ease: "easeInOut", repeat: Infinity, repeatDelay: 0.4 },
-          }}
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.6, ease: "easeInOut", repeat: Infinity, repeatDelay: 0.4 }}
         >
           <svg width="28" height="16" viewBox="0 0 28 16" fill="none" aria-hidden="true">
             <polyline points="2,2 14,13 26,2" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.7" />

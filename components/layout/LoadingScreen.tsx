@@ -23,15 +23,12 @@ export function LoadingScreen() {
     } catch { /* sessionStorage unavailable (Safari private mode) */ }
 
     const hide = () => {
+      if (savedY > 0) window.scrollTo(0, savedY);
+      setPhase("exiting");
       setTimeout(() => {
-        // Scroll to saved position BEFORE fade starts — prevents hero flash at wrong position
-        if (savedY > 0) window.scrollTo(0, savedY);
-        setPhase("exiting");
-        setTimeout(() => {
-          setPhase("gone");
-          try { sessionStorage.removeItem("scrollY"); } catch { /* ignore */ }
-        }, 600);
-      }, 400);
+        setPhase("gone");
+        try { sessionStorage.removeItem("scrollY"); } catch { /* ignore */ }
+      }, 300);
     };
 
     const saveScroll = () => {
