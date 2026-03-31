@@ -6,7 +6,6 @@ import { SecondaryButton } from "@/components/common/SecondaryButton";
 import { StatsStrip } from "@/components/common/StatsStrip";
 import type { DiningPageData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
-import { UtensilsCrossed, ShoppingBag } from "lucide-react";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 // Atmospheric hotel images cycled across feature sections

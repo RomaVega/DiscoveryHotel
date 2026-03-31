@@ -14,19 +14,19 @@
   "categories": [
     {
       "title": {
-        "en": "Excursion Programs",
-        "ru": "Экскурсионные Программы"
+        "en": "Ayurvedic Spa",
+        "ru": "Аюрведический Спа"
       },
       "description": {
-        "en": "Explore sacred temples, emerald rice terraces, and hidden waterfalls with our expert local guides. Full-day and half-day tours across East Bali and beyond.",
-        "ru": "Исследуйте священные храмы, изумрудные рисовые террасы и скрытые водопады с нашими опытными местными гидами. Полнодневные и полудневные туры по Восточному Бали и за его пределы."
+        "en": "Restore balance with authentic Ayurvedic treatments and traditional Balinese therapies, delivered by therapists trained under Kerala masters.",
+        "ru": "Восстановите баланс с помощью аутентичных аюрведических процедур и традиционных балийских терапий от мастеров, обученных в Керале."
       },
-      "image": "/images/experiences/experiences-excursions.jpg",
+      "image": "/images/experiences/experiences-ayurvedic-spa.jpg",
       "imageAlt": {
-        "en": "Bali Rice Terraces with Lush Green Landscape",
-        "ru": "Рисовые террасы Бали с пышным зелёным ландшафтом"
+        "en": "Ayurvedic Spa Treatment Room with Tropical Garden View",
+        "ru": "Кабинет аюрведического спа с видом на тропический сад"
       },
-      "href": "/experiences/excursions"
+      "href": "/spa"
     },
     {
       "title": {
@@ -78,19 +78,19 @@
     },
     {
       "title": {
-        "en": "Ayurvedic Spa",
-        "ru": "Аюрведический Спа"
+        "en": "Excursion Programs",
+        "ru": "Экскурсионные Программы"
       },
       "description": {
-        "en": "Restore balance with authentic Ayurvedic treatments and traditional Balinese therapies, delivered by therapists trained under Kerala masters.",
-        "ru": "Восстановите баланс с помощью аутентичных аюрведических процедур и традиционных балийских терапий от мастеров, обученных в Керале."
+        "en": "Explore sacred temples, emerald rice terraces, and hidden waterfalls with our expert local guides. Full-day and half-day tours across East Bali and beyond.",
+        "ru": "Исследуйте священные храмы, изумрудные рисовые террасы и скрытые водопады с нашими опытными местными гидами. Полнодневные и полудневные туры по Восточному Бали и за его пределы."
       },
-      "image": "/images/experiences/experiences-ayurvedic-spa.jpg",
+      "image": "/images/experiences/experiences-excursions.jpg",
       "imageAlt": {
-        "en": "Ayurvedic Spa Treatment Room with Tropical Garden View",
-        "ru": "Кабинет аюрведического спа с видом на тропический сад"
+        "en": "Bali Rice Terraces with Lush Green Landscape",
+        "ru": "Рисовые террасы Бали с пышным зелёным ландшафтом"
       },
-      "href": "/spa"
+      "href": "/experiences/excursions"
     }
   ]
 }

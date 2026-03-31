@@ -1,6 +1,6 @@
 "use client"; // Uses useLanguage for content translation
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
 import { FadeIn } from "@/components/common/FadeIn";
 import { SecondaryButton } from "@/components/common/SecondaryButton";

@@ -13,8 +13,7 @@ interface ExperiencesHubProps {
 }
 
 export function ExperiencesHub({ data }: ExperiencesHubProps) {
-  const { t, locale } = useLanguage();
-  const isRu = locale === "ru";
+  const { t } = useLanguage();
 
   const ctaMsg = encodeURIComponent(t({
     ru: "Здравствуйте! Хочу узнать подробнее о доступных экскурсиях и впечатлениях.",

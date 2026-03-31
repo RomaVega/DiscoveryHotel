@@ -530,16 +530,16 @@
     "items": [
       {
         "title": {
-          "en": "Excursion Programs",
-          "ru": "Экскурсионные программы"
+          "en": "Ayurvedic Spa",
+          "ru": "Аюрведический Спа"
         },
         "description": {
-          "en": "Explore temples, rice terraces, and hidden waterfalls",
-          "ru": "Храмы, рисовые террасы и скрытые водопады"
+          "en": "Authentic Panchakarma, Shirodhara, and traditional Balinese massage by Kerala-trained therapists",
+          "ru": "Аутентичная Панчакарма, Широдхара и традиционный балийский массаж от терапевтов из Кералы"
         },
-        "image": "/images/experiences/experiences-excursions.jpg",
-        "imageAlt": "Bali rice terraces with lush green landscape",
-        "href": "/experiences/excursions"
+        "image": "/images/experiences/experiences-ayurvedic-spa.jpg",
+        "imageAlt": "Ayurvedic spa shirodhara treatment at Orlowsky Discovery Hotel",
+        "href": "/spa"
       },
       {
         "title": {
@@ -582,16 +582,16 @@
       },
       {
         "title": {
-          "en": "Ayurvedic Spa",
-          "ru": "Аюрведический Спа"
+          "en": "Excursion Programs",
+          "ru": "Экскурсионные программы"
         },
         "description": {
-          "en": "Authentic Panchakarma, Shirodhara, and traditional Balinese massage by Kerala-trained therapists",
-          "ru": "Аутентичная Панчакарма, Широдхара и традиционный балийский массаж от терапевтов из Кералы"
+          "en": "Explore temples, rice terraces, and hidden waterfalls",
+          "ru": "Храмы, рисовые террасы и скрытые водопады"
         },
-        "image": "/images/experiences/experiences-ayurvedic-spa.jpg",
-        "imageAlt": "Ayurvedic spa shirodhara treatment at Orlowsky Discovery Hotel",
-        "href": "/spa"
+        "image": "/images/experiences/experiences-excursions.jpg",
+        "imageAlt": "Bali rice terraces with lush green landscape",
+        "href": "/experiences/excursions"
       }
     ]
   },

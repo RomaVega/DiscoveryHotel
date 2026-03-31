@@ -1,11 +1,27 @@
-"use client"; // Uses useLanguage for locale-aware text
+"use client"; // Uses useLanguage for locale-aware text, RoomSlideshow for photo gallery
 
 import Link from "next/link";
 import { FadeIn } from "@/components/common/FadeIn";
 import { SectionHeading } from "@/components/common/SectionHeading";
+import { RoomSlideshow } from "@/components/common/RoomSlideshow";
 import { useLanguage } from "@/lib/language-context";
 import { UtensilsCrossed, ShoppingBag } from "lucide-react";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
+
+const SLIDES = [
+  { src: "/images/restaurant-bar/orlowsky-hotel-oceanfront-dining-candidasa.jpg",       alt: "Oceanfront dining at Orlowsky Discovery Hotel, Candidasa" },
+  { src: "/images/restaurant-bar/orlowsky-hotel-restaurant-bar-dining-candidasa.jpg",   alt: "Restaurant and bar dining area at Orlowsky Hotel" },
+  { src: "/images/restaurant-bar/orlowsky-hotel-bar-tropical-drinks-candidasa.jpg",     alt: "Bar with tropical drinks at Orlowsky Hotel Candidasa" },
+  { src: "/images/restaurant-bar/orlowsky-hotel-seaside-dining-candidasa.jpg",          alt: "Seaside dining terrace at Orlowsky Hotel Candidasa" },
+  { src: "/images/restaurant-bar/orlowsky-hotel-restaurant-bar-courtyard-candidasa.jpg",alt: "Restaurant bar courtyard at Orlowsky Discovery Hotel" },
+  { src: "/images/restaurant-bar/orlowsky-hotel-international-cuisine-bali.jpg",        alt: "International cuisine at Orlowsky Hotel Bali" },
+  { src: "/images/restaurant-bar/orlowsky-hotel-fresh-seafood-appetizer-candidasa.jpg", alt: "Fresh seafood appetizer at Orlowsky Hotel restaurant" },
+  { src: "/images/restaurant-bar/orlowsky-hotel-restaurant-bar-candidasa-bali.jpg",     alt: "Restaurant and bar at Orlowsky Hotel Candidasa Bali" },
+  { src: "/images/restaurant-bar/orlowsky-hotel-restaurant-interior-candidasa.jpg",     alt: "Restaurant interior at Orlowsky Hotel Candidasa" },
+  { src: "/images/restaurant-bar/orlowsky-hotel-beach-gazebo-ocean-view-candidasa.jpg", alt: "Beach gazebo with ocean view at Orlowsky Hotel Candidasa" },
+  { src: "/images/restaurant-bar/orlowsky-hotel-restaurant-dining-setup-candidasa.jpg", alt: "Dining table setup at Orlowsky Hotel restaurant" },
+  { src: "/images/restaurant-bar/orlowsky-hotel-seaside-dining-oceanfront-candidasa.png", alt: "Seaside oceanfront dining at Orlowsky Discovery Hotel" },
+];
 
 export function DiningPreview() {
   const { locale } = useLanguage();
@@ -27,6 +43,14 @@ export function DiningPreview() {
           <SectionHeading
             label={isRu ? "Ресторан" : "Restaurant & Bar"}
             heading={isRu ? "Ресторан на берегу океана" : "Oceanfront Dining"}
+          />
+
+          {/* Slideshow */}
+          <RoomSlideshow
+            images={SLIDES}
+            className="w-full aspect-[16/9] mb-10"
+            sizes="(max-width: 896px) 100vw, 896px"
+            autoAdvanceMs={4000}
           />
 
           {/* Two cards */}
