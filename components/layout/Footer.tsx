@@ -5,7 +5,7 @@ import Link from "next/link";
 import {
   MessageCircle, Mail, MapPin,
   BedDouble, UtensilsCrossed, Compass, Tag, ImageIcon, Info,
-  Map, Waves, CalendarDays, Car, Sparkles,
+  Map, Waves, CalendarDays, Car, Sparkles, Globe,
   type LucideIcon,
 } from "lucide-react";
 import type { ContactData } from "@/lib/types";
@@ -33,12 +33,13 @@ export function Footer({ contact }: FooterProps) {
     { label: tl.footer.links.about,       href: "/about",       icon: Info },
   ];
 
-  const experienceLinks: { label: string; href: string; icon: LucideIcon }[] = [
-    { label: tl.footer.experienceLinks.excursions, href: "/experiences/excursions", icon: Map },
-    { label: tl.footer.experienceLinks.diving,     href: "/experiences/diving",     icon: Waves },
-    { label: tl.footer.experienceLinks.events,     href: "/experiences/events",     icon: CalendarDays },
-    { label: tl.footer.experienceLinks.carRental,  href: "/experiences/car-rental", icon: Car },
-    { label: tl.footer.experienceLinks.spa,        href: "/spa",                    icon: Sparkles },
+  const experienceLinks: { label: string; href: string; icon: LucideIcon; external?: boolean }[] = [
+    { label: tl.footer.experienceLinks.spa,           href: "/spa",                                 icon: Sparkles },
+    { label: tl.footer.experienceLinks.diving,        href: "/experiences/diving",                  icon: Waves },
+    { label: tl.footer.experienceLinks.events,        href: "/experiences/events",                  icon: CalendarDays },
+    { label: tl.footer.experienceLinks.carRental,     href: "/experiences/car-rental",              icon: Car },
+    { label: tl.footer.experienceLinks.excursions,    href: "/experiences/excursions",              icon: Map },
+    { label: tl.footer.experienceLinks.toursPartner,  href: "https://mybalitrips.com/?utm_pid=1260", icon: Globe, external: true },
   ];
 
   return (
@@ -242,13 +243,25 @@ export function Footer({ contact }: FooterProps) {
             <ul className="space-y-1.5 flex flex-col items-center md:items-start">
               {experienceLinks.map((link) => (
                 <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="relative inline-flex items-center gap-2 font-sans text-[13px] sm:text-sm text-charcoal/60 hover:text-charcoal transition-colors duration-200"
-                  >
-                    <link.icon size={13} className="absolute -left-5 top-1/2 -translate-y-1/2 md:static md:translate-y-0 text-brand-teal shrink-0" strokeWidth={1.5} />
-                    {link.label}
-                  </Link>
+                  {link.external ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="relative inline-flex items-center gap-2 font-sans text-[13px] sm:text-sm text-charcoal/60 hover:text-charcoal transition-colors duration-200"
+                    >
+                      <link.icon size={13} className="absolute -left-5 top-1/2 -translate-y-1/2 md:static md:translate-y-0 text-brand-teal shrink-0" strokeWidth={1.5} />
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className="relative inline-flex items-center gap-2 font-sans text-[13px] sm:text-sm text-charcoal/60 hover:text-charcoal transition-colors duration-200"
+                    >
+                      <link.icon size={13} className="absolute -left-5 top-1/2 -translate-y-1/2 md:static md:translate-y-0 text-brand-teal shrink-0" strokeWidth={1.5} />
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

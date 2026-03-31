@@ -25,7 +25,7 @@ export default function DiningPage() {
   return (
     <InnerPageLayout contact={contact}>
       <PageHero
-        image="/images/restaurant/Oceanside-restaurant-and-bar.png"
+        image="/images/dining/Oceanside-restaurant-and-bar.png"
         imageAlt="Oceanfront restaurant and bar at Orlowsky Discovery Hotel"
         heading={data.heading}
         subtext={data.subtext}

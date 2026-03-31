@@ -78,7 +78,7 @@
     },
     {
       "title": {
-        "en": "Excursion Programs",
+        "en": "Signature Excursion Programs",
         "ru": "Экскурсионные Программы"
       },
       "description": {
@@ -91,6 +91,23 @@
         "ru": "Рисовые террасы Бали с пышным зелёным ландшафтом"
       },
       "href": "/experiences/excursions"
+    },
+    {
+      "title": {
+        "en": "Tours & Activities in Bali",
+        "ru": "Туры и активности на Бали"
+      },
+      "description": {
+        "en": "169 curated tours — island hopping, volcano treks, snorkeling, cycling and more",
+        "ru": "169 туров — острова, вулканы, снорклинг, велосипеды и многое другое"
+      },
+      "image": "/images/experiences/experiences-tours-activities-bali.png",
+      "imageAlt": {
+        "en": "Bali tours and activities",
+        "ru": "Туры и активности на Бали"
+      },
+      "href": "https://mybalitrips.com/?utm_pid=1260",
+      "external": true
     }
   ]
 }

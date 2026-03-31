@@ -10,14 +10,14 @@ import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 // Atmospheric hotel images cycled across feature sections
 const FEATURE_IMAGES = [
-  "/images/restaurant/seaside-dining.jpg",
-  "/images/restaurant/international-cuisine.png",
-  "/images/restaurant/buffet.jpg",
-  "/images/restaurant/bar-drinks-and-coctails.jpg",
-  "/images/restaurant/room-service.png",
-  "/images/restaurant/chef-specials.jpg",
-  "/images/restaurant/cultural-performance.jpg",
-  "/images/restaurant/celebration-menu.jpeg",
+  "/images/dining/seaside-dining.jpg",
+  "/images/dining/international-cuisine.png",
+  "/images/dining/buffet.jpg",
+  "/images/dining/bar-drinks-and-coctails.jpg",
+  "/images/dining/room-service.png",
+  "/images/dining/chef-specials.jpg",
+  "/images/dining/cultural-performance.jpg",
+  "/images/dining/celebration-menu.jpeg",
 ];
 
 interface DiningDetailProps {

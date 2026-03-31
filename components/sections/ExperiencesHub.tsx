@@ -42,9 +42,9 @@ export function ExperiencesHub({ data }: ExperiencesHubProps) {
       <section className="pt-16 pb-6 md:py-24 bg-sand">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {data.categories.map((cat, i) => (
-              <FadeIn key={i} delay={i * 0.1}>
-                <Link href={cat.href} className="bg-ivory shadow-md group h-full flex flex-col overflow-hidden">
+            {data.categories.map((cat, i) => {
+              const cardContent = (
+                <>
                   <div className="relative aspect-video shrink-0 overflow-hidden">
                     <Image
                       src={cat.image}
@@ -61,9 +61,22 @@ export function ExperiencesHub({ data }: ExperiencesHubProps) {
                       {t({ en: "Learn More →", ru: "Подробнее →" })}
                     </span>
                   </div>
-                </Link>
-              </FadeIn>
-            ))}
+                </>
+              );
+              return (
+                <FadeIn key={i} delay={i * 0.1}>
+                  {cat.external ? (
+                    <a href={cat.href} target="_blank" rel="noopener noreferrer" className="bg-ivory shadow-md group h-full flex flex-col overflow-hidden">
+                      {cardContent}
+                    </a>
+                  ) : (
+                    <Link href={cat.href} className="bg-ivory shadow-md group h-full flex flex-col overflow-hidden">
+                      {cardContent}
+                    </Link>
+                  )}
+                </FadeIn>
+              );
+            })}
           </div>
         </div>
       </section>

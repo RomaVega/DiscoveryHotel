@@ -27,6 +27,7 @@
   will-change: transform;
   transform-box: fill-box;
   transform-origin: center;
+  backface-visibility: hidden;
 }
 
 @custom-variant data-open {

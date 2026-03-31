@@ -13,9 +13,6 @@ interface HeroImageProps {
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
-function signalHeroReady() {
-  window.dispatchEvent(new CustomEvent("hero-ready"));
-}
 
 export function HeroImage({ hero }: HeroImageProps) {
   const [paused, setPaused] = useState(false);
@@ -80,7 +77,6 @@ export function HeroImage({ hero }: HeroImageProps) {
               autoPlay muted loop playsInline preload="auto"
               poster={`${BASE_PATH}${hero.image}`}
               className="absolute inset-0 h-full w-full object-cover md:hidden"
-              onLoadedData={signalHeroReady}
             >
               <source src={`${BASE_PATH}${hero.videoMobile}`} type="video/mp4" />
             </video>
@@ -91,7 +87,6 @@ export function HeroImage({ hero }: HeroImageProps) {
             autoPlay muted loop playsInline preload="auto"
             poster={`${BASE_PATH}${hero.image}`}
             className={`absolute inset-0 h-full w-full object-cover ${hero.videoMobile ? "hidden md:block" : ""}`}
-            onLoadedData={signalHeroReady}
           >
             <source src={`${BASE_PATH}${hero.video}`} type="video/mp4" />
           </video>
@@ -104,7 +99,6 @@ export function HeroImage({ hero }: HeroImageProps) {
           priority
           sizes="100vw"
           className="object-cover"
-          onLoad={signalHeroReady}
         />
       )}
 

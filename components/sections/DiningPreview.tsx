@@ -1,21 +1,21 @@
 "use client"; // Uses useLanguage for locale-aware text, RoomSlideshow for photo gallery
 
-import Link from "next/link";
 import { FadeIn } from "@/components/common/FadeIn";
 import { SectionHeading } from "@/components/common/SectionHeading";
 import { RoomSlideshow } from "@/components/common/RoomSlideshow";
+import { SecondaryButton } from "@/components/common/SecondaryButton";
 import { useLanguage } from "@/lib/language-context";
 import { UtensilsCrossed, ShoppingBag } from "lucide-react";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 const SLIDES = [
-  { src: "/images/restaurant-bar/orlowsky-hotel-oceanfront-dining-candidasa.jpg",       alt: "Oceanfront dining at Orlowsky Discovery Hotel, Candidasa" },
+  { src: "/images/restaurant-bar/orlowsky-hotel-oceanfront-dining-candidasa.png",       alt: "Oceanfront dining at Orlowsky Discovery Hotel, Candidasa" },
   { src: "/images/restaurant-bar/orlowsky-hotel-restaurant-bar-dining-candidasa.jpg",   alt: "Restaurant and bar dining area at Orlowsky Hotel" },
   { src: "/images/restaurant-bar/orlowsky-hotel-bar-tropical-drinks-candidasa.jpg",     alt: "Bar with tropical drinks at Orlowsky Hotel Candidasa" },
-  { src: "/images/restaurant-bar/orlowsky-hotel-seaside-dining-candidasa.jpg",          alt: "Seaside dining terrace at Orlowsky Hotel Candidasa" },
+  { src: "/images/restaurant-bar/orlowsky-hotel-seaside-dining-candidasa.png",          alt: "Seaside dining terrace at Orlowsky Hotel Candidasa" },
   { src: "/images/restaurant-bar/orlowsky-hotel-restaurant-bar-courtyard-candidasa.jpg",alt: "Restaurant bar courtyard at Orlowsky Discovery Hotel" },
-  { src: "/images/restaurant-bar/orlowsky-hotel-international-cuisine-bali.jpg",        alt: "International cuisine at Orlowsky Hotel Bali" },
-  { src: "/images/restaurant-bar/orlowsky-hotel-fresh-seafood-appetizer-candidasa.jpg", alt: "Fresh seafood appetizer at Orlowsky Hotel restaurant" },
+  { src: "/images/restaurant-bar/orlowsky-hotel-international-cuisine-bali.png",        alt: "International cuisine at Orlowsky Hotel Bali" },
+  { src: "/images/restaurant-bar/orlowsky-hotel-fresh-seafood-appetizer-candidasa.png", alt: "Fresh seafood appetizer at Orlowsky Hotel restaurant" },
   { src: "/images/restaurant-bar/orlowsky-hotel-restaurant-bar-candidasa-bali.jpg",     alt: "Restaurant and bar at Orlowsky Hotel Candidasa Bali" },
   { src: "/images/restaurant-bar/orlowsky-hotel-restaurant-interior-candidasa.jpg",     alt: "Restaurant interior at Orlowsky Hotel Candidasa" },
   { src: "/images/restaurant-bar/orlowsky-hotel-beach-gazebo-ocean-view-candidasa.jpg", alt: "Beach gazebo with ocean view at Orlowsky Hotel Candidasa" },
@@ -30,13 +30,11 @@ export function DiningPreview() {
   const tableUrl = buildWhatsAppUrl(isRu
     ? "Здравствуйте! Хочу забронировать столик в ресторане."
     : "Hello! I'd like to book a table at the restaurant.");
-  const roomUrl = buildWhatsAppUrl(isRu
-    ? "Здравствуйте! Хочу заказать доставку еды в номер."
-    : "Hello! I'd like to order room dining.");
+  const roomUrl = "https://secure.guestpro.net/odch/concierge/room-dining";
 
   return (
     <FadeIn>
-      <section className="bg-sand py-20 md:py-28 px-6">
+      <section className="bg-sand py-16 md:py-20 px-6">
         <div className="max-w-4xl mx-auto">
 
           {/* Heading */}
@@ -48,7 +46,7 @@ export function DiningPreview() {
           {/* Slideshow */}
           <RoomSlideshow
             images={SLIDES}
-            className="w-full aspect-[16/9] mb-10"
+            className="w-full aspect-[16/9] mb-8"
             sizes="(max-width: 896px) 100vw, 896px"
             autoAdvanceMs={4000}
           />
@@ -57,61 +55,41 @@ export function DiningPreview() {
           <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-charcoal/10 border border-charcoal/10">
 
             {/* Book a Table */}
-            <div className="p-10 md:p-12 flex flex-col gap-6">
-              <UtensilsCrossed size={20} className="text-brand-teal" />
+            <div className="p-6 md:p-8 flex flex-col items-center gap-4 text-center">
+              <UtensilsCrossed size={18} className="text-brand-teal" />
               <div>
-                <h3 className="font-serif text-2xl font-light text-charcoal">
+                <h3 className="font-serif text-xl font-light text-charcoal">
                   {isRu ? "Забронировать столик" : "Book a Table"}
                 </h3>
-                <p className="text-stone text-sm mt-2 leading-relaxed">
+                <p className="text-stone text-xs mt-1 leading-relaxed">
                   {isRu
-                    ? "Свежие морепродукты и балийская кухня у моря. Открыто ежедневно 07:00–22:00."
-                    : "Fresh seafood and Balinese cuisine by the sea. Open daily 07:00–22:00."}
+                    ? <>Свежие морепродукты и балийская кухня у моря.<br />Открыто ежедневно 07:00–22:00.</>
+                    : <>Fresh seafood and Balinese cuisine by the sea.<br />Open daily 07:00–22:00.</>}
                 </p>
               </div>
-              <a
-                href={tableUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-sans text-[11px] tracking-[0.2em] uppercase text-brand-teal hover:text-deep-teal transition-colors duration-200 self-center"
-              >
-                {isRu ? "Написать в WhatsApp →" : "Message on WhatsApp →"}
-              </a>
+              <SecondaryButton href={tableUrl} external className="mt-auto">
+                {isRu ? "Написать в WhatsApp" : "Book via WhatsApp"}
+              </SecondaryButton>
             </div>
 
             {/* Room Dining */}
-            <div className="p-10 md:p-12 flex flex-col gap-6">
-              <ShoppingBag size={20} className="text-brand-teal" />
+            <div className="p-6 md:p-8 flex flex-col items-center gap-4 text-center">
+              <ShoppingBag size={18} className="text-brand-teal" />
               <div>
-                <h3 className="font-serif text-2xl font-light text-charcoal">
+                <h3 className="font-serif text-xl font-light text-charcoal">
                   {isRu ? "Доставка в номер" : "Room Dining"}
                 </h3>
-                <p className="text-stone text-sm mt-2 leading-relaxed">
+                <p className="text-stone text-xs mt-1 leading-relaxed">
                   {isRu
-                    ? "Закажите еду прямо в номер. Онлайн-заказ доступен в любое время."
-                    : "Order food directly to your room. Available online at any time."}
+                    ? <>Закажите еду прямо в номер.<br />Онлайн-заказ доступен в любое время.</>
+                    : <>Order food directly to your room.<br />Available online at any time.</>}
                 </p>
               </div>
-              <a
-                href={roomUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-sans text-[11px] tracking-[0.2em] uppercase text-brand-teal hover:text-deep-teal transition-colors duration-200 self-center"
-              >
-                {isRu ? "Заказать онлайн →" : "Order Online →"}
-              </a>
+              <SecondaryButton href={roomUrl} external className="mt-auto">
+                {isRu ? "Заказать онлайн" : "Order Online"}
+              </SecondaryButton>
             </div>
 
-          </div>
-
-          {/* Link to full dining page */}
-          <div className="text-center mt-10">
-            <Link
-              href="/dining"
-              className="font-sans text-[11px] tracking-[0.2em] uppercase text-stone hover:text-charcoal transition-colors duration-200"
-            >
-              {isRu ? "Подробнее о ресторане →" : "View Full Menu & Restaurant →"}
-            </Link>
           </div>
 
         </div>

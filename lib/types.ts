@@ -71,6 +71,7 @@ export interface ExperienceCard {
   image: string;
   imageAlt: LocalizedString;
   href: string;
+  external?: boolean;
 }
 
 export interface ExperiencesData {

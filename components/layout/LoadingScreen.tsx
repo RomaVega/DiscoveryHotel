@@ -1,18 +1,10 @@
 "use client"; // Uses useState/useEffect to track page load, CSS animations for smooth exit
 
-import { useState, useEffect, useRef, useLayoutEffect } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
 export function LoadingScreen() {
   const [phase, setPhase] = useState<"visible" | "exiting" | "gone">("visible");
-  const circleRef = useRef<SVGCircleElement>(null);
-
-  useLayoutEffect(() => {
-    if (circleRef.current) {
-      const angle = Math.floor(Math.random() * 360) - 90;
-      circleRef.current.setAttribute("transform", `rotate(${angle} 140 140)`);
-    }
-  }, []);
 
   useEffect(() => {
     history.scrollRestoration = "manual";
@@ -39,27 +31,19 @@ export function LoadingScreen() {
     };
     window.addEventListener("beforeunload", saveScroll);
 
-    // Primary: hide as soon as hero image signals it's ready
-    window.addEventListener("hero-ready", hide, { once: true });
-
-    // Fallback: after window.load give hero 1 s to signal, then dismiss anyway
-    // (handles pages without a hero section, or images already cached)
-    let grace: ReturnType<typeof setTimeout> | null = null;
-    const onLoad = () => { grace = setTimeout(hide, 1000); };
+    // Hide only after all page resources (images, scripts, styles) are fully loaded
     if (document.readyState === "complete") {
-      grace = setTimeout(hide, 1000);
+      hide();
     } else {
-      window.addEventListener("load", onLoad, { once: true });
+      window.addEventListener("load", hide, { once: true });
     }
 
     // Safety net: never block longer than 10 s
     const safety = setTimeout(hide, 10000);
 
     return () => {
-      window.removeEventListener("hero-ready", hide);
       window.removeEventListener("beforeunload", saveScroll);
-      window.removeEventListener("load", onLoad);
-      if (grace) clearTimeout(grace);
+      window.removeEventListener("load", hide);
       clearTimeout(safety);
     };
   }, []);
@@ -96,12 +80,10 @@ export function LoadingScreen() {
             cy={140}
             r={125}
             fill="none"
-            stroke="#0abab5"
+            stroke="#4ca8b5"
             strokeWidth={1.5}
             strokeLinecap="round"
             strokeDasharray={`${2 * Math.PI * 125 * 0.12} ${2 * Math.PI * 125 * 0.88}`}
-            transform="rotate(-90 140 140)"
-            ref={circleRef}
           />
         </svg>
       </div>
