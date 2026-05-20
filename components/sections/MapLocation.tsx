@@ -36,6 +36,7 @@ export function MapLocation({ contact }: MapLocationProps) {
                 className="absolute inset-0 w-full h-full border-0 grayscale-[0.3] contrast-[0.95]"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
+                sandbox="allow-scripts allow-same-origin"
                 allowFullScreen
               />
             </div>

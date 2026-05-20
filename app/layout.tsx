@@ -82,7 +82,7 @@ export default function RootLayout({
               "description": description,
               "url": SITE_URL,
               "telephone": "+6282236655582",
-              "email": "2794140@gmail.com",
+              "email": "info@orlowsky.co.id",
               "image": OG_IMAGE,
               "priceRange": "$$",
               "starRating": { "@type": "Rating", "ratingValue": "4" },
