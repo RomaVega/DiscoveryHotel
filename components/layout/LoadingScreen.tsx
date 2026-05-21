@@ -3,6 +3,33 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
+// Wait for images within 3 viewport heights — lazy images near the top that
+// may not be done when window.load fires
+function waitForNearbyImages(): Promise<void> {
+  return new Promise<void>(resolve => {
+    // Double rAF gives IntersectionObserver time to trigger lazy loads
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      const threshold = window.innerHeight * 3;
+      const pending = Array.from(document.images).filter(img => {
+        if (img.complete) return false;
+        const rect = img.getBoundingClientRect();
+        return rect.top < threshold;
+      });
+
+      if (pending.length === 0) { resolve(); return; }
+
+      let remaining = pending.length;
+      const done = () => { if (--remaining === 0) resolve(); };
+      for (const img of pending) {
+        img.addEventListener("load", done, { once: true });
+        img.addEventListener("error", done, { once: true });
+      }
+      // Never block longer than 5s waiting for images
+      setTimeout(resolve, 5000);
+    }));
+  });
+}
+
 export function LoadingScreen() {
   const [phase, setPhase] = useState<"visible" | "exiting" | "gone">("visible");
 
@@ -15,15 +42,20 @@ export function LoadingScreen() {
     } catch { /* sessionStorage unavailable (Safari private mode) */ }
 
     let dismissed = false;
-    const hide = () => {
+    const dismiss = async () => {
       if (dismissed) return;
       dismissed = true;
+
+      // Wait for fonts, then all visible images
+      await document.fonts.ready;
+      await waitForNearbyImages();
+
       if (savedY > 0) window.scrollTo(0, savedY);
       setPhase("exiting");
       setTimeout(() => {
         setPhase("gone");
         try { sessionStorage.removeItem("scrollY"); } catch { /* ignore */ }
-      }, 300);
+      }, 700);
     };
 
     const saveScroll = () => {
@@ -31,19 +63,18 @@ export function LoadingScreen() {
     };
     window.addEventListener("beforeunload", saveScroll);
 
-    // Hide only after all page resources (images, scripts, styles) are fully loaded
     if (document.readyState === "complete") {
-      hide();
+      dismiss();
     } else {
-      window.addEventListener("load", hide, { once: true });
+      window.addEventListener("load", dismiss, { once: true });
     }
 
-    // Safety net: never block longer than 10 s
-    const safety = setTimeout(hide, 10000);
+    // Absolute safety net: never block longer than 12s
+    const safety = setTimeout(dismiss, 12000);
 
     return () => {
       window.removeEventListener("beforeunload", saveScroll);
-      window.removeEventListener("load", hide);
+      window.removeEventListener("load", dismiss);
       clearTimeout(safety);
     };
   }, []);
