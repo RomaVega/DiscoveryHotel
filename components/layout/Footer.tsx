@@ -52,7 +52,7 @@ export function Footer({ contact }: FooterProps) {
             className="flex flex-col items-center text-center hover:opacity-80 transition-opacity duration-200"
           >
             <Image
-              src="/images/logo/logo-dark.svg"
+              src="/images/logo/logo-dark.webp"
               alt="Orlowsky Discovery Hotel"
               width={80}
               height={80}

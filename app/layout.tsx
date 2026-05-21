@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Cormorant_Garamond } from "next/font/google";
 import { LoadingScreen } from "@/components/layout/LoadingScreen";
+import { SitePreloader } from "@/components/common/SitePreloader";
+import { MotionProvider } from "@/components/common/MotionProvider";
 import { LanguageProvider } from "@/lib/language-context";
 import { SITE_URL, SITE_NAME, OG_IMAGE } from "@/lib/site";
 import "./globals.css";
@@ -69,8 +71,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable} suppressHydrationWarning>
       <head>
-        {/* Preload hero video for faster LCP */}
-        <link rel="preload" as="video" href="/video/orlowsky-hotel-candidasa-bali-hero.mp4" type="video/mp4" />
         {/* schema.org Hotel — structured data for Google rich results */}
         <script
           type="application/ld+json"
@@ -123,8 +123,11 @@ export default function RootLayout({
       <body className={`${inter.variable} ${cormorant.variable} antialiased`} suppressHydrationWarning>
         <script dangerouslySetInnerHTML={{ __html: `(function(){var h=new Date().getHours();if(h<6||h>=20||window.matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.classList.add('night');})();` }} />
         <LanguageProvider>
-          <LoadingScreen />
-          {children}
+          <MotionProvider>
+            <LoadingScreen />
+            <SitePreloader />
+            {children}
+          </MotionProvider>
         </LanguageProvider>
       </body>
     </html>

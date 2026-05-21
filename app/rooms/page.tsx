@@ -14,7 +14,7 @@ export const metadata = {
     title: "Rooms & Villas in Candidasa, Bali — Orlowsky Discovery Hotel",
     description: "Pool villa (230 m²) with private pool and 3 bedrooms, or Deluxe Cottage (46 m²) with garden views. Book direct at Orlowsky Discovery Hotel, Candidasa, East Bali.",
     url: `${SITE_URL}/rooms`,
-    images: [{ url: `${SITE_URL}/images/rooms/pool-villa.jpg`, width: 1200, height: 630 }],
+    images: [{ url: `${SITE_URL}/images/rooms/pool-villa.webp`, width: 1200, height: 630 }],
   },
 };
 
@@ -25,7 +25,7 @@ export default function RoomsPage() {
   return (
     <InnerPageLayout contact={contact}>
       <PageHero
-        image="/images/rooms/pool-villa.jpg"
+        image="/images/rooms/pool-villa.webp"
         imageAlt="Aerial view of pool villas surrounded by tropical gardens"
         heading={data.heading}
         subtext={data.subtext}

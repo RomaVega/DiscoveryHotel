@@ -19,7 +19,7 @@ export const metadata = {
     title: "Номера и виллы в Кандидасе, Бали — Orlowsky Discovery Hotel",
     description: "Вилла с бассейном (230 м²) с тремя спальнями или Делюкс Коттедж (46 м²) с видом на сад. Прямое бронирование в Orlowsky Discovery Hotel, Кандидаса, Восточный Бали.",
     url: `${SITE_URL}/ru/rooms`,
-    images: [{ url: `${SITE_URL}/images/rooms/pool-villa.jpg`, width: 1200, height: 630 }],
+    images: [{ url: `${SITE_URL}/images/rooms/pool-villa.webp`, width: 1200, height: 630 }],
   },
 };
 
@@ -30,7 +30,7 @@ export default function RoomsRuPage() {
   return (
     <InnerPageLayout contact={contact}>
       <PageHero
-        image="/images/rooms/pool-villa.jpg"
+        image="/images/rooms/pool-villa.webp"
         imageAlt="Aerial view of pool villas surrounded by tropical gardens"
         heading={data.heading}
         subtext={data.subtext}

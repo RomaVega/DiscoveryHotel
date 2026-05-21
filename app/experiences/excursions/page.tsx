@@ -14,7 +14,7 @@ export const metadata = {
     title: "Bali Day Tours & Excursions from Candidasa — Orlowsky Discovery",
     description: "Guided tours to Besakih Temple, Kintamani volcano, Ubud, Tegallalang rice terraces, and hidden waterfalls in East Bali. Book from Orlowsky Discovery Hotel, Candidasa.",
     url: `${SITE_URL}/experiences/excursions`,
-    images: [{ url: `${SITE_URL}/images/experiences/experiences-excursions.jpg`, width: 1200, height: 630 }],
+    images: [{ url: `${SITE_URL}/images/experiences/experiences-excursions.webp`, width: 1200, height: 630 }],
   },
 };
 
@@ -25,7 +25,7 @@ export default function ExcursionsPage() {
   return (
     <InnerPageLayout contact={contact}>
       <PageHero
-        image="/images/experiences/experiences-excursions.jpg"
+        image="/images/experiences/experiences-excursions.webp"
         imageAlt="Bali temple with lush tropical gardens"
         heading={data.heading}
         subtext={data.subtext}

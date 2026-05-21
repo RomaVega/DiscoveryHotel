@@ -19,7 +19,7 @@ export const metadata = {
     title: "Аренда Авто и Мотоцикла на Бали — Orlowsky Discovery Hotel, Кандидаса",
     description: "Аренда скутера от Rp 20,000/час, автомобиля с водителем или без, и электровелосипедов. Исследуйте Восточный Бали в своём темпе.",
     url: `${SITE_URL}/ru/experiences/car-rental`,
-    images: [{ url: `${SITE_URL}/images/rental/rental.png`, width: 1200, height: 630 }],
+    images: [{ url: `${SITE_URL}/images/rental/rental.webp`, width: 1200, height: 630 }],
   },
 };
 
@@ -31,7 +31,7 @@ export default function CarRentalRuPage() {
   return (
     <InnerPageLayout contact={contact}>
       <PageHero
-        image="/images/rental/rental.png"
+        image="/images/rental/rental.webp"
         imageAlt="Scooter on a scenic Bali road"
         heading={data.heading}
         subtext={data.subtext}

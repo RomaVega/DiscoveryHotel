@@ -61,7 +61,7 @@ export function LoadingScreen() {
     >
       <div id="loading-logo" className="relative flex items-center justify-center" style={{ width: 280, height: 280 }}>
         <Image
-          src="/images/logo/logo-dark.svg"
+          src="/images/logo/logo-dark.webp"
           alt="Orlowsky Discovery Candidasa Hotel"
           width={120}
           height={120}

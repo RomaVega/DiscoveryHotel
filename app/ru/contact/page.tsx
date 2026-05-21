@@ -20,7 +20,7 @@ export const metadata = {
     title: "Контакты — Orlowsky Discovery Hotel, Кандидаса, Бали",
     description: "Свяжитесь с Orlowsky Discovery Hotel по WhatsApp, email или посетите нас в Кандидасе. Jalan Pantai Indah 06, Карангасем 80851, Бали.",
     url: `${SITE_URL}/ru/contact`,
-    images: [{ url: `${SITE_URL}/images/hero/hero-main.jpg`, width: 1200, height: 630 }],
+    images: [{ url: `${SITE_URL}/images/hero/hero-main.webp`, width: 1200, height: 630 }],
   },
 };
 
@@ -30,7 +30,7 @@ export default function ContactRuPage() {
   return (
     <InnerPageLayout contact={contact}>
       <PageHero
-        image="/images/gallery/g5.jpg"
+        image="/images/gallery/g5.webp"
         imageAlt="Hotel entrance surrounded by tropical gardens"
         heading={{ en: "Contact Orlowsky Discovery Hotel, Candidasa", ru: "Контакты отеля Orlowsky Discovery, Кандидаса" }}
         subtext={{ en: "WhatsApp, email, address, and directions to our hotel on the seafront of Candidasa, East Bali.", ru: "WhatsApp, email, адрес и маршрут до нашего отеля на набережной Кандидасы, Восточный Бали." }}

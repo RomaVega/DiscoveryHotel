@@ -20,7 +20,7 @@ export const metadata = {
     title: "Расположение — Кандидаса, Карангасем, Восточный Бали | Orlowsky Discovery",
     description: "Orlowsky Discovery Hotel расположен на тихой набережной Кандидасы, 1,5 часа от аэропорта Бали. Рядом с храмом Бесаких, Тирта Гангга и дайв-сайтами Туламбена.",
     url: `${SITE_URL}/ru/location`,
-    images: [{ url: `${SITE_URL}/images/gallery/g6.jpg`, width: 1200, height: 630 }],
+    images: [{ url: `${SITE_URL}/images/gallery/g6.webp`, width: 1200, height: 630 }],
   },
 };
 
@@ -32,7 +32,7 @@ export default function LocationRuPage() {
   return (
     <InnerPageLayout contact={contact}>
       <PageHero
-        image="/images/gallery/g6.jpg"
+        image="/images/gallery/g6.webp"
         imageAlt="Scenic coastline of Candidasa, East Bali"
         heading={data.heading}
         subtext={data.subtext}

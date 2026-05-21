@@ -14,7 +14,7 @@ export const metadata = {
     title: "Car & Bike Rental in Candidasa, East Bali — Orlowsky Discovery",
     description: "Rent scooters, cars with or without driver, and electric bikes in Candidasa. Hotel pickup and drop-off. Explore East Bali, Ubud, Kintamani at your own pace.",
     url: `${SITE_URL}/experiences/car-rental`,
-    images: [{ url: `${SITE_URL}/images/rental/rental.png`, width: 1200, height: 630 }],
+    images: [{ url: `${SITE_URL}/images/rental/rental.webp`, width: 1200, height: 630 }],
   },
 };
 
@@ -25,7 +25,7 @@ export default function CarRentalPage() {
   return (
     <InnerPageLayout contact={contact}>
       <PageHero
-        image="/images/rental/rental.png"
+        image="/images/rental/rental.webp"
         imageAlt="Scooter on a scenic Bali road"
         heading={data.heading}
         subtext={data.subtext}

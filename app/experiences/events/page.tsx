@@ -14,7 +14,7 @@ export const metadata = {
     title: "Events & Celebrations — Oceanfront Venue in Candidasa, Bali",
     description: "Weddings, anniversaries, corporate events, and private dinners at our oceanfront venue in Candidasa. Up to 200 guests, European and Balinese ceremony styles.",
     url: `${SITE_URL}/experiences/events`,
-    images: [{ url: `${SITE_URL}/images/experiences/experiences-events.jpg`, width: 1200, height: 630 }],
+    images: [{ url: `${SITE_URL}/images/experiences/experiences-events.webp`, width: 1200, height: 630 }],
   },
 };
 
@@ -25,7 +25,7 @@ export default function EventsPage() {
   return (
     <InnerPageLayout contact={contact}>
       <PageHero
-        image="/images/experiences/experiences-events.jpg"
+        image="/images/experiences/experiences-events.webp"
         imageAlt="Elegant outdoor event setup with ocean backdrop"
         heading={data.heading}
         subtext={data.subtext}

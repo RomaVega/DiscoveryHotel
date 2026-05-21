@@ -25,7 +25,7 @@
         "en": "from Rp 20,000/hour",
         "ru": "от Rp 20 000/час"
       },
-      "image": "/images/rental/rental-scooter.jpg",
+      "image": "/images/rental/rental-scooter.webp",
       "imageAlt": {
         "en": "Scooter Available for Rent at the Hotel",
         "ru": "Скутер для аренды в отеле"
@@ -44,7 +44,7 @@
         "en": "Contact hotel for rates",
         "ru": "Уточняйте стоимость в отеле"
       },
-      "image": "/images/rental/rental-car.jpg",
+      "image": "/images/rental/rental-car.webp",
       "imageAlt": {
         "en": "Rental Car Parked at the Hotel",
         "ru": "Арендный автомобиль у отеля"
@@ -63,7 +63,7 @@
         "en": "Contact hotel for rates",
         "ru": "Уточняйте стоимость в отеле"
       },
-      "image": "/images/rental/rental-car-driver.jpg",
+      "image": "/images/rental/rental-car-driver.webp",
       "imageAlt": {
         "en": "Car with Driver Service at the Hotel",
         "ru": "Услуга автомобиля с водителем в отеле"
@@ -82,7 +82,7 @@
         "en": "Contact hotel for rates",
         "ru": "Уточняйте стоимость в отеле"
       },
-      "image": "/images/rental/rental-ebike.jpg",
+      "image": "/images/rental/rental-ebike.webp",
       "imageAlt": {
         "en": "Electric Bike Available for Rent",
         "ru": "Электровелосипед для аренды"

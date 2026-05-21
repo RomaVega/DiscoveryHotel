@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface SlideImage {
@@ -125,7 +125,7 @@ export function RoomSlideshow({
 
       {/* Slides */}
       <AnimatePresence mode="sync" initial={false}>
-        <motion.div
+        <m.div
           key={current}
           className="absolute inset-0"
           initial={{ opacity: 0 }}
@@ -142,7 +142,7 @@ export function RoomSlideshow({
             className="object-cover"
             onLoad={() => setLoaded((prev) => ({ ...prev, [current]: true }))}
           />
-        </motion.div>
+        </m.div>
       </AnimatePresence>
 
       {/* Prev arrow */}

@@ -32,7 +32,7 @@ export function Welcome({ data }: WelcomeProps) {
             {/* Mobile image */}
             <div className="relative aspect-[1/1] w-full md:hidden">
               <Image
-                src="/images/welcome/mobile.png"
+                src="/images/welcome/mobile.webp"
                 alt={data.imageAlt}
                 fill
                 sizes="100vw"

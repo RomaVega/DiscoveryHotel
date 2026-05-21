@@ -1,7 +1,7 @@
 "use client"; // Uses framer-motion for entrance animation, scroll visibility, and locale detection
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/lib/language-context";
 import type { WhatsAppContact } from "@/lib/types";
 
@@ -58,7 +58,7 @@ export function WhatsAppButton({ phone, greeting, contacts, alwaysVisible = fals
   return (
     <AnimatePresence>
       {scrolled && (
-        <motion.div
+        <m.div
           className="fixed bottom-6 right-6 z-40"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -66,7 +66,7 @@ export function WhatsAppButton({ phone, greeting, contacts, alwaysVisible = fals
           transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
         >
           {/* Button */}
-          <motion.a
+          <m.a
             href={url}
             target="_blank"
             rel="noopener noreferrer"
@@ -78,8 +78,8 @@ export function WhatsAppButton({ phone, greeting, contacts, alwaysVisible = fals
             whileTap={{ scale: 0.94 }}
           >
             <WhatsAppIcon size={56} />
-          </motion.a>
-        </motion.div>
+          </m.a>
+        </m.div>
       )}
     </AnimatePresence>
   );

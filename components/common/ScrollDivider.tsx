@@ -1,7 +1,6 @@
 "use client"; // Tracks scroll velocity to drive curve amplitude in real time
 
 import { useEffect, useRef, useState } from "react";
-import { useReducedMotion } from "framer-motion";
 
 interface ScrollDividerProps {
   above: string;
@@ -24,7 +23,8 @@ function buildPath(amp: number, dir: "down" | "up"): string {
 }
 
 export function ScrollDivider({ above, below }: ScrollDividerProps) {
-  const prefersReduced = useReducedMotion();
+  const prefersReduced = typeof window !== "undefined"
+    && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const [path, setPath] = useState(IDLE);
 
   const lastY  = useRef(0);

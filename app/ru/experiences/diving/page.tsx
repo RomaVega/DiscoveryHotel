@@ -19,7 +19,7 @@ export const metadata = {
     title: "Дайвинг и снорклинг в Восточном Бали — Туламбен и риф Кандидасы",
     description: "Погружение на затонувший корабль USAT Liberty в Туламбене, коралловый риф Кандидасы и манты на Нуса-Пениде. Программы для начинающих и опытных дайверов.",
     url: `${SITE_URL}/ru/experiences/diving`,
-    images: [{ url: `${SITE_URL}/images/experiences/experiences-diving.jpg`, width: 1200, height: 630 }],
+    images: [{ url: `${SITE_URL}/images/experiences/experiences-diving.webp`, width: 1200, height: 630 }],
   },
 };
 
@@ -31,7 +31,7 @@ export default function DivingRuPage() {
   return (
     <InnerPageLayout contact={contact}>
       <PageHero
-        image="/images/experiences/experiences-diving.jpg"
+        image="/images/experiences/experiences-diving.webp"
         imageAlt="Colorful coral reef underwater in Bali"
         heading={data.heading}
         subtext={data.subtext}

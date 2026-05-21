@@ -19,7 +19,7 @@ export const metadata = {
     title: "Спецпредложения и Скидки — Orlowsky Discovery Hotel, Бали",
     description: "Скидка 20% при раннем бронировании и пакет для молодожёнов с романтическим ужином и спа. Прямое бронирование в Orlowsky Discovery Hotel, Кандидаса.",
     url: `${SITE_URL}/ru/offers`,
-    images: [{ url: `${SITE_URL}/images/offers/early-bird.jpg`, width: 1200, height: 630 }],
+    images: [{ url: `${SITE_URL}/images/offers/early-bird.webp`, width: 1200, height: 630 }],
   },
 };
 
@@ -30,7 +30,7 @@ export default function OffersRuPage() {
   return (
     <InnerPageLayout contact={contact}>
       <PageHero
-        image="/images/offers/early-bird.jpg"
+        image="/images/offers/early-bird.webp"
         imageAlt="Hotel pool at sunrise"
         heading={data.offers.heading}
         subtext={{ en: "Book direct for early bird rates, honeymoon packages, and other exclusive deals at Orlowsky Discovery Hotel, Candidasa, Bali.", ru: "Бронируйте напрямую — ранние цены, медовый месяц и другие эксклюзивные предложения в отеле Orlowsky Discovery, Кандидаса, Бали." }}

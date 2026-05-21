@@ -19,7 +19,7 @@ export const metadata = {
     title: "Об Отеле — Orlowsky Discovery Hotel, Кандидаса, Восточный Бали",
     description: "Бутик-отель на берегу моря в Кандидасе, Карангасем. Виллы с бассейном, тропические сады, аюрведический спа и ресторан у океана.",
     url: `${SITE_URL}/ru/about`,
-    images: [{ url: `${SITE_URL}/images/gallery/g4.jpg`, width: 1200, height: 630 }],
+    images: [{ url: `${SITE_URL}/images/gallery/g4.webp`, width: 1200, height: 630 }],
   },
 };
 
@@ -31,7 +31,7 @@ export default function AboutRuPage() {
   return (
     <InnerPageLayout contact={contact}>
       <PageHero
-        image="/images/welcome/Image.png"
+        image="/images/welcome/Image.webp"
         imageAlt="Tropical garden and pool area of the hotel"
         heading={data.heading}
         subtext={data.subtext}

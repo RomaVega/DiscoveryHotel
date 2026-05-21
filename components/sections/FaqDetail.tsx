@@ -1,7 +1,7 @@
 "use client"; // Uses useState for accordion and useLanguage
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { FadeIn } from "@/components/common/FadeIn";
 import type { FaqPageData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
@@ -36,7 +36,7 @@ export function FaqDetail({ data }: FaqDetailProps) {
                 </button>
                 <AnimatePresence>
                   {open === i && (
-                    <motion.div
+                    <m.div
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
@@ -45,7 +45,7 @@ export function FaqDetail({ data }: FaqDetailProps) {
                       <p className="px-5 pb-5 text-stone text-sm leading-relaxed">
                         {t(item.answer)}
                       </p>
-                    </motion.div>
+                    </m.div>
                   )}
                 </AnimatePresence>
               </div>

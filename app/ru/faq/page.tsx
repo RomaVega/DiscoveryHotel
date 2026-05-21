@@ -19,7 +19,7 @@ export const metadata = {
     title: "Часто Задаваемые Вопросы — Orlowsky Discovery Hotel, Бали",
     description: "Ответы на вопросы о бронировании, номерах, трансфере, дайвинге и спа в Orlowsky Discovery Hotel, Кандидаса, Восточный Бали.",
     url: `${SITE_URL}/ru/faq`,
-    images: [{ url: `${SITE_URL}/images/hero/hero-main.jpg`, width: 1200, height: 630 }],
+    images: [{ url: `${SITE_URL}/images/hero/hero-main.webp`, width: 1200, height: 630 }],
   },
 };
 
@@ -31,7 +31,7 @@ export default function FaqRuPage() {
   return (
     <InnerPageLayout contact={contact}>
       <PageHero
-        image="/images/gallery/g7.jpg"
+        image="/images/gallery/g7.webp"
         imageAlt="Hotel lobby and reception area"
         heading={data.heading}
       />

@@ -19,7 +19,7 @@ export const metadata = {
     title: "Фотогалерея — Orlowsky Discovery Hotel, Кандидаса, Бали",
     description: "Виллы, тропические сады, бассейн, ресторан у океана и аюрведический спа в Кандидасе, Восточный Бали. Фотографии отеля.",
     url: `${SITE_URL}/ru/gallery`,
-    images: [{ url: `${SITE_URL}/images/gallery/g4.jpg`, width: 1200, height: 630 }],
+    images: [{ url: `${SITE_URL}/images/gallery/g4.webp`, width: 1200, height: 630 }],
   },
 };
 
@@ -30,7 +30,7 @@ export default function GalleryRuPage() {
   return (
     <InnerPageLayout contact={contact}>
       <PageHero
-        image="/images/gallery/g4.jpg"
+        image="/images/gallery/g4.webp"
         imageAlt="Aerial view of hotel and tropical gardens"
         heading={data.galleryPreview.heading}
         subtext={data.galleryPreview.subtext}

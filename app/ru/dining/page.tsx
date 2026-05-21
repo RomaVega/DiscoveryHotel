@@ -19,7 +19,7 @@ export const metadata = {
     title: "Ресторан и бар у океана — Кандидаса, Бали | Orlowsky Discovery",
     description: "Свежие морепродукты, балийская и международная кухня в нашем полукруглом ресторане на берегу моря. Ежедневно 07:00–22:00. Orlowsky Discovery Hotel, Кандидаса.",
     url: `${SITE_URL}/ru/dining`,
-    images: [{ url: `${SITE_URL}/images/gallery/g9.jpg`, width: 1200, height: 630 }],
+    images: [{ url: `${SITE_URL}/images/gallery/g9.webp`, width: 1200, height: 630 }],
   },
 };
 
@@ -30,7 +30,7 @@ export default function DiningRuPage() {
   return (
     <InnerPageLayout contact={contact}>
       <PageHero
-        image="/images/gallery/g9.jpg"
+        image="/images/gallery/g9.webp"
         imageAlt="Oceanfront restaurant at Orlowsky Discovery Hotel"
         heading={data.heading}
         subtext={data.subtext}

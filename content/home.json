@@ -13,7 +13,7 @@
       "ru": "Забронировать"
     },
     "ctaHref": "https://secure.guestpro.net/odch",
-    "image": "/images/hero/hero-main.jpg",
+    "image": "/images/hero/hero-main.webp",
     "imageAlt": "Aerial view of Orlowsky Discovery Hotel pool and ocean in Candidasa, Bali",
     "video": "/video/orlowsky-hotel-candidasa-bali-hero.mp4",
     "videoMobile": "/video/orlowsky-hotel-candidasa-bali-hero-mobile.mp4"
@@ -31,7 +31,7 @@
       "en": "Nestled on the tranquil coast of Candidasa in East Bali — far from the crowds, yet close to everything you need. Orlowsky Discovery Hotel offers an intimate escape where Balinese charm meets modern comfort. Wake up to ocean breezes, explore vibrant coral reefs, and unwind in our tropical gardens.",
       "ru": "Расположенный на тихом побережье Чандидасы, Orlowsky Discovery Hotel — это уютное убежище, где балийское очарование сочетается с современным комфортом. Просыпайтесь под шум морского бриза, исследуйте яркие коралловые рифы и отдыхайте в наших тропических садах — вдали от суеты, в уединённом тропическом раю."
     },
-    "image": "/images/welcome/Image.png",
+    "image": "/images/welcome/Image.webp",
     "imageAlt": "Tropical garden and pool area of the hotel at sunset"
   },
   "roomsPreview": {
@@ -57,99 +57,99 @@
           "en": "Charming cottage with Balinese garden views",
           "ru": "Уютный коттедж с видом на балийский сад и современными удобствами."
         },
-        "image": "/images/rooms/Deluxe Cottage.jpg",
+        "image": "/images/rooms/Deluxe Cottage.webp",
         "imageAlt": "Deluxe Cottage at Orlowsky Discovery Hotel",
         "images": [
           {
-            "src": "/images/Deluxe Cottage/14459213.jpg",
+            "src": "/images/Deluxe Cottage/14459213.webp",
             "alt": "Deluxe Cottage sitting room with garden-view windows"
           },
           {
-            "src": "/images/Deluxe Cottage/14459223.jpg",
+            "src": "/images/Deluxe Cottage/14459223.webp",
             "alt": "Deluxe Cottage king bedroom with Balinese thatched ceiling"
           },
           {
-            "src": "/images/Deluxe Cottage/14459232.jpg",
+            "src": "/images/Deluxe Cottage/14459232.webp",
             "alt": "Deluxe Cottage king bedroom with TV unit and sitting area"
           },
           {
-            "src": "/images/Deluxe Cottage/14459259.jpg",
+            "src": "/images/Deluxe Cottage/14459259.webp",
             "alt": "Deluxe Cottage bathroom with rolled towels and plumeria"
           },
           {
-            "src": "/images/Deluxe Cottage/14459280.jpg",
+            "src": "/images/Deluxe Cottage/14459280.webp",
             "alt": "Deluxe Cottage twin bedroom with thatched ceiling"
           },
           {
-            "src": "/images/Deluxe Cottage/14459656.jpg",
+            "src": "/images/Deluxe Cottage/14459656.webp",
             "alt": "Aerial view of Deluxe Cottages among coconut palms"
           },
           {
-            "src": "/images/Deluxe Cottage/170696374.jpg",
+            "src": "/images/Deluxe Cottage/170696374.webp",
             "alt": "Deluxe Cottage exterior with covered terrace and tropical garden"
           },
           {
-            "src": "/images/Deluxe Cottage/170696378.jpg",
+            "src": "/images/Deluxe Cottage/170696378.webp",
             "alt": "Deluxe Cottage king bedroom with warm lighting and garden windows"
           },
           {
-            "src": "/images/Deluxe Cottage/170696380.jpg",
+            "src": "/images/Deluxe Cottage/170696380.webp",
             "alt": "Deluxe Cottage king bedroom with glass doors open to garden"
           },
           {
-            "src": "/images/Deluxe Cottage/170696381.jpg",
+            "src": "/images/Deluxe Cottage/170696381.webp",
             "alt": "Deluxe Cottage king bedroom with garden view and bedside lamps"
           },
           {
-            "src": "/images/Deluxe Cottage/443798369.jpg",
+            "src": "/images/Deluxe Cottage/443798369.webp",
             "alt": "Deluxe Cottage sitting area with kettle tray and wardrobe"
           },
           {
-            "src": "/images/Deluxe Cottage/443798371.jpg",
+            "src": "/images/Deluxe Cottage/443798371.webp",
             "alt": "Deluxe Cottage king bedroom with thatched ceiling and ceiling fan"
           },
           {
-            "src": "/images/Deluxe Cottage/443798372.jpg",
+            "src": "/images/Deluxe Cottage/443798372.webp",
             "alt": "Deluxe Cottage anteroom with arch opening to bedroom"
           },
           {
-            "src": "/images/Deluxe Cottage/443798373.jpg",
+            "src": "/images/Deluxe Cottage/443798373.webp",
             "alt": "Deluxe Cottage sitting area with sheer curtains and high thatched ceiling"
           },
           {
-            "src": "/images/Deluxe Cottage/443798374.jpg",
+            "src": "/images/Deluxe Cottage/443798374.webp",
             "alt": "Deluxe Cottage king bedroom with TV and curtained windows"
           },
           {
-            "src": "/images/Deluxe Cottage/443798375.jpg",
+            "src": "/images/Deluxe Cottage/443798375.webp",
             "alt": "Deluxe Cottage anteroom with kettle tray and arch to bedroom"
           },
           {
-            "src": "/images/Deluxe Cottage/443798378.jpg",
+            "src": "/images/Deluxe Cottage/443798378.webp",
             "alt": "Deluxe Cottage rain shower with stone-pebble floor"
           },
           {
-            "src": "/images/Deluxe Cottage/443798379.jpg",
+            "src": "/images/Deluxe Cottage/443798379.webp",
             "alt": "Deluxe Cottage bathroom with vessel sink and rain shower"
           },
           {
-            "src": "/images/Deluxe Cottage/443798381.jpg",
+            "src": "/images/Deluxe Cottage/443798381.webp",
             "alt": "Deluxe Cottage bathroom with double vanity and rain showers"
           },
           {
-            "src": "/images/Deluxe Cottage/815318118.jpg",
+            "src": "/images/Deluxe Cottage/815318118.webp",
             "alt": "Deluxe Cottage twin bedroom with yellow cushions and garden windows"
           },
           {
-            "src": "/images/Deluxe Cottage/815318122.jpg",
+            "src": "/images/Deluxe Cottage/815318122.webp",
             "alt": "Deluxe Cottage garden with frangipani tree and cottage roofs"
           },
           {
-            "src": "/images/Deluxe Cottage/831224058.jpg",
+            "src": "/images/Deluxe Cottage/831224058.webp",
             "alt": "Deluxe Cottage private veranda entrance with tropical garden"
           },
           {
-            "src": "/images/Deluxe Cottage/88584993.jpg",
+            "src": "/images/Deluxe Cottage/88584993.webp",
             "alt": "Deluxe Cottage bed with flower turndown service"
           }
         ],
@@ -164,135 +164,135 @@
           "en": "Spacious villa with three bedrooms and your own pool",
           "ru": "Просторная вилла с тремя спальнями и собственным бассейном."
         },
-        "image": "/images/rooms/Pool Villa.jpg",
+        "image": "/images/rooms/Pool Villa.webp",
         "imageAlt": "Three Bedrooms Pool Villa at Orlowsky Discovery Hotel",
         "images": [
           {
-            "src": "/images/Three Bedrooms Pool Villa/14459259.jpg",
+            "src": "/images/Three Bedrooms Pool Villa/14459259.webp",
             "alt": "Pool Villa bathroom with rolled towels and frangipani flowers"
           },
           {
-            "src": "/images/Three Bedrooms Pool Villa/16425574.jpg",
+            "src": "/images/Three Bedrooms Pool Villa/16425574.webp",
             "alt": "Pool Villa living room with leather sofa, TV and garden balcony"
           },
           {
-            "src": "/images/Three Bedrooms Pool Villa/16427453.jpg",
+            "src": "/images/Three Bedrooms Pool Villa/16427453.webp",
             "alt": "Pool Villa spacious living room with leather sofas and thatched ceiling"
           },
           {
-            "src": "/images/Three Bedrooms Pool Villa/170696898.jpg",
+            "src": "/images/Three Bedrooms Pool Villa/170696898.webp",
             "alt": "Pool Villa master bedroom with double bed and garden view"
           },
           {
-            "src": "/images/Three Bedrooms Pool Villa/170696901.jpg",
+            "src": "/images/Three Bedrooms Pool Villa/170696901.webp",
             "alt": "Pool Villa twin bedroom with tropical balcony"
           },
           {
-            "src": "/images/Three Bedrooms Pool Villa/170696902.jpg",
+            "src": "/images/Three Bedrooms Pool Villa/170696902.webp",
             "alt": "Pool Villa twin bedroom with garden balcony view"
           },
           {
-            "src": "/images/Three Bedrooms Pool Villa/170696905.jpg",
+            "src": "/images/Three Bedrooms Pool Villa/170696905.webp",
             "alt": "Pool Villa private pool with terrace and tropical garden"
           },
           {
-            "src": "/images/Three Bedrooms Pool Villa/170696906.jpg",
+            "src": "/images/Three Bedrooms Pool Villa/170696906.webp",
             "alt": "Pool Villa open-plan living and dining area with kitchenette"
           },
           {
-            "src": "/images/Three Bedrooms Pool Villa/170696909.jpg",
+            "src": "/images/Three Bedrooms Pool Villa/170696909.webp",
             "alt": "Pool Villa marble bathroom with soaking tub and stone shower"
           },
           {
-            "src": "/images/Three Bedrooms Pool Villa/170696911.jpg",
+            "src": "/images/Three Bedrooms Pool Villa/170696911.webp",
             "alt": "Pool Villa double bedroom with bedside lamps and garden curtains"
           },
           {
-            "src": "/images/Three Bedrooms Pool Villa/170696913.jpg",
+            "src": "/images/Three Bedrooms Pool Villa/170696913.webp",
             "alt": "Pool Villa double bedroom with garden view and sheer curtains"
           },
           {
-            "src": "/images/Three Bedrooms Pool Villa/172544231.jpg",
+            "src": "/images/Three Bedrooms Pool Villa/172544231.webp",
             "alt": "Pool Villa bathroom with soaking tub and rain shower"
           },
           {
-            "src": "/images/Three Bedrooms Pool Villa/18015225.jpg",
+            "src": "/images/Three Bedrooms Pool Villa/18015225.webp",
             "alt": "Pool Villa dining table with tropical flower arrangement"
           },
           {
-            "src": "/images/Three Bedrooms Pool Villa/443798380.jpg",
+            "src": "/images/Three Bedrooms Pool Villa/443798380.webp",
             "alt": "Pool Villa double bedroom with wardrobe and en-suite door"
           },
           {
-            "src": "/images/Three Bedrooms Pool Villa/443798382.jpg",
+            "src": "/images/Three Bedrooms Pool Villa/443798382.webp",
             "alt": "Pool Villa airy double bedroom with garden balcony doors"
           },
           {
-            "src": "/images/Three Bedrooms Pool Villa/443798383.jpg",
+            "src": "/images/Three Bedrooms Pool Villa/443798383.webp",
             "alt": "Pool Villa living room with leather sofas under high thatched ceiling"
           },
           {
-            "src": "/images/Three Bedrooms Pool Villa/443798384.jpg",
+            "src": "/images/Three Bedrooms Pool Villa/443798384.webp",
             "alt": "Pool Villa bathroom with stone shower column and double vanity"
           },
           {
-            "src": "/images/Three Bedrooms Pool Villa/443798386.jpg",
+            "src": "/images/Three Bedrooms Pool Villa/443798386.webp",
             "alt": "Pool Villa bright living room with garden view"
           },
           {
-            "src": "/images/Three Bedrooms Pool Villa/443798387.jpg",
+            "src": "/images/Three Bedrooms Pool Villa/443798387.webp",
             "alt": "Pool Villa double bedroom with tropical garden doors"
           },
           {
-            "src": "/images/Three Bedrooms Pool Villa/443798390.jpg",
+            "src": "/images/Three Bedrooms Pool Villa/443798390.webp",
             "alt": "Pool Villa living room with TV and leather sofa"
           },
           {
-            "src": "/images/Three Bedrooms Pool Villa/443798394.jpg",
+            "src": "/images/Three Bedrooms Pool Villa/443798394.webp",
             "alt": "Pool Villa upper terrace balcony with ocean and palm tree view"
           },
           {
-            "src": "/images/Three Bedrooms Pool Villa/443798397.jpg",
+            "src": "/images/Three Bedrooms Pool Villa/443798397.webp",
             "alt": "Pool Villa open-plan living, dining and pool terrace"
           },
           {
-            "src": "/images/Three Bedrooms Pool Villa/443798398.jpg",
+            "src": "/images/Three Bedrooms Pool Villa/443798398.webp",
             "alt": "Pool Villa bathroom doorway connecting to double bedroom"
           },
           {
-            "src": "/images/Three Bedrooms Pool Villa/443798403.jpg",
+            "src": "/images/Three Bedrooms Pool Villa/443798403.webp",
             "alt": "Pool Villa double bedroom with flower petal decoration"
           },
           {
-            "src": "/images/Three Bedrooms Pool Villa/443798410.jpg",
+            "src": "/images/Three Bedrooms Pool Villa/443798410.webp",
             "alt": "Pool Villa exterior with private pool and upper balcony"
           },
           {
-            "src": "/images/Three Bedrooms Pool Villa/443798431.jpg",
+            "src": "/images/Three Bedrooms Pool Villa/443798431.webp",
             "alt": "Pool Villa two-storey exterior with pool and tropical garden"
           },
           {
-            "src": "/images/Three Bedrooms Pool Villa/450186507.jpg",
+            "src": "/images/Three Bedrooms Pool Villa/450186507.webp",
             "alt": "Pool Villa aerial view of private pool with lush garden"
           },
           {
-            "src": "/images/Three Bedrooms Pool Villa/81536805.jpg",
+            "src": "/images/Three Bedrooms Pool Villa/81536805.webp",
             "alt": "Pool Villa bathroom with rain shower and stone vanity"
           },
           {
-            "src": "/images/Three Bedrooms Pool Villa/831226198.jpg",
+            "src": "/images/Three Bedrooms Pool Villa/831226198.webp",
             "alt": "Pool Villa bed with towel swan and flower petal decoration"
           },
           {
-            "src": "/images/Three Bedrooms Pool Villa/87366051.jpg",
+            "src": "/images/Three Bedrooms Pool Villa/87366051.webp",
             "alt": "Pool Villa two-storey exterior with pool amid tropical foliage"
           },
           {
-            "src": "/images/Three Bedrooms Pool Villa/87492960.jpg",
+            "src": "/images/Three Bedrooms Pool Villa/87492960.webp",
             "alt": "Pool Villa dining area with round table and kitchenette"
           },
           {
-            "src": "/images/Three Bedrooms Pool Villa/87492962.jpg",
+            "src": "/images/Three Bedrooms Pool Villa/87492962.webp",
             "alt": "Pool Villa bathroom with ocean view window and vanity"
           }
         ],
@@ -537,7 +537,7 @@
           "en": "Authentic Panchakarma, Shirodhara, and traditional Balinese massage by Kerala-trained therapists",
           "ru": "Аутентичная Панчакарма, Широдхара и традиционный балийский массаж от терапевтов из Кералы"
         },
-        "image": "/images/experiences/experiences-ayurvedic-spa.jpg",
+        "image": "/images/experiences/experiences-ayurvedic-spa.webp",
         "imageAlt": "Ayurvedic spa shirodhara treatment at Orlowsky Discovery Hotel",
         "href": "/spa"
       },
@@ -550,7 +550,7 @@
           "en": "Discover vibrant coral reefs and the famous USAT Liberty shipwreck",
           "ru": "Яркие коралловые рифы и знаменитый корабль-призрак USAT Liberty"
         },
-        "image": "/images/experiences/experiences-diving.jpg",
+        "image": "/images/experiences/experiences-diving.webp",
         "imageAlt": "Colorful coral reef underwater in Bali",
         "href": "/experiences/diving"
       },
@@ -563,7 +563,7 @@
           "en": "Weddings, anniversaries, and private events in a tropical setting",
           "ru": "Свадьбы, юбилеи и частные мероприятия в тропическом окружении"
         },
-        "image": "/images/experiences/experiences-events.jpg",
+        "image": "/images/experiences/experiences-events.webp",
         "imageAlt": "Elegant outdoor event setup with ocean backdrop",
         "href": "/experiences/events"
       },
@@ -576,7 +576,7 @@
           "en": "Freedom to explore Bali at your own pace",
           "ru": "Свобода исследовать Бали в своём ритме"
         },
-        "image": "/images/rental/rental.png",
+        "image": "/images/rental/rental.webp",
         "imageAlt": "Scooter parked on scenic Bali road",
         "href": "/experiences/car-rental"
       },
@@ -589,7 +589,7 @@
           "en": "Explore temples, rice terraces, and hidden waterfalls",
           "ru": "Храмы, рисовые террасы и скрытые водопады"
         },
-        "image": "/images/experiences/experiences-excursions.jpg",
+        "image": "/images/experiences/experiences-excursions.webp",
         "imageAlt": "Bali rice terraces with lush green landscape",
         "href": "/experiences/excursions"
       },
@@ -602,7 +602,7 @@
           "en": "169 curated tours — island hopping, volcano treks, snorkeling, cycling and more",
           "ru": "169 туров — острова, вулканы, снорклинг, велосипеды и многое другое"
         },
-        "image": "/images/experiences/experiences-tours-activities-bali.png",
+        "image": "/images/experiences/experiences-tours-activities-bali.webp",
         "imageAlt": "Bali tours and activities",
         "href": "https://mybalitrips.com/?utm_pid=1260",
         "external": true
@@ -632,7 +632,7 @@
           "en": "from $65/night",
           "ru": "от $65/ночь"
         },
-        "image": "/images/offers/early-bird.jpg",
+        "image": "/images/offers/early-bird.webp",
         "imageAlt": "Hotel pool at sunrise with loungers",
         "active": true
       },
@@ -649,7 +649,7 @@
           "en": "from $180/night",
           "ru": "от $180/ночь"
         },
-        "image": "/images/honeymoon/honeymoon.png",
+        "image": "/images/honeymoon/honeymoon.webp",
         "imageAlt": "Romantic dinner setup on the beach at sunset",
         "active": true
       }
@@ -666,103 +666,103 @@
     },
     "images": [
       {
-        "src": "/images/gallery/orlowsky-hotel-pool-beach-panorama.jpg",
+        "src": "/images/gallery/orlowsky-hotel-pool-beach-panorama.webp",
         "alt": "Aerial panorama of Orlowsky Discovery Hotel pool, beach and ocean, Candidasa, Bali"
       },
       {
-        "src": "/images/gallery/orlowsky-hotel-pool-terrace-ocean.jpg",
+        "src": "/images/gallery/orlowsky-hotel-pool-terrace-ocean.webp",
         "alt": "Pool terrace and oceanfront restaurant at Orlowsky Discovery Hotel, Candidasa"
       },
       {
-        "src": "/images/gallery/orlowsky-hotel-two-story-villa-private-pool.jpg",
+        "src": "/images/gallery/orlowsky-hotel-two-story-villa-private-pool.webp",
         "alt": "Two-storey villa with private pool at Orlowsky Discovery Hotel, Candidasa"
       },
       {
-        "src": "/images/gallery/orlowsky-hotel-villa-pool-exterior-garden.jpg",
+        "src": "/images/gallery/orlowsky-hotel-villa-pool-exterior-garden.webp",
         "alt": "Villa private pool with stone steps and tropical garden, Orlowsky Discovery Hotel"
       },
       {
-        "src": "/images/gallery/orlowsky-hotel-infinity-pool-beachfront-candidasa.jpg",
+        "src": "/images/gallery/orlowsky-hotel-infinity-pool-beachfront-candidasa.webp",
         "alt": "Infinity pool overlooking the beach at Orlowsky Discovery Hotel, Candidasa"
       },
       {
-        "src": "/images/gallery/orlowsky-hotel-garden-villa-pool-view.jpg",
+        "src": "/images/gallery/orlowsky-hotel-garden-villa-pool-view.webp",
         "alt": "Garden villa with pool viewed from upper balcony, Orlowsky Discovery Hotel, Bali"
       },
       {
-        "src": "/images/gallery/orlowsky-hotel-balinese-statues-jetty.jpg",
+        "src": "/images/gallery/orlowsky-hotel-balinese-statues-jetty.webp",
         "alt": "Balinese stone statues on the jetty with Candidasa bay and islands view"
       },
       {
-        "src": "/images/gallery/orlowsky-hotel-beach-gazebo-turquoise-sea.jpg",
+        "src": "/images/gallery/orlowsky-hotel-beach-gazebo-turquoise-sea.webp",
         "alt": "Beach gazebo with sun loungers, umbrellas and turquoise ocean, Candidasa"
       },
       {
-        "src": "/images/gallery/orlowsky-hotel-beach-pavilion-ocean-view.jpg",
+        "src": "/images/gallery/orlowsky-hotel-beach-pavilion-ocean-view.webp",
         "alt": "Beach pavilion with ocean view at Orlowsky Discovery Hotel, Candidasa"
       },
       {
-        "src": "/images/gallery/orlowsky-hotel-romantic-heart-arch.jpg",
+        "src": "/images/gallery/orlowsky-hotel-romantic-heart-arch.webp",
         "alt": "Romantic rattan heart arch with ocean view at Orlowsky Discovery Hotel, Candidasa"
       },
       {
-        "src": "/images/gallery/orlowsky-hotel-seafront-candidasa-bay.jpg",
+        "src": "/images/gallery/orlowsky-hotel-seafront-candidasa-bay.webp",
         "alt": "Orlowsky Discovery Hotel viewed from Candidasa bay with turquoise water and palm trees"
       },
       {
-        "src": "/images/gallery/orlowsky-hotel-terrace-view-candidasa-islands.jpg",
+        "src": "/images/gallery/orlowsky-hotel-terrace-view-candidasa-islands.webp",
         "alt": "Hotel terrace view over gardens, restaurant pavilion and Candidasa bay islands"
       },
       {
-        "src": "/images/gallery/orlowsky-hotel-restaurant-dining-interior.jpg",
+        "src": "/images/gallery/orlowsky-hotel-restaurant-dining-interior.webp",
         "alt": "Restaurant dining interior with rattan chairs, bar and tropical décor, Orlowsky Hotel"
       },
       {
-        "src": "/images/gallery/orlowsky-hotel-bar-service-candidasa.jpg",
+        "src": "/images/gallery/orlowsky-hotel-bar-service-candidasa.webp",
         "alt": "Hotel bar with smiling bartender and teal tropical décor, Candidasa, Bali"
       },
       {
-        "src": "/images/gallery/orlowsky-hotel-restaurant-bar-candidasa.jpg",
+        "src": "/images/gallery/orlowsky-hotel-restaurant-bar-candidasa.webp",
         "alt": "Restaurant lounge and bar at Orlowsky Discovery Hotel, Candidasa"
       },
       {
-        "src": "/images/gallery/orlowsky-hotel-yoga-platform-ocean.jpg",
+        "src": "/images/gallery/orlowsky-hotel-yoga-platform-ocean.webp",
         "alt": "Oceanfront yoga platform with mats and view of Candidasa bay, Orlowsky Hotel"
       },
       {
-        "src": "/images/gallery/orlowsky-hotel-diving-boat-turquoise-bay.jpg",
+        "src": "/images/gallery/orlowsky-hotel-diving-boat-turquoise-bay.webp",
         "alt": "Traditional Balinese diving boat on turquoise Candidasa bay, East Bali"
       },
       {
-        "src": "/images/gallery/orlowsky-hotel-garden-pathway-lanterns.jpg",
+        "src": "/images/gallery/orlowsky-hotel-garden-pathway-lanterns.webp",
         "alt": "Winding garden pathway with stone lanterns between villas, Orlowsky Hotel, Bali"
       },
       {
-        "src": "/images/gallery/orlowsky-hotel-garden-villa-tropical-landscape.jpg",
+        "src": "/images/gallery/orlowsky-hotel-garden-villa-tropical-landscape.webp",
         "alt": "Garden villa among tropical landscape at Orlowsky Discovery Hotel, Bali"
       },
       {
-        "src": "/images/gallery/orlowsky-hotel-oceanfront-terrace-deck.jpg",
+        "src": "/images/gallery/orlowsky-hotel-oceanfront-terrace-deck.webp",
         "alt": "Oceanfront terrace deck at Orlowsky Discovery Hotel, Candidasa"
       },
       {
-        "src": "/images/gallery/orlowsky-hotel-cottage-bedroom-panoramic.jpg",
+        "src": "/images/gallery/orlowsky-hotel-cottage-bedroom-panoramic.webp",
         "alt": "Deluxe cottage bedroom with panoramic garden windows, Orlowsky Discovery Hotel"
       },
       {
-        "src": "/images/gallery/orlowsky-hotel-luxury-bedroom-garden-doors.jpg",
+        "src": "/images/gallery/orlowsky-hotel-luxury-bedroom-garden-doors.webp",
         "alt": "Luxury bedroom with garden-facing doors at Orlowsky Discovery Hotel, Bali"
       },
       {
-        "src": "/images/gallery/orlowsky-hotel-villa-living-room-ocean-view.jpg",
+        "src": "/images/gallery/orlowsky-hotel-villa-living-room-ocean-view.webp",
         "alt": "Villa living room with ocean view at Orlowsky Discovery Hotel, East Bali"
       },
       {
-        "src": "/images/gallery/orlowsky-hotel-private-villa-pool-east-bali.jpg",
+        "src": "/images/gallery/orlowsky-hotel-private-villa-pool-east-bali.webp",
         "alt": "Private villa pool surrounded by tropical garden, Orlowsky Discovery Hotel"
       },
       {
-        "src": "/images/gallery/candidasa-bay-coastline-fishing-boats-east-bali.jpg",
+        "src": "/images/gallery/candidasa-bay-coastline-fishing-boats-east-bali.webp",
         "alt": "Candidasa bay coastline with traditional Balinese fishing boats and green hills, East Bali"
       }
     ],

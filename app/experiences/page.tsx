@@ -14,7 +14,7 @@ export const metadata = {
     title: "Experiences in East Bali — Tours, Diving, Spa | Orlowsky Discovery",
     description: "Guided day tours, diving at Tulamben and Nusa Penida, Ayurvedic spa, oceanfront events, and car rental — all available from Orlowsky Discovery Hotel, Candidasa.",
     url: `${SITE_URL}/experiences`,
-    images: [{ url: `${SITE_URL}/images/experiences/experiences-excursions.jpg`, width: 1200, height: 630 }],
+    images: [{ url: `${SITE_URL}/images/experiences/experiences-excursions.webp`, width: 1200, height: 630 }],
   },
 };
 
@@ -25,7 +25,7 @@ export default function ExperiencesPage() {
   return (
     <InnerPageLayout contact={contact}>
       <PageHero
-        image="/images/experiences/experiences-excursions.jpg"
+        image="/images/experiences/experiences-excursions.webp"
         imageAlt="Lush green rice terraces in East Bali"
         heading={data.heading}
         subtext={data.subtext}

@@ -1,6 +1,6 @@
 "use client"; // Uses IntersectionObserver via framer-motion
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import type { ReactNode } from "react";
 
 interface FadeInProps {
@@ -11,7 +11,7 @@ interface FadeInProps {
 
 export function FadeIn({ children, className, delay = 0 }: FadeInProps) {
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, margin: "-50px" }}
@@ -19,6 +19,6 @@ export function FadeIn({ children, className, delay = 0 }: FadeInProps) {
       className={className}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }

@@ -1,7 +1,7 @@
 "use client"; // Uses state, refs, and position calculation
 
 import { useState, useRef, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { Globe, Check } from "lucide-react";
 import { useLanguage, type Locale } from "@/lib/language-context";
 import { cn } from "@/lib/utils";
@@ -94,7 +94,7 @@ export function LanguageSelector({ variant = "dark" }: LanguageSelectorProps) {
           className="hidden md:block opacity-70 group-hover:opacity-100 transition-opacity duration-200"
         />
         <span>{current.label}</span>
-        <motion.svg
+        <m.svg
           width="8"
           height="8"
           viewBox="0 0 8 8"
@@ -110,13 +110,13 @@ export function LanguageSelector({ variant = "dark" }: LanguageSelectorProps) {
             strokeLinecap="round"
             strokeLinejoin="round"
           />
-        </motion.svg>
+        </m.svg>
       </button>
 
       {/* Dropdown — fixed positioning to escape stacking context */}
       <AnimatePresence>
         {open && (
-          <motion.div
+          <m.div
             ref={dropdownRef}
             role="menu"
             aria-label="Select language"
@@ -196,7 +196,7 @@ export function LanguageSelector({ variant = "dark" }: LanguageSelectorProps) {
                 </button>
               );
             })}
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </>

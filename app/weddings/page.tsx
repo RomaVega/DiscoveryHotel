@@ -14,7 +14,7 @@ export const metadata = {
     title: "Destination Weddings in Bali — Candidasa Oceanfront | Orlowsky Discovery",
     description: "Beachfront wedding venue in Candidasa, East Bali. European and traditional Balinese ceremonies, full catering, accommodation, and transfers at Orlowsky Discovery Hotel.",
     url: `${SITE_URL}/weddings`,
-    images: [{ url: `${SITE_URL}/images/experiences/experiences-events.jpg`, width: 1200, height: 630 }],
+    images: [{ url: `${SITE_URL}/images/experiences/experiences-events.webp`, width: 1200, height: 630 }],
   },
 };
 
@@ -26,7 +26,7 @@ export default function WeddingsPage() {
   return (
     <InnerPageLayout contact={contact}>
       <PageHero
-        image="/images/experiences/experiences-events.jpg"
+        image="/images/experiences/experiences-events.webp"
         imageAlt="Oceanfront wedding ceremony setup in Bali"
         heading={data.heading}
         subtext={data.subtext}

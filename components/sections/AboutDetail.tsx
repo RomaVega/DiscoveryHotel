@@ -6,9 +6,9 @@ import type { AboutPageData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
 
 const SECTION_IMAGES = [
-  "/images/gallery/g1.jpg",
-  "/images/gallery/g4.jpg",
-  "/images/gallery/g7.jpg",
+  "/images/gallery/g1.webp",
+  "/images/gallery/g4.webp",
+  "/images/gallery/g7.webp",
 ];
 
 interface AboutDetailProps {

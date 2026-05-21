@@ -1,7 +1,7 @@
 "use client"; // Uses framer-motion scroll-linked animation
 
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { m, useScroll, useTransform } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface TextRevealProps {
@@ -44,9 +44,9 @@ function Word({ children, range, progress }: WordProps) {
 
   return (
     <span className="relative inline-block mr-[0.25em]">
-      <motion.span style={{ opacity }} className="inline-block">
+      <m.span style={{ opacity }} className="inline-block">
         {children}
-      </motion.span>
+      </m.span>
     </span>
   );
 }

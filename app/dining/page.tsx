@@ -14,7 +14,7 @@ export const metadata = {
     title: "Oceanfront Restaurant & Bar — Candidasa, Bali | Orlowsky Discovery",
     description: "Fresh seafood, Balinese and international cuisine at our semi-circular seaside restaurant. Open daily 07:00–22:00. Orlowsky Discovery Hotel, Candidasa.",
     url: `${SITE_URL}/dining`,
-    images: [{ url: `${SITE_URL}/images/gallery/g9.jpg`, width: 1200, height: 630 }],
+    images: [{ url: `${SITE_URL}/images/gallery/g9.webp`, width: 1200, height: 630 }],
   },
 };
 
@@ -25,7 +25,7 @@ export default function DiningPage() {
   return (
     <InnerPageLayout contact={contact}>
       <PageHero
-        image="/images/dining/Oceanside-restaurant-and-bar.png"
+        image="/images/dining/Oceanside-restaurant-and-bar.webp"
         imageAlt="Oceanfront restaurant and bar at Orlowsky Discovery Hotel"
         heading={data.heading}
         subtext={data.subtext}

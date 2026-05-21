@@ -19,7 +19,7 @@ export const metadata = {
     title: "Свадьба на Бали — Orlowsky Discovery Hotel, Кандидаса, Восточный Бали",
     description: "Европейские и традиционные балийские свадебные церемонии на берегу океана. Полный кейтеринг, декор и организация от команды отеля.",
     url: `${SITE_URL}/ru/weddings`,
-    images: [{ url: `${SITE_URL}/images/experiences/experiences-events.jpg`, width: 1200, height: 630 }],
+    images: [{ url: `${SITE_URL}/images/experiences/experiences-events.webp`, width: 1200, height: 630 }],
   },
 };
 
@@ -31,7 +31,7 @@ export default function WeddingsRuPage() {
   return (
     <InnerPageLayout contact={contact}>
       <PageHero
-        image="/images/experiences/experiences-events.jpg"
+        image="/images/experiences/experiences-events.webp"
         imageAlt="Oceanfront wedding ceremony setup in Bali"
         heading={data.heading}
         subtext={data.subtext}

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { Menu, X, BedDouble, Sparkles, Compass, Tag, Camera, Info } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/lib/language-context";
 import { LanguageSelector } from "@/components/layout/LanguageSelector";
@@ -31,7 +31,7 @@ function BrandLogo({ onClick }: { onClick?: () => void }) {
   return (
     <Link href="/" onClick={onClick} className="absolute left-8 top-1/2 -translate-y-1/2 lg:static lg:translate-y-0">
       <Image
-        src="/images/logo/logo-dark.svg"
+        src="/images/logo/logo-dark.webp"
         alt="Orlowsky Discovery Hotel"
         width={44}
         height={44}
@@ -195,7 +195,7 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80 }: NavbarPr
       {/* Full-screen mobile menu */}
       <AnimatePresence>
         {menuOpen && (
-          <motion.div
+          <m.div
             className="fixed inset-0 z-[60] flex flex-col bg-parchment lg:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -218,7 +218,7 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80 }: NavbarPr
             {/* Nav links — centered in full remaining space */}
             <nav className="flex-1 flex flex-col justify-center px-8 text-center">
               {links.map((link, i) => (
-                <motion.div
+                <m.div
                   key={link.href}
                   className="w-full"
                   initial={{ opacity: 0, x: -12 }}
@@ -243,13 +243,13 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80 }: NavbarPr
                     </span>
                   </Link>
                   <div className="h-px bg-charcoal/10" />
-                </motion.div>
+                </m.div>
               ))}
             </nav>
 
             {/* Bottom actions — pinned to bottom */}
             <div className="shrink-0 flex flex-col items-center gap-5 px-8 pb-8 pt-4">
-              <motion.div
+              <m.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.3, delay: 0.45 }}
@@ -261,17 +261,17 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80 }: NavbarPr
                 >
                   {tl.nav.bookNow}
                 </SecondaryButton>
-              </motion.div>
-              <motion.div
+              </m.div>
+              <m.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.3, delay: 0.55 }}
                 className="mt-3"
               >
                 <LanguageSelector variant="dark" />
-              </motion.div>
+              </m.div>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </>

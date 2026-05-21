@@ -14,7 +14,7 @@ export const metadata = {
     title: "About Orlowsky Discovery Hotel — Candidasa, East Bali",
     description: "Boutique seafront hotel in Candidasa, Karangasem. Pool villas, tropical gardens, Ayurvedic spa, and oceanfront dining. 5-star Balinese hospitality away from the crowds.",
     url: `${SITE_URL}/about`,
-    images: [{ url: `${SITE_URL}/images/welcome/Image.png`, width: 1200, height: 630 }],
+    images: [{ url: `${SITE_URL}/images/welcome/Image.webp`, width: 1200, height: 630 }],
   },
 };
 
@@ -25,7 +25,7 @@ export default function AboutPage() {
   return (
     <InnerPageLayout contact={contact}>
       <PageHero
-        image="/images/welcome/Image.png"
+        image="/images/welcome/Image.webp"
         imageAlt="Tropical garden and pool area of the hotel"
         heading={data.heading}
         subtext={data.subtext}

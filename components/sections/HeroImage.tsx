@@ -2,7 +2,7 @@
 
 import { useState, useRef, useLayoutEffect, useEffect } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Pause, Play } from "lucide-react";
 import type { HeroData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
@@ -123,7 +123,7 @@ export function HeroImage({ hero }: HeroImageProps) {
       >
         {/* Logo */}
         <Image
-          src="/images/logo/logo-dark.svg"
+          src="/images/logo/logo-dark.webp"
           alt="Orlowsky Discovery Hotel logo"
           width={140}
           height={140}
@@ -191,7 +191,7 @@ export function HeroImage({ hero }: HeroImageProps) {
 
       {/* Scroll indicator */}
       <div className={`${!scrolled ? "transition-opacity duration-500" : ""} ${scrolled || !appeared ? "opacity-0" : ""}`}>
-        <motion.div
+        <m.div
           className="absolute bottom-10 md:bottom-10 left-1/2 -translate-x-1/2 z-10"
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.6, ease: "easeInOut", repeat: Infinity, repeatDelay: 0.4 }}
@@ -199,7 +199,7 @@ export function HeroImage({ hero }: HeroImageProps) {
           <svg width="28" height="16" viewBox="0 0 28 16" fill="none" aria-hidden="true">
             <polyline points="2,2 14,13 26,2" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.7" />
           </svg>
-        </motion.div>
+        </m.div>
       </div>
 
       {/* Video pause button — always visible on desktop, shown after scroll on mobile */}

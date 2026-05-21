@@ -19,7 +19,7 @@ export const metadata = {
     title: "Экскурсии по Восточному Бали — Храмы, Рисовые Террасы и Водопады",
     description: "Туры к храму Бесаких, рисовым террасам, водопадам и деревне Тенганан с местными гидами. Однодневные и полудневные экскурсии из Orlowsky Discovery Hotel.",
     url: `${SITE_URL}/ru/experiences/excursions`,
-    images: [{ url: `${SITE_URL}/images/experiences/experiences-excursions.jpg`, width: 1200, height: 630 }],
+    images: [{ url: `${SITE_URL}/images/experiences/experiences-excursions.webp`, width: 1200, height: 630 }],
   },
 };
 
@@ -31,7 +31,7 @@ export default function ExcursionsRuPage() {
   return (
     <InnerPageLayout contact={contact}>
       <PageHero
-        image="/images/experiences/experiences-excursions.jpg"
+        image="/images/experiences/experiences-excursions.webp"
         imageAlt="Bali temple with lush tropical gardens"
         heading={data.heading}
         subtext={data.subtext}

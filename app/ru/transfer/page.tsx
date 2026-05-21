@@ -19,7 +19,7 @@ export const metadata = {
     title: "Трансфер из Аэропорта Бали в Кандидасу — Orlowsky Discovery Hotel",
     description: "Частный трансфер из аэропорта Нгурах-Рай в Кандидасу за $40 в одну сторону. Кондиционер, вода и англоговорящий водитель. Бронирование через отель.",
     url: `${SITE_URL}/ru/transfer`,
-    images: [{ url: `${SITE_URL}/images/hero/hero-main.jpg`, width: 1200, height: 630 }],
+    images: [{ url: `${SITE_URL}/images/hero/hero-main.webp`, width: 1200, height: 630 }],
   },
 };
 
