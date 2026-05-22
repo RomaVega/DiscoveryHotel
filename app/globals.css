@@ -17,17 +17,67 @@
   to { transform: rotate(360deg); }
 }
 
-@keyframes fade-in-loading {
+@keyframes loading-content-in {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 
-.loading-ring {
-  animation: spin-loading 1.4s linear infinite;
-  will-change: transform;
-  transform-box: fill-box;
+/* Logo + beam ease in when the loading screen appears. */
+.loading-content-in {
+  animation: loading-content-in 0.5s ease-out both;
+}
+
+/* Shared rotating frame: both the comet and the completion fill spin together, so the
+   fill sweep continues seamlessly from the head regardless of rotation. */
+.comet-spin {
+  animation: spin-loading 0.9s linear infinite;
   transform-origin: center;
-  backface-visibility: hidden;
+  will-change: transform;
+}
+
+/* Comet-tail circular progress: a conic arc that fades to transparent at the tail
+   and grows clockwise with --angle. */
+.comet-ring {
+  --angle: 0deg;
+  border-radius: 9999px;
+  /* Solid bright head with a short fade tail (~38deg) — very compact so the initial beam
+     starts as a small streak and grows as it loads. */
+  background: conic-gradient(
+    from 0deg,
+    rgba(76, 168, 181, 0) 0deg,
+    rgba(76, 168, 181, 0.15) min(12deg, var(--angle)),
+    rgba(76, 168, 181, 0.55) min(25deg, var(--angle)),
+    rgba(76, 168, 181, 1) min(38deg, var(--angle)),
+    rgba(76, 168, 181, 1) var(--angle),
+    rgba(76, 168, 181, 0) var(--angle)
+  );
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2.5px), #000 calc(100% - 2.5px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 2.5px), #000 calc(100% - 2.5px));
+}
+
+/* Completion "lock": the head continues past the top as a solid arc, sweeping 0->360
+   to paint over the transparent tail, then the full ring pulses a glow. */
+.comet-fill {
+  --fill: 0deg;
+  border-radius: 9999px;
+  background: conic-gradient(
+    from 0deg,
+    rgba(76, 168, 181, 1) 0deg,
+    rgba(76, 168, 181, 1) var(--fill),
+    rgba(76, 168, 181, 0) var(--fill)
+  );
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2.5px), #000 calc(100% - 2.5px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 2.5px), #000 calc(100% - 2.5px));
+}
+
+.comet-fill.is-complete {
+  animation: ring-lock 0.85s ease-out forwards;
+}
+
+@keyframes ring-lock {
+  0%   { filter: drop-shadow(0 0 0 rgba(76, 168, 181, 0)); }
+  35%  { filter: drop-shadow(0 0 16px rgba(76, 168, 181, 0.85)) drop-shadow(0 0 32px rgba(76, 168, 181, 0.45)); }
+  100% { filter: drop-shadow(0 0 7px rgba(76, 168, 181, 0.5)); }
 }
 
 @custom-variant data-open {
