@@ -12,11 +12,6 @@
   }
 }
 
-@keyframes spin-loading {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
 @keyframes loading-content-in {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -27,32 +22,37 @@
   animation: loading-content-in 0.5s ease-out both;
 }
 
-/* Shared rotating frame: both the comet and the completion fill spin together, so the
-   fill sweep continues seamlessly from the head regardless of rotation. */
+@keyframes spin-loading {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Rotation runs on the compositor (GPU transform) so it stays smooth even while the main
+   thread is busy hydrating / decoding images. Only the comet length repaints. */
 .comet-spin {
-  animation: spin-loading 0.9s linear infinite;
+  animation: spin-loading 0.95s linear infinite;
   transform-origin: center;
   will-change: transform;
 }
 
-/* Comet-tail circular progress: a conic arc that fades to transparent at the tail
-   and grows clockwise with --angle. */
+/* Breathing comet: a conic arc of length --len (JS-driven). The .comet-spin wrapper carries
+   it around; --len makes the head stretch ahead and ease back. */
 .comet-ring {
-  --angle: 0deg;
+  --len: 60deg;
   border-radius: 9999px;
-  /* Solid bright head with a short fade tail (~38deg) — very compact so the initial beam
-     starts as a small streak and grows as it loads. */
   background: conic-gradient(
     from 0deg,
     rgba(76, 168, 181, 0) 0deg,
-    rgba(76, 168, 181, 0.15) min(12deg, var(--angle)),
-    rgba(76, 168, 181, 0.55) min(25deg, var(--angle)),
-    rgba(76, 168, 181, 1) min(38deg, var(--angle)),
-    rgba(76, 168, 181, 1) var(--angle),
-    rgba(76, 168, 181, 0) var(--angle)
+    rgba(76, 168, 181, 0.18) min(10deg, var(--len)),
+    rgba(76, 168, 181, 0.55) min(18deg, var(--len)),
+    rgba(76, 168, 181, 1) min(28deg, var(--len)),
+    rgba(76, 168, 181, 1) var(--len),
+    rgba(76, 168, 181, 0) var(--len)
   );
   -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2.5px), #000 calc(100% - 2.5px));
   mask: radial-gradient(farthest-side, transparent calc(100% - 2.5px), #000 calc(100% - 2.5px));
+  /* the streak luminesces — brightest where it's solid (the head) */
+  filter: drop-shadow(0 0 4px rgba(76, 168, 181, 0.5));
 }
 
 /* Completion "lock": the head continues past the top as a solid arc, sweeping 0->360

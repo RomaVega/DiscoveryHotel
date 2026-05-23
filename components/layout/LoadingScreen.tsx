@@ -17,25 +17,16 @@ function pendingImages(): HTMLImageElement[] {
   return nearbyImages().filter(img => !img.complete);
 }
 
-function waitForImages(
-  imgs: HTMLImageElement[],
-  timeout: number,
-  onProgress?: (fraction: number) => void,
-): Promise<void> {
+function waitForImages(imgs: HTMLImageElement[], timeout: number): Promise<void> {
   return new Promise<void>(resolve => {
-    const total = imgs.length;
-    if (total === 0) { onProgress?.(1); resolve(); return; }
-    let remaining = total;
-    const done = () => {
-      remaining--;
-      onProgress?.((total - remaining) / total);
-      if (remaining === 0) resolve();
-    };
+    if (imgs.length === 0) { resolve(); return; }
+    let remaining = imgs.length;
+    const done = () => { if (--remaining === 0) resolve(); };
     for (const img of imgs) {
       img.addEventListener("load", done, { once: true });
       img.addEventListener("error", done, { once: true });
     }
-    setTimeout(() => { onProgress?.(1); resolve(); }, timeout);
+    setTimeout(resolve, timeout);
   });
 }
 
@@ -44,10 +35,9 @@ const doubleRaf = () =>
 
 const isHome = (p: string) => p === "/" || p === "/ru";
 
-// Sweeps the solid fill arc 0->360, painting over the comet's tail. easeInOutSine starts
-// from rest so it continues the head's decelerating growth with no velocity jump.
+// Sweeps the solid fill arc 0->360, painting over the comet's tail to a solid ring.
 function paintFill(el: HTMLElement | null, onDone: () => void) {
-  const DUR = 600;
+  const DUR = 380;
   let start: number | null = null;
   const step = (ts: number) => {
     if (start === null) start = ts;
@@ -60,46 +50,62 @@ function paintFill(el: HTMLElement | null, onDone: () => void) {
   requestAnimationFrame(step);
 }
 
-// Grows the beam along a time-based ramp (so it always starts small and grows visibly,
-// even when content is cached and "really" 100% instantly). Only once `isDone` — content
-// actually ready AND the minimum grow time elapsed — does it close to 100% and lock.
-// `set` receives a float fraction each frame so the ring is driven at sub-pixel precision
-// directly through the DOM (no React re-renders, no stepping).
-function animateProgress(
-  getReal: () => number,
+const easeOutCubic = (x: number): number => 1 - Math.pow(1 - x, 3);
+
+// Indeterminate "breathing" comet (Google-style): the length breathes sinusoidally — the
+// head stretches ahead and eases back — while the .comet-spin wrapper carries it around on
+// the GPU. Untied from real progress. On `isDone`, the head accelerates forward and snaps the
+// circle closed, then locks.
+function runComet(
+  setLen: (lenDeg: number) => void,
   isDone: () => boolean,
-  set: (fraction: number) => void,
   onComplete?: () => void,
 ): () => void {
+  const CYCLE = 1400;       // breathing cycle (ms)
+  const MIN_LEN = 50;
+  const MAX_LEN = 175;
+  const MID = (MIN_LEN + MAX_LEN) / 2;
+  const HALF = (MAX_LEN - MIN_LEN) / 2;
+  const CLOSE_DUR = 480;
+  const START_DELAY = 450;  // hold off length repaints while hydration settles
+
   let raf = 0;
-  let disp = 0;
+  let start: number | null = null;
   let completed = false;
-  const tick = () => {
-    if (isDone()) {
-      disp += (1 - disp) * 0.18;
-      if (disp > 0.999) {
-        set(1);
+  let closeStart: number | null = null;
+  let closeLen = 0;
+
+  // Starts at MIN_LEN with zero velocity (cosine), so it flows out of the static start.
+  const breatheLen = (t: number) => MID - HALF * Math.cos((2 * Math.PI * t) / CYCLE);
+
+  const tick = (ts: number) => {
+    if (start === null) start = ts;
+    const t = ts - start;
+    if (closeStart === null && t < START_DELAY) {
+      // GPU rotation carries the static comet + the fade-in; no length repaint yet
+      raf = requestAnimationFrame(tick);
+      return;
+    }
+    const bt = t - START_DELAY;
+    if (closeStart === null && isDone()) {
+      closeStart = ts;
+      closeLen = breatheLen(bt);
+    }
+    if (closeStart !== null) {
+      const x = Math.min(1, (ts - closeStart) / CLOSE_DUR);
+      setLen(closeLen + (360 - closeLen) * easeOutCubic(x));
+      if (x >= 1) {
+        setLen(360);
         if (!completed) { completed = true; onComplete?.(); }
         return; // finished — stop the loop
       }
     } else {
-      const r = getReal();
-      if (r > disp) disp = r; // follow the ramp, never go backward
+      setLen(breatheLen(bt));
     }
-    set(disp);
     raf = requestAnimationFrame(tick);
   };
   raf = requestAnimationFrame(tick);
   return () => cancelAnimationFrame(raf);
-}
-
-// easeInQuad time ramp: starts at 12.5% of the circle and stays small for most of the
-// duration, growing gently toward 92%. Completion is reserved for the lock sweep.
-function growRamp(startT: number, durMs: number): number {
-  const START = 0.125;
-  const END = 0.92;
-  const t = Math.min(1, (performance.now() - startT) / durMs);
-  return START + (END - START) * t * t;
 }
 
 export function LoadingScreen() {
@@ -112,22 +118,27 @@ export function LoadingScreen() {
   const ringRef = useRef<HTMLDivElement>(null);
   const fillRef = useRef<HTMLDivElement>(null);
 
-  // Drives the ring directly — float precision, frame-accurate, no React churn.
-  const setBar = (fraction: number) => {
-    const el = ringRef.current;
-    if (!el) return;
-    el.style.setProperty("--angle", `${fraction * 360}deg`);
-    el.setAttribute("aria-valuenow", String(Math.round(fraction * 100)));
+  // Drives the comet length directly — frame-accurate, no React churn (rotation is CSS).
+  const setLen = (lenDeg: number) => {
+    ringRef.current?.style.setProperty("--len", `${lenDeg}deg`);
   };
 
-  // Start each reveal clean (before paint): empty comet + fill.
+  // Completion "lock": paint the ring solid, pulse the glow, then run the caller's fade.
+  const playCompletion = (afterFade: () => void) => {
+    paintFill(fillRef.current, () => {
+      setComplete(true);
+      setTimeout(afterFade, 450);
+    });
+  };
+
+  // Start each reveal clean (before paint).
   useLayoutEffect(() => {
     if (phase !== "visible") return;
-    if (ringRef.current) ringRef.current.style.setProperty("--angle", "0deg");
+    if (ringRef.current) ringRef.current.style.setProperty("--len", "50deg");
     if (fillRef.current) fillRef.current.style.setProperty("--fill", "0deg");
   }, [phase]);
 
-  // FIRST LOAD — time-based grow, complete once content (fonts + visible images) is ready.
+  // FIRST LOAD — breathe the comet, complete once content (fonts + visible images) is ready.
   useEffect(() => {
     history.scrollRestoration = "manual";
 
@@ -136,11 +147,10 @@ export function LoadingScreen() {
       savedY = parseInt(sessionStorage.getItem("scrollY") || "0", 10);
     } catch { /* sessionStorage unavailable (Safari private mode) */ }
 
-    const GROW_DUR = 2400; // minimum visible grow time
+    const MIN_TIME = 1400; // let the comet breathe at least this long before closing
     const startT = performance.now();
     let contentReady = false;
-    const real = () => growRamp(startT, GROW_DUR);
-    const isDone = () => contentReady && performance.now() - startT >= GROW_DUR;
+    const isDone = () => contentReady && performance.now() - startT >= MIN_TIME;
 
     const fadeOut = () => {
       setPhase("exiting");
@@ -150,14 +160,7 @@ export function LoadingScreen() {
         try { sessionStorage.removeItem("scrollY"); } catch { /* ignore */ }
       }, 700);
     };
-    const onComplete = () => {
-      // Head continues from the top, sweeping the solid fill around to paint over the tail.
-      paintFill(fillRef.current, () => {
-        setComplete(true);        // full ring pulses a glow (the "lock")
-        setTimeout(fadeOut, 650); // hold the glow, then fade
-      });
-    };
-    const stopAnim = animateProgress(real, isDone, setBar, onComplete);
+    const stopAnim = runComet(setLen, isDone, () => playCompletion(fadeOut));
 
     // Content readiness — fonts + visible images. NOT window.load (that waits for the
     // hero video, which loads in the background behind its poster image).
@@ -206,21 +209,14 @@ export function LoadingScreen() {
       if (!cancelled && pendingImages().length > 0) {
         shown = true;
         setComplete(false);
-        const NAV_GROW = 800;
+        const MIN_TIME = 700;
         const startT = performance.now();
-        const real = () => growRamp(startT, NAV_GROW);
-        const isDone = () => navReady && performance.now() - startT >= NAV_GROW;
-        const onComplete = () => {
-          paintFill(fillRef.current, () => {
-            setComplete(true);
-            setTimeout(() => {
-              if (cancelled) return;
-              setPhase("exiting");
-              setTimeout(() => { if (!cancelled) setPhase("gone"); }, 700);
-            }, 650);
-          });
-        };
-        stopAnim = animateProgress(real, isDone, setBar, onComplete);
+        const isDone = () => navReady && performance.now() - startT >= MIN_TIME;
+        stopAnim = runComet(setLen, isDone, () => playCompletion(() => {
+          if (cancelled) return;
+          setPhase("exiting");
+          setTimeout(() => { if (!cancelled) setPhase("gone"); }, 700);
+        }));
         setPhase("visible");
       }
     }, 100);
@@ -230,7 +226,7 @@ export function LoadingScreen() {
       await waitForImages(pendingImages(), 5000);
       if (cancelled) return;
       clearTimeout(showTimer);
-      if (shown) navReady = true; // animator completes once min grow time elapsed
+      if (shown) navReady = true; // comet closes once min time elapsed
       else setPhase("gone");
     })();
 
@@ -248,7 +244,15 @@ export function LoadingScreen() {
         transition: "opacity 0.6s ease-in-out",
       }}
     >
-      <div className="loading-content-in relative flex items-center justify-center" style={{ width: 280, height: 280 }}>
+      <div
+        className="loading-content-in relative flex items-center justify-center"
+        style={{
+          width: 280,
+          height: 280,
+          transform: phase === "exiting" ? "scale(1.12)" : "scale(1)",
+          transition: "transform 0.6s ease-in",
+        }}
+      >
         <Image
           src="/images/logo/logo-dark.webp"
           alt="Orlowsky Discovery Candidasa Hotel"
@@ -257,17 +261,14 @@ export function LoadingScreen() {
           priority
           className="relative z-10"
         />
-        {/* shared rotating frame — comet + fill spin together so the completion sweep stays aligned */}
+        {/* GPU-rotated frame — keeps the orbit smooth under main-thread load */}
         <div className="comet-spin absolute inset-0">
-          {/* comet-tail progress ring — driven via ref for max smoothness */}
+          {/* breathing comet arc — length driven via ref for max smoothness */}
           <div
             ref={ringRef}
             className="comet-ring absolute inset-0"
             role="progressbar"
             aria-label="Loading"
-            aria-valuemin={0}
-            aria-valuemax={100}
-            aria-valuenow={0}
           />
           {/* solid arc sweeps 0->360 on completion, painting over the tail (the "lock" glow) */}
           <div
