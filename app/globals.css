@@ -17,9 +17,11 @@
   to { opacity: 1; }
 }
 
-/* Logo + beam ease in when the loading screen appears. */
+/* Logo + beam ease in when the loading screen appears. Promoted to its own compositor
+   layer so the fade stays smooth even while the main thread is hydrating. */
 .loading-content-in {
   animation: loading-content-in 0.5s ease-out both;
+  will-change: opacity, transform;
 }
 
 @keyframes spin-loading {
@@ -30,13 +32,14 @@
 /* Rotation runs on the compositor (GPU transform) so it stays smooth even while the main
    thread is busy hydrating / decoding images. Only the comet length repaints. */
 .comet-spin {
-  animation: spin-loading 0.95s linear infinite;
+  animation: spin-loading 0.8s linear infinite;
   transform-origin: center;
   will-change: transform;
 }
 
 /* Breathing comet: a conic arc of length --len (JS-driven). The .comet-spin wrapper carries
-   it around; --len makes the head stretch ahead and ease back. */
+   it around; --len makes the head stretch ahead and ease back. The ring shape comes from the
+   .comet-hole disc on top (no CSS mask — so the disc composites & rotates on the GPU). */
 .comet-ring {
   --len: 60deg;
   border-radius: 9999px;
@@ -49,11 +52,16 @@
     rgba(76, 168, 181, 1) var(--len),
     rgba(76, 168, 181, 0) var(--len)
   );
-  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2.5px), #000 calc(100% - 2.5px));
-  mask: radial-gradient(farthest-side, transparent calc(100% - 2.5px), #000 calc(100% - 2.5px));
-  /* the streak luminesces — brightest where it's solid (the head) */
-  filter: drop-shadow(0 0 4px rgba(76, 168, 181, 0.5));
 }
+
+/* Center disc that punches the conic discs into rings — matches the screen background. */
+.comet-hole {
+  position: absolute;
+  inset: 2.5px;
+  border-radius: 9999px;
+  background: #e8e3d5; /* parchment — same as the loading screen */
+}
+html.night .comet-hole { background: #111111; }
 
 /* Completion "lock": the head continues past the top as a solid arc, sweeping 0->360
    to paint over the transparent tail, then the full ring pulses a glow. */
@@ -66,18 +74,6 @@
     rgba(76, 168, 181, 1) var(--fill),
     rgba(76, 168, 181, 0) var(--fill)
   );
-  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2.5px), #000 calc(100% - 2.5px));
-  mask: radial-gradient(farthest-side, transparent calc(100% - 2.5px), #000 calc(100% - 2.5px));
-}
-
-.comet-fill.is-complete {
-  animation: ring-lock 0.85s ease-out forwards;
-}
-
-@keyframes ring-lock {
-  0%   { filter: drop-shadow(0 0 0 rgba(76, 168, 181, 0)); }
-  35%  { filter: drop-shadow(0 0 16px rgba(76, 168, 181, 0.85)) drop-shadow(0 0 32px rgba(76, 168, 181, 0.45)); }
-  100% { filter: drop-shadow(0 0 7px rgba(76, 168, 181, 0.5)); }
 }
 
 @custom-variant data-open {

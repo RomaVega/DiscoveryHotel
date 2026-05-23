@@ -60,6 +60,7 @@ function runComet(
   setLen: (lenDeg: number) => void,
   isDone: () => boolean,
   onComplete?: () => void,
+  startDelay = 450,         // hold off length repaints while first-load hydration settles
 ): () => void {
   const CYCLE = 1400;       // breathing cycle (ms)
   const MIN_LEN = 50;
@@ -67,7 +68,7 @@ function runComet(
   const MID = (MIN_LEN + MAX_LEN) / 2;
   const HALF = (MAX_LEN - MIN_LEN) / 2;
   const CLOSE_DUR = 480;
-  const START_DELAY = 450;  // hold off length repaints while hydration settles
+  const START_DELAY = startDelay;
 
   let raf = 0;
   let start: number | null = null;
@@ -111,7 +112,6 @@ function runComet(
 export function LoadingScreen() {
   const pathname = usePathname();
   const [phase, setPhase] = useState<"visible" | "exiting" | "gone">("visible");
-  const [complete, setComplete] = useState(false);
   const firstLoad = useRef(true);
   const initialPathname = useRef(pathname); // route at mount, stable
 
@@ -126,8 +126,7 @@ export function LoadingScreen() {
   // Completion "lock": paint the ring solid, pulse the glow, then run the caller's fade.
   const playCompletion = (afterFade: () => void) => {
     paintFill(fillRef.current, () => {
-      setComplete(true);
-      setTimeout(afterFade, 450);
+      setTimeout(afterFade, 300);
     });
   };
 
@@ -193,44 +192,33 @@ export function LoadingScreen() {
     };
   }, []);
 
-  // NAVIGATION — cover the new page only if its images aren't ready within a short window.
-  useEffect(() => {
+  // NAVIGATION — cover the new page in useLayoutEffect (BEFORE it paints) so it never flashes
+  // first, breathe the comet briefly, then fade out to reveal. Quick, untied from the close.
+  useLayoutEffect(() => {
     if (firstLoad.current) return; // first load handled above
 
     // Navigating to home always lands on the hero at the very top.
     if (isHome(pathname)) window.scrollTo(0, 0);
 
-    let cancelled = false;
-    let shown = false;
-    let navReady = false;
-    let stopAnim: (() => void) | null = null;
+    setPhase("visible");
 
-    const showTimer = setTimeout(() => {
-      if (!cancelled && pendingImages().length > 0) {
-        shown = true;
-        setComplete(false);
-        const MIN_TIME = 700;
-        const startT = performance.now();
-        const isDone = () => navReady && performance.now() - startT >= MIN_TIME;
-        stopAnim = runComet(setLen, isDone, () => playCompletion(() => {
-          if (cancelled) return;
-          setPhase("exiting");
-          setTimeout(() => { if (!cancelled) setPhase("gone"); }, 700);
-        }));
-        setPhase("visible");
-      }
-    }, 100);
+    let cancelled = false;
+    const MIN_TIME = 320; // minimum cover so it reads as an intentional transition
+    const startT = performance.now();
+    const stopAnim = runComet(setLen, () => false, undefined, 0); // breathe; exit handled below
 
     (async () => {
       await doubleRaf(); // let the new page render + lazy observers fire
       await waitForImages(pendingImages(), 5000);
-      if (cancelled) return;
-      clearTimeout(showTimer);
-      if (shown) navReady = true; // comet closes once min time elapsed
-      else setPhase("gone");
+      const wait = Math.max(0, MIN_TIME - (performance.now() - startT));
+      setTimeout(() => {
+        if (cancelled) return;
+        setPhase("exiting");
+        setTimeout(() => { if (!cancelled) { setPhase("gone"); stopAnim(); } }, 600);
+      }, wait);
     })();
 
-    return () => { cancelled = true; clearTimeout(showTimer); stopAnim?.(); };
+    return () => { cancelled = true; stopAnim(); };
   }, [pathname]);
 
   if (phase === "gone") return null;
@@ -260,6 +248,7 @@ export function LoadingScreen() {
           height={120}
           priority
           className="relative z-10"
+          style={{ transform: "translateY(6px)" }}
         />
         {/* GPU-rotated frame — keeps the orbit smooth under main-thread load */}
         <div className="comet-spin absolute inset-0">
@@ -273,10 +262,12 @@ export function LoadingScreen() {
           {/* solid arc sweeps 0->360 on completion, painting over the tail (the "lock" glow) */}
           <div
             ref={fillRef}
-            className={`comet-fill absolute inset-0 ${complete ? "is-complete" : ""}`}
+            className="comet-fill absolute inset-0"
             aria-hidden="true"
           />
         </div>
+        {/* center disc forms the ring (no CSS mask — keeps the spin GPU-composited) */}
+        <div className="comet-hole" aria-hidden="true" />
       </div>
     </div>
   );
