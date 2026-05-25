@@ -29,7 +29,6 @@ export default function HomePage() {
 
   return (
     <>
-      <link rel="preload" as="video" href="/video/orlowsky-hotel-candidasa-bali-hero.mp4" type="video/mp4" />
       <Navbar />
       <main id="main-content">
         <HeroImage hero={data.hero} />

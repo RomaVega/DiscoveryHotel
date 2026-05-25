@@ -4,9 +4,10 @@ import { useState, useEffect, useLayoutEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 
-// Images within 3 viewport heights — the ones that affect the visible page.
+// Above-the-fold images only — those that gate the first paint (LCP). We don't hold the
+// screen for below-the-fold images; the preloader handles those in the background.
 function nearbyImages(): HTMLImageElement[] {
-  const threshold = window.innerHeight * 3;
+  const threshold = window.innerHeight * 1.2;
   return Array.from(document.images).filter(img => {
     const rect = img.getBoundingClientRect();
     return rect.top < threshold;
@@ -125,9 +126,7 @@ export function LoadingScreen() {
 
   // Completion "lock": paint the ring solid, pulse the glow, then run the caller's fade.
   const playCompletion = (afterFade: () => void) => {
-    paintFill(fillRef.current, () => {
-      setTimeout(afterFade, 300);
-    });
+    paintFill(fillRef.current, afterFade);
   };
 
   // Start each reveal clean (before paint).
@@ -146,10 +145,10 @@ export function LoadingScreen() {
       savedY = parseInt(sessionStorage.getItem("scrollY") || "0", 10);
     } catch { /* sessionStorage unavailable (Safari private mode) */ }
 
-    const MIN_TIME = 1400; // let the comet breathe at least this long before closing
-    const startT = performance.now();
+    // No forced wait — close as soon as the hero is ready (best LCP). The comet still
+    // breathes during whatever real load time there is.
     let contentReady = false;
-    const isDone = () => contentReady && performance.now() - startT >= MIN_TIME;
+    const isDone = () => contentReady;
 
     const fadeOut = () => {
       setPhase("exiting");
