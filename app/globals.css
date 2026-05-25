@@ -101,9 +101,6 @@ html.night .comet-hole { background: #111111; }
 /* Night / dark-mode loading screen — driven by blocking script in layout.tsx */
 html.night #loading-screen { background-color: #111111; }
 
-/* Already shown this session — hide the intro instantly so cached reloads are immediate. */
-html.loader-skip #loading-screen { display: none !important; }
-
 @keyframes border-glow {
   0%, 100% { box-shadow: 0 0 0px rgba(76, 168, 181, 0); }
   50% { box-shadow: 0 0 12px rgba(76, 168, 181, 0.6), 0 0 24px rgba(76, 168, 181, 0.2); }

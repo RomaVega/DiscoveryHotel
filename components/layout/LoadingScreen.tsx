@@ -112,7 +112,7 @@ function runComet(
 
 export function LoadingScreen() {
   const pathname = usePathname();
-  const [phase, setPhase] = useState<"visible" | "exiting" | "gone">("visible");
+  const [phase, setPhase] = useState<"idle" | "visible" | "exiting" | "gone">("idle");
   const firstLoad = useRef(true);
   const initialPathname = useRef(pathname); // route at mount, stable
 
@@ -154,19 +154,9 @@ export function LoadingScreen() {
     };
     window.addEventListener("beforeunload", saveScroll);
 
-    // Already shown this session? Skip the intro entirely — cached reloads are instant.
-    let alreadyShown = false;
-    try { alreadyShown = sessionStorage.getItem("odh_loaded") === "1"; } catch { /* ignore */ }
-    if (alreadyShown) {
-      firstLoad.current = false;
-      restoreScroll();
-      setPhase("gone");
-      return () => window.removeEventListener("beforeunload", saveScroll);
-    }
-
-    // First time this session — play the comet, complete once the hero is ready (best LCP).
     let contentReady = false;
-    const isDone = () => contentReady;
+    let shown = false;
+    let stopAnim: (() => void) | null = null;
 
     const fadeOut = () => {
       setPhase("exiting");
@@ -176,10 +166,19 @@ export function LoadingScreen() {
         try { sessionStorage.removeItem("scrollY"); } catch { /* ignore */ }
       }, 700);
     };
-    const stopAnim = runComet(setLen, isDone, () => playCompletion(fadeOut));
 
-    // Content readiness — fonts + visible images. NOT window.load (that waits for the
-    // hero video, which loads in the background behind its poster image).
+    // Delayed reveal: only show the comet if the page isn't ready within the threshold.
+    // Cached / fast loads finish first and never see a loader; slow loads get the comet.
+    const REVEAL_DELAY = 250;
+    const revealTimer = setTimeout(() => {
+      if (contentReady) return; // fast load — skip the loader entirely
+      shown = true;
+      setPhase("visible");
+      stopAnim = runComet(setLen, () => contentReady, () => playCompletion(fadeOut));
+    }, REVEAL_DELAY);
+
+    // Content readiness — fonts + above-the-fold images. NOT window.load (that waits for
+    // the hero video, which loads in the background behind its poster image).
     let dismissed = false;
     const dismiss = async () => {
       if (dismissed) return;
@@ -188,8 +187,13 @@ export function LoadingScreen() {
       await doubleRaf();
       await waitForImages(pendingImages(), 8000);
       contentReady = true;
-      try { sessionStorage.setItem("odh_loaded", "1"); } catch { /* ignore */ }
       restoreScroll();
+      if (!shown) {
+        clearTimeout(revealTimer);
+        firstLoad.current = false;
+        setPhase("gone");
+      }
+      // if the loader is showing, runComet closes it once contentReady, then fades out
     };
 
     dismiss();
@@ -199,8 +203,9 @@ export function LoadingScreen() {
 
     return () => {
       window.removeEventListener("beforeunload", saveScroll);
+      clearTimeout(revealTimer);
       clearTimeout(safety);
-      stopAnim();
+      stopAnim?.();
     };
   }, []);
 
@@ -233,7 +238,7 @@ export function LoadingScreen() {
     return () => { cancelled = true; stopAnim(); };
   }, [pathname]);
 
-  if (phase === "gone") return null;
+  if (phase === "idle" || phase === "gone") return null;
 
   return (
     <div
