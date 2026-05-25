@@ -145,8 +145,26 @@ export function LoadingScreen() {
       savedY = parseInt(sessionStorage.getItem("scrollY") || "0", 10);
     } catch { /* sessionStorage unavailable (Safari private mode) */ }
 
-    // No forced wait — close as soon as the hero is ready (best LCP). The comet still
-    // breathes during whatever real load time there is.
+    const restoreScroll = () => {
+      if (isHome(initialPathname.current)) window.scrollTo(0, 0);
+      else if (savedY > 0) window.scrollTo(0, savedY);
+    };
+    const saveScroll = () => {
+      try { sessionStorage.setItem("scrollY", String(window.scrollY)); } catch { /* ignore */ }
+    };
+    window.addEventListener("beforeunload", saveScroll);
+
+    // Already shown this session? Skip the intro entirely — cached reloads are instant.
+    let alreadyShown = false;
+    try { alreadyShown = sessionStorage.getItem("odh_loaded") === "1"; } catch { /* ignore */ }
+    if (alreadyShown) {
+      firstLoad.current = false;
+      restoreScroll();
+      setPhase("gone");
+      return () => window.removeEventListener("beforeunload", saveScroll);
+    }
+
+    // First time this session — play the comet, complete once the hero is ready (best LCP).
     let contentReady = false;
     const isDone = () => contentReady;
 
@@ -170,14 +188,9 @@ export function LoadingScreen() {
       await doubleRaf();
       await waitForImages(pendingImages(), 8000);
       contentReady = true;
-      if (isHome(initialPathname.current)) window.scrollTo(0, 0);
-      else if (savedY > 0) window.scrollTo(0, savedY);
+      try { sessionStorage.setItem("odh_loaded", "1"); } catch { /* ignore */ }
+      restoreScroll();
     };
-
-    const saveScroll = () => {
-      try { sessionStorage.setItem("scrollY", String(window.scrollY)); } catch { /* ignore */ }
-    };
-    window.addEventListener("beforeunload", saveScroll);
 
     dismiss();
 

@@ -121,7 +121,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.variable} ${cormorant.variable} antialiased`} suppressHydrationWarning>
-        <script dangerouslySetInnerHTML={{ __html: `(function(){var h=new Date().getHours();if(h<6||h>=20||window.matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.classList.add('night');})();` }} />
+        <script dangerouslySetInnerHTML={{ __html: `(function(){var h=new Date().getHours();if(h<6||h>=20||window.matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.classList.add('night');try{if(sessionStorage.getItem('odh_loaded')==='1')document.documentElement.classList.add('loader-skip');}catch(e){}})();` }} />
         <LanguageProvider>
           <MotionProvider>
             <LoadingScreen />
