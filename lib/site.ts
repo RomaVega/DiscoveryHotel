@@ -3,4 +3,4 @@ export const SITE_URL = "https://orlowsky.id";
 
 export const SITE_NAME = "Orlowsky Discovery Hotel";
 
-export const OG_IMAGE = `${SITE_URL}/images/hero/hero-main.webp`;
+export const OG_IMAGE = `${SITE_URL}/images/hero/hero-og.jpg`;

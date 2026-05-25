@@ -107,6 +107,7 @@ export const ALL_IMAGES: readonly string[] = [
   "/images/gallery/orlowsky-hotel-villa-pool-exterior-garden.webp",
   "/images/gallery/orlowsky-hotel-yoga-platform-ocean.webp",
   "/images/hero/hero-main.webp",
+  "/images/hero/hero-og.jpg",
   "/images/honeymoon/honeymoon.webp",
   "/images/logo/logo-dark.webp",
   "/images/offers/early-bird.webp",
