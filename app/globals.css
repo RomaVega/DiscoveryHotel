@@ -98,6 +98,11 @@ html.night .comet-hole { background: #111111; }
 @custom-variant data-horizontal { &:where([data-orientation="horizontal"]) { @slot; } }
 @custom-variant data-vertical { &:where([data-orientation="vertical"]) { @slot; } }
 
+/* The intro only shows on a visitor's first load (html.intro set by the blocking script in
+   layout.tsx). On every cached reload/return it stays hidden, so the page is instant. */
+#loading-screen { display: none; }
+html.intro #loading-screen { display: flex; }
+
 /* Night / dark-mode loading screen — driven by blocking script in layout.tsx */
 html.night #loading-screen { background-color: #111111; }
 

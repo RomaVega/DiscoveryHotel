@@ -31,7 +31,11 @@ export function HeroImage({ hero }: HeroImageProps) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const mobileVideoRef = useRef<HTMLVideoElement>(null);
+  // Render only the device-appropriate video so we never download both clips at once.
+  const [isMobile, setIsMobile] = useState<boolean | null>(null);
+  useLayoutEffect(() => {
+    setIsMobile(window.matchMedia("(max-width: 767px)").matches);
+  }, []);
   const line1Ref = useRef<HTMLSpanElement>(null);
   const line2Ref = useRef<HTMLSpanElement>(null);
   const line3Ref = useRef<HTMLSpanElement>(null);
@@ -58,39 +62,31 @@ export function HeroImage({ hero }: HeroImageProps) {
 
 
   const toggleVideo = () => {
-    [videoRef, mobileVideoRef].forEach(ref => {
-      const video = ref.current;
-      if (!video) return;
-      if (video.paused) { video.play(); setPaused(false); }
-      else { video.pause(); setPaused(true); }
-    });
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused) { video.play(); setPaused(false); }
+    else { video.pause(); setPaused(true); }
   };
 
   return (
     <section className="relative h-[115svh] md:h-[110vh] w-full overflow-hidden bg-black">
       {hero.video ? (
-        <>
-          {/* Mobile video — portrait, shown below md breakpoint */}
-          {hero.videoMobile && (
-            <video
-              ref={mobileVideoRef}
-              autoPlay muted loop playsInline preload="none"
-              poster={`${BASE_PATH}${hero.image}`}
-              className="absolute inset-0 h-full w-full object-cover md:hidden"
-            >
-              <source src={`${BASE_PATH}${hero.videoMobile}`} type="video/mp4" />
-            </video>
-          )}
-          {/* Desktop video — landscape, shown at md+ */}
+        // Only the matching clip is mounted (after we know the viewport), so a single video
+        // loads — no mobile+desktop contention. The poster image below shows until it plays.
+        isMobile !== null && (
           <video
+            key={isMobile ? "m" : "d"}
             ref={videoRef}
-            autoPlay muted loop playsInline preload="none"
+            autoPlay muted loop playsInline preload="auto"
             poster={`${BASE_PATH}${hero.image}`}
-            className={`absolute inset-0 h-full w-full object-cover ${hero.videoMobile ? "hidden md:block" : ""}`}
+            className="absolute inset-0 h-full w-full object-cover"
           >
-            <source src={`${BASE_PATH}${hero.video}`} type="video/mp4" />
+            <source
+              src={`${BASE_PATH}${isMobile && hero.videoMobile ? hero.videoMobile : hero.video}`}
+              type="video/mp4"
+            />
           </video>
-        </>
+        )
       ) : (
         <Image
           src={hero.image}

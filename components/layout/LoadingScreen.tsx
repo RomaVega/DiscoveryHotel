@@ -31,6 +31,29 @@ function waitForImages(imgs: HTMLImageElement[], timeout: number): Promise<void>
   });
 }
 
+// Wait until the hero video can play, so the intro never reveals the static poster while
+// the video is still downloading. Resolves immediately on pages without a hero video.
+function waitForHeroVideo(timeout: number): Promise<void> {
+  return new Promise<void>(resolve => {
+    let settled = false;
+    const finish = () => { if (!settled) { settled = true; resolve(); } };
+    const startedAt = performance.now();
+    const find = () => {
+      const v = document.querySelector("video");
+      if (v) {
+        if (v.readyState >= 3) return finish(); // HAVE_FUTURE_DATA — can play
+        v.addEventListener("canplay", finish, { once: true });
+        v.addEventListener("error", finish, { once: true });
+        return;
+      }
+      if (performance.now() - startedAt > 1500) return finish(); // no hero video here
+      requestAnimationFrame(find);
+    };
+    find();
+    setTimeout(finish, timeout); // hard cap
+  });
+}
+
 const doubleRaf = () =>
   new Promise<void>(r => requestAnimationFrame(() => requestAnimationFrame(() => r())));
 
@@ -112,7 +135,7 @@ function runComet(
 
 export function LoadingScreen() {
   const pathname = usePathname();
-  const [phase, setPhase] = useState<"idle" | "visible" | "exiting" | "gone">("idle");
+  const [phase, setPhase] = useState<"visible" | "exiting" | "gone">("visible");
   const firstLoad = useRef(true);
   const initialPathname = useRef(pathname); // route at mount, stable
 
@@ -136,7 +159,9 @@ export function LoadingScreen() {
     if (fillRef.current) fillRef.current.style.setProperty("--fill", "0deg");
   }, [phase]);
 
-  // FIRST LOAD — breathe the comet, complete once content (fonts + visible images) is ready.
+  // FIRST LOAD — show the intro only on a visitor's first ever load. Every cached reload
+  // and return visit skips it entirely (instant). When shown, it waits for the hero video
+  // so the page is revealed with the video, not the static poster.
   useEffect(() => {
     history.scrollRestoration = "manual";
 
@@ -154,91 +179,57 @@ export function LoadingScreen() {
     };
     window.addEventListener("beforeunload", saveScroll);
 
-    let contentReady = false;
-    let shown = false;
-    let stopAnim: (() => void) | null = null;
+    // Seen before? Skip the intro — instant page (the overlay is already hidden via CSS).
+    let seen = false;
+    try { seen = localStorage.getItem("odh_seen") === "1"; } catch { /* ignore */ }
+    if (seen) {
+      firstLoad.current = false;
+      restoreScroll();
+      setPhase("gone");
+      return () => window.removeEventListener("beforeunload", saveScroll);
+    }
 
+    let contentReady = false;
     const fadeOut = () => {
       setPhase("exiting");
       setTimeout(() => {
         setPhase("gone");
         firstLoad.current = false;
+        try { localStorage.setItem("odh_seen", "1"); } catch { /* ignore */ }
         try { sessionStorage.removeItem("scrollY"); } catch { /* ignore */ }
       }, 700);
     };
+    const stopAnim = runComet(setLen, () => contentReady, () => playCompletion(fadeOut));
 
-    // Delayed reveal: only show the comet if the page isn't ready within the threshold.
-    // Cached / fast loads finish first and never see a loader; slow loads get the comet.
-    const REVEAL_DELAY = 250;
-    const revealTimer = setTimeout(() => {
-      if (contentReady) return; // fast load — skip the loader entirely
-      shown = true;
-      setPhase("visible");
-      stopAnim = runComet(setLen, () => contentReady, () => playCompletion(fadeOut));
-    }, REVEAL_DELAY);
-
-    // Content readiness — fonts + above-the-fold images. NOT window.load (that waits for
-    // the hero video, which loads in the background behind its poster image).
-    let dismissed = false;
     const dismiss = async () => {
-      if (dismissed) return;
-      dismissed = true;
       await document.fonts.ready;
       await doubleRaf();
-      await waitForImages(pendingImages(), 8000);
+      await Promise.all([
+        waitForImages(pendingImages(), 8000),
+        waitForHeroVideo(8000), // hold until the hero video can play (no poster flash)
+      ]);
       contentReady = true;
       restoreScroll();
-      if (!shown) {
-        clearTimeout(revealTimer);
-        firstLoad.current = false;
-        setPhase("gone");
-      }
-      // if the loader is showing, runComet closes it once contentReady, then fades out
     };
-
     dismiss();
 
-    // Absolute safety net: force completion after 12s
-    const safety = setTimeout(() => { contentReady = true; }, 12000);
+    // Absolute safety net: never block longer than 10s
+    const safety = setTimeout(() => { contentReady = true; }, 10000);
 
     return () => {
       window.removeEventListener("beforeunload", saveScroll);
-      clearTimeout(revealTimer);
       clearTimeout(safety);
-      stopAnim?.();
+      stopAnim();
     };
   }, []);
 
-  // NAVIGATION — cover the new page in useLayoutEffect (BEFORE it paints) so it never flashes
-  // first, breathe the comet briefly, then fade out to reveal. Quick, untied from the close.
-  useLayoutEffect(() => {
-    if (firstLoad.current) return; // first load handled above
-
-    // Navigating to home always lands on the hero at the very top.
+  // NAVIGATION — no loader; client-side nav is instant. Just keep home landing at the top.
+  useEffect(() => {
+    if (firstLoad.current) return;
     if (isHome(pathname)) window.scrollTo(0, 0);
-
-    setPhase("visible");
-
-    let cancelled = false;
-    const MIN_TIME = 320; // minimum cover so it reads as an intentional transition
-    const startT = performance.now();
-    const stopAnim = runComet(setLen, () => false, undefined, 0); // breathe; exit handled below
-
-    (async () => {
-      await doubleRaf(); // let the new page render + lazy observers fire
-      await waitForImages(pendingImages(), 5000);
-      const wait = Math.max(0, MIN_TIME - (performance.now() - startT));
-      setTimeout(() => {
-        if (cancelled) return;
-        setPhase("exiting");
-        setTimeout(() => { if (!cancelled) { setPhase("gone"); stopAnim(); } }, 600);
-      }, wait);
-    })();
-
-    return () => { cancelled = true; stopAnim(); };
   }, [pathname]);
 
-  if (phase === "idle" || phase === "gone") return null;
+  if (phase === "gone") return null;
 
   return (
     <div
