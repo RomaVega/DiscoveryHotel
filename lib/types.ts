@@ -21,6 +21,7 @@ export interface HeroData {
   cta: LocalizedString;
   ctaHref: string;
   image: string;
+  imageMobile?: string;
   imageAlt: string;
   video?: string;
   videoMobile?: string;

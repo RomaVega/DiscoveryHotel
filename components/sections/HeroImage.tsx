@@ -78,7 +78,7 @@ export function HeroImage({ hero }: HeroImageProps) {
             key={isMobile ? "m" : "d"}
             ref={videoRef}
             autoPlay muted loop playsInline preload="auto"
-            poster={`${BASE_PATH}${hero.image}`}
+            poster={`${BASE_PATH}${isMobile && hero.imageMobile ? hero.imageMobile : hero.image}`}
             className="absolute inset-0 h-full w-full object-cover"
           >
             <source
