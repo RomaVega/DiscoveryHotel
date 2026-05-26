@@ -31,7 +31,7 @@ export const metadata = {
     title: "Orlowsky Discovery Hotel | Кандидаса, Восточный Бали",
     description: "Четырёхзвёздочный бутик-отель на берегу Кандидасы, Восточный Бали. Виллы с видом на океан, тропические сады, спа, дайвинг и балийское гостеприимство.",
     url: `${SITE_URL}/ru`,
-    images: [{ url: `${SITE_URL}/images/hero/hero-main.webp`, width: 1200, height: 630 }],
+    images: [{ url: `${SITE_URL}/images/hero/hero-og.jpg`, width: 1200, height: 630 }],
   },
 };
 

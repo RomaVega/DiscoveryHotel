@@ -20,7 +20,7 @@ export const metadata = {
     title: "Контакты — Orlowsky Discovery Hotel, Кандидаса, Бали",
     description: "Свяжитесь с Orlowsky Discovery Hotel по WhatsApp, email или посетите нас в Кандидасе. Jalan Pantai Indah 06, Карангасем 80851, Бали.",
     url: `${SITE_URL}/ru/contact`,
-    images: [{ url: `${SITE_URL}/images/hero/hero-main.webp`, width: 1200, height: 630 }],
+    images: [{ url: `${SITE_URL}/images/hero/hero-og.jpg`, width: 1200, height: 630 }],
   },
 };
 

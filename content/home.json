@@ -13,7 +13,7 @@
       "ru": "Забронировать"
     },
     "ctaHref": "https://secure.guestpro.net/odch",
-    "image": "/images/hero/hero-main.webp",
+    "image": "/images/hero/hero-og.jpg",
     "imageAlt": "Aerial view of Orlowsky Discovery Hotel pool and ocean in Candidasa, Bali",
     "video": "/video/orlowsky-hotel-candidasa-bali-hero.mp4",
     "videoMobile": "/video/orlowsky-hotel-candidasa-bali-hero-mobile.mp4"
@@ -678,14 +678,6 @@
         "alt": "Two-storey villa with private pool at Orlowsky Discovery Hotel, Candidasa"
       },
       {
-        "src": "/images/gallery/orlowsky-hotel-villa-pool-exterior-garden.webp",
-        "alt": "Villa private pool with stone steps and tropical garden, Orlowsky Discovery Hotel"
-      },
-      {
-        "src": "/images/gallery/orlowsky-hotel-infinity-pool-beachfront-candidasa.webp",
-        "alt": "Infinity pool overlooking the beach at Orlowsky Discovery Hotel, Candidasa"
-      },
-      {
         "src": "/images/gallery/orlowsky-hotel-garden-villa-pool-view.webp",
         "alt": "Garden villa with pool viewed from upper balcony, Orlowsky Discovery Hotel, Bali"
       },
@@ -696,10 +688,6 @@
       {
         "src": "/images/gallery/orlowsky-hotel-beach-gazebo-turquoise-sea.webp",
         "alt": "Beach gazebo with sun loungers, umbrellas and turquoise ocean, Candidasa"
-      },
-      {
-        "src": "/images/gallery/orlowsky-hotel-beach-pavilion-ocean-view.webp",
-        "alt": "Beach pavilion with ocean view at Orlowsky Discovery Hotel, Candidasa"
       },
       {
         "src": "/images/gallery/orlowsky-hotel-romantic-heart-arch.webp",
@@ -742,16 +730,8 @@
         "alt": "Garden villa among tropical landscape at Orlowsky Discovery Hotel, Bali"
       },
       {
-        "src": "/images/gallery/orlowsky-hotel-oceanfront-terrace-deck.webp",
-        "alt": "Oceanfront terrace deck at Orlowsky Discovery Hotel, Candidasa"
-      },
-      {
         "src": "/images/gallery/orlowsky-hotel-cottage-bedroom-panoramic.webp",
         "alt": "Deluxe cottage bedroom with panoramic garden windows, Orlowsky Discovery Hotel"
-      },
-      {
-        "src": "/images/gallery/orlowsky-hotel-luxury-bedroom-garden-doors.webp",
-        "alt": "Luxury bedroom with garden-facing doors at Orlowsky Discovery Hotel, Bali"
       },
       {
         "src": "/images/gallery/orlowsky-hotel-villa-living-room-ocean-view.webp",
