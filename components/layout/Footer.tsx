@@ -43,7 +43,7 @@ export function Footer({ contact }: FooterProps) {
   ];
 
   return (
-    <footer id="contact" className="bg-parchment text-charcoal">
+    <footer id="contact" className="bg-espresso text-parchment">
       <div className="max-w-5xl mx-auto px-6 pt-16 sm:pt-20 pb-10 sm:pb-12">
         {/* Logo + tagline — centered */}
         <div className="flex flex-col items-center mb-10 sm:mb-16">
@@ -59,20 +59,20 @@ export function Footer({ contact }: FooterProps) {
               unoptimized
               className="object-contain mb-3 sm:mb-4"
             />
-            <h3 className="font-serif text-xl sm:text-2xl font-semibold tracking-[0.15em] uppercase text-charcoal flex flex-col items-center">
+            <h3 className="font-serif text-xl sm:text-2xl font-semibold tracking-[0.15em] uppercase text-parchment flex flex-col items-center">
               <span>Orlowsky</span>
               <span>Discovery Candidasa</span>
               <span className="mt-3">Hotel</span>
             </h3>
           </Link>
           <div className="flex items-center gap-2.5 mt-1.5" style={{ color: "#C9A84C" }}>
-            <span className="block h-px w-6 sm:w-8 bg-charcoal/15" />
+            <span className="block h-px w-6 sm:w-8 bg-parchment/15" />
             {Array.from({ length: contact.stars }).map((_, i) => (
               <span key={i} className="text-base">
                 ★
               </span>
             ))}
-            <span className="block h-px w-6 sm:w-8 bg-charcoal/15" />
+            <span className="block h-px w-6 sm:w-8 bg-parchment/15" />
           </div>
         </div>
 
@@ -91,7 +91,7 @@ export function Footer({ contact }: FooterProps) {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.platform}
-                    className="text-charcoal/30 hover:text-charcoal transition-colors duration-200"
+                    className="text-parchment/30 hover:text-parchment transition-colors duration-200"
                   >
                     <Icon size={social.icon === "Youtube" ? 28 : 24} className={social.icon === "Youtube" ? "relative -top-0.5" : ""} />
                   </a>
@@ -99,13 +99,13 @@ export function Footer({ contact }: FooterProps) {
               })}
             </div>
 
-            <h4 className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/50 mb-4 underline underline-offset-4 decoration-charcoal/20">
+            <h4 className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-parchment/50 mb-4 underline underline-offset-4 decoration-parchment/20">
               {tl.footer.contact}
             </h4>
             <ul className="space-y-3 flex flex-col items-center md:items-start">
               {isRu && ruContacts.length > 0 && (
                 <li>
-                  <p className="font-sans text-[10px] uppercase tracking-[0.15em] text-charcoal/35 mb-1.5">
+                  <p className="font-sans text-[10px] uppercase tracking-[0.15em] text-parchment/35 mb-1.5">
                     {tl.footer.whatsappRu}
                   </p>
                   <div className="space-y-1.5">
@@ -115,7 +115,7 @@ export function Footer({ contact }: FooterProps) {
                         href={`https://wa.me/${c.number}?text=${encodeURIComponent(c.greeting)}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-[13px] sm:text-sm text-charcoal/60 hover:text-charcoal transition-colors duration-200"
+                        className="flex items-center gap-2 text-[13px] sm:text-sm text-parchment/60 hover:text-parchment transition-colors duration-200"
                       >
                         <MessageCircle size={14} className="text-brand-teal shrink-0" />
                         {c.label}
@@ -128,7 +128,7 @@ export function Footer({ contact }: FooterProps) {
               {enContacts.length > 0 && (
                 <li>
                   {isRu && (
-                    <p className="font-sans text-[10px] uppercase tracking-[0.15em] text-charcoal/35 mb-1.5">
+                    <p className="font-sans text-[10px] uppercase tracking-[0.15em] text-parchment/35 mb-1.5">
                       {tl.footer.whatsappHotel}
                     </p>
                   )}
@@ -139,7 +139,7 @@ export function Footer({ contact }: FooterProps) {
                         href={`https://wa.me/${c.number}?text=${encodeURIComponent(c.greeting)}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-[13px] sm:text-sm text-charcoal/60 hover:text-charcoal transition-colors duration-200"
+                        className="flex items-center gap-2 text-[13px] sm:text-sm text-parchment/60 hover:text-parchment transition-colors duration-200"
                       >
                         <MessageCircle size={14} className="text-brand-teal shrink-0" />
                         {c.label}
@@ -152,7 +152,7 @@ export function Footer({ contact }: FooterProps) {
               <li>
                 <a
                   href={`mailto:${contact.email}`}
-                  className="flex items-center gap-2 text-[13px] sm:text-sm text-charcoal/60 hover:text-charcoal transition-colors duration-200"
+                  className="flex items-center gap-2 text-[13px] sm:text-sm text-parchment/60 hover:text-parchment transition-colors duration-200"
                 >
                   <Mail size={14} className="text-brand-teal shrink-0" />
                   {contact.email}
@@ -172,7 +172,7 @@ export function Footer({ contact }: FooterProps) {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.platform}
-                    className="text-charcoal/30 hover:text-charcoal transition-colors duration-200"
+                    className="text-parchment/30 hover:text-parchment transition-colors duration-200"
                   >
                     <Icon size={social.icon === "Youtube" ? 28 : 24} className={social.icon === "Youtube" ? "relative -top-0.5" : ""} />
                   </a>
@@ -183,13 +183,13 @@ export function Footer({ contact }: FooterProps) {
 
           {/* Location */}
           <div className="w-full text-center md:text-left md:flex-1 md:min-w-0">
-            <h4 className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/50 mb-4 sm:mb-5 underline underline-offset-4 decoration-charcoal/20">
+            <h4 className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-parchment/50 mb-4 sm:mb-5 underline underline-offset-4 decoration-parchment/20">
               {tl.footer.location}
             </h4>
             <div className="flex flex-col items-center md:items-start gap-3">
               <div className="flex items-start gap-2">
                 <MapPin size={14} className="text-brand-teal shrink-0 mt-0.5" />
-                <address className="not-italic text-[13px] sm:text-sm text-charcoal/60 leading-relaxed text-left">
+                <address className="not-italic text-[13px] sm:text-sm text-parchment/60 leading-relaxed text-left">
                   {contact.address.map((line) => (
                     <span key={line} className="block">
                       {line}
@@ -210,7 +210,7 @@ export function Footer({ contact }: FooterProps) {
               {/* Payment note — desktop only */}
               {isRu && tl.footer.paymentNote && (
                 <div className="hidden md:block mt-4 -ml-[125px]">
-                  <p className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/50 mb-1.5 underline underline-offset-4 decoration-charcoal/20">
+                  <p className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-parchment/50 mb-1.5 underline underline-offset-4 decoration-parchment/20">
                     {tl.footer.paymentInRussia}
                   </p>
                   <p className="font-sans text-[13px] text-brand-teal leading-relaxed font-medium whitespace-pre-line">
@@ -224,7 +224,7 @@ export function Footer({ contact }: FooterProps) {
           {/* Payment note — mobile only, shown after Location */}
           {isRu && tl.footer.paymentNote && (
             <div className="w-full text-center md:hidden">
-              <p className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/50 mb-1.5 underline underline-offset-4 decoration-charcoal/20">
+              <p className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-parchment/50 mb-1.5 underline underline-offset-4 decoration-parchment/20">
                 {tl.footer.paymentInRussia}
               </p>
               <p className="font-sans text-[13px] text-brand-teal leading-relaxed font-medium whitespace-pre-line">
@@ -233,11 +233,11 @@ export function Footer({ contact }: FooterProps) {
             </div>
           )}
           {/* Divider */}
-          <div className="w-full border-t border-charcoal/10 md:w-px md:border-t-0 md:border-l md:self-stretch" />
+          <div className="w-full border-t border-parchment/10 md:w-px md:border-t-0 md:border-l md:self-stretch" />
 
           {/* Experiences */}
           <div className="w-full text-center md:text-left md:flex-1 md:min-w-0">
-            <h4 className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/50 mb-4 sm:mb-5 underline underline-offset-4 decoration-charcoal/20">
+            <h4 className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-parchment/50 mb-4 sm:mb-5 underline underline-offset-4 decoration-parchment/20">
               {tl.footer.experiences}
             </h4>
             <ul className="space-y-1.5 flex flex-col items-center md:items-start">
@@ -248,7 +248,7 @@ export function Footer({ contact }: FooterProps) {
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="relative inline-flex items-center gap-2 font-sans text-[13px] sm:text-sm text-charcoal/60 hover:text-charcoal transition-colors duration-200"
+                      className="relative inline-flex items-center gap-2 font-sans text-[13px] sm:text-sm text-parchment/60 hover:text-parchment transition-colors duration-200"
                     >
                       <link.icon size={13} className="absolute -left-5 top-1/2 -translate-y-1/2 md:static md:translate-y-0 text-brand-teal shrink-0" strokeWidth={1.5} />
                       {link.label}
@@ -256,7 +256,7 @@ export function Footer({ contact }: FooterProps) {
                   ) : (
                     <Link
                       href={link.href}
-                      className="relative inline-flex items-center gap-2 font-sans text-[13px] sm:text-sm text-charcoal/60 hover:text-charcoal transition-colors duration-200"
+                      className="relative inline-flex items-center gap-2 font-sans text-[13px] sm:text-sm text-parchment/60 hover:text-parchment transition-colors duration-200"
                     >
                       <link.icon size={13} className="absolute -left-5 top-1/2 -translate-y-1/2 md:static md:translate-y-0 text-brand-teal shrink-0" strokeWidth={1.5} />
                       {link.label}
@@ -269,7 +269,7 @@ export function Footer({ contact }: FooterProps) {
 
           {/* Explore */}
           <div className="w-full text-center md:text-left md:flex-1 md:min-w-0">
-            <h4 className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-charcoal/50 mb-4 sm:mb-5 underline underline-offset-4 decoration-charcoal/20">
+            <h4 className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-parchment/50 mb-4 sm:mb-5 underline underline-offset-4 decoration-parchment/20">
               {tl.footer.explore}
             </h4>
             <ul className="space-y-1.5 flex flex-col items-center md:items-start">
@@ -277,7 +277,7 @@ export function Footer({ contact }: FooterProps) {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="relative inline-flex items-center gap-2 font-sans text-[13px] sm:text-sm text-charcoal/60 hover:text-charcoal transition-colors duration-200"
+                    className="relative inline-flex items-center gap-2 font-sans text-[13px] sm:text-sm text-parchment/60 hover:text-parchment transition-colors duration-200"
                   >
                     <link.icon size={13} className="absolute -left-5 top-1/2 -translate-y-1/2 md:static md:translate-y-0 text-brand-teal shrink-0" strokeWidth={1.5} />
                     {link.label}
@@ -291,21 +291,21 @@ export function Footer({ contact }: FooterProps) {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-charcoal/10">
+      <div className="border-t border-parchment/10">
         <div className="max-w-7xl mx-auto px-6 py-4 sm:py-5 flex flex-col items-center gap-1.5">
           <div className="flex items-center gap-1">
-            <Link href="/privacy" className="font-sans text-[10px] text-charcoal/30 hover:text-charcoal/60 transition-colors duration-200 tracking-wide">
+            <Link href="/privacy" className="font-sans text-[10px] text-parchment/30 hover:text-parchment/60 transition-colors duration-200 tracking-wide">
               {isRu ? "Политика конфиденциальности" : "Privacy Policy"}
             </Link>
-            <span className="text-charcoal/20 text-[10px]">·</span>
-            <Link href="/terms" className="font-sans text-[10px] text-charcoal/30 hover:text-charcoal/60 transition-colors duration-200 tracking-wide">
+            <span className="text-parchment/20 text-[10px]">·</span>
+            <Link href="/terms" className="font-sans text-[10px] text-parchment/30 hover:text-parchment/60 transition-colors duration-200 tracking-wide">
               {isRu ? "Условия использования" : "Terms of Service"}
             </Link>
           </div>
-          <p className="font-sans text-[10px] text-charcoal/20 tracking-wider uppercase">
+          <p className="font-sans text-[10px] text-parchment/20 tracking-wider uppercase">
             Candidasa · Karangasem · Bali
           </p>
-          <p className="font-sans text-[11px] sm:text-xs text-charcoal/30 tracking-wide">
+          <p className="font-sans text-[11px] sm:text-xs text-parchment/30 tracking-wide">
             &copy; {new Date().getFullYear()} {contact.hotelName}. {tl.footer.allRightsReserved}.
           </p>
         </div>
