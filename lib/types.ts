@@ -22,6 +22,7 @@ export interface HeroData {
   ctaHref: string;
   image: string;
   imageMobile?: string;
+  imagePoster?: string;
   imageAlt: string;
   video?: string;
   videoMobile?: string;

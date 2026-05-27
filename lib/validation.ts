@@ -36,6 +36,7 @@ const heroData = z.object({
   ctaHref: z.string(),
   image: z.string(),
   imageMobile: z.string().optional(),
+  imagePoster: z.string().optional(),
   imageAlt: z.string(),
   video: z.string().optional(),
   videoMobile: z.string().optional(),

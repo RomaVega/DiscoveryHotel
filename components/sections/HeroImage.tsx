@@ -71,9 +71,10 @@ export function HeroImage({ hero }: HeroImageProps) {
   return (
     <section className="relative h-[110svh] w-full overflow-hidden bg-black">
       {/* Always-on poster layer. Acts as SSR fallback before isMobile resolves and as the
-          poster the video sits over once it mounts. One <Image> means one LCP fetch. */}
+          poster the video sits over once it mounts. One <Image> means one LCP fetch.
+          isMobile is null on SSR/before layout-effect; falls back to desktop poster. */}
       <Image
-        src={hero.image}
+        src={isMobile && hero.imageMobile ? hero.imageMobile : (hero.imagePoster ?? hero.image)}
         alt={hero.imageAlt}
         fill
         priority
