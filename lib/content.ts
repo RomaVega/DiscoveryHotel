@@ -4,6 +4,12 @@ import type {
   DivingPageData, ExcursionsPageData, EventsPageData, CarRentalPageData,
   AboutPageData, ExperiencesHubData,
 } from "./types";
+import {
+  homePageSchema, contactSchema, reviewsSchema,
+  roomsPageSchema, diningPageSchema, spaPageSchema, transferPageSchema,
+  divingPageSchema, excursionsPageSchema, eventsPageSchema, carRentalPageSchema,
+  aboutPageSchema, experiencesHubSchema,
+} from "./validation";
 
 import homeData from "@/content/home.json";
 import contactData from "@/content/contact.json";
@@ -20,53 +26,53 @@ import aboutData from "@/content/about.json";
 import experiencesData from "@/content/experiences.json";
 
 export function getHomePageData(): HomePageData {
-  return homeData as HomePageData;
+  return homePageSchema.parse(homeData);
 }
 
 export function getContactData(): ContactData {
-  return contactData as ContactData;
+  return contactSchema.parse(contactData);
 }
 
 export function getReviewsData(): ReviewsData {
-  return reviewsData as ReviewsData;
+  return reviewsSchema.parse(reviewsData);
 }
 
 export function getRoomsPageData(): RoomsPageData {
-  return roomsData as RoomsPageData;
+  return roomsPageSchema.parse(roomsData);
 }
 
 export function getDiningPageData(): DiningPageData {
-  return diningData as DiningPageData;
+  return diningPageSchema.parse(diningData);
 }
 
 export function getSpaPageData(): SpaPageData {
-  return spaData as SpaPageData;
+  return spaPageSchema.parse(spaData);
 }
 
 export function getTransferPageData(): TransferPageData {
-  return transferData as TransferPageData;
+  return transferPageSchema.parse(transferData);
 }
 
 export function getDivingPageData(): DivingPageData {
-  return divingData as DivingPageData;
+  return divingPageSchema.parse(divingData);
 }
 
 export function getExcursionsPageData(): ExcursionsPageData {
-  return excursionsData as ExcursionsPageData;
+  return excursionsPageSchema.parse(excursionsData);
 }
 
 export function getEventsPageData(): EventsPageData {
-  return eventsData as EventsPageData;
+  return eventsPageSchema.parse(eventsData);
 }
 
 export function getCarRentalPageData(): CarRentalPageData {
-  return carRentalData as CarRentalPageData;
+  return carRentalPageSchema.parse(carRentalData);
 }
 
 export function getAboutPageData(): AboutPageData {
-  return aboutData as AboutPageData;
+  return aboutPageSchema.parse(aboutData);
 }
 
 export function getExperiencesHubData(): ExperiencesHubData {
-  return experiencesData as ExperiencesHubData;
+  return experiencesHubSchema.parse(experiencesData);
 }

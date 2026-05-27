@@ -232,7 +232,6 @@ export interface SpaProgram {
   description: LocalizedString;
   duration: string;
   price: string;
-  includes: LocalizedString[];
 }
 
 export interface SpaPageData {
@@ -254,13 +253,16 @@ export interface SpaPageData {
 /* ─── Transfer Page ─── */
 export interface TransferRoute {
   destination: LocalizedString;
-  oneWay: string;
-  roundTrip: string;
+  oneWay: string | null;
+  roundTrip: string | null;
+  maxPassengers?: number | null;
+  note?: LocalizedString;
 }
 
 export interface LocalRoute {
   destination: LocalizedString;
   price: string;
+  type?: LocalizedString;
 }
 
 export interface TransferFeature {
