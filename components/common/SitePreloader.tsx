@@ -8,7 +8,7 @@ import { ALL_IMAGES, ALL_ROUTES } from "@/lib/image-manifest";
 const PRIORITY = [
   "/images/welcome/Image.webp",
   "/images/rooms/pool-villa.webp",
-  "/images/rooms/Deluxe Cottage.webp",
+  "/images/rooms/deluxe-cottage.webp",
   "/images/restaurant-bar/orlowsky-hotel-oceanfront-dining-candidasa.webp",
   "/images/experiences/experiences-ayurvedic-spa.webp",
   "/images/experiences/experiences-diving.webp",
