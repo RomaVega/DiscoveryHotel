@@ -49,9 +49,6 @@ export default function HomeRuPage() {
 
   return (
     <>
-      {/* Preload the hero poster (LCP) — see app/page.tsx for rationale. */}
-      <link rel="preload" as="image" href="/images/hero/hero-og.jpg" media="(min-width: 768px)" />
-      <link rel="preload" as="image" href="/images/hero/hero-mobile.webp" media="(max-width: 767px)" />
       <Navbar />
       <main id="main-content">
         <HeroImage hero={data.hero} />

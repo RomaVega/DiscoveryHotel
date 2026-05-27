@@ -42,9 +42,9 @@ export function HeroImage({ hero }: HeroImageProps) {
   const { t, tl } = useLanguage();
 
   // Measure all title lines, find the widest, then stretch the narrower ones via letter-spacing.
+  // Must wait for the serif webfont — measuring against fallback-font metrics produces wrong widths.
   useLayoutEffect(() => {
     const sync = () => {
-      // Reset all including line3 to clear any residual inline style
       [line1Ref, line2Ref, line3Ref].forEach(r => { if (r.current) r.current.style.letterSpacing = ""; });
       const refs = [line1Ref, line2Ref].map(r => r.current).filter(Boolean) as HTMLSpanElement[];
       const widths = refs.map(el => el.getBoundingClientRect().width);
@@ -55,7 +55,7 @@ export function HeroImage({ hero }: HeroImageProps) {
         if (diff > 0 && chars > 0) el.style.letterSpacing = `${diff / chars}px`;
       });
     };
-    sync();
+    document.fonts?.ready.then(sync).catch(() => sync());
     window.addEventListener("resize", sync);
     return () => window.removeEventListener("resize", sync);
   }, []);
@@ -69,45 +69,30 @@ export function HeroImage({ hero }: HeroImageProps) {
   };
 
   return (
-    <section className="relative h-[115svh] md:h-[110vh] w-full overflow-hidden bg-black">
-      {hero.video ? (
-        // Only the matching clip is mounted (after we know the viewport), so a single video
-        // loads — no mobile+desktop contention. The poster image below shows until it plays.
-        isMobile !== null && (
-          <video
-            key={isMobile ? "m" : "d"}
-            ref={videoRef}
-            autoPlay muted loop playsInline preload="auto"
-            poster={`${BASE_PATH}${isMobile && hero.imageMobile ? hero.imageMobile : hero.image}`}
-            className="absolute inset-0 h-full w-full object-cover"
-          >
-            <source
-              src={`${BASE_PATH}${isMobile && hero.videoMobile ? hero.videoMobile : hero.video}`}
-              type="video/mp4"
-            />
-          </video>
-        )
-      ) : (
-        <Image
-          src={hero.image}
-          alt={hero.imageAlt}
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
-      )}
+    <section className="relative h-[110svh] w-full overflow-hidden bg-black">
+      {/* Always-on poster layer. Acts as SSR fallback before isMobile resolves and as the
+          poster the video sits over once it mounts. One <Image> means one LCP fetch. */}
+      <Image
+        src={hero.image}
+        alt={hero.imageAlt}
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover"
+      />
 
-      {/* Fallback image for video poster */}
-      {hero.video && (
-        <Image
-          src={hero.image}
-          alt={hero.imageAlt}
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover -z-10"
-        />
+      {hero.video && isMobile !== null && (
+        <video
+          key={isMobile ? "m" : "d"}
+          ref={videoRef}
+          autoPlay muted loop playsInline preload="auto"
+          className="absolute inset-0 h-full w-full object-cover"
+        >
+          <source
+            src={`${BASE_PATH}${isMobile && hero.videoMobile ? hero.videoMobile : hero.video}`}
+            type="video/mp4"
+          />
+        </video>
       )}
 
       {/* Soft cinematic gradient overlay */}
@@ -115,7 +100,7 @@ export function HeroImage({ hero }: HeroImageProps) {
 
       {/* Content — fades in on mount, disappears instantly on scroll */}
       <div
-        className={`relative z-10 flex h-[100svh] md:h-[100vh] flex-col items-center justify-center px-6 text-center text-white ${!scrolled ? "transition-opacity duration-500" : ""} ${scrolled || !appeared ? "opacity-0 pointer-events-none" : "opacity-100"}`}
+        className={`relative z-10 flex h-[100svh] flex-col items-center justify-center px-6 text-center text-white ${!scrolled ? "transition-opacity duration-500" : ""} ${scrolled || !appeared ? "opacity-0 pointer-events-none" : "opacity-100"}`}
       >
         {/* Logo */}
         <Image

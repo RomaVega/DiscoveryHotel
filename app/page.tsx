@@ -29,10 +29,6 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Preload the hero poster (LCP) — it sits on <video poster=> which the browser's
-          preload scanner can't discover. Media queries fetch only the matching one. */}
-      <link rel="preload" as="image" href="/images/hero/hero-og.jpg" media="(min-width: 768px)" />
-      <link rel="preload" as="image" href="/images/hero/hero-mobile.webp" media="(max-width: 767px)" />
       <Navbar />
       <main id="main-content">
         <HeroImage hero={data.hero} />
