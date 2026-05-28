@@ -36,6 +36,38 @@ export function HeroImage({ hero }: HeroImageProps) {
   useLayoutEffect(() => {
     setIsMobile(window.matchMedia("(max-width: 767px)").matches);
   }, []);
+
+  // Wait for the decoder to actually present ~6 frames before revealing, so the GPU/decoder
+  // pipeline is hot when the video becomes visible. A short fade-in masks the small (~200ms)
+  // position discontinuity between the poster (frame 0) and the now-warm video (frame ~6).
+  // Mutate opacity via DOM ref to avoid a React re-render at the critical moment.
+  // Note: we do NOT seek back to 0 here — seeking flushes the decoder pipeline and undoes the warmup.
+  useEffect(() => {
+    if (isMobile === null) return;
+    const v = videoRef.current;
+    if (!v) return;
+    let revealed = false;
+    let handle = 0;
+    const reveal = () => {
+      if (revealed) return;
+      revealed = true;
+      v.style.opacity = "1";
+    };
+    const timer = setTimeout(reveal, 2500); // safety fallback for browsers without rVFC
+    if (typeof v.requestVideoFrameCallback === "function") {
+      let count = 0;
+      const cb = () => {
+        count++;
+        if (count >= 6) reveal();
+        else handle = v.requestVideoFrameCallback(cb);
+      };
+      handle = v.requestVideoFrameCallback(cb);
+    }
+    return () => {
+      clearTimeout(timer);
+      if (handle && typeof v.cancelVideoFrameCallback === "function") v.cancelVideoFrameCallback(handle);
+    };
+  }, [isMobile]);
   const line1Ref = useRef<HTMLSpanElement>(null);
   const line2Ref = useRef<HTMLSpanElement>(null);
   const line3Ref = useRef<HTMLSpanElement>(null);
@@ -87,7 +119,8 @@ export function HeroImage({ hero }: HeroImageProps) {
           key={isMobile ? "m" : "d"}
           ref={videoRef}
           autoPlay muted loop playsInline preload="auto"
-          className="absolute inset-0 h-full w-full object-cover"
+          style={{ opacity: 0, willChange: "opacity", transform: "translateZ(0)" }}
+          className="absolute inset-0 h-full w-full object-cover transition-opacity duration-200"
         >
           <source
             src={`${BASE_PATH}${isMobile && hero.videoMobile ? hero.videoMobile : hero.video}`}
@@ -99,8 +132,12 @@ export function HeroImage({ hero }: HeroImageProps) {
       {/* Soft cinematic gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/20" />
 
-      {/* Content — fades in on mount, disappears instantly on scroll */}
+      {/* Content — fades in on mount, disappears instantly on scroll.
+          will-change + translateZ promote the overlay to its own GPU layer up-front, so the
+          fade-in is pure compositor work and doesn't contend with the video decoder's HW
+          acceleration kick-in (which happens in the same ~500ms window). */}
       <div
+        style={{ willChange: "opacity", transform: "translateZ(0)" }}
         className={`relative z-10 flex h-[100svh] flex-col items-center justify-center px-6 text-center text-white ${!scrolled ? "transition-opacity duration-500" : ""} ${scrolled || !appeared ? "opacity-0 pointer-events-none" : "opacity-100"}`}
       >
         {/* Logo */}

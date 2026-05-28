@@ -69,6 +69,7 @@ export const ALL_IMAGES: readonly string[] = [
   "/images/gallery/orlowsky-hotel-two-story-villa-private-pool.webp",
   "/images/gallery/orlowsky-hotel-villa-living-room-ocean-view.webp",
   "/images/gallery/orlowsky-hotel-yoga-platform-ocean.webp",
+  "/images/hero/hero-desktop-poster.webp",
   "/images/hero/hero-mobile.webp",
   "/images/hero/hero-og.jpg",
   "/images/honeymoon/honeymoon.webp",
