@@ -46,6 +46,7 @@ export function WhatsAppButton({ phone, greeting, contacts, alwaysVisible = fals
   useEffect(() => {
     if (alwaysVisible) return;
     const onScroll = () => setScrolled(window.scrollY > 400);
+    onScroll(); // sync initial state on reload
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, [alwaysVisible]);

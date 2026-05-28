@@ -27,6 +27,7 @@ export function HeroImage({ hero }: HeroImageProps) {
   // Two-way: hide content on scroll down, restore on scroll back to top
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 1);
+    onScroll(); // sync initial state on reload
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);

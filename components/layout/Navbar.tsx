@@ -1,6 +1,6 @@
 "use client"; // Uses useState, scroll listener, usePathname
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
@@ -44,6 +44,7 @@ function BrandLogo({ onClick }: { onClick?: () => void }) {
 export function Navbar({ alwaysVisible = false, scrollThreshold = 80 }: NavbarProps) {
   const [scrolled, setScrolled] = useState(alwaysVisible);
   const [menuOpen, setMenuOpen] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
   const { tl } = useLanguage();
   const pathname = usePathname();
 
@@ -59,9 +60,34 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80 }: NavbarPr
   useEffect(() => {
     if (alwaysVisible) { setScrolled(true); return; }
     const onScroll = () => setScrolled(window.scrollY > scrollThreshold);
+    onScroll(); // sync initial state — on reload the page may already be scrolled past the threshold
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, [alwaysVisible, scrollThreshold]);
+
+  // Scroll-locked footer push: every scroll tick writes an instant transform so the footer
+  // pixel-locks the navbar. The slide-down entrance is a CSS keyframe animation applied via
+  // className when `scrolled` is true — animations override inline transform during their run,
+  // so the push and the entrance don't race for the same property.
+  useEffect(() => {
+    const footer = document.querySelector("footer");
+    const header = headerRef.current;
+    if (!footer || !header) return;
+    let rafId = 0;
+    const update = () => {
+      const navH = header.offsetHeight || 64;
+      const footerTop = footer.getBoundingClientRect().top;
+      const push = Math.max(0, Math.min(navH, navH - footerTop));
+      header.style.transform = `translateY(-${push}px)`;
+    };
+    const onScroll = () => { rafId = requestAnimationFrame(update); };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    update(); // sync on mount in case page loads near footer
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(rafId);
+    };
+  }, []);
 
   useEffect(() => {
     if (menuOpen) {
@@ -91,11 +117,12 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80 }: NavbarPr
   return (
     <>
       <header
+        ref={headerRef}
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)]",
+          "fixed top-0 left-0 right-0 z-50 transition-[background-color,opacity,box-shadow] duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)]",
           scrolled
-            ? "bg-parchment shadow-sm opacity-100 translate-y-0"
-            : "lg:opacity-0 lg:-translate-y-3 lg:pointer-events-none pointer-events-auto"
+            ? "bg-parchment shadow-sm opacity-100"
+            : "lg:opacity-0 lg:pointer-events-none pointer-events-auto"
         )}
       >
         <a
