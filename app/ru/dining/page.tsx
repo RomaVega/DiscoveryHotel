@@ -34,6 +34,7 @@ export default function DiningRuPage() {
         imageAlt="Oceanfront restaurant at Orlowsky Discovery Hotel"
         heading={data.heading}
         subtext={data.subtext}
+        noOverlay
       />
       <DiningDetail data={data} />
     </InnerPageLayout>

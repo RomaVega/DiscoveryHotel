@@ -34,6 +34,7 @@ export default function SpaRuPage() {
         imageAlt={data.imageAlt}
         heading={data.heading}
         subtext={data.subtext}
+        noOverlay
       />
       <SpaDetail data={data} />
     </InnerPageLayout>

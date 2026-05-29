@@ -34,6 +34,7 @@ export default function GalleryRuPage() {
         imageAlt="Aerial view of hotel and tropical gardens"
         heading={data.galleryPreview.heading}
         subtext={data.galleryPreview.subtext}
+        noOverlay
       />
       <GalleryPreview data={data.galleryPreview} defaultExpanded hideHeading />
     </InnerPageLayout>

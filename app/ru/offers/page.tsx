@@ -34,6 +34,7 @@ export default function OffersRuPage() {
         imageAlt="Hotel pool at sunrise"
         heading={data.offers.heading}
         subtext={{ en: "Book direct for early bird rates, honeymoon packages, and other exclusive deals at Orlowsky Discovery Hotel, Candidasa, Bali.", ru: "Бронируйте напрямую — ранние цены, медовый месяц и другие эксклюзивные предложения в отеле Orlowsky Discovery, Кандидаса, Бали." }}
+        noOverlay
       />
       <SpecialOffers data={data.offers} hideHeading />
     </InnerPageLayout>

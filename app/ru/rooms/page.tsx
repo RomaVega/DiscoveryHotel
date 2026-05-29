@@ -34,6 +34,7 @@ export default function RoomsRuPage() {
         imageAlt="Aerial view of pool villas surrounded by tropical gardens"
         heading={data.heading}
         subtext={data.subtext}
+        noOverlay
       />
       <RoomsDetail data={data} />
     </InnerPageLayout>

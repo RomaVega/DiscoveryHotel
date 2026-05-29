@@ -35,6 +35,7 @@ export default function ExperiencesRuPage() {
         imageAlt="Lush green rice terraces in East Bali"
         heading={data.heading}
         subtext={data.subtext}
+        noOverlay
       />
       <ExperiencesHub data={data} />
     </InnerPageLayout>
