@@ -43,53 +43,49 @@ export function DiningPreview() {
             heading={isRu ? "Ресторан на берегу океана" : "Oceanfront Dining"}
           />
 
-          {/* Slideshow */}
-          <RoomSlideshow
-            images={SLIDES}
-            className="w-full aspect-[16/9] mb-8 rounded-md overflow-hidden"
-            sizes="(max-width: 896px) 100vw, 896px"
-            autoAdvanceMs={4000}
-          />
+          {/* Slideshow + two CTA cards share one continuous white rounded frame */}
+          <div className="bg-white rounded-md overflow-hidden">
+            <RoomSlideshow
+              images={SLIDES}
+              className="w-full aspect-[16/9]"
+              sizes="(max-width: 896px) 100vw, 896px"
+              autoAdvanceMs={4000}
+            />
+            <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-charcoal/10">
 
-          {/* Two cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-charcoal/10 border border-charcoal/10">
-
-            {/* Book a Table */}
-            <div className="p-6 md:p-8 flex flex-col items-center gap-4 text-center">
-              <UtensilsCrossed size={18} className="text-brand-teal" />
-              <div>
-                <h3 className="font-serif text-xl font-light text-charcoal">
+              {/* Book a Table */}
+              <div className="p-6 md:p-8 flex flex-col items-center text-center gap-3">
+                <UtensilsCrossed size={18} className="text-brand-teal" />
+                <h3 className="font-serif text-xl md:text-2xl font-light text-charcoal">
                   {isRu ? "Забронировать столик" : "Book a Table"}
                 </h3>
-                <p className="text-stone text-xs mt-1 leading-relaxed">
+                <p className="text-stone text-sm leading-relaxed">
                   {isRu
-                    ? <>Свежие морепродукты и балийская кухня у моря.<br />Открыто ежедневно 07:00–22:00.</>
-                    : <>Fresh seafood and Balinese cuisine by the sea.<br />Open daily 07:00–22:00.</>}
+                    ? "Свежие морепродукты и балийская кухня у моря. Открыто ежедневно 07:00–22:00."
+                    : "Fresh seafood and Balinese cuisine by the sea. Open daily 07:00–22:00."}
                 </p>
+                <SecondaryButton href={tableUrl} external className="mt-auto">
+                  {isRu ? "Написать в WhatsApp" : "Book via WhatsApp"}
+                </SecondaryButton>
               </div>
-              <SecondaryButton href={tableUrl} external className="mt-auto">
-                {isRu ? "Написать в WhatsApp" : "Book via WhatsApp"}
-              </SecondaryButton>
-            </div>
 
-            {/* Room Dining */}
-            <div className="p-6 md:p-8 flex flex-col items-center gap-4 text-center">
-              <ShoppingBag size={18} className="text-brand-teal" />
-              <div>
-                <h3 className="font-serif text-xl font-light text-charcoal">
+              {/* Room Dining */}
+              <div className="p-6 md:p-8 flex flex-col items-center text-center gap-3">
+                <ShoppingBag size={18} className="text-brand-teal" />
+                <h3 className="font-serif text-xl md:text-2xl font-light text-charcoal">
                   {isRu ? "Доставка в номер" : "Room Dining"}
                 </h3>
-                <p className="text-stone text-xs mt-1 leading-relaxed">
+                <p className="text-stone text-sm leading-relaxed">
                   {isRu
-                    ? <>Закажите еду прямо в номер.<br />Онлайн-заказ доступен в любое время.</>
-                    : <>Order food directly to your room.<br />Available online at any time.</>}
+                    ? "Закажите еду прямо в номер. Доступно ежедневно в часы работы кухни."
+                    : "Order food directly to your room. Available daily during kitchen hours."}
                 </p>
+                <SecondaryButton href={roomUrl} external className="mt-auto">
+                  {isRu ? "Заказать онлайн" : "Order Online"}
+                </SecondaryButton>
               </div>
-              <SecondaryButton href={roomUrl} external className="mt-auto">
-                {isRu ? "Заказать онлайн" : "Order Online"}
-              </SecondaryButton>
-            </div>
 
+            </div>
           </div>
 
         </div>
