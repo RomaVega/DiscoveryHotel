@@ -159,7 +159,7 @@
       },
       {
         "title": {
-          "en": "Three Bedrooms Pool Villa",
+          "en": "Three Bedroom Pool Villa",
           "ru": "Вилла с тремя спальнями и бассейном"
         },
         "description": {
@@ -167,7 +167,7 @@
           "ru": "Просторная вилла с тремя спальнями и собственным бассейном."
         },
         "image": "/images/rooms/pool-villa.webp",
-        "imageAlt": "Three Bedrooms Pool Villa at Orlowsky Discovery Hotel",
+        "imageAlt": "Three Bedroom Pool Villa at Orlowsky Discovery Hotel",
         "images": [
           {
             "src": "/images/three-bedrooms-pool-villa/14459259.webp",
@@ -271,7 +271,7 @@
           },
           {
             "src": "/images/three-bedrooms-pool-villa/443798431.webp",
-            "alt": "Pool Villa two-storey exterior with pool and tropical garden"
+            "alt": "Pool Villa two-story exterior with pool and tropical garden"
           },
           {
             "src": "/images/three-bedrooms-pool-villa/450186507.webp",
@@ -287,7 +287,7 @@
           },
           {
             "src": "/images/three-bedrooms-pool-villa/87366051.webp",
-            "alt": "Pool Villa two-storey exterior with pool amid tropical foliage"
+            "alt": "Pool Villa two-story exterior with pool amid tropical foliage"
           },
           {
             "src": "/images/three-bedrooms-pool-villa/87492960.webp",
@@ -485,7 +485,7 @@
         "icon": "Package",
         "title": {
           "en": "Minibar",
-          "ru": "Мини-бар"
+          "ru": "Минибар"
         },
         "description": ""
       },
@@ -601,8 +601,8 @@
           "ru": "Туры и активности на Бали"
         },
         "description": {
-          "en": "169 curated tours — island hopping, volcano treks, snorkeling, cycling and more",
-          "ru": "169 туров — острова, вулканы, снорклинг, велосипеды и многое другое"
+          "en": "169 curated tours — island hopping, volcano treks, snorkeling, cycling, and more",
+          "ru": "169 туров — острова, вулканы, снорклинг, велопрогулки и многое другое"
         },
         "image": "/images/experiences/experiences-tours-activities-bali.webp",
         "imageAlt": "Bali tours and activities",
@@ -677,7 +677,7 @@
       },
       {
         "src": "/images/gallery/orlowsky-hotel-two-story-villa-private-pool.webp",
-        "alt": "Two-storey villa with private pool at Orlowsky Discovery Hotel, Candidasa"
+        "alt": "Two-story villa with private pool at Orlowsky Discovery Hotel, Candidasa"
       },
       {
         "src": "/images/gallery/orlowsky-hotel-garden-villa-pool-view.webp",

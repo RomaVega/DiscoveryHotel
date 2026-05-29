@@ -119,7 +119,7 @@
           "ru": "Рыбалка"
         },
         "description": {
-          "en": "Head out to sea with local fishermen for a 3 to 6 hour fishing adventure in the rich waters off East Bali's coast.",
+          "en": "Head out to sea with local fishermen for a 3- to 6-hour fishing adventure in the rich waters off East Bali's coast.",
           "ru": "Выходите в море с местными рыбаками на 3–6-часовую рыбалку в богатых водах у побережья Восточного Бали."
         },
         "duration": {
@@ -267,7 +267,7 @@
         },
         "description": {
           "en": "Explore Kuta Beach, shop at famous surf boutiques and malls, and enjoy the vibrant nightlife of southern Bali.",
-          "ru": "Исследуйте пляж Куты, шоппинг в знаменитых сёрф-бутиках и торговых центрах, и насладитесь яркой ночной жизнью южного Бали."
+          "ru": "Исследуйте пляж Куты, пройдитесь по знаменитым сёрф-бутикам и торговым центрам и насладитесь яркой ночной жизнью южного Бали."
         },
         "price": "IDR 750,000 – 985,000"
       },
@@ -334,8 +334,8 @@
       "ru": "Готовы Забронировать?"
     },
     "subtext": {
-      "en": "Contact us to arrange your experience. We respond within 5-10 minutes during business hours.",
-      "ru": "Свяжитесь с нами, чтобы организовать ваш опыт. Мы отвечаем в течение 5–10 минут в рабочее время."
+      "en": "Contact us to arrange your trip. We respond within 5–10 minutes during business hours.",
+      "ru": "Свяжитесь с нами, чтобы организовать вашу поездку. Мы отвечаем в течение 5–10 минут в рабочее время."
     },
     "bookingUrl": "https://secure.guestpro.net/odch",
     "fallbackCta": {

@@ -18,7 +18,7 @@
         "ru": "Вилла с тремя спальнями и бассейном"
       },
       "description": {
-        "en": "A spacious two-storey villa with private entrance, three en-suite bedrooms each featuring an extra-large double bed, three bathrooms with bathtub and shower, two living areas, and a fully equipped kitchen. Enjoy your own private swimming pool with stunning ocean and garden views. Fully air-conditioned, complete with a terrace, minibar, flat-screen TV, and daily housekeeping.",
+        "en": "A spacious two-story villa with private entrance, three en-suite bedrooms each featuring an extra-large double bed, three bathrooms with bathtub and shower, two living areas, and a fully equipped kitchen. Enjoy your own private swimming pool with stunning ocean and garden views. Fully air-conditioned, complete with a terrace, minibar, flat-screen TV, and daily housekeeping.",
         "ru": "Просторная двухэтажная вилла с отдельным входом, тремя спальнями с двуспальными кроватями большого размера и собственными ванными комнатами, двумя гостиными и полностью оборудованной кухней. Наслаждайтесь собственным бассейном с захватывающим видом на океан и сад. Кондиционер во всех помещениях, терраса, минибар, телевизор с плоским экраном и ежедневная уборка."
       },
       "size": "135",
@@ -265,7 +265,7 @@
         {
           "src": "/images/three-bedrooms-pool-villa/443798431.webp",
           "alt": {
-            "en": "Pool Villa two-storey exterior with pool and tropical garden",
+            "en": "Pool Villa two-story exterior with pool and tropical garden",
             "ru": "Двухэтажный фасад виллы с бассейном и тропическим садом"
           }
         },
@@ -293,7 +293,7 @@
         {
           "src": "/images/three-bedrooms-pool-villa/87366051.webp",
           "alt": {
-            "en": "Pool Villa two-storey exterior with pool amid tropical foliage",
+            "en": "Pool Villa two-story exterior with pool amid tropical foliage",
             "ru": "Двухэтажная вилла с бассейном среди тропической зелени"
           }
         },
@@ -482,7 +482,7 @@
           "ru": "Минибар"
         },
         {
-          "en": "Free WiFi",
+          "en": "Free Wi-Fi",
           "ru": "Бесплатный Wi-Fi"
         }
       ]
@@ -866,7 +866,7 @@
           "ru": "Минибар"
         },
         {
-          "en": "Free WiFi",
+          "en": "Free Wi-Fi",
           "ru": "Бесплатный Wi-Fi"
         }
       ]

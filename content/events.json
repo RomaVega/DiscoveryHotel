@@ -104,8 +104,8 @@
       "ru": "Готовы Забронировать?"
     },
     "subtext": {
-      "en": "Contact us to arrange your experience. We respond within 5-10 minutes during business hours.",
-      "ru": "Свяжитесь с нами, чтобы организовать ваш опыт. Мы отвечаем в течение 5–10 минут в рабочее время."
+      "en": "Contact us to arrange your event. We respond within 5–10 minutes during business hours.",
+      "ru": "Свяжитесь с нами, чтобы организовать ваше мероприятие. Мы отвечаем в течение 5–10 минут в рабочее время."
     },
     "bookingUrl": "https://secure.guestpro.net/odch",
     "fallbackCta": {
