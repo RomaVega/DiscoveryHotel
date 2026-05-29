@@ -24,12 +24,23 @@ export function HeroImage({ hero }: HeroImageProps) {
     return () => cancelAnimationFrame(id);
   }, []);
 
-  // Two-way: hide content on scroll down, restore on scroll back to top
+  // Hide content as soon as the page leaves scrollY 0; restore only after the user
+  // has been back at the top for ~250ms. The delay absorbs iOS overscroll bounces
+  // and URL-bar collapse twitches that briefly report scrollY === 0 mid-scroll —
+  // without it, the 500ms fade-in re-triggers and the content visibly reappears.
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 1);
+    let showTimer = 0;
+    const onScroll = () => {
+      clearTimeout(showTimer);
+      if (window.scrollY > 0) setScrolled(true);
+      else showTimer = window.setTimeout(() => setScrolled(false), 250);
+    };
     onScroll(); // sync initial state on reload
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      clearTimeout(showTimer);
+    };
   }, []);
   const videoRef = useRef<HTMLVideoElement>(null);
   // Render only the device-appropriate video so we never download both clips at once.
