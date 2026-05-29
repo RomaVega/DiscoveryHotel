@@ -302,9 +302,6 @@ export function Footer({ contact }: FooterProps) {
               {isRu ? "Условия использования" : "Terms of Service"}
             </Link>
           </div>
-          <p className="font-sans text-[10px] text-parchment/20 tracking-wider uppercase">
-            Candidasa · Karangasem · Bali
-          </p>
           <p className="font-sans text-[11px] sm:text-xs text-parchment/30 tracking-wide">
             &copy; {new Date().getFullYear()} {contact.hotelName}. {tl.footer.allRightsReserved}.
           </p>
