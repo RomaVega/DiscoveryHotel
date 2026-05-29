@@ -33,3 +33,17 @@
   for = "/*.woff2"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+# Domain aliases → canonical orlowsky.id (preserves path + query via :splat).
+# force = true so the rule wins over any path-only rule.
+[[redirects]]
+  from = "https://orlowskyhotel.com/*"
+  to = "https://orlowsky.id/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://orlowskybali.id/*"
+  to = "https://orlowsky.id/:splat"
+  status = 301
+  force = true
