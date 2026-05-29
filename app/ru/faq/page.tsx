@@ -3,6 +3,7 @@ import { getContactData } from "@/lib/content";
 import { InnerPageLayout } from "@/components/layout/InnerPageLayout";
 import { PageHero } from "@/components/sections/PageHero";
 import { FaqDetail } from "@/components/sections/FaqDetail";
+import { JsonLd, breadcrumbs, faqPage } from "@/lib/jsonld";
 
 export const metadata = {
   title: "Часто Задаваемые Вопросы — Orlowsky Discovery Hotel, Бали",
@@ -30,6 +31,13 @@ export default function FaqRuPage() {
 
   return (
     <InnerPageLayout contact={contact}>
+      <JsonLd data={[
+        faqPage(data.items, "ru"),
+        breadcrumbs([
+          { name: "Главная", path: "/ru" },
+          { name: "Вопросы и Ответы", path: "/ru/faq" },
+        ]),
+      ]} />
       <PageHero
         image="/images/gallery/orlowsky-hotel-pool-terrace-ocean.webp"
         imageAlt="Hotel lobby and reception area"

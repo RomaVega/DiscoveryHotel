@@ -3,6 +3,7 @@ import { getContactData } from "@/lib/content";
 import { InnerPageLayout } from "@/components/layout/InnerPageLayout";
 import { PageHero } from "@/components/sections/PageHero";
 import { CarRentalDetail } from "@/components/sections/CarRentalDetail";
+import { JsonLd, breadcrumbs, service } from "@/lib/jsonld";
 
 export const metadata = {
   title: "Аренда Авто и Мотоцикла на Бали — Orlowsky Discovery Hotel, Кандидаса",
@@ -30,6 +31,22 @@ export default function CarRentalRuPage() {
 
   return (
     <InnerPageLayout contact={contact}>
+      <JsonLd data={[
+        service({
+          path: "/ru/experiences/car-rental",
+          name: "Аренда авто и мотоцикла в Кандидасе, Восточный Бали",
+          description: "Аренда скутера, автомобиля с водителем или без, и электровелосипедов в Кандидасе. Доставка к отелю и обратно.",
+          image: `${SITE_URL}/images/rental/rental.webp`,
+          serviceType: "Vehicle Rental",
+          category: "Транспорт",
+          locale: "ru",
+        }),
+        breadcrumbs([
+          { name: "Главная", path: "/ru" },
+          { name: "Впечатления", path: "/ru/experiences" },
+          { name: "Аренда транспорта", path: "/ru/experiences/car-rental" },
+        ]),
+      ]} />
       <PageHero
         image="/images/rental/rental.webp"
         imageAlt="Scooter on a scenic Bali road"

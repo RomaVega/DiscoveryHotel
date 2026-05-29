@@ -3,6 +3,7 @@ import { getHomePageData, getContactData } from "@/lib/content";
 import { InnerPageLayout } from "@/components/layout/InnerPageLayout";
 import { PageHero } from "@/components/sections/PageHero";
 import { SpecialOffers } from "@/components/sections/SpecialOffers";
+import { JsonLd, breadcrumbs, webPage } from "@/lib/jsonld";
 
 export const metadata = {
   title: "Спецпредложения и Скидки — Orlowsky Discovery Hotel, Бали",
@@ -29,6 +30,20 @@ export default function OffersRuPage() {
 
   return (
     <InnerPageLayout contact={contact}>
+      <JsonLd data={[
+        webPage({
+          path: "/ru/offers",
+          name: "Спецпредложения и пакеты — Orlowsky Discovery Hotel, Бали",
+          description: "Ранние тарифы, пакеты для молодожёнов и скидки за длительное проживание в Orlowsky Discovery Hotel, Кандидаса, Восточный Бали.",
+          image: `${SITE_URL}/images/offers/early-bird.webp`,
+          locale: "ru",
+          type: "CollectionPage",
+        }),
+        breadcrumbs([
+          { name: "Главная", path: "/ru" },
+          { name: "Спецпредложения", path: "/ru/offers" },
+        ]),
+      ]} />
       <PageHero
         image="/images/offers/early-bird.webp"
         imageAlt="Hotel pool at sunrise"

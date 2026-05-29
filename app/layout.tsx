@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     canonical: "/",
     languages: {
       "en": `${SITE_URL}/`,
-      "ru": `${SITE_URL}/`,
+      "ru": `${SITE_URL}/ru`,
       "x-default": `${SITE_URL}/`,
     },
   },
@@ -95,6 +95,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Hotel",
+              "@id": `${SITE_URL}/#hotel`,
               "name": SITE_NAME,
               "description": description,
               "url": SITE_URL,

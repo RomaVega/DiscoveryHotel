@@ -3,6 +3,7 @@ import { getContactData } from "@/lib/content";
 import { InnerPageLayout } from "@/components/layout/InnerPageLayout";
 import { PageHero } from "@/components/sections/PageHero";
 import { EventsDetail } from "@/components/sections/EventsDetail";
+import { JsonLd, breadcrumbs, service } from "@/lib/jsonld";
 
 export const metadata = {
   title: "Свадьбы и Мероприятия на Бали — Orlowsky Discovery Hotel, Кандидаса",
@@ -30,6 +31,22 @@ export default function EventsRuPage() {
 
   return (
     <InnerPageLayout contact={contact}>
+      <JsonLd data={[
+        service({
+          path: "/ru/experiences/events",
+          name: "Мероприятия и торжества — площадка на берегу океана в Кандидасе",
+          description: "Свадьбы, юбилеи, корпоративные мероприятия и приватные ужины на нашей площадке у океана. До 200 гостей.",
+          image: `${SITE_URL}/images/experiences/experiences-events.webp`,
+          serviceType: "Event Venue",
+          category: "Организация мероприятий",
+          locale: "ru",
+        }),
+        breadcrumbs([
+          { name: "Главная", path: "/ru" },
+          { name: "Впечатления", path: "/ru/experiences" },
+          { name: "Мероприятия", path: "/ru/experiences/events" },
+        ]),
+      ]} />
       <PageHero
         image="/images/experiences/experiences-events.webp"
         imageAlt="Elegant outdoor event setup with ocean backdrop"

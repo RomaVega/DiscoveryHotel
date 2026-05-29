@@ -3,6 +3,7 @@ import { getContactData } from "@/lib/content";
 import { InnerPageLayout } from "@/components/layout/InnerPageLayout";
 import { PageHero } from "@/components/sections/PageHero";
 import { ExperiencesHub } from "@/components/sections/ExperiencesHub";
+import { JsonLd, breadcrumbs, webPage } from "@/lib/jsonld";
 
 export const metadata = {
   title: "Впечатления в Восточном Бали — Храмы, Вулканы, Дайвинг и Спа | Orlowsky Discovery",
@@ -30,6 +31,20 @@ export default function ExperiencesRuPage() {
 
   return (
     <InnerPageLayout contact={contact}>
+      <JsonLd data={[
+        webPage({
+          path: "/ru/experiences",
+          name: "Впечатления в Восточном Бали — экскурсии, дайвинг, спа",
+          description: "Экскурсии к храмам, треккинг к вулканам, дайвинг в Туламбене и Нуса-Пениде, аюрведический спа и аренда авто из отеля Orlowsky Discovery.",
+          image: `${SITE_URL}/images/experiences/experiences-excursions.webp`,
+          locale: "ru",
+          type: "CollectionPage",
+        }),
+        breadcrumbs([
+          { name: "Главная", path: "/ru" },
+          { name: "Впечатления", path: "/ru/experiences" },
+        ]),
+      ]} />
       <PageHero
         image="/images/experiences/experiences-excursions.webp"
         imageAlt="Lush green rice terraces in East Bali"

@@ -3,12 +3,18 @@ import { InnerPageLayout } from "@/components/layout/InnerPageLayout";
 import { PageHero } from "@/components/sections/PageHero";
 import { WeddingsDetail } from "@/components/sections/WeddingsDetail";
 import { SITE_URL } from "@/lib/site";
+import { JsonLd, breadcrumbs, service } from "@/lib/jsonld";
 
 export const metadata = {
   title: "Destination Weddings in Bali — Candidasa Oceanfront | Orlowsky Discovery",
   description: "Beachfront wedding venue in Candidasa, East Bali. European and traditional Balinese ceremonies, full catering, accommodation, and transfers at Orlowsky Discovery Hotel.",
   alternates: {
     canonical: `${SITE_URL}/weddings`,
+    languages: {
+      "en": `${SITE_URL}/weddings`,
+      "ru": `${SITE_URL}/ru/weddings`,
+      "x-default": `${SITE_URL}/weddings`,
+    },
   },
   openGraph: {
     title: "Destination Weddings in Bali — Candidasa Oceanfront | Orlowsky Discovery",
@@ -25,6 +31,21 @@ export default function WeddingsPage() {
 
   return (
     <InnerPageLayout contact={contact}>
+      <JsonLd data={[
+        service({
+          path: "/weddings",
+          name: "Destination Weddings in Bali — Candidasa Oceanfront",
+          description: "Beachfront wedding venue in Candidasa, East Bali. European and traditional Balinese ceremonies, full catering, accommodation, and transfers.",
+          image: `${SITE_URL}/images/experiences/experiences-events.webp`,
+          serviceType: "Wedding Venue",
+          category: "Event Venue",
+          locale: "en",
+        }),
+        breadcrumbs([
+          { name: "Home", path: "/" },
+          { name: "Weddings", path: "/weddings" },
+        ]),
+      ]} />
       <PageHero
         image="/images/experiences/experiences-events.webp"
         imageAlt="Oceanfront wedding ceremony setup in Bali"

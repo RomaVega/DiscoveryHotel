@@ -4,12 +4,18 @@ import { PageHero } from "@/components/sections/PageHero";
 import { LocationDetail } from "@/components/sections/LocationDetail";
 import { MapLocation } from "@/components/sections/MapLocation";
 import { SITE_URL } from "@/lib/site";
+import { JsonLd, breadcrumbs, place } from "@/lib/jsonld";
 
 export const metadata = {
   title: "Location — Candidasa, Karangasem, East Bali | Orlowsky Discovery",
   description: "Orlowsky Discovery Hotel is on the quiet seafront of Candidasa, 1.5 hours from Bali Airport. Near Besakih Temple, Tirta Gangga, Amed, and Tulamben dive sites.",
   alternates: {
     canonical: `${SITE_URL}/location`,
+    languages: {
+      "en": `${SITE_URL}/location`,
+      "ru": `${SITE_URL}/ru/location`,
+      "x-default": `${SITE_URL}/location`,
+    },
   },
   openGraph: {
     title: "Location — Candidasa, Karangasem, East Bali | Orlowsky Discovery",
@@ -26,6 +32,19 @@ export default function LocationPage() {
 
   return (
     <InnerPageLayout contact={contact}>
+      <JsonLd data={[
+        place({
+          path: "/location",
+          name: "Candidasa, Karangasem, East Bali",
+          description: "Orlowsky Discovery Hotel is on the quiet seafront of Candidasa, 1.5 hours from Bali Airport, near Besakih Temple, Tirta Gangga, Amed, and Tulamben.",
+          image: `${SITE_URL}/images/gallery/orlowsky-hotel-terrace-view-candidasa-islands.webp`,
+          locale: "en",
+        }),
+        breadcrumbs([
+          { name: "Home", path: "/" },
+          { name: "Location", path: "/location" },
+        ]),
+      ]} />
       <PageHero
         image="/images/gallery/orlowsky-hotel-terrace-view-candidasa-islands.webp"
         imageAlt="Scenic coastline of Candidasa, East Bali"

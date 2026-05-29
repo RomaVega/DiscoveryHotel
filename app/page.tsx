@@ -14,6 +14,18 @@ import { ReviewScroller } from "@/components/sections/ReviewScroller";
 import { BookingCta } from "@/components/sections/BookingCta";
 import { MapLocation } from "@/components/sections/MapLocation";
 import { ScrollDivider } from "@/components/common/ScrollDivider";
+import { SITE_URL } from "@/lib/site";
+
+export const metadata = {
+  alternates: {
+    canonical: `${SITE_URL}/`,
+    languages: {
+      "en": `${SITE_URL}/`,
+      "ru": `${SITE_URL}/ru`,
+      "x-default": `${SITE_URL}/`,
+    },
+  },
+};
 
 // Design token colors (mirrors globals.css @theme)
 const C = {

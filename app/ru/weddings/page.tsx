@@ -3,6 +3,7 @@ import { getContactData } from "@/lib/content";
 import { InnerPageLayout } from "@/components/layout/InnerPageLayout";
 import { PageHero } from "@/components/sections/PageHero";
 import { WeddingsDetail } from "@/components/sections/WeddingsDetail";
+import { JsonLd, breadcrumbs, service } from "@/lib/jsonld";
 
 export const metadata = {
   title: "Свадьба на Бали — Orlowsky Discovery Hotel, Кандидаса, Восточный Бали",
@@ -30,6 +31,21 @@ export default function WeddingsRuPage() {
 
   return (
     <InnerPageLayout contact={contact}>
+      <JsonLd data={[
+        service({
+          path: "/ru/weddings",
+          name: "Свадьбы на Бали — Кандидаса, набережная океана",
+          description: "Свадебная площадка на берегу океана в Кандидасе, Восточный Бали. Европейские и традиционные балийские церемонии, кейтеринг, размещение и трансферы.",
+          image: `${SITE_URL}/images/experiences/experiences-events.webp`,
+          serviceType: "Wedding Venue",
+          category: "Площадка для мероприятий",
+          locale: "ru",
+        }),
+        breadcrumbs([
+          { name: "Главная", path: "/ru" },
+          { name: "Свадьбы", path: "/ru/weddings" },
+        ]),
+      ]} />
       <PageHero
         image="/images/experiences/experiences-events.webp"
         imageAlt="Oceanfront wedding ceremony setup in Bali"

@@ -4,6 +4,7 @@ import { InnerPageLayout } from "@/components/layout/InnerPageLayout";
 import { PageHero } from "@/components/sections/PageHero";
 import { LocationDetail } from "@/components/sections/LocationDetail";
 import { MapLocation } from "@/components/sections/MapLocation";
+import { JsonLd, breadcrumbs, place } from "@/lib/jsonld";
 
 export const metadata = {
   title: "Расположение — Кандидаса, Карангасем, Восточный Бали | Orlowsky Discovery",
@@ -31,6 +32,19 @@ export default function LocationRuPage() {
 
   return (
     <InnerPageLayout contact={contact}>
+      <JsonLd data={[
+        place({
+          path: "/ru/location",
+          name: "Кандидаса, Карангасем, Восточный Бали",
+          description: "Orlowsky Discovery Hotel расположен на тихой набережной Кандидасы, 1,5 часа от аэропорта Бали. Рядом с храмом Бесаких, Тирта Гангга и дайв-сайтами Туламбена.",
+          image: `${SITE_URL}/images/gallery/orlowsky-hotel-terrace-view-candidasa-islands.webp`,
+          locale: "ru",
+        }),
+        breadcrumbs([
+          { name: "Главная", path: "/ru" },
+          { name: "Расположение", path: "/ru/location" },
+        ]),
+      ]} />
       <PageHero
         image="/images/gallery/orlowsky-hotel-terrace-view-candidasa-islands.webp"
         imageAlt="Scenic coastline of Candidasa, East Bali"

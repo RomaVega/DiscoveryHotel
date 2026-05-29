@@ -3,12 +3,18 @@ import { InnerPageLayout } from "@/components/layout/InnerPageLayout";
 import { PageHero } from "@/components/sections/PageHero";
 import { FaqDetail } from "@/components/sections/FaqDetail";
 import { SITE_URL } from "@/lib/site";
+import { JsonLd, breadcrumbs, faqPage } from "@/lib/jsonld";
 
 export const metadata = {
   title: "FAQ — Orlowsky Discovery Hotel, Candidasa, Bali",
   description: "Frequently asked questions about Orlowsky Discovery Hotel — check-in, airport transfer, payment, visa, room types, spa, and activities in Candidasa, East Bali.",
   alternates: {
     canonical: `${SITE_URL}/faq`,
+    languages: {
+      "en": `${SITE_URL}/faq`,
+      "ru": `${SITE_URL}/ru/faq`,
+      "x-default": `${SITE_URL}/faq`,
+    },
   },
   openGraph: {
     title: "FAQ — Orlowsky Discovery Hotel, Candidasa, Bali",
@@ -25,6 +31,13 @@ export default function FaqPage() {
 
   return (
     <InnerPageLayout contact={contact}>
+      <JsonLd data={[
+        faqPage(data.items, "en"),
+        breadcrumbs([
+          { name: "Home", path: "/" },
+          { name: "FAQ", path: "/faq" },
+        ]),
+      ]} />
       <PageHero
         image="/images/gallery/orlowsky-hotel-pool-terrace-ocean.webp"
         imageAlt="Hotel lobby and reception area"

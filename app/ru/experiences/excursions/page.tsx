@@ -3,6 +3,7 @@ import { getContactData } from "@/lib/content";
 import { InnerPageLayout } from "@/components/layout/InnerPageLayout";
 import { PageHero } from "@/components/sections/PageHero";
 import { ExcursionsDetail } from "@/components/sections/ExcursionsDetail";
+import { JsonLd, breadcrumbs, service } from "@/lib/jsonld";
 
 export const metadata = {
   title: "Экскурсии по Восточному Бали — Храмы, Рисовые Террасы и Водопады",
@@ -30,6 +31,22 @@ export default function ExcursionsRuPage() {
 
   return (
     <InnerPageLayout contact={contact}>
+      <JsonLd data={[
+        service({
+          path: "/ru/experiences/excursions",
+          name: "Экскурсии по Восточному Бали — храмы, террасы, водопады",
+          description: "Туры к храму Бесаких, вулкану Кинтамани, в Убуд, к рисовым террасам Тегаллаланг и скрытым водопадам Восточного Бали.",
+          image: `${SITE_URL}/images/experiences/experiences-excursions.webp`,
+          serviceType: "Guided Tours",
+          category: "Туристическая активность",
+          locale: "ru",
+        }),
+        breadcrumbs([
+          { name: "Главная", path: "/ru" },
+          { name: "Впечатления", path: "/ru/experiences" },
+          { name: "Экскурсии", path: "/ru/experiences/excursions" },
+        ]),
+      ]} />
       <PageHero
         image="/images/experiences/experiences-excursions.webp"
         imageAlt="Bali temple with lush tropical gardens"

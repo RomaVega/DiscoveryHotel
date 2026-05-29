@@ -3,6 +3,7 @@ import { getRoomsPageData, getContactData } from "@/lib/content";
 import { InnerPageLayout } from "@/components/layout/InnerPageLayout";
 import { PageHero } from "@/components/sections/PageHero";
 import { RoomsDetail } from "@/components/sections/RoomsDetail";
+import { JsonLd, breadcrumbs, webPage } from "@/lib/jsonld";
 
 export const metadata = {
   title: "Номера и виллы в Кандидасе, Бали — Orlowsky Discovery Hotel",
@@ -29,6 +30,19 @@ export default function RoomsRuPage() {
 
   return (
     <InnerPageLayout contact={contact}>
+      <JsonLd data={[
+        webPage({
+          path: "/ru/rooms",
+          name: "Номера и виллы — Orlowsky Discovery Hotel, Кандидаса",
+          description: "Вилла с бассейном и тремя спальнями или Делюкс Коттедж с видом на сад на берегу Кандидасы, Восточный Бали.",
+          image: `${SITE_URL}/images/rooms/pool-villa.webp`,
+          locale: "ru",
+        }),
+        breadcrumbs([
+          { name: "Главная", path: "/ru" },
+          { name: "Номера", path: "/ru/rooms" },
+        ]),
+      ]} />
       <PageHero
         image="/images/rooms/pool-villa.webp"
         imageAlt="Aerial view of pool villas surrounded by tropical gardens"

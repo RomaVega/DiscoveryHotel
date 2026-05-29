@@ -3,6 +3,7 @@ import { getDiningPageData, getContactData } from "@/lib/content";
 import { InnerPageLayout } from "@/components/layout/InnerPageLayout";
 import { PageHero } from "@/components/sections/PageHero";
 import { DiningDetail } from "@/components/sections/DiningDetail";
+import { JsonLd, breadcrumbs, restaurant } from "@/lib/jsonld";
 
 export const metadata = {
   title: "Ресторан и бар у океана — Кандидаса, Бали | Orlowsky Discovery",
@@ -29,6 +30,21 @@ export default function DiningRuPage() {
 
   return (
     <InnerPageLayout contact={contact}>
+      <JsonLd data={[
+        restaurant({
+          path: "/ru/dining",
+          name: "Ресторан и бар Orlowsky Discovery",
+          description: "Ресторан на берегу океана с свежими морепродуктами, балийской, индонезийской и международной кухней в Кандидасе, Восточный Бали.",
+          image: `${SITE_URL}/images/dining/Oceanside-restaurant-and-bar.webp`,
+          servesCuisine: ["Balinese", "Indonesian", "Seafood", "International"],
+          openingHours: "Mo-Su 07:00-22:00",
+          locale: "ru",
+        }),
+        breadcrumbs([
+          { name: "Главная", path: "/ru" },
+          { name: "Ресторан", path: "/ru/dining" },
+        ]),
+      ]} />
       <PageHero
         image="/images/dining/Oceanside-restaurant-and-bar.webp"
         imageAlt="Oceanfront restaurant at Orlowsky Discovery Hotel"

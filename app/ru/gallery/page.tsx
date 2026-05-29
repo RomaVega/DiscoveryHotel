@@ -3,6 +3,7 @@ import { getHomePageData, getContactData } from "@/lib/content";
 import { InnerPageLayout } from "@/components/layout/InnerPageLayout";
 import { PageHero } from "@/components/sections/PageHero";
 import { GalleryPreview } from "@/components/sections/GalleryPreview";
+import { JsonLd, breadcrumbs, webPage } from "@/lib/jsonld";
 
 export const metadata = {
   title: "Фотогалерея — Orlowsky Discovery Hotel, Кандидаса, Бали",
@@ -29,6 +30,20 @@ export default function GalleryRuPage() {
 
   return (
     <InnerPageLayout contact={contact}>
+      <JsonLd data={[
+        webPage({
+          path: "/ru/gallery",
+          name: "Фотогалерея — Orlowsky Discovery Hotel, Кандидаса, Бали",
+          description: "Фотографии Orlowsky Discovery Hotel — виллы с бассейном, тропические сады, ресторан у океана, аюрведический спа и пляжи Кандидасы.",
+          image: `${SITE_URL}/images/gallery/gallery-hero-orlowsky-discovery-hotel-candidasa.webp`,
+          locale: "ru",
+          type: "CollectionPage",
+        }),
+        breadcrumbs([
+          { name: "Главная", path: "/ru" },
+          { name: "Галерея", path: "/ru/gallery" },
+        ]),
+      ]} />
       <PageHero
         image="/images/gallery/gallery-hero-orlowsky-discovery-hotel-candidasa.webp"
         imageAlt="Aerial view of hotel and tropical gardens"

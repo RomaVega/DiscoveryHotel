@@ -4,6 +4,7 @@ import { InnerPageLayout } from "@/components/layout/InnerPageLayout";
 import { PageHero } from "@/components/sections/PageHero";
 import { ContactDetail } from "@/components/sections/ContactDetail";
 import { MapLocation } from "@/components/sections/MapLocation";
+import { JsonLd, breadcrumbs, webPage } from "@/lib/jsonld";
 
 export const metadata = {
   title: "Контакты — Orlowsky Discovery Hotel, Кандидаса, Бали",
@@ -29,6 +30,20 @@ export default function ContactRuPage() {
 
   return (
     <InnerPageLayout contact={contact}>
+      <JsonLd data={[
+        webPage({
+          path: "/ru/contact",
+          name: "Контакты отеля Orlowsky Discovery, Кандидаса",
+          description: "WhatsApp, email, адрес и маршрут до нашего отеля на набережной Кандидасы, Восточный Бали.",
+          image: `${SITE_URL}/images/gallery/orlowsky-hotel-restaurant-bar-candidasa.webp`,
+          locale: "ru",
+          type: "ContactPage",
+        }),
+        breadcrumbs([
+          { name: "Главная", path: "/ru" },
+          { name: "Контакты", path: "/ru/contact" },
+        ]),
+      ]} />
       <PageHero
         image="/images/gallery/orlowsky-hotel-restaurant-bar-candidasa.webp"
         imageAlt="Hotel entrance surrounded by tropical gardens"

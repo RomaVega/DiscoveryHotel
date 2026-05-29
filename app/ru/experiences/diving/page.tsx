@@ -3,6 +3,7 @@ import { getContactData } from "@/lib/content";
 import { InnerPageLayout } from "@/components/layout/InnerPageLayout";
 import { PageHero } from "@/components/sections/PageHero";
 import { DivingDetail } from "@/components/sections/DivingDetail";
+import { JsonLd, breadcrumbs, service } from "@/lib/jsonld";
 
 export const metadata = {
   title: "Дайвинг и снорклинг в Восточном Бали — Туламбен и риф Кандидасы",
@@ -30,6 +31,22 @@ export default function DivingRuPage() {
 
   return (
     <InnerPageLayout contact={contact}>
+      <JsonLd data={[
+        service({
+          path: "/ru/experiences/diving",
+          name: "Дайвинг и снорклинг в Восточном Бали — Туламбен и риф Кандидасы",
+          description: "Погружение на затонувший корабль USAT Liberty в Туламбене, коралловый риф Кандидасы и манты на Нуса-Пениде. Программы для начинающих и опытных дайверов.",
+          image: `${SITE_URL}/images/experiences/experiences-diving.webp`,
+          serviceType: "Diving Tours",
+          category: "Туристическая активность",
+          locale: "ru",
+        }),
+        breadcrumbs([
+          { name: "Главная", path: "/ru" },
+          { name: "Впечатления", path: "/ru/experiences" },
+          { name: "Дайвинг", path: "/ru/experiences/diving" },
+        ]),
+      ]} />
       <PageHero
         image="/images/experiences/experiences-diving.webp"
         imageAlt="Colorful coral reef underwater in Bali"

@@ -1,8 +1,9 @@
-import { SITE_URL } from "@/lib/site";
+import { SITE_URL, OG_IMAGE } from "@/lib/site";
 import { getTransferPageData, getContactData } from "@/lib/content";
 import { InnerPageLayout } from "@/components/layout/InnerPageLayout";
 import { PageHero } from "@/components/sections/PageHero";
 import { TransferDetail } from "@/components/sections/TransferDetail";
+import { JsonLd, breadcrumbs, service } from "@/lib/jsonld";
 
 export const metadata = {
   title: "Трансфер из Аэропорта Бали в Кандидасу — Orlowsky Discovery Hotel",
@@ -29,6 +30,21 @@ export default function TransferRuPage() {
 
   return (
     <InnerPageLayout contact={contact}>
+      <JsonLd data={[
+        service({
+          path: "/ru/transfer",
+          name: "Трансфер из аэропорта Бали в Кандидасу — Orlowsky Discovery",
+          description: "Частный трансфер из аэропорта Нгурах-Рай (DPS) в Кандидасу. Фиксированные тарифы, кондиционер, англоговорящий водитель, 24/7.",
+          image: OG_IMAGE,
+          serviceType: "Airport Shuttle",
+          category: "Транспорт",
+          locale: "ru",
+        }),
+        breadcrumbs([
+          { name: "Главная", path: "/ru" },
+          { name: "Трансфер", path: "/ru/transfer" },
+        ]),
+      ]} />
       <PageHero
         image={data.image}
         imageAlt={data.imageAlt}
