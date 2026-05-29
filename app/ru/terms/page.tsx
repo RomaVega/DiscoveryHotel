@@ -4,10 +4,10 @@ import { InnerPageLayout } from "@/components/layout/InnerPageLayout";
 import { LegalPage } from "@/components/sections/LegalPage";
 
 export const metadata = {
-  title: "Terms & Conditions | Orlowsky Discovery Hotel",
-  description: "Terms and conditions for booking at Orlowsky Discovery Hotel.",
+  title: "Условия Обслуживания | Orlowsky Discovery Hotel",
+  description: "Условия бронирования и проживания в Orlowsky Discovery Hotel, Кандидаса, Бали.",
   alternates: {
-    canonical: `${SITE_URL}/terms`,
+    canonical: `${SITE_URL}/ru/terms`,
     languages: {
       "en": `${SITE_URL}/terms`,
       "ru": `${SITE_URL}/ru/terms`,
@@ -16,7 +16,7 @@ export const metadata = {
   },
 };
 
-export default function TermsPage() {
+export default function TermsRuPage() {
   const contact = getContactData();
   // eslint-disable-next-line @typescript-eslint/no-require-imports
   const data = require("@/content/terms.json");

@@ -4,22 +4,22 @@ import { InnerPageLayout } from "@/components/layout/InnerPageLayout";
 import { LegalPage } from "@/components/sections/LegalPage";
 
 export const metadata = {
-  title: "Terms & Conditions | Orlowsky Discovery Hotel",
-  description: "Terms and conditions for booking at Orlowsky Discovery Hotel.",
+  title: "Политика Конфиденциальности | Orlowsky Discovery Hotel",
+  description: "Политика конфиденциальности сайта Orlowsky Discovery Hotel.",
   alternates: {
-    canonical: `${SITE_URL}/terms`,
+    canonical: `${SITE_URL}/ru/privacy`,
     languages: {
-      "en": `${SITE_URL}/terms`,
-      "ru": `${SITE_URL}/ru/terms`,
-      "x-default": `${SITE_URL}/terms`,
+      "en": `${SITE_URL}/privacy`,
+      "ru": `${SITE_URL}/ru/privacy`,
+      "x-default": `${SITE_URL}/privacy`,
     },
   },
 };
 
-export default function TermsPage() {
+export default function PrivacyRuPage() {
   const contact = getContactData();
   // eslint-disable-next-line @typescript-eslint/no-require-imports
-  const data = require("@/content/terms.json");
+  const data = require("@/content/privacy.json");
 
   return (
     <InnerPageLayout contact={contact}>
