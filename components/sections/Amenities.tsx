@@ -1,14 +1,10 @@
 "use client"; // Uses useLanguage for translation
 
 import {
-  Waves, Wifi, UtensilsCrossed, Sparkles, Umbrella, Coffee,
-  Ban, Coins, Droplets, Droplet, Leaf, RefreshCw, Shirt, Wind, Info,
-  Thermometer, Activity, MapPin, Monitor, CloudRain, Flame,
-  Phone, PhoneCall, Accessibility, Home, Layers, Briefcase,
-  Car, Shield, RefreshCcw, Bell, Wine, Zap, Star, Building2,
-  Bike, Map, Plug, Bus, Package, Hand, Sun, Tv,
-  Bath, GlassWater, ShowerHead, PlaneLanding, WashingMachine,
-  Pipette, CupSoda, Newspaper, ConciergeBell,
+  Accessibility, Activity, Ban, Bell, Bike, Bus, Car, Coffee, Coins,
+  ConciergeBell, GlassWater, Hand, Map, Package, PlaneLanding, Shield,
+  Shirt, Sparkles, Sun, Tv, Umbrella, UtensilsCrossed, WashingMachine,
+  Waves, Wifi,
   type LucideIcon,
 } from "lucide-react";
 import { FadeIn } from "@/components/common/FadeIn";
@@ -16,15 +12,13 @@ import { SectionHeading } from "@/components/common/SectionHeading";
 import type { AmenitiesData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
 
+// Keep this map in sync with the `icon` values used in content/home.json under amenities.items.
+// Adding a new amenity with a different icon? Add the icon to both the import above and this map.
 const iconMap: Record<string, LucideIcon> = {
-  Waves, Wifi, UtensilsCrossed, Sparkles, Umbrella, Coffee,
-  Ban, Coins, Droplets, Droplet, Leaf, RefreshCw, Shirt, Wind, Info,
-  Thermometer, Activity, MapPin, Monitor, CloudRain, Flame,
-  Phone, PhoneCall, Accessibility, Home, Layers, Briefcase,
-  Car, Shield, RefreshCcw, Bell, Wine, Zap, Star, Building2,
-  Bike, Map, Plug, Bus, Package, Hand, Sun, Tv,
-  Bath, GlassWater, ShowerHead, PlaneLanding, WashingMachine,
-  Pipette, CupSoda, Newspaper, ConciergeBell,
+  Accessibility, Activity, Ban, Bell, Bike, Bus, Car, Coffee, Coins,
+  ConciergeBell, GlassWater, Hand, Map, Package, PlaneLanding, Shield,
+  Shirt, Sparkles, Sun, Tv, Umbrella, UtensilsCrossed, WashingMachine,
+  Waves, Wifi,
 };
 
 interface AmenitiesProps {
