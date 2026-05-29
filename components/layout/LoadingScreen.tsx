@@ -1,7 +1,6 @@
-"use client"; // Tracks first load + client-side navigation, covers the page until images are ready
+"use client"; // First-visit intro overlay; covers the page until images and hero video are ready
 
 import { useState, useEffect, useLayoutEffect, useRef } from "react";
-import { usePathname } from "next/navigation";
 import Image from "next/image";
 
 // Above-the-fold images only — those that gate the first paint (LCP). We don't hold the
@@ -56,8 +55,6 @@ function waitForHeroVideo(timeout: number): Promise<void> {
 
 const doubleRaf = () =>
   new Promise<void>(r => requestAnimationFrame(() => requestAnimationFrame(() => r())));
-
-const isHome = (p: string) => p === "/" || p === "/ru";
 
 // Sweeps the solid fill arc 0->360, painting over the comet's tail to a solid ring.
 function paintFill(el: HTMLElement | null, onDone: () => void) {
@@ -134,9 +131,7 @@ function runComet(
 }
 
 export function LoadingScreen() {
-  const pathname = usePathname();
   const [phase, setPhase] = useState<"visible" | "exiting" | "gone">("visible");
-  const firstLoad = useRef(true);
 
   const ringRef = useRef<HTMLDivElement>(null);
   const fillRef = useRef<HTMLDivElement>(null);
@@ -158,20 +153,6 @@ export function LoadingScreen() {
     if (fillRef.current) fillRef.current.style.setProperty("--fill", "0deg");
   }, [phase]);
 
-  // Save current scroll position so the pre-hydration inline script in layout.tsx can
-  // restore it on the next reload.
-  useEffect(() => {
-    const saveScroll = () => {
-      try { sessionStorage.setItem("scrollY", String(window.scrollY)); } catch { /* ignore */ }
-    };
-    window.addEventListener("scroll", saveScroll, { passive: true });
-    window.addEventListener("beforeunload", saveScroll);
-    return () => {
-      window.removeEventListener("scroll", saveScroll);
-      window.removeEventListener("beforeunload", saveScroll);
-    };
-  }, []);
-
   // FIRST LOAD — show the intro only on a visitor's first ever load. Every cached reload
   // and return visit skips it entirely (instant). When shown, it waits for the hero video
   // so the page is revealed with the video, not the static poster.
@@ -180,7 +161,6 @@ export function LoadingScreen() {
     let seen = false;
     try { seen = localStorage.getItem("odh_seen") === "1"; } catch { /* ignore */ }
     if (seen) {
-      firstLoad.current = false;
       setPhase("gone");
       return;
     }
@@ -190,7 +170,6 @@ export function LoadingScreen() {
       setPhase("exiting");
       setTimeout(() => {
         setPhase("gone");
-        firstLoad.current = false;
         try { localStorage.setItem("odh_seen", "1"); } catch { /* ignore */ }
       }, 700);
     };
@@ -215,15 +194,6 @@ export function LoadingScreen() {
       stopAnim();
     };
   }, []);
-
-  // NAVIGATION — no loader; client-side nav is instant. Just keep home landing at the top.
-  // The first fire is the initial mount, not a real navigation — skip it so reloads keep
-  // their restored scroll position (firstLoad.current is already false by the time this runs).
-  const navFired = useRef(false);
-  useEffect(() => {
-    if (!navFired.current) { navFired.current = true; return; }
-    if (isHome(pathname)) window.scrollTo(0, 0);
-  }, [pathname]);
 
   if (phase === "gone") return null;
 

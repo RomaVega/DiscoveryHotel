@@ -147,10 +147,6 @@ export default function RootLayout({
             {children}
           </MotionProvider>
         </LanguageProvider>
-        {/* Pre-hydration scroll restore. Runs after body content is parsed so document height
-            is known; opts out of browser auto restoration (which is unreliable in Next.js dev)
-            and jumps to the saved position before React hydrates — no visible flash. */}
-        <script dangerouslySetInnerHTML={{ __html: `(function(){try{history.scrollRestoration='manual';var y=parseInt(sessionStorage.getItem('scrollY')||'0',10);if(y>0)window.scrollTo(0,y);}catch(e){}})();` }} />
       </body>
     </html>
   );
