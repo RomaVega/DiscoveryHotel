@@ -1,17 +1,16 @@
-import { describe, it, expect, beforeEach } from "vitest";
-import { renderHook, act } from "@testing-library/react";
-import { LanguageProvider, useLanguage } from "@/lib/language-context";
+import { describe, it, expect } from "vitest";
+import { renderHook } from "@testing-library/react";
+import { LanguageProvider, useLanguage, localizedPath } from "@/lib/language-context";
 import type { ReactNode } from "react";
 
-const wrapper = ({ children }: { children: ReactNode }) => (
+const enWrapper = ({ children }: { children: ReactNode }) => (
   <LanguageProvider>{children}</LanguageProvider>
+);
+const ruWrapper = ({ children }: { children: ReactNode }) => (
+  <LanguageProvider locale="ru">{children}</LanguageProvider>
 );
 
 describe("useLanguage()", () => {
-  beforeEach(() => {
-    localStorage.clear();
-  });
-
   it("throws when used outside LanguageProvider", () => {
     expect(() => renderHook(() => useLanguage())).toThrow(
       "useLanguage must be used within LanguageProvider"
@@ -19,64 +18,63 @@ describe("useLanguage()", () => {
   });
 
   it("defaults to 'en' locale", () => {
-    const { result } = renderHook(() => useLanguage(), { wrapper });
+    const { result } = renderHook(() => useLanguage(), { wrapper: enWrapper });
     expect(result.current.locale).toBe("en");
   });
 
-  it("restores locale from localStorage on mount", () => {
-    localStorage.setItem("odch-lang", "ru");
-    const { result } = renderHook(() => useLanguage(), { wrapper });
+  it("uses 'ru' when provider locale is 'ru'", () => {
+    const { result } = renderHook(() => useLanguage(), { wrapper: ruWrapper });
     expect(result.current.locale).toBe("ru");
-  });
-
-  it("ignores unsupported locale values in localStorage", () => {
-    localStorage.setItem("odch-lang", "es");
-    const { result } = renderHook(() => useLanguage(), { wrapper });
-    expect(result.current.locale).toBe("en");
-  });
-
-  it("setLocale updates locale", () => {
-    const { result } = renderHook(() => useLanguage(), { wrapper });
-    act(() => result.current.setLocale("ru"));
-    expect(result.current.locale).toBe("ru");
-  });
-
-  it("setLocale persists supported locale to localStorage", () => {
-    const { result } = renderHook(() => useLanguage(), { wrapper });
-    act(() => result.current.setLocale("ru"));
-    expect(localStorage.getItem("odch-lang")).toBe("ru");
-  });
-
-  it("setLocale does not persist unsupported locale", () => {
-    const { result } = renderHook(() => useLanguage(), { wrapper });
-    act(() => result.current.setLocale("es" as never));
-    expect(localStorage.getItem("odch-lang")).toBeNull();
   });
 });
 
 describe("t() — LocalizedString resolver", () => {
-  beforeEach(() => localStorage.clear());
-
   it("returns a plain string as-is", () => {
-    const { result } = renderHook(() => useLanguage(), { wrapper });
+    const { result } = renderHook(() => useLanguage(), { wrapper: enWrapper });
     expect(result.current.t("Hello")).toBe("Hello");
   });
 
   it("returns en value by default", () => {
-    const { result } = renderHook(() => useLanguage(), { wrapper });
+    const { result } = renderHook(() => useLanguage(), { wrapper: enWrapper });
     expect(result.current.t({ en: "Hello", ru: "Привет" })).toBe("Hello");
   });
 
-  it("returns ru value when locale is ru", () => {
-    const { result } = renderHook(() => useLanguage(), { wrapper });
-    act(() => result.current.setLocale("ru"));
+  it("returns ru value when provider locale is ru", () => {
+    const { result } = renderHook(() => useLanguage(), { wrapper: ruWrapper });
     expect(result.current.t({ en: "Hello", ru: "Привет" })).toBe("Привет");
   });
 
   it("falls back to en when ru value is missing", () => {
-    const { result } = renderHook(() => useLanguage(), { wrapper });
-    act(() => result.current.setLocale("ru"));
+    const { result } = renderHook(() => useLanguage(), { wrapper: ruWrapper });
     // @ts-expect-error — intentionally testing missing ru field
     expect(result.current.t({ en: "Fallback" })).toBe("Fallback");
+  });
+});
+
+describe("localizedPath()", () => {
+  it("swaps an EN path to its /ru/* equivalent", () => {
+    expect(localizedPath("/rooms", "ru")).toBe("/ru/rooms");
+  });
+
+  it("swaps a /ru/* path back to its EN equivalent", () => {
+    expect(localizedPath("/ru/rooms", "en")).toBe("/rooms");
+  });
+
+  it("maps EN home to RU home", () => {
+    expect(localizedPath("/", "ru")).toBe("/ru");
+  });
+
+  it("maps RU home to EN home", () => {
+    expect(localizedPath("/ru", "en")).toBe("/");
+  });
+
+  it("falls back to /ru when the RU page doesn't exist", () => {
+    // /privacy has no /ru/privacy in the build
+    expect(localizedPath("/privacy", "ru")).toBe("/ru");
+  });
+
+  it("returns the same path when target locale already matches", () => {
+    expect(localizedPath("/ru/rooms", "ru")).toBe("/ru/rooms");
+    expect(localizedPath("/rooms", "en")).toBe("/rooms");
   });
 });

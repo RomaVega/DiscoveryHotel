@@ -1,105 +1,70 @@
-"use client"; // Client context for language state
+"use client"; // Client context — t() helper consumed by client components
 
-import {
-  createContext,
-  useContext,
-  useState,
-  useEffect,
-  useCallback,
-  useMemo,
-  type ReactNode,
-} from "react";
+import { createContext, useContext, useMemo, type ReactNode } from "react";
 import type { LocalizedString } from "@/lib/types";
 import enLocale from "@/locales/en.json";
 import ruLocale from "@/locales/ru.json";
+import { ALL_ROUTES } from "@/lib/image-manifest";
 
 export type Locale = "en" | "ru";
 
+/** Map a path to its equivalent in another locale.
+ * Falls back to that locale's home if the translated route doesn't exist
+ * (e.g. /privacy → /ru/privacy not built → /ru). */
+export function localizedPath(currentPath: string, target: Locale): string {
+  const stripped = currentPath.replace(/^\/ru(?=\/|$)/, "") || "/";
+  const candidate = target === "ru"
+    ? (stripped === "/" ? "/ru" : `/ru${stripped}`)
+    : stripped;
+  return ALL_ROUTES.includes(candidate) ? candidate : (target === "ru" ? "/ru" : "/");
+}
+
 type LocaleData = typeof enLocale;
 
-/** Locales with actual translation files */
-const LOCALE_FILES: Record<string, LocaleData> = {
+const LOCALE_FILES: Record<Locale, LocaleData> = {
   en: enLocale,
   ru: ruLocale,
 };
 
-function isSupportedLocale(val: unknown): val is "en" | "ru" {
-  return val === "en" || val === "ru";
-}
-
 interface LanguageContextType {
   locale: Locale;
-  setLocale: (locale: Locale) => void;
-  /** Resolve a LocalizedString to the current locale's string */
+  /** Resolve a LocalizedString to the current locale's string. */
   t: (val: LocalizedString) => string;
-  /** Raw locale file for UI-only strings (nav, footer labels, etc.) */
+  /** Raw locale file for UI-only strings (nav, footer labels, etc.). */
   tl: LocaleData;
 }
 
 const LanguageContext = createContext<LanguageContextType | null>(null);
 
+/**
+ * Locale is determined by route: `/ru/*` passes `locale="ru"`, every other
+ * route gets the default `"en"`. There is no runtime swap and no localStorage —
+ * the URL is the single source of truth, so SSR and client always agree (no
+ * EN→RU flash) and search engines see the language they expect for each URL.
+ */
 export function LanguageProvider({
   children,
-  defaultLocale = "en",
+  locale = "en",
 }: {
   children: ReactNode;
-  defaultLocale?: Locale;
+  locale?: Locale;
 }) {
-  const [locale, setLocaleState] = useState<Locale>(defaultLocale);
-
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem("odch-lang");
-      if (isSupportedLocale(stored)) {
-        setLocaleState(stored);
-      } else if (defaultLocale === "en") {
-        // Auto-detect only on English routes — Russian routes keep their locale
-        const lang = navigator.languages?.[0] ?? navigator.language ?? "";
-        if (lang.toLowerCase().startsWith("ru")) setLocaleState("ru");
-      }
-    } catch {
-      // localStorage unavailable (SSR safety)
-    }
-  }, [defaultLocale]);
-
-  useEffect(() => {
-    document.documentElement.lang = locale === "ru" ? "ru" : "en";
-  }, [locale]);
-
-  const setLocale = useCallback((newLocale: Locale) => {
-    if (isSupportedLocale(newLocale)) {
-      try {
-        localStorage.setItem("odch-lang", newLocale);
-      } catch {
-        // ignore
-      }
-    }
-    setLocaleState(newLocale);
-  }, []);
-
-  const t = useCallback(
-    (val: LocalizedString): string => {
-      if (typeof val === "string") return val;
-      if (locale === "ru") return val.ru ?? val.en;
-      return val.en;
-    },
+  const value = useMemo<LanguageContextType>(
+    () => ({
+      locale,
+      t: (val) =>
+        typeof val === "string"
+          ? val
+          : locale === "ru"
+            ? (val.ru ?? val.en)
+            : val.en,
+      tl: LOCALE_FILES[locale],
+    }),
     [locale]
-  );
-
-  const tl = useMemo(
-    () => LOCALE_FILES[locale] ?? LOCALE_FILES.en,
-    [locale]
-  );
-
-  const contextValue = useMemo(
-    () => ({ locale, setLocale, t, tl }),
-    [locale, setLocale, t, tl]
   );
 
   return (
-    <LanguageContext.Provider value={contextValue}>
-      {children}
-    </LanguageContext.Provider>
+    <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>
   );
 }
 

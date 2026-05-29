@@ -1,9 +1,10 @@
 "use client"; // Uses state, refs, and position calculation
 
 import { useState, useRef, useEffect, useCallback } from "react";
+import { useRouter, usePathname } from "next/navigation";
 import { m, AnimatePresence } from "framer-motion";
 import { Globe, Check } from "lucide-react";
-import { useLanguage, type Locale } from "@/lib/language-context";
+import { useLanguage, localizedPath, type Locale } from "@/lib/language-context";
 import { cn } from "@/lib/utils";
 
 type LanguageOption = { code: Locale; label: string; native: string; available: true };
@@ -19,7 +20,9 @@ interface LanguageSelectorProps {
 }
 
 export function LanguageSelector({ variant = "dark" }: LanguageSelectorProps) {
-  const { locale, setLocale } = useLanguage();
+  const { locale } = useLanguage();
+  const router = useRouter();
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [dropPos, setDropPos] = useState<{ top?: number; bottom?: number; right: number }>({ right: 0 });
   const triggerRef = useRef<HTMLButtonElement>(null);
@@ -137,10 +140,9 @@ export function LanguageSelector({ variant = "dark" }: LanguageSelectorProps) {
                   aria-current={isActive ? "true" : undefined}
                   tabIndex={!lang.available ? -1 : 0}
                   onClick={() => {
-                    if (lang.available) {
-                      setLocale(lang.code);
-                      setOpen(false);
-                    }
+                    if (!lang.available) return;
+                    setOpen(false);
+                    if (lang.code !== locale) router.push(localizedPath(pathname, lang.code));
                   }}
                   className={cn(
                     "w-full flex items-center gap-3 px-4 py-3 text-left transition-colors duration-150",
