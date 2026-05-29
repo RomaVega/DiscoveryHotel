@@ -161,7 +161,7 @@ export function Footer({ contact }: FooterProps) {
 
             </ul>
 
-            {/* Social icons — desktop only (below email) */}
+            {/* Social icons — desktop only (grouped with contact methods, before payment note) */}
             <div className="hidden md:flex justify-start gap-5 mt-5">
               {contact.socials.map((social) => {
                 const Icon = socialIconMap[social.icon];
@@ -179,6 +179,18 @@ export function Footer({ contact }: FooterProps) {
                 ) : null;
               })}
             </div>
+
+            {/* Russian payment note — sits under КОНТАКТЫ on every viewport */}
+            {isRu && tl.footer.paymentNote && (
+              <div className="mt-8">
+                <p className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-parchment/50 mb-1.5 underline underline-offset-4 decoration-parchment/20">
+                  {tl.footer.paymentInRussia}
+                </p>
+                <p className="font-sans text-[13px] text-brand-teal leading-relaxed font-medium whitespace-pre-line">
+                  {tl.footer.paymentNote}
+                </p>
+              </div>
+            )}
           </div>
 
           {/* Location */}
@@ -207,31 +219,9 @@ export function Footer({ contact }: FooterProps) {
                 <span aria-hidden="true">→</span>
               </a>
 
-              {/* Payment note — desktop only */}
-              {isRu && tl.footer.paymentNote && (
-                <div className="hidden md:block mt-4 -ml-[125px]">
-                  <p className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-parchment/50 mb-1.5 underline underline-offset-4 decoration-parchment/20">
-                    {tl.footer.paymentInRussia}
-                  </p>
-                  <p className="font-sans text-[13px] text-brand-teal leading-relaxed font-medium whitespace-pre-line">
-                    {tl.footer.paymentNote}
-                  </p>
-                </div>
-              )}
             </div>
           </div>
 
-          {/* Payment note — mobile only, shown after Location */}
-          {isRu && tl.footer.paymentNote && (
-            <div className="w-full text-center md:hidden">
-              <p className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-parchment/50 mb-1.5 underline underline-offset-4 decoration-parchment/20">
-                {tl.footer.paymentInRussia}
-              </p>
-              <p className="font-sans text-[13px] text-brand-teal leading-relaxed font-medium whitespace-pre-line">
-                {tl.footer.paymentNote}
-              </p>
-            </div>
-          )}
           {/* Divider */}
           <div className="w-full border-t border-parchment/10 md:w-px md:border-t-0 md:border-l md:self-stretch" />
 
