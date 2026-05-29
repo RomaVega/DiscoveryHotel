@@ -31,7 +31,7 @@ export default function FaqRuPage() {
   return (
     <InnerPageLayout contact={contact}>
       <PageHero
-        image="/images/gallery/g7.webp"
+        image="/images/gallery/orlowsky-hotel-pool-terrace-ocean.webp"
         imageAlt="Hotel lobby and reception area"
         heading={data.heading}
       />

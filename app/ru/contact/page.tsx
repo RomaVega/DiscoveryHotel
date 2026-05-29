@@ -30,7 +30,7 @@ export default function ContactRuPage() {
   return (
     <InnerPageLayout contact={contact}>
       <PageHero
-        image="/images/gallery/g5.webp"
+        image="/images/gallery/orlowsky-hotel-restaurant-bar-candidasa.webp"
         imageAlt="Hotel entrance surrounded by tropical gardens"
         heading={{ en: "Contact Orlowsky Discovery Hotel, Candidasa", ru: "Контакты отеля Orlowsky Discovery, Кандидаса" }}
         subtext={{ en: "WhatsApp, email, address, and directions to our hotel on the seafront of Candidasa, East Bali.", ru: "WhatsApp, email, адрес и маршрут до нашего отеля на набережной Кандидасы, Восточный Бали." }}

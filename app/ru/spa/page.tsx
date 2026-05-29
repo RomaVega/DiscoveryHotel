@@ -19,7 +19,7 @@ export const metadata = {
     title: "Аюрведический спа и балийский массаж — Кандидаса, Бали | Orlowsky Discovery",
     description: "Аутентичная Панчакарма, Широдхара и традиционный балийский массаж от терапевтов из Кералы. Ежедневно 09:00–21:00 в Orlowsky Discovery Hotel, Кандидаса.",
     url: `${SITE_URL}/ru/spa`,
-    images: [{ url: `${SITE_URL}/images/gallery/g3.webp`, width: 1200, height: 630 }],
+    images: [{ url: `${SITE_URL}/images/gallery/orlowsky-hotel-yoga-platform-ocean.webp`, width: 1200, height: 630 }],
   },
 };
 

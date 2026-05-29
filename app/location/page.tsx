@@ -15,7 +15,7 @@ export const metadata = {
     title: "Location — Candidasa, Karangasem, East Bali | Orlowsky Discovery",
     description: "Orlowsky Discovery Hotel is on the quiet seafront of Candidasa, 1.5 hours from Bali Airport. Near Besakih Temple, Tirta Gangga, Amed, and Tulamben dive sites.",
     url: `${SITE_URL}/location`,
-    images: [{ url: `${SITE_URL}/images/gallery/g6.webp`, width: 1200, height: 630 }],
+    images: [{ url: `${SITE_URL}/images/gallery/orlowsky-hotel-terrace-view-candidasa-islands.webp`, width: 1200, height: 630 }],
   },
 };
 
@@ -27,7 +27,7 @@ export default function LocationPage() {
   return (
     <InnerPageLayout contact={contact}>
       <PageHero
-        image="/images/gallery/g6.webp"
+        image="/images/gallery/orlowsky-hotel-terrace-view-candidasa-islands.webp"
         imageAlt="Scenic coastline of Candidasa, East Bali"
         heading={data.heading}
         subtext={data.subtext}

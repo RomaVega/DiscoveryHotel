@@ -16,7 +16,7 @@ export function PageHero({ image, imageAlt, heading, subtext, noOverlay }: PageH
   const { t } = useLanguage();
 
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <section className="relative h-screen w-full overflow-hidden bg-parchment">
       <Image
         src={image}
         alt={imageAlt}

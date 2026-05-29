@@ -14,7 +14,7 @@ export const metadata = {
     title: "FAQ — Orlowsky Discovery Hotel, Candidasa, Bali",
     description: "Frequently asked questions about Orlowsky Discovery Hotel — check-in, airport transfer, payment, visa, room types, spa, and activities in Candidasa, East Bali.",
     url: `${SITE_URL}/faq`,
-    images: [{ url: `${SITE_URL}/images/gallery/g7.webp`, width: 1200, height: 630 }],
+    images: [{ url: `${SITE_URL}/images/gallery/orlowsky-hotel-pool-terrace-ocean.webp`, width: 1200, height: 630 }],
   },
 };
 
@@ -26,7 +26,7 @@ export default function FaqPage() {
   return (
     <InnerPageLayout contact={contact}>
       <PageHero
-        image="/images/gallery/g7.webp"
+        image="/images/gallery/orlowsky-hotel-pool-terrace-ocean.webp"
         imageAlt="Hotel lobby and reception area"
         heading={data.heading}
       />
