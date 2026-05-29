@@ -34,6 +34,7 @@ const ruPaths = [
   "/experiences/events", "/experiences/car-rental",
   "/offers", "/gallery", "/transfer", "/weddings",
   "/location", "/about", "/contact", "/faq",
+  "/privacy", "/terms",
 ];
 
 const ruRoutes: Route[] = ruPaths.map((path) => ({
