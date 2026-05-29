@@ -43,8 +43,8 @@ export function DiningPreview() {
             heading={isRu ? "Ресторан на берегу океана" : "Oceanfront Dining"}
           />
 
-          {/* Slideshow + two CTA cards share one continuous white rounded frame */}
-          <div className="bg-white rounded-md overflow-hidden">
+          {/* Slideshow + two CTA cards share one continuous ivory rounded frame */}
+          <div className="bg-ivory rounded-md overflow-hidden">
             <RoomSlideshow
               images={SLIDES}
               className="w-full aspect-[16/9]"
