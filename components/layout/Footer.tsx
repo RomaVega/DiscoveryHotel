@@ -180,9 +180,9 @@ export function Footer({ contact }: FooterProps) {
               })}
             </div>
 
-            {/* Russian payment note — sits under КОНТАКТЫ on every viewport */}
+            {/* Russian payment note — desktop only (sits under КОНТАКТЫ) */}
             {isRu && tl.footer.paymentNote && (
-              <div className="mt-8">
+              <div className="hidden md:block mt-8">
                 <p className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-parchment/50 mb-1.5 underline underline-offset-4 decoration-parchment/20">
                   {tl.footer.paymentInRussia}
                 </p>
@@ -220,6 +220,18 @@ export function Footer({ contact }: FooterProps) {
               </a>
 
             </div>
+
+            {/* Russian payment note — mobile only (sits under РАСПОЛОЖЕНИЕ) */}
+            {isRu && tl.footer.paymentNote && (
+              <div className="md:hidden mt-8">
+                <p className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-parchment/50 mb-1.5 underline underline-offset-4 decoration-parchment/20">
+                  {tl.footer.paymentInRussia}
+                </p>
+                <p className="font-sans text-[13px] text-brand-teal leading-relaxed font-medium whitespace-pre-line">
+                  {tl.footer.paymentNote}
+                </p>
+              </div>
+            )}
           </div>
 
           {/* Divider */}
