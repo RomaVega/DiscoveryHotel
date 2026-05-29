@@ -30,7 +30,7 @@ export function Welcome({ data }: WelcomeProps) {
 
           <FadeIn delay={0.2}>
             {/* Mobile image */}
-            <div className="relative aspect-[1/1] w-full md:hidden">
+            <div className="relative aspect-[1/1] w-full md:hidden rounded-md overflow-hidden">
               <Image
                 src="/images/welcome/mobile.webp"
                 alt={data.imageAlt}
@@ -40,7 +40,7 @@ export function Welcome({ data }: WelcomeProps) {
               />
             </div>
             {/* Desktop image */}
-            <div className="relative hidden md:block aspect-[4/5] w-full">
+            <div className="relative hidden md:block aspect-[4/5] w-full rounded-md overflow-hidden">
               <Image
                 src={data.image}
                 alt={data.imageAlt}

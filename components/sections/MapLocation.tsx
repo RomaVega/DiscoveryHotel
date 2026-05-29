@@ -29,7 +29,7 @@ export function MapLocation({ contact }: MapLocationProps) {
         <FadeIn delay={0.2}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
             {/* Map */}
-            <div className="md:col-span-2 relative aspect-[16/9] md:aspect-[2/1] border border-charcoal/10 overflow-hidden">
+            <div className="md:col-span-2 relative aspect-[16/9] md:aspect-[2/1] border border-charcoal/10 overflow-hidden rounded-md">
               <iframe
                 src={embedUrl}
                 title="Orlowsky Discovery Hotel location on Google Maps"

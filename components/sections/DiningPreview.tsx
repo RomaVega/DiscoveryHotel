@@ -46,7 +46,7 @@ export function DiningPreview() {
           {/* Slideshow */}
           <RoomSlideshow
             images={SLIDES}
-            className="w-full aspect-[16/9] mb-8"
+            className="w-full aspect-[16/9] mb-8 rounded-md overflow-hidden"
             sizes="(max-width: 896px) 100vw, 896px"
             autoAdvanceMs={4000}
           />

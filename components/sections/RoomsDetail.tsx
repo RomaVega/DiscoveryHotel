@@ -127,7 +127,7 @@ function RoomCard({ room, reverse, t, isRu }: {
                 onClick={() => setCurrent(i)}
                 aria-label={`Photo ${i + 1}: ${img.alt}`}
                 className={cn(
-                  "relative overflow-hidden focus-visible:ring-2 focus-visible:ring-brand-teal transition-opacity duration-150",
+                  "relative overflow-hidden rounded-sm focus-visible:ring-2 focus-visible:ring-brand-teal transition-opacity duration-150",
                   "aspect-[4/3]",
                   i === current ? "ring-2 ring-brand-teal opacity-100" : "opacity-55 hover:opacity-85"
                 )}
