@@ -34,7 +34,7 @@ interface LanguageContextType {
   tl: LocaleData;
 }
 
-const LanguageContext = createContext<LanguageContextType | null>(null);
+export const LanguageContext = createContext<LanguageContextType | null>(null);
 
 /**
  * Locale is determined by route: `/ru/*` passes `locale="ru"`, every other

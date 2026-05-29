@@ -1,7 +1,7 @@
 "use client"; // Uses useLanguage for translated labels and locale-based contact filtering
 
 import Image from "next/image";
-import Link from "next/link";
+import { LocalizedLink as Link } from "@/components/common/LocalizedLink";
 import {
   MessageCircle, Mail, MapPin,
   BedDouble, UtensilsCrossed, Compass, Tag, ImageIcon, Info,

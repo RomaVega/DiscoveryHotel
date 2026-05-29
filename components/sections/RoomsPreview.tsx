@@ -1,7 +1,7 @@
 "use client"; // Uses useLanguage for content translation
 
 import Image from "next/image";
-import Link from "next/link";
+import { LocalizedLink as Link } from "@/components/common/LocalizedLink";
 import { FadeIn } from "@/components/common/FadeIn";
 import { SectionHeading } from "@/components/common/SectionHeading";
 import { SecondaryButton } from "@/components/common/SecondaryButton";

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { LocalizedLink } from "@/components/common/LocalizedLink";
 import { cn } from "@/lib/utils";
 
 interface PrimaryButtonProps {
@@ -31,8 +31,8 @@ export function PrimaryButton({
   }
 
   return (
-    <Link href={href} className={styles}>
+    <LocalizedLink href={href} className={styles}>
       {children}
-    </Link>
+    </LocalizedLink>
   );
 }

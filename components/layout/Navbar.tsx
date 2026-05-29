@@ -1,7 +1,7 @@
 "use client"; // Uses useState, scroll listener, usePathname
 
 import { useState, useEffect, useCallback, useRef } from "react";
-import Link from "next/link";
+import { LocalizedLink as Link } from "@/components/common/LocalizedLink";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { Menu, X, BedDouble, Sparkles, Compass, Tag, Camera, Info } from "lucide-react";

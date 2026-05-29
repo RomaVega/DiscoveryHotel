@@ -68,9 +68,9 @@ describe("localizedPath()", () => {
     expect(localizedPath("/ru", "en")).toBe("/");
   });
 
-  it("falls back to /ru when the RU page doesn't exist", () => {
-    // /privacy has no /ru/privacy in the build
-    expect(localizedPath("/privacy", "ru")).toBe("/ru");
+  it("falls back to /ru when the target route doesn't exist", () => {
+    // Synthetic path with no RU equivalent — covers the safety branch
+    expect(localizedPath("/nonexistent-page", "ru")).toBe("/ru");
   });
 
   it("returns the same path when target locale already matches", () => {

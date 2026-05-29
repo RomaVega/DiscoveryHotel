@@ -4,8 +4,23 @@ import { LoadingScreen } from "@/components/layout/LoadingScreen";
 import { SitePreloader } from "@/components/common/SitePreloader";
 import { MotionProvider } from "@/components/common/MotionProvider";
 import { LanguageProvider } from "@/lib/language-context";
+import { ALL_ROUTES } from "@/lib/image-manifest";
 import { SITE_URL, SITE_NAME, OG_IMAGE } from "@/lib/site";
 import "./globals.css";
+
+// EN paths that have a /ru equivalent. Used by the inline redirect script below
+// to honor a user's saved language preference on entry. Pages without a /ru
+// version (/privacy, /terms) stay in EN regardless of preference.
+const EN_PATHS_WITH_RU = JSON.stringify(
+  ALL_ROUTES.filter((r) => r.startsWith("/ru")).map((r) =>
+    r === "/ru" ? "/" : r.slice(3)
+  )
+);
+
+// Blocking inline script: reads `odh-lang` from localStorage and redirects to
+// the matching locale's URL before paint, so returning users land on the
+// language they last chose without an EN→RU content flash.
+const LANG_REDIRECT_SCRIPT = `(function(){try{var p=localStorage.getItem("odh-lang");if(p!=="en"&&p!=="ru")return;var path=location.pathname.replace(/\\/$/,"")||"/";var onRu=path==="/ru"||path.indexOf("/ru/")===0;if(p==="ru"&&!onRu){var a=${EN_PATHS_WITH_RU};if(a.indexOf(path)<0)return;location.replace((path==="/"?"/ru":"/ru"+path)+location.search+location.hash)}else if(p==="en"&&onRu){location.replace((path.replace(/^\\/ru/,"")||"/")+location.search+location.hash)}}catch(e){}})();`;
 
 const inter = Inter({
   variable: "--font-sans",
@@ -71,6 +86,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable} suppressHydrationWarning>
       <head>
+        {/* Language redirect — must run before any rendering. Blocks parser briefly. */}
+        <script dangerouslySetInnerHTML={{ __html: LANG_REDIRECT_SCRIPT }} />
         {/* schema.org Hotel — structured data for Google rich results */}
         <script
           type="application/ld+json"

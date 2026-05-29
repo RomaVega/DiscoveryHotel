@@ -142,6 +142,9 @@ export function LanguageSelector({ variant = "dark" }: LanguageSelectorProps) {
                   onClick={() => {
                     if (!lang.available) return;
                     setOpen(false);
+                    // Persist the choice so future visits land on the same locale even when
+                    // the user arrives via an external link to the other-language URL.
+                    try { localStorage.setItem("odh-lang", lang.code); } catch { /* ignore */ }
                     if (lang.code !== locale) router.push(localizedPath(pathname, lang.code));
                   }}
                   className={cn(

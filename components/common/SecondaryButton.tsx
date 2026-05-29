@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { LocalizedLink } from "@/components/common/LocalizedLink";
 import { cn } from "@/lib/utils";
 
 const BASE_STYLES =
@@ -49,8 +49,8 @@ export function SecondaryButton({ children, className, ...rest }: SecondaryButto
   }
 
   return (
-    <Link href={href!} className={styles}>
+    <LocalizedLink href={href!} className={styles}>
       {children}
-    </Link>
+    </LocalizedLink>
   );
 }
