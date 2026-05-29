@@ -24,7 +24,7 @@ function TreatmentCard({ treatment, bookText, whatsappBase }: {
   );
 
   return (
-    <div className="bg-ivory shadow-sm p-6 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8">
+    <div className="bg-ivory shadow-sm p-6 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 rounded-md">
       <div className="flex-1">
         <h3 className="font-sans font-semibold text-charcoal text-sm">{t(treatment.name)}</h3>
         <p className="text-stone text-xs mt-1 leading-relaxed">{t(treatment.description)}</p>
@@ -77,7 +77,7 @@ export function SpaDetail({ data }: SpaDetailProps) {
                   : `Hello! I'd like to book the program: ${typeof program.name === "object" ? program.name.en : program.name}`
               );
               return (
-                <div key={i} className="bg-ivory shadow-sm p-6 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8">
+                <div key={i} className="bg-ivory shadow-sm p-6 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 rounded-md">
                   <div className="flex-1">
                     <h3 className="font-serif text-2xl font-semibold text-charcoal">{t(program.name)}</h3>
                     <p className="mt-2 text-stone text-sm leading-relaxed">{t(program.description)}</p>

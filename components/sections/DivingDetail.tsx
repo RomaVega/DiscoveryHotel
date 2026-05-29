@@ -30,7 +30,7 @@ export function DivingDetail({ data }: DivingDetailProps) {
                 : `Hello! I'd like to book the diving program: ${typeof program.name === "object" ? program.name.en : program.name}`
               );
               return (
-                <div key={i} className="bg-ivory p-6 shadow-sm flex flex-col">
+                <div key={i} className="bg-ivory p-6 shadow-sm flex flex-col rounded-md">
                   <h3 className="font-serif text-2xl font-semibold text-charcoal">{t(program.name)}</h3>
                   <p className="mt-1 text-xs text-brand-teal font-sans uppercase tracking-wider">{t(program.level)}</p>
                   <p className="mt-3 text-stone text-sm leading-relaxed flex-1">{t(program.description)}</p>
@@ -58,7 +58,7 @@ export function DivingDetail({ data }: DivingDetailProps) {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {data.diveSites.map((site, i) => (
-              <div key={i} className="bg-ivory p-6 shadow-sm">
+              <div key={i} className="bg-ivory p-6 shadow-sm rounded-md">
                 <h3 className="font-serif text-lg font-semibold text-charcoal">{t(site.name)}</h3>
                 <p className="mt-2 text-stone text-sm leading-relaxed">{t(site.description)}</p>
               </div>

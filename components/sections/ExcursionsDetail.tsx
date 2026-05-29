@@ -36,7 +36,7 @@ function ExcursionGroup({ section }: { section: ExcursionSection }) {
                 : `Hello! I'd like to book the excursion: ${typeof item.name === "object" ? item.name.en : item.name}`
             );
             return (
-              <div key={i} className="bg-ivory shadow-sm p-6 md:p-8 flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-8">
+              <div key={i} className="bg-ivory shadow-sm p-6 md:p-8 flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-8 rounded-md">
                 <div className="flex-1">
                   <h3 className="font-serif text-2xl font-semibold text-charcoal">{t(item.name)}</h3>
                   <p className="text-stone text-sm mt-2 leading-relaxed">{t(item.description)}</p>

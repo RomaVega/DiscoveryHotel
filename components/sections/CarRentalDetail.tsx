@@ -31,7 +31,7 @@ export function CarRentalDetail({ data }: CarRentalDetailProps) {
                 ? `Здравствуйте! Хочу арендовать: ${typeof vehicle.title === "string" ? vehicle.title : vehicle.title.ru}.`
                 : `Hello! I'd like to rent: ${vehicleName}.`);
               return (
-                <div key={i} className="bg-ivory p-6 shadow-sm flex flex-col">
+                <div key={i} className="bg-ivory p-6 shadow-sm flex flex-col rounded-md">
                   <h3 className="font-serif text-2xl font-semibold text-charcoal">{t(vehicle.title)}</h3>
                   <p className="mt-2 text-stone text-sm leading-relaxed flex-1">{t(vehicle.description)}</p>
                   <div className="mt-4 pt-4 border-t border-sand flex flex-col items-center gap-3">
@@ -49,7 +49,7 @@ export function CarRentalDetail({ data }: CarRentalDetailProps) {
         {/* Terms */}
         {data.terms && data.terms.length > 0 && (
           <FadeIn>
-            <div className="bg-ivory p-8 shadow-sm">
+            <div className="bg-ivory p-8 shadow-sm rounded-md">
               <h3 className="font-serif text-xl font-semibold text-charcoal mb-4">
                 {t({ en: "Rental Terms", ru: "Условия аренды" })}
               </h3>

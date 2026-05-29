@@ -22,7 +22,7 @@ export function LocationDetail({ data }: LocationDetailProps) {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
             {data.nearbyAttractions.map((attraction, i) => (
-              <div key={i} className="bg-ivory p-6 shadow-sm">
+              <div key={i} className="bg-ivory p-6 shadow-sm rounded-md">
                 <div className="flex items-center gap-2 mb-3">
                   <MapPin size={16} className="text-brand-teal" />
                   <span className="text-xs text-stone font-sans">{t(attraction.distance)}</span>
@@ -41,7 +41,7 @@ export function LocationDetail({ data }: LocationDetailProps) {
           </h2>
           <div className="space-y-6">
             {data.gettingHere.map((route, i) => (
-              <div key={i} className="bg-ivory p-6 shadow-sm flex items-start gap-4">
+              <div key={i} className="bg-ivory p-6 shadow-sm flex items-start gap-4 rounded-md">
                 <Navigation size={20} className="text-brand-teal shrink-0 mt-1" />
                 <div className="flex-1">
                   <div className="flex items-center gap-3">

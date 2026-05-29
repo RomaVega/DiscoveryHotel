@@ -42,7 +42,7 @@ export function MapLocation({ contact }: MapLocationProps) {
             </div>
 
             {/* Address card */}
-            <div className="bg-ivory p-8 border border-charcoal/5 h-full flex flex-col justify-center">
+            <div className="bg-ivory p-8 border border-charcoal/5 h-full flex flex-col justify-center rounded-md">
               <div className="flex items-start gap-3 mb-6">
                 <MapPin
                   size={20}

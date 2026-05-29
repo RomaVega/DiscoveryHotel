@@ -55,11 +55,11 @@ export function Experiences({ data }: ExperiencesProps) {
           {data.items.map((item, i) => (
             <FadeIn key={i} delay={i * 0.1}>
               {item.external ? (
-                <a href={item.href} target="_blank" rel="noopener noreferrer" className="bg-ivory shadow-md group h-full flex flex-col overflow-hidden">
+                <a href={item.href} target="_blank" rel="noopener noreferrer" className="bg-ivory shadow-md group h-full flex flex-col overflow-hidden rounded-md">
                   <CardInner item={item} label={t({ en: "See More", ru: "Подробнее" })} />
                 </a>
               ) : (
-                <Link href={item.href} className="bg-ivory shadow-md group h-full flex flex-col overflow-hidden">
+                <Link href={item.href} className="bg-ivory shadow-md group h-full flex flex-col overflow-hidden rounded-md">
                   <CardInner item={item} label={t({ en: "See More", ru: "Подробнее" })} />
                 </Link>
               )}

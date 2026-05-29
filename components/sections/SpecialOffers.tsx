@@ -33,7 +33,7 @@ export function SpecialOffers({ data, hideHeading }: SpecialOffersProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {activeOffers.map((offer, i) => (
             <FadeIn key={i} delay={i * 0.1}>
-              <div className="bg-sand shadow-md group h-full flex flex-col overflow-hidden">
+              <div className="bg-sand shadow-md group h-full flex flex-col overflow-hidden rounded-md">
                 <div className="relative aspect-[16/9] shrink-0 overflow-hidden">
                   <Image
                     src={offer.image}

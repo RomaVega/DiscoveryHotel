@@ -30,7 +30,7 @@ export function RoomsPreview({ data }: RoomsPreviewProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {data.rooms.map((room, i) => (
             <FadeIn key={i} delay={i * 0.1}>
-              <div className="bg-ivory shadow-md group h-full flex flex-col overflow-hidden">
+              <div className="bg-ivory shadow-md group h-full flex flex-col overflow-hidden rounded-md">
                 {room.images && room.images.length > 1 ? (
                   <RoomSlideshow
                     images={room.images.map((s) => ({

@@ -36,7 +36,7 @@ export function EventsDetail({ data }: EventsDetailProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {data.services.map((service, i) => (
             <FadeIn key={i} delay={i * 0.1}>
-              <div className="bg-ivory shadow-md overflow-hidden h-full flex flex-col">
+              <div className="bg-ivory shadow-md overflow-hidden h-full flex flex-col rounded-md">
                 <div className="relative aspect-[4/3] shrink-0 overflow-hidden">
                   <Image
                     src={service.image}
@@ -66,7 +66,7 @@ export function EventsDetail({ data }: EventsDetailProps) {
             <h2 className="font-serif text-3xl font-light text-charcoal text-center mb-8">
               {t({ en: "What We Offer", ru: "Что мы предлагаем" })}
             </h2>
-            <div className="bg-ivory p-8 shadow-sm">
+            <div className="bg-ivory p-8 shadow-sm rounded-md">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {data.venueFeatures.map((feature, i) => (
                   <div key={i} className="flex items-center gap-3">

@@ -20,7 +20,7 @@ export function WeddingsDetail({ data }: WeddingsDetailProps) {
           {data.packages.map((pkg, i) => (
             <FadeIn key={i}>
               <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-start`}>
-                <div className={`relative aspect-[4/3] overflow-hidden shadow-lg ${i % 2 === 1 ? "lg:order-2" : ""}`}>
+                <div className={`relative aspect-[4/3] overflow-hidden shadow-lg rounded-md ${i % 2 === 1 ? "lg:order-2" : ""}`}>
                   <Image
                     src={pkg.image}
                     alt={t(pkg.imageAlt)}

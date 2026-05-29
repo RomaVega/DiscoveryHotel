@@ -35,7 +35,7 @@ export function GalleryPreview({ data, hideHeading = false }: GalleryPreviewProp
             <RoomSlideshow
               images={images}
               sizes="(max-width: 672px) 100vw, 672px"
-              className="aspect-[4/3] shadow-lg"
+              className="aspect-[4/3] shadow-lg rounded-md overflow-hidden"
               current={current}
               onNavigate={setCurrent}
             />

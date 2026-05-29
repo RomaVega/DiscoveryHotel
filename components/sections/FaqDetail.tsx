@@ -21,7 +21,7 @@ export function FaqDetail({ data }: FaqDetailProps) {
         <div className="space-y-3">
           {data.items.map((item, i) => (
             <FadeIn key={i} delay={i * 0.05}>
-              <div className="bg-ivory shadow-sm overflow-hidden">
+              <div className="bg-ivory shadow-sm overflow-hidden rounded-md">
                 <button
                   onClick={() => setOpen(open === i ? null : i)}
                   className="w-full flex items-center justify-between p-5 text-left"

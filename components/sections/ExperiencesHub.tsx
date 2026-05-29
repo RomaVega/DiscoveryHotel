@@ -66,11 +66,11 @@ export function ExperiencesHub({ data }: ExperiencesHubProps) {
               return (
                 <FadeIn key={i} delay={i * 0.1}>
                   {cat.external ? (
-                    <a href={cat.href} target="_blank" rel="noopener noreferrer" className="bg-ivory shadow-md group h-full flex flex-col overflow-hidden">
+                    <a href={cat.href} target="_blank" rel="noopener noreferrer" className="bg-ivory shadow-md group h-full flex flex-col overflow-hidden rounded-md">
                       {cardContent}
                     </a>
                   ) : (
-                    <Link href={cat.href} className="bg-ivory shadow-md group h-full flex flex-col overflow-hidden">
+                    <Link href={cat.href} className="bg-ivory shadow-md group h-full flex flex-col overflow-hidden rounded-md">
                       {cardContent}
                     </Link>
                   )}

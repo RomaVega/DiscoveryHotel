@@ -39,7 +39,7 @@ function ReviewCard({ review, t }: { review: Review; t: (v: Review["text"]) => s
 
   return (
     <article
-      className="shrink-0 w-72 bg-ivory rounded-sm border border-charcoal/8 px-6 py-5 flex flex-col gap-3 select-none"
+      className="shrink-0 w-72 bg-ivory rounded-md border border-charcoal/8 px-6 py-5 flex flex-col gap-3 select-none"
       aria-label={`Review by ${author}`}
     >
       <div className="flex gap-0.5" aria-label={`${review.rating} out of 5 stars`}>

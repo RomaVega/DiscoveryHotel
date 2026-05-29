@@ -32,7 +32,7 @@ export function TransferDetail({ data }: TransferDetailProps) {
           <h2 className="font-serif text-3xl font-light text-charcoal text-center mb-8">
             {t({ en: "Airport & Resort Transfers", ru: "Трансферы из аэропорта" })}
           </h2>
-          <div className="bg-ivory shadow-sm overflow-hidden mb-16">
+          <div className="bg-ivory shadow-sm overflow-hidden mb-16 rounded-md">
             <div className="grid grid-cols-3 gap-4 p-4 border-b border-sand font-sans text-xs uppercase tracking-wider text-stone">
               <span>{t({ en: "Destination", ru: "Направление" })}</span>
               <span className="text-center">{t({ en: "One Way", ru: "В одну сторону" })}</span>
@@ -56,7 +56,7 @@ export function TransferDetail({ data }: TransferDetailProps) {
             <h2 className="font-serif text-3xl font-light text-charcoal text-center mb-8">
               {t({ en: "Local Transfers", ru: "Местные трансферы" })}
             </h2>
-            <div className="bg-ivory shadow-sm overflow-hidden mb-16">
+            <div className="bg-ivory shadow-sm overflow-hidden mb-16 rounded-md">
               <div className="divide-y divide-sand">
                 {data.localRoutes.map((route, i) => (
                   <div key={i} className="flex items-center justify-between p-4">
@@ -72,7 +72,7 @@ export function TransferDetail({ data }: TransferDetailProps) {
         {/* Other Destinations */}
         {data.otherDestinations && data.otherDestinations.length > 0 && (
           <FadeIn>
-            <div className="bg-ivory p-6 shadow-sm text-center">
+            <div className="bg-ivory p-6 shadow-sm text-center rounded-md">
               <p className="text-stone text-sm mb-4">
                 {t({ en: "Also available — contact us for pricing:", ru: "Также доступно — свяжитесь с нами для уточнения цены:" })}
               </p>

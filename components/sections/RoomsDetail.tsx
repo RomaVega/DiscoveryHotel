@@ -104,12 +104,12 @@ function RoomCard({ room, reverse, t, isRu }: {
           <RoomSlideshow
             images={images}
             sizes="(max-width: 1024px) 100vw, 50vw"
-            className="aspect-[4/3] shadow-lg -mx-6 lg:mx-0"
+            className="aspect-[4/3] shadow-lg -mx-6 lg:mx-0 rounded-md overflow-hidden"
             current={current}
             onNavigate={setCurrent}
           />
         ) : (
-          <div className="relative aspect-[4/3] overflow-hidden shadow-lg -mx-6 lg:mx-0">
+          <div className="relative aspect-[4/3] overflow-hidden shadow-lg -mx-6 lg:mx-0 rounded-md">
             <Image src={room.image} alt={t(room.imageAlt)} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
           </div>
         )}
