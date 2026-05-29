@@ -44,7 +44,6 @@ export function HeroImage({ hero }: HeroImageProps) {
   // Mutate opacity via DOM ref to avoid a React re-render at the critical moment.
   // Note: we do NOT seek back to 0 here — seeking flushes the decoder pipeline and undoes the warmup.
   useEffect(() => {
-    if (isMobile === null) return;
     const v = videoRef.current;
     if (!v) return;
     let revealed = false;
@@ -68,7 +67,7 @@ export function HeroImage({ hero }: HeroImageProps) {
       clearTimeout(timer);
       if (handle && typeof v.cancelVideoFrameCallback === "function") v.cancelVideoFrameCallback(handle);
     };
-  }, [isMobile]);
+  }, []);
   const line1Ref = useRef<HTMLSpanElement>(null);
   const line2Ref = useRef<HTMLSpanElement>(null);
   const line3Ref = useRef<HTMLSpanElement>(null);
@@ -115,18 +114,23 @@ export function HeroImage({ hero }: HeroImageProps) {
         className="object-cover"
       />
 
-      {hero.video && isMobile !== null && (
+      {hero.video && (
         <video
-          key={isMobile ? "m" : "d"}
           ref={videoRef}
           autoPlay muted loop playsInline preload="auto"
           style={{ opacity: 0, willChange: "opacity", transform: "translateZ(0)" }}
           className="absolute inset-0 h-full w-full object-cover transition-opacity duration-200"
         >
-          <source
-            src={`${BASE_PATH}${isMobile && hero.videoMobile ? hero.videoMobile : hero.video}`}
-            type="video/mp4"
-          />
+          {/* Browser picks the first matching source at parse time, so the <video>
+              renders in SSR and only the device-appropriate clip is fetched. */}
+          {hero.videoMobile && (
+            <source
+              src={`${BASE_PATH}${hero.videoMobile}`}
+              media="(max-width: 767px)"
+              type="video/mp4"
+            />
+          )}
+          <source src={`${BASE_PATH}${hero.video}`} type="video/mp4" />
         </video>
       )}
 
