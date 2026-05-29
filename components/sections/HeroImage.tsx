@@ -38,11 +38,10 @@ export function HeroImage({ hero }: HeroImageProps) {
     setIsMobile(window.matchMedia("(max-width: 767px)").matches);
   }, []);
 
-  // Wait for the decoder to actually present ~6 frames before revealing, so the GPU/decoder
-  // pipeline is hot when the video becomes visible. A short fade-in masks the small (~200ms)
-  // position discontinuity between the poster (frame 0) and the now-warm video (frame ~6).
-  // Mutate opacity via DOM ref to avoid a React re-render at the critical moment.
-  // Note: we do NOT seek back to 0 here — seeking flushes the decoder pipeline and undoes the warmup.
+  // Warm-then-rewind: let the video autoplay invisibly to warm the decoder pipeline
+  // and fetch eagerly. Once 6 frames are painted (decoder hot), pause and seek back
+  // to 0, then reveal + play — so visible playback always starts at frame 0 with no
+  // mid-stream jump. Mutate opacity via DOM ref to avoid a React re-render.
   useEffect(() => {
     const v = videoRef.current;
     if (!v) return;
@@ -52,14 +51,20 @@ export function HeroImage({ hero }: HeroImageProps) {
       if (revealed) return;
       revealed = true;
       v.style.opacity = "1";
+      if (v.paused) v.play().catch(() => {});
     };
-    const timer = setTimeout(reveal, 2500); // safety fallback for browsers without rVFC
+    const timer = setTimeout(reveal, 2500); // safety fallback
     if (typeof v.requestVideoFrameCallback === "function") {
       let count = 0;
       const cb = () => {
         count++;
-        if (count >= 6) reveal();
-        else handle = v.requestVideoFrameCallback(cb);
+        if (count >= 6) {
+          v.pause();
+          v.currentTime = 0;
+          requestAnimationFrame(reveal); // ensure seek lands before opacity flip
+          return;
+        }
+        handle = v.requestVideoFrameCallback(cb);
       };
       handle = v.requestVideoFrameCallback(cb);
     }
@@ -119,7 +124,7 @@ export function HeroImage({ hero }: HeroImageProps) {
           ref={videoRef}
           autoPlay muted loop playsInline preload="auto"
           style={{ opacity: 0, willChange: "opacity", transform: "translateZ(0)" }}
-          className="absolute inset-0 h-full w-full object-cover transition-opacity duration-200"
+          className="absolute inset-0 h-full w-full object-cover"
         >
           {/* Browser picks the first matching source at parse time, so the <video>
               renders in SSR and only the device-appropriate clip is fetched. */}
