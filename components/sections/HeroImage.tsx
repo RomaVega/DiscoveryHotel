@@ -24,22 +24,49 @@ export function HeroImage({ hero }: HeroImageProps) {
     return () => cancelAnimationFrame(id);
   }, []);
 
-  // Hide content as soon as the page leaves scrollY 0; restore only after the user
-  // has been back at the top for ~250ms. The delay absorbs iOS overscroll bounces
-  // and URL-bar collapse twitches that briefly report scrollY === 0 mid-scroll —
-  // without it, the 500ms fade-in re-triggers and the content visibly reappears.
+  // Hide content the instant the page leaves scrollY 0; restore ONLY once scrolling
+  // has fully stopped at the top. iOS momentum scroll fires `scroll` events with
+  // scrollY === 0 well before motion visibly stops, so a timer-based check would
+  // re-show the hero mid-glide. `scrollend` fires only after the scroller settles
+  // (including iOS momentum + rubber-band), which is exactly what we want.
   useEffect(() => {
-    let showTimer = 0;
-    const onScroll = () => {
-      clearTimeout(showTimer);
+    const hideIfScrolled = () => {
       if (window.scrollY > 0) setScrolled(true);
-      else showTimer = window.setTimeout(() => setScrolled(false), 250);
     };
-    onScroll(); // sync initial state on reload
-    window.addEventListener("scroll", onScroll, { passive: true });
+    const showIfAtTop = () => {
+      if (window.scrollY === 0) setScrolled(false);
+    };
+    hideIfScrolled(); // sync initial state on reload
+
+    window.addEventListener("scroll", hideIfScrolled, { passive: true });
+
+    const supportsScrollEnd = "onscrollend" in window;
+    const scrollEndType = "scrollend" as keyof WindowEventMap;
+
+    if (supportsScrollEnd) {
+      window.addEventListener(scrollEndType, showIfAtTop);
+      return () => {
+        window.removeEventListener("scroll", hideIfScrolled);
+        window.removeEventListener(scrollEndType, showIfAtTop);
+      };
+    }
+
+    // Fallback for browsers without scrollend (older Safari): wait until scroll
+    // events have been quiet for 500ms with scrollY === 0.
+    let idleTimer = 0;
+    const scheduleShow = () => {
+      clearTimeout(idleTimer);
+      if (window.scrollY === 0) {
+        idleTimer = window.setTimeout(() => {
+          if (window.scrollY === 0) setScrolled(false);
+        }, 500);
+      }
+    };
+    window.addEventListener("scroll", scheduleShow, { passive: true });
     return () => {
-      window.removeEventListener("scroll", onScroll);
-      clearTimeout(showTimer);
+      window.removeEventListener("scroll", hideIfScrolled);
+      window.removeEventListener("scroll", scheduleShow);
+      clearTimeout(idleTimer);
     };
   }, []);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -117,7 +144,7 @@ export function HeroImage({ hero }: HeroImageProps) {
   };
 
   return (
-    <section className="relative h-[110svh] w-full overflow-hidden bg-black">
+    <section className="relative h-svh w-full overflow-hidden bg-black">
       {/* Always-on poster layer. Acts as SSR fallback before isMobile resolves and as the
           poster the video sits over once it mounts. One <Image> means one LCP fetch.
           isMobile is null on SSR/before layout-effect; falls back to desktop poster. */}
@@ -159,7 +186,7 @@ export function HeroImage({ hero }: HeroImageProps) {
           acceleration kick-in (which happens in the same ~500ms window). */}
       <div
         style={{ willChange: "opacity", transform: "translateZ(0)" }}
-        className={`relative z-10 flex h-[100svh] flex-col items-center justify-center px-6 text-center text-white ${!scrolled ? "transition-opacity duration-500" : ""} ${scrolled || !appeared ? "opacity-0 pointer-events-none" : "opacity-100"}`}
+        className={`relative z-10 flex h-svh flex-col items-center justify-center px-6 text-center text-white ${!scrolled ? "transition-opacity duration-500" : ""} ${scrolled || !appeared ? "opacity-0 pointer-events-none" : "opacity-100"}`}
       >
         {/* Logo */}
         <Image
@@ -232,7 +259,7 @@ export function HeroImage({ hero }: HeroImageProps) {
       {/* Scroll indicator */}
       <div className={`${!scrolled ? "transition-opacity duration-500" : ""} ${scrolled || !appeared ? "opacity-0" : ""}`}>
         <m.div
-          className="absolute bottom-10 md:bottom-10 left-1/2 -translate-x-1/2 z-10"
+          className="absolute bottom-4 md:bottom-5 left-1/2 -translate-x-1/2 z-10"
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.6, ease: "easeInOut", repeat: Infinity, repeatDelay: 0.4 }}
         >
@@ -242,28 +269,17 @@ export function HeroImage({ hero }: HeroImageProps) {
         </m.div>
       </div>
 
-      {/* Video pause button — always visible on desktop, shown after scroll on mobile */}
+      {/* Video pause toggle — quiet by default, brightens on hover/focus so it
+          stays noticeable to a new visitor without competing with hero content. */}
       {hero.video && (
         <button
           onClick={toggleVideo}
           aria-label={paused ? tl.hero.playVideo : tl.hero.pauseVideo}
-          className="absolute bottom-8 right-8 z-10 hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-black/30 backdrop-blur-sm text-white/70 hover:text-white hover:bg-black/50 transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-brand-teal"
+          className="absolute bottom-6 right-8 -mr-2 md:bottom-8 z-10 p-2 text-white opacity-40 hover:opacity-100 transition-opacity duration-300 focus-visible:ring-2 focus-visible:ring-brand-teal drop-shadow-[0_1px_3px_rgba(0,0,0,0.5)]"
         >
-          {paused ? <Play size={18} /> : <Pause size={18} />}
+          {paused ? <Play size={24} /> : <Pause size={24} />}
         </button>
       )}
-      {/* Mobile: pause button appears after hero text fades on scroll */}
-      <div className={`md:hidden ${scrolled ? "block" : "hidden"}`}>
-        {hero.video && (
-          <button
-            onClick={toggleVideo}
-            aria-label={paused ? tl.hero.playVideo : tl.hero.pauseVideo}
-            className="absolute bottom-8 right-8 z-10 flex items-center justify-center w-10 h-10 rounded-full bg-black/30 backdrop-blur-sm text-white/70 hover:text-white hover:bg-black/50 transition-colors duration-200 focus-visible:ring-2 focus-visible:ring-brand-teal"
-          >
-            {paused ? <Play size={18} /> : <Pause size={18} />}
-          </button>
-        )}
-      </div>
     </section>
   );
 }
