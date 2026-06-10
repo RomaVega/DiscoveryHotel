@@ -65,7 +65,7 @@ export default function HomeRuPage() {
         <ScrollDivider above={C.sand}     below={C.ivory}    />
         <SpecialOffers data={data.offers} />
         <ScrollDivider above={C.ivory}    below={C.sand}     />
-        <GalleryPreview data={data.galleryPreview} />
+        <GalleryPreview data={data.galleryPreview} hideDesktopThumbnails />
         <ScrollDivider above={C.sand}     below={C.ivory}    />
         <ReviewScroller reviews={reviews} />
         <BookingCta data={data.bookingCta} />

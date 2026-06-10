@@ -13,9 +13,11 @@ interface GalleryPreviewProps {
   data: GalleryPreviewData;
   defaultExpanded?: boolean;
   hideHeading?: boolean;
+  /** Hide the thumbnail strip on desktop (≥lg); kept on mobile for tap navigation. */
+  hideDesktopThumbnails?: boolean;
 }
 
-export function GalleryPreview({ data, hideHeading = false }: GalleryPreviewProps) {
+export function GalleryPreview({ data, hideHeading = false, hideDesktopThumbnails = false }: GalleryPreviewProps) {
   const [current, setCurrent] = useState(0);
   const { t } = useLanguage();
 
@@ -43,7 +45,7 @@ export function GalleryPreview({ data, hideHeading = false }: GalleryPreviewProp
 
           {/* Thumbnail grid */}
           <div
-            className="mt-2 grid gap-1"
+            className={cn("mt-2 grid gap-1", hideDesktopThumbnails && "lg:hidden")}
             style={{ gridTemplateColumns: "repeat(auto-fill, minmax(68px, 1fr))" }}
           >
             {images.map((img, i) => (
