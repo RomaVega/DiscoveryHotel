@@ -36,7 +36,7 @@ export default function AboutRuPage() {
           path: "/ru/about",
           name: "Об отеле Orlowsky Discovery — Кандидаса, Восточный Бали",
           description: "Бутик-отель на берегу моря в Кандидасе, Карангасем. Виллы с бассейном, тропические сады, аюрведический спа и ресторан у океана.",
-          image: `${SITE_URL}/images/welcome/Image.webp`,
+          image: `${SITE_URL}/images/welcome/welcome-garden-path-ocean-candidasa.webp`,
           locale: "ru",
           type: "AboutPage",
         }),
@@ -46,7 +46,7 @@ export default function AboutRuPage() {
         ]),
       ]} />
       <PageHero
-        image="/images/welcome/Image.webp"
+        image="/images/welcome/welcome-garden-path-ocean-candidasa.webp"
         imageDesktop="/images/gallery/orlowsky-hotel-pool-terrace-ocean.webp"
         imageAlt="Tropical garden path to the ocean at Orlowsky Discovery Hotel, Candidasa"
         heading={data.heading}

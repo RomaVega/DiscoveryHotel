@@ -6,7 +6,7 @@ import { ALL_IMAGES, ALL_ROUTES } from "@/lib/image-manifest";
 
 // Above-the-fold images on the home page — loaded first so the landing view is ready fast.
 const PRIORITY = [
-  "/images/welcome/Image.webp",
+  "/images/welcome/welcome-garden-path-ocean-candidasa.webp",
   "/images/rooms/pool-villa.webp",
   "/images/rooms/deluxe-cottage.webp",
   "/images/restaurant-bar/orlowsky-hotel-oceanfront-dining-candidasa.webp",

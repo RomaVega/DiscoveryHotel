@@ -13,7 +13,7 @@ const FEATURE_IMAGES = [
   "/images/dining/seaside-dining.webp",
   "/images/dining/international-cuisine.webp",
   "/images/dining/buffet.webp",
-  "/images/dining/bar-drinks-and-coctails.webp",
+  "/images/dining/bar-drinks-and-cocktails.webp",
   "/images/dining/room-service.webp",
   "/images/dining/chef-specials.webp",
   "/images/dining/cultural-performance.webp",
