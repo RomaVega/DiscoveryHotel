@@ -45,7 +45,7 @@ export default function AboutPage() {
         ]),
       ]} />
       <PageHero
-        image="/images/welcome/Image.webp"
+        image="/images/gallery/orlowsky-hotel-pool-terrace-ocean.webp"
         imageAlt="Tropical garden and pool area of the hotel"
         heading={data.heading}
         subtext={data.subtext}

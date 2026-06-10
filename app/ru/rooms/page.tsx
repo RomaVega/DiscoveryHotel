@@ -44,7 +44,7 @@ export default function RoomsRuPage() {
         ]),
       ]} />
       <PageHero
-        image="/images/rooms/pool-villa.webp"
+        image="/images/gallery/orlowsky-hotel-two-story-villa-private-pool.webp"
         imageAlt="Aerial view of pool villas surrounded by tropical gardens"
         heading={data.heading}
         subtext={data.subtext}

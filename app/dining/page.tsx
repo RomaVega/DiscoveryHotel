@@ -46,7 +46,7 @@ export default function DiningPage() {
         ]),
       ]} />
       <PageHero
-        image="/images/dining/Oceanside-restaurant-and-bar.webp"
+        image="/images/gallery/orlowsky-hotel-pool-beach-panorama.webp"
         imageAlt="Oceanfront restaurant and bar at Orlowsky Discovery Hotel"
         heading={data.heading}
         subtext={data.subtext}
