@@ -15,4 +15,4 @@ export const OG_IMAGE = `${SITE_URL}/images/hero/hero-og.jpg`;
  *
  * ⚠️ Bump this (e.g. to the date) whenever you replace an image in place.
  */
-export const ASSET_VERSION = "20260610c";
+export const ASSET_VERSION = "20260610d";
