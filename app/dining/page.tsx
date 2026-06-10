@@ -46,8 +46,9 @@ export default function DiningPage() {
         ]),
       ]} />
       <PageHero
-        image="/images/gallery/orlowsky-hotel-pool-beach-panorama.webp"
-        imageAlt="Oceanfront restaurant and bar at Orlowsky Discovery Hotel"
+        image="/images/dining/oceanfront-restaurant-bar.webp"
+        imageDesktop="/images/gallery/orlowsky-hotel-pool-beach-panorama.webp"
+        imageAlt="Beachfront lawn and palms overlooking the turquoise sea at Orlowsky Discovery Hotel, Candidasa"
         heading={data.heading}
         subtext={data.subtext}
         noOverlay

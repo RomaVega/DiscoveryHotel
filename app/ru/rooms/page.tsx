@@ -44,8 +44,9 @@ export default function RoomsRuPage() {
         ]),
       ]} />
       <PageHero
-        image="/images/gallery/orlowsky-hotel-two-story-villa-private-pool.webp"
-        imageAlt="Aerial view of pool villas surrounded by tropical gardens"
+        image="/images/gallery/orlowsky-hotel-villas-coconut-grove.webp"
+        imageDesktop="/images/gallery/orlowsky-hotel-two-story-villa-private-pool.webp"
+        imageAlt="Pool villas and cottages set in a tropical coconut grove, Orlowsky Discovery Hotel, Candidasa"
         heading={data.heading}
         subtext={data.subtext}
         noOverlay
