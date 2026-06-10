@@ -47,8 +47,9 @@ export default function CarRentalPage() {
         ]),
       ]} />
       <PageHero
-        image="/images/rental/rental.webp"
-        imageAlt="Scooter on a scenic Bali road"
+        image="/images/rental/scooter-rental-candidasa-bali.webp"
+        imageDesktop="/images/rental/rental.webp"
+        imageAlt="Scooter rental at Orlowsky Discovery Hotel, Candidasa, Bali"
         heading={data.heading}
         subtext={data.subtext}
         noOverlay
