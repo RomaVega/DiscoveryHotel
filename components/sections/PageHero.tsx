@@ -7,12 +7,15 @@ import type { LocalizedString } from "@/lib/types";
 interface PageHeroProps {
   image: string;
   imageAlt: string;
+  /** Optional desktop-only override; `image` is then used only on mobile. */
+  imageDesktop?: string;
+  imageDesktopAlt?: string;
   heading: LocalizedString;
   subtext?: LocalizedString;
   noOverlay?: boolean;
 }
 
-export function PageHero({ image, imageAlt, heading, subtext, noOverlay }: PageHeroProps) {
+export function PageHero({ image, imageAlt, imageDesktop, imageDesktopAlt, heading, subtext, noOverlay }: PageHeroProps) {
   const { t } = useLanguage();
 
   return (
@@ -23,8 +26,18 @@ export function PageHero({ image, imageAlt, heading, subtext, noOverlay }: PageH
         fill
         priority
         sizes="100vw"
-        className="object-cover"
+        className={`object-cover ${imageDesktop ? "lg:hidden" : ""}`}
       />
+      {imageDesktop && (
+        <Image
+          src={imageDesktop}
+          alt={imageDesktopAlt ?? imageAlt}
+          fill
+          priority
+          sizes="100vw"
+          className="hidden object-cover lg:block"
+        />
+      )}
       {!noOverlay && <div className="absolute inset-0 bg-black/40" />}
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center text-white">
         <h1 className={`font-serif text-4xl md:text-5xl lg:text-6xl font-light ${noOverlay ? "text-shadow-tight" : "text-shadow-strong"}`}>

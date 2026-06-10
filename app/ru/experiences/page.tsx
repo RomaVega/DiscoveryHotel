@@ -48,6 +48,8 @@ export default function ExperiencesRuPage() {
       <PageHero
         image="/images/experiences/experiences-excursions.webp"
         imageAlt="Lush green rice terraces in East Bali"
+        imageDesktop="/images/experiences/experiences-bali-temples-volcanoes-diving-spa.webp"
+        imageDesktopAlt="Guide leading travellers past rice terraces toward a Balinese temple and Mount Agung volcano, East Bali"
         heading={data.heading}
         subtext={data.subtext}
         noOverlay
