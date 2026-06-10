@@ -45,8 +45,9 @@ export default function GalleryRuPage() {
         ]),
       ]} />
       <PageHero
-        image="/images/gallery/orlowsky-hotel-seafront-candidasa-bay.webp"
-        imageAlt="Aerial view of hotel and tropical gardens"
+        image="/images/gallery/orlowsky-hotel-villas-coconut-grove.webp"
+        imageDesktop="/images/gallery/orlowsky-hotel-seafront-candidasa-bay.webp"
+        imageAlt="Orlowsky Discovery Hotel villas, gardens and seafront, Candidasa, East Bali"
         heading={data.galleryPreview.heading}
         subtext={data.galleryPreview.subtext}
         noOverlay

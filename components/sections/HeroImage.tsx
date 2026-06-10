@@ -16,57 +16,42 @@ const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export function HeroImage({ hero }: HeroImageProps) {
   const [paused, setPaused] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [atTop, setAtTop] = useState(true);
   const [appeared, setAppeared] = useState(false);
+  const topSentinelRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const id = requestAnimationFrame(() => setAppeared(true));
     return () => cancelAnimationFrame(id);
   }, []);
 
-  // Hide content the instant the page leaves scrollY 0; restore ONLY once scrolling
-  // has fully stopped at the top. iOS momentum scroll fires `scroll` events with
-  // scrollY === 0 well before motion visibly stops, so a timer-based check would
-  // re-show the hero mid-glide. `scrollend` fires only after the scroller settles
-  // (including iOS momentum + rubber-band), which is exactly what we want.
+  // Show the hero content ONLY when the page is at the very top. Scroll-position
+  // math (scrollY/scrollend) is unreliable on mobile: the URL bar collapsing
+  // resizes the viewport and fires spurious scroll events, momentum scrolling
+  // reports scrollY 0 mid-glide, and svh shifts. So we make a 1px sentinel pinned
+  // to the very top of the document the single source of truth: it is intersecting
+  // the viewport iff the top pixel is on screen. An extra scroll listener hides
+  // instantly (IO callbacks can lag a frame on fast flings) while the observer is
+  // the authoritative "you are genuinely back at the top" signal for re-showing.
   useEffect(() => {
-    const hideIfScrolled = () => {
-      if (window.scrollY > 0) setScrolled(true);
+    const sentinel = topSentinelRef.current;
+    if (!sentinel) return;
+
+    const hideOnScroll = () => {
+      if (window.scrollY > 0) setAtTop(false);
     };
-    const showIfAtTop = () => {
-      if (window.scrollY === 0) setScrolled(false);
-    };
-    hideIfScrolled(); // sync initial state on reload
+    hideOnScroll(); // sync initial state on reload (e.g. restored scroll position)
+    window.addEventListener("scroll", hideOnScroll, { passive: true });
 
-    window.addEventListener("scroll", hideIfScrolled, { passive: true });
+    const io = new IntersectionObserver(
+      ([entry]) => setAtTop(entry.isIntersecting && window.scrollY === 0),
+      { threshold: 0 },
+    );
+    io.observe(sentinel);
 
-    const supportsScrollEnd = "onscrollend" in window;
-    const scrollEndType = "scrollend" as keyof WindowEventMap;
-
-    if (supportsScrollEnd) {
-      window.addEventListener(scrollEndType, showIfAtTop);
-      return () => {
-        window.removeEventListener("scroll", hideIfScrolled);
-        window.removeEventListener(scrollEndType, showIfAtTop);
-      };
-    }
-
-    // Fallback for browsers without scrollend (older Safari): wait until scroll
-    // events have been quiet for 500ms with scrollY === 0.
-    let idleTimer = 0;
-    const scheduleShow = () => {
-      clearTimeout(idleTimer);
-      if (window.scrollY === 0) {
-        idleTimer = window.setTimeout(() => {
-          if (window.scrollY === 0) setScrolled(false);
-        }, 500);
-      }
-    };
-    window.addEventListener("scroll", scheduleShow, { passive: true });
     return () => {
-      window.removeEventListener("scroll", hideIfScrolled);
-      window.removeEventListener("scroll", scheduleShow);
-      clearTimeout(idleTimer);
+      window.removeEventListener("scroll", hideOnScroll);
+      io.disconnect();
     };
   }, []);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -145,6 +130,10 @@ export function HeroImage({ hero }: HeroImageProps) {
 
   return (
     <section className="relative h-svh w-full overflow-hidden bg-black">
+      {/* 1px sentinel pinned to the very top of the document — its viewport
+          intersection is the source of truth for "is the user at the very top".
+          See the IntersectionObserver effect above. */}
+      <div ref={topSentinelRef} aria-hidden="true" className="absolute left-0 top-0 h-px w-full" />
       {/* Always-on poster layer. Acts as SSR fallback before isMobile resolves and as the
           poster the video sits over once it mounts. One <Image> means one LCP fetch.
           isMobile is null on SSR/before layout-effect; falls back to desktop poster. */}
@@ -186,7 +175,7 @@ export function HeroImage({ hero }: HeroImageProps) {
           acceleration kick-in (which happens in the same ~500ms window). */}
       <div
         style={{ willChange: "opacity", transform: "translateZ(0)" }}
-        className={`relative z-10 flex h-svh flex-col items-center justify-center px-6 text-center text-white ${!scrolled ? "transition-opacity duration-500" : ""} ${scrolled || !appeared ? "opacity-0 pointer-events-none" : "opacity-100"}`}
+        className={`relative z-10 flex h-svh flex-col items-center justify-center px-6 text-center text-white ${atTop ? "transition-opacity duration-500" : ""} ${!atTop || !appeared ? "opacity-0 pointer-events-none" : "opacity-100"}`}
       >
         {/* Logo */}
         <Image
@@ -257,7 +246,7 @@ export function HeroImage({ hero }: HeroImageProps) {
       </div>
 
       {/* Scroll indicator */}
-      <div className={`${!scrolled ? "transition-opacity duration-500" : ""} ${scrolled || !appeared ? "opacity-0" : ""}`}>
+      <div className={`${atTop ? "transition-opacity duration-500" : ""} ${!atTop || !appeared ? "opacity-0" : ""}`}>
         <m.div
           className="absolute bottom-4 md:bottom-5 left-1/2 -translate-x-1/2 z-10"
           animate={{ y: [0, 8, 0] }}

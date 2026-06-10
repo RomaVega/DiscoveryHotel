@@ -45,8 +45,9 @@ export default function AboutPage() {
         ]),
       ]} />
       <PageHero
-        image="/images/gallery/orlowsky-hotel-pool-terrace-ocean.webp"
-        imageAlt="Tropical garden and pool area of the hotel"
+        image="/images/welcome/Image.webp"
+        imageDesktop="/images/gallery/orlowsky-hotel-pool-terrace-ocean.webp"
+        imageAlt="Tropical garden path to the ocean at Orlowsky Discovery Hotel, Candidasa"
         heading={data.heading}
         subtext={data.subtext}
         noOverlay
