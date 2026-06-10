@@ -3,8 +3,16 @@ import { SITE_URL } from "@/lib/site";
 
 export const dynamic = "force-static";
 
+// Stable date reflecting the last meaningful content update. Bump this when
+// site content changes — do NOT use new Date(), which marks every page as
+// "modified" on every deploy and erodes Google's trust in the lastmod signal.
+const LAST_CONTENT_UPDATE = new Date("2026-06-10");
+
 type Route = { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] };
 
+// Every public route. Each gets an EN entry (/path) and a RU entry (/ru/path),
+// and both entries carry reciprocal hreflang alternates so Google understands
+// the language pairing at the sitemap level (in addition to the <head> tags).
 const enRoutes: Route[] = [
   { path: "/",                          priority: 1.0, changeFrequency: "weekly"  },
   { path: "/rooms",                     priority: 0.9, changeFrequency: "monthly" },
@@ -27,29 +35,37 @@ const enRoutes: Route[] = [
   { path: "/terms",                     priority: 0.2, changeFrequency: "yearly"  },
 ];
 
-// Russian versions — same pages under /ru/ prefix (for Google RU indexing)
-const ruPaths = [
-  "/", "/rooms", "/dining", "/spa",
-  "/experiences", "/experiences/diving", "/experiences/excursions",
-  "/experiences/events", "/experiences/car-rental",
-  "/offers", "/gallery", "/transfer", "/weddings",
-  "/location", "/about", "/contact", "/faq",
-  "/privacy", "/terms",
-];
-
-const ruRoutes: Route[] = ruPaths.map((path) => ({
-  path: `/ru${path === "/" ? "" : path}`,
-  priority: path === "/" ? 0.9 : (enRoutes.find((r) => r.path === path)?.priority ?? 0.5) - 0.1,
-  changeFrequency: enRoutes.find((r) => r.path === path)?.changeFrequency ?? "monthly",
-}));
-
-const routes = [...enRoutes, ...ruRoutes];
+const enUrl = (path: string) => `${SITE_URL}${path}`;
+const ruUrl = (path: string) => `${SITE_URL}/ru${path === "/" ? "" : path}`;
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return routes.map(({ path, priority, changeFrequency }) => ({
-    url: `${SITE_URL}${path}`,
-    lastModified: new Date(),
-    changeFrequency,
-    priority,
-  }));
+  const entries: MetadataRoute.Sitemap = [];
+
+  for (const { path, priority, changeFrequency } of enRoutes) {
+    const languages = {
+      en: enUrl(path),
+      ru: ruUrl(path),
+      "x-default": enUrl(path),
+    };
+
+    // English entry
+    entries.push({
+      url: enUrl(path),
+      lastModified: LAST_CONTENT_UPDATE,
+      changeFrequency,
+      priority,
+      alternates: { languages },
+    });
+
+    // Russian counterpart — slightly lower priority, same hreflang set
+    entries.push({
+      url: ruUrl(path),
+      lastModified: LAST_CONTENT_UPDATE,
+      changeFrequency,
+      priority: path === "/" ? 0.9 : Math.max(0.1, priority - 0.1),
+      alternates: { languages },
+    });
+  }
+
+  return entries;
 }
