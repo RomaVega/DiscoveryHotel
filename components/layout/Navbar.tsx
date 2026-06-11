@@ -14,6 +14,9 @@ import { SecondaryButton } from "@/components/common/SecondaryButton";
 interface NavbarProps {
   alwaysVisible?: boolean;
   scrollThreshold?: number; // pixels from top before navbar appears, default 80
+  /** Never show the logo/brand text in the bar — for pages whose hero already
+      carries the full brand block, so scrolling doesn't "re-show" the brand. */
+  hideBrand?: boolean;
 }
 
 /** Shared brand text */
@@ -41,7 +44,7 @@ function BrandLogo({ onClick }: { onClick?: () => void }) {
   );
 }
 
-export function Navbar({ alwaysVisible = false, scrollThreshold = 80 }: NavbarProps) {
+export function Navbar({ alwaysVisible = false, scrollThreshold = 80, hideBrand = false }: NavbarProps) {
   const [scrolled, setScrolled] = useState(alwaysVisible);
   const [menuOpen, setMenuOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
@@ -136,7 +139,7 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80 }: NavbarPr
           {/* Logo — absolute on mobile, static on desktop, fades independently */}
           <div className={cn(
             "transition-opacity duration-500 lg:hidden",
-            scrolled ? "opacity-100" : "opacity-0 pointer-events-none"
+            scrolled && !hideBrand ? "opacity-100" : "opacity-0 pointer-events-none"
           )}>
             <BrandLogo onClick={handleBrandClick} />
           </div>
@@ -144,7 +147,7 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80 }: NavbarPr
           <div
             className={cn(
               "hidden lg:flex items-center gap-2 transition-all duration-500",
-              scrolled
+              scrolled && !hideBrand
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 -translate-y-2 pointer-events-none"
             )}
@@ -156,7 +159,7 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80 }: NavbarPr
           <div
             className={cn(
               "lg:hidden transition-all duration-500",
-              scrolled
+              scrolled && !hideBrand
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 -translate-y-2 pointer-events-none"
             )}

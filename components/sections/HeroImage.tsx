@@ -18,33 +18,34 @@ export function HeroImage({ hero }: HeroImageProps) {
   const [paused, setPaused] = useState(false);
   const [atTop, setAtTop] = useState(true);
   const [appeared, setAppeared] = useState(false);
-  const topSentinelRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const id = requestAnimationFrame(() => setAppeared(true));
     return () => cancelAnimationFrame(id);
   }, []);
 
-  // Show the hero content ONLY when the page is at the very top. Do NOT use an
-  // IntersectionObserver + window.scrollY for this: IO entries are async
-  // snapshots that lag real scrolling, and mobile browsers re-deliver them when
-  // the URL-bar collapse resizes the viewport — at that moment a stale
-  // isIntersecting:true paired with a momentary scrollY of 0 (MIUI/Chrome report
-  // 0 during the toolbar transition) flipped the overlay back on mid-scroll.
-  // Instead derive visibility from one synchronous geometry read — "is the 1px
-  // top sentinel's bottom still on screen" — recomputed per event, rAF-throttled.
-  // Measurement and decision happen in the same frame, so there is no race, and
-  // viewport resizes can't fake "at top" unless the page truly is at pixel 0.
-  // (scroll is listened on document with capture so any scroller is caught;
-  // visualViewport resize covers URL-bar transitions that emit no scroll event.)
+  // Show the hero content ONLY in the pristine top state, defined as "the hero
+  // section still covers the entire viewport". Checking scroll position alone
+  // (scrollY, or a top sentinel) misses the mobile URL-bar phase: the first
+  // ~56px of finger travel collapse the toolbar WITHOUT scrolling the page —
+  // scrollY stays 0 while the viewport grows past the section's svh height and
+  // the next section peeks in from the bottom, so the user has visually "left
+  // the top" yet every scroll-based check still says top. Comparing the
+  // section's bottom edge against the live viewport height catches both real
+  // scrolling and that toolbar zone, in one synchronous geometry read per event
+  // (rAF-throttled) — measurement and decision in the same frame, no IO/scrollY
+  // race. (scroll is listened on document with capture so any scroller is
+  // caught; resize + visualViewport resize cover toolbar viewport changes that
+  // emit no scroll event. The 2px slack absorbs DPR rounding.)
   useEffect(() => {
-    const sentinel = topSentinelRef.current;
-    if (!sentinel) return;
+    const section = sectionRef.current;
+    if (!section) return;
 
     let raf = 0;
     const update = () => {
       raf = 0;
-      setAtTop(sentinel.getBoundingClientRect().bottom > 0);
+      setAtTop(section.getBoundingClientRect().bottom >= window.innerHeight - 2);
     };
     const schedule = () => {
       if (!raf) raf = requestAnimationFrame(update);
@@ -137,11 +138,7 @@ export function HeroImage({ hero }: HeroImageProps) {
   };
 
   return (
-    <section className="relative h-svh w-full overflow-hidden bg-black">
-      {/* 1px sentinel pinned to the very top of the document — its viewport
-          intersection is the source of truth for "is the user at the very top".
-          See the IntersectionObserver effect above. */}
-      <div ref={topSentinelRef} aria-hidden="true" className="absolute left-0 top-0 h-px w-full" />
+    <section ref={sectionRef} className="relative h-svh w-full overflow-hidden bg-black">
       {/* Always-on poster layer. Acts as SSR fallback before isMobile resolves and as the
           poster the video sits over once it mounts. One <Image> means one LCP fetch.
           isMobile is null on SSR/before layout-effect; falls back to desktop poster. */}
