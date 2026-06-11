@@ -47,6 +47,7 @@ export default function SpaRuPage() {
       ]} />
       <PageHero
         image={data.image}
+        imageDesktop={data.imageDesktop}
         imageAlt={data.imageAlt}
         heading={data.heading}
         subtext={data.subtext}
