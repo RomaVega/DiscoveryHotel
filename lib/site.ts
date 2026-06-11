@@ -1,6 +1,19 @@
 /** Canonical site URL */
 export const SITE_URL = "https://orlowsky.id";
 
+/**
+ * Hotel phone in international format with leading + (e.g. "+62822…").
+ * Single source of truth is NEXT_PUBLIC_WHATSAPP_NUMBER; the throw fails the
+ * SSG build loudly instead of baking "+undefined" into JSON-LD. Lazy (not a
+ * module-level const) so importing this file never throws in tools that don't
+ * load Next's .env files (vitest, scripts).
+ */
+export function getPhoneIntl(): string {
+  const n = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
+  if (!n) throw new Error("NEXT_PUBLIC_WHATSAPP_NUMBER is not set — required for WhatsApp links and JSON-LD telephone.");
+  return `+${n}`;
+}
+
 export const SITE_NAME = "Orlowsky Discovery Hotel";
 
 export const OG_IMAGE = `${SITE_URL}/images/hero/hero-og.jpg`;
