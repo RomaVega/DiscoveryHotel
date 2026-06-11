@@ -32,6 +32,7 @@ export const ALL_IMAGES: readonly string[] = [
   "/images/dining/cultural-performance.webp",
   "/images/dining/international-cuisine.webp",
   "/images/dining/oceanside-restaurant-and-bar.webp",
+  "/images/dining/orlowsky-hotel-romantic-heart-arch.webp",
   "/images/dining/room-service.webp",
   "/images/dining/seaside-dining.webp",
   "/images/diving/diving-hawksbill-turtle-scuba-diver-candidasa-bali.webp",
