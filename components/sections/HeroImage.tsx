@@ -25,33 +25,41 @@ export function HeroImage({ hero }: HeroImageProps) {
     return () => cancelAnimationFrame(id);
   }, []);
 
-  // Show the hero content ONLY when the page is at the very top. Scroll-position
-  // math (scrollY/scrollend) is unreliable on mobile: the URL bar collapsing
-  // resizes the viewport and fires spurious scroll events, momentum scrolling
-  // reports scrollY 0 mid-glide, and svh shifts. So we make a 1px sentinel pinned
-  // to the very top of the document the single source of truth: it is intersecting
-  // the viewport iff the top pixel is on screen. An extra scroll listener hides
-  // instantly (IO callbacks can lag a frame on fast flings) while the observer is
-  // the authoritative "you are genuinely back at the top" signal for re-showing.
+  // Show the hero content ONLY when the page is at the very top. Do NOT use an
+  // IntersectionObserver + window.scrollY for this: IO entries are async
+  // snapshots that lag real scrolling, and mobile browsers re-deliver them when
+  // the URL-bar collapse resizes the viewport — at that moment a stale
+  // isIntersecting:true paired with a momentary scrollY of 0 (MIUI/Chrome report
+  // 0 during the toolbar transition) flipped the overlay back on mid-scroll.
+  // Instead derive visibility from one synchronous geometry read — "is the 1px
+  // top sentinel's bottom still on screen" — recomputed per event, rAF-throttled.
+  // Measurement and decision happen in the same frame, so there is no race, and
+  // viewport resizes can't fake "at top" unless the page truly is at pixel 0.
+  // (scroll is listened on document with capture so any scroller is caught;
+  // visualViewport resize covers URL-bar transitions that emit no scroll event.)
   useEffect(() => {
     const sentinel = topSentinelRef.current;
     if (!sentinel) return;
 
-    const hideOnScroll = () => {
-      if (window.scrollY > 0) setAtTop(false);
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      setAtTop(sentinel.getBoundingClientRect().bottom > 0);
     };
-    hideOnScroll(); // sync initial state on reload (e.g. restored scroll position)
-    window.addEventListener("scroll", hideOnScroll, { passive: true });
+    const schedule = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    update(); // sync initial state on reload (e.g. restored scroll position)
 
-    const io = new IntersectionObserver(
-      ([entry]) => setAtTop(entry.isIntersecting && window.scrollY === 0),
-      { threshold: 0 },
-    );
-    io.observe(sentinel);
+    document.addEventListener("scroll", schedule, { passive: true, capture: true });
+    window.addEventListener("resize", schedule);
+    window.visualViewport?.addEventListener("resize", schedule);
 
     return () => {
-      window.removeEventListener("scroll", hideOnScroll);
-      io.disconnect();
+      if (raf) cancelAnimationFrame(raf);
+      document.removeEventListener("scroll", schedule, { capture: true });
+      window.removeEventListener("resize", schedule);
+      window.visualViewport?.removeEventListener("resize", schedule);
     };
   }, []);
   const videoRef = useRef<HTMLVideoElement>(null);
