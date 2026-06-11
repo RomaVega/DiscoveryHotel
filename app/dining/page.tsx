@@ -46,9 +46,9 @@ export default function DiningPage() {
         ]),
       ]} />
       <PageHero
-        image="/images/dining/oceanfront-restaurant-bar.webp"
+        image="/images/gallery/orlowsky-hotel-romantic-heart-arch.webp"
         imageDesktop="/images/gallery/orlowsky-hotel-pool-beach-panorama.webp"
-        imageAlt="Beachfront lawn and palms overlooking the turquoise sea at Orlowsky Discovery Hotel, Candidasa"
+        imageAlt="Oceanfront grounds overlooking the turquoise sea at Orlowsky Discovery Hotel, Candidasa"
         heading={data.heading}
         subtext={data.subtext}
         noOverlay
