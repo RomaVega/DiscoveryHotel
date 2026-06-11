@@ -413,7 +413,7 @@ export interface NearbyAttraction {
 export interface GettingHere {
   from: LocalizedString;
   description: LocalizedString;
-  duration: string;
+  duration?: string;
 }
 
 export interface LocationPageData {
@@ -442,9 +442,11 @@ export interface WeddingsPageData {
 }
 
 /* ─── FAQ Page ─── */
+// Strict {en,ru} (not LocalizedString): FAQ entries feed the FAQPage JSON-LD,
+// which must emit both locales, so single-language strings are not allowed.
 export interface FaqItem {
-  question: LocalizedString;
-  answer: LocalizedString;
+  question: { en: string; ru: string };
+  answer: { en: string; ru: string };
 }
 
 export interface FaqPageData {

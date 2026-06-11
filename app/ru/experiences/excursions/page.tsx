@@ -1,5 +1,5 @@
 import { SITE_URL } from "@/lib/site";
-import { getContactData } from "@/lib/content";
+import { getContactData, getExcursionsPageData } from "@/lib/content";
 import { InnerPageLayout } from "@/components/layout/InnerPageLayout";
 import { PageHero } from "@/components/sections/PageHero";
 import { ExcursionsDetail } from "@/components/sections/ExcursionsDetail";
@@ -26,8 +26,7 @@ export const metadata = {
 
 export default function ExcursionsRuPage() {
   const contact = getContactData();
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  const data = require("@/content/excursions.json");
+  const data = getExcursionsPageData();
 
   return (
     <InnerPageLayout contact={contact}>

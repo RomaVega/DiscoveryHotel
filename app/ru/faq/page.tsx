@@ -1,5 +1,5 @@
 import { SITE_URL } from "@/lib/site";
-import { getContactData } from "@/lib/content";
+import { getContactData, getFaqPageData } from "@/lib/content";
 import { InnerPageLayout } from "@/components/layout/InnerPageLayout";
 import { PageHero } from "@/components/sections/PageHero";
 import { FaqDetail } from "@/components/sections/FaqDetail";
@@ -26,8 +26,7 @@ export const metadata = {
 
 export default function FaqRuPage() {
   const contact = getContactData();
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  const data = require("@/content/faq.json");
+  const data = getFaqPageData();
 
   return (
     <InnerPageLayout contact={contact}>

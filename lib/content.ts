@@ -3,12 +3,14 @@ import type {
   RoomsPageData, DiningPageData, SpaPageData, TransferPageData,
   DivingPageData, ExcursionsPageData, EventsPageData, CarRentalPageData,
   AboutPageData, ExperiencesHubData,
+  FaqPageData, LocationPageData, LegalPageData, WeddingsPageData,
 } from "./types";
 import {
   homePageSchema, contactSchema, reviewsSchema,
   roomsPageSchema, diningPageSchema, spaPageSchema, transferPageSchema,
   divingPageSchema, excursionsPageSchema, eventsPageSchema, carRentalPageSchema,
   aboutPageSchema, experiencesHubSchema,
+  faqPageSchema, locationPageSchema, legalPageSchema, weddingsPageSchema,
 } from "./validation";
 
 import homeData from "@/content/home.json";
@@ -24,6 +26,11 @@ import eventsData from "@/content/events.json";
 import carRentalData from "@/content/car-rental.json";
 import aboutData from "@/content/about.json";
 import experiencesData from "@/content/experiences.json";
+import faqData from "@/content/faq.json";
+import locationData from "@/content/location.json";
+import privacyData from "@/content/privacy.json";
+import termsData from "@/content/terms.json";
+import weddingsData from "@/content/weddings.json";
 
 export function getHomePageData(): HomePageData {
   return homePageSchema.parse(homeData);
@@ -75,4 +82,24 @@ export function getAboutPageData(): AboutPageData {
 
 export function getExperiencesHubData(): ExperiencesHubData {
   return experiencesHubSchema.parse(experiencesData);
+}
+
+export function getFaqPageData(): FaqPageData {
+  return faqPageSchema.parse(faqData);
+}
+
+export function getLocationPageData(): LocationPageData {
+  return locationPageSchema.parse(locationData);
+}
+
+export function getPrivacyPageData(): LegalPageData {
+  return legalPageSchema.parse(privacyData);
+}
+
+export function getTermsPageData(): LegalPageData {
+  return legalPageSchema.parse(termsData);
+}
+
+export function getWeddingsPageData(): WeddingsPageData {
+  return weddingsPageSchema.parse(weddingsData);
 }

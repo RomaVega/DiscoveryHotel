@@ -406,3 +406,51 @@ export const experiencesHubSchema = z.object({
   subtext: localizedString,
   categories: z.array(experienceCard),
 });
+
+// FAQ items are strict {en,ru} (not localizedString) — they feed FAQPage
+// JSON-LD which emits both locales. See FaqItem in lib/types.ts.
+const enRu = z.object({ en: z.string(), ru: z.string() });
+
+export const faqPageSchema = z.object({
+  label: localizedString,
+  heading: localizedString,
+  subtext: localizedString.optional(),
+  items: z.array(z.object({ question: enRu, answer: enRu })),
+});
+
+export const locationPageSchema = z.object({
+  label: localizedString,
+  heading: localizedString,
+  subtext: localizedString,
+  nearbyAttractions: z.array(z.object({
+    name: localizedString,
+    description: localizedString,
+    distance: localizedString,
+  })),
+  gettingHere: z.array(z.object({
+    from: localizedString,
+    description: localizedString,
+    duration: z.string().optional(),
+  })),
+});
+
+export const legalPageSchema = z.object({
+  label: localizedString,
+  heading: localizedString,
+  lastUpdated: z.string(),
+  sections: z.array(z.object({ title: localizedString, content: localizedString })),
+});
+
+export const weddingsPageSchema = z.object({
+  label: localizedString,
+  heading: localizedString,
+  subtext: localizedString,
+  packages: z.array(z.object({
+    title: localizedString,
+    description: localizedString,
+    features: z.array(localizedString).optional(),
+    image: z.string(),
+    imageAlt: localizedString,
+  })),
+  bookingCta: bookingCtaData,
+});

@@ -1,5 +1,5 @@
 import { SITE_URL } from "@/lib/site";
-import { getContactData } from "@/lib/content";
+import { getContactData, getCarRentalPageData } from "@/lib/content";
 import { InnerPageLayout } from "@/components/layout/InnerPageLayout";
 import { PageHero } from "@/components/sections/PageHero";
 import { CarRentalDetail } from "@/components/sections/CarRentalDetail";
@@ -26,8 +26,7 @@ export const metadata = {
 
 export default function CarRentalRuPage() {
   const contact = getContactData();
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  const data = require("@/content/car-rental.json");
+  const data = getCarRentalPageData();
 
   return (
     <InnerPageLayout contact={contact}>
