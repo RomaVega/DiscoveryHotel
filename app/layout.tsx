@@ -5,7 +5,8 @@ import { SitePreloader } from "@/components/common/SitePreloader";
 import { MotionProvider } from "@/components/common/MotionProvider";
 import { LanguageProvider } from "@/lib/language-context";
 import { ALL_ROUTES } from "@/lib/image-manifest";
-import { SITE_URL, SITE_NAME, OG_IMAGE, getPhoneIntl } from "@/lib/site";
+import { SITE_URL, SITE_NAME, OG_IMAGE } from "@/lib/site";
+import { getWhatsAppNumber } from "@/lib/whatsapp";
 import "./globals.css";
 
 // EN paths that have a /ru equivalent. Used by the inline redirect script below
@@ -99,7 +100,7 @@ export default function RootLayout({
               "name": SITE_NAME,
               "description": description,
               "url": SITE_URL,
-              "telephone": getPhoneIntl(),
+              "telephone": `+${getWhatsAppNumber()}`,
               "email": "info@orlowsky.co.id",
               "image": OG_IMAGE,
               "priceRange": "$$",
