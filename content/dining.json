@@ -38,12 +38,12 @@
     },
     {
       "title": {
-        "en": "Set Menus & Buffet",
-        "ru": "Сет-меню и шведский стол"
+        "en": "Set Menus & À La Carte",
+        "ru": "Сет-меню и а-ля карт"
       },
       "description": {
-        "en": "Choose from curated set menus starting at $18, a la carte selections, festive buffets, and outdoor BBQ evenings under the stars.",
-        "ru": "Выбирайте из сет-меню от $18, блюд а-ля карт, праздничных шведских столов и вечерних барбекю под открытым небом."
+        "en": "Choose from curated set menus starting at $18, à la carte selections, and outdoor BBQ evenings under the stars.",
+        "ru": "Выбирайте из сет-меню от $18, блюд а-ля карт и вечерних барбекю под открытым небом."
       },
       "icon": "ChefHat"
     },

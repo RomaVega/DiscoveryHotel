@@ -26,7 +26,6 @@ export const ALL_IMAGES: readonly string[] = [
   "/images/deluxe-cottage/deluxe-cottage-twin-bedroom-candidasa.webp",
   "/images/deluxe-cottage/deluxe-cottage-twin-bedroom-garden-candidasa.webp",
   "/images/dining/bar-drinks-and-cocktails.webp",
-  "/images/dining/buffet.webp",
   "/images/dining/celebration-menu.webp",
   "/images/dining/chef-specials.webp",
   "/images/dining/cultural-performance.webp",

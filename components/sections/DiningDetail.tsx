@@ -12,7 +12,7 @@ import { buildWhatsAppUrl } from "@/lib/whatsapp";
 const FEATURE_IMAGES = [
   "/images/dining/seaside-dining.webp",
   "/images/dining/international-cuisine.webp",
-  "/images/dining/buffet.webp",
+  "/images/restaurant-bar/orlowsky-hotel-fresh-seafood-appetizer-candidasa.webp",
   "/images/dining/bar-drinks-and-cocktails.webp",
   "/images/dining/room-service.webp",
   "/images/dining/chef-specials.webp",
@@ -108,7 +108,7 @@ export function DiningDetail({ data }: DiningDetailProps) {
                         rel="noopener noreferrer"
                         className="mt-6 inline-block font-sans text-sm font-semibold text-brand-teal hover:text-deep-teal underline underline-offset-4 transition-colors"
                       >
-                        {isRu ? "Открыть полное меню →" : "View Full Digital Menu →"}
+                        {isRu ? "Открыть полное меню →" : "View Full Menu →"}
                       </a>
                     )}
                   </div>
