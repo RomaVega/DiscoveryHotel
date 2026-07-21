@@ -3,9 +3,10 @@
 import { FadeIn } from "@/components/common/FadeIn";
 import { SectionHeading } from "@/components/common/SectionHeading";
 import { RoomSlideshow } from "@/components/common/RoomSlideshow";
+import { PrimaryButton } from "@/components/common/PrimaryButton";
 import { SecondaryButton } from "@/components/common/SecondaryButton";
 import { useLanguage } from "@/lib/language-context";
-import { UtensilsCrossed, ShoppingBag } from "lucide-react";
+import { BookOpen, UtensilsCrossed, ShoppingBag } from "lucide-react";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 const SLIDES = [
@@ -30,7 +31,9 @@ export function DiningPreview() {
   const tableUrl = buildWhatsAppUrl(isRu
     ? "Здравствуйте! Хочу забронировать столик в ресторане."
     : "Hello! I'd like to book a table at the restaurant.");
-  const roomUrl = "https://secure.guestpro.net/odch/concierge/room-dining";
+  // The digital menu and in-room ordering share one GuestPro page.
+  const menuUrl = "https://secure.guestpro.net/odch/concierge/room-dining";
+  const roomUrl = menuUrl;
 
   return (
     <FadeIn>
@@ -51,6 +54,20 @@ export function DiningPreview() {
               sizes="(max-width: 896px) 100vw, 896px"
               autoAdvanceMs={4000}
             />
+
+            {/* Primary action — browse the full menu */}
+            <div className="px-6 md:px-8 pt-10 pb-9 flex flex-col items-center text-center gap-4 border-b border-charcoal/10">
+              <BookOpen size={20} className="text-brand-teal" />
+              <p className="text-stone text-sm leading-relaxed max-w-md">
+                {isRu
+                  ? "Свежие морепродукты, балийская и международная кухня — загляните в наше полное меню."
+                  : "Fresh seafood, Balinese and international cuisine — take a look at our full menu."}
+              </p>
+              <PrimaryButton href={menuUrl} external>
+                {isRu ? "Смотреть меню" : "View Our Menu"}
+              </PrimaryButton>
+            </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-charcoal/10">
 
               {/* Book a Table */}

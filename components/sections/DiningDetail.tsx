@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { FadeIn } from "@/components/common/FadeIn";
+import { PrimaryButton } from "@/components/common/PrimaryButton";
 import { SecondaryButton } from "@/components/common/SecondaryButton";
 import { StatsStrip } from "@/components/common/StatsStrip";
 import type { DiningPageData } from "@/lib/types";
@@ -31,7 +32,9 @@ export function DiningDetail({ data }: DiningDetailProps) {
   const tableUrl = buildWhatsAppUrl(isRu
     ? "Здравствуйте! Хочу забронировать столик в ресторане."
     : "Hello! I'd like to book a table at the restaurant.");
-  const roomUrl = "https://secure.guestpro.net/odch/concierge/room-dining";
+  // The digital menu and in-room ordering share one GuestPro page.
+  const menuUrl = "https://secure.guestpro.net/odch/concierge/room-dining";
+  const roomUrl = menuUrl;
 
   return (
     <div>
@@ -51,11 +54,18 @@ export function DiningDetail({ data }: DiningDetailProps) {
           <h2 className="font-serif font-light text-3xl md:text-4xl text-charcoal mb-3">
             {isRu ? "Как Вы Хотите Отужинать?" : "How Would You Like to Dine?"}
           </h2>
-          <p className="text-stone text-sm leading-relaxed mb-10">
+          <p className="text-stone text-sm leading-relaxed mb-8">
             {isRu
-              ? "Забронируйте столик или закажите в номер — мы на связи."
-              : "Reserve a table at the restaurant or order directly to your room."}
+              ? "Посмотрите меню, забронируйте столик или закажите в номер."
+              : "Browse the full menu, reserve a table, or order directly to your room."}
           </p>
+          {/* Primary — browse the menu */}
+          <div className="mb-6">
+            <PrimaryButton href={menuUrl} external>
+              {isRu ? "Смотреть меню" : "View Our Menu"}
+            </PrimaryButton>
+          </div>
+          {/* Secondary actions */}
           <div className="flex flex-row flex-wrap items-center justify-center gap-4">
             <SecondaryButton href={tableUrl} external>
               {t({ ru: "Забронировать столик", en: "Book a Table" })}
