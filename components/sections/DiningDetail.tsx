@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { FadeIn } from "@/components/common/FadeIn";
-import { PrimaryButton } from "@/components/common/PrimaryButton";
+import { SecondaryButton } from "@/components/common/SecondaryButton";
 import { StatsStrip } from "@/components/common/StatsStrip";
 import type { DiningPageData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
@@ -59,9 +59,9 @@ export function DiningDetail({ data }: DiningDetailProps) {
           </p>
           {/* Menu is the single primary action; a table reservation sits below as a quiet link */}
           <div className="flex flex-col items-center gap-4">
-            <PrimaryButton href={menuUrl} external>
+            <SecondaryButton href={menuUrl} external>
               {isRu ? "Смотреть Меню" : "View Menu"}
-            </PrimaryButton>
+            </SecondaryButton>
             <a
               href={tableUrl}
               target="_blank"

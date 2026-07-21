@@ -3,7 +3,7 @@
 import { FadeIn } from "@/components/common/FadeIn";
 import { SectionHeading } from "@/components/common/SectionHeading";
 import { RoomSlideshow } from "@/components/common/RoomSlideshow";
-import { PrimaryButton } from "@/components/common/PrimaryButton";
+import { SecondaryButton } from "@/components/common/SecondaryButton";
 import { useLanguage } from "@/lib/language-context";
 import { Utensils } from "lucide-react";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
@@ -64,9 +64,9 @@ export function DiningPreview() {
                   ? "Свежие морепродукты и балийская кухня — в ресторане, в номер или бесплатная доставка по Чандидасе."
                   : "Fresh seafood and Balinese cuisine — dine in, room service, or free delivery within Candidasa."}
               </p>
-              <PrimaryButton href={menuUrl} external className="mt-2">
+              <SecondaryButton href={menuUrl} external className="mt-2">
                 {isRu ? "Смотреть Меню" : "View Menu"}
-              </PrimaryButton>
+              </SecondaryButton>
               <a
                 href={tableUrl}
                 target="_blank"
