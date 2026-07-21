@@ -4,9 +4,8 @@ import { FadeIn } from "@/components/common/FadeIn";
 import { SectionHeading } from "@/components/common/SectionHeading";
 import { RoomSlideshow } from "@/components/common/RoomSlideshow";
 import { PrimaryButton } from "@/components/common/PrimaryButton";
-import { SecondaryButton } from "@/components/common/SecondaryButton";
 import { useLanguage } from "@/lib/language-context";
-import { BookOpen, UtensilsCrossed, ShoppingBag } from "lucide-react";
+import { BookOpen } from "lucide-react";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 const SLIDES = [
@@ -31,9 +30,8 @@ export function DiningPreview() {
   const tableUrl = buildWhatsAppUrl(isRu
     ? "Здравствуйте! Хочу забронировать столик в ресторане."
     : "Hello! I'd like to book a table at the restaurant.");
-  // The digital menu and in-room ordering share one GuestPro page.
+  // Menu browsing, room service, and delivery orders all go through one GuestPro page.
   const menuUrl = "https://secure.guestpro.net/odch/concierge/room-dining";
-  const roomUrl = menuUrl;
 
   return (
     <FadeIn>
@@ -46,7 +44,7 @@ export function DiningPreview() {
             heading={isRu ? "Ресторан на берегу океана" : "Oceanfront Dining"}
           />
 
-          {/* Slideshow + two CTA cards share one continuous ivory rounded frame */}
+          {/* Slideshow + menu-first content share one continuous ivory rounded frame */}
           <div className="bg-ivory rounded-md overflow-hidden">
             <RoomSlideshow
               images={SLIDES}
@@ -55,58 +53,28 @@ export function DiningPreview() {
               autoAdvanceMs={4000}
             />
 
-            {/* Primary action — browse the full menu */}
-            <div className="px-6 md:px-8 pt-10 pb-9 flex flex-col items-center text-center gap-3 border-b border-charcoal/10">
-              <BookOpen size={18} className="text-brand-teal" />
-              <h3 className="font-serif text-xl md:text-2xl font-light text-charcoal">
+            {/* Menu is the single primary action; a table reservation sits below as a quiet link */}
+            <div className="px-6 md:px-8 py-11 md:py-12 flex flex-col items-center text-center gap-4">
+              <BookOpen size={20} className="text-brand-teal" />
+              <h3 className="font-serif text-2xl md:text-3xl font-light text-charcoal">
                 {isRu ? "Наше меню" : "Our Menu"}
               </h3>
               <p className="text-stone text-sm leading-relaxed max-w-md">
                 {isRu
-                  ? "Свежие морепродукты, балийская и международная кухня у океана."
-                  : "Fresh seafood, Balinese and international cuisine, served oceanfront."}
+                  ? "Свежие морепродукты и балийская кухня — в ресторане, в номер или бесплатная доставка по Чандидасе."
+                  : "Fresh seafood and Balinese cuisine — dine in, room service, or free delivery within Candidasa."}
               </p>
-              <PrimaryButton href={menuUrl} external className="mt-1">
+              <PrimaryButton href={menuUrl} external className="mt-2">
                 {isRu ? "Смотреть меню" : "View Menu"}
               </PrimaryButton>
-            </div>
-
-            {/* flex-col-reverse puts Room Dining above Book a Table on mobile;
-                md:flex-row restores desktop order (Book a Table left) */}
-            <div className="flex flex-col-reverse md:flex-row">
-
-              {/* Book a Table */}
-              <div className="md:flex-1 border-t md:border-t-0 border-charcoal/10 p-6 md:p-8 flex flex-col items-center text-center gap-3">
-                <UtensilsCrossed size={18} className="text-brand-teal" />
-                <h3 className="font-serif text-xl md:text-2xl font-light text-charcoal">
-                  {isRu ? "Забронировать столик" : "Book a Table"}
-                </h3>
-                <p className="text-stone text-sm leading-relaxed">
-                  {isRu
-                    ? "Свежие морепродукты и балийская кухня у моря. Открыто ежедневно 07:00–22:00."
-                    : "Fresh seafood and Balinese cuisine by the sea. Open daily 07:00–22:00."}
-                </p>
-                <SecondaryButton href={tableUrl} external className="mt-auto">
-                  {isRu ? "Написать в WhatsApp" : "Book via WhatsApp"}
-                </SecondaryButton>
-              </div>
-
-              {/* Room Dining */}
-              <div className="md:flex-1 md:border-l border-charcoal/10 p-6 md:p-8 flex flex-col items-center text-center gap-3">
-                <ShoppingBag size={18} className="text-brand-teal" />
-                <h3 className="font-serif text-xl md:text-2xl font-light text-charcoal">
-                  {isRu ? "Доставка в номер" : "Room Dining"}
-                </h3>
-                <p className="text-stone text-sm leading-relaxed">
-                  {isRu
-                    ? "Закажите еду прямо в номер. Доступно ежедневно в часы работы кухни."
-                    : "Order food directly to your room. Available daily during kitchen hours."}
-                </p>
-                <SecondaryButton href={roomUrl} external className="mt-auto">
-                  {isRu ? "Заказать онлайн" : "Order Online"}
-                </SecondaryButton>
-              </div>
-
+              <a
+                href={tableUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-1 font-sans text-sm font-medium text-deep-teal underline underline-offset-4 decoration-deep-teal/40 hover:decoration-deep-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 rounded-sm transition-colors"
+              >
+                {isRu ? "Забронировать столик" : "Book a Table"}
+              </a>
             </div>
           </div>
 
