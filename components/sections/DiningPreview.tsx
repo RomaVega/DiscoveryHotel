@@ -56,15 +56,18 @@ export function DiningPreview() {
             />
 
             {/* Primary action — browse the full menu */}
-            <div className="px-6 md:px-8 pt-10 pb-9 flex flex-col items-center text-center gap-4 border-b border-charcoal/10">
-              <BookOpen size={20} className="text-brand-teal" />
+            <div className="px-6 md:px-8 pt-10 pb-9 flex flex-col items-center text-center gap-3 border-b border-charcoal/10">
+              <BookOpen size={18} className="text-brand-teal" />
+              <h3 className="font-serif text-xl md:text-2xl font-light text-charcoal">
+                {isRu ? "Наше меню" : "Our Menu"}
+              </h3>
               <p className="text-stone text-sm leading-relaxed max-w-md">
                 {isRu
-                  ? "Свежие морепродукты, балийская и международная кухня — загляните в наше полное меню."
-                  : "Fresh seafood, Balinese and international cuisine — take a look at our full menu."}
+                  ? "Свежие морепродукты, балийская и международная кухня у океана."
+                  : "Fresh seafood, Balinese and international cuisine, served oceanfront."}
               </p>
-              <PrimaryButton href={menuUrl} external>
-                {isRu ? "Смотреть меню" : "View Our Menu"}
+              <PrimaryButton href={menuUrl} external className="mt-1">
+                {isRu ? "Смотреть меню" : "View Menu"}
               </PrimaryButton>
             </div>
 

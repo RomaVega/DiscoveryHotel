@@ -62,7 +62,7 @@ export function DiningDetail({ data }: DiningDetailProps) {
           {/* Primary — browse the menu */}
           <div className="mb-6">
             <PrimaryButton href={menuUrl} external>
-              {isRu ? "Смотреть меню" : "View Our Menu"}
+              {isRu ? "Смотреть меню" : "View Menu"}
             </PrimaryButton>
           </div>
           {/* Secondary actions */}
