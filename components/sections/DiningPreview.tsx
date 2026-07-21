@@ -5,7 +5,7 @@ import { SectionHeading } from "@/components/common/SectionHeading";
 import { RoomSlideshow } from "@/components/common/RoomSlideshow";
 import { PrimaryButton } from "@/components/common/PrimaryButton";
 import { useLanguage } from "@/lib/language-context";
-import { BookOpen } from "lucide-react";
+import { Utensils } from "lucide-react";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 const SLIDES = [
@@ -55,7 +55,7 @@ export function DiningPreview() {
 
             {/* Menu is the single primary action; a table reservation sits below as a quiet link */}
             <div className="px-6 md:px-8 py-11 md:py-12 flex flex-col items-center text-center gap-4">
-              <BookOpen size={20} className="text-brand-teal" />
+              <Utensils size={20} className="text-brand-teal" />
               <h3 className="font-serif text-2xl md:text-3xl font-light text-charcoal">
                 {isRu ? "Наше меню" : "Our Menu"}
               </h3>
