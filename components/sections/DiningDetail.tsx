@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { FadeIn } from "@/components/common/FadeIn";
 import { PrimaryButton } from "@/components/common/PrimaryButton";
-import { SecondaryButton } from "@/components/common/SecondaryButton";
 import { StatsStrip } from "@/components/common/StatsStrip";
 import type { DiningPageData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
@@ -32,9 +31,8 @@ export function DiningDetail({ data }: DiningDetailProps) {
   const tableUrl = buildWhatsAppUrl(isRu
     ? "Здравствуйте! Хочу забронировать столик в ресторане."
     : "Hello! I'd like to book a table at the restaurant.");
-  // The digital menu and in-room ordering share one GuestPro page.
+  // Menu browsing, room service, and delivery orders all go through one GuestPro page.
   const menuUrl = "https://secure.guestpro.net/odch/concierge/room-dining";
-  const roomUrl = menuUrl;
 
   return (
     <div>
@@ -54,25 +52,24 @@ export function DiningDetail({ data }: DiningDetailProps) {
           <h2 className="font-serif font-light text-3xl md:text-4xl text-charcoal mb-3">
             {isRu ? "Как Вы Хотите Отужинать?" : "How Would You Like to Dine?"}
           </h2>
-          <p className="text-stone text-sm leading-relaxed mb-8">
+          <p className="text-stone text-sm leading-relaxed mb-8 max-w-md mx-auto">
             {isRu
-              ? "Посмотрите меню, забронируйте столик или закажите в номер."
-              : "Browse the full menu, reserve a table, or order directly to your room."}
+              ? "Откройте полное меню — в ресторане, в номер или бесплатная доставка по Чандидасе."
+              : "Explore the full menu — dine in, room service, or free delivery within Candidasa."}
           </p>
-          {/* Primary — browse the menu */}
-          <div className="mb-6">
+          {/* Menu is the single primary action; a table reservation sits below as a quiet link */}
+          <div className="flex flex-col items-center gap-4">
             <PrimaryButton href={menuUrl} external>
               {isRu ? "Смотреть меню" : "View Menu"}
             </PrimaryButton>
-          </div>
-          {/* Secondary actions */}
-          <div className="flex flex-row flex-wrap items-center justify-center gap-4">
-            <SecondaryButton href={tableUrl} external>
-              {t({ ru: "Забронировать столик", en: "Book a Table" })}
-            </SecondaryButton>
-            <SecondaryButton href={roomUrl} external>
-              {t({ ru: "Доставка в номер", en: "In-Room Dining" })}
-            </SecondaryButton>
+            <a
+              href={tableUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-sans text-sm font-medium text-deep-teal underline underline-offset-4 decoration-deep-teal/40 hover:decoration-deep-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 rounded-sm transition-colors"
+            >
+              {isRu ? "Забронировать столик" : "Book a Table"}
+            </a>
           </div>
         </div>
       </FadeIn>
