@@ -42,10 +42,10 @@ function ExcursionGroup({ section }: { section: ExcursionSection }) {
                   <p className="text-stone text-sm mt-2 leading-relaxed">{t(item.description)}</p>
                   <div className="mt-2 flex items-baseline justify-between sm:justify-start sm:gap-4">
                     {item.duration && (
-                      <span className="order-2 sm:order-none text-xs text-stone/70 font-sans">{t(item.duration)}</span>
+                      <span className="order-2 text-xs text-stone/70 font-sans">{t(item.duration)}</span>
                     )}
                     {item.price && (
-                      <span className="order-1 sm:order-none font-sans font-semibold text-brand-teal text-sm">{t(item.price)}</span>
+                      <span className="order-1 font-sans font-semibold text-brand-teal text-sm">{t(item.price)}</span>
                     )}
                   </div>
                 </div>

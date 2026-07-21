@@ -30,10 +30,10 @@ function TreatmentCard({ treatment, bookText, whatsappBase }: {
         <p className="text-stone text-xs mt-1 leading-relaxed">{t(treatment.description)}</p>
         <div className="mt-3 flex items-baseline justify-between sm:justify-start sm:gap-4">
           {treatment.duration && (
-            <span className="order-2 sm:order-none text-xs text-stone/70 font-sans">{treatment.duration}</span>
+            <span className="order-2 text-xs text-stone/70 font-sans">{treatment.duration}</span>
           )}
           {treatment.price && (
-            <span className="order-1 sm:order-none font-sans font-semibold text-brand-teal text-lg">{treatment.price}</span>
+            <span className="order-1 font-sans font-semibold text-brand-teal text-lg">{treatment.price}</span>
           )}
         </div>
       </div>
@@ -82,8 +82,8 @@ export function SpaDetail({ data }: SpaDetailProps) {
                     <h3 className="font-serif text-2xl font-semibold text-charcoal">{t(program.name)}</h3>
                     <p className="mt-2 text-stone text-sm leading-relaxed">{t(program.description)}</p>
                     <div className="mt-3 flex items-baseline justify-between sm:justify-start sm:gap-4">
-                      <span className="order-2 sm:order-none text-xs text-stone/70 font-sans">{program.duration}</span>
-                      <span className="order-1 sm:order-none font-sans font-semibold text-brand-teal text-lg">{program.price}</span>
+                      <span className="order-2 text-xs text-stone/70 font-sans">{program.duration}</span>
+                      <span className="order-1 font-sans font-semibold text-brand-teal text-lg">{program.price}</span>
                     </div>
                   </div>
                   <div className="mt-4 flex justify-center sm:mt-0 sm:block">
