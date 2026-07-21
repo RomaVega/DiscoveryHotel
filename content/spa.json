@@ -24,11 +24,11 @@
         "ru": "Программа омоложения"
       },
       "description": {
-        "en": "A comprehensive 120-minute rejuvenation journey combining Ayurvedic massage, herbal treatments, and deep relaxation techniques to restore vitality and youthful radiance.",
-        "ru": "Комплексная 120-минутная программа омоложения, сочетающая аюрведический массаж, травяные процедуры и техники глубокой релаксации для восстановления жизненных сил и сияния молодости."
+        "en": "A restorative 120-minute journey that detoxifies and re-energises the body with Ayurvedic massage and natural coconut oil. Includes Abhyanga, Kizhi massage, a facial massage with mask, and a herbal steam bath.",
+        "ru": "Восстанавливающая 120-минутная программа, которая очищает и наполняет тело энергией с помощью аюрведического массажа и натурального кокосового масла. Включает Абхьянгу, массаж Кижи, массаж лица с маской и травяную паровую баню."
       },
       "duration": "120 min",
-      "price": "IDR 975,000"
+      "price": "$65"
     },
     {
       "name": {
@@ -36,11 +36,11 @@
         "ru": "Антистресс-программа"
       },
       "description": {
-        "en": "A 120-minute therapeutic program designed to dissolve tension and restore inner balance through targeted Ayurvedic techniques, warm herbal oils, and meditation-guided relaxation.",
-        "ru": "120-минутная терапевтическая программа, разработанная для снятия напряжения и восстановления внутреннего баланса с помощью аюрведических техник, тёплых травяных масел и медитативной релаксации."
+        "en": "A deeply calming 120-minute program that melts away everyday tension and restores the nervous system through Ayurvedic touch and warm herbal oils. Includes Abhyanga, Shirodhara, Pizhichil, and a herbal steam bath.",
+        "ru": "Глубоко расслабляющая 120-минутная программа, которая снимает повседневное напряжение и восстанавливает нервную систему с помощью аюрведических техник и тёплых травяных масел. Включает Абхьянгу, Широдхару, Пижичил и травяную паровую баню."
       },
       "duration": "120 min",
-      "price": "IDR 1,185,000"
+      "price": "$79"
     },
     {
       "name": {
@@ -48,11 +48,11 @@
         "ru": "Курс красоты"
       },
       "description": {
-        "en": "A luxurious 120-minute beauty ritual combining Ayurvedic facial treatments, body scrubs, and nourishing masks for a complete head-to-toe transformation.",
-        "ru": "Роскошный 120-минутный ритуал красоты, сочетающий аюрведические процедуры для лица, скрабы для тела и питательные маски для полного преображения."
+        "en": "A 120-minute beauty ritual that rejuvenates the body, refines the skin, and encourages gentle weight loss to restore your natural radiance. Includes Abhyanga, a herbal mask, facial massage, rice-pouch massage, and a herbal bath.",
+        "ru": "120-минутный ритуал красоты, который омолаживает тело, улучшает состояние кожи и способствует мягкому снижению веса, возвращая естественное сияние. Включает Абхьянгу, травяную маску, массаж лица, массаж рисовыми мешочками и травяную ванну."
       },
       "duration": "120 min",
-      "price": "IDR 1,185,000"
+      "price": "$79"
     }
   ],
   "ayurvedicTreatments": [
@@ -62,11 +62,11 @@
         "ru": "Абхьянга"
       },
       "description": {
-        "en": "Traditional full-body warm oil massage to improve circulation, nourish tissues, and calm the nervous system.",
-        "ru": "Традиционный массаж всего тела тёплым маслом для улучшения кровообращения, питания тканей и успокоения нервной системы."
+        "en": "A synchronised four-hand warm-oil massage that nourishes the body, deeply relaxes, and improves sleep.",
+        "ru": "Синхронный массаж в четыре руки с тёплым маслом, который питает тело, глубоко расслабляет и улучшает сон."
       },
       "duration": "60 min",
-      "price": "IDR 570,000"
+      "price": "$38"
     },
     {
       "name": {
@@ -74,23 +74,23 @@
         "ru": "Широдхара"
       },
       "description": {
-        "en": "A continuous stream of warm herbal oil poured gently onto the forehead, deeply calming the mind and relieving stress, anxiety, and insomnia.",
-        "ru": "Непрерывная струя тёплого травяного масла, мягко льющаяся на лоб, глубоко успокаивает ум и снимает стресс, тревогу и бессонницу."
+        "en": "A steady stream of warm oil poured over the third-eye area to quiet the mind and relieve stress, migraines, and insomnia.",
+        "ru": "Ровная струя тёплого масла, льющаяся на область третьего глаза, успокаивает ум и снимает стресс, мигрени и бессонницу."
       },
       "duration": "45 min",
-      "price": "IDR 795,000"
+      "price": "$53"
     },
     {
       "name": {
-        "en": "Kizhi",
-        "ru": "Кижи"
+        "en": "Kizhi Herbal Pouch Massage",
+        "ru": "Кижи — массаж травяными мешочками"
       },
       "description": {
-        "en": "Warm herbal poultice massage using medicated cloth bundles to relieve joint pain, muscle stiffness, and inflammation.",
-        "ru": "Массаж тёплыми травяными мешочками для облегчения боли в суставах, мышечной скованности и воспалений."
+        "en": "Warm herbal pouches dipped in oil are pressed along the body to detoxify, boost metabolism, and smooth cellulite.",
+        "ru": "Тёплые травяные мешочки, смоченные в масле, прижимаются вдоль тела для детоксикации, ускорения метаболизма и уменьшения целлюлита."
       },
       "duration": "30 min",
-      "price": "IDR 450,000"
+      "price": "$30"
     },
     {
       "name": {
@@ -98,23 +98,35 @@
         "ru": "Массаж рисовыми мешочками"
       },
       "description": {
-        "en": "A nourishing treatment using warm rice pouches infused with herbs, gently pressed along energy lines to rejuvenate skin and relax muscles.",
-        "ru": "Питательная процедура с использованием тёплых рисовых мешочков с травами, мягко прижимаемых вдоль энергетических линий для омоложения кожи и расслабления мышц."
+        "en": "Warm rice pouches infused in milk are massaged over the skin to rejuvenate, nourish, and slow the signs of ageing.",
+        "ru": "Тёплые рисовые мешочки, вымоченные в молоке, массируют кожу для омоложения, питания и замедления старения."
       },
       "duration": "30 min",
-      "price": "IDR 450,000"
+      "price": "$28"
     },
     {
       "name": {
-        "en": "Pizhichil",
-        "ru": "Пижичил"
+        "en": "Pizhichil Oil Bath",
+        "ru": "Пижичил — масляная ванна"
       },
       "description": {
-        "en": "A royal Ayurvedic treatment where warm medicated oil is continuously poured over the body while being gently massaged, ideal for deep nourishment and detoxification.",
-        "ru": "Королевская аюрведическая процедура, при которой тёплое лечебное масло непрерывно льётся по телу в сочетании с мягким массажем — идеально для глубокого питания и детоксикации."
+        "en": "Warm herbal oil is poured over the entire body in a continuous bath — an anti-ageing treatment that stimulates lymphatic flow.",
+        "ru": "Тёплое травяное масло непрерывно льётся по всему телу — антивозрастная процедура, стимулирующая лимфоток."
       },
       "duration": "45 min",
-      "price": "IDR 720,000"
+      "price": "$48"
+    },
+    {
+      "name": {
+        "en": "Swedan Steam Bath",
+        "ru": "Сведана — паровая баня"
+      },
+      "description": {
+        "en": "Ayurvedic herbal steam therapy that opens the pores to detoxify the body and ease breathing.",
+        "ru": "Аюрведическая травяная паровая терапия, которая раскрывает поры, выводит токсины и облегчает дыхание."
+      },
+      "duration": "5–15 min",
+      "price": "$18"
     },
     {
       "name": {
@@ -122,35 +134,11 @@
         "ru": "Травяная ванна"
       },
       "description": {
-        "en": "A soothing bath infused with Ayurvedic herbs and essential oils to detoxify the body, soften the skin, and promote deep relaxation.",
-        "ru": "Успокаивающая ванна с аюрведическими травами и эфирными маслами для детоксикации, смягчения кожи и глубокой релаксации."
+        "en": "A soothing soak infused with Balinese herbs to cleanse the skin, relax the body, and relieve stress.",
+        "ru": "Успокаивающая ванна с балийскими травами для очищения кожи, расслабления тела и снятия стресса."
       },
       "duration": "30 min",
-      "price": "IDR 450,000"
-    },
-    {
-      "name": {
-        "en": "Steam Bath",
-        "ru": "Паровая баня"
-      },
-      "description": {
-        "en": "Herbal steam therapy to open pores, eliminate toxins, and improve respiratory health. Duration customized to individual comfort.",
-        "ru": "Травяная паровая терапия для раскрытия пор, выведения токсинов и улучшения дыхательной системы. Продолжительность подбирается индивидуально."
-      },
-      "duration": "5–15 min",
-      "price": "IDR 270,000"
-    },
-    {
-      "name": {
-        "en": "Ayurvedic Facial",
-        "ru": "Аюрведический фейшл"
-      },
-      "description": {
-        "en": "A natural facial treatment using herbal pastes, oils, and gentle massage techniques to cleanse, tone, and rejuvenate the skin.",
-        "ru": "Натуральная процедура для лица с использованием травяных паст, масел и техник мягкого массажа для очищения, тонизирования и омоложения кожи."
-      },
-      "duration": "30 min",
-      "price": "IDR 300,000"
+      "price": "$30"
     },
     {
       "name": {
@@ -158,11 +146,11 @@
         "ru": "Кативасти"
       },
       "description": {
-        "en": "Warm medicated oil pooled over the lower back within a herbal dough ring, relieving chronic back pain and stiffness.",
-        "ru": "Тёплое лечебное масло удерживается в области поясницы с помощью кольца из травяного теста для облегчения хронической боли и скованности в спине."
+        "en": "Warm herbal oil is pooled over the lower back to relieve chronic pain and stiffness.",
+        "ru": "Тёплое травяное масло удерживается в области поясницы для облегчения хронической боли и скованности."
       },
       "duration": "30 min",
-      "price": "IDR 420,000"
+      "price": "$28"
     },
     {
       "name": {
@@ -170,11 +158,11 @@
         "ru": "Гривавасти"
       },
       "description": {
-        "en": "Targeted warm oil treatment for the neck and cervical spine, easing tension, stiffness, and pain from prolonged sitting or travel.",
-        "ru": "Целенаправленная процедура с тёплым маслом для шеи и шейного отдела позвоночника, снимающая напряжение, скованность и боль от длительного сидения или перелётов."
+        "en": "A cleansing facial treatment combining an exfoliating scrub and a herbal mask.",
+        "ru": "Очищающая процедура для лица, сочетающая отшелушивающий скраб и травяную маску."
       },
       "duration": "30 min",
-      "price": "IDR 420,000"
+      "price": "$28"
     },
     {
       "name": {
@@ -182,11 +170,11 @@
         "ru": "Уровасти"
       },
       "description": {
-        "en": "A warming chest treatment using pooled medicated oil to strengthen respiratory function and relieve chest tightness.",
-        "ru": "Согревающая процедура для грудной клетки с удержанием лечебного масла для укрепления дыхательной функции и снятия тяжести в груди."
+        "en": "A localised warm-oil therapy for the chest that supports respiratory function and eases tightness.",
+        "ru": "Локальная процедура с тёплым маслом для грудной клетки, которая поддерживает дыхание и снимает тяжесть."
       },
       "duration": "30 min",
-      "price": "IDR 420,000"
+      "price": "$28"
     },
     {
       "name": {
@@ -194,25 +182,61 @@
         "ru": "Джанувасти"
       },
       "description": {
-        "en": "Warm oil treatment specifically for the knee joints, reducing pain, swelling, and stiffness from arthritis or injury.",
-        "ru": "Процедура с тёплым маслом для коленных суставов, уменьшающая боль, отёчность и скованность при артрите или после травм."
+        "en": "Warm medicated oil is held over the knee joints to reduce pain, swelling, and stiffness.",
+        "ru": "Тёплое лечебное масло удерживается на коленных суставах для уменьшения боли, отёчности и скованности."
       },
       "duration": "30 min",
-      "price": "IDR 420,000"
+      "price": "$28"
+    },
+    {
+      "name": {
+        "en": "Mukha Lepam (Ayurvedic Facial)",
+        "ru": "Мукха Лепам (аюрведический фейшл)"
+      },
+      "description": {
+        "en": "A nourishing herbal facial mask that smooths fine lines and revitalises the skin.",
+        "ru": "Питательная травяная маска для лица, которая разглаживает мелкие морщины и восстанавливает кожу."
+      },
+      "duration": "30 min",
+      "price": "$20"
     }
   ],
   "balineseTreatments": [
     {
       "name": {
-        "en": "Balinese Massage",
-        "ru": "Балийский массаж"
+        "en": "Balinese Massage — Lymphatic Drainage",
+        "ru": "Балийский массаж — лимфодренаж"
       },
       "description": {
-        "en": "A traditional full-body massage combining gentle stretches, acupressure, and long strokes with aromatic oils to relieve tension and restore energy flow.",
-        "ru": "Традиционный массаж всего тела, сочетающий мягкую растяжку, акупрессуру и длинные движения с ароматическими маслами для снятия напряжения и восстановления энергии."
+        "en": "A gentle lymphatic-drainage massage that deeply relaxes while reducing swelling and fatigue — ideal after a long journey.",
+        "ru": "Мягкий лимфодренажный массаж, который глубоко расслабляет, уменьшая отёчность и усталость — идеально после долгой дороги."
       },
       "duration": "60 min",
-      "price": "IDR 360,000"
+      "price": "$12"
+    },
+    {
+      "name": {
+        "en": "Balinese Traditional Massage",
+        "ru": "Традиционный балийский массаж"
+      },
+      "description": {
+        "en": "The classic full-body Balinese massage for deep relaxation, improved circulation, and whole-body harmony.",
+        "ru": "Классический балийский массаж всего тела для глубокого расслабления, улучшения кровообращения и гармонизации тела."
+      },
+      "duration": "60 min",
+      "price": "$14"
+    },
+    {
+      "name": {
+        "en": "Balinese Massage — Sports",
+        "ru": "Балийский массаж — спортивный"
+      },
+      "description": {
+        "en": "A firmer massage that works problem areas and muscles with special sticks for targeted, deeper relief.",
+        "ru": "Более интенсивный массаж, который прорабатывает проблемные зоны и мышцы специальными палочками для глубокого целенаправленного воздействия."
+      },
+      "duration": "60 min",
+      "price": "$18"
     },
     {
       "name": {
@@ -220,23 +244,23 @@
         "ru": "Массаж головы, спины и плеч"
       },
       "description": {
-        "en": "A focused massage targeting the head, back, and shoulders to release accumulated tension and provide instant relief from stress.",
-        "ru": "Целенаправленный массаж головы, спины и плеч для снятия накопившегося напряжения и мгновенного облегчения при стрессе."
+        "en": "A focused massage that releases tension across the head, neck, shoulders, and back.",
+        "ru": "Целенаправленный массаж, снимающий напряжение в области головы, шеи, плеч и спины."
       },
       "duration": "45 min",
-      "price": "IDR 300,000"
+      "price": "$20"
     },
     {
       "name": {
-        "en": "Stick Reflexology",
-        "ru": "Стик-рефлексология"
+        "en": "Stick Massage Reflexology",
+        "ru": "Стик-массаж рефлексология"
       },
       "description": {
-        "en": "A specialized foot reflexology treatment using a wooden stick to stimulate pressure points, improving circulation and overall well-being.",
-        "ru": "Специализированная рефлексология стоп с использованием деревянной палочки для стимуляции точек давления, улучшения кровообращения и общего самочувствия."
+        "en": "Foot reflexology performed with a special wooden stick to stimulate pressure points and improve well-being.",
+        "ru": "Рефлексология стоп с использованием специальной деревянной палочки для стимуляции точек давления и улучшения самочувствия."
       },
       "duration": "60 min",
-      "price": "IDR 360,000"
+      "price": "$24"
     },
     {
       "name": {
@@ -244,23 +268,23 @@
         "ru": "Скраб для тела"
       },
       "description": {
-        "en": "A full-body exfoliation using natural Balinese ingredients to remove dead skin cells, improve circulation, and leave your skin silky smooth.",
-        "ru": "Пилинг всего тела натуральными балийскими ингредиентами для удаления ороговевших клеток, улучшения кровообращения и шелковистой гладкости кожи."
+        "en": "A full-body exfoliation that cleanses, softens the skin, and improves circulation.",
+        "ru": "Пилинг всего тела, который очищает, смягчает кожу и улучшает кровообращение."
       },
       "duration": "60 min",
-      "price": "IDR 390,000"
+      "price": "$26"
     },
     {
       "name": {
-        "en": "Face Pack",
-        "ru": "Маска для лица"
+        "en": "Face Pack (Scrub & Mask)",
+        "ru": "Маска для лица (скраб и маска)"
       },
       "description": {
-        "en": "A nourishing facial mask using natural tropical ingredients to hydrate, brighten, and revitalize the skin.",
-        "ru": "Питательная маска для лица из натуральных тропических ингредиентов для увлажнения, сияния и восстановления кожи."
+        "en": "A cleansing facial scrub and mask to refresh and brighten the complexion.",
+        "ru": "Очищающий скраб и маска для лица, освежающие и придающие сияние коже."
       },
       "duration": "30 min",
-      "price": "IDR 300,000"
+      "price": "$20"
     }
   ],
   "bookingCta": {
