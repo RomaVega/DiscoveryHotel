@@ -24,18 +24,22 @@ export function CarRentalDetail({ data }: CarRentalDetailProps) {
       <div className="max-w-5xl mx-auto px-6">
         {/* Vehicles */}
         <FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 md:mb-16">
+          <div className="flex flex-col gap-6 md:mb-16">
             {data.vehicles.map((vehicle, i) => {
               const vehicleName = typeof vehicle.title === "string" ? vehicle.title : vehicle.title.en;
               const bookUrl = buildWhatsAppUrl(isRu
                 ? `Здравствуйте! Хочу арендовать: ${typeof vehicle.title === "string" ? vehicle.title : vehicle.title.ru}.`
                 : `Hello! I'd like to rent: ${vehicleName}.`);
               return (
-                <div key={i} className="bg-ivory p-6 shadow-sm flex flex-col rounded-md">
-                  <h3 className="font-serif text-2xl font-semibold text-charcoal">{t(vehicle.title)}</h3>
-                  <p className="mt-2 text-stone text-sm leading-relaxed flex-1">{t(vehicle.description)}</p>
-                  <div className="mt-4 pt-4 border-t border-sand flex flex-col items-center gap-3">
-                    <span className="font-sans font-semibold text-brand-teal">{t(vehicle.price)}</span>
+                <div key={i} className="bg-ivory shadow-sm p-6 md:p-8 flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-8 rounded-md">
+                  <div className="flex-1">
+                    <h3 className="font-serif text-2xl font-semibold text-charcoal">{t(vehicle.title)}</h3>
+                    <p className="text-stone text-sm mt-2 leading-relaxed">{t(vehicle.description)}</p>
+                    <div className="mt-2">
+                      <span className="font-sans font-semibold text-brand-teal text-sm">{t(vehicle.price)}</span>
+                    </div>
+                  </div>
+                  <div className="flex justify-center sm:block">
                     <SecondaryButton href={bookUrl} external>
                       {t({ ru: "Забронировать", en: "Book Now" })}
                     </SecondaryButton>
