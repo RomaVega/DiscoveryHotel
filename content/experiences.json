@@ -26,7 +26,11 @@
         "en": "Ayurvedic Spa Treatment Room with Tropical Garden View",
         "ru": "Кабинет аюрведического спа с видом на тропический сад"
       },
-      "href": "/spa"
+      "href": "/spa",
+      "cta": {
+        "en": "Explore Treatments",
+        "ru": "Подробнее"
+      }
     },
     {
       "title": {
@@ -42,7 +46,11 @@
         "en": "Colorful Coral Reef Underwater in Bali",
         "ru": "Яркий коралловый риф под водой на Бали"
       },
-      "href": "/experiences/diving"
+      "href": "/experiences/diving",
+      "cta": {
+        "en": "Dive In",
+        "ru": "Подробнее"
+      }
     },
     {
       "title": {
@@ -58,7 +66,11 @@
         "en": "Elegant Outdoor Event Setup with Ocean Backdrop",
         "ru": "Элегантное оформление мероприятия на открытом воздухе с видом на океан"
       },
-      "href": "/experiences/events"
+      "href": "/experiences/events",
+      "cta": {
+        "en": "Plan Your Event",
+        "ru": "Подробнее"
+      }
     },
     {
       "title": {
@@ -74,7 +86,11 @@
         "en": "Scooter Parked on Scenic Bali Road",
         "ru": "Скутер на живописной дороге Бали"
       },
-      "href": "/experiences/car-rental"
+      "href": "/experiences/car-rental",
+      "cta": {
+        "en": "View Rides",
+        "ru": "Подробнее"
+      }
     },
     {
       "title": {
@@ -90,7 +106,11 @@
         "en": "Multi-tiered Balinese lakeside temple against misty mountains, Bali",
         "ru": "Многоярусный балийский храм у озера на фоне туманных гор, Бали"
       },
-      "href": "/experiences/excursions"
+      "href": "/experiences/excursions",
+      "cta": {
+        "en": "View Programs",
+        "ru": "Подробнее"
+      }
     },
     {
       "title": {
@@ -107,7 +127,11 @@
         "ru": "Туры и активности на Бали"
       },
       "href": "https://mybalitrips.com/?utm_pid=1260",
-      "external": true
+      "external": true,
+      "cta": {
+        "en": "Browse Tours",
+        "ru": "Подробнее"
+      }
     }
   ]
 }

@@ -58,7 +58,7 @@ export function ExperiencesHub({ data }: ExperiencesHubProps) {
                     <h3 className="font-serif text-xl font-semibold text-charcoal">{t(cat.title)}</h3>
                     <p className="mt-2 text-stone text-sm leading-relaxed flex-1">{t(cat.description)}</p>
                     <span className="mt-4 inline-block text-brand-teal font-sans text-xs tracking-wide">
-                      {t({ en: "Learn More →", ru: "Подробнее →" })}
+                      {t(cat.cta ?? { en: "Learn More", ru: "Подробнее" })} →
                     </span>
                   </div>
                 </>
