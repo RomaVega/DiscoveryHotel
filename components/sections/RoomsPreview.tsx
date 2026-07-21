@@ -60,7 +60,7 @@ export function RoomsPreview({ data }: RoomsPreviewProps) {
                       {t(room.description)}
                     </p>
                   </Link>
-                  <div className="mt-6 flex justify-center md:justify-start">
+                  <div className="mt-6 flex justify-center">
                     <SecondaryButton href={room.href} external>
                       {t({ en: "Book Now", ru: "Забронировать" })}
                     </SecondaryButton>

@@ -56,7 +56,7 @@ export function SpecialOffers({ data, hideHeading }: SpecialOffersProps) {
                   <p className="mt-4 font-sans text-lg font-semibold text-brand-teal">
                     {t(offer.price)}
                   </p>
-                  <div className="mt-6 flex justify-center md:justify-start">
+                  <div className="mt-6 flex justify-center">
                     <SecondaryButton href="https://secure.guestpro.net/odch" external>
                       {tl.offers.bookThisOffer}
                     </SecondaryButton>
