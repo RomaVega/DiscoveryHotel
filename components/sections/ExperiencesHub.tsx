@@ -57,9 +57,11 @@ export function ExperiencesHub({ data }: ExperiencesHubProps) {
                   <div className="p-5 md:p-6 flex flex-col flex-1">
                     <h3 className="font-serif text-xl font-semibold text-charcoal">{t(cat.title)}</h3>
                     <p className="mt-2 text-stone text-sm leading-relaxed flex-1">{t(cat.description)}</p>
-                    <span className="mt-4 inline-block text-brand-teal font-sans text-xs tracking-wide">
-                      {t(cat.cta ?? { en: "Learn More", ru: "Подробнее" })} →
-                    </span>
+                    <div className="mt-5 flex justify-center">
+                      <span className="inline-block bg-transparent border border-brand-teal text-brand-teal group-hover:bg-brand-teal group-hover:text-white active:scale-[0.97] font-sans font-semibold px-5 py-2 rounded-full tracking-wide text-xs transition-all duration-300">
+                        {t(cat.cta ?? { en: "Learn More", ru: "Подробнее" })}
+                      </span>
+                    </div>
                   </div>
                 </>
               );
