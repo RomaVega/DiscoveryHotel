@@ -544,7 +544,7 @@
         "href": "/spa",
         "cta": {
           "en": "Explore Treatments",
-          "ru": "Смотреть процедуры"
+          "ru": "Подробнее"
         }
       },
       {
@@ -561,7 +561,7 @@
         "href": "/experiences/diving",
         "cta": {
           "en": "Dive In",
-          "ru": "Погрузиться"
+          "ru": "Подробнее"
         }
       },
       {
@@ -578,7 +578,7 @@
         "href": "/experiences/events",
         "cta": {
           "en": "Plan Your Event",
-          "ru": "Спланировать событие"
+          "ru": "Подробнее"
         }
       },
       {
@@ -594,8 +594,8 @@
         "imageAlt": "Scooter parked on scenic Bali road",
         "href": "/experiences/car-rental",
         "cta": {
-          "en": "View Rentals",
-          "ru": "Смотреть аренду"
+          "en": "View Rides",
+          "ru": "Подробнее"
         }
       },
       {
@@ -612,7 +612,7 @@
         "href": "/experiences/excursions",
         "cta": {
           "en": "View Programs",
-          "ru": "Смотреть программы"
+          "ru": "Подробнее"
         }
       },
       {
@@ -630,7 +630,7 @@
         "external": true,
         "cta": {
           "en": "Browse Tours",
-          "ru": "Смотреть туры"
+          "ru": "Подробнее"
         }
       }
     ]
