@@ -71,10 +71,12 @@ export function DiningPreview() {
               </PrimaryButton>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-charcoal/10">
+            {/* flex-col-reverse puts Room Dining above Book a Table on mobile;
+                md:flex-row restores desktop order (Book a Table left) */}
+            <div className="flex flex-col-reverse md:flex-row">
 
               {/* Book a Table */}
-              <div className="p-6 md:p-8 flex flex-col items-center text-center gap-3">
+              <div className="md:flex-1 border-t md:border-t-0 border-charcoal/10 p-6 md:p-8 flex flex-col items-center text-center gap-3">
                 <UtensilsCrossed size={18} className="text-brand-teal" />
                 <h3 className="font-serif text-xl md:text-2xl font-light text-charcoal">
                   {isRu ? "Забронировать столик" : "Book a Table"}
@@ -90,7 +92,7 @@ export function DiningPreview() {
               </div>
 
               {/* Room Dining */}
-              <div className="p-6 md:p-8 flex flex-col items-center text-center gap-3">
+              <div className="md:flex-1 md:border-l border-charcoal/10 p-6 md:p-8 flex flex-col items-center text-center gap-3">
                 <ShoppingBag size={18} className="text-brand-teal" />
                 <h3 className="font-serif text-xl md:text-2xl font-light text-charcoal">
                   {isRu ? "Доставка в номер" : "Room Dining"}
