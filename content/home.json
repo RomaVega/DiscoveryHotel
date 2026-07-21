@@ -541,7 +541,11 @@
         },
         "image": "/images/experiences/experiences-ayurvedic-spa.webp",
         "imageAlt": "Ayurvedic spa shirodhara treatment at Orlowsky Discovery Hotel",
-        "href": "/spa"
+        "href": "/spa",
+        "cta": {
+          "en": "Explore Treatments",
+          "ru": "Смотреть процедуры"
+        }
       },
       {
         "title": {
@@ -554,7 +558,11 @@
         },
         "image": "/images/experiences/experiences-diving.webp",
         "imageAlt": "Colorful coral reef underwater in Bali",
-        "href": "/experiences/diving"
+        "href": "/experiences/diving",
+        "cta": {
+          "en": "Dive In",
+          "ru": "Погрузиться"
+        }
       },
       {
         "title": {
@@ -567,7 +575,11 @@
         },
         "image": "/images/experiences/experiences-events.webp",
         "imageAlt": "Elegant outdoor event setup with ocean backdrop",
-        "href": "/experiences/events"
+        "href": "/experiences/events",
+        "cta": {
+          "en": "Plan Your Event",
+          "ru": "Спланировать событие"
+        }
       },
       {
         "title": {
@@ -580,7 +592,11 @@
         },
         "image": "/images/rental/rental.webp",
         "imageAlt": "Scooter parked on scenic Bali road",
-        "href": "/experiences/car-rental"
+        "href": "/experiences/car-rental",
+        "cta": {
+          "en": "View Rentals",
+          "ru": "Смотреть аренду"
+        }
       },
       {
         "title": {
@@ -593,7 +609,11 @@
         },
         "image": "/images/experiences/experiences-signature-excursions.webp",
         "imageAlt": "Multi-tiered Balinese lakeside temple against misty mountains, Bali",
-        "href": "/experiences/excursions"
+        "href": "/experiences/excursions",
+        "cta": {
+          "en": "View Programs",
+          "ru": "Смотреть программы"
+        }
       },
       {
         "title": {
@@ -607,7 +627,11 @@
         "image": "/images/experiences/experiences-tours-activities-bali.webp",
         "imageAlt": "Bali tours and activities",
         "href": "https://mybalitrips.com/?utm_pid=1260",
-        "external": true
+        "external": true,
+        "cta": {
+          "en": "Browse Tours",
+          "ru": "Смотреть туры"
+        }
       }
     ]
   },

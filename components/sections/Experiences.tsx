@@ -11,8 +11,9 @@ interface ExperiencesProps {
   data: ExperiencesData;
 }
 
-function CardInner({ item, label }: { item: ExperienceCard; label: string }) {
+function CardInner({ item }: { item: ExperienceCard }) {
   const { t } = useLanguage();
+  const cta = item.cta ?? { en: "See More", ru: "Подробнее" };
   return (
     <>
       <div className="relative aspect-video shrink-0 overflow-hidden">
@@ -29,7 +30,7 @@ function CardInner({ item, label }: { item: ExperienceCard; label: string }) {
         <p className="mt-2 text-stone leading-relaxed flex-1">{t(item.description)}</p>
         <div className="mt-6 flex justify-center">
           <span className="inline-block bg-transparent border border-brand-teal text-brand-teal hover:bg-brand-teal hover:text-white hover:scale-[1.04] active:scale-[0.97] font-sans font-semibold px-5 py-2 rounded-full tracking-wide text-xs transition-all duration-300">
-            {label}
+            {t(cta)}
           </span>
         </div>
       </div>
@@ -56,11 +57,11 @@ export function Experiences({ data }: ExperiencesProps) {
             <FadeIn key={i} delay={i * 0.1}>
               {item.external ? (
                 <a href={item.href} target="_blank" rel="noopener noreferrer" className="bg-ivory shadow-md group h-full flex flex-col overflow-hidden rounded-md">
-                  <CardInner item={item} label={t({ en: "See More", ru: "Подробнее" })} />
+                  <CardInner item={item} />
                 </a>
               ) : (
                 <Link href={item.href} className="bg-ivory shadow-md group h-full flex flex-col overflow-hidden rounded-md">
-                  <CardInner item={item} label={t({ en: "See More", ru: "Подробнее" })} />
+                  <CardInner item={item} />
                 </Link>
               )}
             </FadeIn>
