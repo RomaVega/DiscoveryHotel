@@ -60,7 +60,7 @@ export function DiningDetail({ data }: DiningDetailProps) {
           {/* Menu is the single primary action; a table reservation sits below as a quiet link */}
           <div className="flex flex-col items-center gap-4">
             <PrimaryButton href={menuUrl} external>
-              {isRu ? "Смотреть меню" : "View Menu"}
+              {isRu ? "Смотреть Меню" : "View Menu"}
             </PrimaryButton>
             <a
               href={tableUrl}
@@ -68,7 +68,7 @@ export function DiningDetail({ data }: DiningDetailProps) {
               rel="noopener noreferrer"
               className="font-sans text-sm font-medium text-deep-teal underline underline-offset-4 decoration-deep-teal/40 hover:decoration-deep-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 rounded-sm transition-colors"
             >
-              {isRu ? "Забронировать столик" : "Book a Table"}
+              {isRu ? "Забронировать Столик" : "Book a Table"}
             </a>
           </div>
         </div>
@@ -108,7 +108,7 @@ export function DiningDetail({ data }: DiningDetailProps) {
                         rel="noopener noreferrer"
                         className="mt-6 inline-block font-sans text-sm font-semibold text-brand-teal hover:text-deep-teal underline underline-offset-4 transition-colors"
                       >
-                        {isRu ? "Открыть полное меню →" : "View Full Menu →"}
+                        {isRu ? "Открыть Полное Меню →" : "View Full Menu →"}
                       </a>
                     )}
                   </div>

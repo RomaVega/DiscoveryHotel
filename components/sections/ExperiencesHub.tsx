@@ -100,7 +100,7 @@ export function ExperiencesHub({ data }: ExperiencesHubProps) {
                 external
                 className="border-white text-white hover:bg-white/10 hover:border-white/80"
               >
-                {t({ ru: "Написать нам", en: "Message Us" })}
+                {t({ ru: "Написать Нам", en: "Message Us" })}
               </SecondaryButton>
             </div>
           </FadeIn>

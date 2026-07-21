@@ -100,7 +100,7 @@ export function EventsDetail({ data }: EventsDetailProps) {
                 external
                 className="border-white text-white hover:bg-white/10 hover:border-white/80"
               >
-                {t({ ru: "Написать нам", en: "Message Us Now" })}
+                {t({ ru: "Написать Нам", en: "Message Us Now" })}
               </SecondaryButton>
             </div>
           </FadeIn>

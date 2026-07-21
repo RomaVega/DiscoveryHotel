@@ -65,7 +65,7 @@ export function DiningPreview() {
                   : "Fresh seafood and Balinese cuisine — dine in, room service, or free delivery within Candidasa."}
               </p>
               <PrimaryButton href={menuUrl} external className="mt-2">
-                {isRu ? "Смотреть меню" : "View Menu"}
+                {isRu ? "Смотреть Меню" : "View Menu"}
               </PrimaryButton>
               <a
                 href={tableUrl}
@@ -73,7 +73,7 @@ export function DiningPreview() {
                 rel="noopener noreferrer"
                 className="mt-1 font-sans text-sm font-medium text-deep-teal underline underline-offset-4 decoration-deep-teal/40 hover:decoration-deep-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 rounded-sm transition-colors"
               >
-                {isRu ? "Забронировать столик" : "Book a Table"}
+                {isRu ? "Забронировать Столик" : "Book a Table"}
               </a>
             </div>
           </div>
