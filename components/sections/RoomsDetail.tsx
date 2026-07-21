@@ -139,8 +139,8 @@ function RoomCard({ room, reverse, t, isRu }: {
         )}
 
         {/* Book button — desktop only in left col */}
-        <div className="hidden lg:flex flex-1 items-center justify-center mt-8">
-          <SecondaryButton href={room.href} external>
+        <div className="hidden lg:flex flex-1 items-center justify-center mt-12">
+          <SecondaryButton href={room.href} external className="text-sm px-8 py-3">
             {isRu ? "Забронировать" : "Book This Room"}
           </SecondaryButton>
         </div>

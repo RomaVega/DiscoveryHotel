@@ -243,7 +243,7 @@ export function HeroImage({ hero }: HeroImageProps) {
           href={hero.ctaHref}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-10 md:mt-10 inline-block bg-black/15 hover:bg-black/30 text-white border border-white/60 hover:border-white rounded-full font-sans font-light px-8 py-3 tracking-[0.22em] uppercase text-xs transition-all duration-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"
+          className="mt-10 md:mt-16 inline-block bg-black/15 hover:bg-black/30 text-white border border-white/60 hover:border-white rounded-full font-sans font-light px-8 py-3 md:px-10 md:py-3.5 tracking-[0.22em] uppercase text-xs md:text-sm transition-all duration-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"
         >
           {t(hero.cta)}
         </a>
