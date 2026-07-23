@@ -30,13 +30,7 @@ function heroSrcSet(src: string, widths: number[]): string {
 export function HeroImage({ hero }: HeroImageProps) {
   const [paused, setPaused] = useState(false);
   const [atTop, setAtTop] = useState(true);
-  const [appeared, setAppeared] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const id = requestAnimationFrame(() => setAppeared(true));
-    return () => cancelAnimationFrame(id);
-  }, []);
 
   // Show the hero content ONLY in the pristine top state, defined as "the hero
   // section still covers the entire viewport". Checking scroll position alone
@@ -222,13 +216,13 @@ export function HeroImage({ hero }: HeroImageProps) {
       {/* Soft cinematic gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/20" />
 
-      {/* Content — fades in on mount, disappears instantly on scroll.
-          will-change + translateZ promote the overlay to its own GPU layer up-front, so the
-          fade-in is pure compositor work and doesn't contend with the video decoder's HW
-          acceleration kick-in (which happens in the same ~500ms window). */}
+      {/* Content — visible from first paint (SSR), disappears instantly on scroll. It used to
+          fade in via a post-hydration state, but that left the <h1> (the LCP element) at
+          opacity:0 until hydration (~5s on throttled mobile), which was the LCP. Now it paints
+          with the page; only the scroll-away transition remains. */}
       <div
         style={{ willChange: "opacity", transform: "translateZ(0)" }}
-        className={`relative z-10 flex h-svh flex-col items-center justify-center px-6 text-center text-white ${atTop ? "transition-opacity duration-500" : ""} ${!atTop || !appeared ? "opacity-0 pointer-events-none" : "opacity-100"}`}
+        className={`relative z-10 flex h-svh flex-col items-center justify-center px-6 text-center text-white ${atTop ? "transition-opacity duration-500" : ""} ${!atTop ? "opacity-0 pointer-events-none" : "opacity-100"}`}
       >
         {/* Logo */}
         <Image
@@ -298,7 +292,7 @@ export function HeroImage({ hero }: HeroImageProps) {
       </div>
 
       {/* Scroll indicator */}
-      <div className={`${atTop ? "transition-opacity duration-500" : ""} ${!atTop || !appeared ? "opacity-0" : ""}`}>
+      <div className={`${atTop ? "transition-opacity duration-500" : ""} ${!atTop ? "opacity-0" : ""}`}>
         <m.div
           className="absolute bottom-4 md:bottom-5 left-1/2 -translate-x-1/2 z-10"
           animate={{ y: [0, 8, 0] }}
