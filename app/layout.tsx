@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter, Cormorant_Garamond } from "next/font/google";
-import { LoadingScreen } from "@/components/layout/LoadingScreen";
 import { SitePreloader } from "@/components/common/SitePreloader";
 import { MotionProvider } from "@/components/common/MotionProvider";
 import { LanguageProvider } from "@/lib/language-context";
@@ -140,10 +139,8 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.variable} ${cormorant.variable} antialiased`} suppressHydrationWarning>
-        <script dangerouslySetInnerHTML={{ __html: `(function(){var h=new Date().getHours();if(h<6||h>=20||window.matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.classList.add('night');try{if(localStorage.getItem('odh_seen')!=='1')document.documentElement.classList.add('intro');}catch(e){document.documentElement.classList.add('intro');}})();` }} />
         <LanguageProvider>
           <MotionProvider>
-            <LoadingScreen />
             <SitePreloader />
             {children}
           </MotionProvider>

@@ -12,70 +12,6 @@
   }
 }
 
-@keyframes loading-content-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-/* Logo + beam ease in when the loading screen appears. Promoted to its own compositor
-   layer so the fade stays smooth even while the main thread is hydrating. */
-.loading-content-in {
-  animation: loading-content-in 0.5s ease-out both;
-  will-change: opacity, transform;
-}
-
-@keyframes spin-loading {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* Rotation runs on the compositor (GPU transform) so it stays smooth even while the main
-   thread is busy hydrating / decoding images. Only the comet length repaints. */
-.comet-spin {
-  animation: spin-loading 0.8s linear infinite;
-  transform-origin: center;
-  will-change: transform;
-}
-
-/* Breathing comet: a conic arc of length --len (JS-driven). The .comet-spin wrapper carries
-   it around; --len makes the head stretch ahead and ease back. The ring shape comes from the
-   .comet-hole disc on top (no CSS mask — so the disc composites & rotates on the GPU). */
-.comet-ring {
-  --len: 60deg;
-  border-radius: 9999px;
-  background: conic-gradient(
-    from 0deg,
-    rgba(76, 168, 181, 0) 0deg,
-    rgba(76, 168, 181, 0.18) min(10deg, var(--len)),
-    rgba(76, 168, 181, 0.55) min(18deg, var(--len)),
-    rgba(76, 168, 181, 1) min(28deg, var(--len)),
-    rgba(76, 168, 181, 1) var(--len),
-    rgba(76, 168, 181, 0) var(--len)
-  );
-}
-
-/* Center disc that punches the conic discs into rings — matches the screen background. */
-.comet-hole {
-  position: absolute;
-  inset: 2.5px;
-  border-radius: 9999px;
-  background: #e8e3d5; /* parchment — same as the loading screen */
-}
-html.night .comet-hole { background: #111111; }
-
-/* Completion "lock": the head continues past the top as a solid arc, sweeping 0->360
-   to paint over the transparent tail, then the full ring pulses a glow. */
-.comet-fill {
-  --fill: 0deg;
-  border-radius: 9999px;
-  background: conic-gradient(
-    from 0deg,
-    rgba(76, 168, 181, 1) 0deg,
-    rgba(76, 168, 181, 1) var(--fill),
-    rgba(76, 168, 181, 0) var(--fill)
-  );
-}
-
 @custom-variant data-open {
   &:where([data-state="open"]), &:where([data-open]:not([data-open="false"])) { @slot; }
 }
@@ -97,20 +33,6 @@ html.night .comet-hole { background: #111111; }
 }
 @custom-variant data-horizontal { &:where([data-orientation="horizontal"]) { @slot; } }
 @custom-variant data-vertical { &:where([data-orientation="vertical"]) { @slot; } }
-
-/* The intro only shows on a visitor's first load (html.intro set by the blocking script in
-   layout.tsx). On every cached reload/return it stays hidden, so the page is instant. */
-#loading-screen { display: none; }
-html.intro #loading-screen { display: flex; }
-
-/* Night / dark-mode loading screen — driven by blocking script in layout.tsx */
-html.night #loading-screen { background-color: #111111; }
-
-/* prefers-reduced-motion: stop the intro's spin (JS already holds a static, non-breathing
-   arc). The opacity fade stays — the WCAG-accepted safe subset. */
-@media (prefers-reduced-motion: reduce) {
-  .comet-spin { animation: none; }
-}
 
 @keyframes border-glow {
   0%, 100% { box-shadow: 0 0 0px rgba(76, 168, 181, 0); }
