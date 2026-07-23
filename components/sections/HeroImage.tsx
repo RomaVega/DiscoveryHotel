@@ -148,6 +148,31 @@ export function HeroImage({ hero }: HeroImageProps) {
 
   return (
     <section ref={sectionRef} className="relative h-svh w-full overflow-hidden bg-black">
+      {/* Preload the LCP poster per device — the art-directed <picture> below can't use
+          next/image's priority preload, and without it the poster is discovered late (browsers
+          were preloading below-the-fold images instead, tanking LCP). media + imageSrcSet/
+          imageSizes mirror the <source>/<img> exactly so the browser reuses the preload instead
+          of double-fetching; React 19 hoists these <link>s into <head>. */}
+      {hero.imageMobile && (
+        <link
+          rel="preload"
+          as="image"
+          href={imageLoader({ src: hero.imageMobile, width: 720, quality: 78 })}
+          media="(max-width: 767px)"
+          imageSrcSet={heroSrcSet(hero.imageMobile, MOBILE_WIDTHS)}
+          imageSizes="100vw"
+          fetchPriority="high"
+        />
+      )}
+      <link
+        rel="preload"
+        as="image"
+        href={imageLoader({ src: hero.imagePoster ?? hero.image, width: 1920, quality: 78 })}
+        media="(min-width: 768px)"
+        imageSrcSet={heroSrcSet(hero.imagePoster ?? hero.image, DESKTOP_WIDTHS)}
+        imageSizes="100vw"
+        fetchPriority="high"
+      />
       {/* Always-on poster layer — the LCP image and the video's fallback. Art-directed like the
           <video> below: the portrait first-frame on phones, the landscape first-frame on larger
           screens. A <picture> with media <source>s makes the browser fetch exactly ONE poster
