@@ -30,29 +30,6 @@ function waitForImages(imgs: HTMLImageElement[], timeout: number): Promise<void>
   });
 }
 
-// Wait until the hero video can play, so the intro never reveals the static poster while
-// the video is still downloading. Resolves immediately on pages without a hero video.
-function waitForHeroVideo(timeout: number): Promise<void> {
-  return new Promise<void>(resolve => {
-    let settled = false;
-    const finish = () => { if (!settled) { settled = true; resolve(); } };
-    const startedAt = performance.now();
-    const find = () => {
-      const v = document.querySelector("video");
-      if (v) {
-        if (v.readyState >= 3) return finish(); // HAVE_FUTURE_DATA — can play
-        v.addEventListener("canplay", finish, { once: true });
-        v.addEventListener("error", finish, { once: true });
-        return;
-      }
-      if (performance.now() - startedAt > 1500) return finish(); // no hero video here
-      requestAnimationFrame(find);
-    };
-    find();
-    setTimeout(finish, timeout); // hard cap
-  });
-}
-
 const doubleRaf = () =>
   new Promise<void>(r => requestAnimationFrame(() => requestAnimationFrame(() => r())));
 
@@ -82,6 +59,7 @@ function runComet(
   isDone: () => boolean,
   onComplete?: () => void,
   startDelay = 450,         // hold off length repaints while first-load hydration settles
+  reduced = false,          // prefers-reduced-motion: hold a static arc, skip the breathing
 ): () => void {
   const CYCLE = 1400;       // breathing cycle (ms)
   const MIN_LEN = 50;
@@ -111,7 +89,7 @@ function runComet(
     const bt = t - START_DELAY;
     if (closeStart === null && isDone()) {
       closeStart = ts;
-      closeLen = breatheLen(bt);
+      closeLen = reduced ? MIN_LEN : breatheLen(bt);
     }
     if (closeStart !== null) {
       const x = Math.min(1, (ts - closeStart) / CLOSE_DUR);
@@ -121,7 +99,7 @@ function runComet(
         if (!completed) { completed = true; onComplete?.(); }
         return; // finished — stop the loop
       }
-    } else {
+    } else if (!reduced) {
       setLen(breatheLen(bt));
     }
     raf = requestAnimationFrame(tick);
@@ -173,21 +151,26 @@ export function LoadingScreen() {
         try { localStorage.setItem("odh_seen", "1"); } catch { /* ignore */ }
       }, 700);
     };
-    const stopAnim = runComet(setLen, () => contentReady, () => playCompletion(fadeOut));
+    const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false;
+    const stopAnim = runComet(setLen, () => contentReady, () => playCompletion(fadeOut), 450, reduce);
 
     const dismiss = async () => {
-      await document.fonts.ready;
-      await doubleRaf();
-      await Promise.all([
-        waitForImages(pendingImages(), 8000),
-        waitForHeroVideo(8000), // hold until the hero video can play (no poster flash)
+      // Reveal as soon as fonts + the above-the-fold hero poster are ready. We no longer wait
+      // on the hero video — it now loads lazily after LCP, so blocking on it would only stall
+      // the reveal (and flash the poster later anyway). Fonts are raced against a short cap so
+      // a slow webfont can't hold the intro either.
+      await Promise.race([
+        document.fonts.ready.catch(() => {}),
+        new Promise((r) => setTimeout(r, 1200)),
       ]);
+      await doubleRaf();
+      await waitForImages(pendingImages(), 1500);
       contentReady = true;
     };
     dismiss();
 
-    // Absolute safety net: never block longer than 10s
-    const safety = setTimeout(() => { contentReady = true; }, 10000);
+    // Absolute safety net: never hold the intro longer than ~2.5s on a cold first visit.
+    const safety = setTimeout(() => { contentReady = true; }, 2500);
 
     return () => {
       clearTimeout(safety);

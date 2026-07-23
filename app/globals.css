@@ -106,6 +106,12 @@ html.intro #loading-screen { display: flex; }
 /* Night / dark-mode loading screen — driven by blocking script in layout.tsx */
 html.night #loading-screen { background-color: #111111; }
 
+/* prefers-reduced-motion: stop the intro's spin (JS already holds a static, non-breathing
+   arc). The opacity fade stays — the WCAG-accepted safe subset. */
+@media (prefers-reduced-motion: reduce) {
+  .comet-spin { animation: none; }
+}
+
 @keyframes border-glow {
   0%, 100% { box-shadow: 0 0 0px rgba(76, 168, 181, 0); }
   50% { box-shadow: 0 0 12px rgba(76, 168, 181, 0.6), 0 0 24px rgba(76, 168, 181, 0.2); }

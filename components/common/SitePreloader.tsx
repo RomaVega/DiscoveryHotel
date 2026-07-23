@@ -1,10 +1,9 @@
-"use client"; // Background-prefetches every image and route so navigation is instant
+"use client"; // Warms the home page's first below-the-fold images after load (idle, low priority)
 
 import { useEffect } from "react";
-import { useRouter } from "next/navigation";
-import { ALL_IMAGES, ALL_ROUTES } from "@/lib/image-manifest";
 
-// Above-the-fold images on the home page — loaded first so the landing view is ready fast.
+// The first images below the hero on the home page. Warmed at idle after load so the very
+// next thing a visitor scrolls to is already decoded — without competing with the hero/LCP.
 const PRIORITY = [
   "/images/welcome/welcome-garden-path-ocean-candidasa.webp",
   "/images/rooms/pool-villa.webp",
@@ -41,23 +40,15 @@ function shouldPreload(): boolean {
 }
 
 export function SitePreloader() {
-  const router = useRouter();
-
   useEffect(() => {
     if (!shouldPreload()) return;
 
-    // 1. Priority home images first.
-    scheduleIdle(() => prefetchImages(PRIORITY), 1500);
-
-    // 2. All route payloads (page JS/RSC) so navigating anywhere is instant.
-    scheduleIdle(() => {
-      for (const route of ALL_ROUTES) router.prefetch(route);
-    }, 4000);
-
-    // 3. Every remaining image across the whole site.
-    const rest = ALL_IMAGES.filter((u) => !PRIORITY.includes(u));
-    scheduleIdle(() => prefetchImages(rest), 8000);
-  }, [router]);
+    // Warm just the home page's first below-the-fold images, well after load so they never
+    // contend with the hero/LCP. Route payloads are intentionally left to Next's <Link>,
+    // which prefetches on hover/viewport in prod — a blanket prefetch of all 43 routes plus
+    // every image on the site was saturating mobile connections for little real benefit.
+    scheduleIdle(() => prefetchImages(PRIORITY), 2500);
+  }, []);
 
   return null;
 }
