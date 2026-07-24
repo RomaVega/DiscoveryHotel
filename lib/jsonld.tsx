@@ -1,4 +1,5 @@
 import { SITE_URL, SITE_NAME, OG_IMAGE } from "./site";
+import type { Locale, RatingAggregate } from "./types";
 
 export const HOTEL_ID = `${SITE_URL}/#hotel`;
 const HOTEL_REF = { "@id": HOTEL_ID };
@@ -18,8 +19,40 @@ const GEO = {
   longitude: 115.57505012094016,
 };
 
-export type Locale = "en" | "ru";
+export type { Locale };
 export type Crumb = { name: string; path: string };
+
+/**
+ * AggregateRating for the Hotel entity, taken from whichever third-party
+ * platform rates us *lowest* once scores are normalised across their differing
+ * scales — currently Google at 4.4/5 from 225 reviews.
+ *
+ * Publishing the least flattering verified figure is deliberate. Platforms are
+ * within two points of each other, so any of them would be defensible, and
+ * picking the best one is the kind of quiet curation this section exists to
+ * avoid. Deriving it keeps that true if the numbers move, rather than pinning a
+ * choice that was only conservative on the day it was written. The visible
+ * RatingSummary band shows all four, so nothing here is hidden.
+ *
+ * Note: Google treats ratings a business publishes about itself as
+ * "self-serving" and won't render review stars for LocalBusiness subtypes from
+ * this. Its value is semantic clarity and AI assistants reading the page.
+ */
+export function aggregateRating(sources: readonly RatingAggregate[]) {
+  if (sources.length === 0) return undefined;
+
+  const lowest = sources.reduce((min, s) =>
+    s.score / s.scale < min.score / min.scale ? s : min
+  );
+
+  return {
+    "@type": "AggregateRating",
+    ratingValue: lowest.score,
+    bestRating: lowest.scale,
+    worstRating: 1,
+    ratingCount: lowest.count,
+  };
+}
 
 export function breadcrumbs(items: Crumb[]) {
   return {

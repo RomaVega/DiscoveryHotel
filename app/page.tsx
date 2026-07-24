@@ -1,4 +1,5 @@
-import { getHomePageData, getContactData, getReviewsData } from "@/lib/content";
+import { getHomePageData, getContactData, getReviews, getRatingAggregates } from "@/lib/content";
+import { RatingSummary } from "@/components/sections/RatingSummary";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -37,7 +38,8 @@ const C = {
 export default function HomePage() {
   const data = getHomePageData();
   const contact = getContactData();
-  const { reviews } = getReviewsData();
+  const reviews = getReviews("en");
+  const aggregates = getRatingAggregates();
 
   return (
     <>
@@ -59,7 +61,9 @@ export default function HomePage() {
         <ScrollDivider above={C.ivory}    below={C.sand}     />
         <GalleryPreview data={data.galleryPreview} hideDesktopThumbnails />
         <ScrollDivider above={C.sand}     below={C.ivory}    />
-        <ReviewScroller reviews={reviews} />
+        <ReviewScroller reviews={reviews}>
+          <RatingSummary aggregates={aggregates} locale="en" />
+        </ReviewScroller>
         <BookingCta data={data.bookingCta} />
         <MapLocation contact={contact} />
       </main>

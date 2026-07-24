@@ -1,12 +1,12 @@
 "use client"; // Client context — t() helper consumed by client components
 
 import { createContext, useContext, useMemo, type ReactNode } from "react";
-import type { LocalizedString } from "@/lib/types";
+import type { LocalizedString, Locale } from "@/lib/types";
 import enLocale from "@/locales/en.json";
 import ruLocale from "@/locales/ru.json";
 import { ALL_ROUTES } from "@/lib/image-manifest";
 
-export type Locale = "en" | "ru";
+export type { Locale };
 
 /** Map a path to its equivalent in another locale.
  * Falls back to that locale's home if the translated route doesn't exist

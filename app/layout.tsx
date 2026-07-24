@@ -6,6 +6,8 @@ import { LanguageProvider } from "@/lib/language-context";
 import { ALL_ROUTES } from "@/lib/image-manifest";
 import { SITE_URL, SITE_NAME, OG_IMAGE } from "@/lib/site";
 import { getWhatsAppNumber } from "@/lib/whatsapp";
+import { getRatingAggregates } from "@/lib/content";
+import { aggregateRating } from "@/lib/jsonld";
 import "./globals.css";
 
 // EN paths that have a /ru equivalent. Used by the inline redirect script below
@@ -129,6 +131,7 @@ export default function RootLayout({
                 { "@type": "LocationFeatureSpecification", "name": "Room Service",         "value": true },
                 { "@type": "LocationFeatureSpecification", "name": "Laundry Service",      "value": true },
               ],
+              "aggregateRating": aggregateRating(getRatingAggregates()),
               "sameAs": [
                 "https://facebook.com/orlowskydiscovery",
                 "https://instagram.com/orlowskydiscovery",

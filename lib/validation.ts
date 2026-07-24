@@ -176,7 +176,19 @@ const review = z.object({
   source: z.enum(["booking", "google"]),
 });
 
+const ratingAggregate = z.object({
+  platform: z.string(),
+  score: z.number().positive(),
+  scale: z.union([z.literal(5), z.literal(10)]),
+  count: z.number().int().positive(),
+  url: z.string().url(),
+  verifiedOn: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "verifiedOn must be YYYY-MM-DD"),
+}).refine((a) => a.score <= a.scale, {
+  message: "score cannot exceed its scale",
+});
+
 export const reviewsSchema = z.object({
+  aggregates: z.array(ratingAggregate),
   reviews: z.array(review),
 });
 

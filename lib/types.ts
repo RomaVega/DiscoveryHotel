@@ -1,5 +1,7 @@
 /* Single source of truth for all data shapes */
 
+export type Locale = "en" | "ru";
+
 export type LocalizedString = string | { en: string; ru: string };
 
 export interface RoomSlide {
@@ -158,8 +160,38 @@ export interface Review {
   source: "booking" | "google";
 }
 
+/**
+ * A hotel rating as published by a third-party booking or review platform.
+ * Displayed verbatim and linked back to the source so any visitor can check it —
+ * these are the section's trust anchor, unlike the hand-picked review quotes.
+ */
+export interface RatingAggregate {
+  platform: string;
+  score: number;
+  /** Platforms use different scales: Booking/Agoda are out of 10, Google/Tripadvisor out of 5. */
+  scale: 5 | 10;
+  count: number;
+  url: string;
+  /** ISO date the score was last checked against the platform. Surfaced in the UI
+   *  so a stale figure is visible rather than quietly misleading. */
+  verifiedOn: string;
+}
+
 export interface ReviewsData {
+  aggregates: RatingAggregate[];
   reviews: Review[];
+}
+
+/**
+ * A Review with its LocalizedStrings already flattened to one locale.
+ * Reviews cross into a client component, so resolving them on the server keeps
+ * the other locale's text out of the RSC payload. Safe because locale is
+ * route-determined (`/ru/*` vs everything else) and never changes in place —
+ * revisit if an in-page language toggle is ever added.
+ */
+export interface ResolvedReview extends Omit<Review, "author" | "text"> {
+  author: string;
+  text: string;
 }
 
 export interface HomePageData {

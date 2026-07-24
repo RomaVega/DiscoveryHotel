@@ -1,15 +1,62 @@
 "use client"; // Uses useEffect + useRef for rAF-driven marquee
 
 import { useEffect, useRef, useCallback, useState } from "react";
-import { Star } from "lucide-react";
-import type { Review } from "@/lib/types";
+import type { ResolvedReview } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
 
 interface ReviewScrollerProps {
-  reviews: Review[];
+  reviews: ResolvedReview[];
+  /** Server-rendered slot for <RatingSummary>, kept out of this client boundary. */
+  children?: React.ReactNode;
 }
 
-function SourceBadge({ source }: { source: Review["source"] }) {
+/**
+ * Cards rendered into the static HTML. The track is decorative (aria-hidden) and
+ * its data already ships in the RSC payload, so server-rendering all 51 twice
+ * duplicated ~150 KB for no gain. A short slice keeps the track at its true
+ * height from first paint — avoiding layout shift for the sections below — and
+ * leaves something visible if JS never runs. The rest arrive on mount.
+ */
+const SSR_CARDS = 6;
+
+/**
+ * Glyph definitions rendered once per page. The marquee duplicates every card,
+ * so inlining these icons per-instance cost ~225 KB of the homepage HTML —
+ * <use> references keep it flat as the review count grows.
+ */
+function IconSprite() {
+  return (
+    <svg width="0" height="0" aria-hidden="true" className="absolute">
+      <symbol id="rs-star" viewBox="0 0 24 24">
+        {/* Stroke geometry lives here, not on each <use>, so the wrapper stays ~100 bytes */}
+        <polygon
+          points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </symbol>
+      <symbol id="rs-google" viewBox="0 0 18 18">
+        <path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.875 2.684-6.615z" fill="#4285F4"/>
+        <path d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332C2.438 15.983 5.482 18 9 18z" fill="#34A853"/>
+        <path d="M3.964 10.71A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.042l3.007-2.332z" fill="#FBBC05"/>
+        <path d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0 5.482 0 2.438 2.017.957 4.958L3.964 6.29C4.672 4.163 6.656 3.58 9 3.58z" fill="#EA4335"/>
+      </symbol>
+    </svg>
+  );
+}
+
+/** Matches lucide-react's <Star> stroke geometry so the sprite is a drop-in. */
+function StarIcon({ className }: { className: string }) {
+  return (
+    <svg className={`size-3 ${className}`} aria-hidden="true">
+      <use href="#rs-star" />
+    </svg>
+  );
+}
+
+function SourceBadge({ source }: { source: ResolvedReview["source"] }) {
   if (source === "booking") {
     return (
       <span className="inline-flex items-center gap-1 font-sans text-[10px] font-semibold tracking-wide text-[#003580]">
@@ -22,20 +69,16 @@ function SourceBadge({ source }: { source: Review["source"] }) {
   }
   return (
     <span className="inline-flex items-center gap-1 font-sans text-[10px] font-semibold tracking-wide text-[#4285F4]">
-      <svg width="14" height="14" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-        <path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.875 2.684-6.615z" fill="#4285F4"/>
-        <path d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332C2.438 15.983 5.482 18 9 18z" fill="#34A853"/>
-        <path d="M3.964 10.71A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.042l3.007-2.332z" fill="#FBBC05"/>
-        <path d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0 5.482 0 2.438 2.017.957 4.958L3.964 6.29C4.672 4.163 6.656 3.58 9 3.58z" fill="#EA4335"/>
+      <svg width="14" height="14" viewBox="0 0 18 18" aria-hidden="true">
+        <use href="#rs-google" />
       </svg>
       Google
     </span>
   );
 }
 
-function ReviewCard({ review, t }: { review: Review; t: (v: Review["text"]) => string }) {
-  const author = t(review.author);
-  const text = t(review.text);
+function ReviewCard({ review }: { review: ResolvedReview }) {
+  const { author, text } = review;
 
   return (
     <article
@@ -44,9 +87,8 @@ function ReviewCard({ review, t }: { review: Review; t: (v: Review["text"]) => s
     >
       <div className="flex gap-0.5" aria-label={`${review.rating} out of 5 stars`}>
         {Array.from({ length: 5 }).map((_, i) => (
-          <Star
+          <StarIcon
             key={i}
-            size={12}
             className={i < review.rating ? "text-brand-teal fill-brand-teal" : "text-charcoal/15 fill-charcoal/15"}
           />
         ))}
@@ -73,7 +115,7 @@ function ReviewCard({ review, t }: { review: Review; t: (v: Review["text"]) => s
 const SPEED_DESKTOP = 60;
 const SPEED_MOBILE = 65;
 
-function shuffle<T>(arr: T[]): T[] {
+function shuffle<T>(arr: readonly T[]): T[] {
   const a = [...arr];
   for (let i = a.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -82,11 +124,16 @@ function shuffle<T>(arr: T[]): T[] {
   return a;
 }
 
-export function ReviewScroller({ reviews }: ReviewScrollerProps) {
-  const { t, tl } = useLanguage();
-  // Start with original order (matches SSR), shuffle after hydration
-  const [shuffled, setShuffled] = useState<Review[]>(reviews);
-  useEffect(() => { setShuffled(shuffle(reviews)); }, [reviews]);
+export function ReviewScroller({ reviews, children }: ReviewScrollerProps) {
+  const { tl } = useLanguage();
+  // First render must match SSR exactly: the same leading slice, unshuffled.
+  // On mount we swap in the full shuffled deck and enable the duplicate set.
+  const [cards, setCards] = useState<ResolvedReview[]>(() => reviews.slice(0, SSR_CARDS));
+  const [full, setFull] = useState(false);
+  useEffect(() => {
+    setCards(shuffle(reviews));
+    setFull(true);
+  }, [reviews]);
   const trackRef = useRef<HTMLDivElement>(null);
   const setRef = useRef<HTMLDivElement>(null);
   const pausedRef = useRef(false);
@@ -193,6 +240,8 @@ export function ReviewScroller({ reviews }: ReviewScrollerProps) {
 
   return (
     <section className="py-16 md:py-20 bg-ivory overflow-hidden" aria-label="Guest reviews">
+      <IconSprite />
+
       <div className="max-w-7xl mx-auto px-6 mb-10 text-center">
         <p className="font-sans text-xs tracking-widest uppercase text-brand-teal mb-3">
           {tl.reviews.label}
@@ -201,6 +250,14 @@ export function ReviewScroller({ reviews }: ReviewScrollerProps) {
           {tl.reviews.heading}
         </h2>
       </div>
+
+      {/* Verified platform scores — the section's trust anchor, ahead of the quotes */}
+      {children}
+
+      {/* States plainly that the quotes below are curated, which the scores above are not */}
+      <p className="max-w-7xl mx-auto px-6 mb-8 text-center font-sans text-xs text-stone/80">
+        {tl.reviews.selectedNote}
+      </p>
 
       {/* Track — two identical sets; JS scrolls by exact measured pixel width */}
       <div
@@ -218,22 +275,26 @@ export function ReviewScroller({ reviews }: ReviewScrollerProps) {
         aria-hidden="true"
       >
         <div ref={setRef} className="flex gap-5 shrink-0 pr-5">
-          {shuffled.map((review, i) => (
-            <ReviewCard key={i} review={review} t={t} />
+          {cards.map((review, i) => (
+            <ReviewCard key={i} review={review} />
           ))}
         </div>
-        <div className="flex gap-5 shrink-0 pr-5">
-          {shuffled.map((review, i) => (
-            <ReviewCard key={`dup-${i}`} review={review} t={t} />
-          ))}
-        </div>
+        {/* Second set only exists to make the loop seamless — no point before hydration */}
+        {full && (
+          <div className="flex gap-5 shrink-0 pr-5">
+            {cards.map((review, i) => (
+              <ReviewCard key={`dup-${i}`} review={review} />
+            ))}
+          </div>
+        )}
       </div>
 
-      {/* Screen-reader accessible static list */}
+      {/* Screen-reader accessible static list — always the full set, since the
+          track above is aria-hidden and this is the section's real content */}
       <ul className="sr-only">
-        {shuffled.map((review, i) => (
+        {reviews.map((review, i) => (
           <li key={i}>
-            {t(review.author)}, {review.rating}/5: {t(review.text)}
+            {review.author}, {review.rating}/5: {review.text}
           </li>
         ))}
       </ul>

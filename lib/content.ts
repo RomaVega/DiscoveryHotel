@@ -1,5 +1,6 @@
 import type {
-  HomePageData, ContactData, ReviewsData,
+  HomePageData, ContactData, ReviewsData, ResolvedReview, RatingAggregate,
+  LocalizedString, Locale,
   RoomsPageData, DiningPageData, SpaPageData, TransferPageData,
   DivingPageData, ExcursionsPageData, EventsPageData, CarRentalPageData,
   AboutPageData, ExperiencesHubData,
@@ -42,6 +43,26 @@ export function getContactData(): ContactData {
 
 export function getReviewsData(): ReviewsData {
   return reviewsSchema.parse(reviewsData);
+}
+
+/** Third-party platform ratings, ordered by review count — largest sample first. */
+export function getRatingAggregates(): RatingAggregate[] {
+  return [...reviewsSchema.parse(reviewsData).aggregates].sort((a, b) => b.count - a.count);
+}
+
+/**
+ * Reviews with author/text flattened to `locale`, for passing into the
+ * client-side marquee. See ResolvedReview for why this is resolved server-side.
+ */
+export function getReviews(locale: Locale): ResolvedReview[] {
+  const resolve = (v: LocalizedString): string =>
+    typeof v === "string" ? v : v[locale];
+
+  return reviewsSchema.parse(reviewsData).reviews.map((review) => ({
+    ...review,
+    author: resolve(review.author),
+    text: resolve(review.text),
+  }));
 }
 
 export function getRoomsPageData(): RoomsPageData {

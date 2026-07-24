@@ -57,7 +57,12 @@
   },
   "reviews": {
     "label": "Отзывы гостей",
-    "heading": "Что Говорят Наши Гости"
+    "heading": "Что Говорят Наши Гости",
+    "ratingsHeading": "Оценки Гостей На Площадках",
+    "reviewsCountSuffix": "отзывов",
+    "verifiedOn": "Оценки проверены:",
+    "selectedNote": "Избранные отзывы с Booking.com и Google",
+    "opensInNewTab": "откроется в новой вкладке"
   },
   "map": {
     "label": "Расположение",

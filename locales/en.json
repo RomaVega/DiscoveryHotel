@@ -57,7 +57,12 @@
   },
   "reviews": {
     "label": "Guest Reviews",
-    "heading": "What Our Guests Say"
+    "heading": "What Our Guests Say",
+    "ratingsHeading": "Rated by guests on",
+    "reviewsCountSuffix": "reviews",
+    "verifiedOn": "Scores verified:",
+    "selectedNote": "Selected reviews from Booking.com and Google",
+    "opensInNewTab": "opens in a new tab"
   },
   "map": {
     "label": "Location",
