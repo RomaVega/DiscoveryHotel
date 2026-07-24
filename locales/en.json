@@ -56,13 +56,15 @@
     "bookThisOffer": "Book This Offer"
   },
   "reviews": {
-    "label": "Guest Reviews",
-    "heading": "What Our Guests Say",
-    "ratingsHeading": "Rated by guests on",
-    "reviewsCountSuffix": "reviews",
+    "label": "Reviews",
+    "heading": "What Guests Really Think",
     "verifiedOn": "Scores verified:",
     "selectedNote": "Selected reviews from Booking.com and Google",
-    "opensInNewTab": "opens in a new tab"
+    "opensInNewTab": "opens in a new tab",
+    "reviewPlurals": {
+      "one": "review",
+      "other": "reviews"
+    }
   },
   "map": {
     "label": "Location",
@@ -70,5 +72,9 @@
     "subtext": "Nestled on the tranquil coast of Candidasa, East Bali — away from the crowds, close to everything.",
     "address": "Address",
     "viewOnMaps": "View on Google Maps"
+  },
+  "amenities": {
+    "showAll": "Show All Amenities",
+    "showLess": "Show Less"
   }
 }

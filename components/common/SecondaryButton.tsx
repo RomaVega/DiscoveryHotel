@@ -23,6 +23,9 @@ interface SecondaryButtonAsButton extends SecondaryButtonBase {
   href?: never;
   external?: never;
   onClick: () => void;
+  /** Forwarded to the <button> — needed when this drives a disclosure. */
+  "aria-expanded"?: boolean;
+  "aria-controls"?: string;
 }
 
 type SecondaryButtonProps = SecondaryButtonAsLink | SecondaryButtonAsButton;
@@ -32,7 +35,12 @@ export function SecondaryButton({ children, className, ...rest }: SecondaryButto
 
   if ("onClick" in rest && rest.onClick) {
     return (
-      <button onClick={rest.onClick} className={styles}>
+      <button
+        onClick={rest.onClick}
+        aria-expanded={rest["aria-expanded"]}
+        aria-controls={rest["aria-controls"]}
+        className={styles}
+      >
         {children}
       </button>
     );

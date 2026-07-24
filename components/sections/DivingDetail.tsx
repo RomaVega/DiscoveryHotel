@@ -56,13 +56,27 @@ export function DivingDetail({ data }: DivingDetailProps) {
           <h2 className="font-serif text-3xl font-light text-charcoal text-center mb-12">
             {t({ en: "Dive Sites", ru: "Места для дайвинга" })}
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {data.diveSites.map((site, i) => (
-              <div key={i} className="bg-ivory p-6 shadow-sm rounded-md">
-                <h3 className="font-serif text-lg font-semibold text-charcoal">{t(site.name)}</h3>
-                <p className="mt-2 text-stone text-sm leading-relaxed">{t(site.description)}</p>
-              </div>
-            ))}
+          {/* One site per row, matching the car-rental card structure */}
+          <div className="flex flex-col gap-6">
+            {data.diveSites.map((site, i) => {
+              const msg = encodeURIComponent(isRu
+                ? `Здравствуйте! Интересует дайвинг: ${typeof site.name === "object" ? site.name.ru : site.name}`
+                : `Hello! I'd like to dive at: ${typeof site.name === "object" ? site.name.en : site.name}`
+              );
+              return (
+                <div key={i} className="bg-ivory shadow-sm p-6 md:p-8 flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-8 rounded-md">
+                  <div className="flex-1">
+                    <h3 className="font-serif text-2xl font-semibold text-charcoal">{t(site.name)}</h3>
+                    <p className="text-stone text-sm mt-2 leading-relaxed">{t(site.description)}</p>
+                  </div>
+                  <div className="flex justify-center sm:block">
+                    <SecondaryButton href={`https://wa.me/${getWhatsAppNumber()}?text=${msg}`} external>
+                      {bookText}
+                    </SecondaryButton>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </FadeIn>
       </div>

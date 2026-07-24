@@ -4,8 +4,8 @@ import Image from "next/image";
 import { LocalizedLink as Link } from "@/components/common/LocalizedLink";
 import {
   MessageCircle, Mail, MapPin,
-  BedDouble, UtensilsCrossed, Compass, Tag, ImageIcon, Info,
-  Map, Waves, CalendarDays, Car, Sparkles, Globe,
+  BedDouble, Utensils, Compass, Percent, Camera, Info,
+  Map, Waves, CalendarDays, KeyRound, Sparkles, Globe,
   type LucideIcon,
 } from "lucide-react";
 import type { ContactData } from "@/lib/types";
@@ -26,10 +26,10 @@ export function Footer({ contact }: FooterProps) {
 
   const footerLinks: { label: string; href: string; icon: LucideIcon }[] = [
     { label: tl.footer.links.rooms,       href: "/rooms",       icon: BedDouble },
-    { label: tl.footer.links.amenities,   href: "/dining",      icon: UtensilsCrossed },
+    { label: tl.footer.links.amenities,   href: "/dining",      icon: Utensils },
     { label: tl.footer.links.experiences, href: "/experiences", icon: Compass },
-    { label: tl.footer.links.offers,      href: "/offers",      icon: Tag },
-    { label: tl.footer.links.gallery,     href: "/gallery",     icon: ImageIcon },
+    { label: tl.footer.links.offers,      href: "/offers",      icon: Percent },
+    { label: tl.footer.links.gallery,     href: "/gallery",     icon: Camera },
     { label: tl.footer.links.about,       href: "/about",       icon: Info },
   ];
 
@@ -37,7 +37,7 @@ export function Footer({ contact }: FooterProps) {
     { label: tl.footer.experienceLinks.spa,           href: "/spa",                                 icon: Sparkles },
     { label: tl.footer.experienceLinks.diving,        href: "/experiences/diving",                  icon: Waves },
     { label: tl.footer.experienceLinks.events,        href: "/experiences/events",                  icon: CalendarDays },
-    { label: tl.footer.experienceLinks.carRental,     href: "/experiences/car-rental",              icon: Car },
+    { label: tl.footer.experienceLinks.carRental,     href: "/experiences/car-rental",              icon: KeyRound },
     { label: tl.footer.experienceLinks.excursions,    href: "/experiences/excursions",              icon: Map },
     { label: tl.footer.experienceLinks.toursPartner,  href: "https://mybalitrips.com/?utm_pid=1260", icon: Globe, external: true },
   ];

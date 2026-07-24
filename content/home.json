@@ -313,18 +313,18 @@
     },
     "items": [
       {
-        "icon": "Waves",
+        "icon": "Umbrella",
         "title": {
-          "en": "Swimming Pool",
-          "ru": "Бассейн"
+          "en": "Private Beach",
+          "ru": "Собственный пляж"
         },
         "description": ""
       },
       {
-        "icon": "Wifi",
+        "icon": "Waves",
         "title": {
-          "en": "Fast Wi-Fi",
-          "ru": "Быстрый Wi-Fi"
+          "en": "Swimming Pool",
+          "ru": "Бассейн"
         },
         "description": ""
       },
@@ -337,6 +337,14 @@
         "description": ""
       },
       {
+        "icon": "Bell",
+        "title": {
+          "en": "24h Receptionist",
+          "ru": "Ресепшн 24/7"
+        },
+        "description": ""
+      },
+      {
         "icon": "Sparkles",
         "title": {
           "en": "SPA",
@@ -345,26 +353,59 @@
         "description": ""
       },
       {
-        "icon": "Umbrella",
+        "icon": "KeyRound",
         "title": {
-          "en": "Private Beach Area",
-          "ru": "Пляжная зона"
+          "en": "Auto/Moto Rental",
+          "ru": "Аренда авто/мото"
         },
         "description": ""
       },
       {
-        "icon": "Coffee",
+        "icon": "Wifi",
         "title": {
-          "en": "Breakfast",
-          "ru": "Завтрак"
+          "en": "Fast Wi-Fi",
+          "ru": "Быстрый Wi-Fi"
         },
         "description": ""
       },
       {
-        "icon": "Ban",
+        "icon": "PlaneLanding",
         "title": {
-          "en": "Non Smoking Rooms",
-          "ru": "Номера для некурящих"
+          "en": "Airport Shuttle",
+          "ru": "Трансфер из аэропорта"
+        },
+        "description": ""
+      },
+      {
+        "icon": "Compass",
+        "title": {
+          "en": "Exclusive Tours",
+          "ru": "Эксклюзивные туры"
+        },
+        "description": ""
+      },
+      {
+        "icon": "ConciergeBell",
+        "title": {
+          "en": "Room Service",
+          "ru": "Обслуживание в номере"
+        },
+        "description": ""
+      },
+      {
+        "icon": "Hand",
+        "title": {
+          "en": "Massage",
+          "ru": "Массаж"
+        },
+        "description": "",
+        "hideMobile": true
+      },
+      {
+        "icon": "Shirt",
+        "title": {
+          "en": "Daily Housekeeping",
+          "ru": "Ежедневная уборка"
         },
         "description": ""
       },
@@ -377,6 +418,70 @@
         "description": ""
       },
       {
+        "icon": "Fish",
+        "title": {
+          "en": "Diving & Snorkeling",
+          "ru": "Дайвинг и снорклинг"
+        },
+        "description": ""
+      },
+      {
+        "icon": "Ban",
+        "title": {
+          "en": "Non Smoking Rooms",
+          "ru": "Номера для некурящих"
+        },
+        "description": ""
+      },
+      {
+        "icon": "Coffee",
+        "title": {
+          "en": "Breakfast",
+          "ru": "Завтрак"
+        },
+        "description": ""
+      },
+      {
+        "icon": "WashingMachine",
+        "title": {
+          "en": "Laundry",
+          "ru": "Прачечная"
+        },
+        "description": ""
+      },
+      {
+        "icon": "Tv",
+        "title": {
+          "en": "Smart TV",
+          "ru": "Smart TV"
+        },
+        "description": ""
+      },
+      {
+        "icon": "Package",
+        "title": {
+          "en": "Minibar",
+          "ru": "Минибар"
+        },
+        "description": ""
+      },
+      {
+        "icon": "Shield",
+        "title": {
+          "en": "24 Hour Security",
+          "ru": "Охрана 24 часа"
+        },
+        "description": ""
+      },
+      {
+        "icon": "Bus",
+        "title": {
+          "en": "Transport Service",
+          "ru": "Транспортные услуги"
+        },
+        "description": ""
+      },
+      {
         "icon": "Activity",
         "title": {
           "en": "Doctor on Call",
@@ -385,10 +490,10 @@
         "description": ""
       },
       {
-        "icon": "Sun",
+        "icon": "GlassWater",
         "title": {
-          "en": "Beach",
-          "ru": "Пляж"
+          "en": "Bar",
+          "ru": "Бар"
         },
         "description": ""
       },
@@ -406,111 +511,6 @@
         "title": {
           "en": "Free Parking",
           "ru": "Бесплатная парковка"
-        },
-        "description": ""
-      },
-      {
-        "icon": "Shield",
-        "title": {
-          "en": "24 Hour Security",
-          "ru": "Охрана 24 часа"
-        },
-        "description": ""
-      },
-      {
-        "icon": "PlaneLanding",
-        "title": {
-          "en": "Airport Shuttle",
-          "ru": "Трансфер из аэропорта"
-        },
-        "description": ""
-      },
-      {
-        "icon": "Bell",
-        "title": {
-          "en": "24h Receptionist",
-          "ru": "Ресепшн 24/7"
-        },
-        "description": ""
-      },
-      {
-        "icon": "Shirt",
-        "title": {
-          "en": "Daily Housekeeping",
-          "ru": "Ежедневная уборка"
-        },
-        "description": ""
-      },
-      {
-        "icon": "Bike",
-        "title": {
-          "en": "Motorbike Rental",
-          "ru": "Аренда мотоцикла"
-        },
-        "description": ""
-      },
-      {
-        "icon": "GlassWater",
-        "title": {
-          "en": "Bar",
-          "ru": "Бар"
-        },
-        "description": ""
-      },
-      {
-        "icon": "WashingMachine",
-        "title": {
-          "en": "Laundry",
-          "ru": "Прачечная"
-        },
-        "description": ""
-      },
-      {
-        "icon": "Map",
-        "title": {
-          "en": "Tour Organisation",
-          "ru": "Организация экскурсий"
-        },
-        "description": ""
-      },
-      {
-        "icon": "Bus",
-        "title": {
-          "en": "Transport Service",
-          "ru": "Транспортные услуги"
-        },
-        "description": ""
-      },
-      {
-        "icon": "Package",
-        "title": {
-          "en": "Minibar",
-          "ru": "Минибар"
-        },
-        "description": ""
-      },
-      {
-        "icon": "Hand",
-        "title": {
-          "en": "Massage",
-          "ru": "Массаж"
-        },
-        "description": "",
-        "hideMobile": true
-      },
-      {
-        "icon": "ConciergeBell",
-        "title": {
-          "en": "Room Service",
-          "ru": "Обслуживание в номере"
-        },
-        "description": ""
-      },
-      {
-        "icon": "Tv",
-        "title": {
-          "en": "Smart TV",
-          "ru": "Smart TV"
         },
         "description": ""
       }

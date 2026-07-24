@@ -56,13 +56,17 @@
     "bookThisOffer": "Забронировать"
   },
   "reviews": {
-    "label": "Отзывы гостей",
-    "heading": "Что Говорят Наши Гости",
-    "ratingsHeading": "Оценки Гостей На Площадках",
-    "reviewsCountSuffix": "отзывов",
+    "label": "Отзывы",
+    "heading": "Что Гости Думают На Самом Деле",
     "verifiedOn": "Оценки проверены:",
     "selectedNote": "Избранные отзывы с Booking.com и Google",
-    "opensInNewTab": "откроется в новой вкладке"
+    "opensInNewTab": "откроется в новой вкладке",
+    "reviewPlurals": {
+      "one": "отзыв",
+      "few": "отзыва",
+      "many": "отзывов",
+      "other": "отзывов"
+    }
   },
   "map": {
     "label": "Расположение",
@@ -70,5 +74,9 @@
     "subtext": "На тихом побережье Чандидасы, Восточный Бали — вдали от суеты, рядом со всем необходимым.",
     "address": "Адрес",
     "viewOnMaps": "Открыть в Google Maps"
+  },
+  "amenities": {
+    "showAll": "Показать Все Удобства",
+    "showLess": "Свернуть"
   }
 }

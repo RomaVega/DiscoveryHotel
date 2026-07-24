@@ -89,7 +89,7 @@ function ReviewCard({ review }: { review: ResolvedReview }) {
         {Array.from({ length: 5 }).map((_, i) => (
           <StarIcon
             key={i}
-            className={i < review.rating ? "text-brand-teal fill-brand-teal" : "text-charcoal/15 fill-charcoal/15"}
+            className={i < review.rating ? "text-logo-gold fill-logo-gold" : "text-charcoal/15 fill-charcoal/15"}
           />
         ))}
       </div>
@@ -242,21 +242,17 @@ export function ReviewScroller({ reviews, children }: ReviewScrollerProps) {
     <section className="py-16 md:py-20 bg-ivory overflow-hidden" aria-label="Guest reviews">
       <IconSprite />
 
-      <div className="max-w-7xl mx-auto px-6 mb-10 text-center">
-        <p className="font-sans text-xs tracking-widest uppercase text-brand-teal mb-3">
-          {tl.reviews.label}
-        </p>
-        <h2 className="font-serif text-3xl md:text-4xl font-light text-charcoal">
-          {tl.reviews.heading}
-        </h2>
-      </div>
-
-      {/* Verified platform scores — the section's trust anchor, ahead of the quotes */}
+      {/* Eyebrow, heading and verified platform scores — the section's trust
+          anchor, server-rendered ahead of the quotes */}
       {children}
 
-      {/* States plainly that the quotes below are curated, which the scores above are not */}
-      <p className="max-w-7xl mx-auto px-6 mb-8 text-center font-sans text-xs text-stone/80">
-        {tl.reviews.selectedNote}
+      {/* States plainly that the quotes below are curated, which the scores above
+          are not. The tint detaches it from the scores caption, so two centred
+          grey lines stop reading as one block. */}
+      <p className="max-w-7xl mx-auto px-6 mb-8 text-center">
+        <span className="inline-block rounded-full bg-parchment px-4 py-1.5 font-sans text-xs text-stone">
+          {tl.reviews.selectedNote}
+        </span>
       </p>
 
       {/* Track — two identical sets; JS scrolls by exact measured pixel width */}

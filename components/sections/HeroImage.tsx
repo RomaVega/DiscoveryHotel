@@ -222,7 +222,10 @@ export function HeroImage({ hero }: HeroImageProps) {
           with the page; only the scroll-away transition remains. */}
       <div
         style={{ willChange: "opacity", transform: "translateZ(0)" }}
-        className={`relative z-10 flex h-svh flex-col items-center justify-center px-6 text-center text-white ${atTop ? "transition-opacity duration-500" : ""} ${!atTop ? "opacity-0 pointer-events-none" : "opacity-100"}`}
+        // pb reserves the space the CTA used to occupy in this centred stack, so
+        // lifting it out to absolute positioning leaves the title block exactly
+        // where it was rather than letting it settle downward.
+        className={`relative z-10 flex h-svh flex-col items-center justify-center px-6 pb-[82px] md:pb-[178px] text-center text-white ${atTop ? "transition-opacity duration-500" : ""} ${!atTop ? "opacity-0 pointer-events-none" : "opacity-100"}`}
       >
         {/* Logo */}
         <Image
@@ -285,7 +288,12 @@ export function HeroImage({ hero }: HeroImageProps) {
           href={hero.ctaHref}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-10 md:mt-32 inline-block bg-black/15 hover:bg-black/30 text-white border border-white/60 hover:border-white rounded-full font-sans font-light px-8 py-3 md:px-10 md:py-3.5 tracking-[0.22em] uppercase text-xs md:text-sm transition-all duration-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"
+          // Centred in the gap between the subtitle and the scroll arrow. The
+          // subtitle sits a fixed distance from the viewport's midline and the
+          // arrow is pinned to the bottom, so that gap's midpoint works out to
+          // 75% of viewport height plus a constant — which holds at any height,
+          // unlike the fixed margin this replaces.
+          className="absolute left-1/2 top-[calc(75%+72px)] md:top-[calc(75%+55px)] -translate-x-1/2 -translate-y-1/2 inline-block whitespace-nowrap bg-black/15 hover:bg-black/30 text-white border border-white/60 hover:border-white rounded-full font-sans font-light px-7 py-2.5 md:px-8 md:py-3 tracking-[0.22em] uppercase text-[11px] md:text-xs transition-all duration-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"
         >
           {t(hero.cta)}
         </a>

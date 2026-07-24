@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { LocalizedLink as Link } from "@/components/common/LocalizedLink";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import { Menu, X, BedDouble, Sparkles, Compass, Tag, Camera, Info } from "lucide-react";
+import { Menu, X, BedDouble, Utensils, Compass, Percent, Camera, Info } from "lucide-react";
 import { m, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/lib/language-context";
@@ -53,9 +53,9 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80, hideBrand 
 
   const links = [
     { label: tl.nav.rooms, href: "/rooms", icon: BedDouble },
-    { label: tl.nav.amenities, href: "/dining", icon: Sparkles },
+    { label: tl.nav.amenities, href: "/dining", icon: Utensils },
     { label: tl.nav.experiences, href: "/experiences", icon: Compass },
-    { label: tl.nav.offers, href: "/offers", icon: Tag },
+    { label: tl.nav.offers, href: "/offers", icon: Percent },
     { label: tl.nav.gallery, href: "/gallery", icon: Camera },
     { label: tl.nav.about, href: "/about", icon: Info },
   ];
