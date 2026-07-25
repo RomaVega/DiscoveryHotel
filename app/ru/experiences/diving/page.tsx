@@ -51,6 +51,7 @@ export default function DivingRuPage() {
         imageAlt="Colorful coral reef underwater in Bali"
         heading={data.heading}
         subtext={data.subtext}
+        noOverlay
       />
       <DivingDetail data={data} />
     </InnerPageLayout>

@@ -52,6 +52,7 @@ export default function CarRentalRuPage() {
         imageAlt="Scooter rental at Orlowsky Discovery Hotel, Candidasa, Bali"
         heading={data.heading}
         subtext={data.subtext}
+        noOverlay
       />
       <CarRentalDetail data={data} />
     </InnerPageLayout>

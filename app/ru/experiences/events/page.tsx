@@ -51,6 +51,7 @@ export default function EventsRuPage() {
         imageAlt="Elegant outdoor event setup with ocean backdrop"
         heading={data.heading}
         subtext={data.subtext}
+        noOverlay
       />
       <EventsDetail data={data} />
     </InnerPageLayout>

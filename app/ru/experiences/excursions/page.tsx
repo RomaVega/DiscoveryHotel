@@ -52,6 +52,7 @@ export default function ExcursionsRuPage() {
         imageClassName="lg:object-[50%_10%]"
         heading={data.heading}
         subtext={data.subtext}
+        noOverlay
       />
       <ExcursionsDetail data={data} />
     </InnerPageLayout>
