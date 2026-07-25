@@ -20,6 +20,20 @@ export function CarRentalDetail({ data }: CarRentalDetailProps) {
 
   return (
     <div>
+    {/* ── Motivational lead-in ── */}
+    {data.intro && (
+      <section className="py-16 md:py-24 bg-ivory">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <FadeIn>
+            <div className="w-px h-12 bg-brand-teal mx-auto mb-8" />
+            <p className="font-serif text-xl md:text-2xl font-light text-charcoal leading-relaxed">
+              {t(data.intro)}
+            </p>
+            <div className="w-px h-12 bg-brand-teal mx-auto mt-8" />
+          </FadeIn>
+        </div>
+      </section>
+    )}
     <section className="pt-6 pb-6 md:py-32 bg-sand">
       <div className="max-w-5xl mx-auto px-6">
         {/* Vehicles */}

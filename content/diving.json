@@ -211,5 +211,23 @@
       "en": "Book a Dive",
       "ru": "Записаться на Дайвинг"
     }
+  },
+  "intro": {
+    "en": "Below the surface, Bali keeps its wildest secrets. Drift over coral gardens alive with colour, glide past the ghostly hull of the USAT Liberty, watch a manta unfurl its wings in the blue. Whether it's your first breath underwater or your thousandth dive, this sea stays with you long after you surface.",
+    "ru": "Под водой Бали хранит свои самые заветные тайны. Проплывите над коралловыми садами, сияющими всеми красками, скользните мимо призрачного корпуса USAT Liberty, замрите, когда манта расправит крылья в синеве. Первое ли это ваше погружение или тысячное — это море остаётся с вами ещё долго после того, как вы вернётесь на поверхность."
+  },
+  "helpCta": {
+    "heading": {
+      "en": "Not Sure Where to Start?",
+      "ru": "Не Знаете, С Чего Начать?"
+    },
+    "text": {
+      "en": "Tell us your experience level and what you'd love to see — we'll match you with the right dive.",
+      "ru": "Расскажите о своём опыте и о том, что хотели бы увидеть, — и мы подберём подходящее погружение."
+    },
+    "button": {
+      "en": "Contact Us",
+      "ru": "Связаться с Нами"
+    }
   }
 }

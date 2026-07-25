@@ -4,7 +4,7 @@ import { FadeIn } from "@/components/common/FadeIn";
 import { SecondaryButton } from "@/components/common/SecondaryButton";
 import type { DivingPageData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
-import { getWhatsAppNumber } from "@/lib/whatsapp";
+import { getWhatsAppNumber, buildWhatsAppUrl } from "@/lib/whatsapp";
 
 interface DivingDetailProps {
   data: DivingPageData;
@@ -14,8 +14,29 @@ export function DivingDetail({ data }: DivingDetailProps) {
   const { t, locale } = useLanguage();
   const isRu = locale === "ru";
   const bookText = isRu ? "Забронировать" : "Book Now";
+  const helpUrl = buildWhatsAppUrl(
+    isRu
+      ? "Здравствуйте! Не могу выбрать погружение — помогите, пожалуйста, подобрать подходящее по опыту."
+      : "Hello! I'm not sure which dive to choose — could you help me find one that suits my experience?"
+  );
 
   return (
+    <>
+      {/* ── Poetic lead-in ── */}
+      {data.intro && (
+        <section className="py-16 md:py-24 bg-ivory">
+          <div className="max-w-3xl mx-auto px-6 text-center">
+            <FadeIn>
+              <div className="w-px h-12 bg-brand-teal mx-auto mb-8" />
+              <p className="font-serif text-xl md:text-2xl font-light text-charcoal leading-relaxed">
+                {t(data.intro)}
+              </p>
+              <div className="w-px h-12 bg-brand-teal mx-auto mt-8" />
+            </FadeIn>
+          </div>
+        </section>
+      )}
+
     <section className="py-16 md:py-32 bg-sand">
       <div className="max-w-5xl mx-auto px-6">
         {/* Programs */}
@@ -81,5 +102,31 @@ export function DivingDetail({ data }: DivingDetailProps) {
         </FadeIn>
       </div>
     </section>
+
+    {/* ── "Not sure where to start?" help CTA ── */}
+    {data.helpCta && (
+      <section className="py-16 md:py-24 bg-cta-teal">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <FadeIn>
+            <h2 className="font-serif text-2xl md:text-4xl font-light text-white">
+              {t(data.helpCta.heading)}
+            </h2>
+            <p className="mt-4 text-white/80 text-base md:text-lg leading-relaxed">
+              {t(data.helpCta.text)}
+            </p>
+            <div className="mt-8">
+              <SecondaryButton
+                href={helpUrl}
+                external
+                className="border-white text-white hover:bg-white/10 hover:border-white/80"
+              >
+                {t(data.helpCta.button)}
+              </SecondaryButton>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+    )}
+    </>
   );
 }

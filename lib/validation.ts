@@ -358,12 +358,14 @@ export const divingPageSchema = z.object({
   label: localizedString,
   heading: localizedString,
   subtext: localizedString,
+  intro: localizedString.optional(),
   features: z.array(z.object({ title: localizedString, description: localizedString, icon: z.string().optional() })).optional(),
   programs: z.array(diveProgram),
   diveSites: z.array(diveSite),
   image: z.string().optional(),
   imageAlt: z.string().optional(),
   bookingCta: bookingCtaData,
+  helpCta: helpCta.optional(),
 });
 
 const eventService = z.object({
@@ -403,6 +405,7 @@ export const carRentalPageSchema = z.object({
   label: localizedString,
   heading: localizedString,
   subtext: localizedString,
+  intro: localizedString.optional(),
   vehicles: z.array(rentalVehicle),
   terms: z.array(localizedString).optional(),
   bookingCta: bookingCtaData,

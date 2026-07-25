@@ -398,12 +398,15 @@ export interface DivingPageData {
   label: LocalizedString;
   heading: LocalizedString;
   subtext: LocalizedString;
+  /** Poetic lead-in shown between the hero and the dive programs. */
+  intro?: LocalizedString;
   features?: { title: LocalizedString; description: LocalizedString; icon?: string }[];
   programs: DiveProgram[];
   diveSites: DiveSite[];
   image?: string;
   imageAlt?: string;
   bookingCta: BookingCtaData;
+  helpCta?: HelpCta;
 }
 
 /* ─── Events Page ─── */
@@ -442,6 +445,8 @@ export interface CarRentalPageData {
   label: LocalizedString;
   heading: LocalizedString;
   subtext: LocalizedString;
+  /** Motivational lead-in shown between the hero and the vehicle list. */
+  intro?: LocalizedString;
   vehicles: RentalVehicle[];
   terms?: LocalizedString[];
   bookingCta: BookingCtaData;
