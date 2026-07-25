@@ -301,7 +301,6 @@ export interface SpaPageData {
   ayurvedicTreatments: SpaTreatment[];
   balineseTreatments: SpaTreatment[];
   image: string;
-  imageDesktop?: string;
   imageAlt: string;
   bookingCta: BookingCtaData;
   /** "Not sure which treatment?" consultative CTA at the bottom. */
