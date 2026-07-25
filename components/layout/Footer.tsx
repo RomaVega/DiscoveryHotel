@@ -37,7 +37,7 @@ export function Footer({ contact }: FooterProps) {
     { label: tl.footer.experienceLinks.spa,           href: "/spa",                                 icon: Sparkles },
     { label: tl.footer.experienceLinks.diving,        href: "/experiences/diving",                  icon: Waves },
     { label: tl.footer.experienceLinks.events,        href: "/experiences/events",                  icon: CalendarDays },
-    { label: tl.footer.experienceLinks.carRental,     href: "/experiences/car-rental",              icon: KeyRound },
+    { label: tl.footer.experienceLinks.carRental,     href: "/experiences/car-bike-rental",              icon: KeyRound },
     { label: tl.footer.experienceLinks.excursions,    href: "/experiences/excursions",              icon: Map },
     { label: tl.footer.experienceLinks.toursPartner,  href: "https://mybalitrips.com/?utm_pid=1260", icon: Globe, external: true },
   ];

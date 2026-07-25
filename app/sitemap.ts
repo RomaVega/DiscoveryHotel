@@ -22,7 +22,7 @@ const enRoutes: Route[] = [
   { path: "/experiences/diving",        priority: 0.8, changeFrequency: "monthly" },
   { path: "/experiences/excursions",    priority: 0.7, changeFrequency: "monthly" },
   { path: "/experiences/events",        priority: 0.7, changeFrequency: "monthly" },
-  { path: "/experiences/car-rental",    priority: 0.6, changeFrequency: "monthly" },
+  { path: "/experiences/car-bike-rental",    priority: 0.6, changeFrequency: "monthly" },
   { path: "/offers",                    priority: 0.8, changeFrequency: "weekly"  },
   { path: "/gallery",                   priority: 0.7, changeFrequency: "monthly" },
   { path: "/transfer",                  priority: 0.7, changeFrequency: "monthly" },

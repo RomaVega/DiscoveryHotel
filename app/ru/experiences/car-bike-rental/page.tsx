@@ -9,17 +9,17 @@ export const metadata = {
   title: "Аренда Авто и Мотоцикла на Бали — Orlowsky Discovery Hotel, Кандидаса",
   description: "Аренда скутера от Rp 20,000/час, автомобиля с водителем или без, и электровелосипедов. Исследуйте Восточный Бали в своём темпе.",
   alternates: {
-    canonical: `${SITE_URL}/ru/experiences/car-rental`,
+    canonical: `${SITE_URL}/ru/experiences/car-bike-rental`,
     languages: {
-      "en": `${SITE_URL}/experiences/car-rental`,
-      "ru": `${SITE_URL}/ru/experiences/car-rental`,
-      "x-default": `${SITE_URL}/experiences/car-rental`,
+      "en": `${SITE_URL}/experiences/car-bike-rental`,
+      "ru": `${SITE_URL}/ru/experiences/car-bike-rental`,
+      "x-default": `${SITE_URL}/experiences/car-bike-rental`,
     },
   },
   openGraph: {
     title: "Аренда Авто и Мотоцикла на Бали — Orlowsky Discovery Hotel, Кандидаса",
     description: "Аренда скутера от Rp 20,000/час, автомобиля с водителем или без, и электровелосипедов. Исследуйте Восточный Бали в своём темпе.",
-    url: `${SITE_URL}/ru/experiences/car-rental`,
+    url: `${SITE_URL}/ru/experiences/car-bike-rental`,
     images: [{ url: `${SITE_URL}/images/rental/rental.webp`, width: 1200, height: 630 }],
   },
 };
@@ -32,7 +32,7 @@ export default function CarRentalRuPage() {
     <InnerPageLayout contact={contact}>
       <JsonLd data={[
         service({
-          path: "/ru/experiences/car-rental",
+          path: "/ru/experiences/car-bike-rental",
           name: "Аренда авто и мотоцикла в Кандидасе, Восточный Бали",
           description: "Аренда скутера, автомобиля с водителем или без, и электровелосипедов в Кандидасе. Доставка к отелю и обратно.",
           image: `${SITE_URL}/images/rental/rental.webp`,
@@ -43,7 +43,7 @@ export default function CarRentalRuPage() {
         breadcrumbs([
           { name: "Главная", path: "/ru" },
           { name: "Впечатления", path: "/ru/experiences" },
-          { name: "Аренда транспорта", path: "/ru/experiences/car-rental" },
+          { name: "Аренда транспорта", path: "/ru/experiences/car-bike-rental" },
         ]),
       ]} />
       <PageHero

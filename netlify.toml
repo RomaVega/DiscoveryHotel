@@ -47,3 +47,14 @@
   to = "https://orlowsky.id/:splat"
   status = 301
   force = true
+
+# car-rental → car-bike-rental (page renamed; preserve the old indexed URL).
+[[redirects]]
+  from = "/experiences/car-rental"
+  to = "/experiences/car-bike-rental"
+  status = 301
+
+[[redirects]]
+  from = "/ru/experiences/car-rental"
+  to = "/ru/experiences/car-bike-rental"
+  status = 301
