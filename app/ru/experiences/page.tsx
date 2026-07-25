@@ -46,8 +46,8 @@ export default function ExperiencesRuPage() {
       ]} />
       <PageHero
         image="/images/experiences/experiences-excursions.webp"
-        imageAlt="East Bali experiences — rice terraces, a Balinese temple and Mount Agung volcano"
-        imageDesktop="/images/experiences/experiences-bali-temples-volcanoes-diving-spa.webp"
+        imageAlt="Впечатления в окрестностях Чандидасы, Восточный Бали — побережье бухты с рыбацкими лодками и балийский храм на озере"
+        imageDesktop="/images/gallery/candidasa-bay-coastline-fishing-boats-east-bali.webp"
         heading={data.heading}
         subtext={data.subtext}
         noOverlay
