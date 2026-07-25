@@ -323,12 +323,18 @@ export const excursionsPageSchema = z.object({
   label: localizedString,
   heading: localizedString,
   subtext: localizedString,
+  intro: localizedString.optional(),
   sightseeing: excursionSection.optional(),
   waterActivities: excursionSection.optional(),
   trekking: excursionSection.optional(),
   cycling: excursionSection.optional(),
   organizedTours: excursionSection.optional(),
   bookingCta: bookingCtaData,
+  helpCta: z.object({
+    heading: localizedString,
+    text: localizedString,
+    button: localizedString,
+  }).optional(),
 });
 
 const diveSite = z.object({

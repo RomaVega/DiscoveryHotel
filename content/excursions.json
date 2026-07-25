@@ -342,5 +342,23 @@
       "en": "Book an Excursion",
       "ru": "Забронировать Экскурсию"
     }
+  },
+  "intro": {
+    "en": "Some places you visit. East Bali, you remember. Beyond the famous sights lie the moments that stay with you — dawn breaking over a volcano, the hush inside a thousand-year-old temple, an afternoon lost among emerald rice terraces. Our guides know the roads the crowds miss. Come with us, and go home with more than photographs.",
+    "ru": "Есть места, где вы просто бываете, а есть Восточный Бали — он остается в сердце навсегда. За рамками привычных маршрутов вас ждут моменты, которые запоминаются на всю жизнь: рассвет над вулканом, звенящая тишина древнего храма, день, растворившийся среди изумрудных рисовых террас. Наши гиды знают тропы, скрытые от туристических толп. Отправляйтесь с нами — и привезите домой не только фотографии, но и воспоминания."
+  },
+  "helpCta": {
+    "heading": {
+      "en": "Don't Know What to Choose?",
+      "ru": "Не Знаете, Что Выбрать?"
+    },
+    "text": {
+      "en": "Tell us what you're after and we'll be happy to find the tour that suits you best.",
+      "ru": "Расскажите, что вам интересно, — и мы с радостью подберём экскурсию, которая подойдёт именно вам."
+    },
+    "button": {
+      "en": "Contact Us",
+      "ru": "Связаться с Нами"
+    }
   }
 }

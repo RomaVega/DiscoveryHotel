@@ -4,7 +4,7 @@ import { FadeIn } from "@/components/common/FadeIn";
 import { SecondaryButton } from "@/components/common/SecondaryButton";
 import type { ExcursionsPageData, ExcursionSection } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
-import { getWhatsAppNumber } from "@/lib/whatsapp";
+import { getWhatsAppNumber, buildWhatsAppUrl } from "@/lib/whatsapp";
 
 interface ExcursionsDetailProps {
   data: ExcursionsPageData;
@@ -64,6 +64,7 @@ function ExcursionGroup({ section }: { section: ExcursionSection }) {
 }
 
 export function ExcursionsDetail({ data }: ExcursionsDetailProps) {
+  const { t, locale } = useLanguage();
   const sections = [
     data.sightseeing,
     data.waterActivities,
@@ -72,17 +73,66 @@ export function ExcursionsDetail({ data }: ExcursionsDetailProps) {
     data.organizedTours,
   ].filter(Boolean) as ExcursionSection[];
 
+  const helpUrl = buildWhatsAppUrl(
+    locale === "ru"
+      ? "Здравствуйте! Не могу выбрать экскурсию — помогите, пожалуйста, подобрать подходящую."
+      : "Hello! I'm not sure which excursion to choose — could you help me find one that suits me?"
+  );
+
   return (
-    <section className="pt-6 pb-6 md:py-28 bg-sand">
-      <div className="max-w-4xl mx-auto px-6">
-        <div className="flex flex-col gap-16 md:gap-24">
-          {sections.map((section, i) => (
-            <FadeIn key={i}>
-              <ExcursionGroup section={section} />
+    <>
+      {/* ── Poetic lead-in ── */}
+      {data.intro && (
+        <section className="py-16 md:py-24 bg-ivory">
+          <div className="max-w-3xl mx-auto px-6 text-center">
+            <FadeIn>
+              <div className="w-px h-12 bg-brand-teal mx-auto mb-8" />
+              <p className="font-serif text-xl md:text-2xl font-light text-charcoal leading-relaxed">
+                {t(data.intro)}
+              </p>
+              <div className="w-px h-12 bg-brand-teal mx-auto mt-8" />
             </FadeIn>
-          ))}
+          </div>
+        </section>
+      )}
+
+      {/* ── Tours ── */}
+      <section className="pt-6 pb-6 md:py-28 bg-sand">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="flex flex-col gap-16 md:gap-24">
+            {sections.map((section, i) => (
+              <FadeIn key={i}>
+                <ExcursionGroup section={section} />
+              </FadeIn>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* ── "Not sure what to pick?" help CTA ── */}
+      {data.helpCta && (
+        <section className="py-16 md:py-24 bg-cta-teal">
+          <div className="max-w-3xl mx-auto px-6 text-center">
+            <FadeIn>
+              <h2 className="font-serif text-2xl md:text-4xl font-light text-white">
+                {t(data.helpCta.heading)}
+              </h2>
+              <p className="mt-4 text-white/80 text-base md:text-lg leading-relaxed">
+                {t(data.helpCta.text)}
+              </p>
+              <div className="mt-8">
+                <SecondaryButton
+                  href={helpUrl}
+                  external
+                  className="border-white text-white hover:bg-white/10 hover:border-white/80"
+                >
+                  {t(data.helpCta.button)}
+                </SecondaryButton>
+              </div>
+            </FadeIn>
+          </div>
+        </section>
+      )}
+    </>
   );
 }

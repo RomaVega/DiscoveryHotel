@@ -355,16 +355,26 @@ export interface ExcursionSection {
   highlights?: ExcursionItem[];
 }
 
+export interface ExcursionsHelpCta {
+  heading: LocalizedString;
+  text: LocalizedString;
+  button: LocalizedString;
+}
+
 export interface ExcursionsPageData {
   label: LocalizedString;
   heading: LocalizedString;
   subtext: LocalizedString;
+  /** Poetic lead-in shown between the hero and the tour list. */
+  intro?: LocalizedString;
   sightseeing?: ExcursionSection;
   waterActivities?: ExcursionSection;
   trekking?: ExcursionSection;
   cycling?: ExcursionSection;
   organizedTours?: ExcursionSection;
   bookingCta: BookingCtaData;
+  /** "Not sure what to pick?" consultative CTA at the bottom. */
+  helpCta?: ExcursionsHelpCta;
 }
 
 /* ─── Diving Page ─── */

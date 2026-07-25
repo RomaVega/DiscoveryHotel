@@ -49,7 +49,7 @@ export default function ExcursionsRuPage() {
       <PageHero
         image="/images/experiences/experiences-excursions.webp"
         imageAlt="Bali temple with lush tropical gardens"
-        imageClassName="lg:object-[50%_25%]"
+        imageClassName="lg:object-[50%_10%]"
         heading={data.heading}
         subtext={data.subtext}
       />
