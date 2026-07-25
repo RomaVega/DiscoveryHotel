@@ -304,6 +304,8 @@ export interface SpaPageData {
   imageDesktop?: string;
   imageAlt: string;
   bookingCta: BookingCtaData;
+  /** "Not sure which treatment?" consultative CTA at the bottom. */
+  helpCta?: HelpCta;
 }
 
 /* ─── Transfer Page ─── */
@@ -355,7 +357,7 @@ export interface ExcursionSection {
   highlights?: ExcursionItem[];
 }
 
-export interface ExcursionsHelpCta {
+export interface HelpCta {
   heading: LocalizedString;
   text: LocalizedString;
   button: LocalizedString;
@@ -374,7 +376,7 @@ export interface ExcursionsPageData {
   organizedTours?: ExcursionSection;
   bookingCta: BookingCtaData;
   /** "Not sure what to pick?" consultative CTA at the bottom. */
-  helpCta?: ExcursionsHelpCta;
+  helpCta?: HelpCta;
 }
 
 /* ─── Diving Page ─── */

@@ -256,6 +256,12 @@ const spaProgram = z.object({
   price: z.string(),
 });
 
+const helpCta = z.object({
+  heading: localizedString,
+  text: localizedString,
+  button: localizedString,
+});
+
 export const spaPageSchema = z.object({
   label: localizedString,
   heading: localizedString,
@@ -270,6 +276,7 @@ export const spaPageSchema = z.object({
   image: z.string(),
   imageAlt: z.string(),
   bookingCta: bookingCtaData,
+  helpCta: helpCta.optional(),
 });
 
 const transferRoute = z.object({
@@ -330,11 +337,7 @@ export const excursionsPageSchema = z.object({
   cycling: excursionSection.optional(),
   organizedTours: excursionSection.optional(),
   bookingCta: bookingCtaData,
-  helpCta: z.object({
-    heading: localizedString,
-    text: localizedString,
-    button: localizedString,
-  }).optional(),
+  helpCta: helpCta.optional(),
 });
 
 const diveSite = z.object({

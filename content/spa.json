@@ -320,5 +320,19 @@
   },
   "image": "/images/spa/spa-oceanfront-massage-candidasa.webp",
   "imageDesktop": "/images/spa/ayurvedic-spa.webp",
-  "imageAlt": "Spa massage and Ayurvedic treatment at Orlowsky Discovery Hotel, Candidasa"
+  "imageAlt": "Spa massage and Ayurvedic treatment at Orlowsky Discovery Hotel, Candidasa",
+  "helpCta": {
+    "heading": {
+      "en": "Not Sure Which Treatment?",
+      "ru": "Не Знаете, Что Выбрать?"
+    },
+    "text": {
+      "en": "Tell us how you'd like to feel, and we'll be happy to recommend the treatment that's right for you.",
+      "ru": "Расскажите, как вы хотите себя чувствовать, — и мы с радостью подберём процедуру, которая подойдёт именно вам."
+    },
+    "button": {
+      "en": "Contact Us",
+      "ru": "Связаться с Нами"
+    }
+  }
 }

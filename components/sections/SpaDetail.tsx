@@ -5,7 +5,7 @@ import { SecondaryButton } from "@/components/common/SecondaryButton";
 import { StatsStrip } from "@/components/common/StatsStrip";
 import type { SpaPageData, SpaTreatment } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
-import { getWhatsAppNumber } from "@/lib/whatsapp";
+import { getWhatsAppNumber, buildWhatsAppUrl } from "@/lib/whatsapp";
 
 interface SpaDetailProps {
   data: SpaPageData;
@@ -51,6 +51,11 @@ export function SpaDetail({ data }: SpaDetailProps) {
   const isRu = locale === "ru";
   const bookText = isRu ? "Записаться на Сеанс" : "Book Treatment";
   const whatsappBase = `https://wa.me/${getWhatsAppNumber()}?text=`;
+  const helpUrl = buildWhatsAppUrl(
+    isRu
+      ? "Здравствуйте! Не могу выбрать спа-процедуру — помогите, пожалуйста, подобрать подходящую."
+      : "Hello! I'm not sure which spa treatment to choose — could you help me find one that's right for me?"
+  );
 
   return (
     <div>
@@ -122,6 +127,31 @@ export function SpaDetail({ data }: SpaDetailProps) {
         </FadeIn>
       </div>
     </section>
+
+    {/* ── "Not sure which treatment?" help CTA ── */}
+    {data.helpCta && (
+      <section className="py-16 md:py-24 bg-cta-teal">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <FadeIn>
+            <h2 className="font-serif text-2xl md:text-4xl font-light text-white">
+              {t(data.helpCta.heading)}
+            </h2>
+            <p className="mt-4 text-white/80 text-base md:text-lg leading-relaxed">
+              {t(data.helpCta.text)}
+            </p>
+            <div className="mt-8">
+              <SecondaryButton
+                href={helpUrl}
+                external
+                className="border-white text-white hover:bg-white/10 hover:border-white/80"
+              >
+                {t(data.helpCta.button)}
+              </SecondaryButton>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+    )}
     </div>
   );
 }
