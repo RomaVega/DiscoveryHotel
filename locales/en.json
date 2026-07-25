@@ -49,11 +49,29 @@
     "showLess": "Show Less",
     "previousImage": "Previous image",
     "nextImage": "Next image",
-    "closeLightbox": "Close lightbox"
+    "closeLightbox": "Close lightbox",
+    "filterAria": "Filter photos by category",
+    "filters": {
+      "all": "All",
+      "villas-rooms": "Villas & Rooms",
+      "dining-bar": "Dining & Bar",
+      "grounds-pool": "Grounds & Pool",
+      "beach-sea": "Beach & Sea"
+    }
   },
   "offers": {
     "specialOffer": "Special Offer",
-    "bookThisOffer": "Book This Offer"
+    "bookThisOffer": "Book This Offer",
+    "included": "What's included",
+    "bookDirect": {
+      "heading": "Why Book Direct",
+      "perks": [
+        { "title": "Best Rate Guarantee", "desc": "Book direct and you'll always get our lowest available rate." },
+        { "title": "Free Cancellation", "desc": "Flexible booking with free cancellation if your plans change." },
+        { "title": "Welcome Perk on Arrival", "desc": "A little welcome treat, just for booking with us directly." },
+        { "title": "Reply in 5–10 Minutes", "desc": "Fast, real answers from our team on WhatsApp." }
+      ]
+    }
   },
   "reviews": {
     "label": "Reviews",

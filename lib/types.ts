@@ -93,6 +93,14 @@ export interface Offer {
   image: string;
   imageAlt: string;
   active: boolean;
+  /** Short badge/tag shown over the image, e.g. "Save 20%", "For Couples". */
+  badge?: LocalizedString;
+  /** Bulleted "what's included" list. */
+  inclusions?: LocalizedString[];
+  /** Honest booking/stay condition or deadline, e.g. "Book 30+ days ahead". */
+  validity?: LocalizedString;
+  /** Fine print (min stay, blackout dates, cancellation). */
+  terms?: LocalizedString;
 }
 
 export interface OffersData {
@@ -101,9 +109,20 @@ export interface OffersData {
   offers: Offer[];
 }
 
+export type GalleryCategory =
+  | "villas-rooms"
+  | "dining-bar"
+  | "grounds-pool"
+  | "beach-sea";
+
 export interface GalleryImage {
   src: string;
   alt: string;
+  /** Grouping for the gallery-page filter pills. Omit to show only under "All". */
+  category?: GalleryCategory;
+  /** Intrinsic pixel dimensions — lets the masonry reserve aspect-ratio space (no CLS). */
+  width?: number;
+  height?: number;
 }
 
 export interface GalleryPreviewData {

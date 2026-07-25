@@ -105,6 +105,10 @@ const offer = z.object({
   image: z.string(),
   imageAlt: z.string(),
   active: z.boolean(),
+  badge: localizedString.optional(),
+  inclusions: z.array(localizedString).optional(),
+  validity: localizedString.optional(),
+  terms: localizedString.optional(),
 });
 
 const offersData = z.object({
@@ -116,6 +120,9 @@ const offersData = z.object({
 const galleryImage = z.object({
   src: z.string(),
   alt: z.string(),
+  category: z.enum(["villas-rooms", "dining-bar", "grounds-pool", "beach-sea"]).optional(),
+  width: z.number().optional(),
+  height: z.number().optional(),
 });
 
 const galleryPreviewData = z.object({

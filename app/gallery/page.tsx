@@ -1,7 +1,7 @@
 import { getHomePageData, getContactData } from "@/lib/content";
 import { InnerPageLayout } from "@/components/layout/InnerPageLayout";
 import { PageHero } from "@/components/sections/PageHero";
-import { GalleryPreview } from "@/components/sections/GalleryPreview";
+import { GalleryMosaic } from "@/components/sections/GalleryMosaic";
 import { SITE_URL } from "@/lib/site";
 import { JsonLd, breadcrumbs, webPage } from "@/lib/jsonld";
 
@@ -52,7 +52,7 @@ export default function GalleryPage() {
         subtext={data.galleryPreview.subtext}
         noOverlay
       />
-      <GalleryPreview data={data.galleryPreview} defaultExpanded hideHeading />
+      <GalleryMosaic data={data.galleryPreview} />
     </InnerPageLayout>
   );
 }
