@@ -49,6 +49,7 @@ export default function ExcursionsPage() {
       <PageHero
         image="/images/experiences/experiences-excursions.webp"
         imageAlt="Bali temple with lush tropical gardens"
+        imageClassName="lg:object-[50%_25%]"
         heading={data.heading}
         subtext={data.subtext}
         noOverlay

@@ -15,6 +15,9 @@ interface PageHeroProps {
    * <picture> shares one alt across sources, `imageAlt` must describe both.
    */
   imageDesktop?: string;
+  /** Extra classes for the hero <img> — e.g. a viewport-specific object-position
+   * like "lg:object-[50%_25%]" to reframe a portrait crop on desktop. */
+  imageClassName?: string;
   heading: LocalizedString;
   subtext?: LocalizedString;
   noOverlay?: boolean;
@@ -26,7 +29,7 @@ const HERO_WIDTHS = [640, 828, 1080, 1200, 1920, 2048, 3840];
 const heroSrcSet = (src: string) =>
   HERO_WIDTHS.map((w) => `${imageLoader({ src, width: w, quality: 75 })} ${w}w`).join(", ");
 
-export function PageHero({ image, imageAlt, imageDesktop, heading, subtext, noOverlay }: PageHeroProps) {
+export function PageHero({ image, imageAlt, imageDesktop, imageClassName, heading, subtext, noOverlay }: PageHeroProps) {
   const { t } = useLanguage();
 
   return (
@@ -45,7 +48,7 @@ export function PageHero({ image, imageAlt, imageDesktop, heading, subtext, noOv
             alt={imageAlt}
             fetchPriority="high"
             decoding="async"
-            className="absolute inset-0 h-full w-full object-cover"
+            className={`absolute inset-0 h-full w-full object-cover ${imageClassName ?? ""}`}
           />
         </picture>
       ) : (
@@ -55,7 +58,7 @@ export function PageHero({ image, imageAlt, imageDesktop, heading, subtext, noOv
           fill
           priority
           sizes="100vw"
-          className="object-cover"
+          className={`object-cover ${imageClassName ?? ""}`}
         />
       )}
       {!noOverlay && <div className="absolute inset-0 bg-black/40" />}
