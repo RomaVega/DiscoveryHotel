@@ -73,13 +73,13 @@
         "ru": "Полный кейтеринг"
       },
       "description": {
-        "en": "Our kitchen team crafts custom menus tailored to your event, from elegant multi-course dinners to casual buffets and outdoor BBQ parties.",
-        "ru": "Наша кухня разрабатывает индивидуальные меню для вашего мероприятия — от элегантных ужинов на несколько блюд до шведского стола и вечеринок-барбекю на открытом воздухе."
+        "en": "Our kitchen team crafts custom menus tailored to your event, from elegant multi-course dinners to outdoor BBQ parties.",
+        "ru": "Наша кухня разрабатывает индивидуальные меню для вашего мероприятия — от элегантных ужинов на несколько блюд до вечеринок-барбекю на открытом воздухе."
       },
-      "image": "/images/events/catering.webp",
+      "image": "/images/dining/chef-specials.webp",
       "imageAlt": {
-        "en": "Beautifully Arranged Catering Spread for an Event",
-        "ru": "Красиво оформленный кейтеринг для мероприятия"
+        "en": "Elegantly Plated Multi-Course Dinner Dish for Event Catering",
+        "ru": "Изысканно поданное блюдо для мероприятия"
       }
     },
     {
