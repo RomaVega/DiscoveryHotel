@@ -49,7 +49,7 @@ function TreatmentCard({ treatment, bookText, whatsappBase }: {
 export function SpaDetail({ data }: SpaDetailProps) {
   const { t, locale } = useLanguage();
   const isRu = locale === "ru";
-  const bookText = isRu ? "Забронировать" : "Book Now";
+  const bookText = isRu ? "Записаться на Сеанс" : "Book Treatment";
   const whatsappBase = `https://wa.me/${getWhatsAppNumber()}?text=`;
 
   return (
@@ -88,7 +88,7 @@ export function SpaDetail({ data }: SpaDetailProps) {
                   </div>
                   <div className="mt-4 flex justify-center sm:mt-0 sm:block">
                     <SecondaryButton href={`${whatsappBase}${msg}`} external>
-                      {bookText}
+                      {program.bookLabel ? t(program.bookLabel) : bookText}
                     </SecondaryButton>
                   </div>
                 </div>

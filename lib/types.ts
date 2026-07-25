@@ -266,6 +266,8 @@ export interface SpaProgram {
   description: LocalizedString;
   duration: string;
   price: string;
+  /** Short action label for the booking button, e.g. "Book Rejuvenation". Falls back to the shared treatment label. */
+  bookLabel?: LocalizedString;
 }
 
 export interface SpaPageData {

@@ -208,8 +208,8 @@
     },
     "bookingUrl": "https://secure.guestpro.net/odch",
     "fallbackCta": {
-      "en": "Contact Us",
-      "ru": "Связаться с нами"
+      "en": "Book a Dive",
+      "ru": "Записаться на Дайвинг"
     }
   }
 }

@@ -883,8 +883,8 @@
     },
     "bookingUrl": "https://secure.guestpro.net/odch",
     "fallbackCta": {
-      "en": "Book Now",
-      "ru": "Забронировать"
+      "en": "Reserve a Room",
+      "ru": "Забронировать Номер"
     }
   }
 }

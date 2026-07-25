@@ -224,8 +224,8 @@
     },
     "bookingUrl": "https://secure.guestpro.net/odch",
     "fallbackCta": {
-      "en": "Contact Us",
-      "ru": "Связаться с нами"
+      "en": "Book a Transfer",
+      "ru": "Заказать Трансфер"
     }
   },
   "image": "/images/gallery/orlowsky-hotel-seafront-candidasa-bay.webp",

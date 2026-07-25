@@ -29,7 +29,7 @@
       "href": "/spa",
       "cta": {
         "en": "Explore Treatments",
-        "ru": "Подробнее"
+        "ru": "Смотреть Процедуры"
       }
     },
     {
@@ -49,7 +49,7 @@
       "href": "/experiences/diving",
       "cta": {
         "en": "Dive In",
-        "ru": "Подробнее"
+        "ru": "Погрузиться"
       }
     },
     {
@@ -69,7 +69,7 @@
       "href": "/experiences/events",
       "cta": {
         "en": "Plan Your Event",
-        "ru": "Подробнее"
+        "ru": "Спланировать Мероприятие"
       }
     },
     {
@@ -89,7 +89,7 @@
       "href": "/experiences/car-rental",
       "cta": {
         "en": "View Rides",
-        "ru": "Подробнее"
+        "ru": "Смотреть Транспорт"
       }
     },
     {
@@ -109,7 +109,7 @@
       "href": "/experiences/excursions",
       "cta": {
         "en": "View Programs",
-        "ru": "Подробнее"
+        "ru": "Смотреть Программы"
       }
     },
     {
@@ -130,7 +130,7 @@
       "external": true,
       "cta": {
         "en": "Browse Tours",
-        "ru": "Подробнее"
+        "ru": "Смотреть Туры"
       }
     }
   ]

@@ -143,8 +143,8 @@
     },
     "bookingUrl": "https://secure.guestpro.net/odch",
     "fallbackCta": {
-      "en": "Contact Us",
-      "ru": "Связаться с нами"
+      "en": "Plan Your Wedding",
+      "ru": "Спланировать Свадьбу"
     }
   }
 }
