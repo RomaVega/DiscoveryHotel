@@ -94,7 +94,7 @@ export function CarRentalDetail({ data }: CarRentalDetailProps) {
             </h2>
             <p className="mt-4 text-sm md:text-lg text-white/70 leading-relaxed">
               {t({
-                ru: "Напишите нам — мы подберём транспорт и расскажем о лучших маршрутах из Чандидасы.",
+                ru: "Напишите нам — мы подберём транспорт и расскажем о лучших маршрутах в Чандидасе.",
                 en: "Message us and we'll arrange the perfect vehicle for your Bali adventure in Candidasa.",
               })}
             </p>
