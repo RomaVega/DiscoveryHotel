@@ -28,10 +28,16 @@ interface AmenitiesProps {
 }
 
 /**
- * Rows are a uniform 48px pitch at both breakpoints (every label fits on one
- * line), so these cap N full rows plus the whole of row N+1, which the gradient
- * below then fades. Rendering that last row complete and dimming it reads as
- * intentional; clipping it through the middle of the words reads as broken.
+ * At 4 columns every label fits on one line, so rows are a uniform 48px pitch.
+ * At 2 columns they do not: the text column is only ~93px at 320px, which wraps
+ * 4 of 24 English labels and 10 of 24 Russian ones — no realistic wording fits
+ * ~7 Cyrillic characters. Cells therefore reserve two lines below `md` (see
+ * `min-h-10`), making every row the same height whichever labels happen to wrap.
+ *
+ * That puts the mobile pitch at 68px (40px cell + 28px gap), so this caps three
+ * full rows plus the whole of row four, which the gradient below then fades.
+ * Rendering that last row complete and dimming it reads as intentional; clipping
+ * it through the middle of the words reads as broken.
  *
  * Mobile only. At 2 columns the list runs 12 rows and genuinely needs folding;
  * at 4 columns it is 6 rows and ~260px, which is not bulky enough to justify
@@ -43,7 +49,7 @@ interface AmenitiesProps {
  * and out of `display:none`, so the full list stays available to crawlers and
  * assistive tech in either state.
  */
-const COLLAPSED_HEIGHT = "max-h-[212px] md:max-h-none";
+const COLLAPSED_HEIGHT = "max-h-[244px] md:max-h-none";
 
 export function Amenities({ data }: AmenitiesProps) {
   const { t, tl } = useLanguage();
@@ -68,7 +74,11 @@ export function Amenities({ data }: AmenitiesProps) {
             const Icon = iconMap[item.icon];
             return (
               <FadeIn key={i} delay={Math.min(i, 5) * 0.07} className={item.hideMobile ? "hidden md:flex" : item.hideDesktop ? "md:hidden" : undefined}>
-                <div className="flex items-center gap-4">
+                {/* min-h reserves the second line a wrapped label needs, so rows
+                    share one height. Held until `lg`, not `md`: the 4-column grid
+                    starts at md but its columns are still narrow enough at 768px
+                    to wrap. Only past lg does every label fit one line unaided. */}
+                <div className="flex items-center gap-4 min-h-10 lg:min-h-0">
                   {Icon && (
                     <Icon size={20} strokeWidth={1.2} className="text-brand-teal shrink-0" />
                   )}

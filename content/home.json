@@ -337,10 +337,18 @@
         "description": ""
       },
       {
-        "icon": "Bell",
+        "icon": "Coffee",
         "title": {
-          "en": "24h Receptionist",
-          "ru": "Ресепшн 24/7"
+          "en": "Breakfast",
+          "ru": "Завтрак"
+        },
+        "description": ""
+      },
+      {
+        "icon": "GlassWater",
+        "title": {
+          "en": "Bar",
+          "ru": "Бар"
         },
         "description": ""
       },
@@ -353,14 +361,6 @@
         "description": ""
       },
       {
-        "icon": "KeyRound",
-        "title": {
-          "en": "Auto/Moto Rental",
-          "ru": "Аренда Авто/Мото"
-        },
-        "description": ""
-      },
-      {
         "icon": "Wifi",
         "title": {
           "en": "Fast Wi-Fi",
@@ -369,18 +369,10 @@
         "description": ""
       },
       {
-        "icon": "PlaneLanding",
+        "icon": "Bell",
         "title": {
-          "en": "Airport Shuttle",
-          "ru": "Трансфер из Аэропорта"
-        },
-        "description": ""
-      },
-      {
-        "icon": "Compass",
-        "title": {
-          "en": "Exclusive Tours",
-          "ru": "Эксклюзивные Туры"
+          "en": "24h Receptionist",
+          "ru": "Ресепшн 24/7"
         },
         "description": ""
       },
@@ -388,7 +380,39 @@
         "icon": "ConciergeBell",
         "title": {
           "en": "Room Service",
-          "ru": "Обслуживание в Номере"
+          "ru": "Рум-Сервис"
+        },
+        "description": ""
+      },
+      {
+        "icon": "PlaneLanding",
+        "title": {
+          "en": "Airport Shuttle",
+          "ru": "Трансфер"
+        },
+        "description": ""
+      },
+      {
+        "icon": "KeyRound",
+        "title": {
+          "en": "Auto/Moto Rental",
+          "ru": "Аренда Авто/Мото"
+        },
+        "description": ""
+      },
+      {
+        "icon": "Fish",
+        "title": {
+          "en": "Diving & Snorkeling",
+          "ru": "Дайвинг"
+        },
+        "description": ""
+      },
+      {
+        "icon": "Compass",
+        "title": {
+          "en": "Exclusive Tours",
+          "ru": "Туры и Экскурсии"
         },
         "description": ""
       },
@@ -405,39 +429,7 @@
         "icon": "Shirt",
         "title": {
           "en": "Daily Housekeeping",
-          "ru": "Ежедневная Уборка"
-        },
-        "description": ""
-      },
-      {
-        "icon": "Coins",
-        "title": {
-          "en": "Currency Exchange",
-          "ru": "Обмен Валюты"
-        },
-        "description": ""
-      },
-      {
-        "icon": "Fish",
-        "title": {
-          "en": "Diving & Snorkeling",
-          "ru": "Дайвинг и Снорклинг"
-        },
-        "description": ""
-      },
-      {
-        "icon": "Ban",
-        "title": {
-          "en": "Non Smoking Rooms",
-          "ru": "Номера для Некурящих"
-        },
-        "description": ""
-      },
-      {
-        "icon": "Coffee",
-        "title": {
-          "en": "Breakfast",
-          "ru": "Завтрак"
+          "ru": "Уборка Номеров"
         },
         "description": ""
       },
@@ -450,14 +442,6 @@
         "description": ""
       },
       {
-        "icon": "Tv",
-        "title": {
-          "en": "Smart TV",
-          "ru": "Smart TV"
-        },
-        "description": ""
-      },
-      {
         "icon": "Package",
         "title": {
           "en": "Minibar",
@@ -466,10 +450,42 @@
         "description": ""
       },
       {
+        "icon": "Tv",
+        "title": {
+          "en": "Smart TV",
+          "ru": "Smart TV"
+        },
+        "description": ""
+      },
+      {
+        "icon": "Car",
+        "title": {
+          "en": "Free Parking",
+          "ru": "Парковка"
+        },
+        "description": ""
+      },
+      {
         "icon": "Shield",
         "title": {
           "en": "24 Hour Security",
-          "ru": "Охрана 24 Часа"
+          "ru": "Охрана 24/7"
+        },
+        "description": ""
+      },
+      {
+        "icon": "Ban",
+        "title": {
+          "en": "Non-Smoking",
+          "ru": "Без Курения"
+        },
+        "description": ""
+      },
+      {
+        "icon": "Coins",
+        "title": {
+          "en": "Currency Exchange",
+          "ru": "Обмен Валюты"
         },
         "description": ""
       },
@@ -477,7 +493,7 @@
         "icon": "Bus",
         "title": {
           "en": "Transport Service",
-          "ru": "Транспортные Услуги"
+          "ru": "Транспорт"
         },
         "description": ""
       },
@@ -490,14 +506,6 @@
         "description": ""
       },
       {
-        "icon": "GlassWater",
-        "title": {
-          "en": "Bar",
-          "ru": "Бар"
-        },
-        "description": ""
-      },
-      {
         "icon": "Accessibility",
         "title": {
           "en": "Accessibility",
@@ -505,14 +513,6 @@
         },
         "description": "",
         "hideDesktop": true
-      },
-      {
-        "icon": "Car",
-        "title": {
-          "en": "Free Parking",
-          "ru": "Бесплатная Парковка"
-        },
-        "description": ""
       }
     ]
   },
