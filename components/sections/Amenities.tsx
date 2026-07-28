@@ -28,6 +28,14 @@ interface AmenitiesProps {
 }
 
 /**
+ * A slash is a line-break opportunity, so "Аренда Авто/Мото" breaks after the
+ * slash and orphans "Мото" — the compound reads as one term and should stay
+ * whole. A word joiner removes that opportunity, leaving the space as the only
+ * break, so it wraps to "Аренда / Авто/Мото" instead.
+ */
+const keepSlashCompoundsWhole = (s: string) => s.replace(/\/(?=\S)/g, "/⁠");
+
+/**
  * At 4 columns every label fits on one line, so rows are a uniform 48px pitch.
  * At 2 columns they do not: the text column is only ~93px at 320px, which wraps
  * 4 of 24 English labels and 10 of 24 Russian ones — no realistic wording fits
@@ -83,7 +91,7 @@ export function Amenities({ data }: AmenitiesProps) {
                     <Icon size={20} strokeWidth={1.2} className="text-brand-teal shrink-0" />
                   )}
                   <span className="font-sans text-sm text-charcoal">
-                    {t(item.title)}
+                    {keepSlashCompoundsWhole(t(item.title))}
                   </span>
                 </div>
               </FadeIn>

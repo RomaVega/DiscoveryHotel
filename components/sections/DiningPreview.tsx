@@ -61,7 +61,7 @@ export function DiningPreview() {
               </h3>
               <p className="text-stone text-sm leading-relaxed max-w-md">
                 {isRu
-                  ? "Свежие морепродукты и балийская кухня — в ресторане, в номер или бесплатная доставка по Чандидасе."
+                  ? "Свежие морепродукты и балийская кухня — в ресторане, в номер или бесплатной доставкой по Чандидасе."
                   : "Fresh seafood and Balinese cuisine — dine in, room service, or free delivery within Candidasa."}
               </p>
               <SecondaryButton href={menuUrl} external className="mt-2">

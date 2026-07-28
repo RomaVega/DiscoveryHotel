@@ -316,7 +316,7 @@
         "icon": "Umbrella",
         "title": {
           "en": "Private Beach",
-          "ru": "Собственный Пляж"
+          "ru": "Свой Пляж"
         },
         "description": ""
       },
@@ -401,18 +401,18 @@
         "description": ""
       },
       {
-        "icon": "Fish",
-        "title": {
-          "en": "Diving & Snorkeling",
-          "ru": "Дайвинг"
-        },
-        "description": ""
-      },
-      {
         "icon": "Compass",
         "title": {
           "en": "Exclusive Tours",
           "ru": "Туры и Экскурсии"
+        },
+        "description": ""
+      },
+      {
+        "icon": "Fish",
+        "title": {
+          "en": "Diving & Snorkeling",
+          "ru": "Дайвинг"
         },
         "description": ""
       },
@@ -890,7 +890,7 @@
   "bookingCta": {
     "heading": {
       "en": "Ready to Discover East Bali?",
-      "ru": "Готовы Исследовать Восточный Бали?"
+      "ru": "Готовы Исследовать Восточный Бали?"
     },
     "subtext": {
       "en": "Book your stay at Orlowsky Discovery Hotel and experience the true essence of East Bali.",
