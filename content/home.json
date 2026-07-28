@@ -160,7 +160,7 @@
       {
         "title": {
           "en": "Three Bedroom Pool Villa",
-          "ru": "Вилла с тремя спальнями и бассейном"
+          "ru": "Вилла с Тремя Спальнями и Бассейном"
         },
         "description": {
           "en": "Spacious villa with three bedrooms and your own pool",
@@ -316,7 +316,7 @@
         "icon": "Umbrella",
         "title": {
           "en": "Private Beach",
-          "ru": "Собственный пляж"
+          "ru": "Собственный Пляж"
         },
         "description": ""
       },
@@ -356,7 +356,7 @@
         "icon": "KeyRound",
         "title": {
           "en": "Auto/Moto Rental",
-          "ru": "Аренда авто/мото"
+          "ru": "Аренда Авто/Мото"
         },
         "description": ""
       },
@@ -372,7 +372,7 @@
         "icon": "PlaneLanding",
         "title": {
           "en": "Airport Shuttle",
-          "ru": "Трансфер из аэропорта"
+          "ru": "Трансфер из Аэропорта"
         },
         "description": ""
       },
@@ -380,7 +380,7 @@
         "icon": "Compass",
         "title": {
           "en": "Exclusive Tours",
-          "ru": "Эксклюзивные туры"
+          "ru": "Эксклюзивные Туры"
         },
         "description": ""
       },
@@ -388,7 +388,7 @@
         "icon": "ConciergeBell",
         "title": {
           "en": "Room Service",
-          "ru": "Обслуживание в номере"
+          "ru": "Обслуживание в Номере"
         },
         "description": ""
       },
@@ -405,7 +405,7 @@
         "icon": "Shirt",
         "title": {
           "en": "Daily Housekeeping",
-          "ru": "Ежедневная уборка"
+          "ru": "Ежедневная Уборка"
         },
         "description": ""
       },
@@ -413,7 +413,7 @@
         "icon": "Coins",
         "title": {
           "en": "Currency Exchange",
-          "ru": "Обмен валюты"
+          "ru": "Обмен Валюты"
         },
         "description": ""
       },
@@ -421,7 +421,7 @@
         "icon": "Fish",
         "title": {
           "en": "Diving & Snorkeling",
-          "ru": "Дайвинг и снорклинг"
+          "ru": "Дайвинг и Снорклинг"
         },
         "description": ""
       },
@@ -429,7 +429,7 @@
         "icon": "Ban",
         "title": {
           "en": "Non Smoking Rooms",
-          "ru": "Номера для некурящих"
+          "ru": "Номера для Некурящих"
         },
         "description": ""
       },
@@ -469,7 +469,7 @@
         "icon": "Shield",
         "title": {
           "en": "24 Hour Security",
-          "ru": "Охрана 24 часа"
+          "ru": "Охрана 24 Часа"
         },
         "description": ""
       },
@@ -477,7 +477,7 @@
         "icon": "Bus",
         "title": {
           "en": "Transport Service",
-          "ru": "Транспортные услуги"
+          "ru": "Транспортные Услуги"
         },
         "description": ""
       },
@@ -485,7 +485,7 @@
         "icon": "Activity",
         "title": {
           "en": "Doctor on Call",
-          "ru": "Вызов врача"
+          "ru": "Вызов Врача"
         },
         "description": ""
       },
@@ -510,7 +510,7 @@
         "icon": "Car",
         "title": {
           "en": "Free Parking",
-          "ru": "Бесплатная парковка"
+          "ru": "Бесплатная Парковка"
         },
         "description": ""
       }
@@ -550,7 +550,7 @@
       {
         "title": {
           "en": "Diving & Snorkeling",
-          "ru": "Дайвинг и снорклинг"
+          "ru": "Дайвинг и Снорклинг"
         },
         "description": {
           "en": "Discover vibrant coral reefs and the famous USAT Liberty shipwreck",
@@ -567,7 +567,7 @@
       {
         "title": {
           "en": "Events & Celebrations",
-          "ru": "Мероприятия и торжества"
+          "ru": "Мероприятия и Торжества"
         },
         "description": {
           "en": "Weddings, anniversaries, and private events in a tropical setting",
@@ -584,7 +584,7 @@
       {
         "title": {
           "en": "Car & Bike Rental",
-          "ru": "Аренда авто и мото"
+          "ru": "Аренда Транспорта"
         },
         "description": {
           "en": "Freedom to explore Bali at your own pace",
@@ -601,7 +601,7 @@
       {
         "title": {
           "en": "Signature Excursions",
-          "ru": "Экскурсионные программы"
+          "ru": "Авторские Экскурсии"
         },
         "description": {
           "en": "Explore temples, rice terraces, and hidden waterfalls",
@@ -618,7 +618,7 @@
       {
         "title": {
           "en": "Tours & Activities",
-          "ru": "Туры и активности"
+          "ru": "Туры и Активности"
         },
         "description": {
           "en": "169 curated tours — island hopping, volcano treks, snorkeling, cycling, and more",
@@ -649,7 +649,7 @@
       {
         "title": {
           "en": "Early Bird Discount",
-          "ru": "Скидка за раннее бронирование"
+          "ru": "Скидка за Раннее Бронирование"
         },
         "description": {
           "en": "Book 30 days in advance and save 20% on any room category",
@@ -666,7 +666,7 @@
       {
         "title": {
           "en": "Honeymoon Package",
-          "ru": "Пакет для молодожёнов"
+          "ru": "Пакет для Молодожёнов"
         },
         "description": {
           "en": "Villa upgrade, spa treatment for two, romantic dinner, and airport transfer",

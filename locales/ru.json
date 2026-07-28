@@ -1,42 +1,42 @@
 {
   "nav": {
-    "skipToContent": "Перейти к содержимому",
+    "skipToContent": "Перейти к Содержимому",
     "rooms": "Номера",
     "amenities": "Ресторан",
     "experiences": "Впечатления",
     "offers": "Спецпредложения",
     "gallery": "Галерея",
     "contact": "Контакты",
-    "about": "О нас",
+    "about": "О Нас",
     "bookNow": "Забронировать"
   },
   "footer": {
     "explore": "Разделы",
     "experiences": "Впечатления",
     "contact": "Контакты",
-    "about": "О нас",
+    "about": "О Нас",
     "location": "Расположение",
     "getDirections": "Открыть в Google Maps",
     "whatsappRu": "WhatsApp (Россия)",
-    "whatsappHotel": "WhatsApp (отель)",
+    "whatsappHotel": "WhatsApp (Отель)",
     "paymentNote": "Возможна оплата в России\nналичными и безналичным\nпереводом",
     "paymentInRussia": "Оплата в России",
-    "allRightsReserved": "Все права защищены",
+    "allRightsReserved": "Все Права Защищены",
     "links": {
       "rooms": "Номера",
       "amenities": "Ресторан",
       "experiences": "Впечатления",
       "offers": "Спецпредложения",
       "gallery": "Галерея",
-      "about": "О нас"
+      "about": "О Нас"
     },
     "experienceLinks": {
-      "excursions": "Экскурсионные программы",
-      "diving": "Дайвинг и снорклинг",
-      "events": "Мероприятия и торжества",
-      "carRental": "Аренда авто и байка",
-      "spa": "Аюрведический спа",
-      "toursPartner": "Туры и активности"
+      "excursions": "Авторские Экскурсии",
+      "diving": "Дайвинг и Снорклинг",
+      "events": "Мероприятия и Торжества",
+      "carRental": "Аренда Транспорта",
+      "spa": "Аюрведический Спа",
+      "toursPartner": "Туры и Активности"
     }
   },
   "hero": {
@@ -45,7 +45,7 @@
     "playVideo": "Воспроизвести"
   },
   "gallery": {
-    "showMore": "Показать больше",
+    "showMore": "Показать Больше",
     "showLess": "Свернуть",
     "previousImage": "Предыдущее фото",
     "nextImage": "Следующее фото",
@@ -60,9 +60,9 @@
     }
   },
   "offers": {
-    "specialOffer": "Специальное предложение",
+    "specialOffer": "Специальное Предложение",
     "bookThisOffer": "Забронировать",
-    "included": "Что включено",
+    "included": "Что Включено",
     "bookDirect": {
       "heading": "Бронируйте Напрямую",
       "perks": [
@@ -75,8 +75,8 @@
   },
   "reviews": {
     "label": "Отзывы",
-    "heading": "Что Гости Думают На Самом Деле",
-    "verifiedOn": "Оценки проверены:",
+    "heading": "Что Гости Думают на Самом Деле",
+    "verifiedOn": "Оценки Проверены:",
     "selectedNote": "Избранные отзывы с Booking.com и Google",
     "opensInNewTab": "откроется в новой вкладке",
     "reviewPlurals": {
