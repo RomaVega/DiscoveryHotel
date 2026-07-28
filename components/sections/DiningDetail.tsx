@@ -54,7 +54,7 @@ export function DiningDetail({ data }: DiningDetailProps) {
           </h2>
           <p className="text-stone text-sm leading-relaxed mb-8 max-w-md mx-auto">
             {isRu
-              ? "Откройте полное меню — в ресторане, в номер или бесплатная доставка по Чандидасе."
+              ? "Откройте полное меню — в ресторане, в номер или бесплатной доставкой по Чандидасе."
               : "Explore the full menu — dine in, room service, or free delivery within Candidasa."}
           </p>
           {/* Menu is the single primary action; a table reservation sits below as a quiet link */}
