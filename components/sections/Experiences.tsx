@@ -130,7 +130,7 @@ export function Experiences({ data, compactMobile }: ExperiencesProps) {
         {compactMobile && (
           <FadeIn delay={0.2}>
             <div className="mt-8 flex justify-center sm:hidden">
-              <SecondaryButton href="/experiences">{tl.experiences.viewAll}</SecondaryButton>
+              <SecondaryButton href="/experiences">{tl.experiences.viewMore}</SecondaryButton>
             </div>
           </FadeIn>
         )}
