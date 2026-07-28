@@ -6,13 +6,15 @@ export const SITE_NAME = "Orlowsky Discovery Hotel";
 export const OG_IMAGE = `${SITE_URL}/images/hero/hero-og.jpg`;
 
 /**
- * Cache-busting token appended to image URLs by lib/image-loader.ts.
+ * Fallback cache-busting token for lib/image-loader.ts.
  *
- * Image files are served `immutable` for a year (netlify.toml) but their
- * filenames are NOT content-hashed, so editing a photo in place (same name)
- * would otherwise leave returning visitors stuck on the cached old version.
- * Bumping this token changes every image URL at once, forcing a fresh fetch.
+ * Images are served `immutable` for a year (netlify.toml) with filenames that
+ * are NOT content-hashed, so replacing a photo in place needs something to
+ * bust the cache. lib/image-manifest.ts now hashes every image's actual bytes
+ * at build time and the loader prefers that automatically — no manual step.
  *
- * ⚠️ Bump this (e.g. to the date) whenever you replace an image in place.
+ * This constant only matters for a path that manifest doesn't cover (one built
+ * at runtime rather than appearing as a literal for the scanner to find).
+ * Bumping it busts every such path at once.
  */
 export const ASSET_VERSION = "20260723a";

@@ -9,6 +9,7 @@
  * In dev, the /.netlify/images endpoint isn't available, so we pass paths through.
  */
 import { ASSET_VERSION } from "@/lib/site";
+import { IMAGE_VERSIONS } from "@/lib/image-manifest";
 
 type ImageLoaderProps = { src: string; width: number; quality?: number };
 
@@ -25,10 +26,16 @@ export default function imageLoader({ src, width, quality }: ImageLoaderProps): 
     return fullPath;
   }
 
+  // Prefer the file's own content hash — generated at build time from its
+  // actual bytes — so replacing a photo in place busts the cache automatically.
+  // ASSET_VERSION is only a fallback, for paths the manifest doesn't cover
+  // (built at runtime rather than appearing as a literal for the scanner to find).
+  const version = IMAGE_VERSIONS[src] ?? ASSET_VERSION;
+
   // Embed the version in the source `url` (not as a separate param) so it is
   // part of the Netlify Image CDN cache key — busting the edge cache and the
   // browser cache together. The static host ignores the query when serving.
-  const versionedPath = ASSET_VERSION ? `${fullPath}?v=${ASSET_VERSION}` : fullPath;
+  const versionedPath = version ? `${fullPath}?v=${version}` : fullPath;
   const params = new URLSearchParams({
     url: versionedPath,
     w: String(width),
