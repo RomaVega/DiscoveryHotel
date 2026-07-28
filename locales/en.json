@@ -31,12 +31,12 @@
       "about": "About"
     },
     "experienceLinks": {
-      "excursions": "Signature Excursion Programs",
+      "excursions": "Signature Excursions",
       "diving": "Diving & Snorkeling",
       "events": "Events & Celebrations",
       "carRental": "Car & Bike Rental",
       "spa": "Ayurvedic Spa",
-      "toursPartner": "Tours & Activities in Bali"
+      "toursPartner": "Tours & Activities"
     }
   },
   "hero": {
@@ -94,5 +94,8 @@
   "amenities": {
     "showAll": "Show All Amenities",
     "showLess": "Show Less"
+  },
+  "experiences": {
+    "viewAll": "View All Experiences"
   }
 }

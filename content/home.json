@@ -600,7 +600,7 @@
       },
       {
         "title": {
-          "en": "Signature Excursion Programs",
+          "en": "Signature Excursions",
           "ru": "Экскурсионные программы"
         },
         "description": {
@@ -617,7 +617,7 @@
       },
       {
         "title": {
-          "en": "Tours & Activities in Bali",
+          "en": "Tours & Activities",
           "ru": "Туры и активности на Бали"
         },
         "description": {
@@ -625,6 +625,7 @@
           "ru": "169 туров — острова, вулканы, снорклинг, велопрогулки и многое другое"
         },
         "image": "/images/experiences/experiences-tours-activities-bali.webp",
+        "imagePosition": "right",
         "imageAlt": "Bali tours and activities",
         "href": "https://mybalitrips.com/?utm_pid=1260",
         "external": true,

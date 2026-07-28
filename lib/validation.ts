@@ -89,6 +89,7 @@ const experienceCard = z.object({
   href: z.string(),
   external: z.boolean().optional(),
   cta: localizedString.optional(),
+  imagePosition: z.string().optional(),
 });
 
 const experiencesData = z.object({

@@ -77,6 +77,12 @@ export interface ExperienceCard {
   href: string;
   external?: boolean;
   cta?: LocalizedString;
+  /**
+   * CSS `object-position` for the card image, e.g. `"right"` or `"70% 50%"`.
+   * Defaults to centre. Set it when the subject sits off-centre and the tighter
+   * mobile crop would cut it — the 4:3 tile drops ~27% of a 16:9 source's width.
+   */
+  imagePosition?: string;
 }
 
 export interface ExperiencesData {

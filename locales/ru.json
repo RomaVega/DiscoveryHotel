@@ -96,5 +96,8 @@
   "amenities": {
     "showAll": "Показать Все Удобства",
     "showLess": "Свернуть"
+  },
+  "experiences": {
+    "viewAll": "Все Впечатления"
   }
 }

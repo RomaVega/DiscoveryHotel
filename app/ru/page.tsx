@@ -72,8 +72,8 @@ export default function HomeRuPage() {
         <ReviewScroller reviews={reviews}>
           <RatingSummary aggregates={aggregates} locale="ru" />
         </ReviewScroller>
-        <BookingCta data={data.bookingCta} />
         <MapLocation contact={contact} />
+        <BookingCta data={data.bookingCta} />
       </main>
       <Footer contact={contact} />
       <WhatsAppButton
