@@ -53,6 +53,12 @@ function CardInner({ item, compactMobile }: { item: ExperienceCard; compactMobil
         <h3
           className={cn(
             "font-serif font-semibold text-charcoal",
+            // Tap/hover feedback off the card wrapper's `group`. deep-teal, not
+            // brand-teal: brand-teal is only 2.3:1 on ivory, and a 20px semibold
+            // title is not WCAG "large text", so it would fail AA. deep-teal
+            // measures 5.7:1 and is already the pill's hover colour.
+            // group-active carries this on touch, where there is no hover.
+            "transition-colors duration-300 group-hover:text-deep-teal group-active:text-deep-teal",
             // 20px floor — the design system's minimum heading size.
             // The 10ch cap is what puts every title on exactly two lines: it is
             // wider than no single word here, so nothing breaks mid-word, but
