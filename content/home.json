@@ -31,7 +31,7 @@
     },
     "description": {
       "en": "Nestled on the tranquil coast of Candidasa in East Bali — far from the crowds, yet close to everything you need. Orlowsky Discovery Hotel offers an intimate escape where Balinese charm meets modern comfort. Wake up to ocean breezes, explore vibrant coral reefs, and unwind in our tropical gardens.",
-      "ru": "Расположенный на тихом побережье Чандидасы, Orlowsky Discovery Hotel — это уютное убежище, где балийское очарование сочетается с современным комфортом. Просыпайтесь под шум морского бриза, исследуйте яркие коралловые рифы и отдыхайте в наших тропических садах — вдали от суеты, в уединённом тропическом раю."
+      "ru": "Расположенный на тихом побережье Чандидасы, Orlowsky Discovery Hotel — это уютное убежище, где балийское очарование сочетается с современным комфортом. Просыпайтесь под шум волн, исследуйте яркие коралловые рифы и отдыхайте в наших тропических садах — вдали от суеты, в уединённом тропическом раю."
     },
     "image": "/images/welcome/welcome-garden-path-ocean-candidasa.webp",
     "imageAlt": "Tropical garden and pool area of the hotel at sunset"
@@ -659,8 +659,8 @@
           "en": "from $65/night",
           "ru": "от $65/ночь"
         },
-        "image": "/images/offers/early-bird.webp",
-        "imageAlt": "Hotel pool at sunrise with loungers",
+        "image": "/images/offers/offers-beachfront-loungers.webp",
+        "imageAlt": "Sun loungers and a parasol on the beachfront lawn at golden hour, with the Bali Sea beyond",
         "active": true
       },
       {

@@ -7,8 +7,8 @@ import { MapLocation } from "@/components/sections/MapLocation";
 import { JsonLd, breadcrumbs, webPage } from "@/lib/jsonld";
 
 export const metadata = {
-  title: "Контакты — Orlowsky Discovery Hotel, Кандидаса, Бали",
-  description: "Свяжитесь с Orlowsky Discovery Hotel по WhatsApp, email или посетите нас в Кандидасе. Jalan Pantai Indah 06, Карангасем 80851, Бали.",
+  title: "Контакты — Orlowsky Discovery Hotel, Чандидаса, Бали",
+  description: "Свяжитесь с Orlowsky Discovery Hotel по WhatsApp, email или посетите нас в Чандидасе. Jalan Pantai Indah 06, Карангасем 80851, Бали.",
   alternates: {
     canonical: `${SITE_URL}/ru/contact`,
     languages: {
@@ -18,8 +18,8 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: "Контакты — Orlowsky Discovery Hotel, Кандидаса, Бали",
-    description: "Свяжитесь с Orlowsky Discovery Hotel по WhatsApp, email или посетите нас в Кандидасе. Jalan Pantai Indah 06, Карангасем 80851, Бали.",
+    title: "Контакты — Orlowsky Discovery Hotel, Чандидаса, Бали",
+    description: "Свяжитесь с Orlowsky Discovery Hotel по WhatsApp, email или посетите нас в Чандидасе. Jalan Pantai Indah 06, Карангасем 80851, Бали.",
     url: `${SITE_URL}/ru/contact`,
     images: [{ url: `${SITE_URL}/images/hero/hero-og.jpg`, width: 1200, height: 630 }],
   },
@@ -33,8 +33,8 @@ export default function ContactRuPage() {
       <JsonLd data={[
         webPage({
           path: "/ru/contact",
-          name: "Контакты отеля Orlowsky Discovery, Кандидаса",
-          description: "WhatsApp, email, адрес и маршрут до нашего отеля на набережной Кандидасы, Восточный Бали.",
+          name: "Контакты отеля Orlowsky Discovery, Чандидаса",
+          description: "WhatsApp, email, адрес и маршрут до нашего отеля на набережной Чандидасы, Восточный Бали.",
           image: `${SITE_URL}/images/gallery/orlowsky-hotel-restaurant-bar-candidasa.webp`,
           locale: "ru",
           type: "ContactPage",
@@ -47,8 +47,8 @@ export default function ContactRuPage() {
       <PageHero
         image="/images/gallery/orlowsky-hotel-restaurant-bar-candidasa.webp"
         imageAlt="Hotel entrance surrounded by tropical gardens"
-        heading={{ en: "Contact Orlowsky Discovery Hotel, Candidasa", ru: "Контакты отеля Orlowsky Discovery, Кандидаса" }}
-        subtext={{ en: "WhatsApp, email, address, and directions to our hotel on the seafront of Candidasa, East Bali.", ru: "WhatsApp, email, адрес и маршрут до нашего отеля на набережной Кандидасы, Восточный Бали." }}
+        heading={{ en: "Contact Orlowsky Discovery Hotel, Candidasa", ru: "Контакты отеля Orlowsky Discovery, Чандидаса" }}
+        subtext={{ en: "WhatsApp, email, address, and directions to our hotel on the seafront of Candidasa, East Bali.", ru: "WhatsApp, email, адрес и маршрут до нашего отеля на набережной Чандидасы, Восточный Бали." }}
       />
       <MapLocation contact={contact} />
       <ContactDetail contact={contact} />

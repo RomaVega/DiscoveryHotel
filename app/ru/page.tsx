@@ -18,8 +18,8 @@ import { MapLocation } from "@/components/sections/MapLocation";
 import { ScrollDivider } from "@/components/common/ScrollDivider";
 
 export const metadata = {
-  title: "Orlowsky Discovery Hotel | Кандидаса, Восточный Бали",
-  description: "Четырёхзвёздочный бутик-отель на берегу Кандидасы, Восточный Бали. Виллы с видом на океан, тропические сады, спа, дайвинг и балийское гостеприимство.",
+  title: "Orlowsky Discovery Hotel | Чандидаса, Восточный Бали",
+  description: "Четырёхзвёздочный бутик-отель на берегу Чандидасы, Восточный Бали. Виллы с видом на океан, тропические сады, спа, дайвинг и балийское гостеприимство.",
   alternates: {
     canonical: `${SITE_URL}/ru`,
     languages: {
@@ -29,8 +29,8 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: "Orlowsky Discovery Hotel | Кандидаса, Восточный Бали",
-    description: "Четырёхзвёздочный бутик-отель на берегу Кандидасы, Восточный Бали. Виллы с видом на океан, тропические сады, спа, дайвинг и балийское гостеприимство.",
+    title: "Orlowsky Discovery Hotel | Чандидаса, Восточный Бали",
+    description: "Четырёхзвёздочный бутик-отель на берегу Чандидасы, Восточный Бали. Виллы с видом на океан, тропические сады, спа, дайвинг и балийское гостеприимство.",
     url: `${SITE_URL}/ru`,
     images: [{ url: `${SITE_URL}/images/hero/hero-og.jpg`, width: 1200, height: 630 }],
   },

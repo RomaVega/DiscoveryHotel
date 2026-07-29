@@ -5,7 +5,7 @@ import { LegalPage } from "@/components/sections/LegalPage";
 
 export const metadata = {
   title: "Условия Обслуживания | Orlowsky Discovery Hotel",
-  description: "Условия бронирования и проживания в Orlowsky Discovery Hotel, Кандидаса, Бали.",
+  description: "Условия бронирования и проживания в Orlowsky Discovery Hotel, Чандидаса, Бали.",
   alternates: {
     canonical: `${SITE_URL}/ru/terms`,
     languages: {

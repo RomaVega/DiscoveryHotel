@@ -47,8 +47,8 @@ export default function ContactPage() {
       <PageHero
         image="/images/gallery/orlowsky-hotel-restaurant-bar-candidasa.webp"
         imageAlt="Hotel entrance surrounded by tropical gardens"
-        heading={{ en: "Contact Orlowsky Discovery Hotel, Candidasa", ru: "Контакты отеля Orlowsky Discovery, Кандидаса" }}
-        subtext={{ en: "WhatsApp, email, address, and directions to our hotel on the seafront of Candidasa, East Bali.", ru: "WhatsApp, email, адрес и маршрут до нашего отеля на набережной Кандидасы, Восточный Бали." }}
+        heading={{ en: "Contact Orlowsky Discovery Hotel, Candidasa", ru: "Контакты отеля Orlowsky Discovery, Чандидаса" }}
+        subtext={{ en: "WhatsApp, email, address, and directions to our hotel on the seafront of Candidasa, East Bali.", ru: "WhatsApp, email, адрес и маршрут до нашего отеля на набережной Чандидасы, Восточный Бали." }}
       />
       <MapLocation contact={contact} />
       <ContactDetail contact={contact} />

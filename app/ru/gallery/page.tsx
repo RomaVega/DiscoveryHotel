@@ -6,8 +6,8 @@ import { GalleryMosaic } from "@/components/sections/GalleryMosaic";
 import { JsonLd, breadcrumbs, webPage } from "@/lib/jsonld";
 
 export const metadata = {
-  title: "Фотогалерея — Orlowsky Discovery Hotel, Кандидаса, Бали",
-  description: "Виллы, тропические сады, бассейн, ресторан у океана и аюрведический спа в Кандидасе, Восточный Бали. Фотографии отеля.",
+  title: "Фотогалерея — Orlowsky Discovery Hotel, Чандидаса, Бали",
+  description: "Виллы, тропические сады, бассейн, ресторан у океана и аюрведический спа в Чандидасе, Восточный Бали. Фотографии отеля.",
   alternates: {
     canonical: `${SITE_URL}/ru/gallery`,
     languages: {
@@ -17,8 +17,8 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: "Фотогалерея — Orlowsky Discovery Hotel, Кандидаса, Бали",
-    description: "Виллы, тропические сады, бассейн, ресторан у океана и аюрведический спа в Кандидасе, Восточный Бали. Фотографии отеля.",
+    title: "Фотогалерея — Orlowsky Discovery Hotel, Чандидаса, Бали",
+    description: "Виллы, тропические сады, бассейн, ресторан у океана и аюрведический спа в Чандидасе, Восточный Бали. Фотографии отеля.",
     url: `${SITE_URL}/ru/gallery`,
     images: [{ url: `${SITE_URL}/images/gallery/orlowsky-hotel-pool-beach-panorama.webp`, width: 1200, height: 630 }],
   },
@@ -33,8 +33,8 @@ export default function GalleryRuPage() {
       <JsonLd data={[
         webPage({
           path: "/ru/gallery",
-          name: "Фотогалерея — Orlowsky Discovery Hotel, Кандидаса, Бали",
-          description: "Фотографии Orlowsky Discovery Hotel — виллы с бассейном, тропические сады, ресторан у океана, аюрведический спа и пляжи Кандидасы.",
+          name: "Фотогалерея — Orlowsky Discovery Hotel, Чандидаса, Бали",
+          description: "Фотографии Orlowsky Discovery Hotel — виллы с бассейном, тропические сады, ресторан у океана, аюрведический спа и пляжи Чандидасы.",
           image: `${SITE_URL}/images/gallery/orlowsky-hotel-pool-beach-panorama.webp`,
           locale: "ru",
           type: "CollectionPage",

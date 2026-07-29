@@ -6,8 +6,8 @@ import { AboutDetail } from "@/components/sections/AboutDetail";
 import { JsonLd, breadcrumbs, webPage } from "@/lib/jsonld";
 
 export const metadata = {
-  title: "Об Отеле — Orlowsky Discovery Hotel, Кандидаса, Восточный Бали",
-  description: "Бутик-отель на берегу моря в Кандидасе, Карангасем. Виллы с бассейном, тропические сады, аюрведический спа и ресторан у океана.",
+  title: "Об Отеле — Orlowsky Discovery Hotel, Чандидаса, Восточный Бали",
+  description: "Бутик-отель на берегу моря в Чандидасе, Карангасем. Виллы с бассейном, тропические сады, аюрведический спа и ресторан у океана.",
   alternates: {
     canonical: `${SITE_URL}/ru/about`,
     languages: {
@@ -17,8 +17,8 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: "Об Отеле — Orlowsky Discovery Hotel, Кандидаса, Восточный Бали",
-    description: "Бутик-отель на берегу моря в Кандидасе, Карангасем. Виллы с бассейном, тропические сады, аюрведический спа и ресторан у океана.",
+    title: "Об Отеле — Orlowsky Discovery Hotel, Чандидаса, Восточный Бали",
+    description: "Бутик-отель на берегу моря в Чандидасе, Карангасем. Виллы с бассейном, тропические сады, аюрведический спа и ресторан у океана.",
     url: `${SITE_URL}/ru/about`,
     images: [{ url: `${SITE_URL}/images/gallery/orlowsky-hotel-pool-beach-panorama.webp`, width: 1200, height: 630 }],
   },
@@ -33,8 +33,8 @@ export default function AboutRuPage() {
       <JsonLd data={[
         webPage({
           path: "/ru/about",
-          name: "Об отеле Orlowsky Discovery — Кандидаса, Восточный Бали",
-          description: "Бутик-отель на берегу моря в Кандидасе, Карангасем. Виллы с бассейном, тропические сады, аюрведический спа и ресторан у океана.",
+          name: "Об отеле Orlowsky Discovery — Чандидаса, Восточный Бали",
+          description: "Бутик-отель на берегу моря в Чандидасе, Карангасем. Виллы с бассейном, тропические сады, аюрведический спа и ресторан у океана.",
           image: `${SITE_URL}/images/welcome/welcome-garden-path-ocean-candidasa.webp`,
           locale: "ru",
           type: "AboutPage",

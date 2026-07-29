@@ -6,8 +6,8 @@ import { SpaDetail } from "@/components/sections/SpaDetail";
 import { JsonLd, breadcrumbs, service } from "@/lib/jsonld";
 
 export const metadata = {
-  title: "Аюрведический спа и балийский массаж — Кандидаса, Бали | Orlowsky Discovery",
-  description: "Аутентичная Панчакарма, Широдхара и традиционный балийский массаж от терапевтов из Кералы. Ежедневно 09:00–21:00 в Orlowsky Discovery Hotel, Кандидаса.",
+  title: "Аюрведический спа и балийский массаж — Чандидаса, Бали | Orlowsky Discovery",
+  description: "Аутентичная Панчакарма, Широдхара и традиционный балийский массаж от терапевтов из Кералы. Ежедневно 09:00–21:00 в Orlowsky Discovery Hotel, Чандидаса.",
   alternates: {
     canonical: `${SITE_URL}/ru/spa`,
     languages: {
@@ -17,8 +17,8 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: "Аюрведический спа и балийский массаж — Кандидаса, Бали | Orlowsky Discovery",
-    description: "Аутентичная Панчакарма, Широдхара и традиционный балийский массаж от терапевтов из Кералы. Ежедневно 09:00–21:00 в Orlowsky Discovery Hotel, Кандидаса.",
+    title: "Аюрведический спа и балийский массаж — Чандидаса, Бали | Orlowsky Discovery",
+    description: "Аутентичная Панчакарма, Широдхара и традиционный балийский массаж от терапевтов из Кералы. Ежедневно 09:00–21:00 в Orlowsky Discovery Hotel, Чандидаса.",
     url: `${SITE_URL}/ru/spa`,
     images: [{ url: `${SITE_URL}/images/gallery/orlowsky-hotel-yoga-platform-ocean.webp`, width: 1200, height: 630 }],
   },

@@ -6,7 +6,7 @@ import { CarRentalDetail } from "@/components/sections/CarRentalDetail";
 import { JsonLd, breadcrumbs, service } from "@/lib/jsonld";
 
 export const metadata = {
-  title: "Аренда Авто и Мотоцикла на Бали — Orlowsky Discovery Hotel, Кандидаса",
+  title: "Аренда Авто и Мотоцикла на Бали — Orlowsky Discovery Hotel, Чандидаса",
   description: "Аренда скутера от Rp 20,000/час, автомобиля с водителем или без, и электровелосипедов. Исследуйте Восточный Бали в своём темпе.",
   alternates: {
     canonical: `${SITE_URL}/ru/experiences/car-bike-rental`,
@@ -17,7 +17,7 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: "Аренда Авто и Мотоцикла на Бали — Orlowsky Discovery Hotel, Кандидаса",
+    title: "Аренда Авто и Мотоцикла на Бали — Orlowsky Discovery Hotel, Чандидаса",
     description: "Аренда скутера от Rp 20,000/час, автомобиля с водителем или без, и электровелосипедов. Исследуйте Восточный Бали в своём темпе.",
     url: `${SITE_URL}/ru/experiences/car-bike-rental`,
     images: [{ url: `${SITE_URL}/images/rental/rental.webp`, width: 1200, height: 630 }],
@@ -33,8 +33,8 @@ export default function CarRentalRuPage() {
       <JsonLd data={[
         service({
           path: "/ru/experiences/car-bike-rental",
-          name: "Аренда авто и мотоцикла в Кандидасе, Восточный Бали",
-          description: "Аренда скутера, автомобиля с водителем или без, и электровелосипедов в Кандидасе. Доставка к отелю и обратно.",
+          name: "Аренда авто и мотоцикла в Чандидасе, Восточный Бали",
+          description: "Аренда скутера, автомобиля с водителем или без, и электровелосипедов в Чандидасе. Подача транспорта к отелю и возврат.",
           image: `${SITE_URL}/images/rental/rental.webp`,
           serviceType: "Vehicle Rental",
           category: "Транспорт",

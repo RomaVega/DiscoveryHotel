@@ -7,7 +7,7 @@ import { JsonLd, breadcrumbs, webPage } from "@/lib/jsonld";
 
 export const metadata = {
   title: "Спецпредложения и Скидки — Orlowsky Discovery Hotel, Бали",
-  description: "Скидка 20% при раннем бронировании и пакет для молодожёнов с романтическим ужином и спа. Прямое бронирование в Orlowsky Discovery Hotel, Кандидаса.",
+  description: "Скидка 20% при раннем бронировании и пакет для молодожёнов с романтическим ужином и спа. Прямое бронирование в Orlowsky Discovery Hotel, Чандидаса.",
   alternates: {
     canonical: `${SITE_URL}/ru/offers`,
     languages: {
@@ -18,7 +18,7 @@ export const metadata = {
   },
   openGraph: {
     title: "Спецпредложения и Скидки — Orlowsky Discovery Hotel, Бали",
-    description: "Скидка 20% при раннем бронировании и пакет для молодожёнов с романтическим ужином и спа. Прямое бронирование в Orlowsky Discovery Hotel, Кандидаса.",
+    description: "Скидка 20% при раннем бронировании и пакет для молодожёнов с романтическим ужином и спа. Прямое бронирование в Orlowsky Discovery Hotel, Чандидаса.",
     url: `${SITE_URL}/ru/offers`,
     images: [{ url: `${SITE_URL}/images/offers/early-bird.webp`, width: 1200, height: 630 }],
   },
@@ -34,7 +34,7 @@ export default function OffersRuPage() {
         webPage({
           path: "/ru/offers",
           name: "Спецпредложения и пакеты — Orlowsky Discovery Hotel, Бали",
-          description: "Ранние тарифы, пакеты для молодожёнов и скидки за длительное проживание в Orlowsky Discovery Hotel, Кандидаса, Восточный Бали.",
+          description: "Ранние тарифы, пакеты для молодожёнов и скидки за длительное проживание в Orlowsky Discovery Hotel, Чандидаса, Восточный Бали.",
           image: `${SITE_URL}/images/offers/early-bird.webp`,
           locale: "ru",
           type: "CollectionPage",
@@ -45,10 +45,10 @@ export default function OffersRuPage() {
         ]),
       ]} />
       <PageHero
-        image="/images/offers/early-bird.webp"
-        imageAlt="Hotel pool at sunrise"
+        image="/images/offers/offers-hero-beach-parasols.webp"
+        imageAlt="Зонты и шезлонги с батиковыми подушками на пляже отеля, впереди — бирюзовое море Бали"
         heading={data.offers.heading}
-        subtext={{ en: "Book direct for early bird rates, honeymoon packages, and other exclusive deals at Orlowsky Discovery Hotel, Candidasa, Bali.", ru: "Бронируйте напрямую — ранние цены, медовый месяц и другие эксклюзивные предложения в отеле Orlowsky Discovery, Кандидаса, Бали." }}
+        subtext={{ en: "Book direct for early bird rates, honeymoon packages, and other exclusive deals at Orlowsky Discovery Hotel, Candidasa, Bali.", ru: "Бронируйте напрямую — ранние цены, медовый месяц и другие эксклюзивные предложения в отеле Orlowsky Discovery, Чандидаса, Бали." }}
         noOverlay
       />
       <SpecialOffers data={data.offers} hideHeading />

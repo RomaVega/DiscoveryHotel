@@ -7,7 +7,7 @@ import { JsonLd, breadcrumbs, faqPage } from "@/lib/jsonld";
 
 export const metadata = {
   title: "Часто Задаваемые Вопросы — Orlowsky Discovery Hotel, Бали",
-  description: "Ответы на вопросы о бронировании, номерах, трансфере, дайвинге и спа в Orlowsky Discovery Hotel, Кандидаса, Восточный Бали.",
+  description: "Ответы на вопросы о бронировании, номерах, трансфере, дайвинге и спа в Orlowsky Discovery Hotel, Чандидаса, Восточный Бали.",
   alternates: {
     canonical: `${SITE_URL}/ru/faq`,
     languages: {
@@ -18,7 +18,7 @@ export const metadata = {
   },
   openGraph: {
     title: "Часто Задаваемые Вопросы — Orlowsky Discovery Hotel, Бали",
-    description: "Ответы на вопросы о бронировании, номерах, трансфере, дайвинге и спа в Orlowsky Discovery Hotel, Кандидаса, Восточный Бали.",
+    description: "Ответы на вопросы о бронировании, номерах, трансфере, дайвинге и спа в Orlowsky Discovery Hotel, Чандидаса, Восточный Бали.",
     url: `${SITE_URL}/ru/faq`,
     images: [{ url: `${SITE_URL}/images/hero/hero-og.jpg`, width: 1200, height: 630 }],
   },

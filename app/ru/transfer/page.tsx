@@ -6,8 +6,8 @@ import { TransferDetail } from "@/components/sections/TransferDetail";
 import { JsonLd, breadcrumbs, service } from "@/lib/jsonld";
 
 export const metadata = {
-  title: "Трансфер из Аэропорта Бали в Кандидасу — Orlowsky Discovery Hotel",
-  description: "Частный трансфер из аэропорта Нгурах-Рай в Кандидасу за $40 в одну сторону. Кондиционер, вода и англоговорящий водитель. Бронирование через отель.",
+  title: "Трансфер из Аэропорта Бали в Чандидасу — Orlowsky Discovery Hotel",
+  description: "Частный трансфер из аэропорта Нгурах-Рай в Чандидасу за $40 в одну сторону. Кондиционер, вода и англоговорящий водитель. Бронирование через отель.",
   alternates: {
     canonical: `${SITE_URL}/ru/transfer`,
     languages: {
@@ -17,8 +17,8 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: "Трансфер из Аэропорта Бали в Кандидасу — Orlowsky Discovery Hotel",
-    description: "Частный трансфер из аэропорта Нгурах-Рай в Кандидасу за $40 в одну сторону. Кондиционер, вода и англоговорящий водитель. Бронирование через отель.",
+    title: "Трансфер из Аэропорта Бали в Чандидасу — Orlowsky Discovery Hotel",
+    description: "Частный трансфер из аэропорта Нгурах-Рай в Чандидасу за $40 в одну сторону. Кондиционер, вода и англоговорящий водитель. Бронирование через отель.",
     url: `${SITE_URL}/ru/transfer`,
     images: [{ url: `${SITE_URL}/images/hero/hero-og.jpg`, width: 1200, height: 630 }],
   },
@@ -33,8 +33,8 @@ export default function TransferRuPage() {
       <JsonLd data={[
         service({
           path: "/ru/transfer",
-          name: "Трансфер из аэропорта Бали в Кандидасу — Orlowsky Discovery",
-          description: "Частный трансфер из аэропорта Нгурах-Рай (DPS) в Кандидасу. Фиксированные тарифы, кондиционер, англоговорящий водитель, 24/7.",
+          name: "Трансфер из аэропорта Бали в Чандидасу — Orlowsky Discovery",
+          description: "Частный трансфер из аэропорта Нгурах-Рай (DPS) в Чандидасу. Фиксированные тарифы, кондиционер, англоговорящий водитель, 24/7.",
           image: OG_IMAGE,
           serviceType: "Airport Shuttle",
           category: "Транспорт",

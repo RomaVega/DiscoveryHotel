@@ -6,8 +6,8 @@ import { DiningDetail } from "@/components/sections/DiningDetail";
 import { JsonLd, breadcrumbs, restaurant } from "@/lib/jsonld";
 
 export const metadata = {
-  title: "Ресторан и бар у океана — Кандидаса, Бали | Orlowsky Discovery",
-  description: "Свежие морепродукты, балийская и международная кухня в нашем полукруглом ресторане на берегу моря. Ежедневно 07:00–22:00. Orlowsky Discovery Hotel, Кандидаса.",
+  title: "Ресторан и бар у океана — Чандидаса, Бали | Orlowsky Discovery",
+  description: "Свежие морепродукты, балийская и международная кухня в нашем полукруглом ресторане на берегу моря. Ежедневно 07:00–22:00. Orlowsky Discovery Hotel, Чандидаса.",
   alternates: {
     canonical: `${SITE_URL}/ru/dining`,
     languages: {
@@ -17,8 +17,8 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: "Ресторан и бар у океана — Кандидаса, Бали | Orlowsky Discovery",
-    description: "Свежие морепродукты, балийская и международная кухня в нашем полукруглом ресторане на берегу моря. Ежедневно 07:00–22:00. Orlowsky Discovery Hotel, Кандидаса.",
+    title: "Ресторан и бар у океана — Чандидаса, Бали | Orlowsky Discovery",
+    description: "Свежие морепродукты, балийская и международная кухня в нашем полукруглом ресторане на берегу моря. Ежедневно 07:00–22:00. Orlowsky Discovery Hotel, Чандидаса.",
     url: `${SITE_URL}/ru/dining`,
     images: [{ url: `${SITE_URL}/images/dining/oceanside-restaurant-and-bar.webp`, width: 1200, height: 630 }],
   },
@@ -34,7 +34,7 @@ export default function DiningRuPage() {
         restaurant({
           path: "/ru/dining",
           name: "Ресторан и бар Orlowsky Discovery",
-          description: "Ресторан на берегу океана с свежими морепродуктами, балийской, индонезийской и международной кухней в Кандидасе, Восточный Бали.",
+          description: "Ресторан на берегу океана со свежими морепродуктами, балийской, индонезийской и международной кухней в Чандидасе, Восточный Бали.",
           image: `${SITE_URL}/images/dining/oceanside-restaurant-and-bar.webp`,
           servesCuisine: ["Balinese", "Indonesian", "Seafood", "International"],
           openingHours: "Mo-Su 07:00-22:00",

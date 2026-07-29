@@ -6,7 +6,7 @@ import { WeddingsDetail } from "@/components/sections/WeddingsDetail";
 import { JsonLd, breadcrumbs, service } from "@/lib/jsonld";
 
 export const metadata = {
-  title: "Свадьба на Бали — Orlowsky Discovery Hotel, Кандидаса, Восточный Бали",
+  title: "Свадьба на Бали — Orlowsky Discovery Hotel, Чандидаса, Восточный Бали",
   description: "Европейские и традиционные балийские свадебные церемонии на берегу океана. Полный кейтеринг, декор и организация от команды отеля.",
   alternates: {
     canonical: `${SITE_URL}/ru/weddings`,
@@ -17,7 +17,7 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: "Свадьба на Бали — Orlowsky Discovery Hotel, Кандидаса, Восточный Бали",
+    title: "Свадьба на Бали — Orlowsky Discovery Hotel, Чандидаса, Восточный Бали",
     description: "Европейские и традиционные балийские свадебные церемонии на берегу океана. Полный кейтеринг, декор и организация от команды отеля.",
     url: `${SITE_URL}/ru/weddings`,
     images: [{ url: `${SITE_URL}/images/experiences/experiences-events.webp`, width: 1200, height: 630 }],
@@ -33,8 +33,8 @@ export default function WeddingsRuPage() {
       <JsonLd data={[
         service({
           path: "/ru/weddings",
-          name: "Свадьбы на Бали — Кандидаса, набережная океана",
-          description: "Свадебная площадка на берегу океана в Кандидасе, Восточный Бали. Европейские и традиционные балийские церемонии, кейтеринг, размещение и трансферы.",
+          name: "Свадьбы на Бали — Чандидаса, набережная океана",
+          description: "Свадебная площадка на берегу океана в Чандидасе, Восточный Бали. Европейские и традиционные балийские церемонии, кейтеринг, размещение и трансферы.",
           image: `${SITE_URL}/images/experiences/experiences-events.webp`,
           serviceType: "Wedding Venue",
           category: "Площадка для мероприятий",

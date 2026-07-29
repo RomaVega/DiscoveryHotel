@@ -6,8 +6,8 @@ import { RoomsDetail } from "@/components/sections/RoomsDetail";
 import { JsonLd, breadcrumbs, webPage } from "@/lib/jsonld";
 
 export const metadata = {
-  title: "Номера и виллы в Кандидасе, Бали — Orlowsky Discovery Hotel",
-  description: "Вилла с бассейном (230 м²) с тремя спальнями или Делюкс Коттедж (46 м²) с видом на сад. Прямое бронирование в Orlowsky Discovery Hotel, Кандидаса, Восточный Бали.",
+  title: "Номера и виллы в Чандидасе, Бали — Orlowsky Discovery Hotel",
+  description: "Вилла с бассейном (230 м²) с тремя спальнями или Делюкс Коттедж (46 м²) с видом на сад. Прямое бронирование в Orlowsky Discovery Hotel, Чандидаса, Восточный Бали.",
   alternates: {
     canonical: `${SITE_URL}/ru/rooms`,
     languages: {
@@ -17,8 +17,8 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: "Номера и виллы в Кандидасе, Бали — Orlowsky Discovery Hotel",
-    description: "Вилла с бассейном (230 м²) с тремя спальнями или Делюкс Коттедж (46 м²) с видом на сад. Прямое бронирование в Orlowsky Discovery Hotel, Кандидаса, Восточный Бали.",
+    title: "Номера и виллы в Чандидасе, Бали — Orlowsky Discovery Hotel",
+    description: "Вилла с бассейном (230 м²) с тремя спальнями или Делюкс Коттедж (46 м²) с видом на сад. Прямое бронирование в Orlowsky Discovery Hotel, Чандидаса, Восточный Бали.",
     url: `${SITE_URL}/ru/rooms`,
     images: [{ url: `${SITE_URL}/images/rooms/pool-villa.webp`, width: 1200, height: 630 }],
   },
@@ -33,8 +33,8 @@ export default function RoomsRuPage() {
       <JsonLd data={[
         webPage({
           path: "/ru/rooms",
-          name: "Номера и виллы — Orlowsky Discovery Hotel, Кандидаса",
-          description: "Вилла с бассейном и тремя спальнями или Делюкс Коттедж с видом на сад на берегу Кандидасы, Восточный Бали.",
+          name: "Номера и виллы — Orlowsky Discovery Hotel, Чандидаса",
+          description: "Вилла с бассейном и тремя спальнями или Делюкс Коттедж с видом на сад на берегу Чандидасы, Восточный Бали.",
           image: `${SITE_URL}/images/rooms/pool-villa.webp`,
           locale: "ru",
         }),

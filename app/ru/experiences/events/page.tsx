@@ -6,7 +6,7 @@ import { EventsDetail } from "@/components/sections/EventsDetail";
 import { JsonLd, breadcrumbs, service } from "@/lib/jsonld";
 
 export const metadata = {
-  title: "Свадьбы и Мероприятия на Бали — Orlowsky Discovery Hotel, Кандидаса",
+  title: "Свадьбы и Мероприятия на Бали — Orlowsky Discovery Hotel, Чандидаса",
   description: "Свадьбы, юбилеи и корпоративные мероприятия на площадке у океана. Европейские и балийские церемонии, кейтеринг и профессиональная организация.",
   alternates: {
     canonical: `${SITE_URL}/ru/experiences/events`,
@@ -17,7 +17,7 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: "Свадьбы и Мероприятия на Бали — Orlowsky Discovery Hotel, Кандидаса",
+    title: "Свадьбы и Мероприятия на Бали — Orlowsky Discovery Hotel, Чандидаса",
     description: "Свадьбы, юбилеи и корпоративные мероприятия на площадке у океана. Европейские и балийские церемонии, кейтеринг и профессиональная организация.",
     url: `${SITE_URL}/ru/experiences/events`,
     images: [{ url: `${SITE_URL}/images/experiences/experiences-events.webp`, width: 1200, height: 630 }],
@@ -33,7 +33,7 @@ export default function EventsRuPage() {
       <JsonLd data={[
         service({
           path: "/ru/experiences/events",
-          name: "Мероприятия и торжества — площадка на берегу океана в Кандидасе",
+          name: "Мероприятия и торжества — площадка на берегу океана в Чандидасе",
           description: "Свадьбы, юбилеи, корпоративные мероприятия и приватные ужины на нашей площадке у океана. До 200 гостей.",
           image: `${SITE_URL}/images/experiences/experiences-events.webp`,
           serviceType: "Event Venue",
