@@ -57,7 +57,7 @@ export function Footer({ contact }: FooterProps) {
               width={80}
               height={80}
               unoptimized
-              className="object-contain mb-3 sm:mb-4"
+              className="object-contain mb-4"
             />
             <h3 className="font-serif text-xl sm:text-2xl font-semibold tracking-[0.15em] uppercase text-parchment flex flex-col items-center">
               <span>Orlowsky</span>
@@ -65,7 +65,7 @@ export function Footer({ contact }: FooterProps) {
               <span className="mt-3">Hotel</span>
             </h3>
           </Link>
-          <div className="flex items-center gap-2.5 mt-1.5" style={{ color: "#C9A84C" }}>
+          <div className="flex items-center gap-2.5 mt-4" style={{ color: "#C9A84C" }}>
             <span className="block h-px w-6 sm:w-8 bg-parchment/15" />
             {Array.from({ length: contact.stars }).map((_, i) => (
               <span key={i} className="text-base">
