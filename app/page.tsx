@@ -43,7 +43,7 @@ export default function HomePage() {
 
   return (
     <>
-      <Navbar hideBrand />
+      <Navbar brandAfterHero />
       <main id="main-content">
         <HeroImage hero={data.hero} />
         <ScrollDivider above={C.sand}     below={C.sand}     />

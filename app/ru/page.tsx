@@ -51,7 +51,7 @@ export default function HomeRuPage() {
 
   return (
     <>
-      <Navbar hideBrand />
+      <Navbar brandAfterHero />
       <main id="main-content">
         <HeroImage hero={data.hero} />
         <ScrollDivider above={C.sand}     below={C.sand}     />

@@ -14,9 +14,10 @@ import { SecondaryButton } from "@/components/common/SecondaryButton";
 interface NavbarProps {
   alwaysVisible?: boolean;
   scrollThreshold?: number; // pixels from top before navbar appears, default 80
-  /** Never show the logo/brand text in the bar — for pages whose hero already
-      carries the full brand block, so scrolling doesn't "re-show" the brand. */
-  hideBrand?: boolean;
+  /** Hold the logo/brand text back until the hero has scrolled fully out of
+      view — for pages whose hero already carries the full brand block, so the
+      bar doesn't duplicate it while both are on screen. */
+  brandAfterHero?: boolean;
 }
 
 /** Shared brand text */
@@ -44,8 +45,9 @@ function BrandLogo({ onClick }: { onClick?: () => void }) {
   );
 }
 
-export function Navbar({ alwaysVisible = false, scrollThreshold = 80, hideBrand = false }: NavbarProps) {
+export function Navbar({ alwaysVisible = false, scrollThreshold = 80, brandAfterHero = false }: NavbarProps) {
   const [scrolled, setScrolled] = useState(alwaysVisible);
+  const [heroPassed, setHeroPassed] = useState(!brandAfterHero);
   const [menuOpen, setMenuOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
   const { tl } = useLanguage();
@@ -67,6 +69,15 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80, hideBrand 
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, [alwaysVisible, scrollThreshold]);
+
+  useEffect(() => {
+    if (!brandAfterHero) { setHeroPassed(true); return; }
+    const hero = document.querySelector("#main-content > section");
+    if (!hero) return;
+    const io = new IntersectionObserver(([entry]) => setHeroPassed(!entry.isIntersecting));
+    io.observe(hero);
+    return () => io.disconnect();
+  }, [brandAfterHero]);
 
   // Scroll-locked footer push: every scroll tick writes an instant transform so the footer
   // pixel-locks the navbar. The slide-down entrance is a CSS keyframe animation applied via
@@ -139,7 +150,7 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80, hideBrand 
           {/* Logo — absolute on mobile, static on desktop, fades independently */}
           <div className={cn(
             "transition-opacity duration-500 lg:hidden",
-            scrolled && !hideBrand ? "opacity-100" : "opacity-0 pointer-events-none"
+            scrolled && heroPassed ? "opacity-100" : "opacity-0 pointer-events-none"
           )}>
             <BrandLogo onClick={handleBrandClick} />
           </div>
@@ -147,7 +158,7 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80, hideBrand 
           <div
             className={cn(
               "hidden lg:flex items-center gap-2 transition-all duration-500",
-              scrolled && !hideBrand
+              scrolled && heroPassed
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 -translate-y-2 pointer-events-none"
             )}
@@ -159,7 +170,7 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80, hideBrand 
           <div
             className={cn(
               "lg:hidden transition-all duration-500",
-              scrolled && !hideBrand
+              scrolled && heroPassed
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 -translate-y-2 pointer-events-none"
             )}
