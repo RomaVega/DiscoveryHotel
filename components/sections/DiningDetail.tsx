@@ -202,7 +202,7 @@ export function DiningDetail({ data, contact }: DiningDetailProps) {
                 rel="noopener noreferrer"
                 className="font-sans text-xs font-medium text-white/70 hover:text-white underline underline-offset-4 decoration-white/30 hover:decoration-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-cta-teal rounded-sm transition-colors"
               >
-                {isRu ? "Как Нас Найти" : "Get Directions"}
+                {isRu ? "Как Нас Найти" : "View Geolocation"}
               </a>
             </div>
           </FadeIn>
