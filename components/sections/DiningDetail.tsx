@@ -51,7 +51,7 @@ export function DiningDetail({ data, contact }: DiningDetailProps) {
      dining.json, so reordering the features there means revisiting these keys. */
   const featureCtas: Record<number, { href: string; label: string }> = {
     5: { href: menuUrl,      label: isRu ? "Заказать Доставку"    : "Order Delivery" },
-    6: { href: showsUrl,     label: isRu ? "Узнать Расписание"    : "Ask About Show Times" },
+    6: { href: showsUrl,     label: isRu ? "Узнать Расписание"    : "Get Schedule" },
     7: { href: cateringUrl,  label: isRu ? "Обсудить Мероприятие" : "Plan Your Event" },
   };
 
