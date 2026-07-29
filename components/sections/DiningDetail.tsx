@@ -29,12 +29,31 @@ export function DiningDetail({ data, contact }: DiningDetailProps) {
   const { t, locale } = useLanguage();
   const isRu = locale === "ru";
 
+  const tableUrl = buildWhatsAppUrl(isRu
+    ? "Здравствуйте! Хочу забронировать столик в ресторане."
+    : "Hello! I'd like to book a table at the restaurant.");
   // Opens the conversation as a non-guest, which is the barrier the closing CTA removes.
   const visitUrl = buildWhatsAppUrl(isRu
     ? "Здравствуйте! Я не проживаю в отеле — хочу поужинать у вас в ресторане."
     : "Hello! I'm not staying at the hotel — I'd like to eat at your restaurant.");
   // Menu browsing, room service, and delivery orders all go through one GuestPro page.
   const menuUrl = "https://secure.guestpro.net/odch/concierge/room-dining";
+  // Performance nights rotate, so the schedule can't be hardcoded here — ask instead.
+  const showsUrl = buildWhatsAppUrl(isRu
+    ? "Здравствуйте! Подскажите, когда ближайшее выступление балийских танцоров?"
+    : "Hello! When is the next Balinese dance performance?");
+  // Catering is quoted per event, so it needs a conversation rather than a booking form.
+  const cateringUrl = buildWhatsAppUrl(isRu
+    ? "Здравствуйте! Хочу обсудить кейтеринг и меню для мероприятия."
+    : "Hello! I'd like to discuss catering and a custom menu for an event.");
+
+  /* Only the features a guest can act on carry a button — keyed by their index in
+     dining.json, so reordering the features there means revisiting these keys. */
+  const featureCtas: Record<number, { href: string; label: string }> = {
+    5: { href: menuUrl,      label: isRu ? "Заказать Доставку"    : "Order Delivery" },
+    6: { href: showsUrl,     label: isRu ? "Узнать Расписание"    : "Ask About Show Times" },
+    7: { href: cateringUrl,  label: isRu ? "Обсудить Мероприятие" : "Plan Your Event" },
+  };
 
   return (
     <div>
@@ -59,13 +78,22 @@ export function DiningDetail({ data, contact }: DiningDetailProps) {
               ? "Откройте полное меню — в ресторане, в номер или бесплатной доставкой по Чандидасе."
               : "Explore the full menu — dine in, room service, or free delivery within Candidasa."}
           </p>
-          {/* Menu is the single action here — it already covers dining in, room service
-              and delivery, and the restaurant runs below capacity, so a reservation link
-              would only compete with it while solving a problem guests don't have. */}
-          <div className="flex flex-col items-center">
+          {/* Menu is the primary action — it covers dining in, room service and delivery.
+              Reserving stays available underneath as a quiet link: the restaurant is never
+              at capacity, so it is a convenience for guests who want one, not a CTA to
+              push. That is also why the closing CTA does not repeat it. */}
+          <div className="flex flex-col items-center gap-4">
             <SecondaryButton href={menuUrl} external>
               {isRu ? "Смотреть Меню" : "View Menu"}
             </SecondaryButton>
+            <a
+              href={tableUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-sans text-xs font-medium text-deep-teal underline underline-offset-4 decoration-deep-teal/40 hover:decoration-deep-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 rounded-sm transition-colors"
+            >
+              {isRu ? "Забронировать Столик" : "Book a Table"}
+            </a>
           </div>
         </div>
       </FadeIn>
@@ -97,15 +125,12 @@ export function DiningDetail({ data, contact }: DiningDetailProps) {
                     <p className="text-stone leading-relaxed text-[15px]">
                       {t(feature.description)}
                     </p>
-                    {i === 5 && (
-                      <a
-                        href="https://secure.guestpro.net/odch/concierge/room-dining"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-6 inline-block font-sans text-sm font-semibold text-brand-teal hover:text-deep-teal underline underline-offset-4 transition-colors"
-                      >
-                        {isRu ? "Заказать с Доставкой →" : "Order for Delivery →"}
-                      </a>
+                    {featureCtas[i] && (
+                      <div className="mt-8">
+                        <SecondaryButton href={featureCtas[i].href} external>
+                          {featureCtas[i].label}
+                        </SecondaryButton>
+                      </div>
                     )}
                   </div>
                 </div>

@@ -60,25 +60,25 @@
     },
     {
       "title": {
-        "en": "Room Service & Delivery",
-        "ru": "Обслуживание номеров и доставка"
+        "en": "Room Service",
+        "ru": "Обслуживание номеров"
       },
       "description": {
-        "en": "Room service is available throughout the day. We also offer free delivery within the Candidasa area for your convenience.",
-        "ru": "Обслуживание номеров доступно в течение всего дня. Также мы предлагаем бесплатную доставку по территории Чандидасы."
+        "en": "The full kitchen is available to your room throughout the day — breakfast on your balcony, a late lunch after the beach, or dinner in without leaving your villa.",
+        "ru": "Полное меню кухни доступно в номер в течение всего дня — завтрак на балконе, поздний обед после пляжа или ужин, не выходя из виллы."
       },
       "icon": "Truck"
     },
     {
       "title": {
-        "en": "Digital Menu & Chef Specials",
-        "ru": "Цифровое меню и блюда от шефа"
+        "en": "Free Delivery Across Candidasa",
+        "ru": "Бесплатная доставка по Чандидасе"
       },
       "description": {
-        "en": "The full digital menu is updated daily with chef's specials built around the freshest local ingredients. Browse it from wherever you are and order in — delivery anywhere in Candidasa is free — or scan the QR code at your table if you're already with us.",
-        "ru": "Полное цифровое меню обновляется каждый день специальными предложениями шеф-повара из самых свежих местных продуктов. Открывайте его где угодно и заказывайте с доставкой — по Чандидасе она бесплатная — или сканируйте QR-код за столом, если Вы уже у нас."
+        "en": "You don't have to be staying with us to eat with us. Order from the same digital menu our restaurant runs on — updated daily with the chef's specials — and we'll bring it anywhere in Candidasa at no delivery charge. Already at a table? Scan the QR code instead.",
+        "ru": "Чтобы поесть у нас, не обязательно у нас жить. Заказывайте из того же цифрового меню, по которому работает ресторан — оно обновляется каждый день блюдами от шеф-повара — и мы привезём заказ в любую точку Чандидасы без платы за доставку. Уже за столом? Тогда просто отсканируйте QR-код."
       },
-      "icon": "QrCode"
+      "icon": "Truck"
     },
     {
       "title": {
