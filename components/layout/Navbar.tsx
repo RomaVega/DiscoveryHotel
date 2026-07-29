@@ -70,13 +70,36 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80, brandAfter
     return () => window.removeEventListener("scroll", onScroll);
   }, [alwaysVisible, scrollThreshold]);
 
+  // The hero hides its own brand block (logo + title) as soon as it stops covering the
+  // viewport — see `atTop` in HeroImage. Mirror that exact geometry test so the bar's brand
+  // takes over at that same instant. Waiting for the hero to leave the viewport entirely
+  // (the old IntersectionObserver) left a scrolled bar with neither brand for a whole
+  // screen of scrolling on mobile, where the hero is a full-height video.
   useEffect(() => {
     if (!brandAfterHero) { setHeroPassed(true); return; }
     const hero = document.querySelector("#main-content > section");
     if (!hero) return;
-    const io = new IntersectionObserver(([entry]) => setHeroPassed(!entry.isIntersecting));
-    io.observe(hero);
-    return () => io.disconnect();
+
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      setHeroPassed(hero.getBoundingClientRect().bottom < window.innerHeight - 2);
+    };
+    const schedule = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    update(); // sync initial state on reload (e.g. restored scroll position)
+
+    document.addEventListener("scroll", schedule, { passive: true, capture: true });
+    window.addEventListener("resize", schedule);
+    window.visualViewport?.addEventListener("resize", schedule);
+
+    return () => {
+      if (raf) cancelAnimationFrame(raf);
+      document.removeEventListener("scroll", schedule, { capture: true });
+      window.removeEventListener("resize", schedule);
+      window.visualViewport?.removeEventListener("resize", schedule);
+    };
   }, [brandAfterHero]);
 
   // Scroll-locked footer push: every scroll tick writes an instant transform so the footer
