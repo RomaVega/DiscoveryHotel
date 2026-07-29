@@ -208,7 +208,7 @@ export const IMAGE_VERSIONS: Readonly<Record<string, string>> = {
   "/images/dining/international-cuisine.webp": "52f0ce4a",
   "/images/dining/oceanside-restaurant-and-bar.webp": "64d7cda8",
   "/images/dining/orlowsky-hotel-romantic-heart-arch.webp": "8422cb80",
-  "/images/dining/room-service.webp": "8a3ed36a",
+  "/images/dining/room-service.webp": "f81318eb",
   "/images/dining/seaside-dining.webp": "26e16906",
   "/images/diving/diving-hawksbill-turtle-scuba-diver-candidasa-bali.webp": "ea087d41",
   "/images/events/balinese-style-wedding.webp": "450a3782",
