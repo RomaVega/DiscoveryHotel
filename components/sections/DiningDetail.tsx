@@ -152,6 +152,32 @@ export function DiningDetail({ data }: DiningDetailProps) {
         </FadeIn>
       )}
 
+      {/* ── Closing reservation CTA ──
+          The CTA at the top of the page is exploratory ("View Menu"); this one is
+          committal, so the page ends on an action instead of dropping into the footer.
+          Routed to WhatsApp rather than data.bookingCta.bookingUrl — that URL is the
+          GuestPro room-booking engine, which would not honour a "Book a Table" label. */}
+      <section className="py-16 md:py-24 bg-cta-teal">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <FadeIn>
+            <h2 className="font-serif text-2xl md:text-4xl font-light text-white">
+              {t(data.bookingCta.heading)}
+            </h2>
+            <p className="mt-4 text-white/80 text-base md:text-lg leading-relaxed">
+              {t(data.bookingCta.subtext)}
+            </p>
+            <div className="mt-8">
+              <SecondaryButton
+                href={tableUrl}
+                external
+                className="border-white text-white hover:bg-white/10 hover:border-white/80"
+              >
+                {t(data.bookingCta.fallbackCta)}
+              </SecondaryButton>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
     </div>
   );
 }
