@@ -53,7 +53,7 @@ export default function DiningRuPage() {
         subtext={data.subtext}
         noOverlay
       />
-      <DiningDetail data={data} />
+      <DiningDetail data={data} contact={contact} />
     </InnerPageLayout>
   );
 }

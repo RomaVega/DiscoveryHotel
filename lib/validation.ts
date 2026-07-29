@@ -26,6 +26,12 @@ const bookingCtaData = z.object({
   fallbackCta: localizedString,
 });
 
+const visitCtaData = z.object({
+  heading: localizedString,
+  subtext: localizedString,
+  button: localizedString,
+});
+
 const heroData = z.object({
   titleLine1: z.string(),
   titleLine2: z.string(),
@@ -240,7 +246,7 @@ export const diningPageSchema = z.object({
   menuHighlights: z.array(z.object({ title: localizedString, items: z.array(localizedString) })).optional(),
   image: z.string().optional(),
   imageAlt: z.string().optional(),
-  bookingCta: bookingCtaData,
+  visitCta: visitCtaData,
 });
 
 const spaTreatment = z.object({

@@ -75,8 +75,8 @@
         "ru": "Цифровое меню и блюда от шефа"
       },
       "description": {
-        "en": "Scan the QR code at your table for our full digital menu, updated daily with chef's specials featuring the freshest local ingredients.",
-        "ru": "Сканируйте QR-код за столом для доступа к полному цифровому меню, которое ежедневно обновляется специальными предложениями от шеф-повара из свежайших местных продуктов."
+        "en": "The full digital menu is updated daily with chef's specials built around the freshest local ingredients. Browse it from wherever you are and order in — delivery anywhere in Candidasa is free — or scan the QR code at your table if you're already with us.",
+        "ru": "Полное цифровое меню обновляется каждый день специальными предложениями шеф-повара из самых свежих местных продуктов. Открывайте его где угодно и заказывайте с доставкой — по Чандидасе она бесплатная — или сканируйте QR-код за столом, если Вы уже у нас."
       },
       "icon": "QrCode"
     },
@@ -103,19 +103,18 @@
       "icon": "CalendarHeart"
     }
   ],
-  "bookingCta": {
+  "visitCta": {
     "heading": {
-      "en": "Make a Table Reservation",
-      "ru": "Бронирование Столика"
+      "en": "Open to Everyone in Candidasa",
+      "ru": "Открыты Для Всех в Чандидасе"
     },
     "subtext": {
-      "en": "Join us for breakfast, lunch, or dinner — daily from 07:00 to 22:00.",
-      "ru": "Приходите на завтрак, обед или ужин — ежедневно с 07:00 до 22:00."
+      "en": "You don't have to be a hotel guest to eat with us. Come by any day between 07:00 and 22:00, or have the same kitchen deliver to you anywhere in Candidasa, free.",
+      "ru": "Чтобы поужинать у нас, не обязательно быть гостем отеля. Заходите в любой день с 07:00 до 22:00 или закажите доставку в любую точку Чандидасы — бесплатно."
     },
-    "bookingUrl": "https://secure.guestpro.net/odch",
-    "fallbackCta": {
-      "en": "Book a Table",
-      "ru": "Забронировать Столик"
+    "button": {
+      "en": "Message Us",
+      "ru": "Написать Нам"
     }
   }
 }

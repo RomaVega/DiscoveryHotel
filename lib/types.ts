@@ -145,6 +145,14 @@ export interface BookingCtaData {
   fallbackCta: LocalizedString;
 }
 
+/** CTA whose destination is decided by the component (WhatsApp, maps) rather
+    than carried in JSON — so no bookingUrl to fall out of sync with the label. */
+export interface VisitCtaData {
+  heading: LocalizedString;
+  subtext: LocalizedString;
+  button: LocalizedString;
+}
+
 export interface SocialLink {
   platform: string;
   url: string;
@@ -275,7 +283,7 @@ export interface DiningPageData {
   }[];
   image?: string;
   imageAlt?: string;
-  bookingCta: BookingCtaData;
+  visitCta: VisitCtaData;
 }
 
 /* ─── Spa Page ─── */

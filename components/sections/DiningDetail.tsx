@@ -4,7 +4,7 @@ import Image from "next/image";
 import { FadeIn } from "@/components/common/FadeIn";
 import { SecondaryButton } from "@/components/common/SecondaryButton";
 import { StatsStrip } from "@/components/common/StatsStrip";
-import type { DiningPageData } from "@/lib/types";
+import type { ContactData, DiningPageData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
@@ -22,15 +22,17 @@ const FEATURE_IMAGES = [
 
 interface DiningDetailProps {
   data: DiningPageData;
+  contact: ContactData;
 }
 
-export function DiningDetail({ data }: DiningDetailProps) {
+export function DiningDetail({ data, contact }: DiningDetailProps) {
   const { t, locale } = useLanguage();
   const isRu = locale === "ru";
 
-  const tableUrl = buildWhatsAppUrl(isRu
-    ? "Здравствуйте! Хочу забронировать столик в ресторане."
-    : "Hello! I'd like to book a table at the restaurant.");
+  // Opens the conversation as a non-guest, which is the barrier the closing CTA removes.
+  const visitUrl = buildWhatsAppUrl(isRu
+    ? "Здравствуйте! Я не проживаю в отеле — хочу поужинать у вас в ресторане."
+    : "Hello! I'm not staying at the hotel — I'd like to eat at your restaurant.");
   // Menu browsing, room service, and delivery orders all go through one GuestPro page.
   const menuUrl = "https://secure.guestpro.net/odch/concierge/room-dining";
 
@@ -57,19 +59,13 @@ export function DiningDetail({ data }: DiningDetailProps) {
               ? "Откройте полное меню — в ресторане, в номер или бесплатной доставкой по Чандидасе."
               : "Explore the full menu — dine in, room service, or free delivery within Candidasa."}
           </p>
-          {/* Menu is the single primary action; a table reservation sits below as a quiet link */}
-          <div className="flex flex-col items-center gap-4">
+          {/* Menu is the single action here — it already covers dining in, room service
+              and delivery, and the restaurant runs below capacity, so a reservation link
+              would only compete with it while solving a problem guests don't have. */}
+          <div className="flex flex-col items-center">
             <SecondaryButton href={menuUrl} external>
               {isRu ? "Смотреть Меню" : "View Menu"}
             </SecondaryButton>
-            <a
-              href={tableUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-sans text-xs font-medium text-deep-teal underline underline-offset-4 decoration-deep-teal/40 hover:decoration-deep-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 rounded-sm transition-colors"
-            >
-              {isRu ? "Забронировать Столик" : "Book a Table"}
-            </a>
           </div>
         </div>
       </FadeIn>
@@ -108,7 +104,7 @@ export function DiningDetail({ data }: DiningDetailProps) {
                         rel="noopener noreferrer"
                         className="mt-6 inline-block font-sans text-sm font-semibold text-brand-teal hover:text-deep-teal underline underline-offset-4 transition-colors"
                       >
-                        {isRu ? "Открыть Полное Меню →" : "View Full Menu →"}
+                        {isRu ? "Заказать с Доставкой →" : "Order for Delivery →"}
                       </a>
                     )}
                   </div>
@@ -152,28 +148,37 @@ export function DiningDetail({ data }: DiningDetailProps) {
         </FadeIn>
       )}
 
-      {/* ── Closing reservation CTA ──
-          The CTA at the top of the page is exploratory ("View Menu"); this one is
-          committal, so the page ends on an action instead of dropping into the footer.
-          Routed to WhatsApp rather than data.bookingCta.bookingUrl — that URL is the
-          GuestPro room-booking engine, which would not honour a "Book a Table" label. */}
+      {/* ── Closing CTA ──
+          Not a reservation prompt: the restaurant is never at capacity, so asking
+          people to secure a table invents a scarcity they can feel isn't real. The
+          barrier that actually costs covers is the assumption that the restaurant is
+          for hotel guests only, so this says otherwise and ends the page on it. */}
       <section className="py-16 md:py-24 bg-cta-teal">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <FadeIn>
             <h2 className="font-serif text-2xl md:text-4xl font-light text-white">
-              {t(data.bookingCta.heading)}
+              {t(data.visitCta.heading)}
             </h2>
             <p className="mt-4 text-white/80 text-base md:text-lg leading-relaxed">
-              {t(data.bookingCta.subtext)}
+              {t(data.visitCta.subtext)}
             </p>
-            <div className="mt-8">
+            <div className="mt-8 flex flex-col items-center gap-4">
               <SecondaryButton
-                href={tableUrl}
+                href={visitUrl}
                 external
                 className="border-white text-white hover:bg-white/10 hover:border-white/80"
               >
-                {t(data.bookingCta.fallbackCta)}
+                {t(data.visitCta.button)}
               </SecondaryButton>
+              {/* Walking in is the point, so give them the way here */}
+              <a
+                href={contact.googleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-sans text-xs font-medium text-white/70 hover:text-white underline underline-offset-4 decoration-white/30 hover:decoration-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-cta-teal rounded-sm transition-colors"
+              >
+                {isRu ? "Как Нас Найти" : "Get Directions"}
+              </a>
             </div>
           </FadeIn>
         </div>
