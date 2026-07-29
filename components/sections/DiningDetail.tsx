@@ -126,7 +126,7 @@ export function DiningDetail({ data, contact }: DiningDetailProps) {
                       {t(feature.description)}
                     </p>
                     {featureCtas[i] && (
-                      <div className="mt-8">
+                      <div className="mt-8 flex justify-center">
                         <SecondaryButton href={featureCtas[i].href} external>
                           {featureCtas[i].label}
                         </SecondaryButton>
