@@ -121,6 +121,7 @@ const offer = z.object({
 const offersData = z.object({
   label: localizedString,
   heading: localizedString,
+  subtext: localizedString.optional(),
   offers: z.array(offer),
 });
 

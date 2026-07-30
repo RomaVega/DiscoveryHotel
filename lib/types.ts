@@ -112,6 +112,8 @@ export interface Offer {
 export interface OffersData {
   label: LocalizedString;
   heading: LocalizedString;
+  /** Intro line for the standalone /offers page hero. Unused on the home page. */
+  subtext?: LocalizedString;
   offers: Offer[];
 }
 

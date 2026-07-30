@@ -20,7 +20,7 @@ export const metadata = {
     title: "Special Offers & Packages — Orlowsky Discovery Hotel, Bali",
     description: "Early bird rates, honeymoon packages, and long-stay discounts at Orlowsky Discovery Hotel, Candidasa, East Bali. Book direct for the best price.",
     url: `${SITE_URL}/offers`,
-    images: [{ url: `${SITE_URL}/images/offers/special-offer-early-bird.webp`, width: 1200, height: 630 }],
+    images: [{ url: `${SITE_URL}/images/offers/offers-og-beach-parasols.webp`, width: 1200, height: 630 }],
   },
 };
 
@@ -35,7 +35,7 @@ export default function OffersPage() {
           path: "/offers",
           name: "Special Offers & Packages — Orlowsky Discovery Hotel, Bali",
           description: "Early bird rates, honeymoon packages, and long-stay discounts at Orlowsky Discovery Hotel, Candidasa, East Bali.",
-          image: `${SITE_URL}/images/offers/special-offer-early-bird.webp`,
+          image: `${SITE_URL}/images/offers/offers-og-beach-parasols.webp`,
           locale: "en",
           type: "CollectionPage",
         }),
@@ -49,7 +49,7 @@ export default function OffersPage() {
         noOverlay
         imageAlt="Parasols and batik-cushioned loungers on the hotel beach, facing the turquoise Bali Sea"
         heading={data.offers.heading}
-        subtext={{ en: "Book direct for early bird rates, honeymoon packages, and other exclusive deals at Orlowsky Discovery Hotel, Candidasa, Bali.", ru: "Бронируйте напрямую — ранние цены, медовый месяц и другие эксклюзивные предложения в отеле Orlowsky Discovery, Чандидаса, Бали." }}
+        subtext={data.offers.subtext}
       />
       <SpecialOffers data={data.offers} hideHeading />
     </InnerPageLayout>

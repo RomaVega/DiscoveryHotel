@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter, Cormorant_Garamond } from "next/font/google";
-import { SitePreloader } from "@/components/common/SitePreloader";
 import { MotionProvider } from "@/components/common/MotionProvider";
 import { LanguageProvider } from "@/lib/language-context";
 import { ALL_ROUTES } from "@/lib/image-manifest";
@@ -144,7 +143,6 @@ export default function RootLayout({
       <body className={`${inter.variable} ${cormorant.variable} antialiased`} suppressHydrationWarning>
         <LanguageProvider>
           <MotionProvider>
-            <SitePreloader />
             {children}
           </MotionProvider>
         </LanguageProvider>
