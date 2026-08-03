@@ -177,7 +177,8 @@ Targets: LCP < 2.5s (`priority` + `<link rel="preload">` on hero poster), CLS < 
 ## Environment Variables
 
 - `NEXT_PUBLIC_WHATSAPP_NUMBER` (required) — used in all WhatsApp links, read via `process.env.NEXT_PUBLIC_WHATSAPP_NUMBER`. This is the single source of truth for the number; do not hardcode it elsewhere.
-- `NEXT_PUBLIC_GA_MEASUREMENT_ID` (optional)
+- `NEXT_PUBLIC_GA_MEASUREMENT_ID` (optional) — GA4 property. [components/layout/GoogleAnalytics.tsx](components/layout/GoogleAnalytics.tsx) renders nothing when unset, so dev/previews stay out of the data. Scope it to Netlify's production context. Adding another Google/analytics origin means widening `script-src`/`connect-src` in [netlify.toml](netlify.toml).
+- `GOOGLE_SITE_VERIFICATION` (optional) — Search Console HTML-tag token, emitted via `metadata.verification.google`. Not `NEXT_PUBLIC_`; it is build-time only. Safe to drop once DNS TXT verification is in place.
 - Never put secrets in `NEXT_PUBLIC_` — they're inlined into client JS.
 
 ## Common Mistakes

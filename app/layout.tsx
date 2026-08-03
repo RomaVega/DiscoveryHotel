@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Cormorant_Garamond } from "next/font/google";
 import { MotionProvider } from "@/components/common/MotionProvider";
+import { GoogleAnalytics } from "@/components/layout/GoogleAnalytics";
 import { LanguageProvider } from "@/lib/language-context";
 import { ALL_ROUTES } from "@/lib/image-manifest";
 import { SITE_URL, SITE_NAME, OG_IMAGE } from "@/lib/site";
@@ -77,6 +78,12 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true, "max-image-preview": "large" },
   },
+  // Google Search Console HTML-tag verification. Omitted entirely when the env
+  // var is unset — a DNS TXT record on orlowsky.id verifies the same property
+  // and is the preferred method (survives HTML changes, covers subdomains).
+  verification: process.env.GOOGLE_SITE_VERIFICATION
+    ? { google: process.env.GOOGLE_SITE_VERIFICATION }
+    : undefined,
 };
 
 export default function RootLayout({
@@ -146,6 +153,7 @@ export default function RootLayout({
             {children}
           </MotionProvider>
         </LanguageProvider>
+        <GoogleAnalytics />
       </body>
     </html>
   );
