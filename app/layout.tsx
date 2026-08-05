@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Cormorant_Garamond } from "next/font/google";
 import { MotionProvider } from "@/components/common/MotionProvider";
 import { GoogleAnalytics } from "@/components/layout/GoogleAnalytics";
+import { LanguageSuggestion } from "@/components/layout/LanguageSuggestion";
 import { LanguageProvider } from "@/lib/language-context";
 import { ALL_ROUTES } from "@/lib/image-manifest";
 import { SITE_URL, SITE_NAME, OG_IMAGE } from "@/lib/site";
@@ -151,6 +152,7 @@ export default function RootLayout({
         <LanguageProvider>
           <MotionProvider>
             {children}
+            <LanguageSuggestion />
           </MotionProvider>
         </LanguageProvider>
         <GoogleAnalytics />
