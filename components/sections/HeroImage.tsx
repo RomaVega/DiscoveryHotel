@@ -108,6 +108,26 @@ export function HeroImage({ hero }: HeroImageProps) {
       if (handle && typeof v.cancelVideoFrameCallback === "function") v.cancelVideoFrameCallback(handle);
     };
   }, []);
+  // <video> runs its resource-selection algorithm exactly once, when the element is inserted —
+  // unlike <picture> it never re-evaluates the <source media> attributes again. A viewport that
+  // crosses the 767px boundary after load (phone rotation, window resize, browser zoom) is left
+  // holding the wrong clip, and object-cover crops the portrait one hard on a landscape box.
+  // Re-select by hand on a real breakpoint flip: load() re-reads the sources and restores the
+  // autoplay flag, so playback resumes on its own — unless the visitor had deliberately paused.
+  useEffect(() => {
+    if (!hero.videoMobile) return;
+    const mql = window.matchMedia("(max-width: 767px)");
+    const onChange = () => {
+      const v = videoRef.current;
+      if (!v) return;
+      const wasPaused = v.paused;
+      v.load();
+      if (wasPaused) v.addEventListener("loadeddata", () => v.pause(), { once: true });
+    };
+    mql.addEventListener("change", onChange);
+    return () => mql.removeEventListener("change", onChange);
+  }, [hero.videoMobile]);
+
   const line1Ref = useRef<HTMLSpanElement>(null);
   const line2Ref = useRef<HTMLSpanElement>(null);
   const line3Ref = useRef<HTMLSpanElement>(null);
