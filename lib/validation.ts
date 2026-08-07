@@ -248,6 +248,7 @@ export const diningPageSchema = z.object({
   image: z.string().optional(),
   imageAlt: z.string().optional(),
   visitCta: visitCtaData,
+  googleMapsUrl: z.string().optional(),
 });
 
 const spaTreatment = z.object({

@@ -195,9 +195,11 @@ export function DiningDetail({ data, contact }: DiningDetailProps) {
               >
                 {t(data.visitCta.button)}
               </SecondaryButton>
-              {/* Walking in is the point, so give them the way here */}
+              {/* Walking in is the point, so give them the way here — to the restaurant's own
+                  Maps listing rather than the hotel's, since a walk-in is looking for the
+                  restaurant. Falls back to the hotel pin if dining.json has no listing. */}
               <a
-                href={contact.googleMapsUrl}
+                href={data.googleMapsUrl ?? contact.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-sans text-xs font-medium text-white/70 hover:text-white underline underline-offset-4 decoration-white/30 hover:decoration-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-cta-teal rounded-sm transition-colors"

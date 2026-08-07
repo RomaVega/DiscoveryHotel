@@ -286,6 +286,9 @@ export interface DiningPageData {
   image?: string;
   imageAlt?: string;
   visitCta: VisitCtaData;
+  /** The restaurant's own Google Maps place — a separate listing from the hotel's
+      (contact.googleMapsUrl), which is where this falls back to when unset. */
+  googleMapsUrl?: string;
 }
 
 /* ─── Spa Page ─── */
