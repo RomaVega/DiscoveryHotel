@@ -52,14 +52,24 @@ function CardInner({ item, compactMobile }: { item: ExperienceCard; compactMobil
       <div className={cn("flex flex-col flex-1", compactMobile ? "p-3 sm:p-5 md:p-8" : "p-5 md:p-8")}>
         <h3
           className={cn(
-            "font-serif font-semibold text-charcoal",
+            // Cormorant is a high-contrast display serif: at 600 the hairlines
+            // thicken and the contrast that carries the face collapses. 400 is
+            // what the design system reserves for smaller headings (300 is for
+            // display sizes only, and goes wispy at 22px). Size + tracking carry
+            // the emphasis the weight used to, and this now matches the
+            // font-light SectionHeading directly above the grid.
+            "font-serif font-normal tracking-wide text-charcoal",
             // Tap/hover feedback off the card wrapper's `group`. deep-teal, not
-            // brand-teal: brand-teal is only 2.3:1 on ivory, and a 20px semibold
+            // brand-teal: brand-teal is only 2.3:1 on ivory, and a 22px regular
             // title is not WCAG "large text", so it would fail AA. deep-teal
             // measures 5.7:1 and is already the pill's hover colour.
             // group-active carries this on touch, where there is no hover.
             "transition-colors duration-300 group-hover:text-deep-teal group-active:text-deep-teal",
-            // 20px floor — the design system's minimum heading size.
+            // 22px, not the 20px floor: Cormorant has an unusually small
+            // x-height, so it reads a size down from the sans around it.
+            // leading-tight is explicit because the arbitrary size drops
+            // Tailwind's paired line-height — two lines at 1.25 come to 55px,
+            // which is what keeps them inside the 3.5rem reservation below.
             // The 10ch cap is what puts every title on exactly two lines: it is
             // wider than no single word here, so nothing breaks mid-word, but
             // narrow enough that even the shortest label ("Ayurvedic Spa") wraps
@@ -67,9 +77,9 @@ function CardInner({ item, compactMobile }: { item: ExperienceCard; compactMobil
             // min-h then guarantees equal tiles even if a title ever renders one
             // line; centring keeps the block optically centred in the card.
             compactMobile
-              ? "text-xl text-balance text-center max-w-[10ch] mx-auto flex items-center justify-center min-h-[3.5rem] " +
-                "sm:block sm:max-w-none sm:mx-0 sm:min-h-0 sm:text-left sm:text-2xl"
-              : "text-2xl",
+              ? "text-[22px] leading-tight text-balance text-center max-w-[10ch] mx-auto flex items-center justify-center min-h-[3.5rem] " +
+                "sm:block sm:max-w-none sm:mx-0 sm:min-h-0 sm:text-left sm:text-[26px]"
+              : "text-[26px] leading-tight",
           )}
         >
           {t(item.title)}
