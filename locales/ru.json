@@ -60,7 +60,6 @@
     }
   },
   "offers": {
-    "specialOffer": "Специальное Предложение",
     "bookThisOffer": "Забронировать",
     "included": "Что Включено",
     "bookDirect": {

@@ -60,7 +60,6 @@
     }
   },
   "offers": {
-    "specialOffer": "Special Offer",
     "bookThisOffer": "Book This Offer",
     "included": "What's included",
     "bookDirect": {

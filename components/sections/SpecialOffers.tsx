@@ -44,22 +44,39 @@ export function SpecialOffers({ data, hideHeading }: SpecialOffersProps) {
                   />
                 </div>
                 <div className="p-5 md:p-8 flex flex-col flex-1">
-                  <span className="font-sans text-[11px] font-medium uppercase tracking-[0.2em] text-brand-teal mb-3">
-                    {tl.offers.specialOffer}
-                  </span>
                   <h3 className="font-serif text-2xl font-semibold text-charcoal">
                     {t(offer.title)}
                   </h3>
                   <p className="mt-2 text-stone leading-relaxed flex-1">
                     {t(offer.description)}
                   </p>
-                  <p className="mt-4 font-sans text-lg font-semibold text-brand-teal">
-                    {t(offer.price)}
-                  </p>
-                  <div className="mt-6 flex justify-center">
-                    <SecondaryButton href="https://secure.guestpro.net/odch" external>
-                      {tl.offers.bookThisOffer}
-                    </SecondaryButton>
+                  {/* Footer mirrors the spa treatment row: the price and the CTA
+                      sit on one baseline instead of stacking, so the two things
+                      a guest actually decides on are adjacent. flex-1 on the
+                      description above pins this to the card bottom, which keeps
+                      the footers aligned across a row of uneven descriptions.
+                      Stacked below `sm` (button centred) exactly as SpaDetail
+                      does — a long RU CTA label plus a price will not share a
+                      360px row. */}
+                  <div className="mt-6 pt-5 border-t border-charcoal/10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+                    <div>
+                      {/* deep-teal, not brand-teal: brand-teal is 2.1:1 on sand
+                          and an 18px semibold price is not WCAG "large text",
+                          so it failed AA. deep-teal measures 5.4:1 here. */}
+                      <p className="font-sans text-lg font-semibold text-deep-teal leading-none">
+                        {t(offer.price)}
+                      </p>
+                      {offer.validity && (
+                        <p className="mt-1.5 font-sans text-xs text-stone leading-snug">
+                          {t(offer.validity)}
+                        </p>
+                      )}
+                    </div>
+                    <div className="flex justify-center sm:block">
+                      <SecondaryButton href="https://secure.guestpro.net/odch" external>
+                        {tl.offers.bookThisOffer}
+                      </SecondaryButton>
+                    </div>
                   </div>
                 </div>
               </div>
