@@ -161,8 +161,7 @@ export function LanguageSelector({ variant = "dark" }: LanguageSelectorProps) {
                     className={cn(
                       "shrink-0 w-7 text-center font-sans text-[10px] font-bold tracking-[0.08em] uppercase",
                       isActive
-                        ? // 10px badge — brand-teal was ~2.2:1 on this panel.
-                          "text-deep-teal"
+                        ? "text-accent-text"
                         : lang.available
                           ? // /40 measured 2.52:1. An available language is an
                             // actionable row, so AA applies; /70 is 6.39:1 and

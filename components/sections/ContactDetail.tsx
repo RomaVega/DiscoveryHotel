@@ -34,7 +34,7 @@ export function ContactDetail({ contact }: ContactDetailProps) {
                   href={`https://wa.me/${c.number}?text=${encodeURIComponent(c.greeting)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block font-serif text-3xl md:text-4xl font-light text-charcoal hover:text-brand-teal transition-colors duration-200"
+                  className="block font-serif text-3xl md:text-4xl font-light text-charcoal hover:text-accent-text transition-colors duration-200"
                 >
                   {c.label}
                 </a>
@@ -51,7 +51,7 @@ export function ContactDetail({ contact }: ContactDetailProps) {
             </p>
             <a
               href={`mailto:${contact.email}`}
-              className="font-serif text-3xl md:text-4xl font-light text-charcoal hover:text-brand-teal transition-colors duration-200 break-all"
+              className="font-serif text-3xl md:text-4xl font-light text-charcoal hover:text-accent-text transition-colors duration-200 break-all"
             >
               {contact.email}
             </a>

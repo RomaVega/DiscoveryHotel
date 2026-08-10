@@ -186,6 +186,8 @@ export function Footer({ contact }: FooterProps) {
                 <p className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-parchment/50 mb-1.5 underline underline-offset-4 decoration-parchment/20">
                   {tl.footer.paymentInRussia}
                 </p>
+                {/* contrast-ok: brand-teal is 6.66:1 on espresso. The polarity
+                    flips on the dark footer — deep-teal would be 2.64:1 here. */}
                 <p className="font-sans text-[13px] text-brand-teal leading-relaxed font-medium whitespace-pre-line">
                   {tl.footer.paymentNote}
                 </p>
@@ -213,7 +215,10 @@ export function Footer({ contact }: FooterProps) {
                 href={contact.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 font-sans text-xs text-brand-teal hover:text-deep-teal transition-colors duration-200 tracking-wide"
+                // contrast-ok: brand-teal is 6.66:1 on espresso. Hover goes to
+                // parchment (12.53:1) — the old hover:text-deep-teal was
+                // 2.64:1 on this ground, so the link failed while hovered.
+                className="inline-flex items-center gap-1.5 font-sans text-xs text-brand-teal hover:text-parchment transition-colors duration-200 tracking-wide"
               >
                 {tl.footer.getDirections}
                 <span aria-hidden="true">→</span>
@@ -227,6 +232,8 @@ export function Footer({ contact }: FooterProps) {
                 <p className="font-sans text-[11px] font-semibold uppercase tracking-[0.2em] text-parchment/50 mb-1.5 underline underline-offset-4 decoration-parchment/20">
                   {tl.footer.paymentInRussia}
                 </p>
+                {/* contrast-ok: brand-teal is 6.66:1 on espresso. The polarity
+                    flips on the dark footer — deep-teal would be 2.64:1 here. */}
                 <p className="font-sans text-[13px] text-brand-teal leading-relaxed font-medium whitespace-pre-line">
                   {tl.footer.paymentNote}
                 </p>

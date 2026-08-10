@@ -16,11 +16,8 @@ export function SectionHeading({
   return (
     <div className={cn("mb-10 md:mb-16", centered && "text-center")}>
       {label && (
-        // deep-teal, not brand-teal. This eyebrow is 14px, so AA asks 4.5:1 and
-        // brand-teal measures 2.13:1 on sand, 2.27:1 on ivory and 1.88:1 on
-        // parchment — it fails on every light ground the site uses. deep-teal
-        // is 5.36 / 5.73 / 4.74 respectively.
-        <span className="font-sans text-sm font-medium uppercase tracking-widest text-deep-teal">
+        // 14px, so AA asks 4.5:1 — see the accent-text token in globals.css.
+        <span className="font-sans text-sm font-medium uppercase tracking-widest text-accent-text">
           {label}
         </span>
       )}

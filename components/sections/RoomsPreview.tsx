@@ -53,7 +53,7 @@ export function RoomsPreview({ data }: RoomsPreviewProps) {
                 )}
                 <div className="p-5 md:p-8 flex flex-col flex-1">
                   <Link href="/rooms" className="group/text flex-1">
-                    <h3 className="font-serif text-2xl font-semibold text-charcoal group-hover/text:text-brand-teal transition-colors duration-200">
+                    <h3 className="font-serif text-2xl font-semibold text-charcoal group-hover/text:text-accent-text transition-colors duration-200">
                       {t(room.title)}
                     </h3>
                     <p className="mt-2 text-stone leading-relaxed">

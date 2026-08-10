@@ -250,7 +250,7 @@ export function ReviewScroller({ reviews, children }: ReviewScrollerProps) {
           are not. The tint detaches it from the scores caption, so two centred
           grey lines stop reading as one block. */}
       <p className="max-w-7xl mx-auto px-6 mb-8 text-center">
-        <span className="inline-block rounded-full bg-parchment px-4 py-1.5 font-sans text-xs text-stone">
+        <span className="inline-block rounded-full bg-parchment px-4 py-1.5 font-sans text-xs text-charcoal/70">
           {tl.reviews.selectedNote}
         </span>
       </p>

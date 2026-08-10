@@ -80,13 +80,19 @@ export function RatingSummary({ aggregates, locale }: RatingSummaryProps) {
               aria-label={`${a.platform}: ${a.score} ${locale === "ru" ? "из" : "out of"} ${a.scale}, ${a.count} ${pluralize(a.count, locale)} — ${t.opensInNewTab}`}
               className="group block text-center rounded-md px-3 py-1 transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2"
             >
-              {/* deep-teal not brand-teal: the brighter token is 2.27:1 on ivory,
-                  under the 3:1 large-text floor. Same family, 5.73:1. */}
-              <span className="block font-serif text-3xl font-light text-deep-teal leading-none group-hover:text-brand-teal transition-colors duration-300">
+              {/* Hover darkens to espresso rather than brightening to
+                  brand-teal. WCAG applies to every state, and brand-teal is
+                  2.27:1 on ivory — under even the 3:1 large-text floor, so the
+                  old hover failed on both the score and the platform name. */}
+              <span className="block font-serif text-3xl font-light text-accent-text leading-none group-hover:text-espresso transition-colors duration-300">
                 {a.score.toFixed(1)}
-                <span className="text-base text-deep-teal/50">/{a.scale}</span>
+                {/* The scale reads quieter than the score by size alone (16px
+                    against 30px). It carried a /50 opacity on top of that,
+                    which dropped it to 2.14:1 for no hierarchy it hadn't
+                    already earned. */}
+                <span className="text-base text-accent-text">/{a.scale}</span>
               </span>
-              <span className="mt-2 block font-sans text-xs font-medium text-charcoal/80 group-hover:text-brand-teal transition-colors duration-300">
+              <span className="mt-2 block font-sans text-xs font-medium text-charcoal/80 group-hover:text-espresso transition-colors duration-300">
                 {a.platform}
               </span>
               <span className="mt-0.5 block font-sans text-[11px] text-stone/80">

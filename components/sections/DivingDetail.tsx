@@ -53,14 +53,12 @@ export function DivingDetail({ data }: DivingDetailProps) {
               return (
                 <div key={i} className="bg-ivory p-6 shadow-sm flex flex-col rounded-md">
                   <h3 className="font-serif text-2xl font-semibold text-charcoal">{t(program.name)}</h3>
-                  {/* 12px, the smallest teal text on the site — brand-teal was
-                      2.27:1 on this ivory card. deep-teal measures 5.73:1. */}
-                  <p className="mt-1 text-xs text-deep-teal font-sans uppercase tracking-wider">{t(program.level)}</p>
+                  <p className="mt-1 text-xs text-accent-text font-sans uppercase tracking-wider">{t(program.level)}</p>
                   <p className="mt-3 text-stone text-sm leading-relaxed flex-1">{t(program.description)}</p>
                   {(program.duration || program.price) && (
                     <div className="mt-4 pt-4 border-t border-sand flex items-center justify-between">
                       {program.duration && <span className="text-xs text-stone font-sans">{program.duration}</span>}
-                      {program.price && <span className="font-sans font-semibold text-deep-teal">{program.price}</span>}
+                      {program.price && <span className="font-sans font-semibold text-accent-text">{program.price}</span>}
                     </div>
                   )}
                   <div className="mt-4 flex justify-center">

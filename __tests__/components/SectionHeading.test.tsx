@@ -43,9 +43,9 @@ describe("SectionHeading", () => {
     expect(screen.getByRole("heading", { level: 2 })).toHaveClass("text-charcoal");
   });
 
-  it("renders the label in deep-teal, which clears AA on the light grounds", () => {
+  it("renders the label in the accent-text role, which clears AA on light grounds", () => {
     render(<SectionHeading label="Stay" heading="Our Rooms" />);
-    // brand-teal is 2.13:1 on sand at this 14px size; deep-teal is 5.36:1.
-    expect(screen.getByText("Stay")).toHaveClass("text-deep-teal");
+    // Not brand-teal: that is 2.13:1 on sand at this 14px size.
+    expect(screen.getByText("Stay")).toHaveClass("text-accent-text");
   });
 });

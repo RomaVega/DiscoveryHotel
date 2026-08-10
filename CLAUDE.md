@@ -27,9 +27,10 @@ npm run lint                  # Zero warnings required
 npm run test                  # Vitest unit tests
 npm run build                 # Must pass before deploy (runs prebuild → image manifest)
 node scripts/check-images.js  # Catches broken image refs in JSON
+npm run check:contrast        # Catches WCAG AA text-contrast regressions
 ```
 
-Run all five checks before pushing to `main`. There is no bundle-size script yet — the < 500 KB target in [Performance](#performance) is currently aspirational, not enforced.
+Run all six checks before pushing to `main`. There is no bundle-size script yet — the < 500 KB target in [Performance](#performance) is currently aspirational, not enforced.
 
 ## Folder Structure
 
@@ -111,7 +112,8 @@ Mirror the page under `app/ru/rooms/page.tsx` with translated metadata and `alte
 
 ## Design Tokens (defined in `app/globals.css` under `@theme` — never raw hex in components)
 
-- `brand-teal` (#0abab5) — accent strokes, focus rings, secondary-button text/border. **Fails WCAG on white for body text** — use only for large/decorative text or interactive elements.
+- `accent-text` — **the teal that may carry text on light grounds.** Resolves to `deep-teal`. Reach for the role, not the hue: the contrast decision is made once in `@theme` rather than at every call site. Enforced by `npm run check:contrast`.
+- `brand-teal` (#0abab5) — accent strokes, focus rings, icons, fills. **Never as text on a light ground:** 2.13:1 on sand, 2.27:1 on ivory, 1.88:1 on parchment — it fails AA at every size the site uses, including the 3:1 large-text floor. It *is* correct as text on the dark footer (6.66:1 on espresso), where the polarity flips and `deep-teal` would instead fail at 2.64:1. Mark such cases with a `contrast-ok:` comment carrying the measurement.
 - `cta-teal` (#4ca8b5) — softer teal used inside `PrimaryButton` solid fill where the brighter `brand-teal` would clash.
 - `deep-teal` (#2a6b74) — hover state, footer, dark sections, scrolled nav.
 - `logo-gold` (#c9a84c) — hero star rating and other gilded accents.

@@ -60,10 +60,7 @@ export function SpecialOffers({ data, hideHeading }: SpecialOffersProps) {
                       360px row. */}
                   <div className="mt-6 pt-5 border-t border-charcoal/10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
                     <div>
-                      {/* deep-teal, not brand-teal: brand-teal is 2.1:1 on sand
-                          and an 18px semibold price is not WCAG "large text",
-                          so it failed AA. deep-teal measures 5.4:1 here. */}
-                      <p className="font-sans text-lg font-semibold text-deep-teal leading-none">
+                      <p className="font-sans text-lg font-semibold text-accent-text leading-none">
                         {t(offer.price)}
                       </p>
                       {offer.validity && (

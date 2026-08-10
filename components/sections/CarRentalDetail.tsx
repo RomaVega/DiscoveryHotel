@@ -50,7 +50,7 @@ export function CarRentalDetail({ data }: CarRentalDetailProps) {
                     <h3 className="font-serif text-2xl font-semibold text-charcoal">{t(vehicle.title)}</h3>
                     <p className="text-stone text-sm mt-2 leading-relaxed">{t(vehicle.description)}</p>
                     <div className="mt-2">
-                      <span className="font-sans font-semibold text-deep-teal text-sm">{t(vehicle.price)}</span>
+                      <span className="font-sans font-semibold text-accent-text text-sm">{t(vehicle.price)}</span>
                     </div>
                   </div>
                   <div className="flex justify-center sm:block">

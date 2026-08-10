@@ -105,6 +105,22 @@
   --color-stone: #8a8070;
   --color-espresso: #2a1f17;
 
+  /* Semantic roles.
+     The primitives above are hues; these are jobs. Reach for the role, not the
+     hue, so a contrast decision is made once here instead of at every call site.
+
+     accent-text is the teal that may carry TEXT on the light grounds. It is not
+     brand-teal: at 4.5:1 (anything under 24px, or under 18.66px bold) brand-teal
+     measures 2.13:1 on sand, 2.27:1 on ivory and 1.88:1 on parchment — it fails
+     everywhere the site puts words on a pale background. deep-teal is 5.36 /
+     5.73 / 4.74 on those same grounds.
+
+     brand-teal stays correct for borders, focus rings, icons and fills, where
+     the 3:1 non-text threshold applies — and for text on the DARK grounds,
+     where the polarity flips and it measures 6.66:1 on espresso. Do not
+     "fix" those; deep-teal on espresso is 2.64:1 and would be a regression. */
+  --color-accent-text: var(--color-deep-teal);
+
   /* Typography */
   --font-serif: "Cormorant Garamond", Georgia, serif;
   --font-sans: "Inter", system-ui, sans-serif;

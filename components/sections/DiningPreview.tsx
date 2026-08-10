@@ -71,7 +71,7 @@ export function DiningPreview() {
                 href={tableUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-1 font-sans text-xs font-medium text-deep-teal underline underline-offset-4 decoration-deep-teal/40 hover:decoration-deep-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 rounded-sm transition-colors"
+                className="mt-1 font-sans text-xs font-medium text-accent-text underline underline-offset-4 decoration-deep-teal/40 hover:decoration-deep-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 rounded-sm transition-colors"
               >
                 {isRu ? "Забронировать Столик" : "Book a Table"}
               </a>
