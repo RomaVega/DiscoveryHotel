@@ -18,11 +18,21 @@ export function Welcome({ data }: WelcomeProps) {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
           <FadeIn>
-            <SectionHeading
-              label={t(data.label)}
-              heading={t(data.heading)}
-              centered={false}
-            />
+            {/* Left-aligned from `md` up, where this is the text half of a
+                split layout and a centred heading would float loose of the
+                image beside it. Below `md` the grid stacks to one column and
+                the label/heading are the only things on their row, so they
+                centre like every other section on the page. text-align
+                inherits, which is why this rides on a wrapper rather than a
+                SectionHeading prop — the paragraph below stays left at every
+                width, since centring a long prose block hurts readability. */}
+            <div className="text-center md:text-left">
+              <SectionHeading
+                label={t(data.label)}
+                heading={t(data.heading)}
+                centered={false}
+              />
+            </div>
             <p className="text-stone text-lg leading-relaxed -mt-6">
               {t(data.description)}
             </p>

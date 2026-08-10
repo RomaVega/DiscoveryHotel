@@ -38,13 +38,14 @@ describe("SectionHeading", () => {
     expect(container.firstChild).not.toHaveClass("text-center");
   });
 
-  it("applies light heading color when light=true", () => {
-    render(<SectionHeading heading="Our Rooms" light />);
-    expect(screen.getByRole("heading", { level: 2 })).toHaveClass("text-white");
-  });
-
-  it("applies dark heading color by default", () => {
+  it("applies dark heading color", () => {
     render(<SectionHeading heading="Our Rooms" />);
     expect(screen.getByRole("heading", { level: 2 })).toHaveClass("text-charcoal");
+  });
+
+  it("renders the label in deep-teal, which clears AA on the light grounds", () => {
+    render(<SectionHeading label="Stay" heading="Our Rooms" />);
+    // brand-teal is 2.13:1 on sand at this 14px size; deep-teal is 5.36:1.
+    expect(screen.getByText("Stay")).toHaveClass("text-deep-teal");
   });
 });

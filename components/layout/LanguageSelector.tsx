@@ -161,10 +161,17 @@ export function LanguageSelector({ variant = "dark" }: LanguageSelectorProps) {
                     className={cn(
                       "shrink-0 w-7 text-center font-sans text-[10px] font-bold tracking-[0.08em] uppercase",
                       isActive
-                        ? "text-brand-teal"
+                        ? // 10px badge — brand-teal was ~2.2:1 on this panel.
+                          "text-deep-teal"
                         : lang.available
-                          ? "text-charcoal/40"
-                          : "text-charcoal/20"
+                          ? // /40 measured 2.52:1. An available language is an
+                            // actionable row, so AA applies; /70 is 6.39:1 and
+                            // matches the native name on the same row, which
+                            // was already legible while this badge was not.
+                            "text-charcoal/70"
+                          : // Unavailable rows stay dim: WCAG 1.4.3 exempts
+                            // inactive components, and the "Soon" pill says why.
+                            "text-charcoal/20"
                     )}
                   >
                     {lang.label}
