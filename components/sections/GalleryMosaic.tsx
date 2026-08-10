@@ -77,8 +77,10 @@ export function GalleryMosaic({ data }: GalleryMosaicProps) {
                     "font-sans font-medium text-xs md:text-sm tracking-wide px-4 py-2 rounded-full border transition-colors duration-300",
                     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-sand",
                     activeTab
-                      ? "bg-brand-teal border-brand-teal text-white"
-                      : "bg-transparent border-charcoal/15 text-stone hover:border-brand-teal hover:text-deep-teal"
+                      // charcoal on the teal fill (7.21:1); white was 2.41:1.
+                      ? "bg-brand-teal border-brand-teal text-charcoal"
+                      // stone was 3.43:1 on the sand ground behind these pills.
+                      : "bg-transparent border-charcoal/15 text-charcoal/70 hover:border-brand-teal hover:text-accent-text"
                   )}
                 >
                   {tl.gallery.filters[tab]}

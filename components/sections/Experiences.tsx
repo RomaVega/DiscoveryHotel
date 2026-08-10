@@ -4,7 +4,11 @@ import Image from "next/image";
 import { LocalizedLink as Link } from "@/components/common/LocalizedLink";
 import { FadeIn } from "@/components/common/FadeIn";
 import { SectionHeading } from "@/components/common/SectionHeading";
-import { SecondaryButton } from "@/components/common/SecondaryButton";
+import {
+  SecondaryButton,
+  SECONDARY_BUTTON_BASE,
+  SECONDARY_BUTTON_HOVER,
+} from "@/components/common/SecondaryButton";
 import { cn } from "@/lib/utils";
 import type { ExperiencesData, ExperienceCard } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
@@ -88,7 +92,8 @@ function CardInner({ item, compactMobile }: { item: ExperienceCard; compactMobil
           {t(item.description)}
         </p>
         <div className={cn("mt-6 justify-center", compactMobile ? "hidden sm:flex" : "flex")}>
-          <span className="inline-block bg-transparent border border-brand-teal text-brand-teal hover:bg-brand-teal hover:text-white hover:scale-[1.04] active:scale-[0.97] font-sans font-semibold px-5 py-2 rounded-full tracking-wide text-xs transition-all duration-300">
+          {/* A span, not SecondaryButton: the whole card is already an <a>. */}
+          <span className={cn(SECONDARY_BUTTON_BASE, SECONDARY_BUTTON_HOVER)}>
             {t(cta)}
           </span>
         </div>

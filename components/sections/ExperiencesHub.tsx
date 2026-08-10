@@ -3,7 +3,8 @@
 import Image from "next/image";
 import { LocalizedLink as Link } from "@/components/common/LocalizedLink";
 import { FadeIn } from "@/components/common/FadeIn";
-import { SecondaryButton } from "@/components/common/SecondaryButton";
+import { SecondaryButton, SECONDARY_BUTTON_BASE } from "@/components/common/SecondaryButton";
+import { cn } from "@/lib/utils";
 import { useLanguage } from "@/lib/language-context";
 import { getWhatsAppNumber } from "@/lib/whatsapp";
 import type { ExperiencesHubData } from "@/lib/types";
@@ -58,7 +59,9 @@ export function ExperiencesHub({ data }: ExperiencesHubProps) {
                     <h3 className="font-serif text-xl font-semibold text-charcoal">{t(cat.title)}</h3>
                     <p className="mt-2 text-stone text-sm leading-relaxed flex-1">{t(cat.description)}</p>
                     <div className="mt-5 flex justify-center">
-                      <span className="inline-block bg-transparent border border-brand-teal text-brand-teal group-hover:bg-brand-teal group-hover:text-white active:scale-[0.97] font-sans font-semibold px-5 py-2 rounded-full tracking-wide text-xs transition-all duration-300">
+                      {/* A span, not SecondaryButton: the card is already an
+                          <a>. Hover is driven by the card's `group`. */}
+                      <span className={cn(SECONDARY_BUTTON_BASE, "group-hover:bg-brand-teal group-hover:text-charcoal active:scale-[0.97]")}>
                         {t(cat.cta ?? { en: "Learn More", ru: "Подробнее" })}
                       </span>
                     </div>

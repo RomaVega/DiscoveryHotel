@@ -1,11 +1,33 @@
 import { LocalizedLink } from "@/components/common/LocalizedLink";
 import { cn } from "@/lib/utils";
 
-const BASE_STYLES =
-  "inline-block bg-transparent border border-brand-teal text-brand-teal " +
-  "hover:bg-brand-teal hover:text-white hover:scale-[1.04] active:scale-[0.97] " +
+/**
+ * Shape and colour, without any interaction state.
+ *
+ * Exported because two call sites cannot use this component: the pill inside an
+ * Experiences card and the one inside an ExperiencesHub card are `<span>`s
+ * nested in a card-wide `<a>`, and an anchor inside an anchor is invalid HTML.
+ * They render the look without the semantics, so they share the constant
+ * instead of hand-copying the class list — which is how the two of them drifted
+ * out of sync with this file in the first place.
+ *
+ * deep-teal rather than brand-teal: brand-teal is 2.13:1 on sand as text, and
+ * its border misses the 3:1 non-text floor too.
+ */
+export const SECONDARY_BUTTON_BASE =
+  "inline-block bg-transparent border border-deep-teal text-accent-text " +
   "font-sans font-semibold px-5 py-2 rounded-full tracking-wide text-xs whitespace-nowrap " +
-  "transition-all duration-300 " +
+  "transition-all duration-300";
+
+/**
+ * Hover fill. Text goes charcoal, not white: white on brand-teal is 2.41:1,
+ * while charcoal on the same fill is 7.21:1.
+ */
+export const SECONDARY_BUTTON_HOVER =
+  "hover:bg-brand-teal hover:text-charcoal hover:scale-[1.04] active:scale-[0.97]";
+
+const BASE_STYLES =
+  SECONDARY_BUTTON_BASE + " " + SECONDARY_BUTTON_HOVER + " " +
   "focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2";
 
 interface SecondaryButtonBase {

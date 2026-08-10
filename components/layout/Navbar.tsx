@@ -164,7 +164,10 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80, brandAfter
       >
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 bg-brand-teal text-white px-4 py-2 font-sans text-sm"
+          // charcoal, not white: white on this fill is 2.41:1, and a skip link
+          // that fails contrast defeats the point of having one. charcoal is
+          // 7.21:1 on the same teal.
+          className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 bg-brand-teal text-charcoal px-4 py-2 font-sans text-sm"
         >
           {tl.nav.skipToContent}
         </a>
