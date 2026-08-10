@@ -42,10 +42,14 @@ const keepSlashCompoundsWhole = (s: string) => s.replace(/\/(?=\S)/g, "/⁠");
  * ~7 Cyrillic characters. Cells therefore reserve two lines below `md` (see
  * `min-h-10`), making every row the same height whichever labels happen to wrap.
  *
- * That puts the mobile pitch at 68px (40px cell + 28px gap), so this caps three
- * full rows plus the whole of row four, which the gradient below then fades.
- * Rendering that last row complete and dimming it reads as intentional; clipping
- * it through the middle of the words reads as broken.
+ * That puts the mobile pitch at 68px (40px cell + 28px gap), so this caps four
+ * full rows plus the whole of row five, which the gradient below then fades:
+ * eight amenities at full strength and two dimmed behind them. Rendering that
+ * last row complete and dimming it reads as intentional; clipping it through the
+ * middle of the words reads as broken.
+ *
+ * 312px is row five's baseline — four pitches down (4 × 68 = 272) plus the 40px
+ * cell. Change the pitch and this has to move with it.
  *
  * Mobile only. At 2 columns the list runs 12 rows and genuinely needs folding;
  * at 4 columns it is 6 rows and ~260px, which is not bulky enough to justify
@@ -57,7 +61,7 @@ const keepSlashCompoundsWhole = (s: string) => s.replace(/\/(?=\S)/g, "/⁠");
  * and out of `display:none`, so the full list stays available to crawlers and
  * assistive tech in either state.
  */
-const COLLAPSED_HEIGHT = "max-h-[244px] md:max-h-none";
+const COLLAPSED_HEIGHT = "max-h-[312px] md:max-h-none";
 
 export function Amenities({ data }: AmenitiesProps) {
   const { t, tl } = useLanguage();
@@ -99,12 +103,16 @@ export function Amenities({ data }: AmenitiesProps) {
           })}
           </div>
 
-          {/* Fades the half-row into the section background so the cut reads as a
-              soft horizon. pointer-events-none so it never blocks the row beneath. */}
+          {/* Fades the last row into the section background so the cut reads as a
+              soft horizon. 68px is one full pitch, which starts the fade at row
+              four's baseline (312 − 68 = 244) — so the eight amenities above it
+              stay at full strength and only row five dims. A shorter gradient
+              would bite into row four; a taller one would start fading row three.
+              pointer-events-none so it never blocks the row beneath. */}
           {!expanded && (
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-b from-transparent to-ivory md:hidden"
+              className="pointer-events-none absolute inset-x-0 bottom-0 h-[68px] bg-gradient-to-b from-transparent to-ivory md:hidden"
             />
           )}
         </div>
