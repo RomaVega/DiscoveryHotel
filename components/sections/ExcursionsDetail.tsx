@@ -45,7 +45,7 @@ function ExcursionGroup({ section }: { section: ExcursionSection }) {
                       <span className="order-2 text-xs text-stone/70 font-sans">{t(item.duration)}</span>
                     )}
                     {item.price && (
-                      <span className="order-1 font-sans font-semibold text-brand-teal text-sm">{t(item.price)}</span>
+                      <span className="order-1 font-sans font-semibold text-deep-teal text-sm">{t(item.price)}</span>
                     )}
                   </div>
                 </div>

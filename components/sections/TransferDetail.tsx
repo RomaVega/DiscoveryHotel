@@ -42,8 +42,8 @@ export function TransferDetail({ data }: TransferDetailProps) {
               {data.routes.map((route, i) => (
                 <div key={i} className="grid grid-cols-3 gap-4 p-4">
                   <span className="font-sans text-sm text-charcoal">{t(route.destination)}</span>
-                  <span className="font-sans text-sm text-brand-teal text-center font-semibold">{route.oneWay}</span>
-                  <span className="font-sans text-sm text-brand-teal text-center font-semibold">{route.roundTrip}</span>
+                  <span className="font-sans text-sm text-deep-teal text-center font-semibold">{route.oneWay}</span>
+                  <span className="font-sans text-sm text-deep-teal text-center font-semibold">{route.roundTrip}</span>
                 </div>
               ))}
             </div>
@@ -61,7 +61,7 @@ export function TransferDetail({ data }: TransferDetailProps) {
                 {data.localRoutes.map((route, i) => (
                   <div key={i} className="flex items-center justify-between p-4">
                     <span className="font-sans text-sm text-charcoal">{t(route.destination)}</span>
-                    <span className="font-sans text-sm text-brand-teal font-semibold">{route.price}</span>
+                    <span className="font-sans text-sm text-deep-teal font-semibold">{route.price}</span>
                   </div>
                 ))}
               </div>

@@ -58,7 +58,7 @@ export function DivingDetail({ data }: DivingDetailProps) {
                   {(program.duration || program.price) && (
                     <div className="mt-4 pt-4 border-t border-sand flex items-center justify-between">
                       {program.duration && <span className="text-xs text-stone font-sans">{program.duration}</span>}
-                      {program.price && <span className="font-sans font-semibold text-brand-teal">{program.price}</span>}
+                      {program.price && <span className="font-sans font-semibold text-deep-teal">{program.price}</span>}
                     </div>
                   )}
                   <div className="mt-4 flex justify-center">

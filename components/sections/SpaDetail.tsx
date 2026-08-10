@@ -33,7 +33,9 @@ function TreatmentCard({ treatment, bookText, whatsappBase }: {
             <span className="order-2 text-xs text-stone/70 font-sans">{treatment.duration}</span>
           )}
           {treatment.price && (
-            <span className="order-1 font-sans font-semibold text-brand-teal text-lg">{treatment.price}</span>
+            // deep-teal, not brand-teal: brand-teal is 2.4:1 on ivory and an
+            // 18px semibold price is not WCAG "large text", so it failed AA.
+            <span className="order-1 font-sans font-semibold text-deep-teal text-lg">{treatment.price}</span>
           )}
         </div>
       </div>
@@ -88,7 +90,7 @@ export function SpaDetail({ data }: SpaDetailProps) {
                     <p className="mt-2 text-stone text-sm leading-relaxed">{t(program.description)}</p>
                     <div className="mt-3 flex items-baseline justify-between sm:justify-start sm:gap-4">
                       <span className="order-2 text-xs text-stone/70 font-sans">{program.duration}</span>
-                      <span className="order-1 font-sans font-semibold text-brand-teal text-lg">{program.price}</span>
+                      <span className="order-1 font-sans font-semibold text-deep-teal text-lg">{program.price}</span>
                     </div>
                   </div>
                   <div className="mt-4 flex justify-center sm:mt-0 sm:block">
