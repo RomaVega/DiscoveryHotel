@@ -143,6 +143,7 @@ export default function RootLayout({
                 "https://facebook.com/orlowskydiscovery",
                 "https://instagram.com/orlowskydiscovery",
                 "https://youtube.com/@orlowskydiscovery",
+                "https://t.me/discoveryhot",
               ],
             }),
           }}

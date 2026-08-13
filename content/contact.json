@@ -35,6 +35,11 @@
       "platform": "YouTube",
       "url": "https://youtube.com/@orlowskydiscovery",
       "icon": "Youtube"
+    },
+    {
+      "platform": "Telegram",
+      "url": "https://t.me/discoveryhot",
+      "icon": "Telegram"
     }
   ],
   "googleMapsUrl": "https://maps.app.goo.gl/BAULUfey4u4axAHj6"
