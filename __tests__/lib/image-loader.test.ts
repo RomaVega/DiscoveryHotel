@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 
 vi.mock("@/lib/image-manifest", () => ({
-  IMAGE_VERSIONS: { "/images/known.webp": "abc12345" },
+  ASSET_VERSIONS: { "/images/known.webp": "abc12345" },
 }));
 vi.mock("@/lib/site", () => ({
   ASSET_VERSION: "fallback99",

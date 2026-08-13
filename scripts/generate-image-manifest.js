@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 // AUTO-GENERATES lib/image-manifest.ts — a complete list of every image and route
 // referenced anywhere in the site, so SitePreloader can background-load the whole
-// site without the list ever drifting out of sync. Also hashes each image's bytes
-// so lib/image-loader.ts can cache-bust automatically when a photo is replaced
+// site without the list ever drifting out of sync. Also hashes the bytes of every
+// image and video so their URLs cache-bust automatically when a file is replaced
 // in place, instead of relying on someone to remember to bump ASSET_VERSION.
 const fs = require("fs");
 const path = require("path");
@@ -10,6 +10,10 @@ const crypto = require("crypto");
 
 const root = path.join(__dirname, "..");
 const IMG_RE = /\/images\/[^"'`)\s]+(?:\s[^"'`)]+)*?\.(?:webp|jpg|jpeg|png|avif)/gi;
+// Video is served `immutable` for a year like images are, but it never passes
+// through lib/image-loader.ts — a <video><source> is a plain URL. Hash it here
+// too so swapping a hero clip in place busts the cache on its own.
+const VIDEO_RE = /\/video\/[^"'`)\s]+\.(?:mp4|webm|mov)/gi;
 
 function walk(dir, exts, acc) {
   if (!fs.existsSync(dir)) return acc;
@@ -32,22 +36,26 @@ const sourceFiles = [
 ];
 
 const imgSet = new Set();
+const videoSet = new Set();
 for (const f of sourceFiles) {
   if (f.endsWith("image-manifest.ts")) continue; // don't read our own output
   const txt = fs.readFileSync(f, "utf8");
-  const matches = txt.match(IMG_RE);
-  if (matches) for (const m of matches) imgSet.add(m);
+  const imgMatches = txt.match(IMG_RE);
+  if (imgMatches) for (const m of imgMatches) imgSet.add(m);
+  const videoMatches = txt.match(VIDEO_RE);
+  if (videoMatches) for (const m of videoMatches) videoSet.add(m);
 }
 
-// Keep only images that actually exist on disk
-const images = [...imgSet]
-  .filter((p) => fs.existsSync(path.join(root, "public", p)))
-  .sort();
+const onDisk = (p) => fs.existsSync(path.join(root, "public", p));
 
-// --- Hash each image's bytes so its URL changes automatically when the file
+// Keep only files that actually exist on disk
+const images = [...imgSet].filter(onDisk).sort();
+const videos = [...videoSet].filter(onDisk).sort();
+
+// --- Hash each file's bytes so its URL changes automatically when the file
 // does, even though the filename stays the same ---
 const versions = {};
-for (const p of images) {
+for (const p of [...images, ...videos]) {
   const bytes = fs.readFileSync(path.join(root, "public", p));
   versions[p] = crypto.createHash("sha256").update(bytes).digest("hex").slice(0, 8);
 }
@@ -70,12 +78,17 @@ export const ALL_IMAGES: readonly string[] = ${JSON.stringify(images, null, 2)};
 
 export const ALL_ROUTES: readonly string[] = ${JSON.stringify(routes, null, 2)};
 
-// First 8 hex chars of each image's sha256 — lib/image-loader.ts appends this
-// to the URL so replacing a photo in place (same filename) still busts the
-// browser and CDN caches. Falls back to ASSET_VERSION for any path not listed
-// here (e.g. one assembled at runtime rather than a static literal).
-export const IMAGE_VERSIONS: Readonly<Record<string, string>> = ${JSON.stringify(versions, null, 2)};
+// First 8 hex chars of each file's sha256 — covers /images and /video, both of
+// which netlify.toml serves \`immutable\` for a year under non-hashed filenames.
+// lib/image-loader.ts appends this for images, versionedAsset() in lib/site.ts
+// for everything else, so replacing a file in place (same filename) still busts
+// the browser and CDN caches. Falls back to ASSET_VERSION for any path not
+// listed here (e.g. one assembled at runtime rather than a static literal).
+export const ASSET_VERSIONS: Readonly<Record<string, string>> = ${JSON.stringify(versions, null, 2)};
 `;
 
 fs.writeFileSync(path.join(root, "lib", "image-manifest.ts"), out);
-console.log(`Wrote ${images.length} images (with content hashes) and ${routes.length} routes to lib/image-manifest.ts`);
+console.log(
+  `Wrote ${images.length} images + ${videos.length} videos (with content hashes) ` +
+    `and ${routes.length} routes to lib/image-manifest.ts`
+);

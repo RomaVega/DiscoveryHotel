@@ -3,6 +3,7 @@
 import { useState, useRef, useLayoutEffect, useEffect } from "react";
 import Image from "next/image";
 import imageLoader from "@/lib/image-loader";
+import { versionedAsset } from "@/lib/site";
 import { m } from "framer-motion";
 import { Pause, Play } from "lucide-react";
 import type { HeroData } from "@/lib/types";
@@ -224,12 +225,12 @@ export function HeroImage({ hero }: HeroImageProps) {
               renders in SSR and only the device-appropriate clip is fetched. */}
           {hero.videoMobile && (
             <source
-              src={`${BASE_PATH}${hero.videoMobile}`}
+              src={`${BASE_PATH}${versionedAsset(hero.videoMobile)}`}
               media="(max-width: 767px)"
               type="video/mp4"
             />
           )}
-          <source src={`${BASE_PATH}${hero.video}`} type="video/mp4" />
+          <source src={`${BASE_PATH}${versionedAsset(hero.video)}`} type="video/mp4" />
         </video>
       )}
 

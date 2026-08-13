@@ -173,11 +173,13 @@ export const ALL_ROUTES: readonly string[] = [
   "/weddings"
 ];
 
-// First 8 hex chars of each image's sha256 — lib/image-loader.ts appends this
-// to the URL so replacing a photo in place (same filename) still busts the
-// browser and CDN caches. Falls back to ASSET_VERSION for any path not listed
-// here (e.g. one assembled at runtime rather than a static literal).
-export const IMAGE_VERSIONS: Readonly<Record<string, string>> = {
+// First 8 hex chars of each file's sha256 — covers /images and /video, both of
+// which netlify.toml serves `immutable` for a year under non-hashed filenames.
+// lib/image-loader.ts appends this for images, versionedAsset() in lib/site.ts
+// for everything else, so replacing a file in place (same filename) still busts
+// the browser and CDN caches. Falls back to ASSET_VERSION for any path not
+// listed here (e.g. one assembled at runtime rather than a static literal).
+export const ASSET_VERSIONS: Readonly<Record<string, string>> = {
   "/images/deluxe-cottage/deluxe-cottage-aerial-garden-candidasa.webp": "04e671fe",
   "/images/deluxe-cottage/deluxe-cottage-anteroom-candidasa.webp": "9b6a7d84",
   "/images/deluxe-cottage/deluxe-cottage-anteroom-tea-tray-candidasa.webp": "6261ee9a",
@@ -305,5 +307,7 @@ export const IMAGE_VERSIONS: Readonly<Record<string, string>> = {
   "/images/three-bedrooms-pool-villa/pool-villa-twin-bedroom-terrace-candidasa.webp": "5d35ed25",
   "/images/three-bedrooms-pool-villa/pool-villa-twin-bedroom-turndown-candidasa.webp": "77cad8e5",
   "/images/welcome/welcome-garden-path-ocean-candidasa-mobile.webp": "d8e75e83",
-  "/images/welcome/welcome-garden-path-ocean-candidasa.webp": "208dc890"
+  "/images/welcome/welcome-garden-path-ocean-candidasa.webp": "208dc890",
+  "/video/orlowsky-hotel-candidasa-bali-hero-mobile.mp4": "5217ec2d",
+  "/video/orlowsky-hotel-candidasa-bali-hero.mp4": "502d2af6"
 };
