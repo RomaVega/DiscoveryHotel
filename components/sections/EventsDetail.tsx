@@ -82,13 +82,13 @@ export function EventsDetail({ data }: EventsDetailProps) {
     </section>
 
       {/* ── CTA ── */}
-      <section className="pt-6 md:pt-32 pb-6 md:pb-32 bg-cta-teal">
+      <section className="pt-6 md:pt-32 pb-6 md:pb-32 bg-deep-teal">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <FadeIn>
-            <h2 className="font-serif font-light text-2xl md:text-5xl text-white">
+            <h2 className="font-serif font-medium text-2xl md:text-5xl text-white text-balance">
               {t({ ru: "Начните Планировать Торжество", en: "Start Planning Your Celebration" })}
             </h2>
-            <p className="mt-4 text-sm md:text-lg text-white/70 leading-relaxed">
+            <p className="mt-4 text-sm md:text-lg text-white/80 leading-relaxed">
               {t({
                 ru: "Поделитесь вашей идеей — мы создадим незабываемое мероприятие на нашей площадке у океана в Чандидасе.",
                 en: "Share your vision — we'll design an unforgettable event at our oceanfront venue in Candidasa.",

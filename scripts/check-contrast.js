@@ -17,6 +17,16 @@
  *     One className names BOTH a background and a text colour. That pair is
  *     fully determined, so the ratio is computed and checked outright.
  *
+ *   RULE C — white text in a file that paints a mid-tone colour block.
+ *     RULE B only fires when both ends sit in one className. A full-bleed band
+ *     paints the <section> and the heading is a descendant, so the pair is never
+ *     resolvable and white-on-teal went unnoticed on ten sections: white is
+ *     2.77:1 on cta-teal, below even the 3:1 large-text floor. So the mid-tone
+ *     fills are named here, and white text anywhere in a file that paints one is
+ *     flagged. Only saturated mid-tones are listed — sand, ivory and parchment
+ *     are deliberately excluded, because white text legitimately co-occurs with
+ *     them over hero photography, and listing them would bury the signal.
+ *
  * Colour values are read from app/globals.css — there are no hex literals here
  * to drift out of sync with the theme.
  *
@@ -33,6 +43,19 @@ const THEME = "app/globals.css";
 
 /** Tokens whose contrast we cannot infer without knowing the ground. */
 const BANNED_AS_TEXT = ["brand-teal"];
+
+/**
+ * Fills that read as "a colour block" and so get reached for as section
+ * backgrounds, but are too light to carry white text.
+ *
+ * Only cta-teal qualifies today, and the exclusions are deliberate. Neutrals
+ * (sand, ivory, parchment) are out because white text legitimately sits over
+ * hero photography in the same files. brand-teal is out because it is the fill
+ * of pills, badges and the skip link, which name their own text colour on the
+ * same className and are therefore already decided by RULE B — listing it
+ * turned every unrelated white string in those files into a false positive.
+ */
+const MID_GROUNDS = ["cta-teal"];
 
 // ── colour maths (WCAG 2.1 relative luminance) ──────────────────────────────
 
@@ -159,13 +182,31 @@ const tokenAlt = tokenNames.join("|");
 const BG_RE = new RegExp(`(?:^|[\\s"'\`])bg-(${tokenAlt})(?![\\w-])`);
 const TEXT_RE = new RegExp(`(?:^|[\\s"'\`])text-(${tokenAlt})(?![\\w-/])`);
 const BANNED_RE = new RegExp(`(?:^|[\\s"'\`:])text-(${BANNED_AS_TEXT.join("|")})(?![\\w-])`);
+// Matches text-white and its opacity variants (text-white/70).
+const WHITE_TEXT_RE = /(?:^|[\s"'`:])text-white(?:\/\d{1,3})?(?![\w-])/;
 
 const violations = [];
 
 for (const root of ROOTS) {
   if (!fs.existsSync(root)) continue;
   for (const file of walk(root)) {
-    const lines = fs.readFileSync(file, "utf8").split("\n");
+    const src = fs.readFileSync(file, "utf8");
+    const lines = src.split("\n");
+
+    // Mid-tone grounds this file paints as a BAND, worst (lightest) first.
+    // The band test matters: brand-teal is also the colour of hairline rules
+    // (`w-px h-10 bg-brand-teal`) and of the WhatsApp bubble, which carry no
+    // body text and must not drag every white string in the file into a
+    // violation. A band carries its own vertical padding or is a <section>.
+    const bandLines = logicalLines(lines).filter(
+      ({ text }) => /<section\b/.test(text) || /(?:^|[\s"'`])(?:p|py|pt|pb)-/.test(text)
+    );
+    const midGrounds = MID_GROUNDS.filter((name) => {
+      if (!tokens[name]) return false;
+      const bg = new RegExp(`(?:^|[\\s"'\`])bg-${name}(?![\\w-])`);
+      return bandLines.some(({ text }) => bg.test(text));
+    }).sort((a, b) => ratio("#ffffff", tokens[a]) - ratio("#ffffff", tokens[b]));
+
     for (const { start, text } of logicalLines(lines)) {
       // A pragma may sit a few lines up: the justification is usually a
       // multi-line comment, so only its last line abuts the code.
@@ -189,6 +230,19 @@ for (const root of ROOTS) {
             text,
           });
         }
+        continue;
+      }
+
+      // RULE C — white text in a file that paints a mid-tone colour block.
+      // Opacity is ignored on purpose: text-white/70 can only be worse than
+      // white, so the full-strength ratio is already the generous reading.
+      if (midGrounds.length && WHITE_TEXT_RE.test(text)) {
+        const ground = midGrounds[0];
+        violations.push({
+          file, line: start, rule: "C",
+          detail: `text-white at ${px}px in a file that paints bg-${ground} — white on it is ${ratio("#ffffff", tokens[ground]).toFixed(2)}:1, needs ${need}:1`,
+          text,
+        });
         continue;
       }
 

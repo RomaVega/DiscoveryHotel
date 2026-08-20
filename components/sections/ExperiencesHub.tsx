@@ -87,13 +87,13 @@ export function ExperiencesHub({ data }: ExperiencesHubProps) {
       </section>
 
       {/* ── CTA ── */}
-      <section className="pt-6 md:pt-32 pb-6 md:pb-32 bg-cta-teal">
+      <section className="pt-6 md:pt-32 pb-6 md:pb-32 bg-deep-teal">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <FadeIn>
-            <h2 className="font-serif font-light text-2xl md:text-5xl text-white">
+            <h2 className="font-serif font-medium text-2xl md:text-5xl text-white text-balance">
               {t({ ru: "Готовы Исследовать Восточный Бали?", en: "Ready to Explore East Bali?" })}
             </h2>
-            <p className="mt-4 text-sm md:text-lg text-white/70 leading-relaxed">
+            <p className="mt-4 text-sm md:text-lg text-white/80 leading-relaxed">
               {t({
                 ru: "Свяжитесь с нами — мы подберём экскурсии и впечатления специально для вас.",
                 en: "Get in touch and we'll arrange the perfect experiences for your stay.",

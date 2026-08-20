@@ -178,10 +178,10 @@ export function DiningDetail({ data, contact }: DiningDetailProps) {
           people to secure a table invents a scarcity they can feel isn't real. The
           barrier that actually costs covers is the assumption that the restaurant is
           for hotel guests only, so this says otherwise and ends the page on it. */}
-      <section className="py-16 md:py-24 bg-cta-teal">
+      <section className="py-16 md:py-24 bg-deep-teal">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <FadeIn>
-            <h2 className="font-serif text-2xl md:text-4xl font-light text-white">
+            <h2 className="font-serif text-2xl md:text-4xl font-medium text-white text-balance">
               {t(data.visitCta.heading)}
             </h2>
             <p className="mt-4 text-white/80 text-base md:text-lg leading-relaxed">
@@ -202,7 +202,7 @@ export function DiningDetail({ data, contact }: DiningDetailProps) {
                 href={data.googleMapsUrl ?? contact.googleMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-sans text-xs font-medium text-white/70 hover:text-white underline underline-offset-4 decoration-white/30 hover:decoration-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-cta-teal rounded-sm transition-colors"
+                className="font-sans text-xs font-medium text-white/80 hover:text-white underline underline-offset-4 decoration-white/30 hover:decoration-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-deep-teal rounded-sm transition-colors"
               >
                 {isRu ? "Как Нас Найти" : "See Location"}
               </a>

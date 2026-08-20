@@ -105,10 +105,10 @@ export function DivingDetail({ data }: DivingDetailProps) {
 
     {/* ── "Not sure where to start?" help CTA ── */}
     {data.helpCta && (
-      <section className="py-16 md:py-24 bg-cta-teal">
+      <section className="py-16 md:py-24 bg-deep-teal">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <FadeIn>
-            <h2 className="font-serif text-2xl md:text-4xl font-light text-white">
+            <h2 className="font-serif text-2xl md:text-4xl font-medium text-white text-balance">
               {t(data.helpCta.heading)}
             </h2>
             <p className="mt-4 text-white/80 text-base md:text-lg leading-relaxed">

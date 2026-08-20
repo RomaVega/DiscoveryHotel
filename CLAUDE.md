@@ -134,8 +134,8 @@ Mirror the page under `app/ru/rooms/page.tsx` with translated metadata and `alte
 
 - `accent-text` — **the teal that may carry text on light grounds.** Resolves to `deep-teal`. Reach for the role, not the hue: the contrast decision is made once in `@theme` rather than at every call site. Enforced by `npm run check:contrast`.
 - `brand-teal` (#0abab5) — accent strokes, focus rings, icons, fills. **Never as text on a light ground:** 2.13:1 on sand, 2.27:1 on ivory, 1.88:1 on parchment — it fails AA at every size the site uses, including the 3:1 large-text floor. It *is* correct as text on the dark footer (6.66:1 on espresso), where the polarity flips and `deep-teal` would instead fail at 2.64:1. Mark such cases with a `contrast-ok:` comment carrying the measurement.
-- `cta-teal` (#4ca8b5) — softer teal used inside `PrimaryButton` solid fill where the brighter `brand-teal` would clash.
-- `deep-teal` (#2a6b74) — hover state, footer, dark sections, scrolled nav.
+- `cta-teal` (#4ca8b5) — softer teal used inside `PrimaryButton` solid fill where the brighter `brand-teal` would clash. **A button fill, never a section background.** White on it is 2.77:1 — below even the 3:1 large-text floor — and it spent time as the ground of all ten CTA bands with white headings on it. `npm run check:contrast` RULE C now fails the build if `text-white` appears in a file that paints `bg-cta-teal`.
+- `deep-teal` (#2a6b74) — hover state, footer, dark sections, scrolled nav, **and the ground for every full-bleed CTA band** (white heading 6.08:1, `text-white/80` body 4.54:1 — `/70` is 3.91:1 and fails at body sizes). Band headings are `font-medium`: Cormorant's hairlines at 300 go fragile on a dark ground.
 - `logo-gold` (#c9a84c) — hero star rating and other gilded accents.
 - `sand` (#f5f0e8) — page bg | `ivory` (#faf8f4) — card/modal bg | `parchment` (#e8e3d5) — scrolled-nav bg, loading screen.
 - `charcoal` (#1a1a1a) — body text, headings | `stone` (#8a8070) — captions, secondary.

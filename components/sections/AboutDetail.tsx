@@ -22,12 +22,12 @@ export function AboutDetail({ data }: AboutDetailProps) {
     <div>
       {/* ── Stats strip ── */}
       {data.stats && data.stats.length > 0 && (
-        <div className="bg-cta-teal py-10 px-6">
+        <div className="bg-deep-teal py-10 px-6">
           <div className="max-w-3xl mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-white/15">
             {data.stats.map((stat, i) => (
               <div key={i} className="text-center px-4 md:px-6">
                 <p className="font-serif text-2xl md:text-3xl font-light text-white">{stat.value}</p>
-                <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-white/40 mt-1.5">{t(stat.label)}</p>
+                <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-white/80 mt-1.5">{t(stat.label)}</p>
               </div>
             ))}
           </div>
