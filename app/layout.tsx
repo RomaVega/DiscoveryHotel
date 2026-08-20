@@ -7,7 +7,7 @@ import { LanguageProvider } from "@/lib/language-context";
 import { ALL_ROUTES } from "@/lib/image-manifest";
 import { SITE_URL, SITE_NAME, OG_IMAGE } from "@/lib/site";
 import { getWhatsAppNumber } from "@/lib/whatsapp";
-import { getRatingAggregates } from "@/lib/content";
+import { getContactData, getRatingAggregates } from "@/lib/content";
 import { aggregateRating } from "@/lib/jsonld";
 import "./globals.css";
 
@@ -139,12 +139,11 @@ export default function RootLayout({
                 { "@type": "LocationFeatureSpecification", "name": "Laundry Service",      "value": true },
               ],
               "aggregateRating": aggregateRating(getRatingAggregates()),
-              "sameAs": [
-                "https://facebook.com/orlowskydiscovery",
-                "https://instagram.com/orlowskydiscovery",
-                "https://youtube.com/@orlowskydiscovery",
-                "https://t.me/discoveryhot",
-              ],
+              // Derived from contact.json rather than listed again here: this array
+              // and the footer icons are the same claim about the same accounts, and
+              // a second hardcoded copy is a second thing to forget. Three of the four
+              // URLs here sat dead after the profiles moved.
+              "sameAs": getContactData().socials.map((s) => s.url),
             }),
           }}
         />
