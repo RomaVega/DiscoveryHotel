@@ -10,6 +10,7 @@ import {
   SECONDARY_BUTTON_HOVER,
 } from "@/components/common/SecondaryButton";
 import { cn } from "@/lib/utils";
+import { joinSlashes } from "@/lib/typography";
 import type { ExperiencesData, ExperienceCard } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
 
@@ -78,21 +79,24 @@ function CardInner({ item, compactMobile }: { item: ExperienceCard; compactMobil
             // which is what keeps them inside the 3.5rem reservation below.
             // The 10ch cap keeps titles off a single line, so a short label never
             // sits alone beside a two-line neighbour: it is wider than any single
-            // word here, so nothing breaks mid-word. It does NOT guarantee two
-            // lines — RU "Аренда Авто/Мото" takes three, because the slash gives
-            // the browser an extra break opportunity. min-h is therefore a floor,
-            // not the height: flex-1 lets the title absorb whatever height the
-            // row's tallest card imposes, and items-center holds it optically
-            // centred in that space. Without flex-1 the surplus pooled below the
-            // title, leaving the two-line card in that row visibly top-heavy —
-            // the <p> that would otherwise take up the slack is hidden here.
+            // word here, so nothing breaks mid-word. Every current title in both
+            // locales lands on exactly two lines — but only because joinSlashes
+            // below removes the break opportunity in RU "Аренда Авто/Мото", which
+            // otherwise took three. Treat two lines as the observed state, not a
+            // guarantee: min-h is a floor, and flex-1 lets the title absorb
+            // whatever height the row's tallest card imposes, with items-center
+            // holding it optically centred. Without flex-1 that surplus pools
+            // below the title and the shorter card reads top-heavy — the <p> that
+            // would otherwise take up the slack is hidden at this breakpoint.
             compactMobile
               ? "text-[22px] leading-tight text-balance text-center max-w-[10ch] mx-auto flex flex-1 items-center justify-center min-h-[3.5rem] " +
                 "sm:block sm:flex-none sm:max-w-none sm:mx-0 sm:min-h-0 sm:text-left sm:text-[26px]"
               : "text-[26px] leading-tight",
           )}
         >
-          {t(item.title)}
+          {/* joinSlashes, not the raw title: RU "Аренда Авто/Мото" otherwise
+              breaks after the slash at tile width. */}
+          {joinSlashes(t(item.title))}
         </h3>
         <p className={cn("mt-2 text-stone leading-relaxed flex-1", compactMobile && "hidden sm:block")}>
           {t(item.description)}
