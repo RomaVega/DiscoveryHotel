@@ -15,7 +15,11 @@
     # where they POST hits, frame-src is GTM's <noscript> ns.html iframe.
     # A tag added inside the GTM container that calls a new origin will be blocked
     # here until that origin is added — GTM's UI cannot widen this header.
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.google.com https://www.googletagmanager.com https://secure.guestpro.net; connect-src 'self' https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://secure.guestpro.net; frame-ancestors 'self'"
+    # tagmanager.google.com + www.google.com + font-src data: are what GTM Preview
+    # (Tag Assistant) needs to attach; without them the debug overlay's own scripts
+    # and styles are blocked and Tag Assistant just times out with "0 tags found".
+    # https://developers.google.com/tag-platform/security/guides/csp
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://tagmanager.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.googletagmanager.com https://tagmanager.google.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.google.com https://www.googletagmanager.com https://secure.guestpro.net; connect-src 'self' https://www.google.com https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://secure.guestpro.net; frame-ancestors 'self'"
     # RFC 8288 agent-discovery links to real resources
     Link = "</sitemap.xml>; rel=\"sitemap\", </llms.txt>; rel=\"alternate\"; type=\"text/markdown\""
 

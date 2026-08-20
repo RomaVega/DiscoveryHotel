@@ -218,7 +218,13 @@ Targets: LCP < 2.5s (`priority` + `<link rel="preload">` on hero poster), CLS < 
   `<body>`) are mounted in [app/layout.tsx](app/layout.tsx), which `/ru` nests inside — one mount
   covers both locales. **A tag added inside the GTM UI that calls a new origin is blocked by the CSP
   in [netlify.toml](netlify.toml) until that origin is added there**; GTM cannot widen a response
-  header, and the failure looks like a tag that silently never fires.
+  header, and the failure looks like a tag that silently never fires. GTM **Preview /
+  Tag Assistant** needs its own origins in that CSP (`tagmanager.google.com` in
+  `script-src` + `style-src`, `www.google.com` in `connect-src`, `data:` in `font-src`)
+  — without them Tag Assistant reports "0 Google tags found" and times out even though
+  the container is installed correctly. Note that ad-blocking browsers (Brave's Shields,
+  uBlock) block `googletagmanager.com` outright, so verify in a clean Chrome profile
+  before concluding the site is at fault.
 - `GOOGLE_SITE_VERIFICATION` (optional) — Search Console HTML-tag token, emitted via `metadata.verification.google`. Not `NEXT_PUBLIC_`; it is build-time only. Safe to drop once DNS TXT verification is in place.
 - Never put secrets in `NEXT_PUBLIC_` — they're inlined into client JS.
 
