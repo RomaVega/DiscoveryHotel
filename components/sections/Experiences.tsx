@@ -20,9 +20,11 @@ interface ExperiencesProps {
    *
    * Titles run 1–3 lines at tile width, and a variable text block under a fixed
    * image stretches the card — the grid then propagates the tallest card across
-   * its row, leaving short titles with trailing dead space. Reserving three lines
-   * and centring within them makes every tile identical by construction, and
-   * turns the leftover space into symmetric padding rather than a ragged gap.
+   * its row. Cards in a row are therefore equal height, but the shorter title
+   * would leave trailing dead space inside its own card; letting the title grow
+   * into that space and centring within it turns the surplus into symmetric
+   * padding rather than a ragged gap. Rows still differ in height from each
+   * other, which reads as intentional; a gap inside one card does not.
    *
    * An earlier pass overlaid the title on the image instead. It was dropped: a
    * scrim dark enough for AA over pale photography (one tile measured 1.3:1
@@ -74,15 +76,19 @@ function CardInner({ item, compactMobile }: { item: ExperienceCard; compactMobil
             // leading-tight is explicit because the arbitrary size drops
             // Tailwind's paired line-height — two lines at 1.25 come to 55px,
             // which is what keeps them inside the 3.5rem reservation below.
-            // The 10ch cap is what puts every title on exactly two lines: it is
-            // wider than no single word here, so nothing breaks mid-word, but
-            // narrow enough that even the shortest label ("Ayurvedic Spa") wraps
-            // rather than sitting alone on one line beside two-line neighbours.
-            // min-h then guarantees equal tiles even if a title ever renders one
-            // line; centring keeps the block optically centred in the card.
+            // The 10ch cap keeps titles off a single line, so a short label never
+            // sits alone beside a two-line neighbour: it is wider than any single
+            // word here, so nothing breaks mid-word. It does NOT guarantee two
+            // lines — RU "Аренда Авто/Мото" takes three, because the slash gives
+            // the browser an extra break opportunity. min-h is therefore a floor,
+            // not the height: flex-1 lets the title absorb whatever height the
+            // row's tallest card imposes, and items-center holds it optically
+            // centred in that space. Without flex-1 the surplus pooled below the
+            // title, leaving the two-line card in that row visibly top-heavy —
+            // the <p> that would otherwise take up the slack is hidden here.
             compactMobile
-              ? "text-[22px] leading-tight text-balance text-center max-w-[10ch] mx-auto flex items-center justify-center min-h-[3.5rem] " +
-                "sm:block sm:max-w-none sm:mx-0 sm:min-h-0 sm:text-left sm:text-[26px]"
+              ? "text-[22px] leading-tight text-balance text-center max-w-[10ch] mx-auto flex flex-1 items-center justify-center min-h-[3.5rem] " +
+                "sm:block sm:flex-none sm:max-w-none sm:mx-0 sm:min-h-0 sm:text-left sm:text-[26px]"
               : "text-[26px] leading-tight",
           )}
         >
