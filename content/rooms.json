@@ -313,6 +313,7 @@
         }
       ],
       "href": "https://secure.guestpro.net/odch/booking",
+      "cta": { "en": "Book This Room", "ru": "Забронировать Виллу" },
       "bathrooms": 3,
       "amenityGroups": [
         {
@@ -717,6 +718,7 @@
         }
       ],
       "href": "https://secure.guestpro.net/odch/booking",
+      "cta": { "en": "Book This Room", "ru": "Забронировать Коттедж" },
       "bathrooms": 1,
       "amenityGroups": [
         {

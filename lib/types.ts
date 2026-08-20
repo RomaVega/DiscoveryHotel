@@ -46,6 +46,8 @@ export interface RoomCard {
   imageAlt: string;
   images?: RoomSlide[];
   href: string;
+  /** Booking-button label. Falls back to a generic "Book This Room" when unset. */
+  cta?: LocalizedString;
 }
 
 export interface RoomsPreviewData {
@@ -251,6 +253,8 @@ export interface RoomDetail {
   imageAlt: LocalizedString;
   images?: RoomSlide[];
   href: string;
+  /** Booking-button label. Falls back to a generic "Book This Room" when unset. */
+  cta?: LocalizedString;
   keyFeatures?: LocalizedString[];
   amenities: LocalizedString[];
   amenityGroups?: { label: LocalizedString; items: LocalizedString[] }[];

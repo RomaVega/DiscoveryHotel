@@ -64,6 +64,7 @@ const roomCard = z.object({
   imageAlt: z.string(),
   images: z.array(roomSlide).optional(),
   href: z.string(),
+  cta: localizedString.optional(),
 });
 
 const roomsPreviewData = z.object({
@@ -217,6 +218,7 @@ const roomDetail = z.object({
   imageAlt: localizedString,
   images: z.array(roomSlide).optional(),
   href: z.string(),
+  cta: localizedString.optional(),
   keyFeatures: z.array(localizedString).optional(),
   amenities: z.array(localizedString),
   amenityGroups: z.array(z.object({ label: localizedString, items: z.array(localizedString) })).optional(),

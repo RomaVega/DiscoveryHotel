@@ -23,7 +23,15 @@ interface NavbarProps {
 /** Shared brand text */
 function BrandText({ onClick }: { onClick?: () => void }) {
   return (
-    <Link href="/" onClick={onClick} className="font-serif font-semibold text-black tracking-widest uppercase leading-tight text-[17px] text-center">
+    <Link
+      href="/"
+      onClick={onClick}
+      // Scales down instead of colliding with the absolutely-positioned logo and
+      // hamburger: at high OS display scaling the CSS viewport gets narrow enough
+      // that a fixed 17px wordmark runs under both. Capped at 17px from 500px up,
+      // so nothing changes on a normal phone or desktop.
+      className="block font-serif font-semibold text-black tracking-[0.06em] min-[400px]:tracking-widest uppercase leading-tight text-[clamp(0.6875rem,3.4vw,17px)] text-center"
+    >
       <span className="block">Orlowsky</span>
       <span className="block">Discovery Candidasa</span>
     </Link>
@@ -192,10 +200,12 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80, brandAfter
             <BrandLogo onClick={handleBrandClick} />
             <BrandText onClick={handleBrandClick} />
           </div>
-          {/* Brand text mobile — fades with slide */}
+          {/* Brand text mobile — fades with slide. px-14 reserves the gutters the
+              absolutely-positioned logo (left) and hamburger (right) sit in, so the
+              centred wordmark can never overlap them however narrow the viewport. */}
           <div
             className={cn(
-              "lg:hidden transition-all duration-500",
+              "lg:hidden flex-1 min-w-0 px-14 text-center transition-all duration-500",
               scrolled && heroPassed
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 -translate-y-2 pointer-events-none"
@@ -272,7 +282,9 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80, brandAfter
             {/* Header row — identical to navbar */}
             <div className="relative flex items-center justify-center px-8 py-3 border-b border-charcoal/10 shrink-0">
               <BrandLogo onClick={handleBrandClick} />
-              <BrandText onClick={handleBrandClick} />
+              <div className="flex-1 min-w-0 px-14 text-center">
+                <BrandText onClick={handleBrandClick} />
+              </div>
               <button
                 onClick={closeMenu}
                 aria-label="Close menu"

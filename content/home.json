@@ -155,7 +155,8 @@
             "alt": "Deluxe Cottage bathroom with twin rain showers and double vanity"
           }
         ],
-        "href": "https://secure.guestpro.net/odch/room-type/9951a5c1-a10a-4a6c-abf8-585eaf574b16"
+        "href": "https://secure.guestpro.net/odch/booking",
+        "cta": { "en": "Book This Room", "ru": "Забронировать Коттедж" }
       },
       {
         "title": {
@@ -298,7 +299,8 @@
             "alt": "Pool Villa bathroom with vanity and window framing the ocean"
           }
         ],
-        "href": "https://secure.guestpro.net/odch/room-type/ee0cdd19-1045-481f-9e36-b8287e343c24"
+        "href": "https://secure.guestpro.net/odch/booking",
+        "cta": { "en": "Book This Room", "ru": "Забронировать Виллу" }
       }
     ]
   },
