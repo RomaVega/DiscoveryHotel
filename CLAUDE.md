@@ -210,6 +210,15 @@ Targets: LCP < 2.5s (`priority` + `<link rel="preload">` on hero poster), CLS < 
 
 - `NEXT_PUBLIC_WHATSAPP_NUMBER` (required) — used in all WhatsApp links, read via `process.env.NEXT_PUBLIC_WHATSAPP_NUMBER`. This is the single source of truth for the number; do not hardcode it elsewhere.
 - `NEXT_PUBLIC_GA_MEASUREMENT_ID` (optional) — GA4 property. [components/layout/GoogleAnalytics.tsx](components/layout/GoogleAnalytics.tsx) renders nothing when unset, so dev/previews stay out of the data. Scope it to Netlify's production context. Adding another Google/analytics origin means widening `script-src`/`connect-src` in [netlify.toml](netlify.toml).
+- **Google Tag Manager has no env var.** Container `GTM-KHDV2SW2` is hardcoded in
+  [components/layout/GoogleTagManager.tsx](components/layout/GoogleTagManager.tsx) — a container ID
+  ships in every page, so it is not a secret. What the component gates on is Netlify's build-time
+  `CONTEXT`: deploy previews and branch deploys render nothing, so only `orlowsky.id` feeds the
+  container. The two halves (`GoogleTagManagerHead` in `<head>`, `GoogleTagManagerNoScript` first in
+  `<body>`) are mounted in [app/layout.tsx](app/layout.tsx), which `/ru` nests inside — one mount
+  covers both locales. **A tag added inside the GTM UI that calls a new origin is blocked by the CSP
+  in [netlify.toml](netlify.toml) until that origin is added there**; GTM cannot widen a response
+  header, and the failure looks like a tag that silently never fires.
 - `GOOGLE_SITE_VERIFICATION` (optional) — Search Console HTML-tag token, emitted via `metadata.verification.google`. Not `NEXT_PUBLIC_`; it is build-time only. Safe to drop once DNS TXT verification is in place.
 - Never put secrets in `NEXT_PUBLIC_` — they're inlined into client JS.
 

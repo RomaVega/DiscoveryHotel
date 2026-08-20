@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import { Inter, Cormorant_Garamond } from "next/font/google";
 import { MotionProvider } from "@/components/common/MotionProvider";
 import { GoogleAnalytics } from "@/components/layout/GoogleAnalytics";
+import {
+  GoogleTagManagerHead,
+  GoogleTagManagerNoScript,
+} from "@/components/layout/GoogleTagManager";
 import { LanguageSuggestion } from "@/components/layout/LanguageSuggestion";
 import { LanguageProvider } from "@/lib/language-context";
 import { ALL_ROUTES } from "@/lib/image-manifest";
@@ -97,6 +101,11 @@ export default function RootLayout({
       <head>
         {/* Language redirect — must run before any rendering. Blocks parser briefly. */}
         <script dangerouslySetInnerHTML={{ __html: LANG_REDIRECT_SCRIPT }} />
+        {/* Google Tag Manager. Google asks for this as high in <head> as
+            possible; it sits second because the redirect above may send the
+            visitor to the other locale, and a container booted before that
+            would report a pageview for a URL we are about to leave. */}
+        <GoogleTagManagerHead />
         {/* schema.org Hotel — structured data for Google rich results */}
         <script
           type="application/ld+json"
@@ -149,6 +158,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.variable} ${cormorant.variable} antialiased`} suppressHydrationWarning>
+        <GoogleTagManagerNoScript />
         <LanguageProvider>
           <MotionProvider>
             {children}
