@@ -43,6 +43,11 @@ function formatVerifiedOn(iso: string, locale: Locale): string {
   }).format(new Date(`${iso}T00:00:00Z`));
 }
 
+/** The least-recently-verified date in the set — see the note at the render site. */
+function oldestVerifiedOn(aggregates: RatingAggregate[]): string {
+  return aggregates.reduce((oldest, a) => (a.verifiedOn < oldest ? a.verifiedOn : oldest), aggregates[0].verifiedOn);
+}
+
 /**
  * Third-party ratings, linked back to each source.
  *
@@ -104,7 +109,10 @@ export function RatingSummary({ aggregates, locale }: RatingSummaryProps) {
       </ul>
 
       <p className="mt-6 text-center font-sans text-[11px] text-stone/70">
-        {t.verifiedOn} {formatVerifiedOn(aggregates[0].verifiedOn, locale)}
+        {/* The oldest date across the platforms, not the first one listed: this single
+            line stands for all four scores, so it must not read fresher than the
+            least-recently-checked figure behind it. */}
+        {t.verifiedOn} {formatVerifiedOn(oldestVerifiedOn(aggregates), locale)}
       </p>
     </div>
   );
