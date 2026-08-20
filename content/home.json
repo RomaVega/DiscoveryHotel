@@ -156,7 +156,7 @@
           }
         ],
         "href": "https://secure.guestpro.net/odch/booking",
-        "cta": { "en": "Book This Room", "ru": "Забронировать Коттедж" }
+        "cta": { "en": "Book This Cottage", "ru": "Забронировать Коттедж" }
       },
       {
         "title": {
@@ -300,7 +300,7 @@
           }
         ],
         "href": "https://secure.guestpro.net/odch/booking",
-        "cta": { "en": "Book This Room", "ru": "Забронировать Виллу" }
+        "cta": { "en": "Book This Villa", "ru": "Забронировать Виллу" }
       }
     ]
   },
