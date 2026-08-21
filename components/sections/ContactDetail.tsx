@@ -22,18 +22,16 @@ export function ContactDetail({ contact }: ContactDetailProps) {
       <section className="bg-sand py-20 md:py-28 px-6">
         <div className="max-w-2xl mx-auto space-y-14">
 
-          {/* WhatsApp */}
+          {/* Phone */}
           <div>
             <p className="font-sans text-[10px] uppercase tracking-[0.3em] text-stone mb-4">
-              WhatsApp
+              {isRu ? "Телефон" : "Phone"}
             </p>
             <div className="space-y-3">
               {whatsappContacts.map((c) => (
                 <a
                   key={c.number}
-                  href={`https://wa.me/${c.number}?text=${encodeURIComponent(c.greeting)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={`tel:+${c.number}`}
                   className="block font-serif text-3xl md:text-4xl font-light text-charcoal hover:text-accent-text transition-colors duration-200"
                 >
                   {c.label}

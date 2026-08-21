@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { LocalizedLink as Link } from "@/components/common/LocalizedLink";
 import {
-  MessageCircle, Mail, MapPin,
+  Phone, Mail, MapPin,
   BedDouble, Utensils, Compass, Percent, Camera, Info,
   Map, Waves, CalendarDays, KeyRound, Sparkles, Globe,
   type LucideIcon,
@@ -106,18 +106,16 @@ export function Footer({ contact }: FooterProps) {
               {isRu && ruContacts.length > 0 && (
                 <li>
                   <p className="font-sans text-[10px] uppercase tracking-[0.15em] text-parchment/35 mb-1.5">
-                    {tl.footer.whatsappRu}
+                    {tl.footer.phoneRu}
                   </p>
                   <div className="space-y-1.5">
                     {ruContacts.map((c) => (
                       <a
                         key={c.number}
-                        href={`https://wa.me/${c.number}?text=${encodeURIComponent(c.greeting)}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        href={`tel:+${c.number}`}
                         className="flex items-center gap-2 text-[13px] sm:text-sm text-parchment/60 hover:text-parchment transition-colors duration-200"
                       >
-                        <MessageCircle size={14} className="text-brand-teal shrink-0" />
+                        <Phone size={14} className="text-brand-teal shrink-0" />
                         {c.label}
                       </a>
                     ))}
@@ -129,19 +127,17 @@ export function Footer({ contact }: FooterProps) {
                 <li>
                   {isRu && (
                     <p className="font-sans text-[10px] uppercase tracking-[0.15em] text-parchment/35 mb-1.5">
-                      {tl.footer.whatsappHotel}
+                      {tl.footer.phoneHotel}
                     </p>
                   )}
                   <div className="space-y-1.5">
                     {enContacts.map((c) => (
                       <a
                         key={c.number}
-                        href={`https://wa.me/${c.number}?text=${encodeURIComponent(c.greeting)}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        href={`tel:+${c.number}`}
                         className="flex items-center gap-2 text-[13px] sm:text-sm text-parchment/60 hover:text-parchment transition-colors duration-200"
                       >
-                        <MessageCircle size={14} className="text-brand-teal shrink-0" />
+                        <Phone size={14} className="text-brand-teal shrink-0" />
                         {c.label}
                       </a>
                     ))}
