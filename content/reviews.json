@@ -2,19 +2,19 @@
   "aggregates": [
     {
       "platform": "Google",
-      "score": 4.4,
+      "score": 4.5,
       "scale": 5,
-      "count": 225,
+      "count": 226,
       "url": "https://maps.app.goo.gl/T7DgnrrwoCuvrEZA7",
-      "verifiedOn": "2026-08-20"
+      "verifiedOn": "2026-09-07"
     },
     {
       "platform": "Agoda",
       "score": 9.0,
       "scale": 10,
-      "count": 213,
+      "count": 207,
       "url": "https://www.agoda.com/id-id/discovery-candidasa-cottages-and-villas/hotel/bali-id.html",
-      "verifiedOn": "2026-08-20"
+      "verifiedOn": "2026-09-07"
     },
     {
       "platform": "Tripadvisor",
@@ -22,15 +22,15 @@
       "scale": 5,
       "count": 194,
       "url": "https://www.tripadvisor.com/Hotel_Review-g312684-d3948674-Reviews-Discovery_Candidasa_Cottages_And_Villas-Candidasa_Karangasem_Bali.html",
-      "verifiedOn": "2026-08-20"
+      "verifiedOn": "2026-09-07"
     },
     {
       "platform": "Booking.com",
       "score": 9.1,
       "scale": 10,
-      "count": 135,
+      "count": 127,
       "url": "https://www.booking.com/hotel/id/discorvery-candidasa-cottages-and-villas.html?lang=en-us",
-      "verifiedOn": "2026-08-20"
+      "verifiedOn": "2026-09-07"
     }
   ],
   "reviews": [
