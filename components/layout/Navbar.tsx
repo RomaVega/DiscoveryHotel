@@ -348,27 +348,37 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80, brandAfter
                 reads as resting rather than floating; pb tracks the home-indicator
                 inset rather than a fixed 2rem, so the actions sit as low as the
                 device allows and leave the links room above. */}
-            <div className="shrink-0 flex flex-col items-center gap-5 px-8 pt-6 pb-[max(0.75rem,env(safe-area-inset-bottom))] border-t border-charcoal/10 bg-gradient-to-t from-charcoal/5 to-transparent">
-              <m.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.3, delay: 0.45 }}
-              >
-                <SecondaryButton
-                  href="https://secure.guestpro.net/odch"
-                  external
-                  className="px-8 py-3 text-sm tracking-widest"
+            <div className="shrink-0 px-8 pt-6 pb-[max(1.5rem,env(safe-area-inset-bottom))] bg-gradient-to-t from-charcoal/5 to-transparent">
+              {/* One row, not a column: the CTA stays on the drawer's centre line
+                  with the brand and the links, and the language pill sits on the
+                  right rail at the same x as the header's close button, so it
+                  reads as chrome rather than as a third item in the content
+                  column. Absolute rather than a flex sibling — as a sibling its
+                  width would push the CTA off centre, and the two only just clear
+                  each other at 360px with the Russian label. */}
+              <div className="relative flex items-center justify-center">
+                <m.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.3, delay: 0.45 }}
                 >
-                  {tl.nav.bookNow}
-                </SecondaryButton>
-              </m.div>
-              <m.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.3, delay: 0.55 }}
-              >
-                <LanguageSelector variant="dark" />
-              </m.div>
+                  <SecondaryButton
+                    href="https://secure.guestpro.net/odch"
+                    external
+                    className="px-6 sm:px-8 py-3 text-sm tracking-widest"
+                  >
+                    {tl.nav.bookNow}
+                  </SecondaryButton>
+                </m.div>
+                <m.div
+                  className="absolute inset-y-0 right-0 flex items-center"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.3, delay: 0.55 }}
+                >
+                  <LanguageSelector variant="dark" />
+                </m.div>
+              </div>
             </div>
           </m.div>
         )}
