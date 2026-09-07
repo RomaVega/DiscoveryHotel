@@ -111,13 +111,13 @@ export function ExcursionsDetail({ data }: ExcursionsDetailProps) {
 
       {/* ── "Not sure what to pick?" help CTA ── */}
       {data.helpCta && (
-        <section className="py-16 md:py-24 bg-deep-teal">
+        <section className="pt-6 md:pt-32 pb-6 md:pb-32 bg-deep-teal">
           <div className="max-w-3xl mx-auto px-6 text-center">
             <FadeIn>
-              <h2 className="font-serif text-2xl md:text-4xl font-medium text-white text-balance">
+              <h2 className="font-serif font-medium text-2xl md:text-5xl text-white text-balance">
                 {t(data.helpCta.heading)}
               </h2>
-              <p className="mt-4 text-white/80 text-base md:text-lg leading-relaxed">
+              <p className="mt-4 text-sm md:text-lg text-white/80 leading-relaxed">
                 {t(data.helpCta.text)}
               </p>
               <div className="mt-8">
