@@ -110,7 +110,7 @@ export function LanguageSuggestion() {
               aria-hidden="true"
             />
             <div>
-              <p className="font-serif text-lg text-charcoal leading-snug">
+              <p className="font-serif font-medium text-lg text-charcoal leading-snug">
                 Эта страница доступна на русском языке
               </p>
               <SecondaryButton onClick={accept} className="mt-4">
