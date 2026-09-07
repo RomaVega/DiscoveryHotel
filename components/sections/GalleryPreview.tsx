@@ -9,6 +9,9 @@ import type { GalleryPreviewData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
 import { cn } from "@/lib/utils";
 
+/** Thumbnail strip columns. The visible photo count is trimmed to a multiple. */
+const THUMB_COLUMNS = 5;
+
 interface GalleryPreviewProps {
   data: GalleryPreviewData;
   defaultExpanded?: boolean;
@@ -21,7 +24,15 @@ export function GalleryPreview({ data, hideHeading = false, hideDesktopThumbnail
   const [current, setCurrent] = useState(0);
   const { t } = useLanguage();
 
-  const images = data.images.map((img) => ({ src: img.src, alt: img.alt }));
+  // The strip is a fixed 5-wide grid, so it shows whole rows only: a trailing
+  // partial row reads as a dropped tile rather than as a deliberate edit. The
+  // trim is home-only — GalleryMosaic on /gallery reads the same array and
+  // still shows every photo — and it re-derives itself, so adding photos can
+  // never reintroduce the orphan. Guarded for a set smaller than one row.
+  const whole = Math.floor(data.images.length / THUMB_COLUMNS) * THUMB_COLUMNS;
+  const images = data.images
+    .slice(0, whole || data.images.length)
+    .map((img) => ({ src: img.src, alt: img.alt }));
 
   return (
     <section id="gallery" className="py-8 md:py-16 bg-sand">
@@ -44,10 +55,10 @@ export function GalleryPreview({ data, hideHeading = false, hideDesktopThumbnail
           </FadeIn>
 
           {/* Thumbnail grid */}
-          <div
-            className={cn("mt-2 grid gap-1", hideDesktopThumbnails && "lg:hidden")}
-            style={{ gridTemplateColumns: "repeat(auto-fill, minmax(68px, 1fr))" }}
-          >
+          {/* Fixed 5 columns, not auto-fill: auto-fill re-flowed the row width
+              with the viewport (3 tracks at 320px, 5 at 414px, 9 at 768px), so
+              any photo count left an orphan tile at some widths. */}
+          <div className={cn("mt-2 grid grid-cols-5 gap-1", hideDesktopThumbnails && "lg:hidden")}>
             {images.map((img, i) => (
               <button
                 key={i}
