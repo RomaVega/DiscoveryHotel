@@ -179,6 +179,7 @@ export const contactSchema = z.object({
   whatsappGreeting: z.string(),
   whatsappContacts: z.array(whatsAppContact),
   email: z.string(),
+  adminEmail: z.string(),
   socials: z.array(socialLink),
   googleMapsUrl: z.string(),
 });

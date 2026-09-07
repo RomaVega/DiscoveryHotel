@@ -38,6 +38,16 @@
       "carRental": "Car & Bike Rental",
       "spa": "Ayurvedic Spa",
       "toursPartner": "Tours & Activities"
+    },
+    "bugReport": {
+      "aria": "Report a problem with this site",
+      "title": "Spotted something broken?",
+      "message": "This site is looked after by hand, so things do slip through. If a photo will not load, a price reads oddly, a link goes nowhere, or the layout breaks on your screen — I would genuinely like to know.",
+      "cta": "Email the Maintainer",
+      "included": "Your page address, screen size and browser are filled in for you. Just describe what went wrong.",
+      "close": "Close",
+      "subject": "Website issue",
+      "prompt": "What went wrong:"
     }
   },
   "hero": {

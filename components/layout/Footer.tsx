@@ -11,6 +11,7 @@ import {
 import type { ContactData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
 import { socialIconMap } from "@/lib/social-icons";
+import { BugReport } from "@/components/layout/BugReport";
 
 interface FooterProps {
   contact: ContactData;
@@ -297,8 +298,13 @@ export function Footer({ contact }: FooterProps) {
 
       {/* Bottom bar */}
       <div className="border-t border-parchment/10">
-        <div className="max-w-7xl mx-auto px-6 py-4 sm:py-5 flex flex-col items-center gap-1.5">
-          <div className="flex items-center gap-1">
+        <div className="relative max-w-7xl mx-auto px-6 py-4 sm:py-5 flex flex-col items-center gap-1.5">
+          {/* Absolute so the legal text stays optically centred in the bar; the
+              centred stack carries matching side padding to reserve this gutter. */}
+          <div className="absolute left-6 top-1/2 -translate-y-1/2">
+            <BugReport email={contact.adminEmail} />
+          </div>
+          <div className="flex items-center gap-1 px-8">
             <Link href="/privacy" className="font-sans text-[10px] text-parchment/30 hover:text-parchment/60 transition-colors duration-200 tracking-wide">
               {isRu ? "Политика конфиденциальности" : "Privacy Policy"}
             </Link>
@@ -307,7 +313,7 @@ export function Footer({ contact }: FooterProps) {
               {isRu ? "Условия использования" : "Terms of Service"}
             </Link>
           </div>
-          <p className="font-sans text-[11px] sm:text-xs text-parchment/30 tracking-wide">
+          <p className="font-sans text-[11px] sm:text-xs text-parchment/30 tracking-wide px-8 text-center">
             &copy; {new Date().getFullYear()} {contact.hotelName}. {tl.footer.allRightsReserved}.
           </p>
         </div>

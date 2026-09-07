@@ -184,6 +184,8 @@ export interface ContactData {
   whatsappGreeting: string;
   whatsappContacts: WhatsAppContact[];
   email: string;
+  /** Site maintainer, not reception — used only by the footer bug reporter. */
+  adminEmail: string;
   socials: SocialLink[];
   googleMapsUrl: string;
 }
