@@ -305,7 +305,7 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80, brandAfter
             </div>
 
             {/* Nav links — centered in full remaining space */}
-            <nav className="flex-1 min-h-0 overflow-y-auto flex flex-col px-8 py-2 text-center">
+            <nav className="flex-1 min-h-0 overflow-y-auto flex flex-col px-8 pt-8 pb-2 text-center">
               {/* my-auto, not justify-center: centres the list when there is room,
                   but lets it scroll instead of clipping when there is not — a
                   justify-center scroll container clips its own top. */}
@@ -330,8 +330,13 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80, brandAfter
                         isActive(link.href) ? "text-black" : "text-charcoal/70 hover:text-black"
                       )}
                     >
-                      <span className="relative inline-flex items-center">
-                        <link.icon size={20} strokeWidth={1.5} className="text-brand-teal shrink-0 absolute -left-7 top-1/2 -translate-y-1/2" />
+                      {/* The icon is in flow, not absolute: absolute kept the
+                          label on the drawer's centre line but hung the icon
+                          outside it, so the group you actually read sat 14px
+                          left of centre on every row. gap-2 reproduces the
+                          spacing -left-7 used to give. */}
+                      <span className="inline-flex items-center gap-2">
+                        <link.icon size={20} strokeWidth={1.5} className="text-brand-teal shrink-0" />
                         {link.label}
                       </span>
                     </Link>
