@@ -101,7 +101,7 @@ export function BugReport() {
                   className="shrink-0 mt-1 text-brand-teal"
                 />
                 <div>
-                  <DialogTitle className="font-serif font-medium text-xl sm:text-2xl text-charcoal leading-snug">
+                  <DialogTitle className="font-serif font-medium text-2xl sm:text-3xl text-charcoal leading-snug">
                     {s.title}
                   </DialogTitle>
                   <p className="mt-3 font-sans text-sm text-charcoal/80 leading-relaxed">
