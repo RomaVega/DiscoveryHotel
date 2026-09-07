@@ -61,7 +61,7 @@ export function ExperiencesHub({ data }: ExperiencesHubProps) {
                     <div className="mt-5 flex justify-center">
                       {/* A span, not SecondaryButton: the card is already an
                           <a>. Hover is driven by the card's `group`. */}
-                      <span className={cn(SECONDARY_BUTTON_BASE, "group-hover:bg-brand-teal group-hover:text-charcoal active:scale-[0.97]")}>
+                      <span className={cn(SECONDARY_BUTTON_BASE, "group-hover:bg-brand-teal group-hover:text-charcoal motion-safe:active:scale-[0.97]")}>
                         {t(cat.cta ?? { en: "Learn More", ru: "Подробнее" })}
                       </span>
                     </div>

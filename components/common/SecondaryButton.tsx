@@ -13,18 +13,29 @@ import { cn } from "@/lib/utils";
  *
  * deep-teal rather than brand-teal: brand-teal is 2.13:1 on sand as text, and
  * its border misses the 3:1 non-text floor too.
+ *
+ * The transition list is explicit rather than the `transition-all` this used to
+ * carry, which also animated width/height/padding against the Animation Rules.
+ * `scale` is named, not `transform`: Tailwind 4 compiles `scale-[1.04]` to the
+ * standalone `scale:` property, so a list naming `transform` animates nothing.
+ * A `translate-*` or `rotate-*` added later needs adding here by name too.
  */
 export const SECONDARY_BUTTON_BASE =
   "inline-block bg-transparent border border-deep-teal text-accent-text " +
   "font-sans font-semibold px-5 py-2 rounded-full tracking-wide text-xs whitespace-nowrap " +
-  "transition-all duration-300";
+  "transition-[color,background-color,border-color,scale] duration-300 ease-out";
 
 /**
  * Hover fill. Text goes charcoal, not white: white on brand-teal is 2.41:1,
  * while charcoal on the same fill is 7.21:1.
+ *
+ * `motion-safe:` on the scales only — under prefers-reduced-motion the fill
+ * and text still change, they just no longer move. The transition list lives
+ * in SECONDARY_BUTTON_BASE, which the two <span> call sites also use, so the
+ * transform they add there is covered by it.
  */
 export const SECONDARY_BUTTON_HOVER =
-  "hover:bg-brand-teal hover:text-charcoal hover:scale-[1.04] active:scale-[0.97]";
+  "hover:bg-brand-teal hover:text-charcoal motion-safe:hover:scale-[1.04] motion-safe:active:scale-[0.97]";
 
 const BASE_STYLES =
   SECONDARY_BUTTON_BASE + " " + SECONDARY_BUTTON_HOVER + " " +
