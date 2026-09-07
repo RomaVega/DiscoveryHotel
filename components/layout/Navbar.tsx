@@ -62,12 +62,12 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80, brandAfter
   const pathname = usePathname();
 
   const links = [
+    { label: tl.nav.spa, href: "/spa", icon: Sparkles },
     { label: tl.nav.rooms, href: "/rooms", icon: BedDouble },
     { label: tl.nav.dining, href: "/dining", icon: Utensils },
-    { label: tl.nav.spa, href: "/spa", icon: Sparkles },
     { label: tl.nav.experiences, href: "/experiences", icon: Compass },
-    { label: tl.nav.offers, href: "/offers", icon: Percent },
     { label: tl.nav.gallery, href: "/gallery", icon: Camera },
+    { label: tl.nav.offers, href: "/offers", icon: Percent },
     { label: tl.nav.about, href: "/about", icon: Info },
   ];
 
@@ -296,7 +296,11 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80, brandAfter
             </div>
 
             {/* Nav links — centered in full remaining space */}
-            <nav className="flex-1 flex flex-col justify-center px-8 text-center">
+            <nav className="flex-1 min-h-0 overflow-y-auto flex flex-col px-8 py-2 text-center">
+              {/* my-auto, not justify-center: centres the list when there is room,
+                  but lets it scroll instead of clipping when there is not — a
+                  justify-center scroll container clips its own top. */}
+              <div className="w-full my-auto">
               {links.map((link, i) => (
                 <m.div
                   key={link.href}
@@ -322,13 +326,20 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80, brandAfter
                       {link.label}
                     </span>
                   </Link>
-                  <div className="h-px bg-charcoal/10" />
+                  {/* between items only — a rule after the last one dangles,
+                      since the first item has none above it */}
+                  {i < links.length - 1 && <div className="h-px bg-charcoal/10" />}
                 </m.div>
               ))}
+              </div>
             </nav>
 
             {/* Bottom actions — pinned to bottom */}
-            <div className="shrink-0 flex flex-col items-center gap-5 px-8 pb-8 pt-4">
+            {/* The rule marks where the links end; the gradient deepens toward the
+                bottom edge so the block reads as resting rather than floating. pb tracks the
+                home-indicator inset rather than a fixed 2rem, so the actions sit as
+                low as the device allows and leave the links room above. */}
+            <div className="shrink-0 flex flex-col items-center gap-5 px-8 pt-6 pb-[max(0.75rem,env(safe-area-inset-bottom))] border-t border-charcoal/10 bg-gradient-to-t from-charcoal/5 to-transparent">
               <m.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -346,7 +357,6 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80, brandAfter
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.3, delay: 0.55 }}
-                className="mt-3"
               >
                 <LanguageSelector variant="dark" />
               </m.div>
