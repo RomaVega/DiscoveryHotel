@@ -157,8 +157,13 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80, brandAfter
     if (pathname === "/") window.scrollTo({ top: 0, behavior: "smooth" });
   }, [closeMenu, pathname]);
 
-  const isActive = (href: string) =>
-    pathname === href || (href !== "/" && pathname.startsWith(href + "/"));
+  // `links` holds locale-agnostic hrefs ("/rooms") while LocalizedLink renders
+  // the prefixed path ("/ru/rooms"), so the prefix has to come off before the
+  // comparison — otherwise nothing is ever active on a Russian route.
+  const isActive = (href: string) => {
+    const path = pathname.replace(/^\/ru(?=\/|$)/, "") || "/";
+    return path === href || (href !== "/" && path.startsWith(href + "/"));
+  };
 
   return (
     <>
