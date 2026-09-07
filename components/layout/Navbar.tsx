@@ -63,7 +63,7 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80, brandAfter
 
   const links = [
     { label: tl.nav.rooms, href: "/rooms", icon: BedDouble },
-    { label: tl.nav.amenities, href: "/dining", icon: Utensils },
+    { label: tl.nav.dining, href: "/dining", icon: Utensils },
     { label: tl.nav.spa, href: "/spa", icon: Sparkles },
     { label: tl.nav.experiences, href: "/experiences", icon: Compass },
     { label: tl.nav.offers, href: "/offers", icon: Percent },

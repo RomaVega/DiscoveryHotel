@@ -2,7 +2,7 @@
   "nav": {
     "skipToContent": "Skip to content",
     "rooms": "Rooms",
-    "amenities": "Dining",
+    "dining": "Dining",
     "spa": "Spa",
     "experiences": "Experiences",
     "offers": "Offers",
@@ -25,7 +25,7 @@
     "allRightsReserved": "All rights reserved",
     "links": {
       "rooms": "Rooms",
-      "amenities": "Dining",
+      "dining": "Dining",
       "experiences": "Experiences",
       "offers": "Offers",
       "gallery": "Gallery",

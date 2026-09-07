@@ -2,7 +2,7 @@
   "nav": {
     "skipToContent": "Перейти к Содержимому",
     "rooms": "Номера",
-    "amenities": "Ресторан",
+    "dining": "Ресторан",
     "spa": "Спа",
     "experiences": "Впечатления",
     "offers": "Спецпредложения",
@@ -25,7 +25,7 @@
     "allRightsReserved": "Все Права Защищены",
     "links": {
       "rooms": "Номера",
-      "amenities": "Ресторан",
+      "dining": "Ресторан",
       "experiences": "Впечатления",
       "offers": "Спецпредложения",
       "gallery": "Галерея",
