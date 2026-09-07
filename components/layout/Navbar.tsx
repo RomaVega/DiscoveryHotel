@@ -216,7 +216,11 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80, brandAfter
           </div>
 
           {/* Desktop navigation */}
-          <ul className="hidden lg:flex items-center gap-4 xl:gap-6">
+          {/* gap-3 between lg and xl: at 1024 the RU labels leave the brand block 25px
+              short of its natural width, and it answers by wrapping "Discovery
+              Candidasa" onto two lines. Ten items means nine gaps, so the 4px
+              buys back 36px — enough for the wordmark to stay on one line. */}
+          <ul className="hidden lg:flex items-center gap-3 xl:gap-6">
             {links.map((link) => (
               <li key={link.href}>
                 <Link
