@@ -23,7 +23,7 @@ export function AboutDetail({ data }: AboutDetailProps) {
       {/* ── Stats strip ── */}
       {data.stats && data.stats.length > 0 && (
         <div className="bg-deep-teal py-10 px-6">
-          <div className="max-w-3xl mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-white/15">
+          <div className="max-w-3xl mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-white/15 [&>*:nth-child(2)]:border-r-0 md:[&>*:nth-child(2)]:border-r">
             {data.stats.map((stat, i) => (
               <div key={i} className="text-center px-4 md:px-6">
                 <p className="font-serif text-2xl md:text-3xl font-light text-white">{stat.value}</p>
