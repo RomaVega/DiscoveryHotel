@@ -27,7 +27,7 @@ export function Footer({ contact }: FooterProps) {
 
   const footerLinks: { label: string; href: string; icon: LucideIcon }[] = [
     { label: tl.footer.links.rooms,       href: "/rooms",       icon: BedDouble },
-    { label: tl.footer.links.dining,   href: "/dining",      icon: Utensils },
+    { label: tl.footer.links.dining,      href: "/dining",      icon: Utensils },
     { label: tl.footer.links.experiences, href: "/experiences", icon: Compass },
     { label: tl.footer.links.offers,      href: "/offers",      icon: Percent },
     { label: tl.footer.links.gallery,     href: "/gallery",     icon: Camera },

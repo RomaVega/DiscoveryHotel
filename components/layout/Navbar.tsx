@@ -305,44 +305,44 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80, brandAfter
                   but lets it scroll instead of clipping when there is not — a
                   justify-center scroll container clips its own top. */}
               <div className="w-full my-auto">
-              {links.map((link, i) => (
-                <m.div
-                  key={link.href}
-                  className="w-full"
-                  initial={{ opacity: 0, x: -12 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{
-                    duration: 0.3,
-                    delay: 0.08 + i * 0.05,
-                    ease: "easeOut",
-                  }}
-                >
-                  <Link
-                    href={link.href}
-                    onClick={closeMenu}
-                    className={cn(
-                      "flex items-center justify-center py-4 font-serif text-2xl font-semibold tracking-wide transition-colors duration-200",
-                      isActive(link.href) ? "text-black" : "text-charcoal/70 hover:text-black"
-                    )}
+                {links.map((link, i) => (
+                  <m.div
+                    key={link.href}
+                    className="w-full"
+                    initial={{ opacity: 0, x: -12 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{
+                      duration: 0.3,
+                      delay: 0.08 + i * 0.05,
+                      ease: "easeOut",
+                    }}
                   >
-                    <span className="relative inline-flex items-center">
-                      <link.icon size={20} strokeWidth={1.5} className="text-brand-teal shrink-0 absolute -left-7 top-1/2 -translate-y-1/2" />
-                      {link.label}
-                    </span>
-                  </Link>
-                  {/* between items only — a rule after the last one dangles,
-                      since the first item has none above it */}
-                  {i < links.length - 1 && <div className="h-px bg-charcoal/10" />}
-                </m.div>
-              ))}
+                    <Link
+                      href={link.href}
+                      onClick={closeMenu}
+                      className={cn(
+                        "flex items-center justify-center py-4 font-serif text-2xl font-semibold tracking-wide transition-colors duration-200",
+                        isActive(link.href) ? "text-black" : "text-charcoal/70 hover:text-black"
+                      )}
+                    >
+                      <span className="relative inline-flex items-center">
+                        <link.icon size={20} strokeWidth={1.5} className="text-brand-teal shrink-0 absolute -left-7 top-1/2 -translate-y-1/2" />
+                        {link.label}
+                      </span>
+                    </Link>
+                    {/* between items only — a rule after the last one dangles,
+                        since the first item has none above it */}
+                    {i < links.length - 1 && <div className="h-px bg-charcoal/10" />}
+                  </m.div>
+                ))}
               </div>
             </nav>
 
-            {/* Bottom actions — pinned to bottom */}
-            {/* The rule marks where the links end; the gradient deepens toward the
-                bottom edge so the block reads as resting rather than floating. pb tracks the
-                home-indicator inset rather than a fixed 2rem, so the actions sit as
-                low as the device allows and leave the links room above. */}
+            {/* Bottom actions — pinned to bottom. The rule marks where the links
+                end and the gradient deepens toward the bottom edge, so the block
+                reads as resting rather than floating; pb tracks the home-indicator
+                inset rather than a fixed 2rem, so the actions sit as low as the
+                device allows and leave the links room above. */}
             <div className="shrink-0 flex flex-col items-center gap-5 px-8 pt-6 pb-[max(0.75rem,env(safe-area-inset-bottom))] border-t border-charcoal/10 bg-gradient-to-t from-charcoal/5 to-transparent">
               <m.div
                 initial={{ opacity: 0 }}
