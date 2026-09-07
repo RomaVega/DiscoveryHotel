@@ -14,10 +14,15 @@ import { useLanguage } from "@/lib/language-context";
 import { PRIMARY_BUTTON_BASE } from "@/components/common/PrimaryButton";
 import { cn } from "@/lib/utils";
 
-interface BugReportProps {
-  /** Site maintainer's address — `contact.adminEmail`, not reception's. */
-  email: string;
-}
+/**
+ * The site maintainer's address — deliberately NOT in content/contact.json.
+ * `contact` is passed as a prop to the client Footer, so React serialises the
+ * whole object into every page's RSC payload, where a plain-text address is
+ * harvestable from all 39 pages at once. Held here it reaches only the JS
+ * chunk. This is a speed bump, not protection: the real fix is a forwarding
+ * alias that can be rotated without losing an inbox.
+ */
+const MAINTAINER_EMAIL = "admin.orlowsky@gmail.com";
 
 /**
  * Footer bug reporter: a quiet icon that opens a note from the maintainer and
@@ -30,10 +35,10 @@ interface BugReportProps {
  * the three things that make a report reproducible and the three a visitor is
  * least likely to supply, so they are filled in on open.
  */
-export function BugReport({ email }: BugReportProps) {
+export function BugReport() {
   const { tl } = useLanguage();
   const [open, setOpen] = useState(false);
-  const [href, setHref] = useState(`mailto:${email}`);
+  const [href, setHref] = useState(`mailto:${MAINTAINER_EMAIL}`);
 
   const s = tl.footer.bugReport;
 
@@ -51,12 +56,12 @@ export function BugReport({ email }: BugReportProps) {
         const subject = `${s.subject} — ${window.location.pathname}`;
         const body = `${s.prompt}\n\n\n\n---\n${context}`;
         setHref(
-          `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+          `mailto:${MAINTAINER_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
         );
       }
       setOpen(next);
     },
-    [email, s.subject, s.prompt]
+    [s.subject, s.prompt]
   );
 
   return (

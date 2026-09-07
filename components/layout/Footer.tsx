@@ -302,7 +302,7 @@ export function Footer({ contact }: FooterProps) {
           {/* Absolute so the legal text stays optically centred in the bar; the
               centred stack carries matching side padding to reserve this gutter. */}
           <div className="absolute left-6 top-1/2 -translate-y-1/2">
-            <BugReport email={contact.adminEmail} />
+            <BugReport />
           </div>
           <div className="flex items-center gap-1 px-8">
             <Link href="/privacy" className="font-sans text-[10px] text-parchment/30 hover:text-parchment/60 transition-colors duration-200 tracking-wide">
