@@ -6,7 +6,7 @@ import { DivingDetail } from "@/components/sections/DivingDetail";
 import { JsonLd, breadcrumbs, service } from "@/lib/jsonld";
 
 export const metadata = {
-  title: "Дайвинг и снорклинг в Восточном Бали — Туламбен и риф Чандидасы",
+  title: "Дайвинг и снорклинг в Восточном Бали — Туламбен и риф Чандидасы | Orlowsky Discovery",
   description: "Погружение на затонувший корабль USAT Liberty в Туламбене, коралловый риф Чандидасы и манты на Нуса-Пениде. Программы для начинающих и опытных дайверов.",
   alternates: {
     canonical: `${SITE_URL}/ru/experiences/diving`,
@@ -17,7 +17,7 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: "Дайвинг и снорклинг в Восточном Бали — Туламбен и риф Чандидасы",
+    title: "Дайвинг и снорклинг в Восточном Бали — Туламбен и риф Чандидасы | Orlowsky Discovery",
     description: "Погружение на затонувший корабль USAT Liberty в Туламбене, коралловый риф Чандидасы и манты на Нуса-Пениде. Программы для начинающих и опытных дайверов.",
     url: `${SITE_URL}/ru/experiences/diving`,
     images: [{ url: `${SITE_URL}/images/experiences/experiences-diving.webp`, width: 1200, height: 630 }],

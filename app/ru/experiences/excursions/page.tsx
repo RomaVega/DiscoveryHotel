@@ -6,7 +6,7 @@ import { ExcursionsDetail } from "@/components/sections/ExcursionsDetail";
 import { JsonLd, breadcrumbs, service } from "@/lib/jsonld";
 
 export const metadata = {
-  title: "Экскурсии по Восточному Бали — Храмы, Рисовые Террасы и Водопады",
+  title: "Экскурсии по Восточному Бали — Храмы, Рисовые Террасы и Водопады | Orlowsky Discovery",
   description: "Туры к храму Бесаких, рисовым террасам, водопадам и деревне Тенганан с местными гидами. Однодневные и полудневные экскурсии из Orlowsky Discovery Hotel.",
   alternates: {
     canonical: `${SITE_URL}/ru/experiences/excursions`,
@@ -17,7 +17,7 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: "Экскурсии по Восточному Бали — Храмы, Рисовые Террасы и Водопады",
+    title: "Экскурсии по Восточному Бали — Храмы, Рисовые Террасы и Водопады | Orlowsky Discovery",
     description: "Туры к храму Бесаких, рисовым террасам, водопадам и деревне Тенганан с местными гидами. Однодневные и полудневные экскурсии из Orlowsky Discovery Hotel.",
     url: `${SITE_URL}/ru/experiences/excursions`,
     images: [{ url: `${SITE_URL}/images/experiences/experiences-excursions.webp`, width: 1200, height: 630 }],

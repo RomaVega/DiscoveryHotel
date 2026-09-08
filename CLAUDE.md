@@ -25,7 +25,7 @@ Static marketing site for Orlowsky Discovery Hotel, Candidasa, Bali. **Next.js 1
 npx tsc --noEmit              # Type-check
 npm run lint                  # Zero warnings required
 npm run test                  # Vitest unit tests
-npm run build                 # Must pass before deploy (prebuild → image manifest, postbuild → RU lang)
+npm run build                 # Must pass before deploy (prebuild → image manifest, postbuild → RU lang + title guard)
 node scripts/check-images.js  # Catches broken image refs in JSON
 npm run check:contrast        # Catches WCAG AA text-contrast regressions
 ```
@@ -75,7 +75,7 @@ lib/
   lang-redirect.ts      # Pre-paint locale redirect emitted as an inline <head> script
 public/images/          # Organized by section
 public/video/           # Hero MP4s (desktop + mobile)
-scripts/                # check-images.js, check-links.js, check-contrast.js, check-rating-freshness.js, generate-image-manifest.js, fix-ru-lang.js
+scripts/                # check-images.js, check-links.js, check-contrast.js, check-rating-freshness.js, generate-image-manifest.js, fix-ru-lang.js, check-titles.js
 ```
 
 ### i18n
@@ -115,6 +115,9 @@ import { RoomsDetail } from "@/components/sections/RoomsDetail";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata = {
+  // Complete and self-contained — the root layout sets NO title template, so
+  // nothing appends the brand for you. Include it here, once. `check-titles.js`
+  // fails the build on a title naming the hotel twice.
   title: "Rooms & Villas in Candidasa, Bali — Orlowsky Discovery Hotel",
   description: "…",
   alternates: { canonical: `${SITE_URL}/rooms` },

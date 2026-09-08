@@ -6,7 +6,7 @@ import { SITE_URL } from "@/lib/site";
 import { JsonLd, breadcrumbs, service } from "@/lib/jsonld";
 
 export const metadata = {
-  title: "Events & Celebrations — Oceanfront Venue in Candidasa, Bali",
+  title: "Events & Celebrations — Oceanfront Venue in Candidasa, Bali | Orlowsky Discovery",
   description: "Weddings, anniversaries, corporate events, and private dinners at our oceanfront venue in Candidasa. Up to 200 guests, European and Balinese ceremony styles.",
   alternates: {
     canonical: `${SITE_URL}/experiences/events`,
@@ -17,7 +17,7 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: "Events & Celebrations — Oceanfront Venue in Candidasa, Bali",
+    title: "Events & Celebrations — Oceanfront Venue in Candidasa, Bali | Orlowsky Discovery",
     description: "Weddings, anniversaries, corporate events, and private dinners at our oceanfront venue in Candidasa. Up to 200 guests, European and Balinese ceremony styles.",
     url: `${SITE_URL}/experiences/events`,
     images: [{ url: `${SITE_URL}/images/experiences/experiences-events.webp`, width: 1200, height: 630 }],

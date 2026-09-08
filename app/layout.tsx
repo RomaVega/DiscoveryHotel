@@ -44,10 +44,13 @@ const description =
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: {
-    default: `${SITE_NAME} | Candidasa, Bali`,
-    template: `%s | ${SITE_NAME}`,
-  },
+  // A plain string, deliberately not a { default, template } pair. Every page
+  // writes its own complete title with the brand already placed in it — see the
+  // canonical page pattern in CLAUDE.md — so a `%s | ${SITE_NAME}` template
+  // appended the hotel's name a second time on all 37 pages that set one, and
+  // titles like "Privacy Policy | Orlowsky Discovery Hotel" ended up carrying it
+  // twice over. Pages that set no title of their own inherit this one.
+  title: `${SITE_NAME} | Candidasa, Bali`,
   description,
   alternates: {
     canonical: "/",

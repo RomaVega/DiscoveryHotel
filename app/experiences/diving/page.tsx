@@ -6,7 +6,7 @@ import { SITE_URL } from "@/lib/site";
 import { JsonLd, breadcrumbs, service } from "@/lib/jsonld";
 
 export const metadata = {
-  title: "Diving & Snorkeling East Bali — Tulamben & Candidasa Reef",
+  title: "Diving & Snorkeling East Bali — Tulamben & Candidasa Reef | Orlowsky Discovery",
   description: "Dive the USAT Liberty shipwreck at Tulamben, Candidasa coral reef, and manta rays at Nusa Penida. Beginner to advanced programs from Orlowsky Discovery Hotel.",
   alternates: {
     canonical: `${SITE_URL}/experiences/diving`,
@@ -17,7 +17,7 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: "Diving & Snorkeling East Bali — Tulamben & Candidasa Reef",
+    title: "Diving & Snorkeling East Bali — Tulamben & Candidasa Reef | Orlowsky Discovery",
     description: "Dive the USAT Liberty shipwreck at Tulamben, Candidasa coral reef, and manta rays at Nusa Penida. Beginner to advanced programs from Orlowsky Discovery Hotel.",
     url: `${SITE_URL}/experiences/diving`,
     images: [{ url: `${SITE_URL}/images/diving/diving-hawksbill-turtle-scuba-diver-candidasa-bali.webp`, width: 1200, height: 630 }],
