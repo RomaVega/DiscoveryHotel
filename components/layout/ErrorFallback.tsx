@@ -72,7 +72,7 @@ export function ErrorFallback({ locale }: { locale: Locale }) {
       />
 
       <div className="odh-err__card">
-        <p className="odh-err__eyebrow">{copy.eyebrow}</p>
+        <p className="odh-err__eyebrow" translate="no">{copy.eyebrow}</p>
         <h1 className="odh-err__h1">{copy.heading}</h1>
         <p className="odh-err__p">{copy.body}</p>
 

@@ -31,6 +31,9 @@ function BrandText({ onClick }: { onClick?: () => void }) {
       // that a fixed 17px wordmark runs under both. Capped at 17px from 500px up,
       // so nothing changes on a normal phone or desktop.
       className="block font-serif font-semibold text-black tracking-[0.06em] min-[400px]:tracking-widest uppercase leading-tight text-[clamp(0.6875rem,3.4vw,17px)] text-center"
+      // The hotel's name is a proper noun. Without this, Edge's translator
+      // renders it "Открытие Орловского" for Russian visitors.
+      translate="no"
     >
       <span className="block">Orlowsky</span>
       <span className="block">Discovery Candidasa</span>
@@ -41,7 +44,12 @@ function BrandText({ onClick }: { onClick?: () => void }) {
 /** Shared brand logo — absolute left on mobile, inline on desktop */
 function BrandLogo({ onClick }: { onClick?: () => void }) {
   return (
-    <Link href="/" onClick={onClick} className="absolute left-8 top-1/2 -translate-y-1/2 lg:static lg:translate-y-0">
+    <Link
+      href="/"
+      onClick={onClick}
+      className="absolute left-8 top-1/2 -translate-y-1/2 lg:static lg:translate-y-0"
+      translate="no"
+    >
       <Image
         src="/images/logo/logo-dark.webp"
         alt="Orlowsky Discovery Hotel"

@@ -38,6 +38,16 @@ describe("ErrorFallback", () => {
     ).toBeInTheDocument();
   });
 
+  it("marks the hotel name untranslatable in both locales", () => {
+    // The report that prompted all this was a screenshot of this screen with
+    // "Orlowsky Discovery" machine-translated to "Открытие Орловского".
+    for (const locale of ["en", "ru"] as const) {
+      const { unmount } = render(<ErrorFallback locale={locale} />);
+      expect(screen.getByText("Orlowsky Discovery")).toHaveAttribute("translate", "no");
+      unmount();
+    }
+  });
+
   it("hard-reloads rather than re-rendering into the broken DOM", () => {
     const reload = vi.fn();
     const original = window.location;

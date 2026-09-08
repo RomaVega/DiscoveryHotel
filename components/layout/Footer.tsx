@@ -51,6 +51,7 @@ export function Footer({ contact }: FooterProps) {
           <Link
             href="/"
             className="flex flex-col items-center text-center hover:opacity-80 transition-opacity duration-200"
+            translate="no"
           >
             <Image
               src="/images/logo/logo-dark.webp"
