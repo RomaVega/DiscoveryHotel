@@ -1,7 +1,8 @@
 "use client"; // Error boundaries must be client components
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ErrorFallback, localeFromPath } from "@/components/layout/ErrorFallback";
+import { reportBoundaryError } from "@/lib/report-error";
 
 /**
  * Catches errors thrown below the root layout — i.e. anything in a page or
@@ -10,6 +11,10 @@ import { ErrorFallback, localeFromPath } from "@/components/layout/ErrorFallback
  */
 export default function Error({ error }: { error: Error & { digest?: string } }) {
   const [locale] = useState(localeFromPath);
+
+  useEffect(() => {
+    reportBoundaryError(error, false);
+  }, [error]);
 
   if (process.env.NODE_ENV !== "production") {
     console.error("Route error boundary caught:", error);
