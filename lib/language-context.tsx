@@ -1,6 +1,6 @@
 "use client"; // Client context — t() helper consumed by client components
 
-import { createContext, useContext, useMemo, type ReactNode } from "react";
+import { createContext, useContext, useEffect, useMemo, type ReactNode } from "react";
 import type { LocalizedString, Locale } from "@/lib/types";
 import enLocale from "@/locales/en.json";
 import ruLocale from "@/locales/ru.json";
@@ -41,6 +41,13 @@ export const LanguageContext = createContext<LanguageContextType | null>(null);
  * route gets the default `"en"`. There is no runtime swap and no localStorage —
  * the URL is the single source of truth, so SSR and client always agree (no
  * EN→RU flash) and search engines see the language they expect for each URL.
+ *
+ * The effect below is the one piece of DOM this touches. `output: "export"`
+ * gives every route the root layout's <html lang="en">, so the served Russian
+ * pages are corrected at build time by scripts/fix-ru-lang.js — but a language
+ * switch goes through router.push() without a document load, and the attribute
+ * would otherwise keep the old locale for the rest of the session. That matters
+ * because the browser reads it when deciding whether to offer to translate.
  */
 export function LanguageProvider({
   children,
@@ -62,6 +69,10 @@ export function LanguageProvider({
     }),
     [locale]
   );
+
+  useEffect(() => {
+    document.documentElement.lang = locale;
+  }, [locale]);
 
   return (
     <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>

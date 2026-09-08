@@ -1,5 +1,5 @@
-import { describe, it, expect } from "vitest";
-import { renderHook } from "@testing-library/react";
+import { describe, it, expect, afterEach } from "vitest";
+import { render, renderHook } from "@testing-library/react";
 import { LanguageProvider, useLanguage, localizedPath } from "@/lib/language-context";
 import type { ReactNode } from "react";
 
@@ -76,5 +76,29 @@ describe("localizedPath()", () => {
   it("returns the same path when target locale already matches", () => {
     expect(localizedPath("/ru/rooms", "ru")).toBe("/ru/rooms");
     expect(localizedPath("/rooms", "en")).toBe("/rooms");
+  });
+});
+
+describe("document language", () => {
+  afterEach(() => {
+    document.documentElement.lang = "";
+  });
+
+  it("stamps the route's locale onto <html>", () => {
+    render(<LanguageProvider locale="ru">page</LanguageProvider>);
+
+    expect(document.documentElement.lang).toBe("ru");
+  });
+
+  it("follows a client-side switch back to English", () => {
+    // A language switch is a router.push(), not a document load, so nothing
+    // else updates the attribute — and the browser reads it when deciding
+    // whether to offer to translate the page.
+    const { rerender } = render(<LanguageProvider locale="ru">page</LanguageProvider>);
+    expect(document.documentElement.lang).toBe("ru");
+
+    rerender(<LanguageProvider locale="en">page</LanguageProvider>);
+
+    expect(document.documentElement.lang).toBe("en");
   });
 });

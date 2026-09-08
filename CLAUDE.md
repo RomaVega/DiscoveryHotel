@@ -25,7 +25,7 @@ Static marketing site for Orlowsky Discovery Hotel, Candidasa, Bali. **Next.js 1
 npx tsc --noEmit              # Type-check
 npm run lint                  # Zero warnings required
 npm run test                  # Vitest unit tests
-npm run build                 # Must pass before deploy (runs prebuild → image manifest)
+npm run build                 # Must pass before deploy (prebuild → image manifest, postbuild → RU lang)
 node scripts/check-images.js  # Catches broken image refs in JSON
 npm run check:contrast        # Catches WCAG AA text-contrast regressions
 ```
@@ -75,7 +75,7 @@ lib/
   lang-redirect.ts      # Pre-paint locale redirect emitted as an inline <head> script
 public/images/          # Organized by section
 public/video/           # Hero MP4s (desktop + mobile)
-scripts/                # check-images.js, check-links.js, check-contrast.js, check-rating-freshness.js, generate-image-manifest.js
+scripts/                # check-images.js, check-links.js, check-contrast.js, check-rating-freshness.js, generate-image-manifest.js, fix-ru-lang.js
 ```
 
 ### i18n
@@ -83,6 +83,8 @@ scripts/                # check-images.js, check-links.js, check-contrast.js, ch
 English routes live at `/foo`, Russian routes at `/ru/foo` — each page is duplicated. Both wrap the tree in `LanguageProvider` (defaultLocale `"en"` or `"ru"`). Content JSON uses `LocalizedString` (`string | { en, ru }`); resolve with `useLanguage().t(...)` for content and `.tl` for UI strings. When editing a page, change **both** the EN and RU copies or accept the drift.
 
 **Which locale a visitor lands on** is decided before first paint by the blocking script in [lib/lang-redirect.ts](lib/lang-redirect.ts), mounted first in `<head>`. Precedence: `?lang=en|ru` (remembered), then the stored `odh-lang` preference, then — only for a visitor with neither — their **primary** browser language. This is a redirect rather than a prompt because it exists to beat the browser's own "translate this page" offer, which appears at first paint: Edge's and Chrome's translators replace our text nodes with their own elements and React then throws on the next `removeChild`. [LanguageSuggestion](components/layout/LanguageSuggestion.tsx) still handles the *secondary*-Russian case as a soft card, where there is no translate offer to outrun.
+
+**`<html lang>` is not set by the layout.** `output: "export"` gives all 38 routes the root layout's `lang="en"`, so `scripts/fix-ru-lang.js` rewrites the opening `<html>` tag of the 19 exported Russian pages as a `postbuild` step, and `LanguageProvider` keeps the attribute in step across client-side switches. Both halves are needed: a `router.push()` between locales never reloads the document, and the build-time fix cannot help there. The script fails the build rather than skipping a page it does not recognise — a Next release that changes the exported markup must not quietly ship `lang="en"` on every Russian page. Don't reintroduce an inline `<script>` for this: React inserts one via innerHTML on a client navigation, and scripts inserted that way never execute, which is why the previous attempt only ever worked on a hard load.
 
 Matching only the primary language is deliberate — an `en-US`-first visitor who also lists Russian must stay on EN, since /ru would invite the reverse translate offer. The script is emitted as a string and [its tests](__tests__/lib/lang-redirect.test.ts) execute that exact string, so **add a case there rather than editing the script by eye** — a mistake in it can trap every visitor in a locale or a redirect loop.
 

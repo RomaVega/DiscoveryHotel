@@ -6,6 +6,7 @@
     "dev": "next dev --turbopack",
     "prebuild": "node scripts/generate-image-manifest.js",
     "build": "next build",
+    "postbuild": "node scripts/fix-ru-lang.js",
     "start": "next start",
     "lint": "eslint .",
     "test": "vitest run",
