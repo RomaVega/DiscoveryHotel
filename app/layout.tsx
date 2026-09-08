@@ -9,25 +9,19 @@ import {
 import { LanguageSuggestion } from "@/components/layout/LanguageSuggestion";
 import { LanguageProvider } from "@/lib/language-context";
 import { ALL_ROUTES } from "@/lib/image-manifest";
+import { buildLangRedirectScript, enPathsWithRuTwin } from "@/lib/lang-redirect";
 import { SITE_URL, SITE_NAME, OG_IMAGE } from "@/lib/site";
 import { getWhatsAppNumber } from "@/lib/whatsapp";
 import { getContactData, getRatingAggregates } from "@/lib/content";
 import { aggregateRating } from "@/lib/jsonld";
 import "./globals.css";
 
-// EN paths that have a /ru equivalent. Used by the inline redirect script below
-// to honor a user's saved language preference on entry. Pages without a /ru
-// version (/privacy, /terms) stay in EN regardless of preference.
-const EN_PATHS_WITH_RU = JSON.stringify(
-  ALL_ROUTES.filter((r) => r.startsWith("/ru")).map((r) =>
-    r === "/ru" ? "/" : r.slice(3)
-  )
-);
-
-// Blocking inline script: reads `odh-lang` from localStorage and redirects to
-// the matching locale's URL before paint, so returning users land on the
-// language they last chose without an EN→RU content flash.
-const LANG_REDIRECT_SCRIPT = `(function(){try{var p=localStorage.getItem("odh-lang");if(p!=="en"&&p!=="ru")return;var path=location.pathname.replace(/\\/$/,"")||"/";var onRu=path==="/ru"||path.indexOf("/ru/")===0;if(p==="ru"&&!onRu){var a=${EN_PATHS_WITH_RU};if(a.indexOf(path)<0)return;location.replace((path==="/"?"/ru":"/ru"+path)+location.search+location.hash)}else if(p==="en"&&onRu){location.replace((path.replace(/^\\/ru/,"")||"/")+location.search+location.hash)}}catch(e){}})();`;
+// Blocking pre-paint redirect: honours a stored language preference, an
+// explicit ?lang=, and — for a first-time visitor with neither — the browser's
+// own language list. Routing a Russian speaker to /ru before first paint is
+// what stops Edge offering to translate the English page, which is how the
+// translator gets a chance to break React's DOM. See lib/lang-redirect.ts.
+const LANG_REDIRECT_SCRIPT = buildLangRedirectScript(enPathsWithRuTwin(ALL_ROUTES));
 
 const inter = Inter({
   variable: "--font-sans",

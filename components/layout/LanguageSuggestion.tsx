@@ -8,15 +8,22 @@ import { SecondaryButton } from "@/components/common/SecondaryButton";
 import { ALL_ROUTES } from "@/lib/image-manifest";
 
 /**
- * Offers the Russian version of the current page to visitors whose browser is
- * set to Russian and who landed on an English URL.
+ * Offers the Russian version of the current page to visitors who list Russian
+ * as a *secondary* browser language and landed on an English URL.
  *
- * Why a suggestion and not a redirect: an auto-redirect surprises anyone who
- * wants the English page and muddies what crawlers see. But leaving a Russian
- * speaker on an English page invites the browser's own "translate this page",
- * and Chrome/Edge translation rewrites text nodes into <font> wrappers under
- * React's feet — which can crash hydration outright. Landing them on /ru means
- * the browser never offers to translate in the first place.
+ * Visitors whose *primary* language is Russian no longer reach this component:
+ * lib/lang-redirect.ts routes them to /ru before first paint. That case had to
+ * become a redirect rather than a suggestion, because the thing it prevents
+ * happens immediately — the browser's own "translate this page" offer appears
+ * at first paint, well before this card's 1.5s delay, and Chrome/Edge
+ * translation rewrites our text nodes into its own elements under React's
+ * feet, which crashes the reconciler on the next removeChild.
+ *
+ * A secondary-Russian visitor has no such urgency: their browser is set to
+ * English, so it will not offer to translate an English page, and there is
+ * nothing to outrun. A suggestion is the right weight for them — and a
+ * redirect would be actively wrong, since sending them to /ru would invite the
+ * reverse translate offer into English.
  *
  * Only shown when a real translated counterpart exists; never on /ru routes,
  * and never once the visitor has expressed a preference either way.

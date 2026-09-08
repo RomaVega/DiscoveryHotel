@@ -10,7 +10,7 @@ export type { Locale };
 
 /** Map a path to its equivalent in another locale.
  * Falls back to that locale's home if the translated route doesn't exist
- * (e.g. /privacy → /ru/privacy not built → /ru). */
+ * (an EN-only page added later → /ru). Every route has a twin as of Sep 2026. */
 export function localizedPath(currentPath: string, target: Locale): string {
   const stripped = currentPath.replace(/^\/ru(?=\/|$)/, "") || "/";
   const candidate = target === "ru"
