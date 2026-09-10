@@ -79,8 +79,18 @@ export function RatingSummary({ aggregates, locale }: RatingSummaryProps) {
           three on the first row and stranded the fourth underneath — a T that
           reads as a layout bug rather than a set. A grid pairs them 2×2 at any
           phone width. From sm up there is room for a single centred row, so the
-          original flex behaviour resumes. */}
-      <ul className="grid grid-cols-2 justify-items-center gap-x-10 gap-y-6 sm:flex sm:flex-wrap sm:justify-center sm:gap-x-14">
+          original flex behaviour resumes.
+
+          w-fit, not a full-width grid: at full width each column is half the
+          container with its content centred inside, which left 104px between
+          the columns against 24px between the rows — the block read as two
+          separate lists rather than one set of four. Sizing the grid to its
+          content puts both gaps on the same footing. gap-x is 20px against
+          gap-y's 32px because the columns size to their widest cell —
+          "Booking.com" is wider than "Google" — and the narrower cells centre
+          inside that, adding ~12px of slack between the columns. The two gaps
+          measure equal on screen, which is the part that matters. */}
+      <ul className="grid w-fit mx-auto grid-cols-2 justify-items-center gap-x-5 gap-y-8 sm:flex sm:w-auto sm:flex-wrap sm:justify-center sm:gap-x-14 sm:gap-y-6">
         {aggregates.map((a) => (
           <li key={a.platform}>
             <a
