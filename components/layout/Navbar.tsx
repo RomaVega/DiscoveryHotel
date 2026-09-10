@@ -9,9 +9,7 @@ import { m, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { useLanguage } from "@/lib/language-context";
 import { LanguageSelector } from "@/components/layout/LanguageSelector";
-import { SecondaryButton } from "@/components/common/SecondaryButton";
 import { BookNowButton } from "@/components/common/BookNowButton";
-import { BOOKING_URL } from "@/lib/booking";
 
 interface NavbarProps {
   alwaysVisible?: boolean;
@@ -265,9 +263,11 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80, brandAfter
             </li>
 
             <li>
-              <SecondaryButton href={BOOKING_URL} external className="whitespace-nowrap shrink-0">
-                {tl.nav.bookNow}
-              </SecondaryButton>
+              {/* The same BookNowButton the floating button and the drawer use,
+                  trimmed to the bar's own footprint: px-5 py-2 text-xs keeps the
+                  height the slim navbar was built around, while the gradient,
+                  keyline, shadow and sheen come from the shared component. */}
+              <BookNowButton className="whitespace-nowrap shrink-0 px-5 py-2 text-xs" />
             </li>
           </ul>
 
