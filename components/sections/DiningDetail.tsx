@@ -7,6 +7,7 @@ import { StatsStrip } from "@/components/common/StatsStrip";
 import type { ContactData, DiningPageData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import { MENU_URL } from "@/lib/booking";
 
 // Atmospheric hotel images cycled across feature sections
 const FEATURE_IMAGES = [
@@ -37,7 +38,7 @@ export function DiningDetail({ data, contact }: DiningDetailProps) {
     ? "Здравствуйте! Я не проживаю в отеле — хочу поужинать у вас в ресторане."
     : "Hello! I'm not staying at the hotel — I'd like to eat at your restaurant.");
   // Menu browsing, room service, and delivery orders all go through one GuestPro page.
-  const menuUrl = "https://secure.guestpro.net/odch/concierge/room-dining";
+  const menuUrl = MENU_URL;
   // Performance nights rotate, so the schedule can't be hardcoded here — ask instead.
   const showsUrl = buildWhatsAppUrl(isRu
     ? "Здравствуйте! Подскажите, когда ближайшее выступление балийских танцоров?"

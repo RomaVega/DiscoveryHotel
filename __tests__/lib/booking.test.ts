@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { serviceForRoute, BOOKING_URL } from "@/lib/booking";
+import { serviceForRoute, SERVICE_URL, BOOKING_URL, MENU_URL } from "@/lib/booking";
 
 /**
  * The booking engine books rooms and nothing else. A route that sells a dive,
@@ -56,5 +56,19 @@ describe("serviceForRoute", () => {
 
   it("keeps the engine URL pointing at the engine", () => {
     expect(BOOKING_URL).toContain("secure.guestpro.net");
+  });
+
+  // Dining is the one service with somewhere real to send people: the
+  // restaurant publishes a menu, so the CTA reads it rather than opening a
+  // conversation about a table.
+  it("sends dining to the menu, not an enquiry", () => {
+    expect(SERVICE_URL.dining).toBe(MENU_URL);
+    expect(MENU_URL).toContain("concierge/room-dining");
+  });
+
+  it("leaves every other service without a published URL, so it falls back to WhatsApp", () => {
+    for (const key of ["spa", "transfer", "weddings", "diving", "excursions", "carRental", "events"] as const) {
+      expect(SERVICE_URL[key]).toBeUndefined();
+    }
   });
 });

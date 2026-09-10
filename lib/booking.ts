@@ -7,6 +7,10 @@
  */
 export const BOOKING_URL = "https://secure.guestpro.net/odch";
 
+/** The in-room dining menu. Was written out only in `DiningDetail`; it is a
+    second CTA destination now, so it lives beside the engine's URL. */
+export const MENU_URL = "https://secure.guestpro.net/odch/concierge/room-dining";
+
 /**
  * The services the hotel sells that the booking engine does not handle.
  *
@@ -33,6 +37,18 @@ const SERVICE_BY_ROUTE: Readonly<Record<string, ServiceKey>> = {
   "/experiences/excursions": "excursions",
   "/experiences/car-bike-rental": "carRental",
   "/experiences/events": "events",
+};
+
+/**
+ * Services that have a real destination rather than a conversation.
+ *
+ * Most of these are enquiries — there is no engine that books a dive — but the
+ * restaurant already publishes a menu, and sending someone to read it is a
+ * better first step than asking them to message about a table when the
+ * restaurant is quiet anyway.
+ */
+export const SERVICE_URL: Partial<Record<ServiceKey, string>> = {
+  dining: MENU_URL,
 };
 
 /**

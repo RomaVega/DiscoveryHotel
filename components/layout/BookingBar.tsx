@@ -5,7 +5,7 @@ import { m, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { useLanguage } from "@/lib/language-context";
 import { useAtPageBottom } from "@/lib/use-page-bottom";
-import { serviceForRoute } from "@/lib/booking";
+import { serviceForRoute, SERVICE_URL } from "@/lib/booking";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { BookNowButton } from "@/components/common/BookNowButton";
 
@@ -55,7 +55,11 @@ export function BookingBar({ alwaysVisible = false }: BookingBarProps) {
   const serviceCta = service
     ? {
         label: tl.serviceCta.labels[service],
-        href: buildWhatsAppUrl(tl.serviceCta.enquiry.replace("{service}", tl.serviceCta.topics[service])),
+        // A published destination wins over an enquiry: SERVICE_URL holds the
+        // ones that have somewhere real to send people.
+        href:
+          SERVICE_URL[service] ??
+          buildWhatsAppUrl(tl.serviceCta.enquiry.replace("{service}", tl.serviceCta.topics[service])),
       }
     : {};
 
