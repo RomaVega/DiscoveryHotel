@@ -17,7 +17,7 @@ export function LocationDetail({ data }: LocationDetailProps) {
       <div className="max-w-5xl mx-auto px-6">
         {/* Nearby Attractions */}
         <FadeIn>
-          <h2 className="font-serif text-3xl font-light text-charcoal text-center mb-12">
+          <h2 className="font-serif text-3xl font-medium text-charcoal text-center mb-12">
             {t({ en: "Nearby Attractions", ru: "Достопримечательности поблизости" })}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
@@ -36,7 +36,7 @@ export function LocationDetail({ data }: LocationDetailProps) {
 
         {/* Getting Here */}
         <FadeIn>
-          <h2 className="font-serif text-3xl font-light text-charcoal text-center mb-12">
+          <h2 className="font-serif text-3xl font-medium text-charcoal text-center mb-12">
             {t({ en: "Getting Here", ru: "Как добраться" })}
           </h2>
           <div className="space-y-6">

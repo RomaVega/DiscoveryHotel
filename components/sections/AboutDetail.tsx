@@ -70,7 +70,7 @@ export function AboutDetail({ data }: AboutDetailProps) {
                   </div>
                   {/* Text */}
                   <div className="lg:w-1/2 bg-ivory flex flex-col justify-center px-10 md:px-16 lg:px-20 py-16">
-                    <h2 className="font-serif text-3xl md:text-4xl font-light text-charcoal leading-tight">
+                    <h2 className="font-serif text-3xl md:text-4xl font-medium text-charcoal leading-tight">
                       {t(section.title)}
                     </h2>
                     <div className="w-8 h-px bg-brand-teal my-7" />

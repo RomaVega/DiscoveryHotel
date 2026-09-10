@@ -30,7 +30,7 @@ export function WeddingsDetail({ data }: WeddingsDetailProps) {
                   />
                 </div>
                 <div className={i % 2 === 1 ? "lg:order-1" : ""}>
-                  <h2 className="font-serif text-3xl font-light text-charcoal">{t(pkg.title)}</h2>
+                  <h2 className="font-serif text-3xl font-medium text-charcoal">{t(pkg.title)}</h2>
                   <p className="mt-4 text-stone leading-relaxed">{t(pkg.description)}</p>
                   {pkg.features && pkg.features.length > 0 && (
                     <ul className="mt-6 space-y-3">

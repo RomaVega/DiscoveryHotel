@@ -63,7 +63,7 @@ export function EventsDetail({ data }: EventsDetailProps) {
         {/* Venue Features */}
         {data.venueFeatures && data.venueFeatures.length > 0 && (
           <FadeIn>
-            <h2 className="font-serif text-3xl font-light text-charcoal text-center mb-8">
+            <h2 className="font-serif text-3xl font-medium text-charcoal text-center mb-8">
               {t({ en: "What We Offer", ru: "Что мы предлагаем" })}
             </h2>
             <div className="bg-ivory p-8 shadow-sm rounded-md">

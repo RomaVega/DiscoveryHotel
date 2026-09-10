@@ -29,7 +29,7 @@ export function TransferDetail({ data }: TransferDetailProps) {
 
         {/* Main Routes Table */}
         <FadeIn>
-          <h2 className="font-serif text-3xl font-light text-charcoal text-center mb-8">
+          <h2 className="font-serif text-3xl font-medium text-charcoal text-center mb-8">
             {t({ en: "Airport & Resort Transfers", ru: "Трансферы из аэропорта" })}
           </h2>
           <div className="bg-ivory shadow-sm overflow-hidden mb-16 rounded-md">
@@ -53,7 +53,7 @@ export function TransferDetail({ data }: TransferDetailProps) {
         {/* Local Routes */}
         {data.localRoutes && data.localRoutes.length > 0 && (
           <FadeIn>
-            <h2 className="font-serif text-3xl font-light text-charcoal text-center mb-8">
+            <h2 className="font-serif text-3xl font-medium text-charcoal text-center mb-8">
               {t({ en: "Local Transfers", ru: "Местные трансферы" })}
             </h2>
             <div className="bg-ivory shadow-sm overflow-hidden mb-16 rounded-md">

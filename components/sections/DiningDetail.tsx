@@ -71,7 +71,7 @@ export function DiningDetail({ data, contact }: DiningDetailProps) {
           <p className="font-sans text-[10px] tracking-[0.3em] uppercase text-stone mb-6">
             {isRu ? "Ресторан" : "Dining"}
           </p>
-          <h2 className="font-serif font-light text-3xl md:text-4xl text-charcoal mb-3">
+          <h2 className="font-serif font-medium text-3xl md:text-4xl text-charcoal mb-3">
             {isRu ? "Как Вы Хотите Отужинать?" : "How Would You Like to Dine?"}
           </h2>
           <p className="text-stone text-sm leading-relaxed mb-8 max-w-md mx-auto">
@@ -119,7 +119,7 @@ export function DiningDetail({ data, contact }: DiningDetailProps) {
                   </div>
                   {/* Text */}
                   <div className="lg:w-1/2 flex flex-col justify-center px-10 md:px-16 lg:px-20 py-14">
-                    <h3 className="font-serif text-3xl md:text-4xl font-light text-charcoal leading-tight">
+                    <h3 className="font-serif text-3xl md:text-4xl font-medium text-charcoal leading-tight">
                       {t(feature.title)}
                     </h3>
                     <div className="w-8 h-px bg-brand-teal my-7" />

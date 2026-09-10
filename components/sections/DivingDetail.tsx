@@ -41,7 +41,7 @@ export function DivingDetail({ data }: DivingDetailProps) {
       <div className="max-w-5xl mx-auto px-6">
         {/* Programs */}
         <FadeIn>
-          <h2 className="font-serif text-3xl font-light text-charcoal text-center mb-12">
+          <h2 className="font-serif text-3xl font-medium text-charcoal text-center mb-12">
             {t({ en: "Dive Programs", ru: "Программы дайвинга" })}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
@@ -74,7 +74,7 @@ export function DivingDetail({ data }: DivingDetailProps) {
 
         {/* Dive Sites */}
         <FadeIn>
-          <h2 className="font-serif text-3xl font-light text-charcoal text-center mb-12">
+          <h2 className="font-serif text-3xl font-medium text-charcoal text-center mb-12">
             {t({ en: "Dive Sites", ru: "Места для дайвинга" })}
           </h2>
           {/* One site per row, matching the car-rental card structure */}

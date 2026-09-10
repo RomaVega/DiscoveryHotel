@@ -72,7 +72,7 @@ function RoomCard({ room, reverse, t, isRu }: {
 
       {/* ── Block 1: Title + stats + description (desktop: col 2 row 1) ── */}
       <div className={`lg:col-start-2 lg:row-start-1 ${reverse ? "lg:col-start-1" : ""}`}>
-        <h2 className="font-serif text-3xl md:text-4xl font-light text-charcoal mb-6">{t(room.title)}</h2>
+        <h2 className="font-serif text-3xl md:text-4xl font-medium text-charcoal mb-6">{t(room.title)}</h2>
 
         <div className="flex items-center gap-6 mb-6 pb-6 border-b border-charcoal/10">
           <div>

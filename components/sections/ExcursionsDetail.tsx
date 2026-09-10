@@ -19,7 +19,7 @@ function ExcursionGroup({ section }: { section: ExcursionSection }) {
 
   return (
     <div>
-      <h2 className="font-serif text-3xl md:text-4xl font-light text-charcoal text-center mb-3">
+      <h2 className="font-serif text-3xl md:text-4xl font-medium text-charcoal text-center mb-3">
         {t(section.title)}
       </h2>
       {section.description && (
