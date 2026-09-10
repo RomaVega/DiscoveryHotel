@@ -2,7 +2,11 @@
 
 import { useState, useEffect } from "react";
 import { m, AnimatePresence } from "framer-motion";
+import { usePathname } from "next/navigation";
+import { useLanguage } from "@/lib/language-context";
 import { useAtPageBottom } from "@/lib/use-page-bottom";
+import { serviceForRoute } from "@/lib/booking";
+import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { BookNowButton } from "@/components/common/BookNowButton";
 
 interface BookingBarProps {
@@ -15,15 +19,23 @@ interface BookingBarProps {
 /**
  * Positions and reveals the persistent mobile Book Now button.
  *
- * This component owns *when* the button is on screen, not what it looks like —
- * the treatment lives in `BookNowButton`, which the mobile drawer renders too
- * so the two can never drift apart.
+ * This component owns *when* the button is on screen and *what it books*, not
+ * what it looks like — the treatment lives in `BookNowButton`, which the mobile
+ * drawer renders too so the two can never drift apart.
+ *
+ * On a page selling something the room engine cannot book, the button names
+ * that service and opens WhatsApp about it. It used to say "Book Now" and open
+ * the room reservation form on every page, which on `/experiences/diving` put
+ * a permanent button directly over the page's own correctly-targeted "Book Now"
+ * — same words, different destination, mine on top.
  *
  * It disappears only at the very bottom of the page, together with the
  * WhatsApp button — see `useAtPageBottom`. Both otherwise sit over the footer's
  * privacy and terms links.
  */
 export function BookingBar({ alwaysVisible = false }: BookingBarProps) {
+  const pathname = usePathname();
+  const { tl } = useLanguage();
   const [scrolledPast, setScrolledPast] = useState(alwaysVisible);
   const atPageBottom = useAtPageBottom();
 
@@ -34,6 +46,18 @@ export function BookingBar({ alwaysVisible = false }: BookingBarProps) {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, [alwaysVisible]);
+
+  const service = serviceForRoute(pathname);
+  // `topics`, not the label: the labels are verb phrases ("Book a Treatment",
+  // "Записаться в спа") and reusing one inside the sentence produces "I'd like
+  // to ask about book a treatment" and, in Russian, a verb where «про» requires
+  // an accusative noun.
+  const serviceCta = service
+    ? {
+        label: tl.serviceCta.labels[service],
+        href: buildWhatsAppUrl(tl.serviceCta.enquiry.replace("{service}", tl.serviceCta.topics[service])),
+      }
+    : {};
 
   return (
     <AnimatePresence>
@@ -58,7 +82,7 @@ export function BookingBar({ alwaysVisible = false }: BookingBarProps) {
           exit={{ opacity: 0, y: 12 }}
           transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
         >
-          <BookNowButton className="pointer-events-auto" />
+          <BookNowButton className="pointer-events-auto" {...serviceCta} />
         </m.div>
       )}
     </AnimatePresence>

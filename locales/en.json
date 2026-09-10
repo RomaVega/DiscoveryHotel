@@ -11,6 +11,29 @@
     "about": "About",
     "bookNow": "Book Now"
   },
+  "serviceCta": {
+    "enquiry": "Hello! I'd like to ask about {service} at Orlowsky Discovery Hotel.",
+    "labels": {
+      "spa": "Book a Treatment",
+      "dining": "Reserve a Table",
+      "transfer": "Book a Transfer",
+      "weddings": "Ask About Weddings",
+      "diving": "Book a Dive",
+      "excursions": "Book an Excursion",
+      "carRental": "Reserve a Car",
+      "events": "Plan Your Event"
+    },
+    "topics": {
+      "spa": "a spa treatment",
+      "dining": "a table reservation",
+      "transfer": "an airport transfer",
+      "weddings": "a wedding",
+      "diving": "diving",
+      "excursions": "an excursion",
+      "carRental": "car rental",
+      "events": "hosting an event"
+    }
+  },
   "footer": {
     "explore": "Explore",
     "experiences": "Experiences",

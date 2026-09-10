@@ -9,6 +9,11 @@ import { BOOKING_URL } from "@/lib/booking";
 interface BookNowButtonProps {
   className?: string;
   onClick?: () => void;
+  /** Overrides the default "Book Now" wording. Used where the page sells
+      something the room engine cannot book — see `serviceForRoute`. */
+  label?: string;
+  /** Overrides `BOOKING_URL`. Same reason. */
+  href?: string;
   /**
    * `solid` (default) is the teal pill used everywhere the ground is known.
    *
@@ -44,12 +49,12 @@ interface BookNowButtonProps {
  * floating button carried its own `bookingBar.label`, and English ended up
  * saying "Book Stay" in the navbar and "Book Now" on the button.
  */
-export function BookNowButton({ className, onClick, variant = "solid" }: BookNowButtonProps) {
+export function BookNowButton({ className, onClick, label, href, variant = "solid" }: BookNowButtonProps) {
   const { tl } = useLanguage();
 
   return (
     <a
-      href={BOOKING_URL}
+      href={href ?? BOOKING_URL}
       target="_blank"
       rel="noopener noreferrer"
       onClick={onClick}
@@ -97,7 +102,7 @@ export function BookNowButton({ className, onClick, variant = "solid" }: BookNow
         className
       )}
     >
-      <span className="relative z-10">{tl.nav.bookNow}</span>
+      <span className="relative z-10">{label ?? tl.nav.bookNow}</span>
       {/* Sheen. Decorative, transform-only, and long-delayed: a highlight that
           crosses once every few seconds reads as a catch of light, while a fast
           or frequent one reads as a banner ad. Framer Motion so `MotionConfig
