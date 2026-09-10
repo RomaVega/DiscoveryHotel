@@ -318,7 +318,7 @@ export function HeroImage({ hero }: HeroImageProps) {
             from the viewport's midline and the arrow is pinned to the bottom,
             so that gap's midpoint works out to 75% of viewport height plus a
             constant — which holds at any height, unlike a fixed margin. */}
-        <BookNowButton className="absolute left-1/2 top-[calc(75%+72px)] md:top-[calc(75%+55px)] -translate-x-1/2 -translate-y-1/2 whitespace-nowrap" />
+        <BookNowButton variant="ghost" className="absolute left-1/2 top-[calc(75%+72px)] md:top-[calc(75%+55px)] -translate-x-1/2 -translate-y-1/2 whitespace-nowrap" />
       </div>
 
       {/* Scroll indicator */}
