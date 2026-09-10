@@ -44,7 +44,7 @@ export function SpecialOffers({ data, hideHeading }: SpecialOffersProps) {
                   />
                 </div>
                 <div className="p-5 md:p-8 flex flex-col flex-1">
-                  <h3 className="font-serif text-2xl font-semibold text-charcoal">
+                  <h3 className="font-sans text-lg font-normal text-charcoal">
                     {t(offer.title)}
                   </h3>
                   <p className="mt-2 text-stone leading-relaxed flex-1">

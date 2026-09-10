@@ -161,7 +161,8 @@ Mirror the page under `app/ru/rooms/page.tsx` with translated metadata and `alte
 
 ## Typography & Spacing
 
-- **Headings:** Cormorant Garamond (300 display, 400 smaller). Never below 20px.
+- **Headings:** Cormorant Garamond (300 display, 400 smaller). Never below 20px. **Section headings only** — `h2` band and section titles, and the few display `h3`s that behave like them (DiningDetail's headline, DiningPreview's section title, DiningDetail's letterspaced menu label). At `text-3xl` on a light ground use **500, not 300**: 300 is a hairline at that size, the same reason the CTA bands carry `font-medium`.
+- **Card titles are Inter, not Cormorant** — `font-sans font-semibold text-lg` (`text-base` where the cards are small, as in LocationDetail). The two fonts were mixed for a long time: SpaDetail set programs in Cormorant and treatments in Inter on the same page, so a program and a treatment read as different kinds of thing. The size drops when converting (`text-2xl` serif → `text-lg` sans) because Inter at 600 carries far more weight per point than Cormorant, and matching the point size makes card titles louder than the section heading above them. Card body copy is `text-sm`; `text-xs` is for metadata only (duration, distance, validity), never a description.
 - **Body/UI:** Inter (400 body, 500 nav/labels, 600 buttons). 16px base, `leading-relaxed`.
 - **Spacing:** 8px grid. Sections: `py-24`/`py-32`. Heading mb: `mb-16`. Content: `max-w-7xl` centered. Generous whitespace is the core design principle — never reduce spacing to fit content.
 

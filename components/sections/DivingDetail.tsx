@@ -52,7 +52,7 @@ export function DivingDetail({ data }: DivingDetailProps) {
               );
               return (
                 <div key={i} className="bg-ivory p-6 shadow-sm flex flex-col rounded-md">
-                  <h3 className="font-serif text-2xl font-semibold text-charcoal">{t(program.name)}</h3>
+                  <h3 className="font-sans text-lg font-normal text-charcoal">{t(program.name)}</h3>
                   <p className="mt-1 text-xs text-accent-text font-sans uppercase tracking-wider">{t(program.level)}</p>
                   <p className="mt-3 text-stone text-sm leading-relaxed flex-1">{t(program.description)}</p>
                   {(program.duration || program.price) && (
@@ -87,7 +87,7 @@ export function DivingDetail({ data }: DivingDetailProps) {
               return (
                 <div key={i} className="bg-ivory shadow-sm p-6 md:p-8 flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-8 rounded-md">
                   <div className="flex-1">
-                    <h3 className="font-serif text-2xl font-semibold text-charcoal">{t(site.name)}</h3>
+                    <h3 className="font-sans text-lg font-normal text-charcoal">{t(site.name)}</h3>
                     <p className="text-stone text-sm mt-2 leading-relaxed">{t(site.description)}</p>
                   </div>
                   <div className="flex justify-center sm:block">

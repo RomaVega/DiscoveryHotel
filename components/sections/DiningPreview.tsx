@@ -56,7 +56,7 @@ export function DiningPreview() {
             {/* Menu is the single primary action; a table reservation sits below as a quiet link */}
             <div className="px-6 md:px-8 py-11 md:py-12 flex flex-col items-center text-center gap-4">
               <Utensils size={20} className="text-brand-teal" />
-              <h3 className="font-serif text-2xl md:text-3xl font-light text-charcoal">
+              <h3 className="font-sans text-lg font-normal text-charcoal">
                 {isRu ? "Наше меню" : "Our Menu"}
               </h3>
               <p className="text-stone text-sm leading-relaxed max-w-md">

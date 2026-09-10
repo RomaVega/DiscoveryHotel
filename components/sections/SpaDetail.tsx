@@ -26,8 +26,14 @@ function TreatmentCard({ treatment, bookText, whatsappBase }: {
   return (
     <div className="bg-ivory shadow-sm p-6 rounded-md sm:flex sm:items-center sm:gap-8">
       <div className="sm:flex-1">
-        <h3 className="font-sans font-semibold text-charcoal text-sm">{t(treatment.name)}</h3>
-        <p className="text-stone text-xs mt-1 leading-relaxed">{t(treatment.description)}</p>
+        {/* text-base, not text-sm. The treatments were a step smaller than the
+            programs in both title and body — not a deliberate hierarchy, just two
+            card types written separately. The list people actually read most was
+            set smallest on the page, and its 12px body sat below the 16px base the
+            typography rules give. Programs keep one step of prominence (text-lg),
+            which is the nudge a flagship deserves rather than the gap this was. */}
+        <h3 className="font-sans font-normal text-charcoal text-base">{t(treatment.name)}</h3>
+        <p className="text-stone text-sm mt-1 leading-relaxed">{t(treatment.description)}</p>
         <div className="mt-3 flex items-baseline justify-between sm:justify-start sm:gap-4">
           {treatment.duration && (
             <span className="order-2 text-xs text-stone/70 font-sans">{treatment.duration}</span>
@@ -71,7 +77,7 @@ export function SpaDetail({ data }: SpaDetailProps) {
 
         {/* Programs */}
         <FadeIn>
-          <h2 className="font-serif text-3xl font-light text-charcoal text-center mb-12">
+          <h2 className="font-serif text-3xl font-medium text-charcoal text-center mb-12">
             {t({ en: "Signature Programs", ru: "Авторские программы" })}
           </h2>
           <div className="flex flex-col gap-6 mb-20">
@@ -84,7 +90,14 @@ export function SpaDetail({ data }: SpaDetailProps) {
               return (
                 <div key={i} className="bg-ivory shadow-sm p-6 rounded-md sm:flex sm:items-center sm:gap-8">
                   <div className="sm:flex-1">
-                    <h3 className="font-serif text-2xl font-semibold text-charcoal">{t(program.name)}</h3>
+                    {/* font-sans, matching the treatment cards below and the description text.
+                        The page had two card-title fonts — Cormorant here, Inter there —
+                        so a program and a treatment read as different kinds of thing when
+                        they are the same kind of thing. text-lg rather than the serif's
+                        text-2xl: Inter at 600 carries far more weight per point than
+                        Cormorant, so matching the point size would have made these
+                        louder than the section headings above them. */}
+                    <h3 className="font-sans font-normal text-charcoal text-lg">{t(program.name)}</h3>
                     <p className="mt-2 text-stone text-sm leading-relaxed">{t(program.description)}</p>
                     <div className="mt-3 flex items-baseline justify-between sm:justify-start sm:gap-4">
                       <span className="order-2 text-xs text-stone/70 font-sans">{program.duration}</span>
@@ -104,7 +117,7 @@ export function SpaDetail({ data }: SpaDetailProps) {
 
         {/* Ayurvedic Treatments */}
         <FadeIn>
-          <h2 className="font-serif text-3xl font-light text-charcoal text-center mb-12">
+          <h2 className="font-serif text-3xl font-medium text-charcoal text-center mb-12">
             {t({ en: "Ayurvedic Treatments", ru: "Аюрведические процедуры" })}
           </h2>
           <div className="flex flex-col gap-6 mb-20">
@@ -116,7 +129,7 @@ export function SpaDetail({ data }: SpaDetailProps) {
 
         {/* Balinese Treatments */}
         <FadeIn>
-          <h2 className="font-serif text-3xl font-light text-charcoal text-center mb-12">
+          <h2 className="font-serif text-3xl font-medium text-charcoal text-center mb-12">
             {t({ en: "Traditional Balinese", ru: "Традиционные балийские процедуры" })}
           </h2>
           <div className="flex flex-col gap-6">

@@ -56,7 +56,7 @@ export function ExperiencesHub({ data }: ExperiencesHubProps) {
                     />
                   </div>
                   <div className="p-5 md:p-6 flex flex-col flex-1">
-                    <h3 className="font-serif text-xl font-semibold text-charcoal">{t(cat.title)}</h3>
+                    <h3 className="font-sans text-lg font-normal text-charcoal">{t(cat.title)}</h3>
                     <p className="mt-2 text-stone text-sm leading-relaxed flex-1">{t(cat.description)}</p>
                     <div className="mt-5 flex justify-center">
                       {/* A span, not SecondaryButton: the card is already an

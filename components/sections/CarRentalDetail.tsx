@@ -47,7 +47,7 @@ export function CarRentalDetail({ data }: CarRentalDetailProps) {
               return (
                 <div key={i} className="bg-ivory shadow-sm p-6 md:p-8 flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-8 rounded-md">
                   <div className="flex-1">
-                    <h3 className="font-serif text-2xl font-semibold text-charcoal">{t(vehicle.title)}</h3>
+                    <h3 className="font-sans text-lg font-normal text-charcoal">{t(vehicle.title)}</h3>
                     <p className="text-stone text-sm mt-2 leading-relaxed">{t(vehicle.description)}</p>
                     <div className="mt-2">
                       <span className="font-sans font-semibold text-accent-text text-sm">{t(vehicle.price)}</span>
@@ -68,7 +68,7 @@ export function CarRentalDetail({ data }: CarRentalDetailProps) {
         {data.terms && data.terms.length > 0 && (
           <FadeIn>
             <div className="bg-ivory p-8 shadow-sm rounded-md">
-              <h3 className="font-serif text-xl font-semibold text-charcoal mb-4">
+              <h3 className="font-sans text-lg font-normal text-charcoal mb-4">
                 {t({ en: "Rental Terms", ru: "Условия аренды" })}
               </h3>
               <div className="space-y-3">

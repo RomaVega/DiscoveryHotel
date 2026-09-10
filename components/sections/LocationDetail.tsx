@@ -27,7 +27,7 @@ export function LocationDetail({ data }: LocationDetailProps) {
                   <MapPin size={16} className="text-brand-teal" />
                   <span className="text-xs text-stone font-sans">{t(attraction.distance)}</span>
                 </div>
-                <h3 className="font-serif text-lg font-semibold text-charcoal">{t(attraction.name)}</h3>
+                <h3 className="font-sans text-base font-normal text-charcoal">{t(attraction.name)}</h3>
                 <p className="mt-2 text-stone text-sm leading-relaxed">{t(attraction.description)}</p>
               </div>
             ))}
@@ -45,7 +45,7 @@ export function LocationDetail({ data }: LocationDetailProps) {
                 <Navigation size={20} className="text-brand-teal shrink-0 mt-1" />
                 <div className="flex-1">
                   <div className="flex items-center gap-3">
-                    <h3 className="font-sans font-semibold text-charcoal">{t(route.from)}</h3>
+                    <h3 className="font-sans font-normal text-charcoal">{t(route.from)}</h3>
                     <span className="flex items-center gap-1 text-xs text-stone">
                       <Clock size={12} /> {route.duration}
                     </span>

@@ -59,39 +59,41 @@ function CardInner({ item, compactMobile }: { item: ExperienceCard; compactMobil
       <div className={cn("flex flex-col flex-1", compactMobile ? "p-3 sm:p-5 md:p-8" : "p-5 md:p-8")}>
         <h3
           className={cn(
-            // Cormorant is a high-contrast display serif: at 600 the hairlines
-            // thicken and the contrast that carries the face collapses. 400 is
-            // what the design system reserves for smaller headings (300 is for
-            // display sizes only, and goes wispy at 22px). Size + tracking carry
-            // the emphasis the weight used to, and this now matches the
-            // font-light SectionHeading directly above the grid.
-            "font-serif font-normal tracking-wide text-charcoal",
+            // Inter, matching every other card title on the site. This was
+            // Cormorant 400 at 22px, which put the home page's experience cards
+            // in a different face from the identical six cards on /experiences.
+            // Most of the old reasoning here was about Cormorant specifically —
+            // its small x-height, its hairlines collapsing at 600 — and none of
+            // it survives the switch, so it is gone rather than left to mislead.
+            "font-sans font-normal tracking-normal text-charcoal",
             // Tap/hover feedback off the card wrapper's `group`. deep-teal, not
-            // brand-teal: brand-teal is only 2.3:1 on ivory, and a 22px regular
-            // title is not WCAG "large text", so it would fail AA. deep-teal
-            // measures 5.7:1 and is already the pill's hover colour.
-            // group-active carries this on touch, where there is no hover.
+            // brand-teal: brand-teal is only 2.3:1 on ivory and would fail AA at
+            // this size. deep-teal measures 5.7:1 and is already the pill's
+            // hover colour. group-active carries this on touch, where there is
+            // no hover.
             "transition-colors duration-300 group-hover:text-deep-teal group-active:text-deep-teal",
-            // 22px, not the 20px floor: Cormorant has an unusually small
-            // x-height, so it reads a size down from the sans around it.
-            // leading-tight is explicit because the arbitrary size drops
-            // Tailwind's paired line-height — two lines at 1.25 come to 55px,
-            // which is what keeps them inside the 3.5rem reservation below.
-            // The 10ch cap keeps titles off a single line, so a short label never
-            // sits alone beside a two-line neighbour: it is wider than any single
-            // word here, so nothing breaks mid-word. Every current title in both
-            // locales lands on exactly two lines — but only because joinSlashes
-            // below removes the break opportunity in RU "Аренда Авто/Мото", which
-            // otherwise took three. Treat two lines as the observed state, not a
-            // guarantee: min-h is a floor, and flex-1 lets the title absorb
-            // whatever height the row's tallest card imposes, with items-center
-            // holding it optically centred. Without flex-1 that surplus pools
-            // below the title and the shorter card reads top-heavy — the <p> that
-            // would otherwise take up the slack is hidden at this breakpoint.
+            // 18px, where Cormorant needed 22px for the same apparent size —
+            // Inter's x-height is far larger, so it reads bigger per point.
+            //
+            // 10ch, measured not guessed: at 11ch and above "Ayurvedic Spa" fits
+            // on one line and sits alone beside two-line neighbours. Dropping the
+            // weight to 400 narrowed the text enough that a 12ch cap stopped
+            // wrapping it, which is how that regressed. 9ch also holds, so 10ch
+            // is not on the edge. Russian has words longer than the cap
+            // ("Аюрведический" is 13), which overflow the box rather than
+            // breaking mid-word — checked to stay inside the card.
+            //
+            // The min-height reservation is retuned too: two lines of 18px at
+            // leading-tight come to ~45px, where two lines of 22px Cormorant
+            // came to ~55px. min-h is a floor, and flex-1 lets
+            // the title absorb whatever height the row's tallest card imposes,
+            // with items-center holding it optically centred. Without flex-1 the
+            // surplus pools below the title and the shorter card reads top-heavy,
+            // since the <p> that would take up the slack is hidden here.
             compactMobile
-              ? "text-[22px] leading-tight text-balance text-center max-w-[10ch] mx-auto flex flex-1 items-center justify-center min-h-[3.5rem] " +
-                "sm:block sm:flex-none sm:max-w-none sm:mx-0 sm:min-h-0 sm:text-left sm:text-[26px]"
-              : "text-[26px] leading-tight",
+              ? "text-lg leading-tight text-balance text-center max-w-[10ch] mx-auto flex flex-1 items-center justify-center min-h-[3rem] " +
+                "sm:block sm:flex-none sm:max-w-none sm:mx-0 sm:min-h-0 sm:text-left sm:text-xl"
+              : "text-xl leading-tight",
           )}
         >
           {/* joinSlashes, not the raw title: RU "Аренда Авто/Мото" otherwise
