@@ -8,6 +8,7 @@ import { m } from "framer-motion";
 import { Pause, Play } from "lucide-react";
 import type { HeroData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
+import { BookNowButton } from "@/components/common/BookNowButton";
 
 interface HeroImageProps {
   hero: HeroData;
@@ -132,7 +133,7 @@ export function HeroImage({ hero }: HeroImageProps) {
   const line1Ref = useRef<HTMLSpanElement>(null);
   const line2Ref = useRef<HTMLSpanElement>(null);
   const line3Ref = useRef<HTMLSpanElement>(null);
-  const { t, tl } = useLanguage();
+  const { tl } = useLanguage();
 
   // Measure all title lines, find the widest, then stretch the narrower ones via letter-spacing.
   // Must wait for the serif webfont — measuring against fallback-font metrics produces wrong widths.
@@ -304,20 +305,20 @@ export function HeroImage({ hero }: HeroImageProps) {
           </p>
         </div>
 
-        {/* CTA */}
-        <a
-          href={hero.ctaHref}
-          target="_blank"
-          rel="noopener noreferrer"
-          // Centred in the gap between the subtitle and the scroll arrow. The
-          // subtitle sits a fixed distance from the viewport's midline and the
-          // arrow is pinned to the bottom, so that gap's midpoint works out to
-          // 75% of viewport height plus a constant — which holds at any height,
-          // unlike the fixed margin this replaces.
-          className="absolute left-1/2 top-[calc(75%+72px)] md:top-[calc(75%+55px)] -translate-x-1/2 -translate-y-1/2 inline-block whitespace-nowrap bg-black/15 hover:bg-black/30 text-white border border-white/60 hover:border-white rounded-full font-sans font-light px-7 py-2.5 md:px-8 md:py-3 tracking-[0.22em] uppercase text-[11px] md:text-xs transition-all duration-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"
-        >
-          {t(hero.cta)}
-        </a>
+        {/* CTA. The shared BookNowButton, not a bespoke ghost button: the
+            old one was white `font-light` 11px on `bg-black/15`, i.e. white
+            text on whatever the video happened to be showing. Measured against
+            the playing hero it ran between 1.32:1 and 2.66:1 — under half the
+            4.5:1 AA needs, and invisible over the bright frames. An opaque fill
+            makes the contrast independent of the frame behind it, and its white
+            keyline is the part built for floating over photography.
+
+            Positioning only is passed in. Centred in the gap between the
+            subtitle and the scroll arrow: the subtitle sits a fixed distance
+            from the viewport's midline and the arrow is pinned to the bottom,
+            so that gap's midpoint works out to 75% of viewport height plus a
+            constant — which holds at any height, unlike a fixed margin. */}
+        <BookNowButton className="absolute left-1/2 top-[calc(75%+72px)] md:top-[calc(75%+55px)] -translate-x-1/2 -translate-y-1/2 whitespace-nowrap" />
       </div>
 
       {/* Scroll indicator */}

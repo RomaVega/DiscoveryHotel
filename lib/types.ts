@@ -20,8 +20,6 @@ export interface HeroData {
   titleLine3: string;
   titleLine4?: string;
   subtitle: LocalizedString;
-  cta: LocalizedString;
-  ctaHref: string;
   image: string;
   imageMobile?: string;
   imagePoster?: string;

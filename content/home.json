@@ -8,11 +8,6 @@
       "en": "Cottages & Villas · Candidasa, East Bali",
       "ru": "Коттеджи и виллы · Чандидаса, Восточный Бали"
     },
-    "cta": {
-      "en": "Book Stay",
-      "ru": "Забронировать"
-    },
-    "ctaHref": "https://secure.guestpro.net/odch",
     "image": "/images/hero/hero-og.jpg",
     "imageMobile": "/images/hero/hero-mobile.webp",
     "imagePoster": "/images/hero/hero-desktop-poster.webp",
@@ -156,7 +151,10 @@
           }
         ],
         "href": "https://secure.guestpro.net/odch/booking",
-        "cta": { "en": "Book This Cottage", "ru": "Забронировать Коттедж" }
+        "cta": {
+          "en": "Book This Cottage",
+          "ru": "Забронировать Коттедж"
+        }
       },
       {
         "title": {
@@ -300,7 +298,10 @@
           }
         ],
         "href": "https://secure.guestpro.net/odch/booking",
-        "cta": { "en": "Book This Villa", "ru": "Забронировать Виллу" }
+        "cta": {
+          "en": "Book This Villa",
+          "ru": "Забронировать Виллу"
+        }
       }
     ]
   },
