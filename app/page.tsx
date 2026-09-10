@@ -3,6 +3,7 @@ import { RatingSummary } from "@/components/sections/RatingSummary";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
+import { BookingBar } from "@/components/layout/BookingBar";
 import { HeroImage } from "@/components/sections/HeroImage";
 import { Welcome } from "@/components/sections/Welcome";
 import { RoomsPreview } from "@/components/sections/RoomsPreview";
@@ -73,6 +74,7 @@ export default function HomePage() {
         greeting={contact.whatsappGreeting}
         contacts={contact.whatsappContacts}
       />
+      <BookingBar />
     </>
   );
 }

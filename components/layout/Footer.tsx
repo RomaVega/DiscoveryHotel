@@ -297,8 +297,10 @@ export function Footer({ contact }: FooterProps) {
 
       </div>
 
-      {/* Bottom bar */}
-      <div className="border-t border-parchment/10">
+      {/* Bottom bar. The id is a scroll sentinel, not styling: the floating
+          Book Now and WhatsApp buttons watch it so they get out of the way of
+          the privacy and terms links rather than sitting on top of them. */}
+      <div id="footer-legal" className="border-t border-parchment/10">
         <div className="relative max-w-7xl mx-auto px-6 py-4 sm:py-5 flex flex-col items-center gap-1.5">
           {/* Absolute so the legal text stays optically centred in the bar; the
               centred stack carries matching side padding to reserve this gutter. */}

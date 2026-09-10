@@ -3,6 +3,7 @@
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
+import { BookingBar } from "@/components/layout/BookingBar";
 import type { ContactData } from "@/lib/types";
 
 interface InnerPageLayoutProps {
@@ -24,6 +25,7 @@ export function InnerPageLayout({ contact, children }: InnerPageLayoutProps) {
         contacts={contact.whatsappContacts}
         alwaysVisible
       />
+      <BookingBar alwaysVisible />
     </>
   );
 }

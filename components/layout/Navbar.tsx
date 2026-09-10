@@ -10,6 +10,8 @@ import { cn } from "@/lib/utils";
 import { useLanguage } from "@/lib/language-context";
 import { LanguageSelector } from "@/components/layout/LanguageSelector";
 import { SecondaryButton } from "@/components/common/SecondaryButton";
+import { BookNowButton } from "@/components/common/BookNowButton";
+import { BOOKING_URL } from "@/lib/booking";
 
 interface NavbarProps {
   alwaysVisible?: boolean;
@@ -263,7 +265,7 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80, brandAfter
             </li>
 
             <li>
-              <SecondaryButton href="https://secure.guestpro.net/odch" external className="whitespace-nowrap shrink-0">
+              <SecondaryButton href={BOOKING_URL} external className="whitespace-nowrap shrink-0">
                 {tl.nav.bookNow}
               </SecondaryButton>
             </li>
@@ -375,13 +377,7 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80, brandAfter
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.3, delay: 0.45 }}
                 >
-                  <SecondaryButton
-                    href="https://secure.guestpro.net/odch"
-                    external
-                    className="px-6 sm:px-8 py-3 text-sm tracking-widest"
-                  >
-                    {tl.nav.bookNow}
-                  </SecondaryButton>
+                  <BookNowButton />
                 </m.div>
                 <m.div
                   className="absolute inset-y-0 right-0 flex items-center"

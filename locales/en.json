@@ -9,7 +9,7 @@
     "gallery": "Gallery",
     "contact": "Contact",
     "about": "About",
-    "bookNow": "Book Stay"
+    "bookNow": "Book Now"
   },
   "footer": {
     "explore": "Explore",
@@ -76,10 +76,22 @@
     "bookDirect": {
       "heading": "Why Book Direct",
       "perks": [
-        { "title": "Best Rate Guarantee", "desc": "Book direct and you'll always get our lowest available rate." },
-        { "title": "Free Cancellation", "desc": "Flexible booking with free cancellation if your plans change." },
-        { "title": "Welcome Perk on Arrival", "desc": "A little welcome treat, just for booking with us directly." },
-        { "title": "Reply in 5–10 Minutes", "desc": "Fast, real answers from our team on WhatsApp." }
+        {
+          "title": "Best Rate Guarantee",
+          "desc": "Book direct and you'll always get our lowest available rate."
+        },
+        {
+          "title": "Free Cancellation",
+          "desc": "Flexible booking with free cancellation if your plans change."
+        },
+        {
+          "title": "Welcome Perk on Arrival",
+          "desc": "A little welcome treat, just for booking with us directly."
+        },
+        {
+          "title": "Reply in 5–10 Minutes",
+          "desc": "Fast, real answers from our team on WhatsApp."
+        }
       ]
     }
   },
