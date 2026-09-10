@@ -75,7 +75,12 @@ export function RatingSummary({ aggregates, locale }: RatingSummaryProps) {
       {/* Site-wide heading pattern — matches every other section's label + h2 scale */}
       <SectionHeading label={t.label} heading={heading} />
 
-      <ul className="flex flex-wrap justify-center gap-x-10 gap-y-6 sm:gap-x-14">
+      {/* grid-cols-2 below sm, not flex-wrap: with four platforms, wrapping put
+          three on the first row and stranded the fourth underneath — a T that
+          reads as a layout bug rather than a set. A grid pairs them 2×2 at any
+          phone width. From sm up there is room for a single centred row, so the
+          original flex behaviour resumes. */}
+      <ul className="grid grid-cols-2 justify-items-center gap-x-10 gap-y-6 sm:flex sm:flex-wrap sm:justify-center sm:gap-x-14">
         {aggregates.map((a) => (
           <li key={a.platform}>
             <a
