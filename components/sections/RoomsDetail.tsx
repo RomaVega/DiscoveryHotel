@@ -74,7 +74,9 @@ function RoomCard({ room, reverse, t, isRu }: {
       <div className={`lg:col-start-2 lg:row-start-1 ${reverse ? "lg:col-start-1" : ""}`}>
         <h2 className="font-serif text-3xl md:text-4xl font-medium text-charcoal mb-6">{t(room.title)}</h2>
 
-        <div className="flex items-center gap-6 mb-6 pb-6 border-b border-charcoal/10">
+        {/* Wraps because the rate cell carries a full "from $260/night" string
+            — four cells will not fit a 360px row beside the RU stat labels. */}
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-4 mb-6 pb-6 border-b border-charcoal/10">
           <div>
             <p className="font-sans text-[10px] tracking-[0.2em] uppercase text-stone mb-0.5">{isRu ? "Площадь" : "Size"}</p>
             <p className="font-serif text-lg text-charcoal">{room.size} m²</p>
@@ -90,6 +92,15 @@ function RoomCard({ room, reverse, t, isRu }: {
               <div>
                 <p className="font-sans text-[10px] tracking-[0.2em] uppercase text-stone mb-0.5">{isRu ? "Ванные" : "Bathrooms"}</p>
                 <p className="font-serif text-lg text-charcoal">{room.bathrooms}</p>
+              </div>
+            </>
+          )}
+          {room.price && (
+            <>
+              <div className="w-px h-8 bg-charcoal/10" />
+              <div>
+                <p className="font-sans text-[10px] tracking-[0.2em] uppercase text-stone mb-0.5">{isRu ? "Цена" : "Rate"}</p>
+                <p className="font-serif text-lg text-accent-text">{t(room.price)}</p>
               </div>
             </>
           )}

@@ -314,6 +314,7 @@
       ],
       "href": "https://secure.guestpro.net/odch/booking",
       "cta": { "en": "Book This Villa", "ru": "Забронировать Виллу" },
+      "price": { "en": "from $260/night", "ru": "от $260/ночь" },
       "bathrooms": 3,
       "amenityGroups": [
         {
@@ -719,6 +720,7 @@
       ],
       "href": "https://secure.guestpro.net/odch/booking",
       "cta": { "en": "Book This Cottage", "ru": "Забронировать Коттедж" },
+      "price": { "en": "from $55/night", "ru": "от $55/ночь" },
       "bathrooms": 1,
       "amenityGroups": [
         {

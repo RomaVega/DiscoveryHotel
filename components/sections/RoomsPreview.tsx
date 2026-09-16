@@ -60,10 +60,23 @@ export function RoomsPreview({ data }: RoomsPreviewProps) {
                       {t(room.description)}
                     </p>
                   </Link>
-                  <div className="mt-6 flex justify-center">
-                    <SecondaryButton href={room.href} external>
-                      {t(room.cta ?? { en: "Book This Room", ru: "Забронировать Номер" })}
-                    </SecondaryButton>
+                  {/* Same footer as the offer cards: rate and CTA share one
+                      baseline above a hairline, so the two things a guest
+                      decides on sit together. Stacks below `sm`, where a long
+                      RU button label and a price will not share a 360px row. */}
+                  <div className="mt-6 pt-5 border-t border-charcoal/10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+                    {room.price ? (
+                      <p className="font-sans text-lg font-semibold text-accent-text leading-none">
+                        {t(room.price)}
+                      </p>
+                    ) : (
+                      <span />
+                    )}
+                    <div className="flex justify-center sm:block">
+                      <SecondaryButton href={room.href} external>
+                        {t(room.cta ?? { en: "Book This Room", ru: "Забронировать Номер" })}
+                      </SecondaryButton>
+                    </div>
                   </div>
                 </div>
               </div>

@@ -46,6 +46,8 @@ export interface RoomCard {
   href: string;
   /** Booking-button label. Falls back to a generic "Book This Room" when unset. */
   cta?: LocalizedString;
+  /** Lead-in nightly rate, worded like the offer prices: "from $55/night". */
+  price?: LocalizedString;
 }
 
 export interface RoomsPreviewData {
@@ -253,6 +255,8 @@ export interface RoomDetail {
   href: string;
   /** Booking-button label. Falls back to a generic "Book This Room" when unset. */
   cta?: LocalizedString;
+  /** Lead-in nightly rate, worded like the offer prices: "from $55/night". */
+  price?: LocalizedString;
   keyFeatures?: LocalizedString[];
   amenities: LocalizedString[];
   amenityGroups?: { label: LocalizedString; items: LocalizedString[] }[];
