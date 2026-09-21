@@ -86,7 +86,7 @@ export function BookingBar({ alwaysVisible = false }: BookingBarProps) {
           exit={{ opacity: 0, y: 12 }}
           transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
         >
-          <BookNowButton className="pointer-events-auto" {...serviceCta} />
+          <BookNowButton location="floating" className="pointer-events-auto" {...serviceCta} />
         </m.div>
       )}
     </AnimatePresence>

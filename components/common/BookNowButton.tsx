@@ -5,10 +5,18 @@ import { cn } from "@/lib/utils";
 import { PRIMARY_BUTTON_BASE } from "@/components/common/PrimaryButton";
 import { useLanguage } from "@/lib/language-context";
 import { BOOKING_URL } from "@/lib/booking";
+import { trackBookNowClick, type CtaLocation } from "@/lib/track";
 
 interface BookNowButtonProps {
   className?: string;
   onClick?: () => void;
+  /**
+   * Which surface this instance is. Required, and deliberately not defaulted:
+   * every render of this component is a booking CTA worth measuring, and a
+   * default would let a new call site ship its taps into an existing bucket
+   * where nobody would notice they were the wrong one.
+   */
+  location: CtaLocation;
   /** Overrides the default "Book Now" wording. Used where the page sells
       something the room engine cannot book — see `serviceForRoute`. */
   label?: string;
@@ -49,15 +57,27 @@ interface BookNowButtonProps {
  * floating button carried its own `bookingBar.label`, and English ended up
  * saying "Book Stay" in the navbar and "Book Now" on the button.
  */
-export function BookNowButton({ className, onClick, label, href, variant = "solid" }: BookNowButtonProps) {
+export function BookNowButton({ className, onClick, label, href, location, variant = "solid" }: BookNowButtonProps) {
   const { tl } = useLanguage();
+  const destination = href ?? BOOKING_URL;
+
+  // Report first, then run whatever the call site wanted — the drawer's
+  // onClick closes the menu, and an unmount mid-handler would take the rest of
+  // this function with it. The hit itself cannot throw; see `trackEvent`.
+  //
+  // No preventDefault and no delay: target="_blank" leaves this document alive,
+  // so the beacon goes out on its own while the new tab opens.
+  const handleClick = () => {
+    trackBookNowClick(location, destination);
+    onClick?.();
+  };
 
   return (
     <a
-      href={href ?? BOOKING_URL}
+      href={destination}
       target="_blank"
       rel="noopener noreferrer"
-      onClick={onClick}
+      onClick={handleClick}
       className={cn(
         PRIMARY_BUTTON_BASE,
         variant === "ghost" && [
