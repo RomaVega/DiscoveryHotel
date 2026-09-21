@@ -113,32 +113,67 @@ the engine's `merchant/<id>` call to `api.marketconnect.id/guestapp-hotel/api/`.
 cannot be iframed on orlowsky.id. The `frame-src https://secure.guestpro.net`
 allowance in [netlify.toml](../netlify.toml) is therefore unused.
 
+## Where this stands (21 Sept 2026)
+
+**Code** — three commits on `feat/book-now-tracking`, pushed to GitHub,
+**not merged and not deployed**. Production therefore still emits no
+`book_now_click` and no `data-cta-location`. Merging to `main` auto-deploys.
+Open decision: merge via PR or fast-forward `main`.
+
+**GA4 — done**
+- Unwanted referrals: `guestpro.net`
+- Configure domains: `orlowsky.id` + `secure.guestpro.net`
+- All six custom dimensions registered, Event scope: `cta_location`,
+  `cta_destination`, `translator`, `browser_lang`, `page_locale`, `error_digest`
+
+**GA4 — in progress / not started**
+- [ ] Internal traffic rule — started, needs the right IPs (see gotcha below)
+- [ ] Data filter for internal traffic → switch **Testing → Active**. The rule
+      only appends `traffic_type=internal`; the filter is what excludes it.
+- [ ] Data retention → 14 months
+- [ ] Link GA4 ↔ Google Ads
+
+> **Gotcha, already hit once.** Internal traffic matches the *visitor's* IP, not
+> the server's. `orlowsky.id` resolving to `98.84.224.111` / `18.208.88.157` is
+> irrelevant — GA4 is client-side, so hits carry the browser's ISP address and
+> the server IP never appears. Use the hotel WiFi's public egress IP and the
+> maintainer's own connection, match type **IP address equals**. Don't paper
+> over a dynamic IP with a wide CIDR range: that filters real guests on the same
+> ISP block.
+
+**GTM — nothing done yet.** Container still in its audited state above,
+including the three tags pointing at the non-existent `G-XR966N4YKR`.
+
+**GuestPro** — email sent 21 Sept 2026 to `info@guestpro.id` asking for:
+`google_tag_manager_id` = `GTM-KHDV2SW2` on the merchant record (and
+`google_analytics_id` left empty); confirmation of the GA4 ecommerce events;
+Google Free Booking Links enablement plus the landing URL and `merchant_id`;
+and the booking engine's search query parameters. Awaiting reply.
+
 ## Outstanding
 
-**GTM**
-- [ ] Point `click_phone` / `click_email` / `click_instagram` at `G-XR996N4YKR`
+**GTM** — none of this needs the deploy except the last line
+- [ ] Constant variable `GA4 Measurement ID` = `G-XR996N4YKR`; point every tag at it
+- [ ] Fix `click_phone` / `click_email` / `click_instagram` (currently firing into nothing)
 - [ ] Delete the two empty Custom HTML tags
 - [ ] Add Conversion Linker, All Pages
+- [ ] Auto-Event Variable `CTA Location` → Element Attribute → `data-cta-location`
 - [ ] Link Click trigger: Click URL contains `secure.guestpro.net` **AND Page
-      Hostname equals `orlowsky.id`** → `booking_engine_click`. The hostname
-      clause matters: once the engine carries this container, the trigger would
-      otherwise fire on its internal navigation too.
-- [ ] Custom Event trigger on `boundary_error`
+      Hostname equals `orlowsky.id`** → GA4 event `booking_engine_click` with
+      `cta_location`. The hostname clause stops it double-firing once the engine
+      carries this container.
+- [ ] Custom Event trigger on `boundary_error` → GA4 `exception`
 - [ ] GA4 ecommerce tags for `purchase` / `begin_checkout` / `view_item`, built
       dormant so they work the moment GuestPro sets the field
-
-**GA4** — do the first two *before* the engine carries the container
-- [ ] List unwanted referrals: `guestpro.net`
-- [ ] Configure domains: `orlowsky.id` + `secure.guestpro.net`
-- [ ] Custom definitions: `cta_location`, `cta_destination`, `translator`,
-      `browser_lang`, `page_locale`, `error_digest`
-- [ ] Data retention → 14 months; internal traffic filter → Active
-- [ ] Link to Google Ads
+- [ ] Preview, confirm each tag fires **once**, publish with version notes
+      *(needs the deploy first)*
 
 **Google Ads**
 - [ ] Import GA4 key events as conversions
 - [ ] `booking_engine_click` Primary *only until* `purchase` exists, then demote
 - [ ] Remarketing tag and audiences
+- [ ] Skip the bidding setup entirely if no campaigns are running yet — Smart
+      Bidding from zero conversion history performs badly
 
 **Open questions**
 - [ ] Booking engine search query parameters (undocumented; capture the real
