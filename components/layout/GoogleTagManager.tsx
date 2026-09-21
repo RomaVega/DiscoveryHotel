@@ -1,11 +1,15 @@
 /**
  * Google Tag Manager (container GTM-KHDV2SW2).
  *
+ * This container owns every tag on the site — GA4 included. There is no
+ * `gtag.js` in the page and no GA4 env var; see docs/analytics.md for why that
+ * consolidation happened.
+ *
  * The container ID is public (it ships in every page), so it lives here rather
  * than in an env var. What *is* gated is where the container loads: dev builds
- * and Netlify's deploy-preview / branch-deploy contexts render nothing, so the
- * same rule that keeps GA4 out of non-production data (see GoogleAnalytics)
- * holds for GTM. `CONTEXT` is set by Netlify at build time; when it is absent
+ * and Netlify's deploy-preview / branch-deploy contexts render nothing, which
+ * keeps non-production traffic out of the property. `CONTEXT` is set by Netlify
+ * at build time; when it is absent
  * (a local `npm run build`) a production build still loads the container, which
  * is what you want when smoke-testing the export.
  *

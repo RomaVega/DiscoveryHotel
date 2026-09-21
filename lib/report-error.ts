@@ -6,10 +6,10 @@
  * something has already gone wrong, and a reporter that throws turns a caught
  * error into a blank page.
  *
- * The channel is the GA4 / GTM tag that app/layout.tsx already mounts —
+ * The channel is the GTM container that app/layout.tsx already mounts —
  * `output: "export"` leaves no backend to POST to, and `connect-src` in
  * netlify.toml already allows google-analytics.com, so no CSP change is needed.
- * Nothing is sent when neither tag is present (dev, deploy previews): this
+ * Nothing is sent when the container is absent (dev, deploy previews): this
  * never *creates* `dataLayer`, because an orphan queue would grow unbounded.
  *
  * NOTE: `translator`, `browser_lang`, `page_locale` and `error_digest` are
@@ -28,14 +28,7 @@ const MAX_REPORTS = 3;
 
 let reportCount = 0;
 
-type Gtag = (
-  command: "event",
-  name: string,
-  params: Record<string, unknown>
-) => void;
-
 type TaggedWindow = Window & {
-  gtag?: Gtag;
   dataLayer?: unknown[];
 };
 
@@ -89,9 +82,7 @@ export function reportBoundaryError(
     if (typeof window === "undefined") return;
 
     const w = window as TaggedWindow;
-    const hasGtag = typeof w.gtag === "function";
-    const hasDataLayer = Array.isArray(w.dataLayer);
-    if (!hasGtag && !hasDataLayer) return; // no tag on this build — stay silent
+    if (!Array.isArray(w.dataLayer)) return; // no container on this build — stay silent
 
     reportCount += 1;
 
@@ -106,13 +97,10 @@ export function reportBoundaryError(
       page_path: clip(window.location.pathname),
     };
 
-    if (hasGtag) {
-      // GA4's recommended event for this; gtag routes it straight to the property.
-      w.gtag?.("event", "exception", params);
-    } else {
-      // GTM-only build: surfaces as a Custom Event trigger named boundary_error.
-      w.dataLayer?.push({ event: "boundary_error", ...params });
-    }
+    // Surfaces as a Custom Event trigger named boundary_error, which should be
+    // wired to a GA4 event tag sending GA4's recommended `exception`. See the
+    // note in lib/track.ts for why this never calls `gtag` even when it exists.
+    w.dataLayer.push({ event: "boundary_error", ...params });
   } catch {
     /* a failed report must never mask the error it describes */
   }

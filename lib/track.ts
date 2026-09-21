@@ -8,17 +8,27 @@
  * Book Now button could be tapped all day and the property would show only the
  * page view it happened on.
  *
- * The channel and its guard rails are `report-error.ts`'s, for the same
- * reasons: `output: "export"` leaves no backend to POST to, `connect-src` in
- * netlify.toml already allows google-analytics.com, and this never *creates*
- * `dataLayer` — on a build with no tag (dev, deploy previews) an orphan queue
- * would grow unbounded and nothing would ever drain it.
+ * The guard rails are `report-error.ts`'s, for the same reasons: `output:
+ * "export"` leaves no backend to POST to, `connect-src` in netlify.toml already
+ * allows google-analytics.com, and this never *creates* `dataLayer` — on a
+ * build with no container (dev, deploy previews) an orphan queue would grow
+ * unbounded and nothing would ever drain it.
  *
- * NOTE: `cta_location` and `cta_destination` are custom parameters. GA4 starts
- * collecting them on the first hit but shows them in reports only once each is
- * registered under Admin → Custom definitions. On a GTM-only build the event
- * also needs a Custom Event trigger named `book_now_click` in the container,
- * wired to a GA4 event tag — the push alone reaches the dataLayer, not GA4.
+ * **Always `dataLayer`, never `gtag`.** An earlier version preferred
+ * `window.gtag` when it existed. That is a trap here: our container holds a
+ * Google tag, and GTM loads gtag.js on its behalf, so `window.gtag` *does*
+ * exist in production. Calling it pushes a gtag-style `arguments` object that
+ * a GTM Custom Event trigger does not match — the event would reach GA4 while
+ * every GTM trigger keyed on its name stayed silent, taking the Google Ads
+ * conversion tag with it. Pushing `{event: name, ...}` is the only form GTM
+ * triggers match, and it is deterministic rather than dependent on whether
+ * gtag.js happens to have loaded yet.
+ *
+ * NOTE: the event reaches the container, not GA4. It needs a Custom Event
+ * trigger of the same name wired to a GA4 event tag. `cta_location` and
+ * `cta_destination` are custom parameters — GA4 collects them from the first
+ * hit but shows them in reports only once registered under Admin → Custom
+ * definitions.
  */
 
 import { BOOKING_URL, MENU_URL } from "@/lib/booking";
@@ -42,14 +52,7 @@ export type CtaDestination = "engine" | "menu" | "whatsapp" | "other";
 /** GA4 truncates event parameter values at 100 characters. */
 const GA4_PARAM_MAX = 100;
 
-type Gtag = (
-  command: "event",
-  name: string,
-  params: Record<string, unknown>
-) => void;
-
 type TaggedWindow = Window & {
-  gtag?: Gtag;
   dataLayer?: unknown[];
 };
 
@@ -89,22 +92,14 @@ export function trackEvent(
     if (typeof window === "undefined") return;
 
     const w = window as TaggedWindow;
-    const hasGtag = typeof w.gtag === "function";
-    const hasDataLayer = Array.isArray(w.dataLayer);
-    if (!hasGtag && !hasDataLayer) return; // no tag on this build — stay silent
+    if (!Array.isArray(w.dataLayer)) return; // no container on this build — stay silent
 
-    const payload: Record<string, unknown> = {
+    w.dataLayer.push({
+      event: name,
       ...params,
       page_path: clip(window.location.pathname),
       page_locale: clip(document.documentElement.lang),
-    };
-
-    if (hasGtag) {
-      w.gtag?.("event", name, payload);
-    } else {
-      // GTM-only build: surfaces as a Custom Event trigger of the same name.
-      w.dataLayer?.push({ event: name, ...payload });
-    }
+    });
   } catch {
     /* analytics must never break the thing it measures */
   }

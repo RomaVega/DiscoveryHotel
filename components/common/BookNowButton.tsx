@@ -78,6 +78,11 @@ export function BookNowButton({ className, onClick, label, href, location, varia
       target="_blank"
       rel="noopener noreferrer"
       onClick={handleClick}
+      // Read by GTM's Link Click trigger via an Auto-Event Variable. That
+      // trigger fires on hostname, so it also covers the ~12 booking CTAs that
+      // live in content JSON and never render this component; this attribute is
+      // how it learns the surface on the four that do.
+      data-cta-location={location}
       className={cn(
         PRIMARY_BUTTON_BASE,
         variant === "ghost" && [

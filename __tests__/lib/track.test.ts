@@ -41,56 +41,46 @@ describe("trackEvent", () => {
     document.documentElement.lang = "";
   });
 
-  it("sends nothing and creates no queue when the build carries no tag", () => {
+  it("sends nothing and creates no queue when the build carries no container", () => {
     trackEvent("book_now_click", { cta_location: "floating" });
 
     expect(w.dataLayer).toBeUndefined();
   });
 
-  it("sends through gtag when GA4 is present", () => {
-    const gtag = vi.fn();
-    w.gtag = gtag;
+  it("pushes a GTM-shaped event with the page context filled in", () => {
+    w.dataLayer = [];
     document.documentElement.lang = "ru";
 
     trackEvent("book_now_click", { cta_location: "floating" });
 
-    expect(gtag).toHaveBeenCalledTimes(1);
-    const [command, name, params] = gtag.mock.calls[0];
-    expect(command).toBe("event");
-    expect(name).toBe("book_now_click");
-    expect(params).toMatchObject({
+    expect(w.dataLayer).toHaveLength(1);
+    expect(w.dataLayer[0]).toMatchObject({
+      event: "book_now_click",
       cta_location: "floating",
       page_path: window.location.pathname,
       page_locale: "ru",
     });
   });
 
-  it("falls back to a dataLayer push on a GTM-only build", () => {
-    w.dataLayer = [];
-
-    trackEvent("book_now_click", { cta_location: "navbar" });
-
-    expect(w.dataLayer).toHaveLength(1);
-    expect(w.dataLayer[0]).toMatchObject({
-      event: "book_now_click",
-      cta_location: "navbar",
-    });
-  });
-
-  it("prefers gtag over dataLayer so a click is never counted twice", () => {
+  it("still uses dataLayer when gtag exists, so GTM triggers always match", () => {
+    // GTM loads gtag.js on behalf of the container's Google tag, so gtag is
+    // present in production. Calling it would push an `arguments` object that
+    // no Custom Event trigger matches — and the Ads conversion tag would never
+    // fire. See the note in lib/track.ts.
     const gtag = vi.fn();
     w.gtag = gtag;
     w.dataLayer = [];
 
     trackEvent("book_now_click", {});
 
-    expect(gtag).toHaveBeenCalledTimes(1);
-    expect(w.dataLayer).toHaveLength(0);
+    expect(gtag).not.toHaveBeenCalled();
+    expect(w.dataLayer).toHaveLength(1);
   });
 
-  it("swallows a throwing tag rather than breaking the click", () => {
-    w.gtag = () => {
-      throw new Error("gtag blew up");
+  it("swallows a throwing dataLayer rather than breaking the click", () => {
+    w.dataLayer = [];
+    w.dataLayer.push = () => {
+      throw new Error("dataLayer blew up");
     };
 
     expect(() => trackEvent("book_now_click", {})).not.toThrow();
@@ -102,13 +92,12 @@ describe("trackBookNowClick", () => {
   afterEach(clearTags);
 
   it("names the surface and classifies the destination", () => {
-    const gtag = vi.fn();
-    w.gtag = gtag;
+    w.dataLayer = [];
 
     trackBookNowClick("floating", "https://wa.me/6282236655582?text=Spa");
 
-    expect(gtag.mock.calls[0][1]).toBe("book_now_click");
-    expect(gtag.mock.calls[0][2]).toMatchObject({
+    expect(w.dataLayer[0]).toMatchObject({
+      event: "book_now_click",
       cta_location: "floating",
       cta_destination: "whatsapp",
     });
