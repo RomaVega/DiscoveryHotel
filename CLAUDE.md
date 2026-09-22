@@ -214,6 +214,8 @@ Targets: LCP < 2.5s (`priority` + `<link rel="preload">` on hero poster), CLS < 
 - Branches: `feat/`, `fix/`, `content/` + short description. Squash-merge to `main`.
 - Commits: imperative, lowercase, ≤72 chars. E.g., `add spa treatment grid section`.
 - Push to `main` → Netlify auto-deploys to `orlowsky.id` (30–90s); PRs get deploy-preview URLs.
+- **Every change goes through a branch and a PR — never push to `main` directly.** `main` *is* production, so the deploy-preview URL on the PR is the only chance to see a change before guests do.
+- **Netlify is the only automatic deploy.** [.github/workflows/deploy.yml](.github/workflows/deploy.yml) publishes a second full copy to GitHub Pages (built with `NEXT_PUBLIC_BASE_PATH=/DiscoveryHotel`) but is `workflow_dispatch` only, so it runs when someone asks for it and not on every push. It exists as a fallback if Netlify is down. The pages it serves still declare `orlowsky.id` as their canonical URL, which is what keeps the duplicate from competing in search — don't make that copy canonical to itself.
 - Build config: [netlify.toml](netlify.toml) (`npm run build` → publish `out/`). Security headers (HSTS, CSP, X-Frame-Options) and long-cache headers for `_next/static`, `images/*`, `video/*` live there too.
 
 ## Content Editing
