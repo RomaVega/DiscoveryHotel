@@ -152,8 +152,8 @@
         ],
         "href": "https://secure.guestpro.net/odch/booking",
         "cta": {
-          "en": "Book This Cottage",
-          "ru": "Забронировать Коттедж"
+          "en": "Check Availability",
+          "ru": "Проверить Наличие"
         },
         "price": {
           "en": "from $55/night",
@@ -303,8 +303,8 @@
         ],
         "href": "https://secure.guestpro.net/odch/booking",
         "cta": {
-          "en": "Book This Villa",
-          "ru": "Забронировать Виллу"
+          "en": "Check Availability",
+          "ru": "Проверить Наличие"
         },
         "price": {
           "en": "from $260/night",

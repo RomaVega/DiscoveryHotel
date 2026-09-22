@@ -71,7 +71,7 @@ export function SpecialOffers({ data, hideHeading }: SpecialOffersProps) {
                     </div>
                     <div className="flex justify-center sm:block">
                       <SecondaryButton href="https://secure.guestpro.net/odch" external>
-                        {tl.offers.bookThisOffer}
+                        {tl.offers.checkAvailability}
                       </SecondaryButton>
                     </div>
                   </div>
