@@ -70,7 +70,11 @@ export function SpecialOffers({ data, hideHeading }: SpecialOffersProps) {
                       )}
                     </div>
                     <div className="flex justify-center sm:block">
-                      <SecondaryButton href="https://secure.guestpro.net/odch" external>
+                      <SecondaryButton
+                        href="https://secure.guestpro.net/odch"
+                        external
+                        aria-label={`${tl.offers.checkAvailability} — ${t(offer.title)}`}
+                      >
                         {tl.offers.checkAvailability}
                       </SecondaryButton>
                     </div>

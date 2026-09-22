@@ -28,7 +28,12 @@ export function RoomsPreview({ data }: RoomsPreviewProps) {
         </FadeIn>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {data.rooms.map((room, i) => (
+          {data.rooms.map((room, i) => {
+            // Resolved once: the visible label and the accessible name below
+            // must not drift, and the aria-label has to lead with this exact
+            // string for WCAG 2.5.3 (Label in Name).
+            const label = t(room.cta ?? { en: "Book This Room", ru: "Забронировать Номер" });
+            return (
             <FadeIn key={i} delay={i * 0.1}>
               <div className="bg-ivory shadow-md group h-full flex flex-col overflow-hidden rounded-md">
                 {room.images && room.images.length > 1 ? (
@@ -73,15 +78,20 @@ export function RoomsPreview({ data }: RoomsPreviewProps) {
                       <span />
                     )}
                     <div className="flex justify-center sm:block">
-                      <SecondaryButton href={room.href} external>
-                        {t(room.cta ?? { en: "Book This Room", ru: "Забронировать Номер" })}
+                      <SecondaryButton
+                        href={room.href}
+                        external
+                        aria-label={`${label} — ${t(room.title)}`}
+                      >
+                        {label}
                       </SecondaryButton>
                     </div>
                   </div>
                 </div>
               </div>
             </FadeIn>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
