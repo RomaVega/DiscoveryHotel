@@ -44,6 +44,18 @@ const BASE_STYLES =
 interface SecondaryButtonBase {
   children: React.ReactNode;
   className?: string;
+  /**
+   * Accessible name, when the visible label alone is ambiguous. Several of
+   * these read "Check Availability" on one page — the home page shows four —
+   * so a screen reader's link list gives no way to tell the rooms and offers
+   * apart. The visible label stayed deliberately short; this carries what it
+   * dropped.
+   *
+   * It must *start* with the visible text, or WCAG 2.5.3 (Label in Name)
+   * breaks: speech-input users say the words they can see, and the accessible
+   * name is what they are matched against.
+   */
+  "aria-label"?: string;
 }
 
 interface SecondaryButtonAsLink extends SecondaryButtonBase {
@@ -63,13 +75,14 @@ interface SecondaryButtonAsButton extends SecondaryButtonBase {
 
 type SecondaryButtonProps = SecondaryButtonAsLink | SecondaryButtonAsButton;
 
-export function SecondaryButton({ children, className, ...rest }: SecondaryButtonProps) {
+export function SecondaryButton({ children, className, "aria-label": ariaLabel, ...rest }: SecondaryButtonProps) {
   const styles = cn(BASE_STYLES, className);
 
   if ("onClick" in rest && rest.onClick) {
     return (
       <button
         onClick={rest.onClick}
+        aria-label={ariaLabel}
         aria-expanded={rest["aria-expanded"]}
         aria-controls={rest["aria-controls"]}
         className={styles}
@@ -83,14 +96,14 @@ export function SecondaryButton({ children, className, ...rest }: SecondaryButto
 
   if (external) {
     return (
-      <a href={href} target="_blank" rel="noopener noreferrer" className={styles}>
+      <a href={href} target="_blank" rel="noopener noreferrer" aria-label={ariaLabel} className={styles}>
         {children}
       </a>
     );
   }
 
   return (
-    <LocalizedLink href={href!} className={styles}>
+    <LocalizedLink href={href!} aria-label={ariaLabel} className={styles}>
       {children}
     </LocalizedLink>
   );
