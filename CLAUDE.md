@@ -19,6 +19,8 @@ Static marketing site for Orlowsky Discovery Hotel, Candidasa, Bali. **Next.js 1
 
 > Tailwind CSS 4 uses a CSS-first configuration (`@import "tailwindcss"` + `@theme` block in a `.css` file). There is no `tailwind.config.ts` — design tokens go into `app/globals.css` under `@theme`. See the [v4 migration guide](https://tailwindcss.com/docs/v4-upgrade) if coming from v3.
 
+> **`vitest.setup.ts` installs `localStorage` by hand — don't delete that block.** Node 26 puts `localStorage` and `sessionStorage` on `globalThis` itself, where they read as `undefined` without `--localstorage-file`, and Vitest's jsdom environment only copies window keys that are *not* already on the global. Without the override jsdom's Storage loses to Node's and 29 tests fail on "Cannot read properties of undefined". It can go once Vitest overrides these itself.
+
 ## Commands
 
 ```bash
