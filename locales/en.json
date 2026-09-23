@@ -95,6 +95,9 @@
   },
   "offers": {
     "checkAvailability": "Check Availability",
+    "enquiry": "Hello! I'd like to book this special offer from your website:\n\n*{title}*\n{terms}{conditions}\nRate shown on the site: {price}\n\nMy stay:\n\u2022 Check-in date:\n\u2022 Check-out date:\n\u2022 Guests (adults / children):\n\u2022 Room category:\n\u2022 Name:\n\nCould you confirm availability and the total price for these dates? Thank you!",
+    "enquiryValidity": "Condition: {validity}",
+    "enquiryTerms": "Fine print: {terms}",
     "included": "What's included",
     "bookDirect": {
       "heading": "Why Book Direct",
