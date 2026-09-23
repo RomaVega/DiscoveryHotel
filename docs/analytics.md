@@ -113,12 +113,19 @@ the engine's `merchant/<id>` call to `api.marketconnect.id/guestapp-hotel/api/`.
 cannot be iframed on orlowsky.id. The `frame-src https://secure.guestpro.net`
 allowance in [netlify.toml](../netlify.toml) is therefore unused.
 
-## Where this stands (21 Sept 2026)
+## Where this stands (23 Sept 2026)
 
-**Code** — three commits on `feat/book-now-tracking`, pushed to GitHub,
-**not merged and not deployed**. Production therefore still emits no
-`book_now_click` and no `data-cta-location`. Merging to `main` auto-deploys.
-Open decision: merge via PR or fast-forward `main`.
+**Code** — four commits on `feat/book-now-tracking`, plus a merge bringing in
+the 22 Sept `main`, pushed to GitHub, **not merged and not deployed**.
+Production therefore still emits no `book_now_click` and no
+`data-cta-location`. The merge-vs-fast-forward question is settled: CLAUDE.md
+now requires a branch and a PR for every change, so this goes in as a PR and
+`main` auto-deploys on merge.
+
+The 22 Sept work on `main` renamed the booking CTAs to "Check Availability"
+and gave them `aria-label`s. It does not touch tracking — the GTM Link Click
+trigger keys on the click URL and hostname, never the label — but the visible
+string in a screenshot or a GA4 `link_text` will differ from earlier notes.
 
 **GA4 — done**
 - Unwanted referrals: `guestpro.net`
