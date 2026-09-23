@@ -125,6 +125,7 @@ export function SpecialOffers({ data, hideHeading }: SpecialOffersProps) {
                       <SecondaryButton
                         href={enquiryUrl(offer)}
                         external
+                        data-cta-location="offer_card"
                         aria-label={`${tl.offers.checkAvailability} — ${t(offer.title)}`}
                       >
                         {tl.offers.checkAvailability}
