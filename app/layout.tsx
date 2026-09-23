@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Cormorant_Garamond } from "next/font/google";
 import { MotionProvider } from "@/components/common/MotionProvider";
-import { GoogleAnalytics } from "@/components/layout/GoogleAnalytics";
 import {
   GoogleTagManagerHead,
   GoogleTagManagerNoScript,
@@ -162,7 +161,6 @@ export default function RootLayout({
             <LanguageSuggestion />
           </MotionProvider>
         </LanguageProvider>
-        <GoogleAnalytics />
       </body>
     </html>
   );

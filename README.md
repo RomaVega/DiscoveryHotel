@@ -69,13 +69,12 @@ Create a `.env.local` file in the project root:
 
 ```env
 NEXT_PUBLIC_WHATSAPP_NUMBER=your_number_without_plus_or_spaces
-NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX   # optional — GA4; omit to disable analytics
 GOOGLE_SITE_VERIFICATION=abc123…             # optional — Search Console HTML-tag method
 ```
 
-Leave `NEXT_PUBLIC_GA_MEASUREMENT_ID` unset locally: analytics only renders when the
-variable is present, so dev and deploy previews stay out of the GA4 property. Set it in
-Netlify scoped to the **production** context only.
+There is no GA4 environment variable. Every tag is owned by the GTM container
+(`GTM-KHDV2SW2`), which loads only in production builds — see
+[docs/analytics.md](docs/analytics.md).
 
 > **Never** put secrets in `NEXT_PUBLIC_` variables — they are inlined into client-side JS.
 

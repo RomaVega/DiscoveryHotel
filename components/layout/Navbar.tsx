@@ -267,7 +267,7 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80, brandAfter
                   trimmed to the bar's own footprint: px-5 py-2 text-xs keeps the
                   height the slim navbar was built around, while the gradient,
                   keyline, shadow and sheen come from the shared component. */}
-              <BookNowButton className="whitespace-nowrap shrink-0 px-5 py-2 text-xs" />
+              <BookNowButton location="navbar" className="whitespace-nowrap shrink-0 px-5 py-2 text-xs" />
             </li>
           </ul>
 
@@ -377,7 +377,7 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80, brandAfter
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.3, delay: 0.45 }}
                 >
-                  <BookNowButton />
+                  <BookNowButton location="drawer" />
                 </m.div>
                 <m.div
                   className="absolute inset-y-0 right-0 flex items-center"
