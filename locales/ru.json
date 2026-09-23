@@ -94,7 +94,7 @@
     }
   },
   "offers": {
-    "bookThisOffer": "Забронировать",
+    "checkAvailability": "Проверить Наличие",
     "included": "Что Включено",
     "bookDirect": {
       "heading": "Бронируйте Напрямую",

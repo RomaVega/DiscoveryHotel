@@ -94,7 +94,7 @@
     }
   },
   "offers": {
-    "bookThisOffer": "Book This Offer",
+    "checkAvailability": "Check Availability",
     "included": "What's included",
     "bookDirect": {
       "heading": "Why Book Direct",

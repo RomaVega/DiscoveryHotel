@@ -66,6 +66,9 @@ function RoomCard({ room, reverse, t, isRu }: {
   const [current, setCurrent] = useState(0);
   const thumbRef = useRef<HTMLDivElement>(null);
   const images = room.images?.map((s) => ({ src: s.src, alt: t(s.alt) })) ?? [];
+  // One label for the desktop and mobile buttons below, which render the same
+  // CTA twice. The aria-label leads with it — WCAG 2.5.3 (Label in Name).
+  const label = t(room.cta ?? { en: "Book This Room", ru: "Забронировать Номер" });
 
   return (
     <div className="lg:grid lg:grid-cols-2 lg:gap-x-16 lg:gap-y-0 lg:items-start">
@@ -151,8 +154,13 @@ function RoomCard({ room, reverse, t, isRu }: {
 
         {/* Book button — desktop only in left col */}
         <div className="hidden lg:flex flex-1 items-center justify-center mt-12">
-          <SecondaryButton href={room.href} external className="text-sm px-8 py-3">
-            {t(room.cta ?? { en: "Book This Room", ru: "Забронировать Номер" })}
+          <SecondaryButton
+            href={room.href}
+            external
+            className="text-sm px-8 py-3"
+            aria-label={`${label} — ${t(room.title)}`}
+          >
+            {label}
           </SecondaryButton>
         </div>
       </div>
@@ -204,8 +212,12 @@ function RoomCard({ room, reverse, t, isRu }: {
 
         {/* Book button — mobile only */}
         <div className="lg:hidden flex justify-center mt-8">
-          <SecondaryButton href={room.href} external>
-            {t(room.cta ?? { en: "Book This Room", ru: "Забронировать Номер" })}
+          <SecondaryButton
+            href={room.href}
+            external
+            aria-label={`${label} — ${t(room.title)}`}
+          >
+            {label}
           </SecondaryButton>
         </div>
       </div>

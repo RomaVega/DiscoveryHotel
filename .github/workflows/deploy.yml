@@ -1,8 +1,13 @@
 name: Deploy to GitHub Pages
 
+# Manual trigger only. Netlify is what serves orlowsky.id, and this workflow
+# publishes a second, complete copy of the site to GitHub Pages — it ran on
+# every push to main for 106 builds, burning Actions minutes on a deploy
+# nobody consumed and leaving a duplicate that could silently drift.
+#
+# It is kept rather than deleted so there is a one-click fallback if Netlify
+# is ever down: Actions -> "Deploy to GitHub Pages" -> Run workflow.
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
