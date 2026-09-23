@@ -42,6 +42,23 @@ by a GTM Link Click trigger on hostname instead, which cannot drift when someone
 adds a CTA in JSON. `data-cta-location` on the anchor gives that trigger the
 surface name where one exists.
 
+### The offer cards went to WhatsApp (23 Sept 2026)
+
+The per-offer "Check Availability" buttons in `SpecialOffers` used to point at
+`secure.guestpro.net/odch`; they now open WhatsApp with a prefilled enquiry.
+Because the live trigger is `Click URL contains "wa.me"`, they will start
+counting into `click_whatsapp` — a GA4 event **and** a Metrica goal, both with
+real history — on the day this deploys. Nothing moves *out* of a series, since
+the engine was never counted; the step is purely additive, and it mixes "a
+guest wants to talk to us" with "a guest wants this specific offer".
+
+They carry `data-cta-location="offer_card"` so the two intents stay separable.
+That attribute is the only thing distinguishing them from the floating chat
+button — both are `wa.me/<number>?text=...` to a trigger that reads the click
+URL — and it had to ship **before** the trigger that reads it, because the
+separation cannot be applied to hits already collected. Handle it in GTM per
+[Outstanding](#outstanding), and annotate the deploy date in GA4.
+
 **Do not sum `book_now_click` and `booking_engine_click`** — they overlap.
 `booking_engine_click` is the counted one; `book_now_click` is diagnostic.
 
@@ -56,12 +73,28 @@ Real property: **`G-XR996N4YKR`**.
 | GA4 event | `click_phone` | `G-XR966N4YKR` | **Broken** |
 | GA4 event | `click_email` | `G-XR966N4YKR` | **Broken** |
 | GA4 event | `click_instagram` | `G-XR966N4YKR` | **Broken** |
-| 2× Custom HTML | — | — | Empty, delete |
+| Custom HTML | — | Yandex Metrica `111820344` | **Live — do not delete** |
+| Custom HTML | `click_whatsapp` | Yandex Metrica goal | **Live — do not delete** |
 
 `G-XR966N4YKR` (note `966`, not `996`) is not a real property: its `gtag/js`
 response is byte-identical to one served for an invented measurement ID. Those
 three events have never arrived anywhere. Fix by pointing all tags at a
 **Constant variable** rather than a pasted string, so the typo cannot recur.
+
+> **Correction, 23 Sept 2026.** The 21 Sept audit recorded the two Custom HTML
+> tags as empty and told the next person to delete them. They are not empty.
+> One is the **Yandex Metrica loader** (counter `111820344`, with `webvisor`,
+> `clickmap` and `ecommerce: "dataLayer"`), fired on `gtm.js`; the other pushes
+> a Metrica `reachGoal` for `click_whatsapp`. Deleting them removes Metrica
+> from the site entirely — which, for a property whose second audience is
+> Russian-speaking, is the one tag you would least want to drop silently.
+> Re-read from the container, not from this table, before deleting anything.
+
+**The only click trigger that exists is `Click URL contains "wa.me"`** →
+`gtm.linkClick`. It fires both the GA4 `click_whatsapp` tag (on the correct
+property) and the Metrica goal. There is **no** `secure.guestpro.net` predicate
+in the container: `booking_engine_click` is a plan in [Outstanding](#outstanding),
+not a live tag, so no booking CTA on this site is counted today.
 
 Absent from the container: Conversion Linker, Google Ads conversion tag, Ads
 remarketing tag, and triggers for `book_now_click` and `boundary_error`.
@@ -162,13 +195,24 @@ and the booking engine's search query parameters. Awaiting reply.
 **GTM** — none of this needs the deploy except the last line
 - [ ] Constant variable `GA4 Measurement ID` = `G-XR996N4YKR`; point every tag at it
 - [ ] Fix `click_phone` / `click_email` / `click_instagram` (currently firing into nothing)
-- [ ] Delete the two empty Custom HTML tags
+- [ ] ~~Delete the two empty Custom HTML tags~~ — **do not**; they are Yandex
+      Metrica (see the correction above)
 - [ ] Add Conversion Linker, All Pages
 - [ ] Auto-Event Variable `CTA Location` → Element Attribute → `data-cta-location`
 - [ ] Link Click trigger: Click URL contains `secure.guestpro.net` **AND Page
       Hostname equals `orlowsky.id`** → GA4 event `booking_engine_click` with
       `cta_location`. The hostname clause stops it double-firing once the engine
       carries this container.
+- [ ] Add `cta_location` (the existing Auto-Event Variable) as a parameter on
+      the **`click_whatsapp`** tag. Do this in the same publish as the deploy:
+      without it the offer-card clicks land in `click_whatsapp` and the
+      increment cannot be explained afterwards. Segmenting beats excluding —
+      an offer enquiry *is* a WhatsApp click, and the totals should stay whole.
+- [ ] Optional, once `cta_location` is on the tag: a GA4 key event on
+      `click_whatsapp` where `cta_location = offer_card`, which is the offer
+      conversion. Worth more to Ads than the undifferentiated event.
+- [ ] GA4 annotation on the deploy date: "offer CTAs moved from the booking
+      engine to WhatsApp — `click_whatsapp` steps up, additively"
 - [ ] Custom Event trigger on `boundary_error` → GA4 `exception`
 - [ ] GA4 ecommerce tags for `purchase` / `begin_checkout` / `view_item`, built
       dormant so they work the moment GuestPro sets the field
