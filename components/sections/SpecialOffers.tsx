@@ -4,17 +4,69 @@ import Image from "next/image";
 import { FadeIn } from "@/components/common/FadeIn";
 import { SectionHeading } from "@/components/common/SectionHeading";
 import { SecondaryButton } from "@/components/common/SecondaryButton";
-import type { OffersData } from "@/lib/types";
+import type { Offer, OffersData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
+import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 interface SpecialOffersProps {
   data: OffersData;
   hideHeading?: boolean;
 }
 
+/**
+ * Substitute `{key}` placeholders, never through a replacement *string*.
+ *
+ * `String.replace` reads `$&`, `` $` ``, `$'` and `$$` inside the replacement,
+ * and every offer price here is a dollar amount — "from $65/night" goes into a
+ * template as a literal `$6`, which is one authored `$&` away from a mangled
+ * message that nobody would notice until a guest sent it. A replacer function
+ * is handed the value verbatim.
+ */
+function fill(template: string, values: Record<string, string>): string {
+  return Object.entries(values).reduce(
+    (out, [key, value]) => out.replace(`{${key}}`, () => value),
+    template
+  );
+}
+
 export function SpecialOffers({ data, hideHeading }: SpecialOffersProps) {
   const { t, tl } = useLanguage();
   const activeOffers = data.offers.filter((o) => o.active);
+
+  /**
+   * The offers go to WhatsApp, not to the engine.
+   *
+   * `secure.guestpro.net/odch` has no page per offer and is not getting one,
+   * so "Check Availability" used to drop the guest into a blank room search
+   * that knew nothing about the early-bird rate they had just read — and the
+   * offer's own terms never reached anyone who could honour them.
+   *
+   * The prefilled text is written for the person answering the phone: it names
+   * the offer, repeats the terms and the advertised rate *as the guest saw
+   * them* (so a stale card on the site is visible in the thread rather than
+   * argued about later), and leaves labelled blanks for the four things
+   * reception has to ask for anyway. Optional `validity` and `terms` are
+   * folded in when the content carries them, which is why `conditions` is one
+   * substitution and not two more lines in every template.
+   */
+  const enquiryUrl = (offer: Offer) => {
+    const conditions = [
+      offer.validity && fill(tl.offers.enquiryValidity, { validity: t(offer.validity) }),
+      offer.terms && fill(tl.offers.enquiryTerms, { terms: t(offer.terms) }),
+    ]
+      .filter(Boolean)
+      .map((line) => `\n${line}`)
+      .join("");
+
+    return buildWhatsAppUrl(
+      fill(tl.offers.enquiry, {
+        title: t(offer.title),
+        terms: t(offer.description),
+        conditions,
+        price: t(offer.price),
+      })
+    );
+  };
 
   if (activeOffers.length === 0) return null;
 
@@ -71,8 +123,9 @@ export function SpecialOffers({ data, hideHeading }: SpecialOffersProps) {
                     </div>
                     <div className="flex justify-center sm:block">
                       <SecondaryButton
-                        href="https://secure.guestpro.net/odch"
+                        href={enquiryUrl(offer)}
                         external
+                        data-cta-location="offer_card"
                         aria-label={`${tl.offers.checkAvailability} — ${t(offer.title)}`}
                       >
                         {tl.offers.checkAvailability}

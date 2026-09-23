@@ -1,5 +1,6 @@
 import { LocalizedLink } from "@/components/common/LocalizedLink";
 import { cn } from "@/lib/utils";
+import type { CtaLocation } from "@/lib/track";
 
 /**
  * Shape and colour, without any interaction state.
@@ -56,6 +57,18 @@ interface SecondaryButtonBase {
    * name is what they are matched against.
    */
   "aria-label"?: string;
+  /**
+   * Surface name for GTM, read off the anchor by an Auto-Event Variable.
+   *
+   * The container's triggers key on the click URL, which is all they have:
+   * every WhatsApp CTA on the site is `wa.me/<number>?text=...`, so an offer
+   * enquiry and a tap on the floating chat button are indistinguishable to
+   * `Click URL contains wa.me` — the predicate that already fires
+   * `click_whatsapp`. This attribute is the only thing that tells them apart,
+   * and it has to be on the anchor *before* the trigger that reads it is
+   * built, or the separation is impossible retroactively.
+   */
+  "data-cta-location"?: CtaLocation;
 }
 
 interface SecondaryButtonAsLink extends SecondaryButtonBase {
@@ -75,7 +88,13 @@ interface SecondaryButtonAsButton extends SecondaryButtonBase {
 
 type SecondaryButtonProps = SecondaryButtonAsLink | SecondaryButtonAsButton;
 
-export function SecondaryButton({ children, className, "aria-label": ariaLabel, ...rest }: SecondaryButtonProps) {
+export function SecondaryButton({
+  children,
+  className,
+  "aria-label": ariaLabel,
+  "data-cta-location": ctaLocation,
+  ...rest
+}: SecondaryButtonProps) {
   const styles = cn(BASE_STYLES, className);
 
   if ("onClick" in rest && rest.onClick) {
@@ -96,7 +115,14 @@ export function SecondaryButton({ children, className, "aria-label": ariaLabel, 
 
   if (external) {
     return (
-      <a href={href} target="_blank" rel="noopener noreferrer" aria-label={ariaLabel} className={styles}>
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={ariaLabel}
+        data-cta-location={ctaLocation}
+        className={styles}
+      >
         {children}
       </a>
     );

@@ -42,7 +42,16 @@ export type CtaLocation =
   /** The mobile menu drawer. */
   | "drawer"
   /** The home page hero's ghost button. */
-  | "hero";
+  | "hero"
+  /**
+   * A per-offer CTA in `SpecialOffers` (home section and `/offers`).
+   *
+   * These do not render `BookNowButton` and push no `book_now_click` — they
+   * are plain links, and the only thing that sees them is GTM's Link Click
+   * trigger. They are in this union because the container reads one attribute
+   * for every surface, so the vocabulary cannot be allowed two homes.
+   */
+  | "offer_card";
 
 /** Where it sent them. Classified rather than logged raw: a WhatsApp href
     carries a URL-encoded sentence, which blows past GA4's 100-character
