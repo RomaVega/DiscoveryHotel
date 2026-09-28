@@ -73,13 +73,30 @@ describe("BookNowButton tracking", () => {
     expect(link).toHaveAttribute("target", "_blank");
   });
 
-  it("carries the surface as a data attribute, for GTM's own click trigger", () => {
-    // The GTM Link Click trigger on hostname secure.guestpro.net catches every
-    // booking CTA, including the ones that live in content JSON and never
-    // render this component. This attribute is how that trigger learns which
-    // surface it fired on where one is known.
+  it("mirrors the surface as a data attribute", () => {
     mount(<BookNowButton location="hero" />);
 
     expect(screen.getByRole("link")).toHaveAttribute("data-cta-location", "hero");
+  });
+
+  it("pushes before a click listener that registered first, as GTM's can", () => {
+    // GTM v6 reads cta_location for booking_engine_click from this push. Its
+    // Link Click listener shares a node with React's root in production, so a
+    // bubble-phase push can land after GTM has already read the previous value.
+    // See the matching test in SecondaryButton.test.tsx.
+    const container = document.createElement("div");
+    document.body.appendChild(container);
+    let seenAtLinkClick: unknown[] | null = null;
+    container.addEventListener("click", () => {
+      seenAtLinkClick = [...layer()];
+    });
+
+    render(<LanguageProvider><BookNowButton location="navbar" /></LanguageProvider>, { container });
+
+    fireEvent.click(screen.getByRole("link"));
+
+    expect(seenAtLinkClick).toHaveLength(1);
+    expect(seenAtLinkClick![0]).toMatchObject({ cta_location: "navbar" });
+    container.remove();
   });
 });

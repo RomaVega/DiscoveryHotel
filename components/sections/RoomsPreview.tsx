@@ -81,6 +81,7 @@ export function RoomsPreview({ data }: RoomsPreviewProps) {
                       <SecondaryButton
                         href={room.href}
                         external
+                        data-cta-location="room_card"
                         aria-label={`${label} — ${t(room.title)}`}
                       >
                         {label}

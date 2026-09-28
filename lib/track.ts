@@ -44,14 +44,17 @@ export type CtaLocation =
   /** The home page hero's ghost button. */
   | "hero"
   /**
-   * A per-offer CTA in `SpecialOffers` (home section and `/offers`).
-   *
-   * These do not render `BookNowButton` and push no `book_now_click` — they
-   * are plain links, and the only thing that sees them is GTM's Link Click
-   * trigger. They are in this union because the container reads one attribute
-   * for every surface, so the vocabulary cannot be allowed two homes.
+   * A per-offer CTA in `SpecialOffers` (home section and `/offers`). Opens
+   * WhatsApp, so it pushes `cta_destination: "whatsapp"` and never matches the
+   * GuestPro Link Click trigger.
    */
-  | "offer_card";
+  | "offer_card"
+  /** A room card's "Check Availability" in `RoomsPreview` (home page). */
+  | "room_card"
+  /** "View Menu" in `DiningPreview` (home page) — the in-room dining menu. */
+  | "dining"
+  /** The deep-teal `BookingCta` band just above the footer. Not the footer. */
+  | "booking_band";
 
 /** Where it sent them. Classified rather than logged raw: a WhatsApp href
     carries a URL-encoded sentence, which blows past GA4's 100-character
@@ -117,10 +120,18 @@ export function trackEvent(
 /**
  * The booking CTA was clicked.
  *
- * One event name across all four surfaces, separated by `cta_location`, rather
- * than four event names: GA4 reports compare parameter values within an event
- * far more easily than they compare events, and "which surface books" is the
- * question this was added to answer.
+ * One event name across every surface, separated by `cta_location`, rather
+ * than one event name per surface: GA4 reports compare parameter values within
+ * an event far more easily than they compare events, and "which surface books"
+ * is the question this was added to answer.
+ *
+ * **Call it from `onClickCapture`, not `onClick`.** GTM v6 reads `cta_location`
+ * for `booking_engine_click` from this push, not from the anchor. GTM's Link
+ * Click listener and React's bubble-phase `onClick` both sit on `document`, so
+ * which runs first depends on which registered first. If GTM wins, its Link
+ * Click sees the *previous* push's `cta_location` — a room-card click after a
+ * navbar click gets reported as `navbar`. The capture phase runs before any
+ * bubble listener, so the push always lands first.
  */
 export function trackBookNowClick(
   location: CtaLocation,

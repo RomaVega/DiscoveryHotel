@@ -7,6 +7,7 @@ import { SecondaryButton } from "@/components/common/SecondaryButton";
 import { useLanguage } from "@/lib/language-context";
 import { Utensils } from "lucide-react";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import { MENU_URL } from "@/lib/booking";
 
 const SLIDES = [
   { src: "/images/restaurant-bar/orlowsky-hotel-oceanfront-dining-candidasa.webp",       alt: "Oceanfront dining at Orlowsky Discovery Hotel, Candidasa" },
@@ -30,8 +31,6 @@ export function DiningPreview() {
   const tableUrl = buildWhatsAppUrl(isRu
     ? "Здравствуйте! Хочу забронировать столик в ресторане."
     : "Hello! I'd like to book a table at the restaurant.");
-  // Menu browsing, room service, and delivery orders all go through one GuestPro page.
-  const menuUrl = "https://secure.guestpro.net/odch/concierge/room-dining";
 
   return (
     <FadeIn>
@@ -64,7 +63,9 @@ export function DiningPreview() {
                   ? "Свежие морепродукты и балийская кухня — в ресторане, в номер или бесплатной доставкой по Чандидасе."
                   : "Fresh seafood and Balinese cuisine — dine in, room service, or free delivery within Candidasa."}
               </p>
-              <SecondaryButton href={menuUrl} external className="mt-2">
+              {/* Menu browsing, room service, and delivery orders all go
+                  through one GuestPro page. */}
+              <SecondaryButton href={MENU_URL} external data-cta-location="dining" className="mt-2">
                 {isRu ? "Смотреть Меню" : "View Menu"}
               </SecondaryButton>
               <a

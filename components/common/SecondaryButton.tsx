@@ -1,6 +1,8 @@
+"use client"; // onClickCapture reports tracked CTAs to dataLayer
+
 import { LocalizedLink } from "@/components/common/LocalizedLink";
 import { cn } from "@/lib/utils";
-import type { CtaLocation } from "@/lib/track";
+import { trackBookNowClick, type CtaLocation } from "@/lib/track";
 
 /**
  * Shape and colour, without any interaction state.
@@ -58,15 +60,17 @@ interface SecondaryButtonBase {
    */
   "aria-label"?: string;
   /**
-   * Surface name for GTM, read off the anchor by an Auto-Event Variable.
+   * Surface name. Setting it makes an external link a tracked CTA: a click
+   * pushes `book_now_click` with this `cta_location`, and the value is also
+   * rendered as `data-cta-location` on the anchor.
    *
-   * The container's triggers key on the click URL, which is all they have:
-   * every WhatsApp CTA on the site is `wa.me/<number>?text=...`, so an offer
-   * enquiry and a tap on the floating chat button are indistinguishable to
-   * `Click URL contains wa.me` — the predicate that already fires
-   * `click_whatsapp`. This attribute is the only thing that tells them apart,
-   * and it has to be on the anchor *before* the trigger that reads it is
-   * built, or the separation is impossible retroactively.
+   * The push is what counts. GTM v6 reads `cta_location` for
+   * `booking_engine_click` from the `book_now_click` push, so an
+   * attribute-only link would inherit whatever the previous push left in
+   * GTM's data model. The container's triggers key on the click URL, which is
+   * all they have — an offer enquiry and the floating chat button are both
+   * `wa.me/<number>?text=...` — so this is the only thing that tells surfaces
+   * apart.
    */
   "data-cta-location"?: CtaLocation;
 }
@@ -121,6 +125,9 @@ export function SecondaryButton({
         rel="noopener noreferrer"
         aria-label={ariaLabel}
         data-cta-location={ctaLocation}
+        // Capture, not bubble: the push must land before GTM's Link Click
+        // listener reads it. See `trackBookNowClick`.
+        onClickCapture={ctaLocation ? () => trackBookNowClick(ctaLocation, href) : undefined}
         className={styles}
       >
         {children}

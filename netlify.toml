@@ -18,8 +18,17 @@
     # tagmanager.google.com + www.google.com + font-src data: are what GTM Preview
     # (Tag Assistant) needs to attach; without them the debug overlay's own scripts
     # and styles are blocked and Tag Assistant just times out with "0 tags found".
+    # Google Ads (the container's conversion + remarketing tags) needs
+    # googleadservices.com and googleads.g.doubleclick.net in script-src, its
+    # collect hosts in connect-src, and td.doubleclick.net in frame-src.
+    # Exact hosts only — no *.google.* style wildcards.
+    # Yandex Metrica (counter 111820344, loaded by a Custom HTML tag in GTM):
+    # the inline loader runs under 'unsafe-inline' but fetches tag.js from
+    # mc.yandex.ru, which script-src blocked until these were added. Webvisor
+    # needs the mc.yandex.* frames. Do not remove — Metrica is live.
     # https://developers.google.com/tag-platform/security/guides/csp
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://tagmanager.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.googletagmanager.com https://tagmanager.google.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.google.com https://www.googletagmanager.com https://secure.guestpro.net; connect-src 'self' https://www.google.com https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://secure.guestpro.net; frame-ancestors 'self'"
+    # https://yandex.ru/support/metrica/code/install-counter-csp.html
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://tagmanager.google.com https://www.google-analytics.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://mc.yandex.ru https://yastatic.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.googletagmanager.com https://tagmanager.google.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.google.com https://www.googletagmanager.com https://secure.guestpro.net https://td.doubleclick.net https://www.googleadservices.com https://mc.yandex.ru https://mc.yandex.com; connect-src 'self' https://www.google.com https://google.com https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://stats.g.doubleclick.net https://ad.doubleclick.net https://mc.yandex.ru https://mc.yandex.com; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https://secure.guestpro.net; frame-ancestors 'self'"
     # RFC 8288 agent-discovery links to real resources
     Link = "</sitemap.xml>; rel=\"sitemap\", </llms.txt>; rel=\"alternate\"; type=\"text/markdown\""
 

@@ -1,9 +1,10 @@
 # Analytics & Google Ads
 
 How measurement works on this site, what is configured where, and what is still
-outstanding. Console state described here was verified on **21 Sept 2026** by
-reading the public container (`https://www.googletagmanager.com/gtm.js?id=GTM-KHDV2SW2`)
-and the booking engine's JavaScript bundle. Re-verify before trusting it.
+outstanding. Container state described here is **GTM version 6, published
+28 Sept 2026 18:45 WITA**, as reported from the GTM UI. The booking-engine
+findings come from reading its JavaScript bundle on 21 Sept 2026. Re-verify
+before trusting either.
 
 ## Architecture
 
@@ -31,16 +32,42 @@ queue would grow unbounded with nothing to drain it.
 
 | Event | Source | Parameters |
 |---|---|---|
-| `book_now_click` | [BookNowButton](../components/common/BookNowButton.tsx) | `cta_location`, `cta_destination`, `page_path`, `page_locale` |
+| `book_now_click` | [BookNowButton](../components/common/BookNowButton.tsx), [SecondaryButton](../components/common/SecondaryButton.tsx) with `data-cta-location` | `cta_location`, `cta_destination`, `page_path`, `page_locale` |
 | `boundary_error` | [lib/report-error.ts](../lib/report-error.ts) | `description`, `fatal`, `error_name`, `error_digest`, `translator`, `browser_lang`, `page_locale`, `page_path` |
 
-`book_now_click` covers the four surfaces that render `BookNowButton` (floating
-bar, desktop navbar, mobile drawer, hero). It does **not** cover the ~12 booking
-CTAs defined in `content/*.json`, plus one hardcoded in
-[SpecialOffers.tsx](../components/sections/SpecialOffers.tsx). Those are caught
-by a GTM Link Click trigger on hostname instead, which cannot drift when someone
-adds a CTA in JSON. `data-cta-location` on the anchor gives that trigger the
-surface name where one exists.
+**`cta_location` for `booking_engine_click` comes from this push.** GTM v6
+reads it as a Data Layer Variable off the `book_now_click` push, not off the
+anchor. A GuestPro link that pushes nothing therefore inherits whatever
+`cta_location` the previous push left in GTM's data model: a room-card click
+after a navbar click would be reported as `navbar`.
+
+`book_now_click` covers these surfaces:
+
+| `cta_location` | Where | Destination |
+|---|---|---|
+| `floating` | mobile Book Now bar | engine, or a service enquiry/menu off room routes |
+| `navbar` | desktop navbar | engine |
+| `drawer` | mobile menu drawer | engine |
+| `hero` | home hero | engine |
+| `room_card` | home `RoomsPreview` "Check Availability" | engine |
+| `dining` | home `DiningPreview` "View Menu" | menu |
+| `booking_band` | deep-teal `BookingCta` band above the footer | engine |
+| `offer_card` | `SpecialOffers` "Check Availability" | whatsapp |
+
+**The push happens in `onClickCapture`, not `onClick`.** GTM's Link Click
+listener and React's root listener both sit on `document`, so in the bubble
+phase whichever registered first runs first. If GTM's does, its Link Click
+reads the previous push. Capture runs before every bubble listener, so the push
+always lands first. Both components have a test that registers a listener
+before React mounts and asserts it already sees the push.
+
+The value is also rendered as `data-cta-location` on the anchor, for DOM
+inspection. GTM v6 does not read the attribute.
+
+Not covered: the booking CTAs defined in `content/*.json` on inner pages
+(`/rooms`, `/offers` and others). The GTM Link Click trigger still counts them
+as `booking_engine_click`, but their `cta_location` is inherited from the
+previous push or empty.
 
 ### The offer cards went to WhatsApp (23 Sept 2026)
 
@@ -52,52 +79,71 @@ real history — on the day this deploys. Nothing moves *out* of a series, since
 the engine was never counted; the step is purely additive, and it mixes "a
 guest wants to talk to us" with "a guest wants this specific offer".
 
-They carry `data-cta-location="offer_card"` so the two intents stay separable.
-That attribute is the only thing distinguishing them from the floating chat
-button — both are `wa.me/<number>?text=...` to a trigger that reads the click
-URL — and it had to ship **before** the trigger that reads it, because the
-separation cannot be applied to hits already collected. Handle it in GTM per
-[Outstanding](#outstanding), and annotate the deploy date in GA4.
+They push `book_now_click` with `cta_location: "offer_card"` and
+`cta_destination: "whatsapp"`, so the two intents stay separable. That is the
+only thing distinguishing them from the floating chat button — both are
+`wa.me/<number>?text=...` to a trigger that reads the click URL. Handle it in
+GTM per [Outstanding](#outstanding), and annotate the deploy date in GA4.
 
 **Do not sum `book_now_click` and `booking_engine_click`** — they overlap.
 `booking_engine_click` is the counted one; `book_now_click` is diagnostic.
 
-## Container state (21 Sept 2026)
+## Container state (v6, 28 Sept 2026)
 
-Real property: **`G-XR996N4YKR`**.
+Real property: **`G-XR996N4YKR`**, held in the Constant variable
+`GA4 Measurement ID`. Every GA4 tag references `{{GA4 Measurement ID}}` rather
+than a pasted string.
 
-| Tag | Event | Sends to | Status |
-|---|---|---|---|
-| `__googtag` | GA4 config | `G-XR996N4YKR` | OK |
-| GA4 event | `click_whatsapp` | `G-XR996N4YKR` | OK |
-| GA4 event | `click_phone` | `G-XR966N4YKR` | **Broken** |
-| GA4 event | `click_email` | `G-XR966N4YKR` | **Broken** |
-| GA4 event | `click_instagram` | `G-XR966N4YKR` | **Broken** |
-| Custom HTML | — | Yandex Metrica `111820344` | **Live — do not delete** |
-| Custom HTML | `click_whatsapp` | Yandex Metrica goal | **Live — do not delete** |
+| Tag | Trigger | Sends |
+|---|---|---|
+| `__googtag` | All Pages | GA4 config |
+| GA4 event `click_whatsapp` | Click URL contains `wa.me` | `click_whatsapp` |
+| GA4 event `click_phone` / `click_email` / `click_instagram` | their click triggers | the named event |
+| `GA4 Event - booking_engine_click` | `Click - GuestPro booking` | `booking_engine_click` + `cta_location` |
+| `GA4 Event - exception (boundary_error)` | `CE - boundary_error` | `exception` + `ES - exception params` |
+| `Conversion Linker` | All Pages | — |
+| Custom HTML | `gtm.js` | Yandex Metrica loader, counter `111820344` |
+| Custom HTML | Click URL contains `wa.me` | Metrica `reachGoal` for `click_whatsapp` |
 
-`G-XR966N4YKR` (note `966`, not `996`) is not a real property: its `gtag/js`
-response is byte-identical to one served for an invented measurement ID. Those
-three events have never arrived anywhere. Fix by pointing all tags at a
-**Constant variable** rather than a pasted string, so the typo cannot recur.
+**`Click - GuestPro booking`** is Just Links, Wait for Tags 2000 ms, Check
+Validation off. It fires when `{{Click URL}}` contains `secure.guestpro.net`
+**and** `{{Page Hostname}}` matches
+`^(www\.)?(orlowsky\.id|orlowskybali\.id|orlowskyhotel\.com)$`. The hostname
+clause stops it double-firing once the engine carries this container. Use the
+one RegEx: several `Page Hostname equals` rows are ANDed and never fire.
 
-> **Correction, 23 Sept 2026.** The 21 Sept audit recorded the two Custom HTML
-> tags as empty and told the next person to delete them. They are not empty.
-> One is the **Yandex Metrica loader** (counter `111820344`, with `webvisor`,
-> `clickmap` and `ecommerce: "dataLayer"`), fired on `gtm.js`; the other pushes
-> a Metrica `reachGoal` for `click_whatsapp`. Deleting them removes Metrica
-> from the site entirely — which, for a property whose second audience is
-> Russian-speaking, is the one tag you would least want to drop silently.
-> Re-read from the container, not from this table, before deleting anything.
+**`cta_location`** on that tag is read from the `book_now_click` dataLayer push
+(see [Events the site pushes](#events-the-site-pushes)).
 
-**The only click trigger that exists is `Click URL contains "wa.me"`** →
-`gtm.linkClick`. It fires both the GA4 `click_whatsapp` tag (on the correct
-property) and the Metrica goal. There is **no** `secure.guestpro.net` predicate
-in the container: `booking_engine_click` is a plan in [Outstanding](#outstanding),
-not a live tag, so no booking CTA on this site is counted today.
+**`ES - exception params`** carries six Data Layer Variables: `description`,
+`translator`, `browser_lang`, `page_locale`, `error_digest`, `error_name`.
+`error_name` is not a registered custom dimension, so GA4 collects it but does
+not report it. `fatal` is pushed by the site but not mapped.
 
-Absent from the container: Conversion Linker, Google Ads conversion tag, Ads
-remarketing tag, and triggers for `book_now_click` and `boundary_error`.
+`G-XR966N4YKR` (note `966`) was pasted into `click_phone`, `click_email` and
+`click_instagram` until v6. It is not a real property, so those three events
+never arrived anywhere before 28 Sept 2026.
+
+**Do not delete the two Custom HTML tags.** They are Yandex Metrica, with
+`webvisor`, `clickmap` and `ecommerce: "dataLayer"`. Removing them drops
+Metrica from the site entirely. Metrica's `tag.js` from `mc.yandex.ru` was
+blocked by the CSP in [netlify.toml](../netlify.toml) until
+`fix/cta-location-csp`, so check Metrica for a gap before that deploy.
+
+Absent from the container: Ads remarketing tag, Consent Mode, and ecommerce
+tags (`purchase` / `begin_checkout` / `view_item`).
+
+## Google Ads
+
+Account **`145-908-5801`**, linked to GA4. Conversion `booking_engine_click` is
+imported from GA4 as **Primary**, category Outbound click. It measures intent,
+not revenue: demote it to Secondary the day `purchase` arrives from the engine.
+"Get directions" has been removed from the account-default goal.
+
+Ads tags call `www.googleadservices.com`, `googleads.g.doubleclick.net`,
+`td.doubleclick.net` and a few more collect hosts. They are allowed in the CSP
+in [netlify.toml](../netlify.toml) as exact hosts; a new Ads feature that calls
+another origin is blocked until it is added there.
 
 ## The booking engine
 
@@ -146,43 +192,37 @@ the engine's `merchant/<id>` call to `api.marketconnect.id/guestapp-hotel/api/`.
 cannot be iframed on orlowsky.id. The `frame-src https://secure.guestpro.net`
 allowance in [netlify.toml](../netlify.toml) is therefore unused.
 
-## Where this stands (23 Sept 2026)
+## Where this stands (28 Sept 2026)
 
-**Code** — four commits on `feat/book-now-tracking`, plus a merge bringing in
-the 22 Sept `main`, pushed to GitHub, **not merged and not deployed**.
-Production therefore still emits no `book_now_click` and no
-`data-cta-location`. The merge-vs-fast-forward question is settled: CLAUDE.md
-now requires a branch and a PR for every change, so this goes in as a PR and
-`main` auto-deploys on merge.
+**Code** — `book_now_click` and `data-cta-location` are live since PR #10
+(23 Sept 2026). `fix/cta-location-csp` adds `room_card`, `dining` and
+`booking_band`, moves the push to the capture phase, and widens the CSP for
+Google Ads and Yandex Metrica.
 
-The 22 Sept work on `main` renamed the booking CTAs to "Check Availability"
-and gave them `aria-label`s. It does not touch tracking — the GTM Link Click
-trigger keys on the click URL and hostname, never the label — but the visible
-string in a screenshot or a GA4 `link_text` will differ from earlier notes.
+**GTM** — v6 published 28 Sept 2026 18:45 WITA. See
+[Container state](#container-state-v6-28-sept-2026).
 
 **GA4 — done**
 - Unwanted referrals: `guestpro.net`
 - Configure domains: `orlowsky.id` + `secure.guestpro.net`
 - All six custom dimensions registered, Event scope: `cta_location`,
   `cta_destination`, `translator`, `browser_lang`, `page_locale`, `error_digest`
+- Internal traffic rule: hotel Wi-Fi public IP **`182.253.40.248`**, match type
+  IP address equals. Stable across a 7-day recheck (Biznet, AS17451).
+- Linked to Google Ads `145-908-5801`
 
-**GA4 — in progress / not started**
-- [ ] Internal traffic rule — started, needs the right IPs (see gotcha below)
+**GA4 — not confirmed**
 - [ ] Data filter for internal traffic → switch **Testing → Active**. The rule
       only appends `traffic_type=internal`; the filter is what excludes it.
 - [ ] Data retention → 14 months
-- [ ] Link GA4 ↔ Google Ads
+- [ ] Internal traffic rule: a condition for the maintainer's own connection
 
 > **Gotcha, already hit once.** Internal traffic matches the *visitor's* IP, not
-> the server's. `orlowsky.id` resolving to `98.84.224.111` / `18.208.88.157` is
-> irrelevant — GA4 is client-side, so hits carry the browser's ISP address and
-> the server IP never appears. Use the hotel WiFi's public egress IP and the
-> maintainer's own connection, match type **IP address equals**. Don't paper
-> over a dynamic IP with a wide CIDR range: that filters real guests on the same
-> ISP block.
-
-**GTM — nothing done yet.** Container still in its audited state above,
-including the three tags pointing at the non-existent `G-XR966N4YKR`.
+> the server's. `orlowsky.id` resolving to Netlify's `98.84.224.111` /
+> `18.208.88.157` is irrelevant — GA4 is client-side, so hits carry the
+> browser's ISP address and the server IP never appears. Don't paper over a
+> dynamic IP with a wide CIDR range: that filters real guests on the same ISP
+> block.
 
 **GuestPro** — email sent 21 Sept 2026 to `info@guestpro.id` asking for:
 `google_tag_manager_id` = `GTM-KHDV2SW2` on the merchant record (and
@@ -192,44 +232,33 @@ and the booking engine's search query parameters. Awaiting reply.
 
 ## Outstanding
 
-**GTM** — none of this needs the deploy except the last line
-- [ ] Constant variable `GA4 Measurement ID` = `G-XR996N4YKR`; point every tag at it
-- [ ] Fix `click_phone` / `click_email` / `click_instagram` (currently firing into nothing)
-- [ ] ~~Delete the two empty Custom HTML tags~~ — **do not**; they are Yandex
-      Metrica (see the correction above)
-- [ ] Add Conversion Linker, All Pages
-- [ ] Auto-Event Variable `CTA Location` → Element Attribute → `data-cta-location`
-- [ ] Link Click trigger: Click URL contains `secure.guestpro.net` **AND Page
-      Hostname equals `orlowsky.id`** → GA4 event `booking_engine_click` with
-      `cta_location`. The hostname clause stops it double-firing once the engine
-      carries this container.
-- [ ] Add `cta_location` (the existing Auto-Event Variable) as a parameter on
-      the **`click_whatsapp`** tag. Do this in the same publish as the deploy:
-      without it the offer-card clicks land in `click_whatsapp` and the
-      increment cannot be explained afterwards. Segmenting beats excluding —
-      an offer enquiry *is* a WhatsApp click, and the totals should stay whole.
-- [ ] Optional, once `cta_location` is on the tag: a GA4 key event on
-      `click_whatsapp` where `cta_location = offer_card`, which is the offer
-      conversion. Worth more to Ads than the undifferentiated event.
-- [ ] GA4 annotation on the deploy date: "offer CTAs moved from the booking
-      engine to WhatsApp — `click_whatsapp` steps up, additively"
-- [ ] Custom Event trigger on `boundary_error` → GA4 `exception`
-- [ ] GA4 ecommerce tags for `purchase` / `begin_checkout` / `view_item`, built
-      dormant so they work the moment GuestPro sets the field
-- [ ] Preview, confirm each tag fires **once**, publish with version notes
-      *(needs the deploy first)*
+**Code**
+- [ ] Give the inner-page GuestPro CTAs from `content/*.json` a surface name
+      and a push. Until then their `booking_engine_click` carries an inherited
+      or empty `cta_location`.
+
+**GTM**
+- [ ] Add `cta_location` as a parameter on the **`click_whatsapp`** tag, read
+      from the `book_now_click` push like `booking_engine_click`. Without it the
+      offer-card enquiries cannot be separated from the floating chat button.
+- [ ] Optional, once that is on: a GA4 key event on `click_whatsapp` where
+      `cta_location = offer_card` — the offer conversion.
+- [ ] GA4 ecommerce tags for `purchase` / `begin_checkout` / `view_item` —
+      only after GuestPro replies and sets the field
+- [ ] Map `fatal` into `ES - exception params` if crash severity is wanted
 
 **Google Ads**
-- [ ] Import GA4 key events as conversions
-- [ ] `booking_engine_click` Primary *only until* `purchase` exists, then demote
-- [ ] Remarketing tag and audiences
-- [ ] Skip the bidding setup entirely if no campaigns are running yet — Smart
-      Bidding from zero conversion history performs badly
+- [ ] Demote `booking_engine_click` to Secondary once `purchase` exists
+- [ ] Remarketing tag and audiences — needs Consent Mode v2 for EEA/UK
+- [ ] Skip bidding setup until there is conversion history — Smart Bidding
+      from zero performs badly
 
 **Open questions**
+- [ ] Consent Mode v2 — no CMP on the site; required for EEA/UK remarketing
+      and conversion modelling. Its own project.
 - [ ] Booking engine search query parameters (undocumented; capture the real
       redirect from GuestPro's WordPress booking bar to learn them)
-- [ ] Consent Mode v2 — no CMP on the site; required for EEA/UK remarketing
 - [ ] When the engine carries the container, check `page_view` in Preview: the
-      engine pushes its own per route while the config tag also sends one on
-      load, so the first engine page likely double-counts
+      engine SPA pushes its own per route while the config tag also sends one
+      on load, so the first engine page likely double-counts. This is about the
+      **engine**, not the marketing site's `historyChange-v2` page views.
