@@ -209,12 +209,12 @@ Google Ads and Yandex Metrica.
   `cta_destination`, `translator`, `browser_lang`, `page_locale`, `error_digest`
 - Internal traffic rule: hotel Wi-Fi public IP **`182.253.40.248`**, match type
   IP address equals. Stable across a 7-day recheck (Biznet, AS17451).
+- Data filter for internal traffic switched **Testing → Active**. The rule
+  only appends `traffic_type=internal`; the filter is what excludes it.
+- Data retention: 14 months
 - Linked to Google Ads `145-908-5801`
 
 **GA4 — not confirmed**
-- [ ] Data filter for internal traffic → switch **Testing → Active**. The rule
-      only appends `traffic_type=internal`; the filter is what excludes it.
-- [ ] Data retention → 14 months
 - [ ] Internal traffic rule: a condition for the maintainer's own connection
 
 > **Gotcha, already hit once.** Internal traffic matches the *visitor's* IP, not
