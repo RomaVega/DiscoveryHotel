@@ -26,6 +26,7 @@ export function BookingCta({ data }: BookingCtaProps) {
             <SecondaryButton
               href={data.bookingUrl}
               external
+              data-cta-location="booking_band"
               className="border-white text-white hover:bg-white/10 hover:border-white/80"
             >
               {t(data.fallbackCta)}

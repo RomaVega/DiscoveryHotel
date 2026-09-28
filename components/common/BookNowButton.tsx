@@ -61,27 +61,25 @@ export function BookNowButton({ className, onClick, label, href, location, varia
   const { tl } = useLanguage();
   const destination = href ?? BOOKING_URL;
 
-  // Report first, then run whatever the call site wanted — the drawer's
-  // onClick closes the menu, and an unmount mid-handler would take the rest of
-  // this function with it. The hit itself cannot throw; see `trackEvent`.
+  // Reported in the capture phase so the push lands before GTM's Link Click
+  // listener reads `cta_location` — see `trackBookNowClick`. The call site's
+  // onClick (the drawer closing) stays on bubble and runs after it, so an
+  // unmount there cannot cost the hit. The hit itself cannot throw; see
+  // `trackEvent`.
   //
   // No preventDefault and no delay: target="_blank" leaves this document alive,
   // so the beacon goes out on its own while the new tab opens.
-  const handleClick = () => {
-    trackBookNowClick(location, destination);
-    onClick?.();
-  };
+  const handleClickCapture = () => trackBookNowClick(location, destination);
 
   return (
     <a
       href={destination}
       target="_blank"
       rel="noopener noreferrer"
-      onClick={handleClick}
-      // Read by GTM's Link Click trigger via an Auto-Event Variable. That
-      // trigger fires on hostname, so it also covers the ~12 booking CTAs that
-      // live in content JSON and never render this component; this attribute is
-      // how it learns the surface on the four that do.
+      onClickCapture={handleClickCapture}
+      onClick={onClick}
+      // Mirrors `location` on the anchor for debugging and DOM inspection. GTM
+      // v6 reads `cta_location` from the `book_now_click` push, not from this.
       data-cta-location={location}
       className={cn(
         PRIMARY_BUTTON_BASE,
