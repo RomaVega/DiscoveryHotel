@@ -34,8 +34,9 @@ const FOCUS_RING =
 
 const QUIET_LINK = "text-parchment/75 hover:text-brand-teal transition-colors duration-200";
 
-/** Contact rows are phone targets: 44px tall, icon and words in one hit area. */
-const CONTACT_ROW = "inline-flex min-h-11 items-center gap-2.5 text-sm";
+/** Contact rows are phone targets: 44px tall, icon and words in one hit area.
+    From lg they drop to the nav links' 36px, so every column shares one rhythm. */
+const CONTACT_ROW = "inline-flex min-h-11 items-center gap-2.5 text-sm lg:min-h-9";
 
 /** Guest-likely order. Profiles missing from contact.json simply don't render. */
 const SOCIAL_ORDER = ["Instagram", "Facebook", "Youtube", "Telegram"];
@@ -111,13 +112,21 @@ export function Footer({ contact }: FooterProps) {
       <div className="mx-auto max-w-6xl px-6 pt-20 pb-16 lg:px-8 lg:pt-24 lg:pb-20">
         {/* DOM order is the phone's reading order: brand, then the practical
             things (call, write, find us), then the rest. From lg the same
-            blocks are placed into three columns without reordering the DOM. */}
-        <div className="flex flex-col items-center gap-12 text-center lg:grid lg:grid-cols-[minmax(0,1.2fr)_1fr_1fr] lg:grid-rows-[auto_auto_1fr] lg:items-start lg:gap-x-16 lg:gap-y-12 lg:text-left">
+            blocks are placed on a four-column grid without reordering the DOM:
+              row 1  brand, centred across all four
+              row 2  contact | location | explore | on the grounds
+              row 3  hairline
+              row 4  offers (cols 1–2) | follow us (cols 3–4)
+            Every row-2 label sits on one line and every column steps in 36px,
+            so the columns read across as well as down. Each track is floored
+            at its content's width, so nothing wraps at 1024 (the address needs
+            271px, RU "book a room" 187px); spare width is shared by the fr
+            weights, Location's larger because the address is the longest line. */}
+        <div className="flex flex-col items-center gap-12 text-center lg:grid lg:grid-cols-[minmax(max-content,1fr)_minmax(max-content,1.3fr)_minmax(max-content,1fr)_minmax(max-content,1fr)] lg:items-start lg:gap-x-12 lg:gap-y-14 lg:text-left">
           {/* 1 · Brand */}
-          <div className="flex flex-col items-center lg:col-start-1 lg:row-start-1 lg:items-start">
+          <div className="flex flex-col items-center lg:col-span-4 lg:row-start-1 lg:text-center">
             {/* Logo, stacked name and stars are the pre-rebuild lockup, kept as
-                it was: they stay centred on one another even where the column
-                itself aligns left. */}
+                it was. */}
             <div className="flex flex-col items-center">
               <Link
                 href="/"
@@ -138,9 +147,7 @@ export function Footer({ contact }: FooterProps) {
                 />
                 <span className="flex flex-col items-center font-serif text-xl font-semibold uppercase tracking-[0.15em] text-parchment sm:text-2xl">
                   <span>Orlowsky</span>
-                  {/* At lg the column is ~310px, a little under this line; it
-                      may run into the column gap rather than break in two. */}
-                  <span className="lg:whitespace-nowrap">Discovery Candidasa</span>
+                  <span>Discovery Candidasa</span>
                   <span className="mt-3">Hotel</span>
                 </span>
               </Link>
@@ -154,11 +161,11 @@ export function Footer({ contact }: FooterProps) {
               </div>
             </div>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-balance">{f.tagline}</p>
-            <span aria-hidden="true" className="mt-10 block h-px w-16 bg-parchment/15 lg:hidden" />
+            <span aria-hidden="true" className="mt-10 block h-px w-16 bg-parchment/15" />
           </div>
 
           {/* 2a · Contact */}
-          <div className="flex flex-col items-center lg:col-start-3 lg:row-start-1 lg:items-start">
+          <div className="flex flex-col items-center lg:col-start-1 lg:row-start-2 lg:items-start">
             <Label id="footer-contact">{f.contact}</Label>
             <ul aria-labelledby="footer-contact" className="flex flex-col items-center lg:items-start">
               {phoneGroups.map(({ caption, list }) =>
@@ -197,9 +204,12 @@ export function Footer({ contact }: FooterProps) {
           </div>
 
           {/* 2b · Location */}
-          <div className="flex flex-col items-center lg:col-start-3 lg:row-start-2 lg:items-start">
+          <div className="flex flex-col items-center lg:col-start-2 lg:row-start-2 lg:items-start">
             <Label id="footer-location">{f.location}</Label>
-            <div className="flex items-start gap-2.5">
+            {/* lg:mt-1.5 drops the address's first line onto the same line as
+                the first row of the columns beside it, whose 36px rows centre
+                their text lower than this paragraph's own leading does. */}
+            <div className="flex items-start gap-2.5 lg:mt-1.5">
               <MapPin size={16} strokeWidth={ICON_STROKE} aria-hidden="true" className="mt-0.5 shrink-0" />
               <address className="text-left text-sm not-italic leading-relaxed">
                 {contact.address.map((line) => (
@@ -214,15 +224,15 @@ export function Footer({ contact }: FooterProps) {
               target="_blank"
               rel="noopener noreferrer"
               // contrast-ok: brand-teal is 6.66:1 on espresso, parchment on hover 12.53:1.
-              className={cn("mt-1 inline-flex min-h-11 items-center gap-1.5 text-sm font-medium text-brand-teal hover:text-parchment transition-colors duration-200", FOCUS_RING)}
+              className={cn("mt-1 inline-flex min-h-11 items-center gap-1.5 text-sm font-medium text-brand-teal lg:min-h-9 hover:text-parchment transition-colors duration-200", FOCUS_RING)}
             >
               {f.getDirections}
               <span aria-hidden="true">→</span>
             </a>
 
-            {/* Under Location rather than Contact: on desktop this keeps the
-                contact cell the same height in both locales, so the Offers
-                form beside it does not drop on /ru. */}
+            {/* Under Location rather than Contact: on a phone it follows the
+                address it qualifies, and on desktop it lengthens only the
+                column with room to spare. */}
             {isRu && f.paymentNote && (
               <div className="mt-6">
                 <Label id="footer-payment">{f.paymentInRussia}</Label>
@@ -235,22 +245,30 @@ export function Footer({ contact }: FooterProps) {
             )}
           </div>
 
+          {/* Desktop only: closes the link rows off from the offers/follow row. */}
+          <span aria-hidden="true" className="hidden h-px bg-parchment/10 lg:col-span-4 lg:row-start-3 lg:block" />
+
           {/* 2c · Offers */}
-          <div className="w-full max-w-sm lg:col-start-1 lg:row-start-2">
+          <div className="w-full max-w-sm lg:col-span-2 lg:col-start-1 lg:row-start-4">
             <OffersSignup email={contact.email} />
           </div>
 
-          {/* 3 · Explore + on the grounds — words, no icons */}
+          {/* 3 · Explore + on the grounds — words, no icons. From lg the nav
+              spans columns 3–4 as a subgrid, so both lists sit on the parent's
+              tracks and size them. gap-x-12 restates the parent's gap, which
+              the phone's gap-10 would otherwise override. Explore spans both
+              nav rows, so "book" follows On the grounds directly instead of
+              waiting for the longer Explore list to end. */}
           <nav
             aria-label={f.navAria}
-            className="flex flex-col items-center gap-10 lg:col-start-2 lg:row-span-3 lg:row-start-1 lg:items-start lg:gap-12"
+            className="flex flex-col items-center gap-10 lg:col-span-2 lg:col-start-3 lg:row-start-2 lg:grid lg:grid-cols-subgrid lg:grid-rows-[auto_1fr] lg:items-start lg:gap-x-12 lg:gap-y-2"
           >
-            <div className="flex flex-col items-center lg:items-start">
+            <div className="flex flex-col items-center lg:col-start-1 lg:row-span-2 lg:row-start-1 lg:items-start">
               <Label id="footer-explore">{f.explore}</Label>
               <LinkList labelId="footer-explore" items={explore} />
             </div>
 
-            {/* Under Explore on a phone, closing the column on desktop. */}
+            {/* Under Explore on a phone; under On the grounds on desktop. */}
             <a
               href={BOOKING_URL}
               target="_blank"
@@ -259,13 +277,13 @@ export function Footer({ contact }: FooterProps) {
               // Capture, not bubble: GTM's Link Click must see this push first.
               onClickCapture={() => trackBookNowClick("footer", BOOKING_URL)}
               // contrast-ok: brand-teal is 6.66:1 on espresso, parchment on hover 12.53:1.
-              className={cn("-mt-6 inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold tracking-wide text-brand-teal hover:text-parchment transition-colors duration-200 lg:order-last lg:mt-0", FOCUS_RING)}
+              className={cn("-mt-6 inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold tracking-wide text-brand-teal hover:text-parchment transition-colors duration-200 lg:col-start-2 lg:row-start-2 lg:mt-0 lg:min-h-9 lg:justify-self-start", FOCUS_RING)}
             >
               {f.bookStay}
               <span aria-hidden="true">→</span>
             </a>
 
-            <div className="flex flex-col items-center lg:items-start">
+            <div className="flex flex-col items-center lg:col-start-2 lg:row-start-1 lg:items-start">
               <Label id="footer-grounds">{f.onTheGrounds}</Label>
               <LinkList labelId="footer-grounds" items={grounds} />
             </div>
@@ -273,7 +291,7 @@ export function Footer({ contact }: FooterProps) {
 
           {/* 4a · Follow us */}
           {socials.length > 0 && (
-            <div className="flex flex-col items-center lg:col-start-3 lg:row-start-3 lg:items-start">
+            <div className="flex flex-col items-center lg:col-span-2 lg:col-start-3 lg:row-start-4 lg:items-start">
               <Label id="footer-follow">{f.followUs}</Label>
               {/* Text rows carry air inside their 44px hit area; the circles
                   fill theirs edge to edge, so the label needs a little more. */}
