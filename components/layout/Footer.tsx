@@ -172,7 +172,11 @@ export function Footer({ contact }: FooterProps) {
               </div>
             </div>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-balance">{f.tagline}</p>
-            <span aria-hidden="true" className="mt-10 block h-px w-16 bg-parchment/15" />
+            {/* A short centred break on a phone. From lg a full-width hairline
+                in the legal bar's colour, 56px either side, so the footer reads
+                as three framed bands — brand, directory, legal — rather than
+                ending the lockup on an orphaned 64px dash. */}
+            <span aria-hidden="true" className="mt-10 block h-px w-16 bg-parchment/15 lg:mt-14 lg:w-full lg:bg-parchment/10" />
           </div>
 
           {/* 2a · Contact */}
