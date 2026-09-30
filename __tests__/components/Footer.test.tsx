@@ -87,7 +87,7 @@ describe("Footer", () => {
 
   it("keeps the brand name out of machine translation", () => {
     mount();
-    expect(screen.getByText("Orlowsky Discovery").closest("[translate='no']")).not.toBeNull();
+    expect(screen.getByText("Discovery Candidasa").closest("[translate='no']")).not.toBeNull();
   });
 
   it("keeps the legal bar as the floating buttons' scroll sentinel", () => {

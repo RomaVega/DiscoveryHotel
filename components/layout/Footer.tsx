@@ -112,31 +112,48 @@ export function Footer({ contact }: FooterProps) {
         {/* DOM order is the phone's reading order: brand, then the practical
             things (call, write, find us), then the rest. From lg the same
             blocks are placed into three columns without reordering the DOM. */}
-        <div className="flex flex-col items-center gap-12 text-center lg:grid lg:grid-cols-[1.2fr_1fr_1fr] lg:grid-rows-[auto_auto_1fr] lg:items-start lg:gap-x-16 lg:gap-y-12 lg:text-left">
+        <div className="flex flex-col items-center gap-12 text-center lg:grid lg:grid-cols-[minmax(0,1.2fr)_1fr_1fr] lg:grid-rows-[auto_auto_1fr] lg:items-start lg:gap-x-16 lg:gap-y-12 lg:text-left">
           {/* 1 · Brand */}
           <div className="flex flex-col items-center lg:col-start-1 lg:row-start-1 lg:items-start">
-            <Link
-              href="/"
-              // The hotel's name is a proper noun; keep translators off it.
-              translate="no"
-              className={cn(
-                "group flex flex-col items-center gap-3 lg:flex-row lg:gap-4",
-                FOCUS_RING
-              )}
-            >
-              <Image
-                src="/images/logo/logo-dark.webp"
-                alt=""
-                aria-hidden="true"
-                width={48}
-                height={48}
-                unoptimized
-                className="object-contain"
-              />
-              <span className="font-serif text-xl font-semibold uppercase tracking-[0.15em] text-parchment transition-opacity duration-200 group-hover:opacity-80">
-                Orlowsky Discovery
-              </span>
-            </Link>
+            {/* Logo, stacked name and stars are the pre-rebuild lockup, kept as
+                it was: they stay centred on one another even where the column
+                itself aligns left. */}
+            <div className="flex flex-col items-center">
+              <Link
+                href="/"
+                // The hotel's name is a proper noun; keep translators off it.
+                translate="no"
+                className={cn(
+                  "flex flex-col items-center text-center hover:opacity-80 transition-opacity duration-200",
+                  FOCUS_RING
+                )}
+              >
+                <Image
+                  src="/images/logo/logo-dark.webp"
+                  alt="Orlowsky Discovery Hotel"
+                  width={80}
+                  height={80}
+                  unoptimized
+                  className="mb-4 object-contain"
+                />
+                <span className="flex flex-col items-center font-serif text-xl font-semibold uppercase tracking-[0.15em] text-parchment sm:text-2xl">
+                  <span>Orlowsky</span>
+                  {/* At lg the column is ~310px, a little under this line; it
+                      may run into the column gap rather than break in two. */}
+                  <span className="lg:whitespace-nowrap">Discovery Candidasa</span>
+                  <span className="mt-3">Hotel</span>
+                </span>
+              </Link>
+              <div aria-hidden="true" className="mt-4 flex items-center gap-2.5 text-logo-gold">
+                <span className="block h-px w-6 bg-parchment/15 sm:w-8" />
+                {Array.from({ length: contact.stars }).map((_, i) => (
+                  <span key={i} className="text-base">
+                    ★
+                  </span>
+                ))}
+                <span className="block h-px w-6 bg-parchment/15 sm:w-8" />
+              </div>
+            </div>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-balance">{f.tagline}</p>
             <span aria-hidden="true" className="mt-10 block h-px w-16 bg-parchment/15 lg:hidden" />
           </div>
