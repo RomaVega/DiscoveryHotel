@@ -134,8 +134,11 @@ export function Footer({ contact }: FooterProps) {
             straight under contact and location, not under the longest list.
             Row gaps are margins, since one gap cannot fit every step. */}
         <div className="flex flex-col items-center gap-12 text-center lg:grid lg:grid-cols-[max-content_minmax(3rem,1fr)_max-content_minmax(3rem,1fr)_max-content_minmax(3rem,1fr)_max-content] lg:grid-rows-[auto_auto_auto_1fr] lg:items-start lg:gap-0 lg:text-left">
-          {/* 1 · Brand */}
-          <div className="flex flex-col items-center lg:col-span-full lg:row-start-1 lg:mb-14 lg:text-center">
+          {/* 1 · Brand. Set off from the columns by space alone, the way the
+              best hotel footers do it: a rule under the tagline only repeated
+              the star row's own hairlines. The margin makes this break clearly
+              larger than any inside the columns (72px phone, 80px desktop). */}
+          <div className="mb-6 flex flex-col items-center lg:col-span-full lg:row-start-1 lg:mb-20 lg:text-center">
             {/* Logo, stacked name and stars are the pre-rebuild lockup, kept as
                 it was. */}
             <div className="flex flex-col items-center">
@@ -172,11 +175,6 @@ export function Footer({ contact }: FooterProps) {
               </div>
             </div>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-balance">{f.tagline}</p>
-            {/* A short centred break on a phone. From lg a full-width hairline
-                in the legal bar's colour, 56px either side, so the footer reads
-                as three framed bands — brand, directory, legal — rather than
-                ending the lockup on an orphaned 64px dash. */}
-            <span aria-hidden="true" className="mt-10 block h-px w-16 bg-parchment/15 lg:mt-14 lg:w-full lg:bg-parchment/10" />
           </div>
 
           {/* 2a · Contact */}
