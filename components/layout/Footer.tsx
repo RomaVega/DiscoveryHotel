@@ -113,12 +113,15 @@ export function Footer({ contact }: FooterProps) {
         {/* DOM order is the phone's reading order: brand, then the practical
             things (call, write, find us), then the rest. From lg the same
             blocks are placed on a four-column grid without reordering the DOM:
-              row 1    brand, centred across all four
-              row 2–3  contact, then follow us | location | explore | on the grounds
-              row 4    hairline
-              row 5    offers, centred — bookends the brand above and sits
-                       over the centred legal bar; split left/right it read as
-                       two unrelated pieces with a void between them
+                     col 1         col 2       col 3     col 4
+              row 1  brand, centred across all four
+              row 2  contact       location    explore   on the grounds
+              row 3  follow us     offers      ↓         ↓
+              row 4  RU payment    ↓
+            Follow us and Offers share a label line. The RU payment note moves
+            under Follow us on desktop: under Location it made row 2 ~120px
+            taller than Contact, dropping both row-3 labels and leaving a hole
+            under the contact rows. How to pay sits fine beside how to reach us.
             Seven tracks: four exactly as wide as their content (odd lines 1,
             3, 5, 7) and three 1fr spacers of at least 48px between them, which
             share the spare width equally — so the space between columns is one
@@ -126,10 +129,11 @@ export function Footer({ contact }: FooterProps) {
             not justify-content: WebKit leaves distributed space out of a
             subgrid's gutters, which slid On the grounds and the form left.
             Every row-2 label sits on one line and every column steps in 36px.
-            Row 3 is 1fr so it alone absorbs the taller columns' height: follow
-            us sits straight under contact, not under the longest list. Row
-            gaps are margins, since one gap cannot fit both that and the bands. */}
-        <div className="flex flex-col items-center gap-12 text-center lg:grid lg:grid-cols-[max-content_minmax(3rem,1fr)_max-content_minmax(3rem,1fr)_max-content_minmax(3rem,1fr)_max-content] lg:grid-rows-[auto_auto_1fr_auto_auto] lg:items-start lg:gap-0 lg:text-left">
+            Row 4 is 1fr so it alone absorbs the taller columns' height: rows 2
+            and 3 stay as tall as their own content, so follow us and offers sit
+            straight under contact and location, not under the longest list.
+            Row gaps are margins, since one gap cannot fit every step. */}
+        <div className="flex flex-col items-center gap-12 text-center lg:grid lg:grid-cols-[max-content_minmax(3rem,1fr)_max-content_minmax(3rem,1fr)_max-content_minmax(3rem,1fr)_max-content] lg:grid-rows-[auto_auto_auto_1fr] lg:items-start lg:gap-0 lg:text-left">
           {/* 1 · Brand */}
           <div className="flex flex-col items-center lg:col-span-full lg:row-start-1 lg:mb-14 lg:text-center">
             {/* Logo, stacked name and stars are the pre-rebuild lockup, kept as
@@ -211,7 +215,7 @@ export function Footer({ contact }: FooterProps) {
           </div>
 
           {/* 2b · Location */}
-          <div className="flex flex-col items-center lg:col-start-3 lg:row-span-2 lg:row-start-2 lg:items-start">
+          <div className="flex flex-col items-center lg:col-start-3 lg:row-start-2 lg:items-start">
             <Label id="footer-location">{f.location}</Label>
             {/* lg:mt-1.5 drops the address's first line onto the same line as
                 the first row of the columns beside it, whose 36px rows centre
@@ -236,27 +240,27 @@ export function Footer({ contact }: FooterProps) {
               {f.getDirections}
               <span aria-hidden="true">→</span>
             </a>
-
-            {/* Under Location rather than Contact: on a phone it follows the
-                address it qualifies, and on desktop it lengthens only the
-                column with room to spare. */}
-            {isRu && f.paymentNote && (
-              <div className="mt-6">
-                <Label id="footer-payment">{f.paymentInRussia}</Label>
-                {/* contrast-ok: brand-teal is 6.66:1 on espresso. The polarity
-                    flips on the dark footer — deep-teal would be 2.64:1 here. */}
-                <p className="whitespace-pre-line text-[13px] font-medium leading-relaxed text-brand-teal">
-                  {f.paymentNote}
-                </p>
-              </div>
-            )}
           </div>
 
-          {/* Desktop only: closes the link rows off from the offers band. */}
-          <span aria-hidden="true" className="hidden h-px bg-parchment/10 lg:col-span-full lg:row-start-4 lg:my-14 lg:block" />
+          {/* 2b′ · RU payment note. Its own grid item so it can move: under the
+              address on a phone (-mt-6 keeps the 24px it had nested there), under
+              Follow us on desktop. */}
+          {isRu && f.paymentNote && (
+            <div className="-mt-6 lg:col-start-1 lg:row-start-4 lg:mt-8">
+              <Label id="footer-payment">{f.paymentInRussia}</Label>
+              {/* contrast-ok: brand-teal is 6.66:1 on espresso. The polarity
+                  flips on the dark footer — deep-teal would be 2.64:1 here. */}
+              <p className="whitespace-pre-line text-[13px] font-medium leading-relaxed text-brand-teal">
+                {f.paymentNote}
+              </p>
+            </div>
+          )}
 
-          {/* 2c · Offers — centred on desktop too, the same block as on a phone. */}
-          <div className="w-full max-w-sm lg:col-span-full lg:row-start-5 lg:max-w-md lg:justify-self-center">
+          {/* 2c · Offers — under Location on desktop, on Follow us's label line.
+              A fixed 320px sets the column: the address alone makes it 271px,
+              which would leave the field ~120px to type into beside the RU
+              button. At 1024 RU the column gaps are then 51px, over the 48 floor. */}
+          <div className="w-full max-w-sm lg:col-start-3 lg:row-span-2 lg:row-start-3 lg:mt-10 lg:w-80 lg:max-w-none">
             <OffersSignup email={contact.email} />
           </div>
 
@@ -268,7 +272,7 @@ export function Footer({ contact }: FooterProps) {
               waiting for the longer Explore list to end. */}
           <nav
             aria-label={f.navAria}
-            className="flex flex-col items-center gap-10 lg:col-span-3 lg:col-start-5 lg:row-span-2 lg:row-start-2 lg:grid lg:grid-cols-subgrid lg:grid-rows-[auto_1fr] lg:items-start lg:gap-y-2 lg:[column-gap:normal]"
+            className="flex flex-col items-center gap-10 lg:col-span-3 lg:col-start-5 lg:row-span-3 lg:row-start-2 lg:grid lg:grid-cols-subgrid lg:grid-rows-[auto_1fr] lg:items-start lg:gap-y-2 lg:[column-gap:normal]"
           >
             <div className="flex flex-col items-center lg:col-start-1 lg:row-span-2 lg:row-start-1 lg:items-start">
               <Label id="footer-explore">{f.explore}</Label>
@@ -513,7 +517,7 @@ function OffersSignup({ email: inbox }: { email: string }) {
       noValidate
       onSubmit={submit}
       aria-labelledby="footer-offers"
-      className="flex flex-col items-center text-center"
+      className="flex flex-col items-center text-center lg:items-start lg:text-left"
     >
       <Label id="footer-offers">{o.label}</Label>
       <p className="mb-4 text-sm leading-relaxed">{o.line}</p>
