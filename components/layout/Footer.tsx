@@ -226,12 +226,10 @@ export function Footer({ contact }: FooterProps) {
                 form beside it does not drop on /ru. */}
             {isRu && f.paymentNote && (
               <div className="mt-6">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-parchment/65">
-                  {f.paymentInRussia}
-                </p>
+                <Label id="footer-payment">{f.paymentInRussia}</Label>
                 {/* contrast-ok: brand-teal is 6.66:1 on espresso. The polarity
                     flips on the dark footer — deep-teal would be 2.64:1 here. */}
-                <p className="mt-1.5 whitespace-pre-line text-[13px] font-medium leading-relaxed text-brand-teal">
+                <p className="whitespace-pre-line text-[13px] font-medium leading-relaxed text-brand-teal">
                   {f.paymentNote}
                 </p>
               </div>
@@ -278,7 +276,9 @@ export function Footer({ contact }: FooterProps) {
           {socials.length > 0 && (
             <div className="flex flex-col items-center lg:col-start-3 lg:row-start-3 lg:items-start">
               <Label id="footer-follow">{f.followUs}</Label>
-              <ul aria-labelledby="footer-follow" className="flex gap-3">
+              {/* Text rows carry air inside their 44px hit area; the circles
+                  fill theirs edge to edge, so the label needs a little more. */}
+              <ul aria-labelledby="footer-follow" className="mt-2 flex gap-3">
                 {socials.map((social) => {
                   const Icon = SOCIAL_ICONS[social.icon];
                   return (
