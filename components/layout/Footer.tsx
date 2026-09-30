@@ -113,18 +113,23 @@ export function Footer({ contact }: FooterProps) {
         {/* DOM order is the phone's reading order: brand, then the practical
             things (call, write, find us), then the rest. From lg the same
             blocks are placed on a four-column grid without reordering the DOM:
-              row 1  brand, centred across all four
-              row 2  contact | location | explore | on the grounds
-              row 3  hairline
-              row 4  offers (cols 1–2) | follow us (cols 3–4)
-            Every row-2 label sits on one line and every column steps in 36px,
-            so the columns read across as well as down. Each track is floored
-            at its content's width, so nothing wraps at 1024 (the address needs
-            271px, RU "book a room" 187px); spare width is shared by the fr
-            weights, Location's larger because the address is the longest line. */}
-        <div className="flex flex-col items-center gap-12 text-center lg:grid lg:grid-cols-[minmax(max-content,1fr)_minmax(max-content,1.3fr)_minmax(max-content,1fr)_minmax(max-content,1fr)] lg:items-start lg:gap-x-12 lg:gap-y-14 lg:text-left">
+              row 1    brand, centred across all four
+              row 2–3  contact, then follow us | location | explore | on the grounds
+              row 4    hairline
+              row 5    offers band: pitch under cols 1–2, form under cols 3–4
+            Seven tracks: four exactly as wide as their content (odd lines 1,
+            3, 5, 7) and three 1fr spacers of at least 48px between them, which
+            share the spare width equally — so the space between columns is one
+            even rhythm rather than a hole after a short list. Spacer tracks,
+            not justify-content: WebKit leaves distributed space out of a
+            subgrid's gutters, which slid On the grounds and the form left.
+            Every row-2 label sits on one line and every column steps in 36px.
+            Row 3 is 1fr so it alone absorbs the taller columns' height: follow
+            us sits straight under contact, not under the longest list. Row
+            gaps are margins, since one gap cannot fit both that and the bands. */}
+        <div className="flex flex-col items-center gap-12 text-center lg:grid lg:grid-cols-[max-content_minmax(3rem,1fr)_max-content_minmax(3rem,1fr)_max-content_minmax(3rem,1fr)_max-content] lg:grid-rows-[auto_auto_1fr_auto_auto] lg:items-start lg:gap-0 lg:text-left">
           {/* 1 · Brand */}
-          <div className="flex flex-col items-center lg:col-span-4 lg:row-start-1 lg:text-center">
+          <div className="flex flex-col items-center lg:col-span-full lg:row-start-1 lg:mb-14 lg:text-center">
             {/* Logo, stacked name and stars are the pre-rebuild lockup, kept as
                 it was. */}
             <div className="flex flex-col items-center">
@@ -204,7 +209,7 @@ export function Footer({ contact }: FooterProps) {
           </div>
 
           {/* 2b · Location */}
-          <div className="flex flex-col items-center lg:col-start-2 lg:row-start-2 lg:items-start">
+          <div className="flex flex-col items-center lg:col-start-3 lg:row-span-2 lg:row-start-2 lg:items-start">
             <Label id="footer-location">{f.location}</Label>
             {/* lg:mt-1.5 drops the address's first line onto the same line as
                 the first row of the columns beside it, whose 36px rows centre
@@ -245,23 +250,23 @@ export function Footer({ contact }: FooterProps) {
             )}
           </div>
 
-          {/* Desktop only: closes the link rows off from the offers/follow row. */}
-          <span aria-hidden="true" className="hidden h-px bg-parchment/10 lg:col-span-4 lg:row-start-3 lg:block" />
+          {/* Desktop only: closes the link rows off from the offers band. */}
+          <span aria-hidden="true" className="hidden h-px bg-parchment/10 lg:col-span-full lg:row-start-4 lg:my-14 lg:block" />
 
-          {/* 2c · Offers */}
-          <div className="w-full max-w-sm lg:col-span-2 lg:col-start-1 lg:row-start-4">
+          {/* 2c · Offers — a full-width band from lg, on the parent's tracks. */}
+          <div className="w-full max-w-sm lg:col-span-full lg:row-start-5 lg:grid lg:max-w-none lg:grid-cols-subgrid">
             <OffersSignup email={contact.email} />
           </div>
 
           {/* 3 · Explore + on the grounds — words, no icons. From lg the nav
-              spans columns 3–4 as a subgrid, so both lists sit on the parent's
-              tracks and size them. gap-x-12 restates the parent's gap, which
-              the phone's gap-10 would otherwise override. Explore spans both
+              spans tracks 5–7 as a subgrid, so both lists sit on the parent's
+              tracks and size them. column-gap:normal inherits the parent's
+              zero gutter; the phone's gap-10 would otherwise add 40px. Explore spans both
               nav rows, so "book" follows On the grounds directly instead of
               waiting for the longer Explore list to end. */}
           <nav
             aria-label={f.navAria}
-            className="flex flex-col items-center gap-10 lg:col-span-2 lg:col-start-3 lg:row-start-2 lg:grid lg:grid-cols-subgrid lg:grid-rows-[auto_1fr] lg:items-start lg:gap-x-12 lg:gap-y-2"
+            className="flex flex-col items-center gap-10 lg:col-span-3 lg:col-start-5 lg:row-span-2 lg:row-start-2 lg:grid lg:grid-cols-subgrid lg:grid-rows-[auto_1fr] lg:items-start lg:gap-y-2 lg:[column-gap:normal]"
           >
             <div className="flex flex-col items-center lg:col-start-1 lg:row-span-2 lg:row-start-1 lg:items-start">
               <Label id="footer-explore">{f.explore}</Label>
@@ -277,21 +282,22 @@ export function Footer({ contact }: FooterProps) {
               // Capture, not bubble: GTM's Link Click must see this push first.
               onClickCapture={() => trackBookNowClick("footer", BOOKING_URL)}
               // contrast-ok: brand-teal is 6.66:1 on espresso, parchment on hover 12.53:1.
-              className={cn("-mt-6 inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold tracking-wide text-brand-teal hover:text-parchment transition-colors duration-200 lg:col-start-2 lg:row-start-2 lg:mt-0 lg:min-h-9 lg:justify-self-start", FOCUS_RING)}
+              className={cn("-mt-6 inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold tracking-wide text-brand-teal hover:text-parchment transition-colors duration-200 lg:col-start-3 lg:row-start-2 lg:mt-0 lg:min-h-9 lg:justify-self-start", FOCUS_RING)}
             >
               {f.bookStay}
               <span aria-hidden="true">→</span>
             </a>
 
-            <div className="flex flex-col items-center lg:col-start-2 lg:row-start-1 lg:items-start">
+            <div className="flex flex-col items-center lg:col-start-3 lg:row-start-1 lg:items-start">
               <Label id="footer-grounds">{f.onTheGrounds}</Label>
               <LinkList labelId="footer-grounds" items={grounds} />
             </div>
           </nav>
 
-          {/* 4a · Follow us */}
+          {/* 4a · Follow us — last on a phone; under Contact on desktop, since
+              these are more ways to reach the hotel. */}
           {socials.length > 0 && (
-            <div className="flex flex-col items-center lg:col-span-2 lg:col-start-3 lg:row-start-4 lg:items-start">
+            <div className="flex flex-col items-center lg:col-start-1 lg:row-start-3 lg:mt-10 lg:items-start">
               <Label id="footer-follow">{f.followUs}</Label>
               {/* Text rows carry air inside their 44px hit area; the circles
                   fill theirs edge to edge, so the label needs a little more. */}
@@ -374,9 +380,9 @@ function rank(icon: string): number {
 
 /** Orientation, not decoration: small, spaced, uppercase. A <p>, not a heading —
     six h2s in a footer would outshout the page's own outline. */
-function Label({ id, children }: { id: string; children: ReactNode }) {
+function Label({ id, className, children }: { id: string; className?: string; children: ReactNode }) {
   return (
-    <p id={id} className="mb-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-parchment/65">
+    <p id={id} className={cn("mb-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-parchment/65", className)}>
       {children}
     </p>
   );
@@ -505,14 +511,19 @@ function OffersSignup({ email: inbox }: { email: string }) {
       noValidate
       onSubmit={submit}
       aria-labelledby="footer-offers"
-      className="flex flex-col items-center text-center lg:items-start lg:text-left"
+      // From lg the form is a subgrid band: the pitch under columns 1–2
+      // (tracks 1–3), the field and its notes under 3–4 (tracks 5–7), so both
+      // halves start and end on column lines.
+      // The text blocks use contain:inline-size so their long single lines
+      // take the band's width instead of stretching the tracks to fit them.
+      className="flex flex-col items-center text-center lg:col-span-full lg:grid lg:grid-cols-subgrid lg:items-start lg:text-left"
     >
-      <Label id="footer-offers">{o.label}</Label>
-      <p className="mb-4 text-sm leading-relaxed">{o.line}</p>
+      <Label id="footer-offers" className="lg:col-span-3 lg:col-start-1 lg:row-start-1">{o.label}</Label>
+      <p className="mb-4 text-sm leading-relaxed lg:col-span-3 lg:col-start-1 lg:row-start-2 lg:mb-0 lg:[contain:inline-size]">{o.line}</p>
 
       <div
         className={cn(
-          "flex h-11 w-full overflow-hidden rounded-sm border bg-parchment/[0.04] transition-colors duration-200",
+          "flex h-11 w-full overflow-hidden rounded-sm border bg-parchment/[0.04] transition-colors duration-200 lg:col-span-3 lg:col-start-5 lg:row-span-2 lg:row-start-1 lg:self-center lg:[contain:inline-size]",
           // 3.17:1 against espresso — the 3:1 floor for a field boundary. The
           // fill alone is 1.1:1 and would not mark the field at all.
           invalid ? "border-parchment" : "border-parchment/40",
@@ -551,12 +562,12 @@ function OffersSignup({ email: inbox }: { email: string }) {
       </div>
 
       {invalid && (
-        <p id="footer-offers-error" className="mt-2 text-xs font-medium text-parchment">
+        <p id="footer-offers-error" className="mt-2 text-xs font-medium text-parchment lg:col-span-3 lg:col-start-5 lg:row-start-3">
           {o.invalid}
         </p>
       )}
 
-      <p id="footer-offers-note" className="mt-3 text-xs leading-relaxed text-balance text-parchment/60">
+      <p id="footer-offers-note" className="mt-3 text-xs leading-relaxed text-balance text-parchment/60 lg:col-span-3 lg:col-start-5 lg:row-start-4 lg:[contain:inline-size]">
         {o.consent}{" "}
         <Link href="/privacy" className={cn("whitespace-nowrap underline decoration-parchment/30 underline-offset-2 hover:text-brand-teal transition-colors duration-200", FOCUS_RING)}>
           {o.consentLink}
@@ -565,7 +576,7 @@ function OffersSignup({ email: inbox }: { email: string }) {
       </p>
 
       {/* Always rendered, so screen readers already know the region when it fills. */}
-      <p role="status" className="mt-3 text-xs leading-relaxed text-parchment/75 empty:mt-0">
+      <p role="status" className="mt-3 text-xs leading-relaxed text-parchment/75 empty:mt-0 lg:col-span-3 lg:col-start-5 lg:row-start-5 lg:[contain:inline-size]">
         {status === "handoff" && (
           <>
             {o.handoff} {o.fallback}{" "}
