@@ -500,6 +500,10 @@ function OffersSignup({ email: inbox }: { email: string }) {
           aria-invalid={invalid || undefined}
           aria-describedby={invalid ? "footer-offers-error footer-offers-note" : "footer-offers-note"}
           onChange={() => invalid && setStatus("idle")}
+          // Email fields are what disposable-mail and autofill extensions
+          // decorate before hydration (Temp Mail adds a style and a data-*
+          // attribute). Scoped to this element's own attributes only.
+          suppressHydrationWarning
           // Placeholder at /60 on the field's fill is 5.03:1.
           className="min-w-0 flex-1 bg-transparent px-4 text-sm text-parchment placeholder:text-parchment/60 focus:outline-none"
         />
