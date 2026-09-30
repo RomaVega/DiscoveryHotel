@@ -7,26 +7,11 @@ import { SecondaryButton } from "@/components/common/SecondaryButton";
 import type { Offer, OffersData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import { fill } from "@/lib/utils";
 
 interface SpecialOffersProps {
   data: OffersData;
   hideHeading?: boolean;
-}
-
-/**
- * Substitute `{key}` placeholders, never through a replacement *string*.
- *
- * `String.replace` reads `$&`, `` $` ``, `$'` and `$$` inside the replacement,
- * and every offer price here is a dollar amount — "from $65/night" goes into a
- * template as a literal `$6`, which is one authored `$&` away from a mangled
- * message that nobody would notice until a guest sent it. A replacer function
- * is handed the value verbatim.
- */
-function fill(template: string, values: Record<string, string>): string {
-  return Object.entries(values).reduce(
-    (out, [key, value]) => out.replace(`{${key}}`, () => value),
-    template
-  );
 }
 
 export function SpecialOffers({ data, hideHeading }: SpecialOffersProps) {

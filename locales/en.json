@@ -35,12 +35,35 @@
     }
   },
   "footer": {
+    "tagline": "Candidasa, East Bali — cottages, villas, reef and quiet.",
+    "navAria": "Footer",
     "explore": "Explore",
-    "experiences": "Experiences",
+    "onTheGrounds": "On the grounds",
+    "bookStay": "Book a stay",
     "contact": "Contact",
+    "whatsapp": "WhatsApp",
     "about": "About",
     "location": "Location",
     "getDirections": "Open in Google Maps",
+    "followUs": "Follow us",
+    "socialAria": "Orlowsky Discovery on {platform}",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "offers": {
+      "label": "Offers",
+      "line": "Early-bird notes and quiet-season dates. No spam.",
+      "inputLabel": "Email address for offers",
+      "placeholder": "Email address",
+      "submit": "Join",
+      "consent": "By joining you agree to our",
+      "consentLink": "Privacy Policy",
+      "unsubscribe": "Unsubscribe anytime.",
+      "invalid": "Please enter a full email address, like name@example.com.",
+      "handoff": "Your email app should now open with the request filled in — press Send to finish.",
+      "fallback": "Nothing opened? Write to us at",
+      "mailSubject": "Offers list",
+      "mailBody": "Hello! Please add {email} to the Orlowsky Discovery offers list for early-bird notes and quiet-season dates. Thank you!"
+    },
     "phoneRu": "Phone (Russia)",
     "phoneHotel": "Phone (Hotel)",
     "paymentNote": "",
@@ -57,10 +80,8 @@
     "experienceLinks": {
       "excursions": "Signature Excursions",
       "diving": "Diving & Snorkeling",
-      "events": "Events & Celebrations",
-      "carRental": "Car & Bike Rental",
-      "spa": "Ayurvedic Spa",
-      "toursPartner": "Tours & Activities"
+      "events": "Events",
+      "spa": "Ayurvedic Spa"
     },
     "bugReport": {
       "aria": "Report a problem with this site",
