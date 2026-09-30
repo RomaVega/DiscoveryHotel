@@ -144,12 +144,11 @@ export function Footer({ contact }: FooterProps) {
                   <span className="mt-3">Hotel</span>
                 </span>
               </Link>
-              <div aria-hidden="true" className="mt-4 flex items-center gap-2.5 text-logo-gold">
+              {/* h-6 keeps the 24px line box the ★ glyph used to set. */}
+              <div aria-hidden="true" className="mt-4 flex h-6 items-center gap-2.5 text-logo-gold">
                 <span className="block h-px w-6 bg-parchment/15 sm:w-8" />
                 {Array.from({ length: contact.stars }).map((_, i) => (
-                  <span key={i} className="text-base">
-                    ★
-                  </span>
+                  <StarMark key={i} />
                 ))}
                 <span className="block h-px w-6 bg-parchment/15 sm:w-8" />
               </div>
@@ -311,12 +310,15 @@ export function Footer({ contact }: FooterProps) {
           <div className="absolute left-6 top-1/2 -translate-y-1/2 lg:left-8">
             <BugReport />
           </div>
-          <p className="flex items-center gap-2 px-8">
-            <Link href="/privacy" className={cn("inline-flex min-h-8 items-center tracking-wide text-parchment/60 hover:text-brand-teal transition-colors duration-200", FOCUS_RING)}>
+          {/* Stacked on a phone: the Russian pair does not fit one line at
+              360–414px, and letting it wrap broke each link mid-phrase with
+              the dot left floating between them. */}
+          <p className="flex flex-col items-center px-8 sm:flex-row sm:gap-2">
+            <Link href="/privacy" className={cn("inline-flex min-h-8 items-center whitespace-nowrap tracking-wide text-parchment/60 hover:text-brand-teal transition-colors duration-200", FOCUS_RING)}>
               {f.privacy}
             </Link>
-            <span aria-hidden="true" className="text-parchment/35">·</span>
-            <Link href="/terms" className={cn("inline-flex min-h-8 items-center tracking-wide text-parchment/60 hover:text-brand-teal transition-colors duration-200", FOCUS_RING)}>
+            <span aria-hidden="true" className="hidden text-parchment/35 sm:inline">·</span>
+            <Link href="/terms" className={cn("inline-flex min-h-8 items-center whitespace-nowrap tracking-wide text-parchment/60 hover:text-brand-teal transition-colors duration-200", FOCUS_RING)}>
               {f.terms}
             </Link>
           </p>
@@ -331,6 +333,19 @@ export function Footer({ contact }: FooterProps) {
         </div>
       </div>
     </footer>
+  );
+}
+
+/**
+ * A drawn star, not the ★ character. Inter has no ★, so each browser falls
+ * back to its own symbol font: Chrome and Safari draw it 16px wide, Firefox
+ * 10.6px. This is the same sharp five-point shape at Chrome's size.
+ */
+function StarMark() {
+  return (
+    <svg viewBox="0.59 1.15 22.82 21.7" width={16} height={15.2} fill="currentColor" className="shrink-0">
+      <path d="M12 1.15L14.69 9.44L23.41 9.44L16.36 14.56L19.05 22.85L12 17.73L4.95 22.85L7.64 14.56L0.59 9.44L9.31 9.44Z" />
+    </svg>
   );
 }
 
