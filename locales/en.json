@@ -51,7 +51,7 @@
     "terms": "Terms of Service",
     "offers": {
       "label": "Offers",
-      "line": "Early-bird notes and quiet-season dates. No spam.",
+      "line": "Early-bird notes and quiet-season dates. No\u00a0spam.",
       "inputLabel": "Email address for offers",
       "placeholder": "Email address",
       "submit": "Join",
