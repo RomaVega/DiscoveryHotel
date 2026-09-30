@@ -116,7 +116,9 @@ export function Footer({ contact }: FooterProps) {
               row 1    brand, centred across all four
               row 2–3  contact, then follow us | location | explore | on the grounds
               row 4    hairline
-              row 5    offers band: pitch under cols 1–2, form under cols 3–4
+              row 5    offers, centred — bookends the brand above and sits
+                       over the centred legal bar; split left/right it read as
+                       two unrelated pieces with a void between them
             Seven tracks: four exactly as wide as their content (odd lines 1,
             3, 5, 7) and three 1fr spacers of at least 48px between them, which
             share the spare width equally — so the space between columns is one
@@ -253,8 +255,8 @@ export function Footer({ contact }: FooterProps) {
           {/* Desktop only: closes the link rows off from the offers band. */}
           <span aria-hidden="true" className="hidden h-px bg-parchment/10 lg:col-span-full lg:row-start-4 lg:my-14 lg:block" />
 
-          {/* 2c · Offers — a full-width band from lg, on the parent's tracks. */}
-          <div className="w-full max-w-sm lg:col-span-full lg:row-start-5 lg:grid lg:max-w-none lg:grid-cols-subgrid">
+          {/* 2c · Offers — centred on desktop too, the same block as on a phone. */}
+          <div className="w-full max-w-sm lg:col-span-full lg:row-start-5 lg:max-w-md lg:justify-self-center">
             <OffersSignup email={contact.email} />
           </div>
 
@@ -380,9 +382,9 @@ function rank(icon: string): number {
 
 /** Orientation, not decoration: small, spaced, uppercase. A <p>, not a heading —
     six h2s in a footer would outshout the page's own outline. */
-function Label({ id, className, children }: { id: string; className?: string; children: ReactNode }) {
+function Label({ id, children }: { id: string; children: ReactNode }) {
   return (
-    <p id={id} className={cn("mb-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-parchment/65", className)}>
+    <p id={id} className="mb-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-parchment/65">
       {children}
     </p>
   );
@@ -511,19 +513,14 @@ function OffersSignup({ email: inbox }: { email: string }) {
       noValidate
       onSubmit={submit}
       aria-labelledby="footer-offers"
-      // From lg the form is a subgrid band: the pitch under columns 1–2
-      // (tracks 1–3), the field and its notes under 3–4 (tracks 5–7), so both
-      // halves start and end on column lines.
-      // The text blocks use contain:inline-size so their long single lines
-      // take the band's width instead of stretching the tracks to fit them.
-      className="flex flex-col items-center text-center lg:col-span-full lg:grid lg:grid-cols-subgrid lg:items-start lg:text-left"
+      className="flex flex-col items-center text-center"
     >
-      <Label id="footer-offers" className="lg:col-span-3 lg:col-start-1 lg:row-start-1">{o.label}</Label>
-      <p className="mb-4 text-sm leading-relaxed lg:col-span-3 lg:col-start-1 lg:row-start-2 lg:mb-0 lg:[contain:inline-size]">{o.line}</p>
+      <Label id="footer-offers">{o.label}</Label>
+      <p className="mb-4 text-sm leading-relaxed">{o.line}</p>
 
       <div
         className={cn(
-          "flex h-11 w-full overflow-hidden rounded-sm border bg-parchment/[0.04] transition-colors duration-200 lg:col-span-3 lg:col-start-5 lg:row-span-2 lg:row-start-1 lg:self-center lg:[contain:inline-size]",
+          "flex h-11 w-full overflow-hidden rounded-sm border bg-parchment/[0.04] transition-colors duration-200",
           // 3.17:1 against espresso — the 3:1 floor for a field boundary. The
           // fill alone is 1.1:1 and would not mark the field at all.
           invalid ? "border-parchment" : "border-parchment/40",
@@ -562,12 +559,12 @@ function OffersSignup({ email: inbox }: { email: string }) {
       </div>
 
       {invalid && (
-        <p id="footer-offers-error" className="mt-2 text-xs font-medium text-parchment lg:col-span-3 lg:col-start-5 lg:row-start-3">
+        <p id="footer-offers-error" className="mt-2 text-xs font-medium text-parchment">
           {o.invalid}
         </p>
       )}
 
-      <p id="footer-offers-note" className="mt-3 text-xs leading-relaxed text-balance text-parchment/60 lg:col-span-3 lg:col-start-5 lg:row-start-4 lg:[contain:inline-size]">
+      <p id="footer-offers-note" className="mt-3 text-xs leading-relaxed text-balance text-parchment/60">
         {o.consent}{" "}
         <Link href="/privacy" className={cn("whitespace-nowrap underline decoration-parchment/30 underline-offset-2 hover:text-brand-teal transition-colors duration-200", FOCUS_RING)}>
           {o.consentLink}
@@ -576,7 +573,7 @@ function OffersSignup({ email: inbox }: { email: string }) {
       </p>
 
       {/* Always rendered, so screen readers already know the region when it fills. */}
-      <p role="status" className="mt-3 text-xs leading-relaxed text-parchment/75 empty:mt-0 lg:col-span-3 lg:col-start-5 lg:row-start-5 lg:[contain:inline-size]">
+      <p role="status" className="mt-3 text-xs leading-relaxed text-parchment/75 empty:mt-0">
         {status === "handoff" && (
           <>
             {o.handoff} {o.fallback}{" "}
