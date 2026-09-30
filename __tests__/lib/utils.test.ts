@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { cn } from "@/lib/utils";
+import { cn, fill } from "@/lib/utils";
 
 describe("cn()", () => {
   it("returns a single class unchanged", () => {
@@ -29,5 +29,18 @@ describe("cn()", () => {
 
   it("returns empty string when no valid classes", () => {
     expect(cn(false, undefined, null)).toBe("");
+  });
+});
+
+describe("fill()", () => {
+  it("substitutes each placeholder", () => {
+    expect(fill("{a} and {b}", { a: "one", b: "two" })).toBe("one and two");
+  });
+
+  it("inserts values verbatim, even ones that look like replacement patterns", () => {
+    // `$&` in a String.replace replacement *string* means "the match"; a guest
+    // address can legally contain it, and every offer price starts with `$`.
+    expect(fill("Add {email}", { email: "a$&b@example.com" })).toBe("Add a$&b@example.com");
+    expect(fill("from {price}", { price: "$65/night" })).toBe("from $65/night");
   });
 });

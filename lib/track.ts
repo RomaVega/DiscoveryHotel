@@ -54,7 +54,9 @@ export type CtaLocation =
   /** "View Menu" in `DiningPreview` (home page) — the in-room dining menu. */
   | "dining"
   /** The deep-teal `BookingCta` band just above the footer. Not the footer. */
-  | "booking_band";
+  | "booking_band"
+  /** "Book a stay", the one text link to the engine inside the footer itself. */
+  | "footer";
 
 /** Where it sent them. Classified rather than logged raw: a WhatsApp href
     carries a URL-encoded sentence, which blows past GA4's 100-character

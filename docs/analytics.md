@@ -53,6 +53,7 @@ after a navbar click would be reported as `navbar`.
 | `dining` | home `DiningPreview` "View Menu" | menu |
 | `booking_band` | deep-teal `BookingCta` band above the footer | engine |
 | `offer_card` | `SpecialOffers` "Check Availability" | whatsapp |
+| `footer` | "Book a stay" text link in the footer | engine |
 
 **The push happens in `onClickCapture`, not `onClick`.** GTM's Link Click
 listener and React's root listener both sit on `document`, so in the bubble
