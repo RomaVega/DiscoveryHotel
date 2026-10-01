@@ -260,7 +260,7 @@ export const ASSET_VERSIONS: Readonly<Record<string, string>> = {
   "/images/restaurant-bar/orlowsky-hotel-bar-tropical-drinks-candidasa.webp": "8ae32980",
   "/images/restaurant-bar/orlowsky-hotel-beach-gazebo-ocean-view-candidasa.webp": "7118d8c7",
   "/images/restaurant-bar/orlowsky-hotel-fresh-seafood-appetizer-candidasa.webp": "71906d39",
-  "/images/restaurant-bar/orlowsky-hotel-international-cuisine-bali.webp": "52f0ce4a",
+  "/images/restaurant-bar/orlowsky-hotel-international-cuisine-bali.webp": "74482a75",
   "/images/restaurant-bar/orlowsky-hotel-oceanfront-dining-candidasa.webp": "28594905",
   "/images/restaurant-bar/orlowsky-hotel-restaurant-bar-candidasa-bali.webp": "4388a97b",
   "/images/restaurant-bar/orlowsky-hotel-restaurant-bar-courtyard-candidasa.webp": "69199abe",
