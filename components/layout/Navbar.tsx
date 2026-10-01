@@ -239,17 +239,23 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80, brandAfter
                 <Link
                   href={link.href}
                   className={cn(
-                    "relative whitespace-nowrap font-sans text-[13px] xl:text-sm font-medium tracking-wide transition-colors duration-200",
+                    "group relative whitespace-nowrap font-sans text-[13px] xl:text-sm font-medium tracking-wide transition-colors duration-200 focus-visible:outline-none",
                     isActive(link.href)
                       ? "text-charcoal"
-                      : "text-charcoal/60 hover:text-charcoal"
+                      : "text-charcoal/60 hover:text-charcoal focus-visible:text-charcoal"
                   )}
                 >
                   {link.label}
+                  {/* Teal beam drawn left to right on hover or keyboard focus,
+                      and left drawn on the current page. It doubles as the
+                      focus indicator, so the outline goes. scale, not width:
+                      only transform and opacity animate. Reduced motion shows
+                      the beam without the draw. */}
                   <span
+                    aria-hidden="true"
                     className={cn(
-                      "absolute -bottom-1 left-0 h-0.5 bg-brand-teal transition-all duration-300",
-                      isActive(link.href) ? "w-full" : "w-0"
+                      "pointer-events-none absolute inset-x-0 -bottom-1 h-0.5 origin-left rounded-full bg-brand-teal motion-safe:transition-[scale] motion-safe:duration-300 motion-safe:ease-out",
+                      !isActive(link.href) && "scale-x-0 group-hover:scale-x-100 group-focus-visible:scale-x-100"
                     )}
                   />
                 </Link>
