@@ -351,8 +351,11 @@ export function Footer({ contact }: FooterProps) {
           {/* One line where the pair fits — English does at 360px. The Russian
               pair does not fit at 360–414px, so the row wraps between the
               links, never inside one, and the dot is hidden on the line start
-              as in LinkList. px-6 plus each item's mx-2 keeps the bug gutter. */}
-          <p ref={legalRef} className="flex flex-wrap justify-center px-6">
+              as in LinkList. wrap-reverse lifts the shorter terms link above
+              privacy once stacked, a pyramid rather than a top-heavy pair; on
+              one line the order is unchanged. px-6 plus each item's mx-2
+              keeps the bug gutter. */}
+          <p ref={legalRef} className="flex flex-wrap-reverse justify-center px-6">
             {legal.map((item, i) => (
               <span key={item.href} className="relative mx-2">
                 {i > 0 && (
@@ -478,7 +481,8 @@ function useLineStartSeparators<T extends HTMLElement>(signature: string) {
       const rows = Array.from(list.children) as HTMLElement[];
       rows.forEach((row, i) => {
         const dot = row.querySelector<HTMLElement>("[data-separator]");
-        if (dot) dot.hidden = i === 0 || row.offsetTop > rows[i - 1].offsetTop;
+        // Any change of line, not only downwards: the legal row wraps in reverse.
+        if (dot) dot.hidden = i === 0 || row.offsetTop !== rows[i - 1].offsetTop;
       });
     };
 
