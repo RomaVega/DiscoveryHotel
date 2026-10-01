@@ -146,7 +146,7 @@ describe("Footer Book a stay", () => {
 describe("Footer offers form", () => {
   it("flags an incomplete address on the field instead of handing off", () => {
     mount();
-    const input = screen.getByLabelText("Email address for offers");
+    const input = screen.getByLabelText("Email address for the guest list");
     fireEvent.change(input, { target: { value: "guest@" } });
     fireEvent.click(screen.getByRole("button", { name: "Join" }));
 
@@ -160,7 +160,7 @@ describe("Footer offers form", () => {
     // jsdom cannot follow the mailto navigation and reports it on console.error.
     const quiet = vi.spyOn(console, "error").mockImplementation(() => {});
     mount();
-    fireEvent.change(screen.getByLabelText("Email address for offers"), {
+    fireEvent.change(screen.getByLabelText("Email address for the guest list"), {
       target: { value: "guest@example.com" },
     });
     fireEvent.click(screen.getByRole("button", { name: "Join" }));

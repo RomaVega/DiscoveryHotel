@@ -552,7 +552,8 @@ function OffersSignup({ email: inbox }: { email: string }) {
       className="flex flex-col items-center text-center lg:items-start lg:text-left"
     >
       <Label id="footer-offers">{o.label}</Label>
-      <p className="mb-4 text-sm leading-relaxed">{o.line}</p>
+      {/* pre-line: the copy is two sentences on two rows, the break set in the locale file. */}
+      <p className="mb-4 whitespace-pre-line text-sm leading-relaxed">{o.line}</p>
 
       <div
         className={cn(

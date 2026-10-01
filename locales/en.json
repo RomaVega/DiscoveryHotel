@@ -50,9 +50,9 @@
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
     "offers": {
-      "label": "Offers",
-      "line": "Early-bird notes and quiet-season dates. No\u00a0spam.",
-      "inputLabel": "Email address for offers",
+      "label": "Guest list",
+      "line": "Special rates and quiet weeks.\nWe let you know only when it's worth it.",
+      "inputLabel": "Email address for the guest list",
       "placeholder": "Email address",
       "submit": "Join",
       "consent": "By joining you agree to our",
@@ -61,8 +61,8 @@
       "invalid": "Please enter a full email address, like name@example.com.",
       "handoff": "Your email app should now open with the request filled in — press Send to finish.",
       "fallback": "Nothing opened? Write to us at",
-      "mailSubject": "Offers list",
-      "mailBody": "Hello! Please add {email} to the Orlowsky Discovery offers list for early-bird notes and quiet-season dates. Thank you!"
+      "mailSubject": "Guest list",
+      "mailBody": "Hello! Please add {email} to the Orlowsky Discovery guest list for special rates and quiet weeks. Thank you!"
     },
     "phoneRu": "Phone (Russia)",
     "phoneHotel": "Phone (Hotel)",
