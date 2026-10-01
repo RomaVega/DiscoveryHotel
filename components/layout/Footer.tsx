@@ -107,6 +107,12 @@ export function Footer({ contact }: FooterProps) {
     { label: f.experienceLinks.excursions, href: "/experiences/excursions" },
   ];
 
+  const legal: NavItem[] = [
+    { label: f.privacy, href: "/privacy" },
+    { label: f.terms,   href: "/terms" },
+  ];
+  const legalRef = useLineStartSeparators<HTMLParagraphElement>(`${f.privacy}|${f.terms}`);
+
   return (
     <footer id="contact" className="bg-espresso font-sans text-parchment/75">
       <div className="mx-auto max-w-6xl px-6 pt-20 pb-16 lg:px-8 lg:pt-24 lg:pb-20">
@@ -342,17 +348,27 @@ export function Footer({ contact }: FooterProps) {
           <div className="absolute left-6 top-1/2 -translate-y-1/2 lg:left-8">
             <BugReport />
           </div>
-          {/* Stacked on a phone: the Russian pair does not fit one line at
-              360–414px, and letting it wrap broke each link mid-phrase with
-              the dot left floating between them. */}
-          <p className="flex flex-col items-center px-8 sm:flex-row sm:gap-2">
-            <Link href="/privacy" className={cn("inline-flex min-h-8 items-center whitespace-nowrap tracking-wide text-parchment/60 hover:text-brand-teal transition-colors duration-200", FOCUS_RING)}>
-              {f.privacy}
-            </Link>
-            <span aria-hidden="true" className="hidden text-parchment/35 sm:inline">·</span>
-            <Link href="/terms" className={cn("inline-flex min-h-8 items-center whitespace-nowrap tracking-wide text-parchment/60 hover:text-brand-teal transition-colors duration-200", FOCUS_RING)}>
-              {f.terms}
-            </Link>
+          {/* One line where the pair fits — English does at 360px. The Russian
+              pair does not fit at 360–414px, so the row wraps between the
+              links, never inside one, and the dot is hidden on the line start
+              as in LinkList. px-6 plus each item's mx-2 keeps the bug gutter. */}
+          <p ref={legalRef} className="flex flex-wrap justify-center px-6">
+            {legal.map((item, i) => (
+              <span key={item.href} className="relative mx-2">
+                {i > 0 && (
+                  <span
+                    data-separator
+                    aria-hidden="true"
+                    className="pointer-events-none absolute -left-2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-parchment/35"
+                  >
+                    ·
+                  </span>
+                )}
+                <Link href={item.href} className={cn("inline-flex min-h-8 items-center whitespace-nowrap tracking-wide text-parchment/60 hover:text-brand-teal transition-colors duration-200", FOCUS_RING)}>
+                  {item.label}
+                </Link>
+              </span>
+            ))}
           </p>
           {/* Two unbreakable halves: on a phone the line breaks between them,
               never inside the hotel's name. */}
@@ -406,34 +422,11 @@ function Label({ id, children }: { id: string; children: ReactNode }) {
  * wrapped line stays centred, but an item that starts a line has only margin
  * to its left and its dot would float there. CSS cannot tell which item
  * wrapped in a centred row, so an effect measures it — an item lower than its
- * predecessor starts a line — and hides that dot. Without JS every dot shows,
- * which is only cosmetic.
+ * predecessor starts a line — and hides that dot (useLineStartSeparators).
+ * Without JS every dot shows, which is only cosmetic.
  */
 function LinkList({ labelId, items }: { labelId: string; items: NavItem[] }) {
-  const ref = useRef<HTMLUListElement>(null);
-  const signature = items.map((i) => i.label).join("|");
-
-  useEffect(() => {
-    const list = ref.current;
-    if (!list) return;
-
-    // Toggling an absolutely positioned dot never moves an item, so one
-    // measurement pass is final.
-    const sync = () => {
-      const rows = Array.from(list.children) as HTMLElement[];
-      rows.forEach((row, i) => {
-        const dot = row.querySelector<HTMLElement>("[data-separator]");
-        if (dot) dot.hidden = i === 0 || row.offsetTop > rows[i - 1].offsetTop;
-      });
-    };
-
-    sync();
-    void document.fonts?.ready.then(sync);
-    if (typeof ResizeObserver === "undefined") return;
-    const observer = new ResizeObserver(sync);
-    observer.observe(list);
-    return () => observer.disconnect();
-  }, [signature]);
+  const ref = useLineStartSeparators<HTMLUListElement>(items.map((i) => i.label).join("|"));
 
   return (
     <ul
@@ -465,6 +458,39 @@ function LinkList({ labelId, items }: { labelId: string; items: NavItem[] }) {
       ))}
     </ul>
   );
+}
+
+/**
+ * Hides the `[data-separator]` dot of every child that starts a line, so a
+ * wrapped row never opens with a floating dot. Children must hold their dot
+ * absolutely positioned, or toggling it would reflow the row it measures.
+ */
+function useLineStartSeparators<T extends HTMLElement>(signature: string) {
+  const ref = useRef<T>(null);
+
+  useEffect(() => {
+    const list = ref.current;
+    if (!list) return;
+
+    // Toggling an absolutely positioned dot never moves an item, so one
+    // measurement pass is final.
+    const sync = () => {
+      const rows = Array.from(list.children) as HTMLElement[];
+      rows.forEach((row, i) => {
+        const dot = row.querySelector<HTMLElement>("[data-separator]");
+        if (dot) dot.hidden = i === 0 || row.offsetTop > rows[i - 1].offsetTop;
+      });
+    };
+
+    sync();
+    void document.fonts?.ready.then(sync);
+    if (typeof ResizeObserver === "undefined") return;
+    const observer = new ResizeObserver(sync);
+    observer.observe(list);
+    return () => observer.disconnect();
+  }, [signature]);
+
+  return ref;
 }
 
 /**
