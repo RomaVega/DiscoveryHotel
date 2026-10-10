@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import { useLanguage } from "@/lib/language-context";
 import { getWhatsAppNumber } from "@/lib/whatsapp";
 import type { ExperiencesHubData } from "@/lib/types";
+import { MobileBreaks } from "@/components/common/MobileBreaks";
 
 interface ExperiencesHubProps {
   data: ExperiencesHubData;
@@ -90,16 +91,16 @@ export function ExperiencesHub({ data }: ExperiencesHubProps) {
       <section className="pt-6 md:pt-32 pb-6 md:pb-32 bg-deep-teal">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <FadeIn>
-            <h2 className="font-serif font-medium text-2xl md:text-5xl text-white text-balance">
-              {t({ ru: "Готовы Исследовать Восточный Бали?", en: "Ready to Explore East Bali?" })}
+            <h2 className="font-serif font-medium text-4xl md:text-5xl text-white text-balance">
+              <MobileBreaks text={t({ ru: "Готовы Исследовать\nВосточный Бали?", en: "Ready to Explore East Bali?" })} />
             </h2>
-            <p className="mt-4 text-sm md:text-lg text-white/80 leading-relaxed">
+            <p className="mt-4 text-lg text-white/80 leading-relaxed">
               {t({
                 ru: "Свяжитесь с нами — мы подберём экскурсии и впечатления специально для вас.",
                 en: "Get in touch and we'll arrange the perfect experiences for your stay.",
               })}
             </p>
-            <div className="mt-8">
+            <div data-hides-booking-bar className="mt-8">
               <SecondaryButton
                 href={`https://wa.me/${getWhatsAppNumber()}?text=${ctaMsg}`}
                 external

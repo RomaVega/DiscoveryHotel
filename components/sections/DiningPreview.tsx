@@ -40,7 +40,7 @@ export function DiningPreview() {
           {/* Heading */}
           <SectionHeading
             label={isRu ? "Ресторан" : "Restaurant & Bar"}
-            heading={isRu ? "Ресторан на берегу океана" : "Oceanfront Dining"}
+            heading={isRu ? "Ресторан на Берегу Океана" : "Oceanfront Dining"}
           />
 
           {/* Slideshow + menu-first content share one continuous ivory rounded frame */}

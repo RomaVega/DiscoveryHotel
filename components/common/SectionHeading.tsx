@@ -1,10 +1,13 @@
 import { cn } from "@/lib/utils";
+import { MobileBreaks } from "@/components/common/MobileBreaks";
 
 interface SectionHeadingProps {
   label?: string;
   heading: string;
   subtext?: string;
   centered?: boolean;
+  /** Extra classes for the h2, merged over the defaults (e.g. a heavier weight). */
+  headingClassName?: string;
 }
 
 export function SectionHeading({
@@ -12,6 +15,7 @@ export function SectionHeading({
   heading,
   subtext,
   centered = true,
+  headingClassName,
 }: SectionHeadingProps) {
   return (
     <div className={cn("mb-10 md:mb-16", centered && "text-center")}>
@@ -21,8 +25,8 @@ export function SectionHeading({
           {label}
         </span>
       )}
-      <h2 className="font-serif font-light text-4xl md:text-5xl mt-3 text-charcoal">
-        {heading}
+      <h2 className={cn("font-serif font-light text-4xl md:text-5xl mt-3 text-charcoal", headingClassName)}>
+        <MobileBreaks text={heading} />
       </h2>
       {subtext && (
         <p className={cn("mt-4 max-w-2xl text-lg leading-relaxed text-stone", centered && "mx-auto")}>

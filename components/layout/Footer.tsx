@@ -293,6 +293,8 @@ export function Footer({ contact }: FooterProps) {
               target="_blank"
               rel="noopener noreferrer"
               data-cta-location="footer"
+              // From here to the end of the page the floating Book Now is redundant.
+              data-hides-booking-bar="and-below"
               // Capture, not bubble: GTM's Link Click must see this push first.
               onClickCapture={() => trackBookNowClick("footer", BOOKING_URL)}
               // contrast-ok: brand-teal is 6.66:1 on espresso, parchment on hover 12.53:1.

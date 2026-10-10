@@ -68,9 +68,11 @@ export function BookDirect() {
     <section id="book-direct" className="pt-12 md:pt-24 pb-12 md:pb-24 bg-sand">
       <div className="max-w-5xl mx-auto px-6">
         <FadeIn>
-          <SectionHeading heading={tl.offers.bookDirect.heading} />
+          {/* 400 on phones: at text-4xl the default 300 reads as a hairline on sand,
+              the same reason CLAUDE.md asks for 500 at text-3xl. Desktop keeps 300. */}
+          <SectionHeading heading={tl.offers.bookDirect.heading} headingClassName="font-normal md:font-light" />
           <BookDirectPerks />
-          <div className="mt-10 md:mt-14 text-center">
+          <div data-hides-booking-bar className="mt-10 md:mt-14 text-center">
             <SecondaryButton href={BOOKING_URL} external data-cta-location="book_direct">
               {tl.nav.bookNow}
             </SecondaryButton>

@@ -6,6 +6,7 @@ import type { CarRentalPageData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
 import { Check } from "lucide-react";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import { MobileBreaks } from "@/components/common/MobileBreaks";
 
 interface CarRentalDetailProps {
   data: CarRentalPageData;
@@ -89,16 +90,16 @@ export function CarRentalDetail({ data }: CarRentalDetailProps) {
       <section className="pt-6 md:pt-32 pb-6 md:pb-32 bg-deep-teal">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <FadeIn>
-            <h2 className="font-serif font-medium text-2xl md:text-5xl text-white text-balance">
-              {t({ ru: "Готовы Объездить Восточный Бали?", en: "Ready to Ride East Bali?" })}
+            <h2 className="font-serif font-medium text-4xl md:text-5xl text-white text-balance">
+              <MobileBreaks text={t({ ru: "Готовы Объездить\nВосточный Бали?", en: "Ready to Ride East Bali?" })} />
             </h2>
-            <p className="mt-4 text-sm md:text-lg text-white/80 leading-relaxed">
+            <p className="mt-4 text-lg text-white/80 leading-relaxed">
               {t({
                 ru: "Напишите нам — мы подберём транспорт и расскажем о лучших маршрутах в Чандидасе.",
                 en: "Message us and we'll arrange the perfect vehicle for your Bali adventure in Candidasa.",
               })}
             </p>
-            <div className="mt-8">
+            <div data-hides-booking-bar className="mt-8">
               <SecondaryButton
                 href={ctaUrl}
                 external

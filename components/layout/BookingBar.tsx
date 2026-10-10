@@ -5,6 +5,7 @@ import { m, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { useLanguage } from "@/lib/language-context";
 import { useAtPageBottom } from "@/lib/use-page-bottom";
+import { useOwnCtaInView } from "@/lib/use-own-cta-in-view";
 import { serviceForRoute, SERVICE_URL } from "@/lib/booking";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { BookNowButton } from "@/components/common/BookNowButton";
@@ -29,15 +30,18 @@ interface BookingBarProps {
  * a permanent button directly over the page's own correctly-targeted "Book Now"
  * — same words, different destination, mine on top.
  *
- * It disappears only at the very bottom of the page, together with the
- * WhatsApp button — see `useAtPageBottom`. Both otherwise sit over the footer's
- * privacy and terms links.
+ * It disappears at the very bottom of the page, together with the WhatsApp
+ * button — see `useAtPageBottom`. Both otherwise sit over the footer's privacy
+ * and terms links. It also steps aside while a section's own booking button is
+ * on screen (a CTA band, the book-direct section), which it would otherwise
+ * cover — see `useOwnCtaInView`.
  */
 export function BookingBar({ alwaysVisible = false }: BookingBarProps) {
   const pathname = usePathname();
   const { tl } = useLanguage();
   const [scrolledPast, setScrolledPast] = useState(alwaysVisible);
   const atPageBottom = useAtPageBottom();
+  const ownCtaInView = useOwnCtaInView(pathname);
 
   useEffect(() => {
     if (alwaysVisible) { setScrolledPast(true); return; }
@@ -65,7 +69,7 @@ export function BookingBar({ alwaysVisible = false }: BookingBarProps) {
 
   return (
     <AnimatePresence>
-      {scrolledPast && !atPageBottom && (
+      {scrolledPast && !atPageBottom && !ownCtaInView && (
         <m.div
           // z-40 keeps it under the mobile menu's z-[60]. pointer-events-none on
           // the positioning layer, auto on the button: the layer spans the width
