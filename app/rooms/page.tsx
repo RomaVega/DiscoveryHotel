@@ -7,7 +7,7 @@ import { JsonLd, breadcrumbs, webPage } from "@/lib/jsonld";
 
 export const metadata = {
   title: "Rooms & Villas in Candidasa, Bali — Orlowsky Discovery Hotel",
-  description: "Pool villa (230 m²) with private pool and 3 bedrooms, or Deluxe Cottage (46 m²) with garden views. Book direct at Orlowsky Discovery Hotel, Candidasa, East Bali.",
+  description: "Pool villa (135 m²) with private pool and 3 bedrooms, or Deluxe Cottage (46 m²) with garden views. Book direct at Orlowsky Discovery Hotel, Candidasa, East Bali.",
   alternates: {
     canonical: `${SITE_URL}/rooms`,
     languages: {
@@ -18,7 +18,7 @@ export const metadata = {
   },
   openGraph: {
     title: "Rooms & Villas in Candidasa, Bali — Orlowsky Discovery Hotel",
-    description: "Pool villa (230 m²) with private pool and 3 bedrooms, or Deluxe Cottage (46 m²) with garden views. Book direct at Orlowsky Discovery Hotel, Candidasa, East Bali.",
+    description: "Pool villa (135 m²) with private pool and 3 bedrooms, or Deluxe Cottage (46 m²) with garden views. Book direct at Orlowsky Discovery Hotel, Candidasa, East Bali.",
     url: `${SITE_URL}/rooms`,
     images: [{ url: `${SITE_URL}/images/rooms/pool-villa.webp`, width: 1200, height: 630 }],
   },

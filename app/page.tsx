@@ -14,6 +14,7 @@ import { SpecialOffers } from "@/components/sections/SpecialOffers";
 import { GalleryPreview } from "@/components/sections/GalleryPreview";
 import { ReviewScroller } from "@/components/sections/ReviewScroller";
 import { BookingCta } from "@/components/sections/BookingCta";
+import { BookDirectPerks } from "@/components/sections/BookDirect";
 import { MapLocation } from "@/components/sections/MapLocation";
 import { ScrollDivider } from "@/components/common/ScrollDivider";
 import { SITE_URL } from "@/lib/site";
@@ -66,7 +67,9 @@ export default function HomePage() {
           <RatingSummary aggregates={aggregates} locale="en" />
         </ReviewScroller>
         <MapLocation contact={contact} />
-        <BookingCta data={data.bookingCta} />
+        <BookingCta data={data.bookingCta}>
+          <BookDirectPerks tone="dark" />
+        </BookingCta>
       </main>
       <Footer contact={contact} />
       <WhatsAppButton

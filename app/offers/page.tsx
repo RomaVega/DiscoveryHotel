@@ -2,6 +2,7 @@ import { getHomePageData, getContactData } from "@/lib/content";
 import { InnerPageLayout } from "@/components/layout/InnerPageLayout";
 import { PageHero } from "@/components/sections/PageHero";
 import { SpecialOffers } from "@/components/sections/SpecialOffers";
+import { BookDirect } from "@/components/sections/BookDirect";
 import { SITE_URL } from "@/lib/site";
 import { JsonLd, breadcrumbs, webPage } from "@/lib/jsonld";
 
@@ -52,6 +53,7 @@ export default function OffersPage() {
         subtext={data.offers.subtext}
       />
       <SpecialOffers data={data.offers} hideHeading />
+      <BookDirect />
     </InnerPageLayout>
   );
 }

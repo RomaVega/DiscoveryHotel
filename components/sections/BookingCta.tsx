@@ -1,5 +1,6 @@
 "use client"; // Uses useLanguage for content translation
 
+import type { ReactNode } from "react";
 import { FadeIn } from "@/components/common/FadeIn";
 import { SecondaryButton } from "@/components/common/SecondaryButton";
 import type { BookingCtaData } from "@/lib/types";
@@ -7,9 +8,12 @@ import { useLanguage } from "@/lib/language-context";
 
 interface BookingCtaProps {
   data: BookingCtaData;
+  /** Rendered between the subtext and the button — the home page puts the
+      "Why Book Direct" perks here, so the reasons sit right above the CTA. */
+  children?: ReactNode;
 }
 
-export function BookingCta({ data }: BookingCtaProps) {
+export function BookingCta({ data, children }: BookingCtaProps) {
   const { t } = useLanguage();
 
   return (
@@ -22,7 +26,8 @@ export function BookingCta({ data }: BookingCtaProps) {
           <p className="mt-4 text-sm md:text-lg text-white/80 leading-relaxed">
             {t(data.subtext)}
           </p>
-          <div className="mt-8">
+          {children && <div className="mt-10 md:mt-14">{children}</div>}
+          <div className={children ? "mt-10 md:mt-14" : "mt-8"}>
             <SecondaryButton
               href={data.bookingUrl}
               external

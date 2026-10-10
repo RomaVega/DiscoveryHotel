@@ -55,6 +55,8 @@ export type CtaLocation =
   | "dining"
   /** The deep-teal `BookingCta` band just above the footer. Not the footer. */
   | "booking_band"
+  /** "Book Now" under the "Why Book Direct" perks on `/offers`. */
+  | "book_direct"
   /** "Book a stay", the one text link to the engine inside the footer itself. */
   | "footer";
 

@@ -52,6 +52,7 @@ after a navbar click would be reported as `navbar`.
 | `room_card` | home `RoomsPreview` "Check Availability" | engine |
 | `dining` | home `DiningPreview` "View Menu" | menu |
 | `booking_band` | deep-teal `BookingCta` band above the footer | engine |
+| `book_direct` | "Why Book Direct" section on `/offers` | engine |
 | `offer_card` | `SpecialOffers` "Check Availability" | whatsapp |
 | `footer` | "Book a stay" text link in the footer | engine |
 

@@ -3,6 +3,7 @@ import { getHomePageData, getContactData } from "@/lib/content";
 import { InnerPageLayout } from "@/components/layout/InnerPageLayout";
 import { PageHero } from "@/components/sections/PageHero";
 import { SpecialOffers } from "@/components/sections/SpecialOffers";
+import { BookDirect } from "@/components/sections/BookDirect";
 import { JsonLd, breadcrumbs, webPage } from "@/lib/jsonld";
 
 export const metadata = {
@@ -52,6 +53,7 @@ export default function OffersRuPage() {
         noOverlay
       />
       <SpecialOffers data={data.offers} hideHeading />
+      <BookDirect />
     </InnerPageLayout>
   );
 }

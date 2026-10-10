@@ -7,7 +7,7 @@ import { JsonLd, breadcrumbs, webPage } from "@/lib/jsonld";
 
 export const metadata = {
   title: "Номера и виллы в Чандидасе, Бали — Orlowsky Discovery Hotel",
-  description: "Вилла с бассейном (230 м²) с тремя спальнями или Делюкс Коттедж (46 м²) с видом на сад. Прямое бронирование в Orlowsky Discovery Hotel, Чандидаса, Восточный Бали.",
+  description: "Вилла с бассейном (135 м²) с тремя спальнями или Делюкс Коттедж (46 м²) с видом на сад. Прямое бронирование в Orlowsky Discovery Hotel, Чандидаса, Восточный Бали.",
   alternates: {
     canonical: `${SITE_URL}/ru/rooms`,
     languages: {
@@ -18,7 +18,7 @@ export const metadata = {
   },
   openGraph: {
     title: "Номера и виллы в Чандидасе, Бали — Orlowsky Discovery Hotel",
-    description: "Вилла с бассейном (230 м²) с тремя спальнями или Делюкс Коттедж (46 м²) с видом на сад. Прямое бронирование в Orlowsky Discovery Hotel, Чандидаса, Восточный Бали.",
+    description: "Вилла с бассейном (135 м²) с тремя спальнями или Делюкс Коттедж (46 м²) с видом на сад. Прямое бронирование в Orlowsky Discovery Hotel, Чандидаса, Восточный Бали.",
     url: `${SITE_URL}/ru/rooms`,
     images: [{ url: `${SITE_URL}/images/rooms/pool-villa.webp`, width: 1200, height: 630 }],
   },
