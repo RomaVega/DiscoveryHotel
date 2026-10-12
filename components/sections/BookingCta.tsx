@@ -6,6 +6,7 @@ import { MobileBreaks } from "@/components/common/MobileBreaks";
 import { SecondaryButton } from "@/components/common/SecondaryButton";
 import type { BookingCtaData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
+import { cn } from "@/lib/utils";
 
 interface BookingCtaProps {
   data: BookingCtaData;
@@ -16,9 +17,14 @@ interface BookingCtaProps {
 
 export function BookingCta({ data, children }: BookingCtaProps) {
   const { t } = useLanguage();
+  // A plain band (heading, one line, button) keeps the 24px phone padding every
+  // CTA band uses. With the perks inside it is a full section ~900px tall, and at
+  // 24px its heading and button sat against the band's edges — so it takes the
+  // 48px of the /offers BookDirect section, which shows the same perks.
+  const phonePadding = children ? "pt-12 pb-12" : "pt-6 pb-6";
 
   return (
-    <section id="booking" className="pt-6 md:pt-32 pb-6 md:pb-32 bg-deep-teal">
+    <section id="booking" className={cn(phonePadding, "md:pt-32 md:pb-32 bg-deep-teal")}>
       <div className="max-w-3xl mx-auto px-6 text-center">
         <FadeIn>
           <h2 className="font-serif font-medium text-4xl md:text-5xl text-white text-balance">
