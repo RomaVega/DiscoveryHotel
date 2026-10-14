@@ -87,7 +87,7 @@
       "aria": "Report a problem with this site",
       "title": "Spotted something broken?",
       "message": "People open the site on hundreds of different devices and browsers, and sometimes things don't display as intended. If a photo won't load, a price looks off, a link leads nowhere, or the layout breaks on your screen, please let us know.",
-      "cta": "Email the Maintainer",
+      "cta": "Email the Developer",
       "included": "Your page address, screen size and browser are filled in for you. Just describe what went wrong.",
       "close": "Close",
       "subject": "Website issue",
