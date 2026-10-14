@@ -101,7 +101,10 @@ export function BugReport() {
                   className="shrink-0 mt-1 text-brand-teal"
                 />
                 <div>
-                  <DialogTitle className="font-serif font-medium text-2xl sm:text-3xl text-charcoal leading-snug">
+                  {/* Inter, like the note under it: a dialog title is a card title,
+                      not a section heading, so it follows the card-title rule in
+                      CLAUDE.md rather than taking Cormorant. */}
+                  <DialogTitle className="font-sans font-semibold text-lg sm:text-xl text-charcoal leading-snug">
                     {s.title}
                   </DialogTitle>
                   <p className="mt-3 font-sans text-sm text-charcoal/80 leading-relaxed">
