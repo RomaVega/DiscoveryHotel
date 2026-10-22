@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/site";
+import { getPosts, postPath } from "@/lib/blog";
+import type { Locale } from "@/lib/types";
 
 export const dynamic = "force-static";
 
@@ -31,6 +33,7 @@ const enRoutes: Route[] = [
   { path: "/about",                     priority: 0.6, changeFrequency: "yearly"  },
   { path: "/contact",                   priority: 0.6, changeFrequency: "yearly"  },
   { path: "/faq",                       priority: 0.5, changeFrequency: "monthly" },
+  { path: "/blog",                      priority: 0.6, changeFrequency: "weekly"  },
   { path: "/privacy",                   priority: 0.2, changeFrequency: "yearly"  },
   { path: "/terms",                     priority: 0.2, changeFrequency: "yearly"  },
 ];
@@ -41,7 +44,11 @@ const ruUrl = (path: string) => `${SITE_URL}/ru${path === "/" ? "" : path}`;
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
 
+  // /blog is listed only once something is published in English.
+  const hasPosts = getPosts("en").length > 0;
+
   for (const { path, priority, changeFrequency } of enRoutes) {
+    if (path === "/blog" && !hasPosts) continue;
     const languages = {
       en: enUrl(path),
       ru: ruUrl(path),
@@ -67,5 +74,33 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
+  entries.push(...blogEntries("en"), ...blogEntries("ru"));
   return entries;
+}
+
+/**
+ * Blog posts carry their own `updated` date as lastmod rather than the
+ * site-wide LAST_CONTENT_UPDATE — a post is edited on its own schedule, and a
+ * lastmod that moves only when the post does is the signal Google trusts.
+ * hreflang is attached only when the post exists in both languages; a post
+ * written in one language stands alone. The /blog index itself is in the
+ * route list above, like any other page.
+ */
+function blogEntries(locale: Locale): MetadataRoute.Sitemap {
+  const other: Locale = locale === "en" ? "ru" : "en";
+  return getPosts(locale).map((post) => ({
+    url: `${SITE_URL}${postPath(post.slug, locale)}`,
+    lastModified: new Date(post.updated),
+    changeFrequency: "monthly",
+    priority: locale === "en" ? 0.7 : 0.6,
+    alternates: post.hasTwin
+      ? {
+          languages: {
+            [locale]: `${SITE_URL}${postPath(post.slug, locale)}`,
+            [other]: `${SITE_URL}${postPath(post.slug, other)}`,
+            "x-default": `${SITE_URL}${postPath(post.slug, "en")}`,
+          },
+        }
+      : undefined,
+  }));
 }

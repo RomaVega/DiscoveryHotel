@@ -75,7 +75,8 @@
       "experiences": "Experiences",
       "offers": "Offers",
       "gallery": "Gallery",
-      "about": "About"
+      "about": "About",
+      "blog": "Blog"
     },
     "experienceLinks": {
       "excursions": "Signature Excursions",
@@ -174,5 +175,23 @@
   },
   "experiences": {
     "viewMore": "View More"
+  },
+  "blog": {
+    "label": "Blog",
+    "home": "Home",
+    "indexHeading": "Notes from Candidasa",
+    "indexSubtext": "Guides to East Bali from the people who live here: events worth planning a trip around, places nearby and the practical details.",
+    "byline": "By {author}",
+    "published": "Published {date}",
+    "updated": "Updated {date}",
+    "readingTime": "{minutes} min read",
+    "factsChecked": "Facts in this guide were checked against official sources on {date}. Details can change, so confirm on the organiser's site before you book.",
+    "toc": "In this guide",
+    "faq": "Questions people ask",
+    "readPost": "Read the guide",
+    "related": "From our blog",
+    "allPosts": "All posts",
+    "empty": "The first guides are on their way.",
+    "offerLabel": "Offer for readers"
   }
 }

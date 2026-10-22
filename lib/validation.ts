@@ -106,6 +106,7 @@ const experiencesData = z.object({
 });
 
 const offer = z.object({
+  id: z.string().regex(/^[a-z0-9-]+$/).optional(),
   title: localizedString,
   description: localizedString,
   price: localizedString,
@@ -497,3 +498,31 @@ export const weddingsPageSchema = z.object({
   })),
   bookingCta: bookingCtaData,
 });
+
+/* ─── Blog frontmatter (content/blog/<slug>.<locale>.md) ─── */
+const isoDate = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "use YYYY-MM-DD");
+
+export const blogFrontmatterSchema = z.object({
+  title: z.string().min(10),
+  // Google shows roughly 50–60 characters; the brand counts towards that.
+  metaTitle: z.string().min(20).max(75),
+  description: z.string().min(70).max(170),
+  excerpt: z.string().min(40).max(260),
+  published: isoDate,
+  updated: isoDate,
+  factsChecked: isoDate.optional(),
+  author: z.string().min(2),
+  hero: z.object({
+    src: z.string().regex(/^\/images\/.+\.webp$/, "hero must be a .webp under /images/"),
+    alt: z.string().min(10),
+  }),
+  tags: z.array(z.string().regex(/^[a-z0-9-]+$/)).default([]),
+  offer: z.string().regex(/^[a-z0-9-]+$/).optional(),
+  keyFacts: z.object({
+    heading: z.string(),
+    items: z.array(z.object({ label: z.string(), value: z.string() })).min(1),
+    link: z.object({ label: z.string(), href: z.string().url() }).optional(),
+  }).optional(),
+  faq: z.array(z.object({ q: z.string().min(5), a: z.string().min(10) })).default([]),
+  draft: z.boolean().default(false),
+}).strict();

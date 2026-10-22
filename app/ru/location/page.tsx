@@ -1,6 +1,8 @@
 import { SITE_URL } from "@/lib/site";
 import { getContactData, getLocationPageData } from "@/lib/content";
 import { InnerPageLayout } from "@/components/layout/InnerPageLayout";
+import { RelatedPosts } from "@/components/sections/PostList";
+import { blogStrings, getPostsTagged } from "@/lib/blog";
 import { PageHero } from "@/components/sections/PageHero";
 import { LocationDetail } from "@/components/sections/LocationDetail";
 import { MapLocation } from "@/components/sections/MapLocation";
@@ -52,6 +54,7 @@ export default function LocationRuPage() {
       />
       <LocationDetail data={data} />
       <MapLocation contact={contact} />
+      <RelatedPosts posts={getPostsTagged("ru", ["east-bali"])} strings={blogStrings("ru")} />
     </InnerPageLayout>
   );
 }

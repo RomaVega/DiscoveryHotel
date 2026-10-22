@@ -4,7 +4,7 @@ import type {
   RoomsPageData, DiningPageData, SpaPageData, TransferPageData,
   DivingPageData, ExcursionsPageData, EventsPageData, CarRentalPageData,
   AboutPageData, ExperiencesHubData,
-  FaqPageData, LocationPageData, LegalPageData, WeddingsPageData,
+  FaqPageData, LocationPageData, LegalPageData, WeddingsPageData, Offer,
 } from "./types";
 import {
   homePageSchema, contactSchema, reviewsSchema,
@@ -123,4 +123,14 @@ export function getTermsPageData(): LegalPageData {
 
 export function getWeddingsPageData(): WeddingsPageData {
   return weddingsPageSchema.parse(weddingsData);
+}
+
+/**
+ * An offer by its `id`, or null when it is missing or switched off — a blog
+ * post that points at an expired offer simply stops showing its block.
+ */
+export function getActiveOffer(id: string | undefined): Offer | null {
+  if (!id) return null;
+  const offer = getHomePageData().offers.offers.find((o) => o.id === id);
+  return offer && offer.active ? offer : null;
 }
