@@ -93,13 +93,23 @@ export function BookingBar({ alwaysVisible = false, cta, hideWhileScrollingDown 
           // The safe-area floor still wins on a device with a home indicator,
           // where it lifts this button ~4px above that midline — imperceptible,
           // and better than sitting in the indicator's strip.
-          className="fixed bottom-0 inset-x-0 z-40 lg:hidden pointer-events-none flex justify-center px-4 pb-[max(1.875rem,env(safe-area-inset-bottom))]"
+          // A page's own label (blog posts) can be long — «Забронировать со
+          // скидкой» is ~200px — and on a 360px phone a centred pill runs into
+          // the WhatsApp mark (right-6, 56px) — and sits within a few px of it up to ~430px. Below 450px the pill is centred
+          // in the space left of the mark instead. Standard labels stay centred.
+          className={`fixed bottom-0 inset-x-0 z-40 lg:hidden pointer-events-none flex justify-center px-4 pb-[max(1.875rem,env(safe-area-inset-bottom))] ${cta ? "max-[449px]:pr-[5.75rem]" : ""}`}
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 12 }}
           transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
         >
-          <BookNowButton location="floating" className="pointer-events-auto" {...serviceCta} />
+          <BookNowButton
+            location="floating"
+            // With the pill moved off-centre, a ~200px label plus the base 32px
+            // side padding is 262px against 252px free at 360px; 24px fits.
+            className={`pointer-events-auto ${cta ? "max-[449px]:px-6" : ""}`}
+            {...serviceCta}
+          />
         </m.div>
       )}
     </AnimatePresence>
