@@ -14,7 +14,7 @@ export function BlogIndex({ posts, strings }: BlogIndexProps) {
       <div className="mx-auto max-w-7xl px-6">
         <header className="mx-auto mb-12 max-w-3xl text-center md:mb-16">
           <p className="font-sans text-sm uppercase tracking-widest text-accent-text">{strings.blog.label}</p>
-          <h1 className="mt-3 font-serif text-4xl md:text-5xl font-medium text-charcoal text-balance">
+          <h1 className="mt-3 font-serif text-4xl md:text-5xl font-semibold text-charcoal text-balance">
             {strings.blog.indexHeading}
           </h1>
           <p className="mt-4 font-sans text-lg leading-relaxed text-charcoal/80">{strings.blog.indexSubtext}</p>

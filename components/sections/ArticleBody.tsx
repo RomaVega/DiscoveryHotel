@@ -97,7 +97,7 @@ function Block({ token, slots }: { token: Token; slots: Slots }): ReactNode {
       const children = <Inline tokens={token.tokens ?? []} />;
       if (token.depth === 2) {
         return (
-          <h2 id={id} className="mt-16 mb-5 scroll-mt-28 font-serif text-3xl md:text-4xl font-medium text-charcoal text-balance">
+          <h2 id={id} className="mt-16 mb-5 scroll-mt-28 font-serif text-3xl md:text-4xl font-semibold text-charcoal text-balance">
             {children}
           </h2>
         );

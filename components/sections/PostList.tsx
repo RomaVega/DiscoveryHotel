@@ -59,7 +59,7 @@ export function RelatedPosts({ posts, strings }: { posts: BlogPostMeta[]; string
   return (
     <section aria-labelledby="related-posts" className="bg-sand py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6">
-        <h2 id="related-posts" className="mb-10 font-serif text-3xl md:text-4xl font-medium text-charcoal">
+        <h2 id="related-posts" className="mb-10 font-serif text-3xl md:text-4xl font-semibold text-charcoal">
           {strings.blog.related}
         </h2>
         <PostList posts={posts} strings={strings} titleLevel="h3" />

@@ -50,7 +50,7 @@ export function Article({ post, strings, offer }: ArticleProps) {
             <li><LocalizedLink href="/blog" className={CRUMB_LINK}>{s.label}</LocalizedLink></li>
           </ol>
         </nav>
-        <h1 className="mt-5 font-serif text-4xl md:text-5xl font-medium leading-tight text-charcoal text-balance">
+        <h1 className="mt-5 font-serif text-4xl md:text-5xl font-semibold leading-tight text-charcoal text-balance">
           {post.title}
         </h1>
         <p className="mt-5 font-sans text-lg leading-relaxed text-charcoal/80">{post.excerpt}</p>
@@ -144,7 +144,7 @@ export function Article({ post, strings, offer }: ArticleProps) {
 
         {post.faq.length > 0 && (
           <section aria-labelledby="faq" className="mt-16">
-            <h2 id="faq" className="scroll-mt-28 font-serif text-3xl md:text-4xl font-medium text-charcoal">{s.faq}</h2>
+            <h2 id="faq" className="scroll-mt-28 font-serif text-3xl md:text-4xl font-semibold text-charcoal">{s.faq}</h2>
             {/*
               Native <details> sharing one `name`: opening a question closes the
               one that was open, with no JavaScript. Answers stay in the HTML, so
