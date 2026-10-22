@@ -33,7 +33,7 @@ export default async function BlogPostRuPage({ params }: Props) {
   const { bookingCta } = getHomePageData();
 
   return (
-    <InnerPageLayout contact={contact} bookingCta={cta?.floatingButton}>
+    <InnerPageLayout contact={contact} bookingCta={cta?.floatingButton} hideFloatingWhileScrollingDown>
       <JsonLd data={postStructuredData(slug, LOCALE)} />
       <Article post={post} strings={strings} offer={offer} />
       <PostCtaBand cta={cta} fallback={bookingCta} strings={strings} />

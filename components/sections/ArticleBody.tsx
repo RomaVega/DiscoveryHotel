@@ -1,7 +1,7 @@
 // Server Component: walks Markdown tokens into elements at build time, so
 // neither marked nor the post text ships as JavaScript.
 import Image from "next/image";
-import type { ReactNode } from "react";
+import { Fragment, type ReactNode } from "react";
 import type { Token, Tokens } from "marked";
 import { LocalizedLink } from "@/components/common/LocalizedLink";
 import { webpSize } from "@/lib/image-size";
@@ -104,7 +104,7 @@ function Block({ token, slots }: { token: Token; slots: Slots }): ReactNode {
       }
       if (token.depth === 3) {
         return (
-          <h3 id={id} className="mt-10 mb-3 scroll-mt-28 font-sans text-lg font-semibold text-charcoal">
+          <h3 id={id} className="mt-12 mb-3 scroll-mt-28 font-sans text-xl font-semibold text-charcoal text-balance">
             {children}
           </h3>
         );
@@ -124,7 +124,7 @@ function Block({ token, slots }: { token: Token; slots: Slots }): ReactNode {
       // lib/blog.ts refuses to publish a post that still has one.
       const open = token.text.includes("TO CONFIRM");
       return (
-        <p className={open ? "my-5 leading-relaxed rounded-md bg-logo-gold/25 px-3 py-2" : "my-5 leading-relaxed"}>
+        <p className={open ? "my-5 leading-relaxed text-pretty rounded-md bg-logo-gold/25 px-3 py-2" : "my-5 leading-relaxed text-pretty"}>
           <Inline tokens={token.tokens ?? []} />
         </p>
       );
@@ -137,7 +137,7 @@ function Block({ token, slots }: { token: Token; slots: Slots }): ReactNode {
           className={`my-5 space-y-2 pl-6 leading-relaxed marker:text-deep-teal ${token.ordered ? "list-decimal" : "list-disc"}`}
         >
           {token.items.map((item: Tokens.ListItem, i: number) => (
-            <li key={i} className="pl-1">
+            <li key={i} className="pl-1 text-pretty">
               {item.tokens.map((child, j) =>
                 child.type === "text" ? (
                   <Inline key={j} tokens={"tokens" in child && child.tokens ? child.tokens : [child]} />
@@ -150,51 +150,78 @@ function Block({ token, slots }: { token: Token; slots: Slots }): ReactNode {
         </ListTag>
       );
     }
-    case "table":
+    case "table": {
+      const label = plainText(token.header.flatMap((h: Tokens.TableCell) => h.tokens));
       return (
-        // Wide tables scroll inside their own box instead of widening the page.
-        <div className="my-8 -mx-6 sm:mx-0 overflow-x-auto px-6 sm:px-0" role="region" aria-label={plainText(token.header.flatMap((h: Tokens.TableCell) => h.tokens))} tabIndex={0}>
-          <table className="w-full min-w-[32rem] border-collapse text-sm">
-            <thead>
-              <tr>
-                {token.header.map((cell: Tokens.TableCell, i: number) => (
-                  <th
-                    key={i}
-                    scope="col"
-                    className={`border-b-2 border-charcoal/15 py-2 pr-4 align-bottom font-semibold ${cell.align === "right" ? "text-right" : "text-left"}`}
-                  >
-                    <Inline tokens={cell.tokens} />
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {token.rows.map((row: Tokens.TableCell[], r: number) => (
-                <tr key={r}>
-                  {row.map((cell, c) => {
-                    const Cell = c === 0 ? "th" : "td";
-                    return (
-                      <Cell
-                        key={c}
-                        scope={c === 0 ? "row" : undefined}
-                        className={`border-b border-charcoal/10 py-2.5 pr-4 align-top whitespace-nowrap ${c === 0 ? "font-semibold" : ""} ${cell.align === "right" ? "text-right" : "text-left"}`}
-                      >
-                        <Inline tokens={cell.tokens} />
-                      </Cell>
-                    );
-                  })}
+        <>
+          {/*
+            Phones: one card per row — the first column is the card's title and
+            the rest are label/value pairs under it. The table was 170px wider
+            than a 390px screen, so its last columns sat behind a sideways
+            scroll most readers never find. Only one of the two layouts is
+            displayed at a time, so assistive tech reads it once.
+          */}
+          <div className="my-8 space-y-3 sm:hidden" role="list" aria-label={label}>
+            {token.rows.map((row: Tokens.TableCell[], r: number) => (
+              <div key={r} role="listitem" className="rounded-md bg-ivory p-4 shadow-sm">
+                <p className="font-sans font-semibold text-charcoal"><Inline tokens={row[0].tokens} /></p>
+                <dl className="mt-2 grid grid-cols-[8.5rem_1fr] gap-x-3 gap-y-1.5 font-sans text-sm">
+                  {row.slice(1).map((cell, c) => (
+                    <Fragment key={c}>
+                      <dt className="text-charcoal/70"><Inline tokens={token.header[c + 1].tokens} /></dt>
+                      <dd className="text-charcoal"><Inline tokens={cell.tokens} /></dd>
+                    </Fragment>
+                  ))}
+                </dl>
+              </div>
+            ))}
+          </div>
+
+          {/* From sm: the table, scrolling inside its own box if it is ever wider than the column. */}
+          <div className="my-8 hidden overflow-x-auto sm:block" role="region" aria-label={label} tabIndex={0}>
+            <table className="w-full min-w-[32rem] border-collapse text-sm">
+              <thead>
+                <tr>
+                  {token.header.map((cell: Tokens.TableCell, i: number) => (
+                    <th
+                      key={i}
+                      scope="col"
+                      className={`border-b-2 border-charcoal/15 py-2 pr-4 align-bottom font-semibold ${cell.align === "right" ? "text-right" : "text-left"}`}
+                    >
+                      <Inline tokens={cell.tokens} />
+                    </th>
+                  ))}
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+              </thead>
+              <tbody>
+                {token.rows.map((row: Tokens.TableCell[], r: number) => (
+                  <tr key={r}>
+                    {row.map((cell, c) => {
+                      const Cell = c === 0 ? "th" : "td";
+                      return (
+                        <Cell
+                          key={c}
+                          scope={c === 0 ? "row" : undefined}
+                          className={`border-b border-charcoal/10 py-2.5 pr-4 align-top whitespace-nowrap ${c === 0 ? "font-semibold" : ""} ${cell.align === "right" ? "text-right" : "text-left"}`}
+                        >
+                          <Inline tokens={cell.tokens} />
+                        </Cell>
+                      );
+                    })}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </>
       );
+    }
     case "blockquote":
       return (
         <aside className="my-8 border-l-2 border-deep-teal bg-ivory px-5 py-4 rounded-r-md">
           {(token.tokens ?? []).map((child, i) => (
             child.type === "paragraph"
-              ? <p key={i} className="my-2 leading-relaxed"><Inline tokens={child.tokens ?? []} /></p>
+              ? <p key={i} className="my-2 leading-relaxed text-pretty"><Inline tokens={child.tokens ?? []} /></p>
               : <Block key={i} token={child} slots={slots} />
           ))}
         </aside>
@@ -224,7 +251,7 @@ interface ArticleBodyProps {
 export function ArticleBody({ markdown, slots = {} }: ArticleBodyProps) {
   const tokens = lexMarkdown(markdown);
   return (
-    <div className="font-sans text-base md:text-[17px] text-charcoal">
+    <div className="font-sans text-base md:text-lg text-charcoal">
       {tokens.map((token, i) => <Block key={i} token={token} slots={slots} />)}
     </div>
   );

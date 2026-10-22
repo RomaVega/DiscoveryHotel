@@ -24,7 +24,9 @@ const CRUMB_LINK =
  * Layout of a post. Unlike the other inner pages there is no full-screen
  * PageHero: a reader arrives from search wanting the answer, so the title,
  * the summary and the key facts sit above the fold and the photo follows.
- * Text runs at `max-w-3xl` (~70 characters a line); the photo gets more room.
+ * Text runs at `max-w-[42rem]`: 624px of text, which at the 18px desktop body
+ * size is ~70 characters a line (measured; `max-w-3xl` gave 82). The photo
+ * gets more room.
  */
 export function Article({ post, strings, offer }: ArticleProps) {
   const s = strings.blog;
@@ -34,7 +36,7 @@ export function Article({ post, strings, offer }: ArticleProps) {
 
   return (
     <article className="bg-sand pt-28 md:pt-36 pb-16 md:pb-24">
-      <header className="mx-auto max-w-3xl px-6">
+      <header className="mx-auto max-w-[42rem] px-6">
         {post.draft && (
           // Editor-facing, so English on both locales. Never reaches orlowsky.id:
           // production builds leave drafts out (SHOW_DRAFTS in lib/blog.ts).
@@ -53,7 +55,7 @@ export function Article({ post, strings, offer }: ArticleProps) {
         <h1 className="mt-5 font-serif text-4xl md:text-5xl font-semibold leading-tight text-charcoal text-balance">
           {post.title}
         </h1>
-        <p className="mt-5 font-sans text-lg leading-relaxed text-charcoal/80">{post.excerpt}</p>
+        <p className="mt-5 font-sans text-lg md:text-xl leading-relaxed text-pretty text-charcoal/80">{post.excerpt}</p>
         <div className="mt-6 font-sans text-sm text-charcoal/70">
           <p>{fill(s.byline, { author: post.author })}</p>
           <p className="mt-1 flex flex-wrap gap-x-3">
@@ -82,7 +84,7 @@ export function Article({ post, strings, offer }: ArticleProps) {
         />
       </figure>
 
-      <div className="mx-auto mt-10 max-w-3xl px-6">
+      <div className="mx-auto mt-10 max-w-[42rem] px-6">
         {post.keyFacts && (
           <aside aria-labelledby="key-facts" className="rounded-md border border-charcoal/10 bg-ivory p-6 md:p-8">
             <h2 id="key-facts" className="font-sans text-xs font-semibold uppercase tracking-widest text-accent-text">
@@ -165,7 +167,7 @@ export function Article({ post, strings, offer }: ArticleProps) {
                       className="shrink-0 text-stone motion-safe:transition-transform motion-safe:duration-200 group-open:rotate-180"
                     />
                   </summary>
-                  <p className="px-5 pb-5 font-sans leading-relaxed text-charcoal motion-safe:animate-in motion-safe:fade-in-0 motion-safe:duration-200">
+                  <p className="px-5 pb-5 font-sans md:text-lg leading-relaxed text-pretty text-charcoal motion-safe:animate-in motion-safe:fade-in-0 motion-safe:duration-200">
                     {item.a}
                   </p>
                 </details>

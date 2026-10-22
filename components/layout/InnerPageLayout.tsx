@@ -11,9 +11,11 @@ interface InnerPageLayoutProps {
   children: React.ReactNode;
   /** Overrides the floating Book Now's label and link for this page (see BookingBar). */
   bookingCta?: { label: string; href: string };
+  /** Long reading pages: floating buttons hide while scrolling down on phones/tablets. */
+  hideFloatingWhileScrollingDown?: boolean;
 }
 
-export function InnerPageLayout({ contact, children, bookingCta }: InnerPageLayoutProps) {
+export function InnerPageLayout({ contact, children, bookingCta, hideFloatingWhileScrollingDown = false }: InnerPageLayoutProps) {
   return (
     <>
       <Navbar alwaysVisible />
@@ -26,8 +28,9 @@ export function InnerPageLayout({ contact, children, bookingCta }: InnerPageLayo
         greeting={contact.whatsappGreeting}
         contacts={contact.whatsappContacts}
         alwaysVisible
+        hideWhileScrollingDown={hideFloatingWhileScrollingDown}
       />
-      <BookingBar alwaysVisible cta={bookingCta} />
+      <BookingBar alwaysVisible cta={bookingCta} hideWhileScrollingDown={hideFloatingWhileScrollingDown} />
     </>
   );
 }

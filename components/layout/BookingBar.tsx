@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useLanguage } from "@/lib/language-context";
 import { useAtPageBottom } from "@/lib/use-page-bottom";
 import { useOwnCtaInView } from "@/lib/use-own-cta-in-view";
+import { useHideWhileReading } from "@/lib/use-hide-while-reading";
 import { serviceForRoute, SERVICE_URL } from "@/lib/booking";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { BookNowButton } from "@/components/common/BookNowButton";
@@ -18,6 +19,8 @@ interface BookingBarProps {
   /** A page's own label and destination, ahead of the route's service mapping —
       a blog post with a live offer sends the pill to that offer's enquiry. */
   cta?: { label: string; href: string };
+  /** Step aside while the reader scrolls down (see useHideWhileReading). */
+  hideWhileScrollingDown?: boolean;
 }
 
 /**
@@ -39,12 +42,13 @@ interface BookingBarProps {
  * on screen (a CTA band, the book-direct section), which it would otherwise
  * cover — see `useOwnCtaInView`.
  */
-export function BookingBar({ alwaysVisible = false, cta }: BookingBarProps) {
+export function BookingBar({ alwaysVisible = false, cta, hideWhileScrollingDown = false }: BookingBarProps) {
   const pathname = usePathname();
   const { tl } = useLanguage();
   const [scrolledPast, setScrolledPast] = useState(alwaysVisible);
   const atPageBottom = useAtPageBottom();
   const ownCtaInView = useOwnCtaInView(pathname);
+  const reading = useHideWhileReading(hideWhileScrollingDown);
 
   useEffect(() => {
     if (alwaysVisible) { setScrolledPast(true); return; }
@@ -74,7 +78,7 @@ export function BookingBar({ alwaysVisible = false, cta }: BookingBarProps) {
 
   return (
     <AnimatePresence>
-      {scrolledPast && !atPageBottom && !ownCtaInView && (
+      {scrolledPast && !atPageBottom && !ownCtaInView && !reading && (
         <m.div
           // z-40 keeps it under the mobile menu's z-[60]. pointer-events-none on
           // the positioning layer, auto on the button: the layer spans the width
