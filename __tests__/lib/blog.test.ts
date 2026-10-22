@@ -81,6 +81,27 @@ describe("published posts", () => {
   });
 });
 
+describe("postCta", () => {
+  it("sends the band and the floating pill to the offer's WhatsApp enquiry, code included", async () => {
+    const { postCta } = await import("@/lib/blog-meta");
+    for (const locale of LOCALES) {
+      const post = getPost("bali-coast-trail", locale);
+      const cta = postCta(post, getActiveOffer(post.offer));
+      expect(cta).not.toBeNull();
+      expect(cta!.href).toMatch(/^https:\/\/wa\.me\/\d+\?text=/);
+      expect(decodeURIComponent(cta!.href)).toContain("BCT2026");
+      expect(cta!.floatingButton).toEqual({ label: post.cta!.floating, href: cta!.href });
+    }
+  });
+
+  it("falls back to the generic CTA once the offer is switched off", async () => {
+    const { postCta } = await import("@/lib/blog-meta");
+    const post = getPost("bali-coast-trail", "en");
+    expect(postCta(post, null)).toBeNull();
+    expect(postCta({ ...post, cta: undefined }, getActiveOffer(post.offer))).toBeNull();
+  });
+});
+
 describe("drafts", () => {
   afterEach(() => {
     vi.unstubAllEnvs();

@@ -53,6 +53,11 @@ distance:
   mapLink:
     label: "Пеший маршрут в Google Картах"
     href: "https://www.google.com/maps/dir/?api=1&origin=-8.511626,115.575050&destination=Rest+Area+Candi+Dasa,+Karangasem,+Bali&travelmode=walking"
+cta:
+  heading: "Бежите Bali Coast Trail?"
+  subtext: "Живите в 10–20 минутах ходьбы от старта: скидка 15% на номер и бесплатный 60-минутный балийский массаж после гонки."
+  button: "Забронировать в WhatsApp"
+  floating: "Забронировать с BCT2026"
 faq:
   - q: "Когда проходит Bali Coast Trail 2026?"
     a: "12–13 декабря 2026 года. В субботу, 12-го, бегут 50K и 30K, в воскресенье, 13-го, — 15K и 7K. Стартовый пакет можно забрать в Денпасаре в среду, 9 декабря, или в стартовом городке в Чандидасе в пятницу, 11-го, и в субботу, 12-го."

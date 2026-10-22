@@ -532,6 +532,12 @@ export const blogFrontmatterSchema = z.object({
     times: z.array(z.object({ mode: z.enum(["walk", "drive"]), label: z.string(), time: z.string() })).min(1),
     mapLink: blogLink.optional(),
   }).optional(),
+  cta: z.object({
+    heading: z.string().min(5),
+    subtext: z.string().min(20),
+    button: z.string().min(3).max(32),
+    floating: z.string().min(3).max(26, "the floating pill shares a phone-width row; keep it short"),
+  }).optional(),
   faq: z.array(z.object({ q: z.string().min(5), a: z.string().min(10) })).default([]),
   draft: z.boolean().default(false),
 }).strict();

@@ -9,9 +9,11 @@ import type { ContactData } from "@/lib/types";
 interface InnerPageLayoutProps {
   contact: ContactData;
   children: React.ReactNode;
+  /** Overrides the floating Book Now's label and link for this page (see BookingBar). */
+  bookingCta?: { label: string; href: string };
 }
 
-export function InnerPageLayout({ contact, children }: InnerPageLayoutProps) {
+export function InnerPageLayout({ contact, children, bookingCta }: InnerPageLayoutProps) {
   return (
     <>
       <Navbar alwaysVisible />
@@ -25,7 +27,7 @@ export function InnerPageLayout({ contact, children }: InnerPageLayoutProps) {
         contacts={contact.whatsappContacts}
         alwaysVisible
       />
-      <BookingBar alwaysVisible />
+      <BookingBar alwaysVisible cta={bookingCta} />
     </>
   );
 }

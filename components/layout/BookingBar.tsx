@@ -15,6 +15,9 @@ interface BookingBarProps {
       back until the full-height hero video has scrolled past, so it never
       covers the hero's own call to action. */
   alwaysVisible?: boolean;
+  /** A page's own label and destination, ahead of the route's service mapping —
+      a blog post with a live offer sends the pill to that offer's enquiry. */
+  cta?: { label: string; href: string };
 }
 
 /**
@@ -36,7 +39,7 @@ interface BookingBarProps {
  * on screen (a CTA band, the book-direct section), which it would otherwise
  * cover — see `useOwnCtaInView`.
  */
-export function BookingBar({ alwaysVisible = false }: BookingBarProps) {
+export function BookingBar({ alwaysVisible = false, cta }: BookingBarProps) {
   const pathname = usePathname();
   const { tl } = useLanguage();
   const [scrolledPast, setScrolledPast] = useState(alwaysVisible);
@@ -56,7 +59,9 @@ export function BookingBar({ alwaysVisible = false }: BookingBarProps) {
   // "Записаться в спа") and reusing one inside the sentence produces "I'd like
   // to ask about book a treatment" and, in Russian, a verb where «про» requires
   // an accusative noun.
-  const serviceCta = service
+  const serviceCta = cta
+    ? cta
+    : service
     ? {
         label: tl.serviceCta.labels[service],
         // A published destination wins over an enquiry: SERVICE_URL holds the

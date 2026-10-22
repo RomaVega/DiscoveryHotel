@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { blogStrings, getPost, getPosts, postPath } from "./blog";
 import { blog, blogPosting, breadcrumbs, faqFromPairs } from "./jsonld";
 import { OG_IMAGE, SITE_NAME, SITE_URL } from "./site";
-import type { Locale } from "./types";
+import { offerEnquiryText } from "./offers";
+import type { BlogCta, BlogPost, Locale, LocalizedString, Offer } from "./types";
+import { buildWhatsAppUrl } from "./whatsapp";
 
 const OG_LOCALE: Record<Locale, string> = { en: "en_US", ru: "ru_RU" };
 
@@ -132,4 +134,33 @@ export function blogIndexStructuredData(locale: Locale): object[] {
       { name: s.label, path: `${base}/blog` },
     ]),
   ];
+}
+
+/** A post's resolved call to action: its text plus the offer's WhatsApp link. */
+export interface ResolvedPostCta extends BlogCta {
+  href: string;
+  code?: string;
+  /** Ready for InnerPageLayout's `bookingCta` (the floating mobile pill). */
+  floatingButton: { label: string; href: string };
+}
+
+/**
+ * The post's own CTA, or null to use the site's generic one.
+ *
+ * Only while the post's offer is live: the CTA's whole point is the offer, so
+ * when the offer is switched off (`active: false`) the band and the floating
+ * pill fall back to "Book Stay" → booking engine without anyone editing the
+ * post. The link is the same WhatsApp enquiry the offer block sends.
+ */
+export function postCta(post: BlogPost, offer: Offer | null): ResolvedPostCta | null {
+  if (!post.cta || !offer) return null;
+  const strings = blogStrings(post.locale).offers;
+  const resolve = (v: LocalizedString) => (typeof v === "string" ? v : v[post.locale]);
+  const href = buildWhatsAppUrl(offerEnquiryText(offer, resolve, strings));
+  return {
+    ...post.cta,
+    href,
+    code: offer.code,
+    floatingButton: { label: post.cta.floating, href },
+  };
 }

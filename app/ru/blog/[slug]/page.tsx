@@ -1,8 +1,8 @@
 import { InnerPageLayout } from "@/components/layout/InnerPageLayout";
 import { Article } from "@/components/sections/Article";
-import { BookingCta } from "@/components/sections/BookingCta";
+import { PostCtaBand } from "@/components/sections/PostCtaBand";
 import { blogStrings, getPost, postStaticParams } from "@/lib/blog";
-import { postMetadata, postStructuredData } from "@/lib/blog-meta";
+import { postCta, postMetadata, postStructuredData } from "@/lib/blog-meta";
 import { getActiveOffer, getContactData, getHomePageData } from "@/lib/content";
 import { JsonLd } from "@/lib/jsonld";
 
@@ -26,14 +26,17 @@ export async function generateMetadata({ params }: Props) {
 export default async function BlogPostRuPage({ params }: Props) {
   const { slug } = await params;
   const post = getPost(slug, LOCALE);
+  const offer = getActiveOffer(post.offer);
+  const cta = postCta(post, offer);
+  const strings = blogStrings(LOCALE);
   const contact = getContactData();
   const { bookingCta } = getHomePageData();
 
   return (
-    <InnerPageLayout contact={contact}>
+    <InnerPageLayout contact={contact} bookingCta={cta?.floatingButton}>
       <JsonLd data={postStructuredData(slug, LOCALE)} />
-      <Article post={post} strings={blogStrings(LOCALE)} offer={getActiveOffer(post.offer)} />
-      <BookingCta data={bookingCta} />
+      <Article post={post} strings={strings} offer={offer} />
+      <PostCtaBand cta={cta} fallback={bookingCta} strings={strings} />
     </InnerPageLayout>
   );
 }

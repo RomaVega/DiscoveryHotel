@@ -605,6 +605,20 @@ export interface BlogKeyFacts {
   links: BlogLink[];
 }
 
+/**
+ * The post's own call to action, used while its offer is live: the band at the
+ * foot of the page and the floating mobile button both open that offer's
+ * WhatsApp enquiry instead of the generic "Book Stay" → booking engine.
+ */
+export interface BlogCta {
+  heading: string;
+  subtext: string;
+  /** The band's button. */
+  button: string;
+  /** The floating mobile pill — short, it shares a 360px row with the WhatsApp mark. */
+  floating: string;
+}
+
 /** "How far is it" card, placed in the prose by `[[distance]]`. */
 export interface BlogDistance {
   heading: string;
@@ -642,6 +656,7 @@ export interface BlogPostMeta {
   offer?: string;
   keyFacts?: BlogKeyFacts;
   distance?: BlogDistance;
+  cta?: BlogCta;
   faq: BlogFaqItem[];
   readingMinutes: number;
   /** True when the same slug exists in the other locale — gates hreflang. */

@@ -53,6 +53,11 @@ distance:
   mapLink:
     label: "Walking route in Google Maps"
     href: "https://www.google.com/maps/dir/?api=1&origin=-8.511626,115.575050&destination=Rest+Area+Candi+Dasa,+Karangasem,+Bali&travelmode=walking"
+cta:
+  heading: "Running the Bali Coast Trail?"
+  subtext: "Stay a 10–20 minute walk from the start line, with 15% off your room and a free 60-minute Balinese massage after the race."
+  button: "Book on WhatsApp"
+  floating: "Book with BCT2026"
 faq:
   - q: "When is the Bali Coast Trail 2026?"
     a: "Race weekend is 12–13 December 2026. The 50K and 30K run on Saturday 12 December, the 15K and 7K on Sunday 13 December. Race packs can be collected in Denpasar on Wednesday 9 December, or at the race venue in Candidasa on Friday 11 and Saturday 12 December."
