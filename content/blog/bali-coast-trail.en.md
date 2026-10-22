@@ -2,17 +2,17 @@
 title: "Bali Coast Trail 2026: Race Guide and Where to Stay in Candidasa"
 metaTitle: "Bali Coast Trail 2026: Race Guide & Where to Stay | Orlowsky Discovery"
 description: "Dates, distances, start times, entry fees and the weekend schedule for the Bali Coast Trail, 12–13 December 2026 in Candidasa, plus where to stay near the start."
-excerpt: "Race weekend in Candidasa, explained: the four distances and who each one suits, the schedule, getting here, December trail conditions, and staying close to the start line."
+excerpt: "Race weekend in Candidasa, explained: the four distances and who each one suits, the schedule, getting here, December trail conditions, and staying a short walk from the start line."
 published: "2026-10-22"
 updated: "2026-10-22"
 factsChecked: "2026-10-22"
-author: "Orlowsky Discovery team"
+author: "the Orlowsky Discovery team in Candidasa"
 hero:
   src: /images/gallery/candidasa-bay-coastline-fishing-boats-east-bali.webp
-  alt: "Candidasa bay in East Bali: fishing boats on turquoise water below green coastal hills"
+  alt: "Candidasa, where the Bali Coast Trail starts and finishes: fishing boats on calm turquoise water below the green coastal hills of Karangasem"
 tags: [events, running, east-bali, candidasa]
 offer: bali-coast-trail-runners
-draft: true
+draft: false
 keyFacts:
   heading: "Race at a glance"
   items:
@@ -20,20 +20,44 @@ keyFacts:
       value: "Saturday 12 and Sunday 13 December 2026. Race pack collection opens on 9 December."
     - label: "Start and finish"
       value: "Rest Area Candi Dasa, Candidasa, Karangasem (East Bali). All four distances."
+    - label: "From our hotel"
+      value: "10–20 minutes on foot, a few minutes by car"
     - label: "Distances"
       value: "50K ultra, 30K, 15K and a 7K family-friendly run"
     - label: "Entry"
       value: "IDR 490,000–990,000 at the local rate, IDR 590,000–1,090,000 at the foreigner rate"
     - label: "Registration"
-      value: "Online, through the official site. No refunds; bibs can be transferred for a fee."
-  link:
-    label: "Official site and registration"
-    href: "https://balicoasttrail.com/"
+      value: "Online. No refunds; bibs can be transferred for a fee."
+  links:
+    - label: "Register"
+      href: "https://app.balitrailrunning.com/"
+    - label: "Official site"
+      href: "https://balicoasttrail.com/"
+    - label: "Instagram @balicoasttrail"
+      href: "https://www.instagram.com/balicoasttrail/"
+distance:
+  heading: "From the hotel to the start line"
+  from:
+    name: "Orlowsky Discovery Hotel"
+    note: "Seafront, Candidasa"
+  to:
+    name: "Rest Area Candi Dasa"
+    note: "Start and finish, all distances"
+  times:
+    - mode: walk
+      label: "On foot"
+      time: "10–20 min"
+    - mode: drive
+      label: "By car"
+      time: "a few minutes"
+  mapLink:
+    label: "Walking route in Google Maps"
+    href: "https://www.google.com/maps/dir/?api=1&origin=-8.511626,115.575050&destination=Rest+Area+Candi+Dasa,+Karangasem,+Bali&travelmode=walking"
 faq:
   - q: "When is the Bali Coast Trail 2026?"
     a: "Race weekend is 12–13 December 2026. The 50K and 30K run on Saturday 12 December, the 15K and 7K on Sunday 13 December. Race packs can be collected in Denpasar on Wednesday 9 December, or at the race venue in Candidasa on Friday 11 and Saturday 12 December."
   - q: "Where does the race start and finish?"
-    a: "All four distances start and finish at Rest Area Candi Dasa in Candidasa, in the Karangasem regency of East Bali. It is about an hour and a half by car from Ngurah Rai airport, longer in traffic."
+    a: "All four distances start and finish at Rest Area Candi Dasa in Candidasa, in the Karangasem regency of East Bali. It is about an hour and a half by car from Ngurah Rai airport, and a 10–20 minute walk from Orlowsky Discovery Hotel."
   - q: "Can foreigners enter, and how much does it cost?"
     a: "Yes. Foreigner entry is IDR 590,000 for the 7K, 790,000 for the 15K, 890,000 for the 30K and 1,090,000 for the 50K. The local rate is IDR 100,000 lower at every distance."
   - q: "Do I need a qualifying race?"
@@ -88,19 +112,23 @@ All times are Bali time (WITA, UTC+8).
 
 ## Getting to Candidasa
 
-Candidasa is on the east coast, about an hour and a half by car from Ngurah Rai International Airport, more on a busy Friday afternoon. The simplest way in is a private car: we run [airport transfers](/transfer) at fixed prices, any time of day. Once you are here, a scooter or a car makes the venue and the rest of East Bali easy. See [car and scooter rental](/experiences/car-bike-rental).
+Candidasa is on the east coast, about an hour and a half by car from Ngurah Rai International Airport, more on a busy Friday afternoon. The simplest way in is a private car: we run [airport transfers](/transfer) at fixed prices, any time of day. Once you are here, a scooter or a car makes the rest of East Bali easy. See [car and scooter rental](/experiences/car-bike-rental).
 
 If you are flying in for the race, plan the race pack around your arrival. Collecting on Wednesday means being in Denpasar. Most visiting runners will find it easier to collect at the venue on Friday, the day before the long races.
 
-## Where to stay: close to the start
+## Where to stay: a short walk from the start
 
-Candidasa is small and quiet, and on race weekend that is exactly what you want. Kuta and Seminyak are about two hours away by car, and the 50K starts at 04:00 and the 30K at 05:00, so sleeping near the venue turns a pre-dawn transfer into a short trip.
+The 50K starts at 04:00 and the 30K at 05:00. From Kuta or Seminyak, about two hours away by car, that means leaving in the middle of the night. Sleeping in Candidasa turns it into a short walk.
 
-Orlowsky Discovery Hotel is on the seafront in Candidasa, TO CONFIRM: walking time and driving time from the hotel to Rest Area Candi Dasa. We have rooms, cottages and villas with pools, a sea-facing restaurant and bar open 07:00–22:00, and an oceanfront spa.
+Orlowsky Discovery Hotel is **10–20 minutes on foot** from Rest Area Candi Dasa, or a few minutes by car. You can walk to the start line, and at 04:00 your headlamp comes in handy on the way there too.
 
-TO CONFIRM: what the hotel can do for 04:00 and 05:00 starters (early breakfast or a breakfast box, late check-out on Sunday).
+[[distance]]
 
-![The hotel's seafront terrace and pool, with the beach and the bay of Candidasa behind](/images/gallery/orlowsky-hotel-pool-beach-panorama.webp "The pool and the seafront at Orlowsky Discovery, Candidasa")
+**Early starts:** if your race starts at 04:00 or 05:00, tell reception and we'll have a breakfast box ready for you the night before.
+
+We have rooms, cottages and villas with private pools, a restaurant and bar facing the sea, open 07:00–22:00, and an oceanfront spa for the day after.
+
+![The curved pool terrace at Orlowsky Discovery Hotel, with teak chairs, the oceanfront restaurant on the left and the beach and Candidasa bay beyond](/images/gallery/orlowsky-hotel-pool-beach-panorama.webp "The pool terrace and seafront at Orlowsky Discovery, Candidasa")
 
 [[offer]]
 
@@ -129,9 +157,15 @@ There are random gear checks before the start and after the finish, and missing 
 
 The sea is the first stop. On a calm day, a slow float in warm water does tired legs a lot of good.
 
-Our spa is open 09:00–21:00 and looks out over the beach. A Balinese massage the afternoon after a long race, or the morning after, is the best way we know to be able to walk downstairs again. There are also longer Ayurvedic treatments from Kerala-trained therapists. See the [spa menu](/spa) for treatments and prices.
+Then the spa. It is open 09:00–21:00 in an open-air pavilion above the beach, and with the runner offer above, one 60-minute Balinese massage per registered runner is on us. Our picks from the [spa menu](/spa) for race weekend:
 
-![A massage table in the oceanfront spa, looking out over the beach to the sea](/images/spa/spa-oceanfront-massage-candidasa.webp "The oceanfront spa at Orlowsky Discovery")
+- **Balinese massage, lymphatic drainage** (60 min): the gentlest of our Balinese massages. A good choice on race day itself, when your legs want easing rather than more work.
+- **Balinese massage, sports** (60 min): firmer, with the muscles worked using wooden sticks. Better a day or two after the race than the same afternoon.
+- **Januvasti** (30 min): an Ayurvedic treatment from our Kerala-trained therapists, with warm herbal oil held over the knees. For anyone whose knees felt every descent.
+
+The spa takes four guests an hour, and race afternoons will be busy, so book your time when you check in.
+
+![A massage table with a bougainvillea flower in the hotel's open-air spa pavilion, looking out over the sand, sun loungers and the sea](/images/spa/spa-oceanfront-massage-candidasa.webp "The oceanfront spa at Orlowsky Discovery")
 
 ## For friends and family who come along
 

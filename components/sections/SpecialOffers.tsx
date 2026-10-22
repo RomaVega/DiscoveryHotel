@@ -89,6 +89,11 @@ export function SpecialOffers({ data, hideHeading }: SpecialOffersProps) {
                           {t(offer.validity)}
                         </p>
                       )}
+                      {offer.code && (
+                        <p className="mt-1.5 font-sans text-xs text-charcoal/70 leading-snug">
+                          {tl.offers.codeLabel}: <span className="font-mono font-semibold text-charcoal">{offer.code}</span>
+                        </p>
+                      )}
                     </div>
                     <div className="flex justify-center sm:block">
                       <SecondaryButton

@@ -62,6 +62,25 @@ describe("content/blog", () => {
   });
 });
 
+describe("published posts", () => {
+  it.each(files)("%s places its offer and distance blocks only when it has the data", (file) => {
+    const [slug, locale] = file.replace(/\.md$/, "").split(".") as [string, Locale];
+    const post = getPost(slug, locale);
+    if (post.body.includes("[[distance]]")) expect(post.distance, `${file} uses [[distance]] without distance:`).toBeDefined();
+    if (post.body.includes("[[offer]]")) expect(post.offer, `${file} uses [[offer]] without offer:`).toBeDefined();
+  });
+
+  it("the Bali Coast Trail guide is live with its runner offer", () => {
+    for (const locale of LOCALES) {
+      const post = getPost("bali-coast-trail", locale);
+      expect(post.draft).toBe(false);
+      expect(post.body).not.toMatch(/TO CONFIRM/);
+    }
+    const offer = getActiveOffer("bali-coast-trail-runners");
+    expect(offer?.code).toBe("BCT2026");
+  });
+});
+
 describe("drafts", () => {
   afterEach(() => {
     vi.unstubAllEnvs();

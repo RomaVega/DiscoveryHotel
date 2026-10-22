@@ -37,6 +37,14 @@ export function ArticleOffer({ offer, locale, strings }: ArticleOfferProps) {
       </h3>
       <p className="mt-2 leading-relaxed text-charcoal">{t(offer.description)}</p>
 
+      {offer.code && (
+        // The code is the thing to remember, so it gets the block's one bordered box.
+        <p className="mt-5 inline-flex items-baseline gap-3 rounded-md border-2 border-dashed border-deep-teal/50 bg-sand px-4 py-2">
+          <span className="font-sans text-xs font-semibold uppercase tracking-widest text-charcoal/70">{strings.offers.codeLabel}</span>
+          <span className="font-mono text-lg font-semibold tracking-wider text-charcoal">{offer.code}</span>
+        </p>
+      )}
+
       {offer.inclusions && offer.inclusions.length > 0 && (
         <>
           <p className="mt-5 font-sans text-sm font-semibold text-charcoal">{strings.offers.included}</p>

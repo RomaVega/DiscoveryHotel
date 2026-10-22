@@ -44,11 +44,14 @@ const ruUrl = (path: string) => `${SITE_URL}/ru${path === "/" ? "" : path}`;
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
 
-  // /blog is listed only once something is published in English.
-  const hasPosts = getPosts("en").length > 0;
+  // /blog is listed only once something is published in English, and its
+  // lastmod is the newest post's — the index changes when a post does.
+  const posts = getPosts("en");
+  const blogUpdated = posts.reduce<string | null>((max, p) => (max === null || p.updated > max ? p.updated : max), null);
 
   for (const { path, priority, changeFrequency } of enRoutes) {
-    if (path === "/blog" && !hasPosts) continue;
+    if (path === "/blog" && !blogUpdated) continue;
+    const lastModified = path === "/blog" && blogUpdated ? new Date(blogUpdated) : LAST_CONTENT_UPDATE;
     const languages = {
       en: enUrl(path),
       ru: ruUrl(path),
@@ -58,7 +61,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // English entry
     entries.push({
       url: enUrl(path),
-      lastModified: LAST_CONTENT_UPDATE,
+      lastModified,
       changeFrequency,
       priority,
       alternates: { languages },
@@ -67,7 +70,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Russian counterpart — slightly lower priority, same hreflang set
     entries.push({
       url: ruUrl(path),
-      lastModified: LAST_CONTENT_UPDATE,
+      lastModified,
       changeFrequency,
       priority: path === "/" ? 0.9 : Math.max(0.1, priority - 0.1),
       alternates: { languages },

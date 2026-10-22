@@ -30,6 +30,11 @@ describe("offerEnquiryText", () => {
     expect(text).toContain("10% off for race entrants\nRate shown");
   });
 
+  it("carries a promo code as the first condition line, for reception to apply", () => {
+    const text = offerEnquiryText({ ...offer, code: "BCT2026" }, t, en.offers);
+    expect(text).toContain("10% off for race entrants\nPromo code: BCT2026\nCondition: Stays 10–14 December");
+  });
+
   // `$&` in a String.replace replacement is "the matched text" — a price must
   // reach the guest exactly as written. See fill() in lib/utils.ts.
   it("keeps dollar signs literal", () => {

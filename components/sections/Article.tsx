@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { LocalizedLink } from "@/components/common/LocalizedLink";
 import { ArticleBody } from "@/components/sections/ArticleBody";
+import { ArticleDistance } from "@/components/sections/ArticleDistance";
 import { ArticleOffer } from "@/components/sections/ArticleOffer";
 import { formatPostDate, type BlogStrings } from "@/lib/blog";
 import { lexMarkdown, tableOfContents } from "@/lib/markdown";
@@ -94,17 +95,22 @@ export function Article({ post, strings, offer }: ArticleProps) {
                 </div>
               ))}
             </dl>
-            {post.keyFacts.link && (
-              <p className="mt-5">
-                <a
-                  href={post.keyFacts.link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-sans text-sm font-semibold text-accent-text underline underline-offset-[3px] hover:decoration-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 rounded-sm"
-                >
-                  {post.keyFacts.link.label} ↗
-                </a>
-              </p>
+            {post.keyFacts.links.length > 0 && (
+              <ul className="mt-5 flex flex-wrap gap-x-6 gap-y-2">
+                {post.keyFacts.links.map((link) => (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-sans text-sm font-semibold text-accent-text underline underline-offset-[3px] hover:decoration-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 rounded-sm"
+                    >
+                      {link.label}
+                      <span aria-hidden="true"> ↗</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
             )}
             {post.factsChecked && (
               <p className="mt-4 font-sans text-xs leading-relaxed text-charcoal/70">
@@ -129,7 +135,10 @@ export function Article({ post, strings, offer }: ArticleProps) {
 
         <ArticleBody
           markdown={post.body}
-          slots={{ offer: offer && <ArticleOffer offer={offer} locale={post.locale} strings={strings} /> }}
+          slots={{
+            offer: offer && <ArticleOffer offer={offer} locale={post.locale} strings={strings} />,
+            distance: post.distance && <ArticleDistance data={post.distance} />,
+          }}
         />
 
         {post.faq.length > 0 && (

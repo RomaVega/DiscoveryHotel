@@ -4,6 +4,7 @@ import { fill } from "./utils";
 /** The `offers.*` strings from locales/*.json that the enquiry uses. */
 export interface OfferEnquiryStrings {
   enquiry: string;
+  enquiryCode: string;
   enquiryValidity: string;
   enquiryTerms: string;
 }
@@ -23,6 +24,8 @@ export function offerEnquiryText(
   strings: OfferEnquiryStrings,
 ): string {
   const conditions = [
+    // First, so the code is the line reception's eye lands on after the offer name.
+    offer.code && fill(strings.enquiryCode, { code: offer.code }),
     offer.validity && fill(strings.enquiryValidity, { validity: resolve(offer.validity) }),
     offer.terms && fill(strings.enquiryTerms, { terms: resolve(offer.terms) }),
   ]

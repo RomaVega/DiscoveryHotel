@@ -112,6 +112,9 @@ export interface Offer {
   validity?: LocalizedString;
   /** Fine print (min stay, blackout dates, cancellation). */
   terms?: LocalizedString;
+  /** Promo code shown on the card and carried into the WhatsApp enquiry, so
+      reception sees it whether or not the booking engine knows about it. */
+  code?: string;
 }
 
 export interface OffersData {
@@ -591,10 +594,24 @@ export interface BlogImage {
   height: number;
 }
 
+export interface BlogLink {
+  label: string;
+  href: string;
+}
+
 export interface BlogKeyFacts {
   heading: string;
   items: { label: string; value: string }[];
-  link?: { label: string; href: string };
+  links: BlogLink[];
+}
+
+/** "How far is it" card, placed in the prose by `[[distance]]`. */
+export interface BlogDistance {
+  heading: string;
+  from: { name: string; note?: string };
+  to: { name: string; note?: string };
+  times: { mode: "walk" | "drive"; label: string; time: string }[];
+  mapLink?: BlogLink;
 }
 
 export interface BlogFaqItem {
@@ -624,6 +641,7 @@ export interface BlogPostMeta {
   /** `id` of an entry in the home page offers; its CTA shows while active. */
   offer?: string;
   keyFacts?: BlogKeyFacts;
+  distance?: BlogDistance;
   faq: BlogFaqItem[];
   readingMinutes: number;
   /** True when the same slug exists in the other locale — gates hreflang. */

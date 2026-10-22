@@ -103,7 +103,6 @@ export function postStructuredData(slug: string, locale: Locale): object[] {
       image: { url: `${SITE_URL}${post.hero.src}`, width: post.hero.width, height: post.hero.height },
       datePublished: post.published,
       dateModified: post.updated,
-      author: post.author,
       locale,
       keywords: post.tags,
     }),

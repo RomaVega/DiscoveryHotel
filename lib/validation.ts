@@ -117,6 +117,7 @@ const offer = z.object({
   inclusions: z.array(localizedString).optional(),
   validity: localizedString.optional(),
   terms: localizedString.optional(),
+  code: z.string().regex(/^[A-Z0-9-]+$/, "promo codes are upper-case letters, digits and hyphens").optional(),
 });
 
 const offersData = z.object({
@@ -501,6 +502,7 @@ export const weddingsPageSchema = z.object({
 
 /* ─── Blog frontmatter (content/blog/<slug>.<locale>.md) ─── */
 const isoDate = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "use YYYY-MM-DD");
+const blogLink = z.object({ label: z.string(), href: z.string().url() });
 
 export const blogFrontmatterSchema = z.object({
   title: z.string().min(10),
@@ -521,7 +523,14 @@ export const blogFrontmatterSchema = z.object({
   keyFacts: z.object({
     heading: z.string(),
     items: z.array(z.object({ label: z.string(), value: z.string() })).min(1),
-    link: z.object({ label: z.string(), href: z.string().url() }).optional(),
+    links: z.array(blogLink).default([]),
+  }).optional(),
+  distance: z.object({
+    heading: z.string(),
+    from: z.object({ name: z.string(), note: z.string().optional() }),
+    to: z.object({ name: z.string(), note: z.string().optional() }),
+    times: z.array(z.object({ mode: z.enum(["walk", "drive"]), label: z.string(), time: z.string() })).min(1),
+    mapLink: blogLink.optional(),
   }).optional(),
   faq: z.array(z.object({ q: z.string().min(5), a: z.string().min(10) })).default([]),
   draft: z.boolean().default(false),

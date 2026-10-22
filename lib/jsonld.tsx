@@ -237,15 +237,13 @@ type BlogPostingOpts = {
   image: { url: string; width: number; height: number };
   datePublished: string;
   dateModified: string;
-  author: string;
   locale: Locale;
   keywords?: string[];
 };
 
 /**
- * One post. The author is the hotel's own team unless a post names a person,
- * so it is typed as an Organization; `publisher` points at the Hotel entity the
- * root layout already describes rather than restating it.
+ * One post, authored and published by the Hotel entity the root layout already
+ * describes (same `@id`), rather than a restated organisation.
  *
  * No `Event` here, deliberately — not in `about`, not anywhere. Google's event
  * results belong to the organiser's page and its ticket link, and a hotel
@@ -265,7 +263,10 @@ export function blogPosting(opts: BlogPostingOpts) {
     datePublished: opts.datePublished,
     dateModified: opts.dateModified,
     inLanguage: opts.locale,
-    author: { "@type": "Organization", name: opts.author, url: SITE_URL },
+    // The byline is free text ("the Orlowsky Discovery team in Candidasa"), but
+    // the machine-readable author is the hotel itself — a real, locatable
+    // business is a stronger authorship signal than a team name.
+    author: { "@type": "Hotel", "@id": HOTEL_ID, name: SITE_NAME, url: SITE_URL },
     publisher: HOTEL_REF,
     isPartOf: { "@id": BLOG_ID },
     keywords: opts.keywords?.length ? opts.keywords.join(", ") : undefined,
