@@ -1,5 +1,6 @@
 // Server Component: a blog post, fully rendered at build time.
 import Image from "next/image";
+import { ChevronDown } from "lucide-react";
 import { LocalizedLink } from "@/components/common/LocalizedLink";
 import { ArticleBody } from "@/components/sections/ArticleBody";
 import { ArticleDistance } from "@/components/sections/ArticleDistance";
@@ -144,12 +145,30 @@ export function Article({ post, strings, offer }: ArticleProps) {
         {post.faq.length > 0 && (
           <section aria-labelledby="faq" className="mt-16">
             <h2 id="faq" className="scroll-mt-28 font-serif text-3xl md:text-4xl font-medium text-charcoal">{s.faq}</h2>
-            <div className="mt-6 divide-y divide-charcoal/10 border-y border-charcoal/10">
+            {/*
+              Native <details> sharing one `name`: opening a question closes the
+              one that was open, with no JavaScript. Answers stay in the HTML, so
+              search engines read them and the browser's find-in-page opens the
+              match. Browsers without exclusive-<details> support simply allow
+              several open at once. Looks like the /faq page's cards; answers are
+              charcoal, not that page's `stone` (3.43:1 fails AA at body size).
+              No height animation (Animation Rules) — the answer fades in.
+            */}
+            <div className="mt-6 space-y-3">
               {post.faq.map((item) => (
-                <div key={item.q} className="py-5">
-                  <h3 className="font-sans text-base font-semibold text-charcoal">{item.q}</h3>
-                  <p className="mt-2 font-sans leading-relaxed text-charcoal">{item.a}</p>
-                </div>
+                <details key={item.q} name="post-faq" className="group rounded-md bg-ivory shadow-sm">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 rounded-md p-5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 [&::-webkit-details-marker]:hidden">
+                    <span className="font-sans text-base font-semibold text-charcoal">{item.q}</span>
+                    <ChevronDown
+                      aria-hidden="true"
+                      size={18}
+                      className="shrink-0 text-stone motion-safe:transition-transform motion-safe:duration-200 group-open:rotate-180"
+                    />
+                  </summary>
+                  <p className="px-5 pb-5 font-sans leading-relaxed text-charcoal motion-safe:animate-in motion-safe:fade-in-0 motion-safe:duration-200">
+                    {item.a}
+                  </p>
+                </details>
               ))}
             </div>
           </section>
