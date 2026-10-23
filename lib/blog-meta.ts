@@ -20,7 +20,10 @@ const OG_LOCALE: Record<Locale, string> = { en: "en_US", ru: "ru_RU" };
 export function postMetadata(slug: string, locale: Locale): Metadata {
   const post = getPost(slug, locale);
   const url = `${SITE_URL}${postPath(slug, locale)}`;
-  const image = { url: `${SITE_URL}${post.hero.src}`, width: post.hero.width, height: post.hero.height, alt: post.hero.alt };
+  // Link previews prefer the dedicated 1200×630 JPEG; the page itself shows the WebP hero.
+  const image = post.ogImage
+    ? { url: `${SITE_URL}${post.ogImage}`, width: 1200, height: 630, alt: post.hero.alt }
+    : { url: `${SITE_URL}${post.hero.src}`, width: post.hero.width, height: post.hero.height, alt: post.hero.alt };
 
   return {
     title: post.metaTitle,

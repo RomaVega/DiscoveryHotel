@@ -589,6 +589,8 @@ export interface ExperiencesHubData {
 export interface BlogImage {
   src: string;
   alt: string;
+  /** Shown under the hero, e.g. "Courtesy of Bali Coast Trail" for a photo the hotel did not take. */
+  credit?: string;
   /** Intrinsic size, read from the file at build — reserves space, no CLS. */
   width: number;
   height: number;
@@ -651,6 +653,8 @@ export interface BlogPostMeta {
   factsChecked?: string;
   author: string;
   hero: BlogImage;
+  /** 1200×630 JPEG for link previews; the hero is used when absent. */
+  ogImage?: string;
   tags: string[];
   /** `id` of an entry in the home page offers; its CTA shows while active. */
   offer?: string;

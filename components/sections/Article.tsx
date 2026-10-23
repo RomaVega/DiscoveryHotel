@@ -82,6 +82,11 @@ export function Article({ post, strings, offer }: ArticleProps) {
           sizes="(max-width: 1024px) 100vw, 976px"
           className="h-auto max-h-[70vh] w-full object-cover sm:rounded-md"
         />
+        {post.hero.credit && (
+          <figcaption className="mt-2 px-6 text-right font-sans text-xs text-charcoal/70 sm:px-0">
+            {post.hero.credit}
+          </figcaption>
+        )}
       </figure>
 
       <div className="mx-auto mt-10 max-w-[42rem] px-6">
