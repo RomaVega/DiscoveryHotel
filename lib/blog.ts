@@ -83,6 +83,9 @@ function load(slug: string, locale: Locale): BlogPost {
   if (!fm.draft && /TO CONFIRM/.test(raw)) {
     throw new Error(`content/blog/${slug}.${locale}.md still has a TO CONFIRM note — resolve it or keep draft: true`);
   }
+  if (fm.ogImage && !existsSync(join(process.cwd(), "public", fm.ogImage))) {
+    throw new Error(`content/blog/${slug}.${locale}.md: ogImage not found: ${fm.ogImage}`);
+  }
   if (fm.updated < fm.published) {
     throw new Error(`content/blog/${slug}.${locale}.md: updated (${fm.updated}) is before published (${fm.published})`);
   }

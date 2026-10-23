@@ -517,7 +517,11 @@ export const blogFrontmatterSchema = z.object({
   hero: z.object({
     src: z.string().regex(/^\/images\/.+\.webp$/, "hero must be a .webp under /images/"),
     alt: z.string().min(10),
+    credit: z.string().min(3).optional(),
   }),
+  // Link-preview image: a 1200×630 JPEG. WebP heroes are fine on the page but
+  // not every messenger renders WebP in a link preview (WhatsApp is the risk).
+  ogImage: z.string().regex(/^\/images\/.+\.jpe?g$/, "ogImage must be a .jpg under /images/").optional(),
   tags: z.array(z.string().regex(/^[a-z0-9-]+$/)).default([]),
   offer: z.string().regex(/^[a-z0-9-]+$/).optional(),
   keyFacts: z.object({

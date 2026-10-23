@@ -4,12 +4,14 @@ metaTitle: "Bali Coast Trail 2026: Race Guide & Where to Stay | Orlowsky Discove
 description: "Dates, distances, start times, entry fees and the weekend schedule for the Bali Coast Trail, 12–13 December 2026 in Candidasa, plus where to stay near the start."
 excerpt: "Race weekend in Candidasa, explained: the four distances and who each one suits, the schedule, getting here, December trail conditions, and staying a 10-minute walk from the start line."
 published: "2026-10-22"
-updated: "2026-10-22"
+updated: "2026-10-24"
 factsChecked: "2026-10-22"
 author: "the Orlowsky Discovery team in Candidasa"
 hero:
-  src: /images/gallery/candidasa-bay-coastline-fishing-boats-east-bali.webp
-  alt: "Candidasa, where the Bali Coast Trail starts and finishes: fishing boats on calm turquoise water below the green coastal hills of Karangasem"
+  src: /images/blog/blog-bali-coast-trail-temple-gate-agung.webp
+  credit: "Courtesy of Bali Coast Trail"
+  alt: "Twin Balinese temple gates on a clifftop above a turquoise bay with fishing boats, a white beach and green hills, with Mount Agung on the horizon"
+ogImage: /images/blog/blog-bali-coast-trail-og.jpg
 tags: [events, running, east-bali, candidasa]
 offer: bali-coast-trail-runners
 draft: false
@@ -92,6 +94,8 @@ The race is listed with ITRA and the UTMB Index, and the 30K and 50K carry ITRA 
 
 The flagship distance starts in the dark. You follow the coast out of Candidasa, then climb into the Karangasem hills on village roads and plantation trails. The middle of the course crosses ridges and terraced rice fields and holds the steepest climbs, before it drops back to the sea to finish in Candidasa. There are five water stations, with a drop bag and medical support at the third (km 27). Intermediate cut-offs run from 08:00 at km 18 to 14:30 at km 44, and they are strictly enforced. This one is for runners with a trail ultra or a marathon behind them.
 
+![Green sea cliffs above a curving beach and a turquoise bay full of fishing boats, with Mount Agung rising behind the coast](/images/blog/blog-bali-coast-trail-cliffs-agung.webp "Courtesy of Bali Coast Trail")
+
 ### 30K: coast and hills
 
 A step towards ultra distance, mixing coastline with hill climbs past cliffs, rivers and rice fields. With 1,438 m of climbing it is a real mountain run, not a long road race on dirt.
@@ -116,6 +120,8 @@ All times are Bali time (WITA, UTC+8).
 > **Check the 7K start time.** The schedule page says 06:00, but the 7K page and the home page say 05:30. Confirm in the race briefing or on the official site before Sunday.
 
 ## Getting to Candidasa
+
+![Candidasa bay: fishing boats on calm turquoise water below the green coastal hills of Karangasem](/images/gallery/candidasa-bay-coastline-fishing-boats-east-bali.webp "Candidasa, where every distance starts and finishes")
 
 Candidasa is on the east coast, about an hour and a half by car from Ngurah Rai International Airport, more on a busy Friday afternoon. The simplest way in is a private car: we run [airport transfers](/transfer) at fixed prices, any time of day. Once you are here, a scooter or a car makes the rest of East Bali easy. See [car and scooter rental](/experiences/car-bike-rental).
 

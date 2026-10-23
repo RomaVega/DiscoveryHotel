@@ -2,6 +2,9 @@
 // Regenerated on every build via the "prebuild" npm script.
 
 export const ALL_IMAGES: readonly string[] = [
+  "/images/blog/blog-bali-coast-trail-cliffs-agung.webp",
+  "/images/blog/blog-bali-coast-trail-og.jpg",
+  "/images/blog/blog-bali-coast-trail-temple-gate-agung.webp",
   "/images/deluxe-cottage/deluxe-cottage-aerial-garden-candidasa.webp",
   "/images/deluxe-cottage/deluxe-cottage-anteroom-candidasa.webp",
   "/images/deluxe-cottage/deluxe-cottage-anteroom-tea-tray-candidasa.webp",
@@ -182,6 +185,9 @@ export const ALL_ROUTES: readonly string[] = [
 // the browser and CDN caches. Falls back to ASSET_VERSION for any path not
 // listed here (e.g. one assembled at runtime rather than a static literal).
 export const ASSET_VERSIONS: Readonly<Record<string, string>> = {
+  "/images/blog/blog-bali-coast-trail-cliffs-agung.webp": "ad3d6718",
+  "/images/blog/blog-bali-coast-trail-og.jpg": "c54334d5",
+  "/images/blog/blog-bali-coast-trail-temple-gate-agung.webp": "72871ff0",
   "/images/deluxe-cottage/deluxe-cottage-aerial-garden-candidasa.webp": "04e671fe",
   "/images/deluxe-cottage/deluxe-cottage-anteroom-candidasa.webp": "9b6a7d84",
   "/images/deluxe-cottage/deluxe-cottage-anteroom-tea-tray-candidasa.webp": "6261ee9a",
