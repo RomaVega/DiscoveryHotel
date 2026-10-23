@@ -100,3 +100,24 @@ describe("BookNowButton tracking", () => {
     container.remove();
   });
 });
+
+describe("BookNowButton two-line label", () => {
+  it("breaks a label at \\n on phones only, keeping the words apart from sm", () => {
+    mount(<BookNowButton location="floating" label={"Book with\n15% Off"} href="https://wa.me/1?text=x" />);
+    const link = screen.getByRole("link");
+    const br = link.querySelector("br");
+    expect(br).not.toBeNull();
+    expect(br).toHaveClass("sm:hidden");
+    // Read as one phrase by screen readers and wherever the <br> is hidden.
+    expect(link.textContent?.replace(/\s+/g, " ").trim()).toBe("Book with 15% Off");
+    // Tighter leading and padding below sm so two lines keep the 44px height.
+    expect(link).toHaveClass("max-sm:py-1.5", "max-sm:leading-[1.15]", "text-center");
+  });
+
+  it("leaves a one-line label untouched", () => {
+    mount(<BookNowButton location="floating" />);
+    const link = screen.getByRole("link");
+    expect(link.querySelector("br")).toBeNull();
+    expect(link).not.toHaveClass("max-sm:py-1.5");
+  });
+});

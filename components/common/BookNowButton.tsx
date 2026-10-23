@@ -1,4 +1,5 @@
 "use client"; // Framer Motion sheen + useLanguage
+import { Fragment } from "react";
 
 import { m } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -59,6 +60,15 @@ interface BookNowButtonProps {
  */
 export function BookNowButton({ className, onClick, label, href, location, variant = "solid" }: BookNowButtonProps) {
   const { tl } = useLanguage();
+  // A "\n" in the label marks where it may break: below `sm` it is set on two
+  // lines (a centred pill with a long one-line label runs into the WhatsApp
+  // mark on phones), from `sm` it is one line. Two lines at the base's 20px
+  // leading would make the pill 64px tall and pull it off the mark's midline,
+  // so the leading tightens to 1.15 and the padding to 6px: 2 × 16px + 12px
+  // keeps the 44px height. Every phone gets the same two-line pill — a width
+  // breakpoint inside the phone range would make it differ from phone to phone.
+  const lines = (label ?? tl.nav.bookNow).split("\n");
+  const twoLine = lines.length > 1;
   const destination = href ?? BOOKING_URL;
 
   // Reported in the capture phase so the push lands before GTM's Link Click
@@ -122,10 +132,19 @@ export function BookNowButton({ className, onClick, label, href, location, varia
         //  2. a tight shadow to seat the edge.
         //  3. a wide soft one for the lift.
         variant === "solid" && "shadow-[0_0_0_1px_rgba(255,255,255,0.65),0_2px_6px_rgba(0,0,0,0.16),0_8px_24px_rgba(0,0,0,0.18)]",
+        twoLine && "text-center max-sm:py-1.5 max-sm:leading-[1.15]",
         className
       )}
     >
-      <span className="relative z-10">{label ?? tl.nav.bookNow}</span>
+      <span className="relative z-10">
+        {lines.map((line, i) => (
+          <Fragment key={i}>
+            {/* The space keeps the words apart from `sm`, where the <br> is hidden. */}
+            {i > 0 && <><br className="sm:hidden" />{" "}</>}
+            {line}
+          </Fragment>
+        ))}
+      </span>
       {/* Sheen. Decorative, transform-only, and long-delayed: a highlight that
           crosses once every few seconds reads as a catch of light, while a fast
           or frequent one reads as a banner ad. Framer Motion so `MotionConfig
