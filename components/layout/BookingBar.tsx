@@ -93,11 +93,16 @@ export function BookingBar({ alwaysVisible = false, cta, hideWhileScrollingDown 
           // The safe-area floor still wins on a device with a home indicator,
           // where it lifts this button ~4px above that midline — imperceptible,
           // and better than sitting in the indicator's strip.
-          // A page's own label (blog posts) can be long — «Забронировать со
-          // скидкой» is ~200px — and on a 360px phone a centred pill runs into
-          // the WhatsApp mark (right-6, 56px) — and sits within a few px of it up to ~430px. Below 450px the pill is centred
-          // in the space left of the mark instead. Standard labels stay centred.
-          className={`fixed bottom-0 inset-x-0 z-40 lg:hidden pointer-events-none flex justify-center px-4 pb-[max(1.875rem,env(safe-area-inset-bottom))] ${cta ? "max-[449px]:pr-[5.75rem]" : ""}`}
+          // A page's own label (blog posts with an offer) can be long —
+          // «Забронировать со скидкой» is ~200px — and a centred pill runs into
+          // the WhatsApp mark (right-6, 56px) on narrow phones. Below `sm` such
+          // a pill fills the row instead: 24px from the left edge (matching the
+          // mark's 24px from the right), 12px short of the mark, label centred.
+          // It then looks the same on every phone, whatever the label or width.
+          // (A width breakpoint that only nudged the pill left of centre made it
+          // centred on one phone and lopsided on the next.) From `sm` there is
+          // room, so it stays the usual centred pill, as do standard labels.
+          className={`fixed bottom-0 inset-x-0 z-40 lg:hidden pointer-events-none flex justify-center px-4 pb-[max(1.875rem,env(safe-area-inset-bottom))] ${cta ? "max-sm:pl-6 max-sm:pr-[5.75rem]" : ""}`}
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 12 }}
@@ -105,9 +110,7 @@ export function BookingBar({ alwaysVisible = false, cta, hideWhileScrollingDown 
         >
           <BookNowButton
             location="floating"
-            // With the pill moved off-centre, a ~200px label plus the base 32px
-            // side padding is 262px against 252px free at 360px; 24px fits.
-            className={`pointer-events-auto ${cta ? "max-[449px]:px-6" : ""}`}
+            className={`pointer-events-auto ${cta ? "max-sm:flex-1 max-sm:px-4 max-sm:text-center" : ""}`}
             {...serviceCta}
           />
         </m.div>
