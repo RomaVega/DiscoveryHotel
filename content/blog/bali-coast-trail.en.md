@@ -2,7 +2,7 @@
 title: "Bali Coast Trail 2026: Race Guide and Where to Stay in Candidasa"
 metaTitle: "Bali Coast Trail 2026: Race Guide & Where to Stay | Orlowsky Discovery"
 description: "Dates, distances, start times, entry fees and the weekend schedule for the Bali Coast Trail, 12–13 December 2026 in Candidasa, plus where to stay near the start."
-excerpt: "Race weekend in Candidasa, explained: the four distances and who each one suits, the schedule, getting here, December trail conditions, and staying a short walk from the start line."
+excerpt: "Race weekend in Candidasa, explained: the four distances and who each one suits, the schedule, getting here, December trail conditions, and staying a 10-minute walk from the start line."
 published: "2026-10-22"
 updated: "2026-10-22"
 factsChecked: "2026-10-22"
@@ -21,7 +21,7 @@ keyFacts:
     - label: "Start and finish"
       value: "Rest Area Candi Dasa, Candidasa, Karangasem (East Bali). All four distances."
     - label: "From our hotel"
-      value: "10–20 minutes on foot, a few minutes by car"
+      value: "A 10-minute walk. Free race-day transfer with the runner offer."
     - label: "Distances"
       value: "50K ultra, 30K, 15K and a 7K family-friendly run"
     - label: "Entry"
@@ -46,23 +46,23 @@ distance:
   times:
     - mode: walk
       label: "On foot"
-      time: "10–20 min"
+      time: "10 min"
     - mode: drive
-      label: "By car"
-      time: "a few minutes"
+      label: "Transfer"
+      time: "free with BCT2026"
   mapLink:
     label: "Walking route in Google Maps"
     href: "https://www.google.com/maps/dir/?api=1&origin=-8.511626,115.575050&destination=Rest+Area+Candi+Dasa,+Karangasem,+Bali&travelmode=walking"
 cta:
   heading: "Running the Bali Coast Trail?"
-  subtext: "Stay a 10–20 minute walk from the start line, with 15% off your room and a free 60-minute Balinese massage after the race."
+  subtext: "Stay a 10-minute walk from the start line, with 15% off your room, a free transfer on race days and a free 60-minute Balinese massage after the race."
   button: "Book on WhatsApp"
   floating: "Book with 15% Off"
 faq:
   - q: "When is the Bali Coast Trail 2026?"
     a: "Race weekend is 12–13 December 2026. The 50K and 30K run on Saturday 12 December, the 15K and 7K on Sunday 13 December. Race packs can be collected in Denpasar on Wednesday 9 December, or at the race venue in Candidasa on Friday 11 and Saturday 12 December."
   - q: "Where does the race start and finish?"
-    a: "All four distances start and finish at Rest Area Candi Dasa in Candidasa, in the Karangasem regency of East Bali. It is about an hour and a half by car from Ngurah Rai airport, and a 10–20 minute walk from Orlowsky Discovery Hotel."
+    a: "All four distances start and finish at Rest Area Candi Dasa in Candidasa, in the Karangasem regency of East Bali. It is about an hour and a half by car from Ngurah Rai airport, and a 10-minute walk from Orlowsky Discovery Hotel."
   - q: "Can foreigners enter, and how much does it cost?"
     a: "Yes. Foreigner entry is IDR 590,000 for the 7K, 790,000 for the 15K, 890,000 for the 30K and 1,090,000 for the 50K. The local rate is IDR 100,000 lower at every distance."
   - q: "Do I need a qualifying race?"
@@ -121,15 +121,15 @@ Candidasa is on the east coast, about an hour and a half by car from Ngurah Rai 
 
 If you are flying in for the race, plan the race pack around your arrival. Collecting on Wednesday means being in Denpasar. Most visiting runners will find it easier to collect at the venue on Friday, the day before the long races.
 
-## Where to stay: a short walk from the start
+## Where to stay: a 10-minute walk from the start
 
-The 50K starts at 04:00 and the 30K at 05:00. From Kuta or Seminyak, about two hours away by car, that means leaving in the middle of the night. Sleeping in Candidasa turns it into a short walk.
+The 50K starts at 04:00 and the 30K at 05:00. From Kuta or Seminyak, about two hours away by car, that means leaving in the middle of the night. Sleeping in Candidasa turns it into a 10-minute walk.
 
-Orlowsky Discovery Hotel is **10–20 minutes on foot** from Rest Area Candi Dasa, or a few minutes by car. You can walk to the start line, and at 04:00 your headlamp comes in handy on the way there too.
+Orlowsky Discovery Hotel is a **10-minute walk** from Rest Area Candi Dasa, so you can walk to the start line with your headlamp already on. If you book with the runner offer, you don't have to: on race days our free transfer takes you to the start and brings you back from the finish.
 
 [[distance]]
 
-**Early starts:** if your race starts at 04:00 or 05:00, tell reception and we'll have a breakfast box ready for you the night before.
+**Early starts:** tell reception your start time when you check in. We'll have a breakfast box ready the night before and, with the runner offer, the car waiting for your 04:00 or 05:00 start.
 
 We have rooms, cottages and villas with private pools, a restaurant and bar facing the sea, open 07:00–22:00, and an oceanfront spa for the day after.
 

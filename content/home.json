@@ -668,8 +668,8 @@
           "ru": "Предложение для участников Bali Coast Trail"
         },
         "description": {
-          "en": "Running the Bali Coast Trail in December? Stay a short walk from the start line, with 15% off your room and a free 60-minute Balinese massage for every registered runner.",
-          "ru": "Участвуете в Bali Coast Trail в декабре? Остановитесь у нас в нескольких минутах ходьбы от старта: −15% на номер и бесплатный 60-минутный балийский массаж для каждого зарегистрированного участника."
+          "en": "Running the Bali Coast Trail in December? Stay a 10-minute walk from the start line, with 15% off your room, a free transfer on race days and a free 60-minute Balinese massage for every registered runner.",
+          "ru": "Участвуете в Bali Coast Trail в декабре? Остановитесь у нас в 10 минутах ходьбы от старта: −15% на номер, бесплатный трансфер в дни гонки и 60-минутный балийский массаж в подарок каждому зарегистрированному участнику."
         },
         "price": {
           "en": "15% off the room rate",
@@ -683,6 +683,10 @@
           "ru": "Для участников забега"
         },
         "inclusions": [
+          {
+            "en": "A free transfer between the hotel and the start/finish on race days, 04:00 and 05:00 starts included",
+            "ru": "Бесплатный трансфер от отеля до старта и обратно с финиша в дни гонки, в том числе к старту в 04:00 и 05:00"
+          },
           {
             "en": "A free 60-minute Balinese massage for each registered runner",
             "ru": "Бесплатный 60-минутный балийский массаж для каждого зарегистрированного участника"
