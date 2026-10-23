@@ -50,7 +50,7 @@ describe("Footer", () => {
       within(screen.getByRole("list", { name: "Explore" }))
         .getAllByRole("link")
         .map((a) => a.textContent)
-    ).toEqual(["Rooms", "Dining", "Experiences", "Offers", "Gallery", "About"]);
+    ).toEqual(["Rooms", "Dining", "Experiences", "Offers", "Gallery", "About", "Blog"]);
     expect(
       within(screen.getByRole("list", { name: "On the grounds" }))
         .getAllByRole("link")

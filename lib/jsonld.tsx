@@ -211,6 +211,87 @@ export function lodgingBusiness(opts: LodgingOpts) {
   };
 }
 
+/* ─── Blog ─── */
+
+const BLOG_ID = `${SITE_URL}/blog#blog`;
+
+/** The /blog index: a Blog published by the hotel, listing its posts. */
+export function blog(opts: { path: string; name: string; description: string; locale: Locale; posts: { path: string; headline: string }[] }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "@id": BLOG_ID,
+    name: opts.name,
+    description: opts.description,
+    url: `${SITE_URL}${opts.path}`,
+    inLanguage: opts.locale,
+    publisher: HOTEL_REF,
+    blogPost: opts.posts.map((p) => ({ "@type": "BlogPosting", headline: p.headline, url: `${SITE_URL}${p.path}` })),
+  };
+}
+
+type BlogPostingOpts = {
+  path: string;
+  headline: string;
+  description: string;
+  image: { url: string; width: number; height: number };
+  datePublished: string;
+  dateModified: string;
+  locale: Locale;
+  keywords?: string[];
+};
+
+/**
+ * One post, authored and published by the Hotel entity the root layout already
+ * describes (same `@id`), rather than a restated organisation.
+ *
+ * No `Event` here, deliberately — not in `about`, not anywhere. Google's event
+ * results belong to the organiser's page and its ticket link, and a hotel
+ * marking up someone else's race risks a duplicate or a wrong date in search.
+ */
+export function blogPosting(opts: BlogPostingOpts) {
+  const url = `${SITE_URL}${opts.path}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": `${url}#post`,
+    mainEntityOfPage: url,
+    url,
+    headline: opts.headline,
+    description: opts.description,
+    image: { "@type": "ImageObject", url: opts.image.url, width: opts.image.width, height: opts.image.height },
+    datePublished: opts.datePublished,
+    dateModified: opts.dateModified,
+    inLanguage: opts.locale,
+    // The byline is free text ("the Orlowsky Discovery team in Candidasa"), but
+    // the machine-readable author is the hotel itself — a real, locatable
+    // business is a stronger authorship signal than a team name.
+    author: { "@type": "Hotel", "@id": HOTEL_ID, name: SITE_NAME, url: SITE_URL },
+    publisher: HOTEL_REF,
+    isPartOf: { "@id": BLOG_ID },
+    keywords: opts.keywords?.length ? opts.keywords.join(", ") : undefined,
+  };
+}
+
+/**
+ * FAQPage from a post's question/answer pairs. Google stopped showing FAQ rich
+ * results in May 2026, so this earns no search feature; it stays because the
+ * questions are on the page anyway and other readers of structured data (AI
+ * assistants among them) still use it. Harmless by Google's own account.
+ */
+export function faqFromPairs(items: { q: string; a: string }[], locale: Locale) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    inLanguage: locale,
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  };
+}
+
 export function JsonLd({ data }: { data: object | object[] }) {
   const items = Array.isArray(data) ? data : [data];
   return (

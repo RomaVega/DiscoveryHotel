@@ -7,7 +7,7 @@ import { SecondaryButton } from "@/components/common/SecondaryButton";
 import type { Offer, OffersData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
-import { fill } from "@/lib/utils";
+import { offerEnquiryText } from "@/lib/offers";
 
 interface SpecialOffersProps {
   data: OffersData;
@@ -32,26 +32,10 @@ export function SpecialOffers({ data, hideHeading }: SpecialOffersProps) {
    * argued about later), and leaves labelled blanks for the four things
    * reception has to ask for anyway. Optional `validity` and `terms` are
    * folded in when the content carries them, which is why `conditions` is one
-   * substitution and not two more lines in every template.
+   * substitution and not two more lines in every template. The text itself is
+   * built by `offerEnquiryText`, which a blog post's offer block shares.
    */
-  const enquiryUrl = (offer: Offer) => {
-    const conditions = [
-      offer.validity && fill(tl.offers.enquiryValidity, { validity: t(offer.validity) }),
-      offer.terms && fill(tl.offers.enquiryTerms, { terms: t(offer.terms) }),
-    ]
-      .filter(Boolean)
-      .map((line) => `\n${line}`)
-      .join("");
-
-    return buildWhatsAppUrl(
-      fill(tl.offers.enquiry, {
-        title: t(offer.title),
-        terms: t(offer.description),
-        conditions,
-        price: t(offer.price),
-      })
-    );
-  };
+  const enquiryUrl = (offer: Offer) => buildWhatsAppUrl(offerEnquiryText(offer, t, tl.offers));
 
   if (activeOffers.length === 0) return null;
 
@@ -103,6 +87,11 @@ export function SpecialOffers({ data, hideHeading }: SpecialOffersProps) {
                       {offer.validity && (
                         <p className="mt-1.5 font-sans text-xs text-stone leading-snug">
                           {t(offer.validity)}
+                        </p>
+                      )}
+                      {offer.code && (
+                        <p className="mt-1.5 font-sans text-xs text-charcoal/70 leading-snug">
+                          {tl.offers.codeLabel}: <span className="font-mono font-semibold text-charcoal">{offer.code}</span>
                         </p>
                       )}
                     </div>

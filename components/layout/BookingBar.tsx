@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useLanguage } from "@/lib/language-context";
 import { useAtPageBottom } from "@/lib/use-page-bottom";
 import { useOwnCtaInView } from "@/lib/use-own-cta-in-view";
+import { useHideWhileReading } from "@/lib/use-hide-while-reading";
 import { serviceForRoute, SERVICE_URL } from "@/lib/booking";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { BookNowButton } from "@/components/common/BookNowButton";
@@ -15,6 +16,11 @@ interface BookingBarProps {
       back until the full-height hero video has scrolled past, so it never
       covers the hero's own call to action. */
   alwaysVisible?: boolean;
+  /** A page's own label and destination, ahead of the route's service mapping —
+      a blog post with a live offer sends the pill to that offer's enquiry. */
+  cta?: { label: string; href: string };
+  /** Step aside while the reader scrolls down (see useHideWhileReading). */
+  hideWhileScrollingDown?: boolean;
 }
 
 /**
@@ -36,12 +42,13 @@ interface BookingBarProps {
  * on screen (a CTA band, the book-direct section), which it would otherwise
  * cover — see `useOwnCtaInView`.
  */
-export function BookingBar({ alwaysVisible = false }: BookingBarProps) {
+export function BookingBar({ alwaysVisible = false, cta, hideWhileScrollingDown = false }: BookingBarProps) {
   const pathname = usePathname();
   const { tl } = useLanguage();
   const [scrolledPast, setScrolledPast] = useState(alwaysVisible);
   const atPageBottom = useAtPageBottom();
   const ownCtaInView = useOwnCtaInView(pathname);
+  const reading = useHideWhileReading(hideWhileScrollingDown);
 
   useEffect(() => {
     if (alwaysVisible) { setScrolledPast(true); return; }
@@ -56,7 +63,9 @@ export function BookingBar({ alwaysVisible = false }: BookingBarProps) {
   // "Записаться в спа") and reusing one inside the sentence produces "I'd like
   // to ask about book a treatment" and, in Russian, a verb where «про» requires
   // an accusative noun.
-  const serviceCta = service
+  const serviceCta = cta
+    ? cta
+    : service
     ? {
         label: tl.serviceCta.labels[service],
         // A published destination wins over an enquiry: SERVICE_URL holds the
@@ -69,7 +78,7 @@ export function BookingBar({ alwaysVisible = false }: BookingBarProps) {
 
   return (
     <AnimatePresence>
-      {scrolledPast && !atPageBottom && !ownCtaInView && (
+      {scrolledPast && !atPageBottom && !ownCtaInView && !reading && (
         <m.div
           // z-40 keeps it under the mobile menu's z-[60]. pointer-events-none on
           // the positioning layer, auto on the button: the layer spans the width
@@ -84,13 +93,23 @@ export function BookingBar({ alwaysVisible = false }: BookingBarProps) {
           // The safe-area floor still wins on a device with a home indicator,
           // where it lifts this button ~4px above that midline — imperceptible,
           // and better than sitting in the indicator's strip.
-          className="fixed bottom-0 inset-x-0 z-40 lg:hidden pointer-events-none flex justify-center px-4 pb-[max(1.875rem,env(safe-area-inset-bottom))]"
+          // A page's own label (blog posts) can be long — «Забронировать со
+          // скидкой» is ~200px — and on a 360px phone a centred pill runs into
+          // the WhatsApp mark (right-6, 56px) — and sits within a few px of it up to ~430px. Below 450px the pill is centred
+          // in the space left of the mark instead. Standard labels stay centred.
+          className={`fixed bottom-0 inset-x-0 z-40 lg:hidden pointer-events-none flex justify-center px-4 pb-[max(1.875rem,env(safe-area-inset-bottom))] ${cta ? "max-[449px]:pr-[5.75rem]" : ""}`}
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 12 }}
           transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
         >
-          <BookNowButton location="floating" className="pointer-events-auto" {...serviceCta} />
+          <BookNowButton
+            location="floating"
+            // With the pill moved off-centre, a ~200px label plus the base 32px
+            // side padding is 262px against 252px free at 360px; 24px fits.
+            className={`pointer-events-auto ${cta ? "max-[449px]:px-6" : ""}`}
+            {...serviceCta}
+          />
         </m.div>
       )}
     </AnimatePresence>

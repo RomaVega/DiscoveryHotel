@@ -49,6 +49,16 @@ export type CtaLocation =
    * GuestPro Link Click trigger.
    */
   | "offer_card"
+  /**
+   * The offer block inside a blog post (`ArticleOffer`). Same WhatsApp text as
+   * the card, separate location so posts can be judged on what they bring in.
+   */
+  | "blog_offer"
+  /**
+   * The CTA band at the foot of a blog post when the post has a live offer —
+   * its own band, so it does not dilute `booking_band`, which books a room.
+   */
+  | "blog_band"
   /** A room card's "Check Availability" in `RoomsPreview` (home page). */
   | "room_card"
   /** "View Menu" in `DiningPreview` (home page) — the in-room dining menu. */

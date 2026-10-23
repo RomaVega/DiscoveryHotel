@@ -1,5 +1,7 @@
 import { getContactData, getExperiencesHubData } from "@/lib/content";
 import { InnerPageLayout } from "@/components/layout/InnerPageLayout";
+import { RelatedPosts } from "@/components/sections/PostList";
+import { blogStrings, getPostsTagged } from "@/lib/blog";
 import { PageHero } from "@/components/sections/PageHero";
 import { ExperiencesHub } from "@/components/sections/ExperiencesHub";
 import { SITE_URL } from "@/lib/site";
@@ -53,6 +55,7 @@ export default function ExperiencesPage() {
         noOverlay
       />
       <ExperiencesHub data={data} />
+      <RelatedPosts posts={getPostsTagged("en", ["east-bali"])} strings={blogStrings("en")} />
     </InnerPageLayout>
   );
 }

@@ -7,15 +7,18 @@ import { SecondaryButton } from "@/components/common/SecondaryButton";
 import type { BookingCtaData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
 import { cn } from "@/lib/utils";
+import type { CtaLocation } from "@/lib/track";
 
 interface BookingCtaProps {
   data: BookingCtaData;
   /** Rendered between the subtext and the button — the home page puts the
       "Why Book Direct" perks here, so the reasons sit right above the CTA. */
   children?: ReactNode;
+  /** Defaults to the room band's `booking_band`; a blog post's offer band passes `blog_band`. */
+  ctaLocation?: CtaLocation;
 }
 
-export function BookingCta({ data, children }: BookingCtaProps) {
+export function BookingCta({ data, children, ctaLocation = "booking_band" }: BookingCtaProps) {
   const { t } = useLanguage();
   // A plain band (heading, one line, button) keeps the 24px phone padding every
   // CTA band uses. With the perks inside it is a full section ~900px tall, and at
@@ -38,7 +41,7 @@ export function BookingCta({ data, children }: BookingCtaProps) {
             <SecondaryButton
               href={data.bookingUrl}
               external
-              data-cta-location="booking_band"
+              data-cta-location={ctaLocation}
               className="border-white text-white hover:bg-white/10 hover:border-white/80"
             >
               {t(data.fallbackCta)}

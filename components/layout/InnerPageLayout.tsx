@@ -9,9 +9,13 @@ import type { ContactData } from "@/lib/types";
 interface InnerPageLayoutProps {
   contact: ContactData;
   children: React.ReactNode;
+  /** Overrides the floating Book Now's label and link for this page (see BookingBar). */
+  bookingCta?: { label: string; href: string };
+  /** Long reading pages: floating buttons hide while scrolling down on phones/tablets. */
+  hideFloatingWhileScrollingDown?: boolean;
 }
 
-export function InnerPageLayout({ contact, children }: InnerPageLayoutProps) {
+export function InnerPageLayout({ contact, children, bookingCta, hideFloatingWhileScrollingDown = false }: InnerPageLayoutProps) {
   return (
     <>
       <Navbar alwaysVisible />
@@ -24,8 +28,9 @@ export function InnerPageLayout({ contact, children }: InnerPageLayoutProps) {
         greeting={contact.whatsappGreeting}
         contacts={contact.whatsappContacts}
         alwaysVisible
+        hideWhileScrollingDown={hideFloatingWhileScrollingDown}
       />
-      <BookingBar alwaysVisible />
+      <BookingBar alwaysVisible cta={bookingCta} hideWhileScrollingDown={hideFloatingWhileScrollingDown} />
     </>
   );
 }

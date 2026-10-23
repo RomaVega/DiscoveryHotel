@@ -54,6 +54,8 @@ after a navbar click would be reported as `navbar`.
 | `booking_band` | deep-teal `BookingCta` band above the footer | engine |
 | `book_direct` | "Why Book Direct" section on `/offers` | engine |
 | `offer_card` | `SpecialOffers` "Check Availability" | whatsapp |
+| `blog_offer` | offer block inside a blog post (`ArticleOffer`) | whatsapp |
+| `blog_band` | CTA band at the foot of a blog post with a live offer (`PostCtaBand`) | whatsapp |
 | `footer` | "Book a stay" text link in the footer | engine |
 
 **The push happens in `onClickCapture`, not `onClick`.** GTM's Link Click
@@ -244,7 +246,9 @@ and the booking engine's search query parameters. Awaiting reply.
       from the `book_now_click` push like `booking_engine_click`. Without it the
       offer-card enquiries cannot be separated from the floating chat button.
 - [ ] Optional, once that is on: a GA4 key event on `click_whatsapp` where
-      `cta_location = offer_card` — the offer conversion.
+      `cta_location = offer_card`, `blog_offer` or `blog_band` — the offer
+      conversion; `blog_offer` + `blog_band` are what the blog brings in. (A
+      blog post's floating pill reports `floating` with destination `whatsapp`.)
 - [ ] GA4 ecommerce tags for `purchase` / `begin_checkout` / `view_item` —
       only after GuestPro replies and sets the field
 - [ ] Map `fatal` into `ES - exception params` if crash severity is wanted

@@ -95,6 +95,9 @@ export interface ExperiencesData {
 }
 
 export interface Offer {
+  /** Stable handle a blog post's `offer:` frontmatter points at. Only offers a
+      post references need one; the cards themselves never read it. */
+  id?: string;
   title: LocalizedString;
   description: LocalizedString;
   price: LocalizedString;
@@ -109,6 +112,9 @@ export interface Offer {
   validity?: LocalizedString;
   /** Fine print (min stay, blackout dates, cancellation). */
   terms?: LocalizedString;
+  /** Promo code shown on the card and carried into the WhatsApp enquiry, so
+      reception sees it whether or not the booking engine knows about it. */
+  code?: string;
 }
 
 export interface OffersData {
@@ -570,4 +576,96 @@ export interface ExperiencesHubData {
   heading: LocalizedString;
   subtext: LocalizedString;
   categories: ExperienceCard[];
+}
+
+/* ─── Blog ─── */
+/**
+ * One post in one language. Posts are Markdown files in `content/blog/`, named
+ * `<slug>.<locale>.md`; everything here except `slug`, `locale`, `hasTwin`,
+ * `readingMinutes` and the hero's pixel size comes from the YAML frontmatter
+ * (see `blogFrontmatterSchema` in lib/validation.ts). Plain strings, not
+ * `LocalizedString` — each file is already one language.
+ */
+export interface BlogImage {
+  src: string;
+  alt: string;
+  /** Intrinsic size, read from the file at build — reserves space, no CLS. */
+  width: number;
+  height: number;
+}
+
+export interface BlogLink {
+  label: string;
+  href: string;
+}
+
+export interface BlogKeyFacts {
+  heading: string;
+  items: { label: string; value: string }[];
+  links: BlogLink[];
+}
+
+/**
+ * The post's own call to action, used while its offer is live: the band at the
+ * foot of the page and the floating mobile button both open that offer's
+ * WhatsApp enquiry instead of the generic "Book Stay" → booking engine.
+ */
+export interface BlogCta {
+  heading: string;
+  subtext: string;
+  /** The band's button. */
+  button: string;
+  /** The floating mobile pill — short, it shares a 360px row with the WhatsApp mark. */
+  floating: string;
+}
+
+/** "How far is it" card, placed in the prose by `[[distance]]`. */
+export interface BlogDistance {
+  heading: string;
+  from: { name: string; note?: string };
+  to: { name: string; note?: string };
+  times: { mode: "walk" | "drive"; label: string; time: string }[];
+  mapLink?: BlogLink;
+}
+
+export interface BlogFaqItem {
+  q: string;
+  a: string;
+}
+
+export interface BlogPostMeta {
+  slug: string;
+  locale: Locale;
+  /** The page's <h1>. */
+  title: string;
+  /** The <title> tag — complete, with the brand placed once (check-titles.js). */
+  metaTitle: string;
+  description: string;
+  /** One or two sentences for the card on /blog. */
+  excerpt: string;
+  /** ISO dates, YYYY-MM-DD. */
+  published: string;
+  updated: string;
+  /** When the post's third-party facts (an event's dates, prices) were last
+      read off their source. Shown to readers; only move it after re-reading. */
+  factsChecked?: string;
+  author: string;
+  hero: BlogImage;
+  tags: string[];
+  /** `id` of an entry in the home page offers; its CTA shows while active. */
+  offer?: string;
+  keyFacts?: BlogKeyFacts;
+  distance?: BlogDistance;
+  cta?: BlogCta;
+  faq: BlogFaqItem[];
+  readingMinutes: number;
+  /** True when the same slug exists in the other locale — gates hreflang. */
+  hasTwin: boolean;
+  /** Built on deploy previews and locally, left out of production entirely. */
+  draft: boolean;
+}
+
+export interface BlogPost extends BlogPostMeta {
+  /** Markdown body, rendered by components/sections/ArticleBody. */
+  body: string;
 }

@@ -4,6 +4,7 @@ import { useState, useEffect, useId } from "react";
 import { m, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/lib/language-context";
 import { useAtPageBottom } from "@/lib/use-page-bottom";
+import { useHideWhileReading } from "@/lib/use-hide-while-reading";
 import type { WhatsAppContact } from "@/lib/types";
 
 /**
@@ -51,12 +52,15 @@ interface WhatsAppButtonProps {
   greeting: string;
   contacts?: WhatsAppContact[];
   alwaysVisible?: boolean;
+  /** Step aside while the reader scrolls down (see useHideWhileReading). */
+  hideWhileScrollingDown?: boolean;
 }
 
-export function WhatsAppButton({ phone, greeting, contacts, alwaysVisible = false }: WhatsAppButtonProps) {
+export function WhatsAppButton({ phone, greeting, contacts, alwaysVisible = false, hideWhileScrollingDown = false }: WhatsAppButtonProps) {
   const { locale } = useLanguage();
   const [scrolled, setScrolled] = useState(alwaysVisible);
   const atPageBottom = useAtPageBottom();
+  const reading = useHideWhileReading(hideWhileScrollingDown);
 
   useEffect(() => {
     if (alwaysVisible) return;
@@ -73,7 +77,7 @@ export function WhatsAppButton({ phone, greeting, contacts, alwaysVisible = fals
 
   return (
     <AnimatePresence>
-      {scrolled && !atPageBottom && (
+      {scrolled && !atPageBottom && !reading && (
         <m.div
           // z-50, not z-40: BookingBar's frosted gradient is also z-40 and is
           // painted later, so at equal stacking it washed this button out to a

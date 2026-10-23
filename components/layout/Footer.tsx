@@ -96,6 +96,7 @@ export function Footer({ contact }: FooterProps) {
     { label: f.links.offers,      href: "/offers" },
     { label: f.links.gallery,     href: "/gallery" },
     { label: f.links.about,       href: "/about" },
+    { label: f.links.blog,        href: "/blog" },
   ];
 
   // Hotel products only. Car & bike rental and the partner tours live on
