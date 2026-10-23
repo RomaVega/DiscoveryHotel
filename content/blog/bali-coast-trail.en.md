@@ -57,7 +57,7 @@ cta:
   heading: "Running the Bali Coast Trail?"
   subtext: "Stay a 10-minute walk from the start line, with 15% off your room, a free transfer on race days and a free 60-minute Balinese massage after the race."
   button: "Book on WhatsApp"
-  floating: "Book with 15% Off"
+  floating: "Book with\n15% Off"
 faq:
   - q: "When is the Bali Coast Trail 2026?"
     a: "Race weekend is 12–13 December 2026. The 50K and 30K run on Saturday 12 December, the 15K and 7K on Sunday 13 December. Race packs can be collected in Denpasar on Wednesday 9 December, or at the race venue in Candidasa on Friday 11 and Saturday 12 December."

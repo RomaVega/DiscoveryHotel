@@ -93,16 +93,12 @@ export function BookingBar({ alwaysVisible = false, cta, hideWhileScrollingDown 
           // The safe-area floor still wins on a device with a home indicator,
           // where it lifts this button ~4px above that midline — imperceptible,
           // and better than sitting in the indicator's strip.
-          // A page's own label (blog posts with an offer) can be long —
-          // «Забронировать со скидкой» is ~200px — and a centred pill runs into
-          // the WhatsApp mark (right-6, 56px) on narrow phones. Below `sm` such
-          // a pill fills the row instead: 24px from the left edge (matching the
-          // mark's 24px from the right), 12px short of the mark, label centred.
-          // It then looks the same on every phone, whatever the label or width.
-          // (A width breakpoint that only nudged the pill left of centre made it
-          // centred on one phone and lopsided on the next.) From `sm` there is
-          // room, so it stays the usual centred pill, as do standard labels.
-          className={`fixed bottom-0 inset-x-0 z-40 lg:hidden pointer-events-none flex justify-center px-4 pb-[max(1.875rem,env(safe-area-inset-bottom))] ${cta ? "max-sm:pl-6 max-sm:pr-[5.75rem]" : ""}`}
+          // Always the centred pill. A page label too long for one line beside
+          // the WhatsApp mark carries a "\n" and BookNowButton sets it on two
+          // lines on phones, at the same 44px height — see there. (Shifting the
+          // pill off-centre below a width, or stretching it into a full-row
+          // bar, were both tried for the blog CTA and both looked worse.)
+          className="fixed bottom-0 inset-x-0 z-40 lg:hidden pointer-events-none flex justify-center px-4 pb-[max(1.875rem,env(safe-area-inset-bottom))]"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 12 }}
@@ -110,7 +106,7 @@ export function BookingBar({ alwaysVisible = false, cta, hideWhileScrollingDown 
         >
           <BookNowButton
             location="floating"
-            className={`pointer-events-auto ${cta ? "max-sm:flex-1 max-sm:px-4 max-sm:text-center" : ""}`}
+            className="pointer-events-auto"
             {...serviceCta}
           />
         </m.div>
