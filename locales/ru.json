@@ -200,10 +200,10 @@
     "races": {
       "label": "Дистанции",
       "km": "км",
-      "climb": "Набор",
+      "climb": "Восхождение",
       "metres": "{n} м",
       "start": "Старт",
-      "cutoff": "КВ",
+      "cutoff": "Лимит",
       "entry": "Слот, {currency}",
       "local": "местные",
       "foreign": "иностранцы"
