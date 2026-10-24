@@ -77,7 +77,7 @@ races:
       cutoff: "10 ч"
       entry: { local: 790000, foreign: 890000 }
     - km: 15
-      name: "Беговая"
+      name: "Беговая трасса"
       day: "вс, 13 дек."
       start: "05:00"
       climb: 780
