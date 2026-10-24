@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, afterEach } from "vitest";
 import { existsSync, readdirSync } from "node:fs";
 import { join } from "node:path";
-import { getPost, getPosts, getPostSlugs, postPath, postStaticParams, NO_POSTS_SLUG, formatPostDate } from "@/lib/blog";
+import { getPost, getPosts, getPostSlugs, postPath, postStaticParams, NO_POSTS_SLUG, formatPostDate, formatPostNumber, datePartsOf } from "@/lib/blog";
 import { getActiveOffer } from "@/lib/content";
 import { headingId, lexMarkdown, soleImage, tableOfContents } from "@/lib/markdown";
 import { webpSize } from "@/lib/image-size";
@@ -63,11 +63,28 @@ describe("content/blog", () => {
 });
 
 describe("published posts", () => {
-  it.each(files)("%s places its offer and distance blocks only when it has the data", (file) => {
+  it.each(files)("%s places its data blocks only when it has the data", (file) => {
     const [slug, locale] = file.replace(/\.md$/, "").split(".") as [string, Locale];
     const post = getPost(slug, locale);
     if (post.body.includes("[[distance]]")) expect(post.distance, `${file} uses [[distance]] without distance:`).toBeDefined();
     if (post.body.includes("[[offer]]")) expect(post.offer, `${file} uses [[offer]] without offer:`).toBeDefined();
+    if (post.body.includes("[[races]]")) expect(post.races, `${file} uses [[races]] without races:`).toBeDefined();
+    if (post.body.includes("[[schedule]]")) expect(post.schedule, `${file} uses [[schedule]] without schedule:`).toBeDefined();
+  });
+
+  // The two languages are written separately, so nothing else stops a figure
+  // being corrected in one file and not the other.
+  it.each(files.filter((f) => f.endsWith(".en.md")))("%s carries the same race facts as its Russian twin", (file) => {
+    const slug = file.replace(/\.en\.md$/, "");
+    if (!files.includes(`${slug}.ru.md`)) return;
+    const en = getPost(slug, "en");
+    const ru = getPost(slug, "ru");
+    const facts = (p: typeof en) => ({
+      event: p.event && { start: p.event.start, end: p.event.end },
+      races: p.races?.items.map(({ km, start, climb, entry }) => ({ km, start, climb, entry })),
+      schedule: p.schedule?.map((d) => ({ date: d.date, times: d.items.map((i) => [i.time, i.key]) })),
+    });
+    expect(facts(ru)).toEqual(facts(en));
   });
 
   it("the Bali Coast Trail guide is live with its runner offer", () => {
@@ -78,6 +95,15 @@ describe("published posts", () => {
     }
     const offer = getActiveOffer("bali-coast-trail-runners");
     expect(offer?.code).toBe("BCT2026");
+  });
+
+  it("the Bali Coast Trail guide draws the four distances to their published climbs", () => {
+    const post = getPost("bali-coast-trail", "en");
+    expect(post.event).toMatchObject({ start: "2026-12-12", end: "2026-12-13" });
+    expect(post.races?.items.map((r) => [r.km, r.climb])).toEqual([[50, 2350], [30, 1438], [15, 780], [7, 340]]);
+    // Race starts are the lines a runner scans for.
+    const starts = post.schedule?.flatMap((d) => d.items.filter((i) => i.key).map((i) => i.time));
+    expect(starts).toEqual(["04:00", "05:00", "05:00", "06:00"]);
   });
 });
 
@@ -173,5 +199,22 @@ describe("formatPostDate", () => {
   it("formats in each language without depending on the machine's time zone", () => {
     expect(formatPostDate("2026-12-12", "en")).toBe("12 December 2026");
     expect(formatPostDate("2026-12-12", "ru")).toMatch(/^12 декабря 2026/);
+  });
+});
+
+describe("formatPostNumber", () => {
+  it("groups digits as each language does", () => {
+    expect(formatPostNumber(2350, "en")).toBe("2,350");
+    expect(formatPostNumber(1090000, "en")).toBe("1,090,000");
+    // Russian leaves four digits whole and joins groups with a no-break space.
+    expect(formatPostNumber(2350, "ru")).toBe("2350");
+    expect(formatPostNumber(1090000, "ru")).toBe("1\u00a0090\u00a0000");
+  });
+});
+
+describe("datePartsOf", () => {
+  it("gives the pieces of a date in each language, Russian months in the genitive", () => {
+    expect(datePartsOf("2026-12-12", "en")).toEqual({ day: "12", weekday: "Saturday", month: "December", monthShort: "Dec", year: "2026" });
+    expect(datePartsOf("2026-12-09", "ru")).toMatchObject({ day: "9", weekday: "Среда", month: "декабря", year: "2026" });
   });
 });

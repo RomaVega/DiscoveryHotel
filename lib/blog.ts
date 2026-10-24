@@ -89,6 +89,20 @@ function load(slug: string, locale: Locale): BlogPost {
   if (fm.updated < fm.published) {
     throw new Error(`content/blog/${slug}.${locale}.md: updated (${fm.updated}) is before published (${fm.published})`);
   }
+  if (fm.event && fm.event.end < fm.event.start) {
+    throw new Error(`content/blog/${slug}.${locale}.md: event.end (${fm.event.end}) is before event.start (${fm.event.start})`);
+  }
+  if (fm.schedule?.some((day, i, days) => i > 0 && day.date <= days[i - 1].date)) {
+    throw new Error(`content/blog/${slug}.${locale}.md: schedule days must be in date order, one entry per day`);
+  }
+  // A data block placed in the prose without its frontmatter would silently
+  // render nothing. (`[[offer]]` is exempt: it is meant to vanish when the
+  // offer ends.)
+  for (const block of ["distance", "races", "schedule"] as const) {
+    if (body.includes(`[[${block}]]`) && !fm[block]) {
+      throw new Error(`content/blog/${slug}.${locale}.md: [[${block}]] is in the text but the frontmatter has no ${block}:`);
+    }
+  }
 
   const other: Locale = locale === "en" ? "ru" : "en";
   const words = wordCount(body) + fm.faq.reduce((n, f) => n + wordCount(`${f.q} ${f.a}`), 0);
@@ -165,13 +179,60 @@ export function postPath(slug: string, locale: Locale): string {
   return `${locale === "ru" ? "/ru" : ""}/blog/${slug}`;
 }
 
-/** Format an ISO date for readers. Fixed locale tags so the build is deterministic. */
-export function formatPostDate(iso: string, locale: Locale): string {
+/** Fixed locale tags, so the build is deterministic whatever machine runs it. */
+const INTL_LOCALE: Record<Locale, string> = { en: "en-GB", ru: "ru-RU" };
+
+function utcDate(iso: string): Date {
   const [y, m, d] = iso.split("-").map(Number);
-  return new Intl.DateTimeFormat(locale === "ru" ? "ru-RU" : "en-GB", {
+  return new Date(Date.UTC(y, m - 1, d));
+}
+
+/** Format an ISO date for readers: "22 October 2026", «22 октября 2026 г.». */
+export function formatPostDate(iso: string, locale: Locale): string {
+  return new Intl.DateTimeFormat(INTL_LOCALE[locale], {
     day: "numeric",
     month: "long",
     year: "numeric",
     timeZone: "UTC",
-  }).format(new Date(Date.UTC(y, m - 1, d)));
+  }).format(utcDate(iso));
+}
+
+/**
+ * A number as each language groups its digits: 2,350 and 990,000 in English;
+ * 2350 and 990 000 in Russian, which leaves four-digit numbers whole and puts a
+ * no-break space between groups (so a price never splits across lines).
+ */
+export function formatPostNumber(n: number, locale: Locale): string {
+  return new Intl.NumberFormat(INTL_LOCALE[locale], {
+    useGrouping: locale === "ru" ? "min2" : "auto",
+  }).format(n);
+}
+
+export interface DateParts {
+  day: string;
+  /** Capitalised: "Saturday", «Суббота». */
+  weekday: string;
+  /** In the form a date needs: "December", «декабря» (genitive, not «декабрь»). */
+  month: string;
+  /** "Dec", «дек.». */
+  monthShort: string;
+  year: string;
+}
+
+/** The pieces of an ISO date, for layouts that set them separately (the hero date, the schedule). */
+export function datePartsOf(iso: string, locale: Locale): DateParts {
+  const date = utcDate(iso);
+  const part = (opts: Intl.DateTimeFormatOptions, type: Intl.DateTimeFormatPartTypes) =>
+    new Intl.DateTimeFormat(INTL_LOCALE[locale], { ...opts, timeZone: "UTC" })
+      .formatToParts(date)
+      .find((p) => p.type === type)?.value ?? "";
+  const weekday = part({ weekday: "long" }, "weekday");
+  return {
+    day: String(date.getUTCDate()),
+    weekday: weekday.charAt(0).toUpperCase() + weekday.slice(1),
+    // Asked for alongside a day, Russian months come out in the genitive.
+    month: part({ day: "numeric", month: "long" }, "month"),
+    monthShort: part({ day: "numeric", month: "short" }, "month"),
+    year: String(date.getUTCFullYear()),
+  };
 }

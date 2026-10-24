@@ -15,6 +15,10 @@ ogImage: /images/blog/blog-bali-coast-trail-og.jpg
 tags: [events, running, east-bali, candidasa]
 offer: bali-coast-trail-runners
 draft: false
+event:
+  start: "2026-12-12"
+  end: "2026-12-13"
+  place: "Candidasa, East Bali"
 keyFacts:
   heading: "Race at a glance"
   items:
@@ -55,6 +59,62 @@ distance:
   mapLink:
     label: "Walking route in Google Maps"
     href: "https://www.google.com/maps/dir/?api=1&origin=-8.511626,115.575050&destination=Rest+Area+Candi+Dasa,+Karangasem,+Bali&travelmode=walking"
+races:
+  currency: IDR
+  items:
+    - km: 50
+      name: "Coastline ultra"
+      day: "Sat 12 Dec"
+      start: "04:00"
+      climb: 2350
+      cutoff: "15 h"
+      entry: { local: 990000, foreign: 1090000 }
+    - km: 30
+      name: "Coast and hills"
+      day: "Sat 12 Dec"
+      start: "05:00"
+      climb: 1438
+      cutoff: "10 h"
+      entry: { local: 790000, foreign: 890000 }
+    - km: 15
+      name: "Runnable trail"
+      day: "Sun 13 Dec"
+      start: "05:00"
+      climb: 780
+      cutoff: "6 h"
+      entry: { local: 690000, foreign: 790000 }
+    - km: 7
+      name: "Family-friendly loop"
+      day: "Sun 13 Dec"
+      start: "05:30"
+      climb: 340
+      cutoff: "3 h"
+      entry: { local: 490000, foreign: 590000 }
+schedule:
+  - date: "2026-12-09"
+    items:
+      - { time: "12:00–20:00", what: "Race pack collection in Denpasar" }
+  - date: "2026-12-11"
+    items:
+      - { time: "12:00–20:00", what: "Race pack collection at the venue in Candidasa" }
+      - { time: "16:00", what: "Race briefing, 50K" }
+      - { time: "17:00", what: "Race briefing, 30K" }
+  - date: "2026-12-12"
+    items:
+      - { time: "04:00", what: "50K start", key: true }
+      - { time: "05:00", what: "30K start", key: true }
+      - { time: "12:00", what: "Awards for the 50K and 30K" }
+      - { time: "12:00–20:00", what: "Race pack collection at the venue" }
+      - { time: "15:00", what: "30K cut-off" }
+      - { time: "16:00", what: "Race briefing, 15K" }
+      - { time: "17:00", what: "Race briefing, 7K" }
+      - { time: "19:00", what: "50K cut-off: the finish closes" }
+  - date: "2026-12-13"
+    items:
+      - { time: "05:00", what: "15K start", key: true }
+      - { time: "06:00", what: "7K start (see below)", key: true }
+      - { time: "09:00", what: "Awards for the 15K and 7K" }
+      - { time: "11:00", what: "15K cut-off: the finish closes" }
 cta:
   heading: "Running the Bali Coast Trail?"
   subtext: "Stay a 10-minute walk from the start line, with 15% off your room, a free transfer on race days and a free 60-minute Balinese massage after the race."
@@ -81,12 +141,7 @@ We live and work here, so this guide covers what the race site doesn't: what the
 
 ## The four distances, and who each one suits
 
-| Distance | Race day and start | Climbing | Cut-off | Entry, IDR (local / foreigner) |
-|---|---|--:|--:|--:|
-| 50K ultra | Sat 12 Dec, 04:00 | 2,350 m | 15 h | 990,000 / 1,090,000 |
-| 30K | Sat 12 Dec, 05:00 | 1,438 m | 10 h | 790,000 / 890,000 |
-| 15K | Sun 13 Dec, 05:00 | 780 m | 6 h | 690,000 / 790,000 |
-| 7K | Sun 13 Dec, 05:30 | 340 m | 3 h | 490,000 / 590,000 |
+[[races]]
 
 The race is listed with ITRA and the UTMB Index, and the 30K and 50K carry ITRA points.
 
@@ -112,10 +167,7 @@ A short loop on the beach and coastal paths, open to beginners and fun runners. 
 
 All times are Bali time (WITA, UTC+8).
 
-- **Wednesday 9 December**, 12:00–20:00: race pack collection in Denpasar.
-- **Friday 11 December**, 12:00–20:00: race pack collection at the venue in Candidasa. Race briefings: 50K at 16:00, 30K at 17:00.
-- **Saturday 12 December**: 50K starts at 04:00, 30K at 05:00. Awards for both from 12:00. Race pack collection at the venue again 12:00–20:00. Briefings: 15K at 16:00, 7K at 17:00. The 30K cut-off is 15:00, and the 50K closes at 19:00.
-- **Sunday 13 December**: 15K starts at 05:00, 7K at 06:00 (see below). Awards for both at 09:00. The 15K closes at 11:00.
+[[schedule]]
 
 > **Check the 7K start time.** The schedule page says 06:00, but the 7K page and the home page say 05:30. Confirm in the race briefing or on the official site before Sunday.
 
@@ -153,14 +205,14 @@ The 50K starts in full darkness, so you'll need a working headlamp with spare ba
 
 Each distance will have its own list, and the organiser is still finalising them. The only list published so far is for the **50K**. Every runner must carry all of this for the whole race:
 
-- a hydration system holding at least 1.5 litres
-- a headlamp with spare batteries
-- a survival blanket, at least 1.4 × 2 m
-- a whistle
-- a mobile phone with the race emergency number saved
-- a personal cup, because water stations will not hand out disposable cups
-- at least 400 kcal of food in reserve
-- your race bib, worn on the front and visible at all times
+- [ ] a hydration system holding at least 1.5 litres
+- [ ] a headlamp with spare batteries
+- [ ] a survival blanket, at least 1.4 × 2 m
+- [ ] a whistle
+- [ ] a mobile phone with the race emergency number saved
+- [ ] a personal cup, because water stations will not hand out disposable cups
+- [ ] at least 400 kcal of food in reserve
+- [ ] your race bib, worn on the front and visible at all times
 
 There are random gear checks before the start and after the finish, and missing items can mean a penalty or disqualification. Check the [official gear page](https://balicoasttrail.com/race-info/mandatory-gear) for your own distance before you pack.
 

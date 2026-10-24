@@ -5,9 +5,11 @@ import { LocalizedLink } from "@/components/common/LocalizedLink";
 import { ArticleBody } from "@/components/sections/ArticleBody";
 import { ArticleDistance } from "@/components/sections/ArticleDistance";
 import { ArticleOffer } from "@/components/sections/ArticleOffer";
-import { formatPostDate, type BlogStrings } from "@/lib/blog";
+import { ArticleRaces } from "@/components/sections/ArticleRaces";
+import { ArticleSchedule } from "@/components/sections/ArticleSchedule";
+import { datePartsOf, formatPostDate, type BlogStrings } from "@/lib/blog";
 import { lexMarkdown, tableOfContents } from "@/lib/markdown";
-import type { BlogPost, Offer } from "@/lib/types";
+import type { BlogEvent, BlogPost, Locale, Offer } from "@/lib/types";
 import { fill } from "@/lib/utils";
 
 interface ArticleProps {
@@ -17,16 +19,48 @@ interface ArticleProps {
   offer: Offer | null;
 }
 
-const CRUMB_LINK =
-  "underline-offset-[3px] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 rounded-sm";
+const FOCUS = "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 rounded-sm";
+const CRUMB_LINK = `underline-offset-[3px] hover:underline ${FOCUS}`;
+/** The reading column — see ArticleBody. */
+const COLUMN = "mx-auto max-w-[42rem] px-6";
 
 /**
- * Layout of a post. Unlike the other inner pages there is no full-screen
- * PageHero: a reader arrives from search wanting the answer, so the title,
- * the summary and the key facts sit above the fold and the photo follows.
- * Text runs at `max-w-[42rem]`: 624px of text, which at the 18px desktop body
- * size is ~70 characters a line (measured; `max-w-3xl` gave 82). The photo
- * gets more room.
+ * The event's dates set large under the title — the first thing a reader
+ * arriving from a search for the race wants, so it is answered over the photo.
+ * The month is formatted beside a day, which puts Russian in the genitive
+ * («12–13 декабря»).
+ */
+function EventDate({ event, locale }: { event: BlogEvent; locale: Locale }) {
+  const a = datePartsOf(event.start, locale);
+  const b = datePartsOf(event.end, locale);
+  const oneDay = event.start === event.end;
+  const month =
+    a.month === b.month && a.year === b.year ? `${a.month} ${a.year}` : `${a.monthShort} – ${b.monthShort} ${b.year}`;
+  return (
+    <p className="mt-7 flex items-center gap-4 sm:gap-6 lg:mt-9">
+      <span className="shrink-0 whitespace-nowrap font-serif text-[3.25rem] font-medium leading-none lining-nums sm:text-7xl lg:text-8xl">
+        <time dateTime={event.start}>{a.day}</time>
+        {!oneDay && (
+          <>
+            –<time dateTime={event.end}>{b.day}</time>
+          </>
+        )}
+      </span>
+      <span aria-hidden="true" className="w-px shrink-0 self-stretch bg-logo-gold" />
+      <span className="min-w-0 font-sans text-xs font-medium uppercase leading-relaxed tracking-[0.15em] sm:text-sm sm:tracking-[0.2em]">
+        <span className="block">{month}</span>
+        <span className="block text-balance text-white/85">{event.place}</span>
+      </span>
+    </p>
+  );
+}
+
+/**
+ * Layout of a post. The hero is the event itself: its photo edge to edge, with
+ * the title and the dates set large beside it, so the answer to "when" is above
+ * the fold before a word of the text. Text runs at `max-w-[42rem]` (~70
+ * characters a line at 18px); photos step out of it, and blocks named in
+ * `bleed` span the page.
  */
 export function Article({ post, strings, offer }: ArticleProps) {
   const s = strings.blog;
@@ -35,27 +69,58 @@ export function Article({ post, strings, offer }: ArticleProps) {
   const updated = post.updated !== post.published ? formatPostDate(post.updated, post.locale) : null;
 
   return (
-    <article className="bg-sand pt-28 md:pt-36 pb-16 md:pb-24">
-      <header className="mx-auto max-w-[42rem] px-6">
+    <article className="bg-sand pb-16 md:pb-24">
+      {/*
+        Two compositions. Below lg the photo sits under the navbar (square on
+        phones, 16:10 on tablets) and melts into espresso, and the title is set
+        on that dark panel: a phone crop puts the subject (the temple gates)
+        exactly where an overlaid title would land. From lg the photo fills the
+        hero, cropped from the left, and the text sits bottom right, clear of a
+        subject in the left half. A hero photo for a post should have its
+        subject left of centre.
+      */}
+      <header className="relative isolate overflow-hidden bg-espresso pt-14 text-white lg:flex lg:h-[88svh] lg:min-h-[36rem] lg:max-h-[60rem] lg:flex-col lg:justify-end lg:pt-0">
+        <figure className="relative aspect-square max-h-[70svh] w-full sm:aspect-[16/10] lg:absolute lg:inset-0 lg:-z-10 lg:aspect-auto lg:max-h-none">
+          <Image src={post.hero.src} alt={post.hero.alt} fill priority sizes="100vw" className="object-cover lg:object-right" />
+          {/* White text needs a dark ground whatever the photo does. */}
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-gradient-to-t from-espresso via-espresso/0 via-50% lg:bg-[linear-gradient(to_top,rgb(0_0_0/0.55),transparent_50%),linear-gradient(to_left,rgb(0_0_0/0.62),rgb(0_0_0/0.45)_45%,transparent_78%)]"
+          />
+          {post.hero.credit && (
+            <figcaption className="absolute right-3 top-3 rounded-sm bg-black/50 px-2 py-0.5 font-sans text-[11px] text-white sm:right-5 lg:bottom-3 lg:top-auto lg:bg-transparent lg:p-0 lg:text-white/80">
+              {post.hero.credit}
+            </figcaption>
+          )}
+        </figure>
+
+        <div className="relative mx-auto -mt-16 w-full max-w-7xl px-6 pb-12 sm:-mt-20 lg:mt-0 lg:px-10 lg:pb-20">
+          <div className="lg:ml-auto lg:max-w-[36rem]">
+            <nav aria-label="Breadcrumb" className="font-sans text-sm text-white text-shadow-subtle">
+              <ol className="flex flex-wrap items-center gap-x-2">
+                <li><LocalizedLink href="/" className={CRUMB_LINK}>{s.home}</LocalizedLink></li>
+                <li aria-hidden="true">/</li>
+                <li><LocalizedLink href="/blog" className={CRUMB_LINK}>{s.label}</LocalizedLink></li>
+              </ol>
+            </nav>
+            <h1 className="mt-4 font-serif text-4xl font-semibold leading-[1.08] text-balance text-shadow-subtle sm:text-5xl lg:text-[3.5rem]">
+              {post.title}
+            </h1>
+            {post.event && <EventDate event={post.event} locale={post.locale} />}
+          </div>
+        </div>
+      </header>
+
+      <div className={`${COLUMN} pt-12 md:pt-16`}>
         {post.draft && (
           // Editor-facing, so English on both locales. Never reaches orlowsky.id:
           // production builds leave drafts out (SHOW_DRAFTS in lib/blog.ts).
-          <p role="note" className="mb-6 rounded-md border border-charcoal/20 bg-parchment px-4 py-3 font-sans text-sm text-charcoal">
+          <p role="note" className="mb-8 rounded-md border border-charcoal/20 bg-parchment px-4 py-3 font-sans text-sm text-charcoal">
             <strong className="font-semibold">Draft.</strong> Visible on previews only. Set{" "}
             <code className="font-mono">draft: false</code> in the post to publish it.
           </p>
         )}
-        <nav aria-label="Breadcrumb" className="font-sans text-sm text-charcoal/70">
-          <ol className="flex flex-wrap items-center gap-x-2">
-            <li><LocalizedLink href="/" className={CRUMB_LINK}>{s.home}</LocalizedLink></li>
-            <li aria-hidden="true">/</li>
-            <li><LocalizedLink href="/blog" className={CRUMB_LINK}>{s.label}</LocalizedLink></li>
-          </ol>
-        </nav>
-        <h1 className="mt-5 font-serif text-4xl md:text-5xl font-semibold leading-tight text-charcoal text-balance">
-          {post.title}
-        </h1>
-        <p className="mt-5 font-sans text-lg md:text-xl leading-relaxed text-pretty text-charcoal/80">{post.excerpt}</p>
+        <p className="font-serif text-2xl leading-snug text-pretty text-charcoal md:text-[1.75rem]">{post.excerpt}</p>
         <div className="mt-6 font-sans text-sm text-charcoal/70">
           <p>{fill(s.byline, { author: post.author })}</p>
           <p className="mt-1 flex flex-wrap gap-x-3">
@@ -70,28 +135,9 @@ export function Article({ post, strings, offer }: ArticleProps) {
             <span>{fill(s.readingTime, { minutes: String(post.readingMinutes) })}</span>
           </p>
         </div>
-      </header>
 
-      <figure className="mx-auto mt-10 max-w-5xl sm:px-6">
-        <Image
-          src={post.hero.src}
-          alt={post.hero.alt}
-          width={post.hero.width}
-          height={post.hero.height}
-          priority
-          sizes="(max-width: 1024px) 100vw, 976px"
-          className="h-auto max-h-[70vh] w-full object-cover sm:rounded-md"
-        />
-        {post.hero.credit && (
-          <figcaption className="mt-2 px-6 text-right font-sans text-xs text-charcoal/70 sm:px-0">
-            {post.hero.credit}
-          </figcaption>
-        )}
-      </figure>
-
-      <div className="mx-auto mt-10 max-w-[42rem] px-6">
         {post.keyFacts && (
-          <aside aria-labelledby="key-facts" className="rounded-md border border-charcoal/10 bg-ivory p-6 md:p-8">
+          <aside aria-labelledby="key-facts" className="mt-10 rounded-md border border-charcoal/10 bg-ivory p-6 md:p-8">
             <h2 id="key-facts" className="font-sans text-xs font-semibold uppercase tracking-widest text-accent-text">
               {post.keyFacts.heading}
             </h2>
@@ -111,7 +157,7 @@ export function Article({ post, strings, offer }: ArticleProps) {
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-sans text-sm font-semibold text-accent-text underline underline-offset-[3px] hover:decoration-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 rounded-sm"
+                      className={`font-sans text-sm font-semibold text-accent-text underline underline-offset-[3px] hover:decoration-2 ${FOCUS}`}
                     >
                       {link.label}
                       <span aria-hidden="true"> ↗</span>
@@ -140,15 +186,20 @@ export function Article({ post, strings, offer }: ArticleProps) {
             </ol>
           </nav>
         )}
+      </div>
 
-        <ArticleBody
-          markdown={post.body}
-          slots={{
-            offer: offer && <ArticleOffer offer={offer} locale={post.locale} strings={strings} />,
-            distance: post.distance && <ArticleDistance data={post.distance} />,
-          }}
-        />
+      <ArticleBody
+        markdown={post.body}
+        bleed={["races"]}
+        slots={{
+          offer: offer && <ArticleOffer offer={offer} locale={post.locale} strings={strings} />,
+          distance: post.distance && <ArticleDistance data={post.distance} />,
+          races: post.races && <ArticleRaces races={post.races} locale={post.locale} strings={strings} />,
+          schedule: post.schedule && <ArticleSchedule days={post.schedule} locale={post.locale} strings={strings} />,
+        }}
+      />
 
+      <div className={COLUMN}>
         {post.faq.length > 0 && (
           <section aria-labelledby="faq" className="mt-16">
             <h2 id="faq" className="scroll-mt-28 font-serif text-3xl md:text-4xl font-semibold text-charcoal">{s.faq}</h2>
