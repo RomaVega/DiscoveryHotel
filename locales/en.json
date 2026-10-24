@@ -194,6 +194,18 @@
     "related": "From our blog",
     "allPosts": "All posts",
     "empty": "The first guides are on their way.",
-    "offerLabel": "Offer for readers"
+    "offerLabel": "Offer for readers",
+    "races": {
+      "label": "Race distances",
+      "km": "km",
+      "climb": "Climbing",
+      "metres": "{n} m",
+      "start": "Start",
+      "cutoff": "Cut-off",
+      "entry": "Entry, {currency}",
+      "local": "local",
+      "foreign": "foreigner"
+    },
+    "schedule": "Race weekend schedule"
   }
 }

@@ -635,6 +635,44 @@ export interface BlogFaqItem {
   a: string;
 }
 
+/** The event a post is about. Drives the date shown large over the hero. */
+export interface BlogEvent {
+  /** ISO dates, YYYY-MM-DD; a one-day event has `start === end`. */
+  start: string;
+  end: string;
+  /** Where it happens, as readers would say it: "Candidasa, East Bali". */
+  place: string;
+}
+
+/** One distance in the `[[races]]` block. */
+export interface BlogRace {
+  km: number;
+  /** A few words on its character: "Coastline ultra". */
+  name: string;
+  /** Race day as readers see it: "Sat 12 Dec". */
+  day: string;
+  /** Start time, HH:MM. */
+  start: string;
+  /** Metres of ascent. Drawn to scale, so only a published figure goes here. */
+  climb: number;
+  cutoff: string;
+  entry: { local: number; foreign: number };
+}
+
+/** The distances of a race weekend, placed in the prose by `[[races]]`. */
+export interface BlogRaces {
+  /** Currency word for the entry fees, in the post's language: "IDR", "рупий". */
+  currency: string;
+  items: BlogRace[];
+}
+
+/** One day of an event, for the `[[schedule]]` timeline. */
+export interface BlogScheduleDay {
+  /** ISO date; the weekday and month are formatted from it. */
+  date: string;
+  items: { time: string; what: string; /** A race start or similar: set in bold. */ key: boolean }[];
+}
+
 export interface BlogPostMeta {
   slug: string;
   locale: Locale;
@@ -659,7 +697,10 @@ export interface BlogPostMeta {
   /** `id` of an entry in the home page offers; its CTA shows while active. */
   offer?: string;
   keyFacts?: BlogKeyFacts;
+  event?: BlogEvent;
   distance?: BlogDistance;
+  races?: BlogRaces;
+  schedule?: BlogScheduleDay[];
   cta?: BlogCta;
   faq: BlogFaqItem[];
   readingMinutes: number;

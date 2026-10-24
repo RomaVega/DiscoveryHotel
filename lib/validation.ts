@@ -529,6 +529,12 @@ export const blogFrontmatterSchema = z.object({
     items: z.array(z.object({ label: z.string(), value: z.string() })).min(1),
     links: z.array(blogLink).default([]),
   }).optional(),
+  // The event the post covers: its dates go large over the hero.
+  event: z.object({
+    start: isoDate,
+    end: isoDate,
+    place: z.string().min(2),
+  }).optional(),
   distance: z.object({
     heading: z.string(),
     from: z.object({ name: z.string(), note: z.string().optional() }),
@@ -536,6 +542,29 @@ export const blogFrontmatterSchema = z.object({
     times: z.array(z.object({ mode: z.enum(["walk", "drive"]), label: z.string(), time: z.string() })).min(1),
     mapLink: blogLink.optional(),
   }).optional(),
+  // `[[races]]`: numbers stay numbers, so the climbing bars are drawn to scale
+  // and every figure is formatted for the post's locale.
+  races: z.object({
+    currency: z.string().min(1),
+    items: z.array(z.object({
+      km: z.number().positive(),
+      name: z.string().min(2),
+      day: z.string().min(2),
+      start: z.string().regex(/^\d{2}:\d{2}$/, "use HH:MM"),
+      climb: z.number().int().nonnegative(),
+      cutoff: z.string().min(1),
+      entry: z.object({ local: z.number().int().positive(), foreign: z.number().int().positive() }),
+    }).strict()).min(1).max(6),
+  }).strict().optional(),
+  // `[[schedule]]`: one entry per day, in order.
+  schedule: z.array(z.object({
+    date: isoDate,
+    items: z.array(z.object({
+      time: z.string().min(4),
+      what: z.string().min(3),
+      key: z.boolean().default(false),
+    }).strict()).min(1),
+  }).strict()).min(1).optional(),
   cta: z.object({
     heading: z.string().min(5),
     subtext: z.string().min(20),

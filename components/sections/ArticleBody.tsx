@@ -64,18 +64,23 @@ function Figure({ image }: { image: Tokens.Image }) {
   const { width, height } = webpSize(image.href);
   const alt = plainText(image.tokens ?? []) || image.text;
   if (!alt.trim()) throw new Error(`Image ${image.href} needs alt text: ![describe it](${image.href})`);
+  // Edge to edge on phones; from `sm` the photo steps out of the 624px text
+  // column to 64rem (or the viewport less its gutters, whichever is smaller).
+  // Negative margins, not 100vw: vw counts the scrollbar, so a 100vw block
+  // scrolls sideways on any desktop with classic scrollbars. The caption stays
+  // on the text column's edges.
   return (
-    <figure className="my-10 -mx-6 sm:mx-0">
+    <figure className="my-12 -mx-6 sm:mx-[calc(50%_-_min(32rem,_50vw_-_1.5rem))] md:my-16">
       <Image
         src={image.href}
         alt={alt}
         width={width}
         height={height}
-        sizes="(max-width: 768px) 100vw, 768px"
-        className="h-auto max-h-[75vh] w-full object-cover sm:rounded-md"
+        sizes="(max-width: 640px) 100vw, (max-width: 1072px) calc(100vw - 3rem), 1024px"
+        className="h-auto max-h-[80vh] w-full object-cover sm:rounded-md"
       />
       {image.title && (
-        <figcaption className="mt-3 px-6 sm:px-0 text-sm text-charcoal/70 leading-snug">
+        <figcaption className="mx-auto mt-3 max-w-[39rem] px-6 text-sm leading-snug text-charcoal/70 sm:px-0">
           {image.title}
         </figcaption>
       )}
@@ -130,6 +135,31 @@ function Block({ token, slots }: { token: Token; slots: Slots }): ReactNode {
       );
     }
     case "list": {
+      // `- [ ] item` lines: a packing list. Drawn boxes rather than <input>s —
+      // there is nothing to submit, and a disabled checkbox is announced as
+      // "checkbox, not checked, dimmed" before every item.
+      if (!token.ordered && token.items.length > 0 && token.items.every((item: Tokens.ListItem) => item.task)) {
+        return (
+          <ul className="my-6 space-y-2.5 leading-relaxed">
+            {token.items.map((item: Tokens.ListItem, i: number) => (
+              <li key={i} className="flex gap-3.5 text-pretty">
+                <span aria-hidden="true" className="mt-[0.3em] size-[1.05em] shrink-0 rounded-[3px] border-2 border-deep-teal/80" />
+                <span>
+                  {item.tokens
+                    .filter((child) => child.type !== "checkbox")
+                    .map((child, j) =>
+                      child.type === "text" ? (
+                        <Inline key={j} tokens={"tokens" in child && child.tokens ? child.tokens : [child]} />
+                      ) : (
+                        <Block key={j} token={child} slots={slots} />
+                      )
+                    )}
+                </span>
+              </li>
+            ))}
+          </ul>
+        );
+      }
       const ListTag = token.ordered ? "ol" : "ul";
       return (
         <ListTag
@@ -245,14 +275,38 @@ interface ArticleBodyProps {
    * an expired offer leaves no gap. An unknown name fails the build.
    */
   slots?: Slots;
+  /**
+   * Slots drawn edge to edge. They are rendered between runs of the text
+   * column instead of inside one, so a band can span the page without 100vw
+   * (which counts the scrollbar). Margins still collapse across the seam: the
+   * column wrappers have no vertical padding.
+   */
+  bleed?: readonly string[];
 }
 
+/** The reading column: 624px of text at the 18px desktop size, ~70 characters a line. */
+const COLUMN = "mx-auto max-w-[42rem] px-6";
+
 /** A post's Markdown, typeset. Blockquotes render as a tinted aside — use them for tips. */
-export function ArticleBody({ markdown, slots = {} }: ArticleBodyProps) {
-  const tokens = lexMarkdown(markdown);
-  return (
-    <div className="font-sans text-base md:text-lg text-charcoal">
-      {tokens.map((token, i) => <Block key={i} token={token} slots={slots} />)}
-    </div>
-  );
+export function ArticleBody({ markdown, slots = {}, bleed = [] }: ArticleBodyProps) {
+  const out: ReactNode[] = [];
+  let run: ReactNode[] = [];
+  const flush = () => {
+    if (run.length > 0) out.push(<div key={`column-${out.length}`} className={COLUMN}>{run}</div>);
+    run = [];
+  };
+
+  lexMarkdown(markdown).forEach((token, i) => {
+    const name = token.type === "paragraph" ? SLOT_RE.exec(token.text.trim())?.[1] : undefined;
+    if (name && bleed.includes(name)) {
+      if (!(name in slots)) throw new Error(`Unknown block [[${name}]] in post`);
+      flush();
+      out.push(<Fragment key={`bleed-${i}`}>{slots[name]}</Fragment>);
+    } else {
+      run.push(<Block key={i} token={token} slots={slots} />);
+    }
+  });
+  flush();
+
+  return <div className="font-sans text-base md:text-lg text-charcoal">{out}</div>;
 }
