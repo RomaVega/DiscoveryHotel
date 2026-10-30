@@ -3,8 +3,9 @@
 How measurement works on this site, what is configured where, and what is still
 outstanding. Container state described here is **GTM version 6, published
 28 Sept 2026 18:45 WITA**, as reported from the GTM UI. The booking-engine
-findings come from reading its JavaScript bundle on 21 Sept 2026. Re-verify
-before trusting either.
+findings come from reading its JavaScript bundle on 21 Sept 2026 and from a
+live check of the engine on 30 Oct 2026, the day GuestPro set the container.
+Re-verify before trusting either.
 
 ## Architecture
 
@@ -50,7 +51,9 @@ after a navbar click would be reported as `navbar`.
 | `drawer` | mobile menu drawer | engine |
 | `hero` | home hero | engine |
 | `room_card` | home `RoomsPreview` "Check Availability" | engine |
+| `rooms_page` | `/rooms` `RoomsDetail` "Check Availability" (desktop and mobile buttons) | engine |
 | `dining` | home `DiningPreview` "View Menu" | menu |
+| `dining_page` | `/dining` `DiningDetail` "View Menu" and "Order Delivery" | menu |
 | `booking_band` | deep-teal `BookingCta` band above the footer | engine |
 | `book_direct` | "Why Book Direct" section on `/offers` | engine |
 | `offer_card` | `SpecialOffers` "Check Availability" | whatsapp |
@@ -68,10 +71,16 @@ before React mounts and asserts it already sees the push.
 The value is also rendered as `data-cta-location` on the anchor, for DOM
 inspection. GTM v6 does not read the attribute.
 
-Not covered: the booking CTAs defined in `content/*.json` on inner pages
-(`/rooms`, `/offers` and others). The GTM Link Click trigger still counts them
-as `booking_engine_click`, but their `cta_location` is inherited from the
-previous push or empty.
+Every engine link the site renders pushes a surface.
+[InnerPageCtas.test.tsx](../__tests__/components/InnerPageCtas.test.tsx) pins
+this for `/rooms` and `/dining`, the last two that pushed nothing until
+30 Oct 2026. The `bookingCta` blocks in the inner-page JSON files (car rental,
+diving, events, excursions, rooms, spa, transfer, weddings) are validated but
+rendered by no page, so they produce no clicks at all.
+
+**`booking_engine_click` includes menu views.** Its trigger matches any click
+URL containing `secure.guestpro.net`, and the in-room dining menu lives there
+too. Separate them with `cta_destination` (`menu` vs `engine`).
 
 ### The offer cards went to WhatsApp (23 Sept 2026)
 
@@ -134,15 +143,30 @@ Metrica from the site entirely. Metrica's `tag.js` from `mc.yandex.ru` was
 blocked by the CSP in [netlify.toml](../netlify.toml) until
 `fix/cta-location-csp`, so check Metrica for a gap before that deploy.
 
-Absent from the container: Ads remarketing tag, Consent Mode, and ecommerce
-tags (`purchase` / `begin_checkout` / `view_item`).
+Absent from the container: Consent Mode, and a GA4 tag for the engine's
+ecommerce events (see [The booking engine](#the-booking-engine)). No separate
+Ads remarketing tag is needed: the Google tag already sends to Google Ads
+`AW-18400798863` as a destination (`rmkt/collect`, `viewthroughconversion`,
+`1p-user-list` hits seen on the engine on 30 Oct 2026).
 
 ## Google Ads
 
-Account **`145-908-5801`**, linked to GA4. Conversion `booking_engine_click` is
-imported from GA4 as **Primary**, category Outbound click. It measures intent,
-not revenue: demote it to Secondary the day `purchase` arrives from the engine.
-"Get directions" has been removed from the account-default goal.
+Account **`145-908-5801`**, linked to GA4. Conversion actions as of 30 Oct 2026:
+
+| Conversion action | Source | Optimization | Notes |
+|---|---|---|---|
+| Orlowsky Discovery Candidasa Hotel (web) purchase | GA4 `purchase` | **Primary** | Since 30 Oct 2026. Category Purchase, count Every, value from GA4 |
+| `booking_engine_click` | GA4 custom event | **Primary** | Category Outbound click, count One since 20 Oct 2026. Intent, not revenue |
+| Local actions: Other engagements, Directions, Website visits | Google hosted | **Primary** | Google Business Profile taps, not bookings |
+| Store visits | Store visits | **Primary** | Modelled |
+| Clicks to call | Google hosted | **Primary** | A phone call is a real booking lead |
+| Get directions | Webpage | Secondary | Removed from the account-default goal |
+
+The day `purchase` records its first conversion, move `booking_engine_click`,
+the three Local actions and Store visits to **Secondary**, and keep `purchase`
+and Clicks to call Primary. Until then the Conversions column is mostly taps,
+which is also why Google keeps recommending target CPA. Bidding is Maximise
+clicks, so none of this changes spend yet.
 
 Ads tags call `www.googleadservices.com`, `googleads.g.doubleclick.net`,
 `td.doubleclick.net` and a few more collect hosts. They are allowed in the CSP
@@ -173,8 +197,47 @@ confirmation reload cannot double-count.
 engine pushes to `dataLayer` always and *additionally* calls `gtag` when a GA4
 ID is present, so setting both double-counts every purchase.
 
-The field is not self-serve in the PMS UI; GuestPro support sets it. Requested
-21 Sept 2026 — see [backlog.md](backlog.md).
+The field is not self-serve in the PMS UI; GuestPro support sets it. They set
+it on **30 Oct 2026**, after a second, single-ask request (the first, on
+21 Sept, bundled four asks and went unanswered).
+
+### What the engine sends (checked 30 Oct 2026)
+
+Search, add a room, open the guest details page, no payment:
+
+- `GTM-KHDV2SW2` loads on `secure.guestpro.net/odch`, and the Google tag loads
+  through it (`gtag/js?id=G-XR996N4YKR&cx=c`). There is no second GA4 config,
+  so `google_analytics_id` is empty as asked.
+- GA4 gets **one `page_view` per engine route** (`/odch`, `/odch/booking`,
+  `/odch/cart`): the config tag's history-change page view. The engine's own
+  `page_view` dataLayer push is matched by no tag, so nothing double-counts.
+- dataLayer events: `page_view`, `view_item_list`, `availability`,
+  `search_room`, `add_to_cart`, `begin_checkout`. The ecommerce ones are in GA4
+  shape. `begin_checkout` also carries the stay:
+
+  ```
+  { event: "begin_checkout",
+    ecommerce: { value: 1393643.88, currency: "IDR",
+      items: [{ item_name: "Deluxe Cottage", item_variant: "B&B DC Flexible",
+                item_category: "Room", price: 1393643.88, quantity: 1, … }] },
+    check_in_date: "2026-10-30", check_out_date: "2026-10-31",
+    adults: 2, children: 0, infants: 0 }
+  ```
+
+- `purchase` was not observed, since it needs a paid booking. The bundle sends
+  it with `transaction_id`.
+- **None of these reach GA4 yet.** GA4 receives only page views from the
+  engine until the container has a GA4 Event tag for them — see
+  [Outstanding](#outstanding).
+
+Values are in **IDR including taxes and fees**, which is what Google Ads
+reports as conversion value. The engine also has a **Promo Code** field on its
+search form.
+
+Because the container now runs on the engine, every All Pages tag fires there
+too: Yandex Metrica, the Conversion Linker, and the click triggers (the
+engine's own phone and WhatsApp icons count as `click_phone` /
+`click_whatsapp`).
 
 ### Google Free Booking Links
 
@@ -196,12 +259,13 @@ the engine's `merchant/<id>` call to `api.marketconnect.id/guestapp-hotel/api/`.
 cannot be iframed on orlowsky.id. The `frame-src https://secure.guestpro.net`
 allowance in [netlify.toml](../netlify.toml) is therefore unused.
 
-## Where this stands (28 Sept 2026)
+## Where this stands (30 Oct 2026)
 
 **Code** — `book_now_click` and `data-cta-location` are live since PR #10
 (23 Sept 2026). `fix/cta-location-csp` adds `room_card`, `dining` and
 `booking_band`, moves the push to the capture phase, and widens the CSP for
-Google Ads and Yandex Metrica.
+Google Ads and Yandex Metrica. `feat/inner-cta-tracking` adds `rooms_page` and
+`dining_page`, so every rendered engine link now pushes a surface.
 
 **GTM** — v6 published 28 Sept 2026 18:45 WITA. See
 [Container state](#container-state-v6-28-sept-2026).
@@ -228,18 +292,16 @@ Google Ads and Yandex Metrica.
 > dynamic IP with a wide CIDR range: that filters real guests on the same ISP
 > block.
 
-**GuestPro** — email sent 21 Sept 2026 to `info@guestpro.id` asking for:
-`google_tag_manager_id` = `GTM-KHDV2SW2` on the merchant record (and
-`google_analytics_id` left empty); confirmation of the GA4 ecommerce events;
-Google Free Booking Links enablement plus the landing URL and `merchant_id`;
-and the booking engine's search query parameters. Awaiting reply.
+**GuestPro** — `google_tag_manager_id` = `GTM-KHDV2SW2` set on 30 Oct 2026
+and verified live (see [What the engine sends](#what-the-engine-sends-checked-30-oct-2026)).
+Still to ask, one request per email: Google Free Booking Links (enablement,
+landing URL, `merchant_id`), and the engine's search query parameters.
 
 ## Outstanding
 
 **Code**
-- [ ] Give the inner-page GuestPro CTAs from `content/*.json` a surface name
-      and a push. Until then their `booking_engine_click` carries an inherited
-      or empty `cta_location`.
+- [ ] Decide whether the unrendered `bookingCta` blocks in the inner-page JSON
+      should be rendered or removed.
 
 **GTM**
 - [ ] Add `cta_location` as a parameter on the **`click_whatsapp`** tag, read
@@ -249,22 +311,30 @@ and the booking engine's search query parameters. Awaiting reply.
       `cta_location = offer_card`, `blog_offer` or `blog_band` — the offer
       conversion; `blog_offer` + `blog_band` are what the blog brings in. (A
       blog post's floating pill reports `floating` with destination `whatsapp`.)
-- [ ] GA4 ecommerce tags for `purchase` / `begin_checkout` / `view_item` —
-      only after GuestPro replies and sets the field
+- [ ] **One GA4 Event tag for the engine's ecommerce events.** Trigger:
+      Custom Event, regex
+      `^(view_item_list|view_item|add_to_cart|begin_checkout|add_payment_info|purchase)$`.
+      Tag: GA4 Event, `{{GA4 Measurement ID}}`, event name `{{Event}}`, More
+      settings → Ecommerce → Send Ecommerce data from Data Layer. Preview on
+      `secure.guestpro.net/odch` (search, add a room, open the details page),
+      then publish as v7. Check `purchase` is a key event in GA4.
 - [ ] Map `fatal` into `ES - exception params` if crash severity is wanted
 
 **Google Ads**
-- [ ] Demote `booking_engine_click` to Secondary once `purchase` exists
-- [ ] Remarketing tag and audiences — needs Consent Mode v2 for EEA/UK
+- [ ] Once `purchase` records its first conversion: `booking_engine_click`,
+      the three Local actions and Store visits to Secondary (see
+      [Google Ads](#google-ads))
+- [ ] Remarketing audiences: all visitors; began checkout but didn't book. The
+      Google tag already collects for `AW-18400798863`. A list needs 1,000
+      active users before Search can use it. Needs Consent Mode v2 for EEA/UK
+      and a remarketing line in the privacy policy
 - [ ] Skip bidding setup until there is conversion history — Smart Bidding
       from zero performs badly
 
 **Open questions**
 - [ ] Consent Mode v2 — no CMP on the site; required for EEA/UK remarketing
       and conversion modelling. Its own project.
-- [ ] Booking engine search query parameters (undocumented; capture the real
-      redirect from GuestPro's WordPress booking bar to learn them)
-- [ ] When the engine carries the container, check `page_view` in Preview: the
-      engine SPA pushes its own per route while the config tag also sends one
-      on load, so the first engine page likely double-counts. This is about the
-      **engine**, not the marketing site's `historyChange-v2` page views.
+- [ ] Booking engine search query parameters (undocumented; ask GuestPro, or
+      capture the real redirect from GuestPro's WordPress booking bar)
+- [ ] Google Free Booking Links: ask GuestPro to enable it through their Hotel
+      Center connection, with the landing URL and `merchant_id`

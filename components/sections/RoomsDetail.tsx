@@ -157,6 +157,7 @@ function RoomCard({ room, reverse, t, isRu }: {
           <SecondaryButton
             href={room.href}
             external
+            data-cta-location="rooms_page"
             className="text-sm px-8 py-3"
             aria-label={`${label} — ${t(room.title)}`}
           >
@@ -215,6 +216,7 @@ function RoomCard({ room, reverse, t, isRu }: {
           <SecondaryButton
             href={room.href}
             external
+            data-cta-location="rooms_page"
             aria-label={`${label} — ${t(room.title)}`}
           >
             {label}
