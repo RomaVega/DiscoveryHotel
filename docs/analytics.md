@@ -1,10 +1,11 @@
 # Analytics & Google Ads
 
 How measurement works on this site, what is configured where, and what is still
-outstanding. Container state described here is **GTM version 6, published
-28 Sept 2026 18:45 WITA**, as reported from the GTM UI. The booking-engine
-findings come from reading its JavaScript bundle on 21 Sept 2026 and from a
-live check of the engine on 30 Oct 2026, the day GuestPro set the container.
+outstanding. Container state described here is **GTM version 7, published
+30 Oct 2026 21:09 WITA**, as reported from the GTM UI. The booking-engine
+findings come from reading its JavaScript bundle on 21 Sept and 30 Oct 2026,
+and from a live check of the engine on 30 Oct 2026, the day GuestPro set the
+container.
 Re-verify before trusting either.
 
 ## Architecture
@@ -101,7 +102,7 @@ GTM per [Outstanding](#outstanding), and annotate the deploy date in GA4.
 **Do not sum `book_now_click` and `booking_engine_click`** — they overlap.
 `booking_engine_click` is the counted one; `book_now_click` is diagnostic.
 
-## Container state (v6, 28 Sept 2026)
+## Container state (v7, 30 Oct 2026)
 
 Real property: **`G-XR996N4YKR`**, held in the Constant variable
 `GA4 Measurement ID`. Every GA4 tag references `{{GA4 Measurement ID}}` rather
@@ -114,6 +115,7 @@ than a pasted string.
 | GA4 event `click_phone` / `click_email` / `click_instagram` | their click triggers | the named event |
 | `GA4 Event - booking_engine_click` | `Click - GuestPro booking` | `booking_engine_click` + `cta_location` |
 | `GA4 Event - exception (boundary_error)` | `CE - boundary_error` | `exception` + `ES - exception params` |
+| `GA4 Event - GuestPro ecommerce` | `CE - GuestPro ecommerce` | the engine's event, by name (`{{Event}}`), with its ecommerce data from the Data Layer |
 | `Conversion Linker` | All Pages | — |
 | Custom HTML | `gtm.js` | Yandex Metrica loader, counter `111820344` |
 | Custom HTML | Click URL contains `wa.me` | Metrica `reachGoal` for `click_whatsapp` |
@@ -133,6 +135,13 @@ one RegEx: several `Page Hostname equals` rows are ANDed and never fire.
 `error_name` is not a registered custom dimension, so GA4 collects it but does
 not report it. `fatal` is pushed by the site but not mapped.
 
+**`CE - GuestPro ecommerce`** (v7) is a Custom Event trigger with regex
+`^(view_item_list|view_item|add_to_cart|begin_checkout|add_payment_info|purchase|payment_pending)$`.
+These events are pushed only by the booking engine, so it needs no hostname
+clause. Tested in Preview on 30 Oct 2026: `view_item_list` ×2, `add_to_cart`
+×2 and `begin_checkout` ×1 each reached `G-XR996N4YKR` with `cu=IDR`,
+`epn.value` and the room as `pr1`.
+
 `G-XR966N4YKR` (note `966`) was pasted into `click_phone`, `click_email` and
 `click_instagram` until v6. It is not a real property, so those three events
 never arrived anywhere before 28 Sept 2026.
@@ -143,9 +152,8 @@ Metrica from the site entirely. Metrica's `tag.js` from `mc.yandex.ru` was
 blocked by the CSP in [netlify.toml](../netlify.toml) until
 `fix/cta-location-csp`, so check Metrica for a gap before that deploy.
 
-Absent from the container: Consent Mode, and a GA4 tag for the engine's
-ecommerce events (see [The booking engine](#the-booking-engine)). No separate
-Ads remarketing tag is needed: the Google tag already sends to Google Ads
+Absent from the container: Consent Mode. No separate Ads remarketing tag is
+needed: the Google tag already sends to Google Ads
 `AW-18400798863` as a destination (`rmkt/collect`, `viewthroughconversion`,
 `1p-user-list` hits seen on the engine on 30 Oct 2026).
 
@@ -224,11 +232,33 @@ Search, add a room, open the guest details page, no payment:
     adults: 2, children: 0, infants: 0 }
   ```
 
-- `purchase` was not observed, since it needs a paid booking. The bundle sends
-  it with `transaction_id`.
-- **None of these reach GA4 yet.** GA4 receives only page views from the
-  engine until the container has a GA4 Event tag for them — see
-  [Outstanding](#outstanding).
+- `purchase` was not observed, since it needs a completed booking — see
+  [When a booking counts](#when-a-booking-counts).
+- Since **v7** these reach GA4 through `GA4 Event - GuestPro ecommerce`.
+
+### When a booking counts
+
+Read from the engine's bundle on 30 Oct 2026 (`processSingleTracking` in the
+payment-result component). The final "Book Now" on `/odch/cart` pushes
+`add_payment_info`, with `payment_type` "Pay at Hotel" or the payment method's
+name. The booking's own event is pushed later, on the **`BePaymentResult`**
+route, and depends on the booking's status when that page loads:
+
+| Status on the result page | Event pushed | Counts in Google Ads |
+|---|---|---|
+| `COMPLETE` | `purchase` (`transaction_id`, value, items, check-in/out) | Yes, the Primary conversion |
+| `WAITING_PAYMENT_CONFIRMATION` or `WAITING_CONFIRMATION` | `payment_pending`, same payload | No, not imported |
+| `CANCELLED` | `transaction_cancelled` | No |
+
+Each is pushed once per booking: the engine first writes a posting date
+(`google_tag_manager_posting_date` for pending, `..._COMPLETE_...`,
+`..._CANCELLED_...`) to the booking and skips the push if one exists, so a
+reload does not double-count. **A booking that is still waiting when the guest
+sees the result page reports `payment_pending`, and becomes `purchase` only if
+the result page is opened again after it is confirmed** (for example from the
+confirmation email). Which status website bookings start in is unconfirmed;
+asked of reception on 30 Oct 2026. `payment_pending` is in the v7 trigger so
+those bookings reach GA4 either way.
 
 Values are in **IDR including taxes and fees**, which is what Google Ads
 reports as conversion value. The engine also has a **Promo Code** field on its
@@ -267,8 +297,9 @@ allowance in [netlify.toml](../netlify.toml) is therefore unused.
 Google Ads and Yandex Metrica. `feat/inner-cta-tracking` adds `rooms_page` and
 `dining_page`, so every rendered engine link now pushes a surface.
 
-**GTM** — v6 published 28 Sept 2026 18:45 WITA. See
-[Container state](#container-state-v6-28-sept-2026).
+**GTM** — v7 published 30 Oct 2026 21:09 WITA, live on the engine (the
+served `gtm.js` is version 7 and carries the new trigger). See
+[Container state](#container-state-v7-30-oct-2026).
 
 **GA4 — done**
 - Unwanted referrals: `guestpro.net`
@@ -281,6 +312,8 @@ Google Ads and Yandex Metrica. `feat/inner-cta-tracking` adds `rooms_page` and
   only appends `traffic_type=internal`; the filter is what excludes it.
 - Data retention: 14 months
 - Linked to Google Ads `145-908-5801`
+- Key events include `purchase`, `booking_engine_click` and `click_whatsapp`
+  (checked 30 Oct 2026)
 
 **GA4 — not confirmed**
 - [ ] Internal traffic rule: a condition for the maintainer's own connection
@@ -311,16 +344,12 @@ landing URL, `merchant_id`), and the engine's search query parameters.
       `cta_location = offer_card`, `blog_offer` or `blog_band` — the offer
       conversion; `blog_offer` + `blog_band` are what the blog brings in. (A
       blog post's floating pill reports `floating` with destination `whatsapp`.)
-- [ ] **One GA4 Event tag for the engine's ecommerce events.** Trigger:
-      Custom Event, regex
-      `^(view_item_list|view_item|add_to_cart|begin_checkout|add_payment_info|purchase)$`.
-      Tag: GA4 Event, `{{GA4 Measurement ID}}`, event name `{{Event}}`, More
-      settings → Ecommerce → Send Ecommerce data from Data Layer. Preview on
-      `secure.guestpro.net/odch` (search, add a room, open the details page),
-      then publish as v7. Check `purchase` is a key event in GA4.
 - [ ] Map `fatal` into `ES - exception params` if crash severity is wanted
 
 **Google Ads**
+- [ ] Once reception says which status website bookings start in: if they
+      usually start waiting, import `payment_pending` too (see
+      [When a booking counts](#when-a-booking-counts))
 - [ ] Once `purchase` records its first conversion: `booking_engine_click`,
       the three Local actions and Store visits to Secondary (see
       [Google Ads](#google-ads))
