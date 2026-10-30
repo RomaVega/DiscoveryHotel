@@ -8,6 +8,7 @@ import type { ContactData, DiningPageData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 import { MENU_URL } from "@/lib/booking";
+import type { CtaLocation } from "@/lib/track";
 
 // Atmospheric hotel images cycled across feature sections
 const FEATURE_IMAGES = [
@@ -49,9 +50,14 @@ export function DiningDetail({ data, contact }: DiningDetailProps) {
     : "Hello! I'd like to discuss catering and a custom menu for an event.");
 
   /* Only the features a guest can act on carry a button — keyed by their index in
-     dining.json, so reordering the features there means revisiting these keys. */
-  const featureCtas: Record<number, { href: string; label: string }> = {
-    5: { href: menuUrl,      label: isRu ? "Заказать Доставку"    : "Order Delivery" },
+     dining.json, so reordering the features there means revisiting these keys.
+     The menu button carries a surface name, as does "View Menu" above, because
+     its URL is on secure.guestpro.net: GTM's `booking_engine_click` fires on it
+     and reads `cta_location` from the push, and without one it would report the
+     previous button's surface. The two WhatsApp buttons don't reach that
+     trigger. */
+  const featureCtas: Record<number, { href: string; label: string; location?: CtaLocation }> = {
+    5: { href: menuUrl,      label: isRu ? "Заказать Доставку"    : "Order Delivery", location: "dining_page" },
     6: { href: showsUrl,     label: isRu ? "Узнать Расписание"    : "Get Schedule" },
     7: { href: cateringUrl,  label: isRu ? "Обсудить Мероприятие" : "Plan Your Event" },
   };
@@ -84,7 +90,7 @@ export function DiningDetail({ data, contact }: DiningDetailProps) {
               at capacity, so it is a convenience for guests who want one, not a CTA to
               push. That is also why the closing CTA does not repeat it. */}
           <div className="flex flex-col items-center gap-4">
-            <SecondaryButton href={menuUrl} external>
+            <SecondaryButton href={menuUrl} external data-cta-location="dining_page">
               {isRu ? "Смотреть Меню" : "View Menu"}
             </SecondaryButton>
             <a
@@ -128,7 +134,7 @@ export function DiningDetail({ data, contact }: DiningDetailProps) {
                     </p>
                     {featureCtas[i] && (
                       <div className="mt-8 flex justify-center">
-                        <SecondaryButton href={featureCtas[i].href} external>
+                        <SecondaryButton href={featureCtas[i].href} external data-cta-location={featureCtas[i].location}>
                           {featureCtas[i].label}
                         </SecondaryButton>
                       </div>

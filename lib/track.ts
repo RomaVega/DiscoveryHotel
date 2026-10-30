@@ -61,8 +61,16 @@ export type CtaLocation =
   | "blog_band"
   /** A room card's "Check Availability" in `RoomsPreview` (home page). */
   | "room_card"
+  /**
+   * A room's "Check Availability" on `/rooms` (`RoomsDetail`, desktop and
+   * mobile buttons alike). Separate from `room_card`: someone who has read the
+   * full room page is a different visitor from one tapping a home-page card.
+   */
+  | "rooms_page"
   /** "View Menu" in `DiningPreview` (home page) — the in-room dining menu. */
   | "dining"
+  /** "View Menu" and "Order Delivery" on `/dining` (`DiningDetail`) — the same menu page. */
+  | "dining_page"
   /** The deep-teal `BookingCta` band just above the footer. Not the footer. */
   | "booking_band"
   /** "Book Now" under the "Why Book Direct" perks on `/offers`. */
