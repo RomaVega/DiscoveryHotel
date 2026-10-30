@@ -7,7 +7,7 @@
     "en": "Privacy Policy",
     "ru": "Политика Конфиденциальности"
   },
-  "lastUpdated": "2024-12-01",
+  "lastUpdated": "2026-10-30",
   "sections": [
     {
       "title": {
@@ -35,8 +35,8 @@
         "ru": "Файлы cookie"
       },
       "content": {
-        "en": "Our website uses cookies to enhance your browsing experience, remember your language preferences, and analyze website traffic. You can manage cookie preferences through your browser settings. Essential cookies are required for the website to function properly. Analytics cookies help us understand how visitors interact with our website.",
-        "ru": "Наш сайт использует файлы cookie для улучшения просмотра, запоминания языковых предпочтений и анализа трафика. Вы можете управлять настройками cookie через параметры браузера. Основные cookie необходимы для корректной работы сайта. Аналитические cookie помогают нам понять, как посетители взаимодействуют с нашим сайтом."
+        "en": "Our website uses cookies and similar technologies to remember your language preference, to measure how the site is used, and for advertising. Essential cookies are needed for the site to work. Analytics cookies (Google Analytics and Yandex Metrica) show us which pages visitors view and how they use them. Advertising cookies (Google Ads) tell us which ads lead to enquiries and bookings, and let us show our ads to people who have visited the site — see Advertising and Remarketing below. You can block or delete cookies in your browser settings.",
+        "ru": "Наш сайт использует файлы cookie и похожие технологии, чтобы запоминать выбранный язык, измерять, как используется сайт, и для рекламы. Основные cookie необходимы для работы сайта. Аналитические cookie (Google Analytics и Яндекс Метрика) показывают нам, какие страницы просматривают посетители и как ими пользуются. Рекламные cookie (Google Ads) показывают, какая реклама приводит к обращениям и бронированиям, и позволяют показывать нашу рекламу тем, кто уже был на сайте, — подробнее в разделе «Реклама и ремаркетинг» ниже. Вы можете заблокировать или удалить cookie в настройках браузера."
       }
     },
     {
@@ -45,8 +45,18 @@
         "ru": "Сторонние сервисы"
       },
       "content": {
-        "en": "We use GuestPro for online reservations and payment processing. When you make a booking through our website, your information is shared with GuestPro in accordance with their privacy policy. We may also use Google Analytics to understand website usage patterns. These third-party services have their own privacy policies governing the use of your information.",
-        "ru": "Мы используем GuestPro для онлайн-бронирований и обработки платежей. При бронировании через наш сайт ваша информация передаётся в GuestPro в соответствии с их политикой конфиденциальности. Мы также можем использовать Google Analytics для понимания паттернов использования сайта. Эти сторонние сервисы имеют собственные политики конфиденциальности, регулирующие использование вашей информации."
+        "en": "We use GuestPro for online reservations and payment processing. When you make a booking through our website, your information is shared with GuestPro in accordance with their privacy policy. Our website and GuestPro's booking pages load Google Tag Manager, which runs Google Analytics, Google Ads and Yandex Metrica. These services receive information about your visit, such as the pages you view, your device and browser, your approximate location and the steps you take towards a booking. Yandex Metrica's Webvisor records how visitors interact with our pages — clicks, scrolling and mouse movement — so we can improve them. These third-party services have their own privacy policies governing the use of your information.",
+        "ru": "Мы используем GuestPro для онлайн-бронирований и обработки платежей. При бронировании через наш сайт ваша информация передаётся в GuestPro в соответствии с их политикой конфиденциальности. Наш сайт и страницы бронирования GuestPro загружают Google Tag Manager, через который работают Google Analytics, Google Ads и Яндекс Метрика. Эти сервисы получают сведения о вашем визите: какие страницы вы просматриваете, ваше устройство и браузер, примерное местоположение и шаги, которые вы делаете на пути к бронированию. Вебвизор Яндекс Метрики записывает, как посетители взаимодействуют со страницами, — клики, прокрутку и движения мыши, — чтобы мы могли их улучшать. У этих сервисов есть собственные политики конфиденциальности, которые регулируют использование вашей информации."
+      }
+    },
+    {
+      "title": {
+        "en": "Advertising and Remarketing",
+        "ru": "Реклама и ремаркетинг"
+      },
+      "content": {
+        "en": "We advertise Orlowsky Discovery Hotel with Google Ads and use the remarketing and advertising features of Google Analytics. This means Google may show our ads to people who have visited our website or started a booking — on Google Search and on other websites and apps. To do this, Google uses first-party cookies (such as the Google Analytics cookie) together with third-party advertising cookies and identifiers (such as Google's advertising cookies). We use the same data to measure which ads lead to enquiries and bookings. We see only aggregated reports and audience sizes, not who you are.\n\nTo turn off personalised Google ads, visit My Ad Center (myadcenter.google.com). You can also opt out of many advertising networks at once through the Network Advertising Initiative (optout.networkadvertising.org), or stop Google Analytics from collecting data about your visits with the Google Analytics opt-out browser add-on (tools.google.com/dlpage/gaoptout).",
+        "ru": "Мы рекламируем Orlowsky Discovery Hotel через Google Ads и используем функции ремаркетинга и рекламы Google Analytics. Это значит, что Google может показывать нашу рекламу людям, которые были на нашем сайте или начали бронирование, — в Google Поиске, на других сайтах и в приложениях. Для этого Google использует собственные cookie сайта (например, cookie Google Analytics) вместе со сторонними рекламными cookie и идентификаторами (например, рекламными cookie Google). Эти же данные помогают нам понять, какая реклама приводит к обращениям и бронированиям. Мы видим только сводные отчёты и размеры аудиторий, а не то, кто вы.\n\nЧтобы отключить персонализированную рекламу Google, откройте «Мой центр рекламы» (myadcenter.google.com). Можно также отказаться сразу от многих рекламных сетей через Network Advertising Initiative (optout.networkadvertising.org) или запретить Google Analytics собирать данные о ваших визитах с помощью браузерного расширения (tools.google.com/dlpage/gaoptout)."
       }
     },
     {
