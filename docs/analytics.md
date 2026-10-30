@@ -353,10 +353,17 @@ landing URL, `merchant_id`), and the engine's search query parameters.
 - [ ] Once `purchase` records its first conversion: `booking_engine_click`,
       the three Local actions and Store visits to Secondary (see
       [Google Ads](#google-ads))
-- [ ] Remarketing audiences: all visitors; began checkout but didn't book. The
-      Google tag already collects for `AW-18400798863`. A list needs 1,000
-      active users before Search can use it. Needs Consent Mode v2 for EEA/UK
-      and a remarketing line in the privacy policy
+- [ ] Remarketing: the GA4 audience **Started booking, didn't book** was
+      created 30 Oct 2026. It includes `begin_checkout` and excludes `purchase`
+      or `payment_pending`, with 30-day membership. The exclusion is
+      *temporary*, which GA4 applies for the length of that membership, so a
+      past guest who abandons a later booking can be shown ads again.
+      GA4 had not yet seen `begin_checkout` when the audience was made, so
+      both events are entered by name. The audience reaches Google Ads through
+      the link. Once it appears there, add it to the campaign as
+      **Observation**. Search can use a list only once it reaches 1,000 active
+      users. The privacy-policy disclosure is PR #26. Consent Mode v2 is still
+      needed for EEA/UK visitors
 - [ ] Skip bidding setup until there is conversion history — Smart Bidding
       from zero performs badly
 
