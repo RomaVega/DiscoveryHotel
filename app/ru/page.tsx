@@ -65,7 +65,7 @@ export default function HomeRuPage() {
         <ScrollDivider above={C.sand}     below={C.ivory}    />
         <Amenities data={data.amenities} />
         <ScrollDivider above={C.ivory}    below={C.sand}     />
-        <Experiences data={data.experiences} compactMobile />
+        <Experiences data={data.experiences} />
         <ScrollDivider above={C.sand}     below={C.ivory}    />
         <SpecialOffers data={data.offers} />
         <ScrollDivider above={C.ivory}    below={C.sand}     />

@@ -37,6 +37,20 @@ const cormorant = Cormorant_Garamond({
   display: "swap",
 });
 
+// Cormorant Bold, for the Experiences photo tiles only (ExperienceTile): white
+// titles on photography need the extra weight to stay legible at 21px. A
+// separate instance rather than a fifth weight above, because that would add
+// 700 italic too and preload both on every page (~44 KB); this one is upright
+// only and not preloaded, so only the two pages that show the tiles fetch it.
+const cormorantBold = Cormorant_Garamond({
+  variable: "--font-serif-bold",
+  subsets: ["latin"],
+  weight: "700",
+  style: "normal",
+  display: "swap",
+  preload: false,
+});
+
 
 const description =
   "Four-star boutique hotel on the shores of Candidasa, East Bali. Ocean-view villas, tropical gardens, spa, diving, and authentic Balinese hospitality.";
@@ -153,7 +167,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.variable} ${cormorant.variable} antialiased`} suppressHydrationWarning>
+      <body className={`${inter.variable} ${cormorant.variable} ${cormorantBold.variable} antialiased`} suppressHydrationWarning>
         <GoogleTagManagerNoScript />
         <LanguageProvider>
           <MotionProvider>
