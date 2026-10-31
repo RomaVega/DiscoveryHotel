@@ -86,7 +86,15 @@ export interface ExperienceCard {
    * source's width — 60% of a 4:3 photo, 45% of a 16:9 one.
    */
   imagePosition?: string;
+  /**
+   * How heavy the dark halo behind the tile's white title is. Defaults to
+   * `"strong"`. Lighter suits a photo that is already dark behind the title
+   * (the underwater shot); measure contrast before lightening a bright one.
+   */
+  titleShadow?: TitleShadow;
 }
+
+export type TitleShadow = "light" | "medium" | "strong";
 
 export interface ExperiencesData {
   label: LocalizedString;

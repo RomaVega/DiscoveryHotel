@@ -96,6 +96,7 @@ const experienceCard = z.object({
   external: z.boolean().optional(),
   cta: localizedString.optional(),
   imagePosition: z.string().optional(),
+  titleShadow: z.enum(["light", "medium", "strong"]).optional(),
 });
 
 const experiencesData = z.object({

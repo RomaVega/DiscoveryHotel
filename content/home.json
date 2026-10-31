@@ -569,6 +569,7 @@
           "ru": "Яркие коралловые рифы и знаменитый корабль-призрак USAT Liberty"
         },
         "image": "/images/experiences/experiences-diving.webp",
+        "titleShadow": "light",
         "imagePosition": "70% 50%",
         "imageAlt": "Colorful coral reef underwater in Bali",
         "href": "/experiences/diving",
@@ -587,6 +588,7 @@
           "ru": "Свадьбы, юбилеи и частные мероприятия в тропическом окружении"
         },
         "image": "/images/experiences/experiences-events.webp",
+        "titleShadow": "medium",
         "imageAlt": "Elegant outdoor event setup with ocean backdrop",
         "href": "/experiences/events",
         "cta": {
