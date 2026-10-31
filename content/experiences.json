@@ -43,6 +43,7 @@
         "ru": "Откройте для себя яркие коралловые рифы, легендарный корабль USAT Liberty в Туламбене и величественных мант на Нуса-Пениде. Программы для новичков и сертифицированных дайверов."
       },
       "image": "/images/experiences/experiences-diving.webp",
+      "titleShadow": "light",
       "imagePosition": "70% 50%",
       "imageAlt": {
         "en": "Colorful Coral Reef Underwater in Bali",
@@ -64,6 +65,7 @@
         "ru": "Проведите свадьбу мечты, юбилей или корпоративное мероприятие на нашей площадке у океана. Европейские и традиционные балийские церемонии, кейтеринг и профессиональная организация."
       },
       "image": "/images/experiences/experiences-events.webp",
+      "titleShadow": "medium",
       "imageAlt": {
         "en": "Elegant Outdoor Event Setup with Ocean Backdrop",
         "ru": "Элегантное оформление мероприятия на открытом воздухе с видом на океан"
@@ -105,6 +107,7 @@
         "ru": "Исследуйте священные храмы, изумрудные рисовые террасы и скрытые водопады с нашими опытными местными гидами. Полнодневные и полудневные туры по Восточному Бали и за его пределы."
       },
       "image": "/images/experiences/experiences-signature-excursions.webp",
+      "imagePosition": "46% 50%",
       "imageAlt": {
         "en": "Multi-tiered Balinese lakeside temple against misty mountains, Bali",
         "ru": "Многоярусный балийский храм у озера на фоне туманных гор, Бали"

@@ -2,7 +2,7 @@ import { Fragment, type CSSProperties } from "react";
 import Image from "next/image";
 import { LocalizedLink as Link } from "@/components/common/LocalizedLink";
 import { joinSlashes, longestTitleLine, splitTitle } from "@/lib/typography";
-import type { ExperienceCard } from "@/lib/types";
+import type { ExperienceCard, TitleShadow } from "@/lib/types";
 
 interface ExperienceTileProps {
   item: ExperienceCard;
@@ -26,15 +26,23 @@ interface ExperienceTileProps {
  */
 const EM_PER_CHAR = 0.53;
 
+/** The halo behind the title, per photo — set by `titleShadow` in the content. */
+const TITLE_SHADOW: Record<TitleShadow, string> = {
+  light: "text-shadow-halo-light",
+  medium: "text-shadow-halo-medium",
+  strong: "text-shadow-strong",
+};
+
 const TILE_CLASS =
   "group @container isolate relative block aspect-[4/5] overflow-hidden rounded-2xl bg-espresso " +
   "shadow-lg shadow-espresso/20 " +
   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-sand";
 
 /**
- * A photo tile for one experience: the photo fills a 4:5 card, a warm shade
- * rises from the bottom, and the title sits on it in white Cormorant Bold,
- * always on two lines (see `splitTitle`). A thin white keyline frames the photo.
+ * A photo tile for one experience: the photo fills a 4:5 card, and the title
+ * sits at the bottom in white Cormorant Bold with a dark shadow behind the
+ * letters, always on two lines (see `splitTitle`). A thin white keyline frames
+ * the photo.
  *
  * Shared by the home page's Experiences section and the /experiences hub, so
  * the same six cards look identical on both — the reason the old cards' titles
@@ -42,13 +50,18 @@ const TILE_CLASS =
  *
  * Titles over photography need a ground dark enough for AA. An earlier overlay
  * attempt was dropped after one title measured 1.3:1 against a white dress.
- * This shade is darkest exactly where the two title lines sit: measured on the
- * built pages (Oct 2026: all six photos, EN and RU, home and /experiences, at
- * 320, 360 and 390px), white measures at least 4.95:1 against the brightest
- * single pixel behind any title, and at least 5.8:1 at the 95th percentile —
- * above 4.5:1, so it holds even where a narrow phone shrinks the title below
- * the 18.66px bold "large text" size. Re-measure before lightening the shade
- * or adding a photo with a bright lower third.
+ * There is no gradient: the letters carry their own dark halo, so the photo
+ * stays fully visible. Its strength is chosen per photo (`titleShadow` in the
+ * content, strong by default). Measured on the built pages (Oct 2026: EN and
+ * RU, home and /experiences, at 320, 360, 390 and 1280px), white against the
+ * 95th-percentile pixel in a 1px ring around every glyph:
+ *   strong (spa, rental, excursions, tours)  ≥ 4.79:1
+ *   light  (diving, dark water behind it)    ≥ 12.5:1
+ *   medium (events, bright dress and sea)    ≈ 3.1:1 — the owner's choice. It
+ *     clears the 3:1 large-text floor where the title is ≥18.66px bold, but not
+ *     the 4.5:1 that applies on 320px phones, where the title shrinks to
+ *     16.5–17.9px. Switching events to "strong" gives ≥4.6:1 everywhere.
+ * Re-measure before softening a shadow or adding a photo with a bright lower edge.
  */
 export function ExperienceTile({ item, title, imageAlt, fitChars }: ExperienceTileProps) {
   const lines = splitTitle(title);
@@ -67,17 +80,19 @@ export function ExperienceTile({ item, title, imageAlt, fitChars }: ExperienceTi
         // the photo's width shows; the focal point comes from content.
         style={item.imagePosition ? { objectPosition: item.imagePosition } : undefined}
       />
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-linear-to-t from-espresso/85 via-espresso/60 via-35% to-transparent to-70%"
-      />
       <h3
         // Font size: the cap (21px on phones, 28px from sm), or less when the
         // tile is too narrow for the longest line — 100cqi is the tile's width,
         // minus the 1rem of side padding, divided by that line's width in em.
         // Cards are 130px wide at 320px, which is where the cap gives way.
+        //
+        // No gradient over the photo: legibility comes from a dark halo that
+        // follows the letters, strong by default and lighter where the content
+        // says the photo is already dark behind the title. A full-card gradient
+        // (and then a shorter one behind the title) darkened too much of every photo.
         className={
-          "absolute inset-x-0 bottom-0 px-2 pb-[18px] sm:pb-6 text-center text-white text-shadow-subtle " +
+          "absolute inset-x-0 bottom-0 px-2 pb-[18px] sm:pb-6 text-center text-white " +
+          TITLE_SHADOW[item.titleShadow ?? "strong"] + " " +
           // Cormorant Bold comes from its own font instance, --font-serif-bold,
           // which is the only place 700 is loaded (see app/layout.tsx).
           "font-[family-name:var(--font-serif-bold)] font-bold leading-[1.1] tracking-[0.02em] " +

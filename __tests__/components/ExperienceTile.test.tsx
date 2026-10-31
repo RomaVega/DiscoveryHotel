@@ -43,6 +43,15 @@ describe("ExperienceTile", () => {
     expect(link).toHaveAttribute("rel", "noopener noreferrer");
   });
 
+  it("uses the strong title shadow unless the content asks for a lighter one", () => {
+    const { rerender } = render(<ExperienceTile item={spa} title="Ayurvedic Spa" imageAlt="Ayurvedic Center entrance" />);
+    expect(screen.getByRole("heading", { level: 3 })).toHaveClass("text-shadow-strong");
+    rerender(<ExperienceTile item={{ ...spa, titleShadow: "light" }} title="Ayurvedic Spa" imageAlt="Ayurvedic Center entrance" />);
+    expect(screen.getByRole("heading", { level: 3 })).toHaveClass("text-shadow-halo-light");
+    rerender(<ExperienceTile item={{ ...spa, titleShadow: "medium" }} title="Ayurvedic Spa" imageAlt="Ayurvedic Center entrance" />);
+    expect(screen.getByRole("heading", { level: 3 })).toHaveClass("text-shadow-halo-medium");
+  });
+
   it("applies the content's focal point to the photo", () => {
     render(<ExperienceTile item={spa} title="Ayurvedic Spa" imageAlt="Ayurvedic Center entrance" />);
     expect(screen.getByAltText("Ayurvedic Center entrance")).toHaveStyle({ objectPosition: "78% 50%" });
