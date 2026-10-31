@@ -33,6 +33,13 @@ describe("SectionHeading", () => {
     expect(container.firstChild).toHaveClass("text-center");
   });
 
+  it("draws a decorative rule only when asked", () => {
+    const { container, rerender } = render(<SectionHeading heading="Our Rooms" />);
+    expect(container.querySelector("[aria-hidden='true']")).not.toBeInTheDocument();
+    rerender(<SectionHeading heading="Our Rooms" rule />);
+    expect(container.querySelector("[aria-hidden='true']")).toHaveClass("bg-accent-text");
+  });
+
   it("does not apply text-center when centered=false", () => {
     const { container } = render(<SectionHeading heading="Our Rooms" centered={false} />);
     expect(container.firstChild).not.toHaveClass("text-center");

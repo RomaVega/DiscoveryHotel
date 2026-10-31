@@ -81,8 +81,9 @@ export interface ExperienceCard {
   cta?: LocalizedString;
   /**
    * CSS `object-position` for the card image, e.g. `"right"` or `"70% 50%"`.
-   * Defaults to centre. Set it when the subject sits off-centre and the tighter
-   * mobile crop would cut it — the 4:3 tile drops ~27% of a 16:9 source's width.
+   * Defaults to centre. Set it when the subject sits off-centre: the tile is a
+   * 4:5 portrait (ExperienceTile), so it shows only 45–60% of a landscape
+   * source's width — 60% of a 4:3 photo, 45% of a 16:9 one.
    */
   imagePosition?: string;
 }
