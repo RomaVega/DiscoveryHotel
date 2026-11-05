@@ -358,8 +358,11 @@ export interface TransferRoute {
 
 export interface LocalRoute {
   destination: LocalizedString;
-  price: string;
+  /** A rupiah figure ("IDR 310,000") or words ("Free for guests"). */
+  price: LocalizedString;
   type?: LocalizedString;
+  /** Departure times, shown under the destination — the free beach shuttle. */
+  schedule?: LocalizedString;
 }
 
 export interface TransferFeature {

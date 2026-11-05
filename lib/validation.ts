@@ -303,8 +303,9 @@ const transferRoute = z.object({
 
 const localRoute = z.object({
   destination: localizedString,
-  price: z.string(),
+  price: localizedString,
   type: localizedString.optional(),
+  schedule: localizedString.optional(),
 });
 
 const transferFeature = z.object({
