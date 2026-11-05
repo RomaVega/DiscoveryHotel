@@ -52,7 +52,7 @@ describe("Footer", () => {
         .map((a) => a.textContent)
     ).toEqual([
       "Rooms", "Dining", "Experiences", "Offers", "Gallery",
-      "Location", "Airport Transfer", "About", "FAQ", "Contact", "Blog",
+      "Location", "Transfer", "About", "FAQ", "Contact", "Blog",
     ]);
     expect(
       within(screen.getByRole("list", { name: "On the grounds" }))
