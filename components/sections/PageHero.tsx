@@ -63,7 +63,7 @@ export function PageHero({ image, imageAlt, imageDesktop, imageClassName, headin
       )}
       {!noOverlay && <div className="absolute inset-0 bg-black/40" />}
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center text-white">
-        <h1 className={`font-serif text-4xl md:text-5xl lg:text-6xl font-light ${noOverlay ? "text-shadow-tight" : "text-shadow-strong"}`}>
+        <h1 className={`font-serif text-4xl md:text-5xl lg:text-6xl font-semibold ${noOverlay ? "text-shadow-tight" : "text-shadow-strong"}`}>
           {t(heading)}
         </h1>
         {subtext && (
