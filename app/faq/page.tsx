@@ -42,6 +42,7 @@ export default function FaqPage() {
         imageAlt="Hotel lobby and reception area"
         heading={data.heading}
         noOverlay
+        largeTitle
       />
       <FaqDetail data={data} />
     </InnerPageLayout>
