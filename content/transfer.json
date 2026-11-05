@@ -52,8 +52,8 @@
         "en": "Ngurah Rai Airport / Kuta / Nusa Dua / Jimbaran / Uluwatu",
         "ru": "Аэропорт Нгурах-Рай / Кута / Нуса-Дуа / Джимбаран / Улувату"
       },
-      "oneWay": "$40",
-      "roundTrip": "$70",
+      "oneWay": "IDR\u00a0650,000",
+      "roundTrip": "IDR\u00a01,200,000",
       "maxPassengers": 4,
       "note": {
         "en": "Additional charge applies for 5 or more passengers",
