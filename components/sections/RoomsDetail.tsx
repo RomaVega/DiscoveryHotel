@@ -63,6 +63,7 @@ function RoomCard({ room, reverse, t, isRu }: {
   t: (s: any) => string;
   isRu: boolean;
 }) {
+  const { tl } = useLanguage();
   const [current, setCurrent] = useState(0);
   const thumbRef = useRef<HTMLDivElement>(null);
   const images = room.images?.map((s) => ({ src: s.src, alt: t(s.alt) })) ?? [];
@@ -104,6 +105,7 @@ function RoomCard({ room, reverse, t, isRu }: {
               <div>
                 <p className="font-sans text-[10px] tracking-[0.2em] uppercase text-stone mb-0.5">{isRu ? "Цена" : "Rate"}</p>
                 <p className="font-serif text-lg text-accent-text">{t(room.price)}</p>
+                <p className="font-sans text-xs text-stone mt-0.5">{tl.rooms.taxIncluded}</p>
               </div>
             </>
           )}

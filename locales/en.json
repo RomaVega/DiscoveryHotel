@@ -207,5 +207,8 @@
       "foreign": "foreigner"
     },
     "schedule": "Race weekend schedule"
+  },
+  "rooms": {
+    "taxIncluded": "Taxes & fees included"
   }
 }

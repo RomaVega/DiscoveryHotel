@@ -237,7 +237,7 @@ Targets: LCP < 2.5s (`priority` + `<link rel="preload">` on hero poster), CLS < 
 ## Content Editing
 
 - All changes are JSON edits in `content/`. **Add type in `lib/types.ts` before adding JSON fields.**
-- **Room rates are in rupiah, tax included, copied from GuestPro** (`secure.guestpro.net/odch`, lowest rate shown, rounded down to the thousand) — the same figure a guest sees in the engine, so no exchange rate to keep in step. Update `price` in both `content/rooms.json` and `content/home.json`.
+- **Room rates are in rupiah, tax included, copied from GuestPro** (`secure.guestpro.net/odch`, lowest rate shown, rounded down to the thousand) — the same figure a guest sees in the engine, so no exchange rate to keep in step. Update `price` in both `content/rooms.json` and `content/home.json`. Both room components print `rooms.taxIncluded` from `locales/*.json` under every price, so a pre-tax figure here would be a false claim.
 - **Offer prices are a discount or the inclusions, never a dollar rate** ("20% off the room rate", "Free upgrade, spa & dinner") — a dollar figure went stale against the engine's rupiah and promised reception a price it would not honour.
 - Offers: set `"active": false` — never delete expired offers. An offer may carry a promo `code` (shown on the card and put into the WhatsApp text) and an `id` (lets a blog post embed it).
 - **Ratings in `content/reviews.json` are verified claims, not decoration.** Each aggregate carries a
