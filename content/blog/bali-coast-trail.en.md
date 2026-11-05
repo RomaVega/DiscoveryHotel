@@ -4,8 +4,8 @@ metaTitle: "Bali Coast Trail 2026: Race Guide & Where to Stay | Orlowsky Discove
 description: "Dates, distances, start times, entry fees and the weekend schedule for the Bali Coast Trail, 12–13 December 2026 in Candidasa, plus where to stay near the start."
 excerpt: "Race weekend in Candidasa, explained: the four distances and who each one suits, the schedule, getting here, December trail conditions, and staying a 10-minute walk from the start line."
 published: "2026-10-22"
-updated: "2026-10-24"
-factsChecked: "2026-10-22"
+updated: "2026-11-05"
+factsChecked: "2026-11-05"
 author: "the Orlowsky Discovery team in Candidasa"
 hero:
   src: /images/blog/blog-bali-coast-trail-temple-gate-agung.webp
@@ -113,6 +113,7 @@ schedule:
     items:
       - { time: "05:00", what: "15K start", key: true }
       - { time: "06:00", what: "7K start (see below)", key: true }
+      - { time: "09:00", what: "7K cut-off" }
       - { time: "09:00", what: "Awards for the 15K and 7K" }
       - { time: "11:00", what: "15K cut-off: the finish closes" }
 cta:
@@ -128,7 +129,7 @@ faq:
   - q: "Can foreigners enter, and how much does it cost?"
     a: "Yes. Foreigner entry is IDR 590,000 for the 7K, 790,000 for the 15K, 890,000 for the 30K and 1,090,000 for the 50K. The local rate is IDR 100,000 lower at every distance."
   - q: "Do I need a qualifying race?"
-    a: "The rules recommend a qualifier for each distance, checked with a Strava activity: for example a marathon or a 30 km trail race for the 50K, or a 10 km road run for the 7K. The 50K page is stricter and says a trail race of at least 25 km in the last 24 months is checked at race pack collection. If you are borderline, ask the organiser before you pay."
+    a: "Not strictly. Every distance has recommended qualifiers, for example an official marathon or a trail race of at least 30 km in the past two years for the 50K, or a 10 km road run for the 7K. At registration you give the name of your qualifying race and your time, which can be backed up with a Strava activity. The organiser can approve or refuse an entry, and may make exceptions. If you are borderline, ask the organiser before you pay."
   - q: "Is the 7K suitable for beginners?"
     a: "It is billed as the family-friendly distance: a short loop on the beach and coastal paths with 340 m of climbing and a three-hour cut-off. Runners must be 18 on race day, or have a parent's or guardian's permission."
   - q: "Can I get a refund if I can't race?"
@@ -147,7 +148,7 @@ The race is listed with ITRA and the UTMB Index, and the 30K and 50K carry ITRA 
 
 ### 50K: the full coastline ultra
 
-The flagship distance starts in the dark. You follow the coast out of Candidasa, then climb into the Karangasem hills on village roads and plantation trails. The middle of the course crosses ridges and terraced rice fields and holds the steepest climbs, before it drops back to the sea to finish in Candidasa. There are five water stations, with a drop bag and medical support at the third (km 27). Intermediate cut-offs run from 08:00 at km 18 to 14:30 at km 44, and they are strictly enforced. This one is for runners with a trail ultra or a marathon behind them.
+The flagship distance starts in the dark. You follow the coast out of Candidasa, then climb into the Karangasem hills on village roads and plantation trails. The middle of the course crosses ridges and terraced rice fields and holds the steepest climbs, before it drops back to the sea to finish in Candidasa. The course profile shows five water stations. The 50K page used to list a drop bag and medical support at km 27 and intermediate cut-offs from 08:00 at km 18 to 14:30 at km 44, but both have since been taken off the page, so check them at the race briefing. This one is for runners with a trail ultra or a marathon behind them.
 
 ![Green sea cliffs above a curving beach and a turquoise bay full of fishing boats, with Mount Agung rising behind the coast](/images/blog/blog-bali-coast-trail-cliffs-agung.webp "Courtesy of Bali Coast Trail")
 
@@ -169,7 +170,7 @@ All times are Bali time (WITA, UTC+8).
 
 [[schedule]]
 
-> **Check the 7K start time.** The schedule page says 06:00, but the 7K page and the home page say 05:30. Confirm in the race briefing or on the official site before Sunday.
+> **Check the 7K start time.** The schedule page says 06:00, but the 7K page and the home page say 05:30. The schedule's 7K cut-off, 09:00, is three hours after a 06:00 start. Confirm in the race briefing or on the official site before Sunday.
 
 ## Getting to Candidasa
 
@@ -197,13 +198,13 @@ We have rooms, cottages and villas with private pools, a restaurant and bar faci
 
 ## December conditions on the East Bali coast
 
-December is wet season in Bali. Expect warm, humid air even before dawn, and showers that can arrive at any hour. Rain turns clay paths and the edges of rice terraces slick, and descents that were easy in the dry season need care. Budget more fluid than the distance suggests, and carry the full hydration volume the rules require even if the morning feels cool.
+December is wet season in Bali. Expect warm, humid air even before dawn, and showers that can arrive at any hour. Rain turns clay paths and the edges of rice terraces slick, and descents that were easy in the dry season need care. Budget more fluid than the distance suggests, and carry more water than you think you need, even if the morning feels cool.
 
 The 50K starts in full darkness, so you'll need a working headlamp with spare batteries at the start line. The 30K and 15K also start before sunrise, and once the sun is up the exposed coastal sections get hot fast.
 
 ## Mandatory gear
 
-Each distance will have its own list, and the organiser is still finalising them. The only list published so far is for the **50K**. Every runner must carry all of this for the whole race:
+Each distance will have its own list, and the organiser is still finalising them. As of 5 November 2026 **no list is published for any distance**: the [gear page](https://balicoasttrail.com/race-info/mandatory-gear) shows all four as "coming soon", the rules say the gear is listed on each distance's page, and those pages only link back to the gear page. The organiser's site carried a list for the **50K** in October and has since taken it down, so treat it as a preview rather than the final word:
 
 - [ ] a hydration system holding at least 1.5 litres
 - [ ] a headlamp with spare batteries
@@ -214,7 +215,7 @@ Each distance will have its own list, and the organiser is still finalising them
 - [ ] at least 400 kcal of food in reserve
 - [ ] your race bib, worn on the front and visible at all times
 
-There are random gear checks before the start and after the finish, and missing items can mean a penalty or disqualification. Check the [official gear page](https://balicoasttrail.com/race-info/mandatory-gear) for your own distance before you pack.
+The rules already name a personal cup as mandatory for everyone. There are random gear checks before the start and after the finish, and missing items mean a penalty. Check the [official gear page](https://balicoasttrail.com/race-info/mandatory-gear) for your own distance before you pack.
 
 ## After the finish: recovery in Candidasa
 
@@ -236,11 +237,12 @@ Supporters get a good weekend out of it too. The long races fill most of Saturda
 
 ## Before you book: what to double-check
 
-The race site is still filling in, and a few details are missing or disagree between pages. As of 22 October 2026:
+The race site is still filling in, and a few details are missing or disagree between pages. As of 5 November 2026:
 
-- **7K start time:** 05:30 on the 7K and home pages, 06:00 on the schedule.
-- **Qualifiers:** "recommended" in the rules, but the 50K page says proof is checked at race pack collection.
-- **Race pack collection:** the schedule lists dates and times, but the venue details and what to bring are still marked "coming soon".
-- **Gear:** only the 50K list is published.
+- **7K start time:** 05:30 on the 7K and home pages, 06:00 on the schedule (whose 09:00 cut-off is counted from 06:00).
+- **50K course details:** the drop bag at km 27 and the intermediate cut-offs are no longer on the 50K page.
+- **Race pack collection:** the schedule lists dates and times, but the venue details and what to bring are still marked "coming soon". So is the letter of authorisation for collecting someone else's pack.
+- **Gear:** no list is published for any distance.
+- **Downloads:** the race guide, GPX tracks, waiver and PAR-Q health questionnaire are all still "coming soon".
 
 We'll update this guide as the official pages fill in. For anything that affects your race, the [official site](https://balicoasttrail.com/) and the organiser's Instagram, [@balicoasttrail](https://www.instagram.com/balicoasttrail/), have the final word.
