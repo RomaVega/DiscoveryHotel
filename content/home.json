@@ -156,8 +156,8 @@
           "ru": "Проверить Наличие"
         },
         "price": {
-          "en": "from $58/night",
-          "ru": "от $58/ночь"
+          "en": "from Rp\u00a01,059,000/night",
+          "ru": "от Rp\u00a01\u00a0059\u00a0000/ночь"
         }
       },
       {
@@ -307,8 +307,8 @@
           "ru": "Проверить Наличие"
         },
         "price": {
-          "en": "from $186/night",
-          "ru": "от $186/ночь"
+          "en": "from Rp\u00a03,374,000/night",
+          "ru": "от Rp\u00a03\u00a0374\u00a0000/ночь"
         }
       }
     ]
@@ -722,8 +722,8 @@
           "ru": "Забронируйте за 30 дней и сэкономьте 20% на любой категории номеров"
         },
         "price": {
-          "en": "from $65/night",
-          "ru": "от $65/ночь"
+          "en": "20% off the room rate",
+          "ru": "−20% к стоимости номера"
         },
         "image": "/images/offers/offers-beachfront-loungers.webp",
         "imageAlt": "Sun loungers and a parasol on the beachfront lawn at golden hour, with the Bali Sea beyond",
@@ -739,8 +739,8 @@
           "ru": "Апгрейд до виллы, спа-процедуры для двоих, романтический ужин и трансфер из аэропорта"
         },
         "price": {
-          "en": "from $180/night",
-          "ru": "от $180/ночь"
+          "en": "Free upgrade, spa & dinner",
+          "ru": "Апгрейд, спа и ужин в подарок"
         },
         "image": "/images/honeymoon/honeymoon.webp",
         "imageAlt": "Romantic dinner setup on the beach at sunset",

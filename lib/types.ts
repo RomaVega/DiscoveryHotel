@@ -46,7 +46,7 @@ export interface RoomCard {
   href: string;
   /** Booking-button label. Falls back to a generic "Book This Room" when unset. */
   cta?: LocalizedString;
-  /** Lead-in nightly rate, worded like the offer prices: "from $55/night". */
+  /** Lead-in nightly rate in rupiah, tax included as GuestPro shows it: "from Rp 1,059,000/night". */
   price?: LocalizedString;
 }
 
@@ -270,7 +270,7 @@ export interface RoomDetail {
   href: string;
   /** Booking-button label. Falls back to a generic "Book This Room" when unset. */
   cta?: LocalizedString;
-  /** Lead-in nightly rate, worded like the offer prices: "from $55/night". */
+  /** Lead-in nightly rate in rupiah, tax included as GuestPro shows it: "from Rp 1,059,000/night". */
   price?: LocalizedString;
   keyFeatures?: LocalizedString[];
   amenities: LocalizedString[];

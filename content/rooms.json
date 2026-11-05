@@ -314,7 +314,7 @@
       ],
       "href": "https://secure.guestpro.net/odch/booking",
       "cta": { "en": "Check Availability", "ru": "Проверить Наличие" },
-      "price": { "en": "from $186/night", "ru": "от $186/ночь" },
+      "price": { "en": "from Rp\u00a03,374,000/night", "ru": "от Rp\u00a03\u00a0374\u00a0000/ночь" },
       "bathrooms": 3,
       "amenityGroups": [
         {
@@ -720,7 +720,7 @@
       ],
       "href": "https://secure.guestpro.net/odch/booking",
       "cta": { "en": "Check Availability", "ru": "Проверить Наличие" },
-      "price": { "en": "from $58/night", "ru": "от $58/ночь" },
+      "price": { "en": "from Rp\u00a01,059,000/night", "ru": "от Rp\u00a01\u00a0059\u00a0000/ночь" },
       "bathrooms": 1,
       "amenityGroups": [
         {

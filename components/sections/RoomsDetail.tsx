@@ -77,7 +77,7 @@ function RoomCard({ room, reverse, t, isRu }: {
       <div className={`lg:col-start-2 lg:row-start-1 ${reverse ? "lg:col-start-1" : ""}`}>
         <h2 className="font-serif text-3xl md:text-4xl font-medium text-charcoal mb-6">{t(room.title)}</h2>
 
-        {/* Wraps because the rate cell carries a full "from $260/night" string
+        {/* Wraps because the rate cell carries a full "from Rp 3,374,000/night" string
             — four cells will not fit a 360px row beside the RU stat labels. */}
         <div className="flex flex-wrap items-center gap-x-6 gap-y-4 mb-6 pb-6 border-b border-charcoal/10">
           <div>
