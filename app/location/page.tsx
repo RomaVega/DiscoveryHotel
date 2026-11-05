@@ -51,6 +51,7 @@ export default function LocationPage() {
         imageAlt="Scenic coastline of Candidasa, East Bali"
         heading={data.heading}
         subtext={data.subtext}
+        noOverlay
       />
       <LocationDetail data={data} />
       <MapLocation contact={contact} />

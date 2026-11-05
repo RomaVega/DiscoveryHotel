@@ -50,6 +50,7 @@ export default function WeddingsRuPage() {
         imageAlt="Oceanfront wedding ceremony setup in Bali"
         heading={data.heading}
         subtext={data.subtext}
+        noOverlay
       />
       <WeddingsDetail data={data} />
     </InnerPageLayout>

@@ -14,7 +14,7 @@ interface RoomsPreviewProps {
 }
 
 export function RoomsPreview({ data }: RoomsPreviewProps) {
-  const { t } = useLanguage();
+  const { t, tl } = useLanguage();
 
   return (
     <section id="rooms" className="pt-12 md:pt-32 pb-12 md:pb-32 bg-ivory">
@@ -71,9 +71,12 @@ export function RoomsPreview({ data }: RoomsPreviewProps) {
                       RU button label and a price will not share a 360px row. */}
                   <div className="mt-6 pt-5 border-t border-charcoal/10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
                     {room.price ? (
-                      <p className="font-sans text-lg font-semibold text-accent-text leading-none">
-                        {t(room.price)}
-                      </p>
+                      <div>
+                        <p className="font-sans text-lg font-semibold text-accent-text leading-none">
+                          {t(room.price)}
+                        </p>
+                        <p className="mt-1.5 font-sans text-xs text-stone">{tl.rooms.taxIncluded}</p>
+                      </div>
                     ) : (
                       <span />
                     )}

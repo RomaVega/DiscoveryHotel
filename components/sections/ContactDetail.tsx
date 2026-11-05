@@ -1,6 +1,7 @@
 "use client"; // Uses useLanguage for locale-based contact filtering
 
 import { FadeIn } from "@/components/common/FadeIn";
+import { TextLink } from "@/components/common/TextLink";
 import type { ContactData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
 import { socialIconMap } from "@/lib/social-icons";
@@ -84,6 +85,18 @@ export function ContactDetail({ contact }: ContactDetailProps) {
                 ) : null;
               })}
             </div>
+          </div>
+
+          <div className="w-full h-px bg-charcoal/8" />
+
+          {/* FAQ — the page had no way in from the site until Nov 2026 */}
+          <div>
+            <p className="font-sans text-[10px] uppercase tracking-[0.3em] text-stone mb-4">
+              {isRu ? "Вопросы" : "Questions"}
+            </p>
+            <TextLink href="/faq" className="text-base">
+              {isRu ? "Ответы на частые вопросы" : "Answers to common questions"}
+            </TextLink>
           </div>
 
         </div>

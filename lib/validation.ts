@@ -303,8 +303,9 @@ const transferRoute = z.object({
 
 const localRoute = z.object({
   destination: localizedString,
-  price: z.string(),
+  price: localizedString,
   type: localizedString.optional(),
+  schedule: localizedString.optional(),
 });
 
 const transferFeature = z.object({
@@ -382,11 +383,18 @@ export const divingPageSchema = z.object({
   helpCta: helpCta.optional(),
 });
 
+/** Internal, locale-agnostic path — LocalizedLink adds /ru. */
+const pageLink = z.object({
+  href: z.string().regex(/^\/[a-z0-9/-]*$/),
+  label: localizedString,
+});
+
 const eventService = z.object({
   title: localizedString,
   description: localizedString,
   image: z.string(),
   imageAlt: localizedString,
+  link: pageLink.optional(),
 });
 
 const eventVenue = z.object({
@@ -477,6 +485,7 @@ export const locationPageSchema = z.object({
     from: localizedString,
     description: localizedString,
     duration: z.string().optional(),
+    link: pageLink.optional(),
   })),
 });
 

@@ -59,9 +59,16 @@ export function TransferDetail({ data }: TransferDetailProps) {
             <div className="bg-ivory shadow-sm overflow-hidden mb-16 rounded-md">
               <div className="divide-y divide-sand">
                 {data.localRoutes.map((route, i) => (
-                  <div key={i} className="flex items-center justify-between p-4">
-                    <span className="font-sans text-sm text-charcoal">{t(route.destination)}</span>
-                    <span className="font-sans text-sm text-accent-text font-semibold">{route.price}</span>
+                  <div key={i} className="p-4">
+                    <div className="flex items-center justify-between gap-4">
+                      <span className="font-sans text-sm text-charcoal">{t(route.destination)}</span>
+                      <span className="font-sans text-sm text-accent-text font-semibold text-right">{t(route.price)}</span>
+                    </div>
+                    {/* Full width under the row, one direction per line (`\n` in the content):
+                        beside the price it wrapped mid-time on a phone. */}
+                    {route.schedule && (
+                      <p className="mt-1.5 font-sans text-sm text-stone leading-relaxed whitespace-pre-line">{t(route.schedule)}</p>
+                    )}
                   </div>
                 ))}
               </div>

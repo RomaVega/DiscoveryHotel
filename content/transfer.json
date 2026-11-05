@@ -52,8 +52,8 @@
         "en": "Ngurah Rai Airport / Kuta / Nusa Dua / Jimbaran / Uluwatu",
         "ru": "Аэропорт Нгурах-Рай / Кута / Нуса-Дуа / Джимбаран / Улувату"
       },
-      "oneWay": "$40",
-      "roundTrip": "$70",
+      "oneWay": "IDR\u00a0650,000",
+      "roundTrip": "IDR\u00a01,200,000",
       "maxPassengers": 4,
       "note": {
         "en": "Additional charge applies for 5 or more passengers",
@@ -184,10 +184,17 @@
         "en": "White Sand Beach",
         "ru": "Пляж Уайт-Сэнд"
       },
-      "price": "IDR 310,000",
+      "price": {
+        "en": "Free for guests",
+        "ru": "Бесплатно для гостей"
+      },
       "type": {
-        "en": "Two-way",
-        "ru": "В обе стороны"
+        "en": "Hotel shuttle",
+        "ru": "Шаттл отеля"
+      },
+      "schedule": {
+        "en": "To the beach: 9:00 and 11:00\nBack to the hotel: 12:00 and 16:00",
+        "ru": "На пляж: в 9:00 и 11:00\nОбратно в отель: в 12:00 и 16:00"
       }
     },
     {

@@ -35,6 +35,13 @@
       "imageAlt": {
         "en": "European-style Wedding Ceremony at the Oceanfront",
         "ru": "Свадебная церемония в европейском стиле на берегу океана"
+      },
+      "link": {
+        "href": "/weddings",
+        "label": {
+          "en": "Wedding details",
+          "ru": "Подробнее о свадьбах"
+        }
       }
     },
     {

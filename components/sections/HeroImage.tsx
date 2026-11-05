@@ -261,16 +261,16 @@ export function HeroImage({ hero }: HeroImageProps) {
 
         {/* Title block */}
         <h1 className="font-serif text-shadow-strong text-center" translate="no">
-          <span className="block text-[2.25rem] md:text-[2.25rem] lg:text-[2.5rem] tracking-[0.22em] uppercase font-light leading-none">
+          <span className="block text-[2.25rem] md:text-[2.25rem] lg:text-[2.5rem] tracking-[0.22em] uppercase font-semibold leading-none">
             <span ref={line1Ref}>{hero.titleLine1}</span>
           </span>
 
-          <span className="block text-[2.625rem] md:text-[2.625rem] lg:text-[2.875rem] italic font-light mt-3 md:mt-3 leading-snug">
+          <span className="block text-[2.625rem] md:text-[2.625rem] lg:text-[2.875rem] italic font-semibold mt-3 md:mt-3 leading-snug">
             <span ref={line2Ref}>{hero.titleLine2}</span>
           </span>
 
           {hero.titleLine4 && (
-            <span className="block text-[2.625rem] md:text-[2.625rem] lg:text-[2.875rem] italic font-light mt-1 md:mt-2 leading-snug">
+            <span className="block text-[2.625rem] md:text-[2.625rem] lg:text-[2.875rem] italic font-semibold mt-1 md:mt-2 leading-snug">
               <span ref={line3Ref}>{hero.titleLine4}</span>
             </span>
           )}

@@ -50,12 +50,15 @@ describe("Footer", () => {
       within(screen.getByRole("list", { name: "Explore" }))
         .getAllByRole("link")
         .map((a) => a.textContent)
-    ).toEqual(["Rooms", "Dining", "Experiences", "Offers", "Gallery", "About", "Blog"]);
+    ).toEqual([
+      "Rooms", "Dining", "Experiences", "Offers", "Gallery",
+      "Location", "Transfer", "About", "FAQ", "Contact", "Blog",
+    ]);
     expect(
       within(screen.getByRole("list", { name: "On the grounds" }))
         .getAllByRole("link")
         .map((a) => a.getAttribute("href"))
-    ).toEqual(["/spa", "/experiences/diving", "/experiences/events", "/experiences/excursions"]);
+    ).toEqual(["/spa", "/experiences/diving", "/experiences/events", "/weddings", "/experiences/excursions"]);
     expect(screen.queryByText(/Car & Bike Rental|Tours & Activities/)).toBeNull();
   });
 

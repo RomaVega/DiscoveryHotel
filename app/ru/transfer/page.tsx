@@ -7,7 +7,7 @@ import { JsonLd, breadcrumbs, service } from "@/lib/jsonld";
 
 export const metadata = {
   title: "Трансфер из Аэропорта Бали в Чандидасу — Orlowsky Discovery Hotel",
-  description: "Частный трансфер из аэропорта Нгурах-Рай в Чандидасу за $40 в одну сторону. Кондиционер, вода и англоговорящий водитель. Бронирование через отель.",
+  description: "Частный трансфер из аэропорта Нгурах-Рай в Чандидасу за IDR 650 000 в одну сторону. Кондиционер, вода и англоговорящий водитель. Бронирование через отель.",
   alternates: {
     canonical: `${SITE_URL}/ru/transfer`,
     languages: {
@@ -18,7 +18,7 @@ export const metadata = {
   },
   openGraph: {
     title: "Трансфер из Аэропорта Бали в Чандидасу — Orlowsky Discovery Hotel",
-    description: "Частный трансфер из аэропорта Нгурах-Рай в Чандидасу за $40 в одну сторону. Кондиционер, вода и англоговорящий водитель. Бронирование через отель.",
+    description: "Частный трансфер из аэропорта Нгурах-Рай в Чандидасу за IDR 650 000 в одну сторону. Кондиционер, вода и англоговорящий водитель. Бронирование через отель.",
     url: `${SITE_URL}/ru/transfer`,
     images: [{ url: `${SITE_URL}/images/hero/hero-og.jpg`, width: 1200, height: 630 }],
   },
@@ -50,6 +50,7 @@ export default function TransferRuPage() {
         imageAlt={data.imageAlt}
         heading={data.heading}
         subtext={data.subtext}
+        noOverlay
       />
       <TransferDetail data={data} />
     </InnerPageLayout>

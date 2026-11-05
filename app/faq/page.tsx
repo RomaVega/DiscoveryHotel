@@ -41,6 +41,8 @@ export default function FaqPage() {
         image="/images/gallery/orlowsky-hotel-pool-terrace-ocean.webp"
         imageAlt="Hotel lobby and reception area"
         heading={data.heading}
+        noOverlay
+        largeTitle
       />
       <FaqDetail data={data} />
     </InnerPageLayout>

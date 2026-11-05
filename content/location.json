@@ -78,8 +78,8 @@
         "ru": "Пляж Уайт-Сэнд (Пантай Пасир Путих)"
       },
       "description": {
-        "en": "A hidden gem — one of East Bali's most beautiful white-sand beaches, tucked behind coconut groves with calm turquoise waters.",
-        "ru": "Скрытая жемчужина — один из красивейших пляжей Восточного Бали с белым песком, спрятанный за кокосовыми рощами, со спокойной бирюзовой водой."
+        "en": "A hidden gem — one of East Bali's most beautiful white-sand beaches, tucked behind coconut groves with calm turquoise waters. Our guests ride there free on the hotel shuttle.",
+        "ru": "Скрытая жемчужина — один из красивейших пляжей Восточного Бали с белым песком, спрятанный за кокосовыми рощами, со спокойной бирюзовой водой. Гостей отеля довозим туда бесплатно на шаттле."
       },
       "distance": {
         "en": "10 minutes",
@@ -122,8 +122,15 @@
         "ru": "Из аэропорта Нгурах-Рай"
       },
       "description": {
-        "en": "Approximately 1.5 hours by car via the eastern coastal road. We offer private airport transfer with air-conditioned vehicle, mineral water, and English-speaking driver for $40 one-way or $70 round trip.",
-        "ru": "Примерно 1,5 часа на автомобиле по восточной прибрежной дороге. Мы предлагаем частный трансфер из аэропорта на автомобиле с кондиционером, минеральной водой и англоговорящим водителем за $40 в одну сторону или $70 в обе стороны."
+        "en": "Approximately 1.5 hours by car via the eastern coastal road. We offer private airport transfer with air-conditioned vehicle, mineral water, and English-speaking driver for IDR\u00a0650,000 one-way or IDR\u00a01,200,000 round trip.",
+        "ru": "Примерно 1,5 часа на автомобиле по восточной прибрежной дороге. Мы предлагаем частный трансфер из аэропорта на автомобиле с кондиционером, минеральной водой и англоговорящим водителем за IDR\u00a0650\u00a0000 в одну сторону или IDR\u00a01\u00a0200\u00a0000 в обе стороны."
+      },
+      "link": {
+        "href": "/transfer",
+        "label": {
+          "en": "Book an airport transfer",
+          "ru": "Заказать трансфер из аэропорта"
+        }
       }
     },
     {

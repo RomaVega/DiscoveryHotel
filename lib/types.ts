@@ -46,7 +46,7 @@ export interface RoomCard {
   href: string;
   /** Booking-button label. Falls back to a generic "Book This Room" when unset. */
   cta?: LocalizedString;
-  /** Lead-in nightly rate, worded like the offer prices: "from $55/night". */
+  /** Lead-in nightly rate in rupiah, tax included as GuestPro shows it: "from Rp 1,059,000/night". */
   price?: LocalizedString;
 }
 
@@ -270,7 +270,7 @@ export interface RoomDetail {
   href: string;
   /** Booking-button label. Falls back to a generic "Book This Room" when unset. */
   cta?: LocalizedString;
-  /** Lead-in nightly rate, worded like the offer prices: "from $55/night". */
+  /** Lead-in nightly rate in rupiah, tax included as GuestPro shows it: "from Rp 1,059,000/night". */
   price?: LocalizedString;
   keyFeatures?: LocalizedString[];
   amenities: LocalizedString[];
@@ -358,8 +358,11 @@ export interface TransferRoute {
 
 export interface LocalRoute {
   destination: LocalizedString;
-  price: string;
+  /** A rupiah figure ("IDR 310,000") or words ("Free for guests"). */
+  price: LocalizedString;
   type?: LocalizedString;
+  /** Departure times, shown under the destination — the free beach shuttle. */
+  schedule?: LocalizedString;
 }
 
 export interface TransferFeature {
@@ -448,12 +451,19 @@ export interface DivingPageData {
   helpCta?: HelpCta;
 }
 
+/** A text link from one page's content to another page of the site (locale-agnostic href, as LocalizedLink takes). */
+export interface PageLink {
+  href: string;
+  label: LocalizedString;
+}
+
 /* ─── Events Page ─── */
 export interface EventService {
   title: LocalizedString;
   description: LocalizedString;
   image: string;
   imageAlt: LocalizedString;
+  link?: PageLink;
 }
 
 export interface EventVenue {
@@ -524,6 +534,7 @@ export interface GettingHere {
   from: LocalizedString;
   description: LocalizedString;
   duration?: string;
+  link?: PageLink;
 }
 
 export interface LocationPageData {

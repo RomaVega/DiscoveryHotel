@@ -95,7 +95,11 @@ export function Footer({ contact }: FooterProps) {
     { label: f.links.experiences, href: "/experiences" },
     { label: f.links.offers,      href: "/offers" },
     { label: f.links.gallery,     href: "/gallery" },
+    { label: f.links.location,    href: "/location" },
+    { label: f.links.transfer,    href: "/transfer" },
     { label: f.links.about,       href: "/about" },
+    { label: f.links.faq,         href: "/faq" },
+    { label: f.links.contact,     href: "/contact" },
     { label: f.links.blog,        href: "/blog" },
   ];
 
@@ -105,6 +109,7 @@ export function Footer({ contact }: FooterProps) {
     { label: f.experienceLinks.spa,        href: "/spa" },
     { label: f.experienceLinks.diving,     href: "/experiences/diving" },
     { label: f.experienceLinks.events,     href: "/experiences/events" },
+    { label: f.experienceLinks.weddings,   href: "/weddings" },
     { label: f.experienceLinks.excursions, href: "/experiences/excursions" },
   ];
 

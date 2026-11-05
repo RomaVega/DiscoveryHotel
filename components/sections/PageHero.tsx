@@ -21,6 +21,15 @@ interface PageHeroProps {
   heading: LocalizedString;
   subtext?: LocalizedString;
   noOverlay?: boolean;
+  /**
+   * A short title with no subtext (FAQ): at the default size it left a thin
+   * line in a tall, empty hero. On a phone it is set a step up (44px, against
+   * the others' 36px — 61px was tried and read too loud next to them) and
+   * capped at 6em wide, so each word takes its own line: the widest word
+   * ("Задаваемые", 5.42em in Cormorant 600) fits, the narrowest pair
+   * ("Asked Questions", 6.64em) never does. From `md` it is the normal title.
+   */
+  largeTitle?: boolean;
 }
 
 // Mirrors next/image's default deviceSizes so the CDN serves a right-sized,
@@ -29,7 +38,7 @@ const HERO_WIDTHS = [640, 828, 1080, 1200, 1920, 2048, 3840];
 const heroSrcSet = (src: string) =>
   HERO_WIDTHS.map((w) => `${imageLoader({ src, width: w, quality: 75 })} ${w}w`).join(", ");
 
-export function PageHero({ image, imageAlt, imageDesktop, imageClassName, heading, subtext, noOverlay }: PageHeroProps) {
+export function PageHero({ image, imageAlt, imageDesktop, imageClassName, heading, subtext, noOverlay, largeTitle }: PageHeroProps) {
   const { t } = useLanguage();
 
   return (
@@ -63,7 +72,7 @@ export function PageHero({ image, imageAlt, imageDesktop, imageClassName, headin
       )}
       {!noOverlay && <div className="absolute inset-0 bg-black/40" />}
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center text-white">
-        <h1 className={`font-serif text-4xl md:text-5xl lg:text-6xl font-light ${noOverlay ? "text-shadow-tight" : "text-shadow-strong"}`}>
+        <h1 className={`font-serif font-semibold ${largeTitle ? "text-[2.75rem] leading-[1.1] max-w-[6em] md:max-w-none md:text-5xl lg:text-6xl" : "text-4xl md:text-5xl lg:text-6xl"} ${noOverlay ? "text-shadow-tight" : "text-shadow-strong"}`}>
           {t(heading)}
         </h1>
         {subtext && (
