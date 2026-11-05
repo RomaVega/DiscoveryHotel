@@ -215,7 +215,7 @@ Each distance will have its own list, and the organiser is still finalising them
 - [ ] at least 400 kcal of food in reserve
 - [ ] your race bib, worn on the front and visible at all times
 
-The rules already name a personal cup as mandatory for everyone. There are random gear checks before the start and after the finish, and missing items mean a penalty. Check the [official gear page](https://balicoasttrail.com/race-info/mandatory-gear) for your own distance before you pack.
+The rules already name a personal cup as mandatory for everyone. There are random gear checks before the start and after the finish, and missing items can mean a penalty or disqualification. Check the [official gear page](https://balicoasttrail.com/race-info/mandatory-gear) for your own distance before you pack.
 
 ## After the finish: recovery in Candidasa
 
