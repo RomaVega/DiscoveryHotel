@@ -46,7 +46,7 @@ export default function WeddingsPage() {
         ]),
       ]} />
       <PageHero
-        image="/images/experiences/experiences-events.webp"
+        image="/images/events/european-style-wedding.webp"
         imageAlt="Oceanfront wedding ceremony setup in Bali"
         heading={data.heading}
         subtext={data.subtext}
