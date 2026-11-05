@@ -49,6 +49,7 @@ export default function ContactRuPage() {
         imageAlt="Hotel entrance surrounded by tropical gardens"
         heading={{ en: "Contact Orlowsky Discovery Hotel, Candidasa", ru: "Контакты отеля Orlowsky Discovery, Чандидаса" }}
         subtext={{ en: "WhatsApp, email, address, and directions to our hotel on the seafront of Candidasa, East Bali.", ru: "WhatsApp, email, адрес и маршрут до нашего отеля на набережной Чандидасы, Восточный Бали." }}
+        noOverlay
       />
       <MapLocation contact={contact} />
       <ContactDetail contact={contact} />

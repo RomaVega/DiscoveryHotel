@@ -50,6 +50,7 @@ export default function TransferRuPage() {
         imageAlt={data.imageAlt}
         heading={data.heading}
         subtext={data.subtext}
+        noOverlay
       />
       <TransferDetail data={data} />
     </InnerPageLayout>
