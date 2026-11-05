@@ -63,7 +63,7 @@ components/
   aceternity/           # 2 components only (text-reveal, spotlight-card) — budget is final
   layout/               # Navbar, Footer, WhatsAppButton, BookingBar, InnerPageLayout, LoadingScreen, BugReport, GoogleTagManager
   sections/             # Page-level sections (HeroImage, RoomsDetail, etc.)
-  common/               # Reusable primitives (SectionHeading, FadeIn, PrimaryButton, SecondaryButton, BookNowButton, ExperienceTile)
+  common/               # Reusable primitives (SectionHeading, FadeIn, PrimaryButton, SecondaryButton, BookNowButton, ExperienceTile, TextLink)
 content/                # All site content as JSON
   blog/                 # Blog posts, <slug>.<en|ru>.md — the one Markdown exception (see Blog)
 locales/                # en.json, ru.json — UI strings loaded by LanguageProvider
@@ -249,7 +249,7 @@ Targets: LCP < 2.5s (`priority` + `<link rel="preload">` on hero poster), CLS < 
   re-read both numbers rather than assuming they only grow. Tripadvisor 403s every automated request and
   needs a human. A `SessionStart` hook (`.claude/settings.json` → `scripts/check-rating-freshness.js`)
   flags the stamp when its month is no longer the current one; it never edits the file.
-- New page: create page file (follow canonical pattern) → add to navbar → create sections → add JSON + types → verify with `tsc && build`.
+- New page: create page file (follow canonical pattern) → link it from the navbar or the footer's Explore / On the grounds lists → create sections → add JSON + types → verify with `tsc && build`. **A page nothing links to is reachable only from Google** — Location, Transfer, FAQ, Contact and Weddings sat like that from March to Nov 2026. A link from inside another page's content goes through `link` (`PageLink`: locale-agnostic `href` + `label`), rendered by [TextLink](components/common/TextLink.tsx) — the Location page's airport route and the Events wedding card use it.
 - New blog post: see [Blog](#blog) — two Markdown files, no code.
 
 ## Blog

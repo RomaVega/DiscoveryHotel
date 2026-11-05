@@ -343,7 +343,10 @@ export function Navbar({ alwaysVisible = false, scrollThreshold = 80, brandAfter
                       onClick={closeMenu}
                       className={cn(
                         "flex items-center justify-center py-4 font-serif text-2xl font-semibold tracking-wide transition-colors duration-200",
-                        isActive(link.href) ? "text-black" : "text-charcoal/70 hover:text-black"
+                        // Full charcoal, not /70: the 600 weight was already there, but a
+                        // 70% grey read as thin to the 35–50 guests (13.6:1 vs 5.7:1 on
+                        // parchment). The current page is marked by colour instead.
+                        isActive(link.href) ? "text-accent-text" : "text-charcoal hover:text-accent-text"
                       )}
                     >
                       {/* The icon is in flow, not absolute: absolute kept the

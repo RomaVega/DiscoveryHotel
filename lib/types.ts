@@ -448,12 +448,19 @@ export interface DivingPageData {
   helpCta?: HelpCta;
 }
 
+/** A text link from one page's content to another page of the site (locale-agnostic href, as LocalizedLink takes). */
+export interface PageLink {
+  href: string;
+  label: LocalizedString;
+}
+
 /* ─── Events Page ─── */
 export interface EventService {
   title: LocalizedString;
   description: LocalizedString;
   image: string;
   imageAlt: LocalizedString;
+  link?: PageLink;
 }
 
 export interface EventVenue {
@@ -524,6 +531,7 @@ export interface GettingHere {
   from: LocalizedString;
   description: LocalizedString;
   duration?: string;
+  link?: PageLink;
 }
 
 export interface LocationPageData {

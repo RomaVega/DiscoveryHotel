@@ -76,12 +76,17 @@
       "offers": "Offers",
       "gallery": "Gallery",
       "about": "About",
+      "location": "Location",
+      "transfer": "Airport Transfer",
+      "faq": "FAQ",
+      "contact": "Contact",
       "blog": "Blog"
     },
     "experienceLinks": {
       "excursions": "Signature Excursions",
       "diving": "Diving & Snorkeling",
       "events": "Events",
+      "weddings": "Weddings",
       "spa": "Ayurvedic Spa"
     },
     "bugReport": {

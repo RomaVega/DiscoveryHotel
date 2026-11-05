@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { FadeIn } from "@/components/common/FadeIn";
 import { SecondaryButton } from "@/components/common/SecondaryButton";
+import { TextLink } from "@/components/common/TextLink";
 import { StatsStrip } from "@/components/common/StatsStrip";
 import type { EventsPageData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
@@ -49,6 +50,9 @@ export function EventsDetail({ data }: EventsDetailProps) {
                 <div className="p-5 md:p-8 flex flex-col flex-1">
                   <h2 className="font-serif text-2xl font-semibold text-charcoal">{t(service.title)}</h2>
                   <p className="mt-2 text-stone leading-relaxed text-sm flex-1">{t(service.description)}</p>
+                  {service.link && (
+                    <TextLink href={service.link.href} className="mt-4 self-start">{t(service.link.label)}</TextLink>
+                  )}
                   <div className="mt-6 flex justify-center">
                     <SecondaryButton href={ctaUrl} external>
                       {t({ ru: "Забронировать", en: "Book Now" })}

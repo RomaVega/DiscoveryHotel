@@ -1,6 +1,7 @@
 "use client"; // Uses useLanguage for content translation
 
 import { FadeIn } from "@/components/common/FadeIn";
+import { TextLink } from "@/components/common/TextLink";
 import type { LocationPageData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
 import { MapPin, Clock, Navigation } from "lucide-react";
@@ -51,6 +52,9 @@ export function LocationDetail({ data }: LocationDetailProps) {
                     </span>
                   </div>
                   <p className="mt-2 text-stone text-sm leading-relaxed">{t(route.description)}</p>
+                  {route.link && (
+                    <TextLink href={route.link.href} className="mt-3">{t(route.link.label)}</TextLink>
+                  )}
                 </div>
               </div>
             ))}
