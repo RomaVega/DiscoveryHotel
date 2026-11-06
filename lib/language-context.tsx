@@ -1,6 +1,6 @@
 "use client"; // Client context — t() helper consumed by client components
 
-import { createContext, useContext, useEffect, useMemo, type ReactNode } from "react";
+import { createContext, useContext, useLayoutEffect, useMemo, type ReactNode } from "react";
 import type { LocalizedString, Locale } from "@/lib/types";
 import enLocale from "@/locales/en.json";
 import ruLocale from "@/locales/ru.json";
@@ -48,7 +48,17 @@ export const LanguageContext = createContext<LanguageContextType | null>(null);
  * switch goes through router.push() without a document load, and the attribute
  * would otherwise keep the old locale for the rest of the session. That matters
  * because the browser reads it when deciding whether to offer to translate.
+ *
+ * Providers nest — the root layout's English one wraps /ru's Russian one — and
+ * the innermost owns the attribute. Effects run child-first, so when each simply
+ * stamped its own locale the root ran last and every Russian page ended up
+ * `lang="en"` once hydrated, undoing fix-ru-lang.js (found Nov 2026). Now a
+ * nested provider claims the attribute and hands it back to its parent's locale
+ * when it unmounts (the switch back to English); the outermost stamps only when
+ * nothing inside has claimed it. Layout effects, so it is settled before paint.
  */
+let nestedClaims = 0;
+
 export function LanguageProvider({
   children,
   locale = "en",
@@ -56,6 +66,7 @@ export function LanguageProvider({
   children: ReactNode;
   locale?: Locale;
 }) {
+  const parent = useContext(LanguageContext);
   const value = useMemo<LanguageContextType>(
     () => ({
       locale,
@@ -70,9 +81,18 @@ export function LanguageProvider({
     [locale]
   );
 
-  useEffect(() => {
-    document.documentElement.lang = locale;
-  }, [locale]);
+  useLayoutEffect(() => {
+    const html = document.documentElement;
+    if (parent) {
+      nestedClaims++;
+      html.lang = locale;
+      return () => {
+        nestedClaims--;
+        html.lang = parent.locale;
+      };
+    }
+    if (nestedClaims === 0) html.lang = locale;
+  }, [locale, parent]);
 
   return (
     <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>

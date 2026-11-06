@@ -101,4 +101,30 @@ describe("document language", () => {
 
     expect(document.documentElement.lang).toBe("en");
   });
+
+  // The real tree: app/layout.tsx wraps everything in an English provider and
+  // app/ru/layout.tsx nests a Russian one inside it.
+  it("lets the nested /ru provider win over the root's English one", () => {
+    render(
+      <LanguageProvider>
+        <LanguageProvider locale="ru">page</LanguageProvider>
+      </LanguageProvider>
+    );
+
+    expect(document.documentElement.lang).toBe("ru");
+  });
+
+  it("returns to English when the nested /ru provider unmounts", () => {
+    const tree = (ru: boolean) => (
+      <LanguageProvider>{ru ? <LanguageProvider locale="ru">page</LanguageProvider> : "page"}</LanguageProvider>
+    );
+    const { rerender } = render(tree(true));
+    expect(document.documentElement.lang).toBe("ru");
+
+    rerender(tree(false));
+    expect(document.documentElement.lang).toBe("en");
+
+    rerender(tree(true));
+    expect(document.documentElement.lang).toBe("ru");
+  });
 });
