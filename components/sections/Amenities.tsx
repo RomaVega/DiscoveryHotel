@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import {
-  Accessibility, Activity, Ban, Bell, Bike, Bus, Car, Coffee, Coins, Compass,
+  Accessibility, Activity, Ban, BatteryCharging, Bell, Bike, Bus, Car, Coffee, Coins, Compass,
   ConciergeBell, Fish, GlassWater, Hand, KeyRound, Map, Package, PlaneLanding, Shield,
-  Shirt, Sparkles, Sun, Tv, Umbrella, UtensilsCrossed, WashingMachine,
+  Shirt, Sparkles, Sun, Tv, UtensilsCrossed, WashingMachine,
   Waves, Wifi,
   type LucideIcon,
 } from "lucide-react";
@@ -17,9 +17,9 @@ import { useLanguage } from "@/lib/language-context";
 // Keep this map in sync with the `icon` values used in content/home.json under amenities.items.
 // Adding a new amenity with a different icon? Add the icon to both the import above and this map.
 const iconMap: Record<string, LucideIcon> = {
-  Accessibility, Activity, Ban, Bell, Bike, Bus, Car, Coffee, Coins, Compass,
+  Accessibility, Activity, Ban, BatteryCharging, Bell, Bike, Bus, Car, Coffee, Coins, Compass,
   ConciergeBell, Fish, GlassWater, Hand, KeyRound, Map, Package, PlaneLanding, Shield,
-  Shirt, Sparkles, Sun, Tv, Umbrella, UtensilsCrossed, WashingMachine,
+  Shirt, Sparkles, Sun, Tv, UtensilsCrossed, WashingMachine,
   Waves, Wifi,
 };
 

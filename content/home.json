@@ -324,18 +324,18 @@
     },
     "items": [
       {
-        "icon": "Umbrella",
-        "title": {
-          "en": "Private Beach",
-          "ru": "Свой Пляж"
-        },
-        "description": ""
-      },
-      {
         "icon": "Waves",
         "title": {
           "en": "Swimming Pool",
           "ru": "Бассейн"
+        },
+        "description": ""
+      },
+      {
+        "icon": "Sparkles",
+        "title": {
+          "en": "SPA",
+          "ru": "СПА"
         },
         "description": ""
       },
@@ -356,6 +356,30 @@
         "description": ""
       },
       {
+        "icon": "Wifi",
+        "title": {
+          "en": "Fast Wi-Fi",
+          "ru": "Быстрый Wi-Fi"
+        },
+        "description": ""
+      },
+      {
+        "icon": "PlaneLanding",
+        "title": {
+          "en": "Airport Shuttle",
+          "ru": "Трансфер"
+        },
+        "description": ""
+      },
+      {
+        "icon": "Fish",
+        "title": {
+          "en": "Diving & Snorkeling",
+          "ru": "Дайвинг"
+        },
+        "description": ""
+      },
+      {
         "icon": "GlassWater",
         "title": {
           "en": "Bar",
@@ -364,18 +388,10 @@
         "description": ""
       },
       {
-        "icon": "Sparkles",
+        "icon": "Compass",
         "title": {
-          "en": "SPA",
-          "ru": "СПА"
-        },
-        "description": ""
-      },
-      {
-        "icon": "Wifi",
-        "title": {
-          "en": "Fast Wi-Fi",
-          "ru": "Быстрый Wi-Fi"
+          "en": "Exclusive Tours",
+          "ru": "Туры и Экскурсии"
         },
         "description": ""
       },
@@ -396,12 +412,13 @@
         "description": ""
       },
       {
-        "icon": "PlaneLanding",
+        "icon": "Hand",
         "title": {
-          "en": "Airport Shuttle",
-          "ru": "Трансфер"
+          "en": "Massage",
+          "ru": "Массаж"
         },
-        "description": ""
+        "description": "",
+        "hideMobile": true
       },
       {
         "icon": "KeyRound",
@@ -412,31 +429,6 @@
         "description": ""
       },
       {
-        "icon": "Compass",
-        "title": {
-          "en": "Exclusive Tours",
-          "ru": "Туры и Экскурсии"
-        },
-        "description": ""
-      },
-      {
-        "icon": "Fish",
-        "title": {
-          "en": "Diving & Snorkeling",
-          "ru": "Дайвинг"
-        },
-        "description": ""
-      },
-      {
-        "icon": "Hand",
-        "title": {
-          "en": "Massage",
-          "ru": "Массаж"
-        },
-        "description": "",
-        "hideMobile": true
-      },
-      {
         "icon": "Shirt",
         "title": {
           "en": "Daily Housekeeping",
@@ -445,10 +437,50 @@
         "description": ""
       },
       {
+        "icon": "Car",
+        "title": {
+          "en": "Free Parking",
+          "ru": "Парковка"
+        },
+        "description": ""
+      },
+      {
+        "icon": "BatteryCharging",
+        "title": {
+          "en": "Power Bank Rental",
+          "ru": "Аренда Пауэрбанков"
+        },
+        "description": ""
+      },
+      {
         "icon": "WashingMachine",
         "title": {
           "en": "Laundry",
           "ru": "Прачечная"
+        },
+        "description": ""
+      },
+      {
+        "icon": "Activity",
+        "title": {
+          "en": "Doctor on Call",
+          "ru": "Вызов Врача"
+        },
+        "description": ""
+      },
+      {
+        "icon": "Bus",
+        "title": {
+          "en": "Transport Service",
+          "ru": "Транспорт"
+        },
+        "description": ""
+      },
+      {
+        "icon": "Coins",
+        "title": {
+          "en": "Currency Exchange",
+          "ru": "Обмен Валюты"
         },
         "description": ""
       },
@@ -469,14 +501,6 @@
         "description": ""
       },
       {
-        "icon": "Car",
-        "title": {
-          "en": "Free Parking",
-          "ru": "Парковка"
-        },
-        "description": ""
-      },
-      {
         "icon": "Shield",
         "title": {
           "en": "24 Hour Security",
@@ -489,30 +513,6 @@
         "title": {
           "en": "Non-Smoking",
           "ru": "Без Курения"
-        },
-        "description": ""
-      },
-      {
-        "icon": "Coins",
-        "title": {
-          "en": "Currency Exchange",
-          "ru": "Обмен Валюты"
-        },
-        "description": ""
-      },
-      {
-        "icon": "Bus",
-        "title": {
-          "en": "Transport Service",
-          "ru": "Транспорт"
-        },
-        "description": ""
-      },
-      {
-        "icon": "Activity",
-        "title": {
-          "en": "Doctor on Call",
-          "ru": "Вызов Врача"
         },
         "description": ""
       },
