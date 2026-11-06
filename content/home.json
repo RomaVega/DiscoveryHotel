@@ -334,16 +334,24 @@
       {
         "icon": "Sparkles",
         "title": {
-          "en": "SPA",
-          "ru": "СПА"
+          "en": "Ayurvedic Spa",
+          "ru": "Аюрведа и СПА"
+        },
+        "description": ""
+      },
+      {
+        "icon": "Fish",
+        "title": {
+          "en": "Diving & Snorkeling",
+          "ru": "Дайвинг и Снорклинг"
         },
         "description": ""
       },
       {
         "icon": "UtensilsCrossed",
         "title": {
-          "en": "Restaurant",
-          "ru": "Ресторан"
+          "en": "Seaside Restaurant",
+          "ru": "Ресторан у Моря"
         },
         "description": ""
       },
@@ -366,16 +374,16 @@
       {
         "icon": "PlaneLanding",
         "title": {
-          "en": "Airport Shuttle",
-          "ru": "Трансфер"
+          "en": "Airport Transfer",
+          "ru": "Трансфер в Аэропорт"
         },
         "description": ""
       },
       {
-        "icon": "Fish",
+        "icon": "Compass",
         "title": {
-          "en": "Diving & Snorkeling",
-          "ru": "Дайвинг"
+          "en": "Tours & Excursions",
+          "ru": "Экскурсии и Туры"
         },
         "description": ""
       },
@@ -388,10 +396,18 @@
         "description": ""
       },
       {
-        "icon": "Compass",
+        "icon": "ConciergeBell",
         "title": {
-          "en": "Exclusive Tours",
-          "ru": "Туры и Экскурсии"
+          "en": "Room Service",
+          "ru": "Рум-Сервис"
+        },
+        "description": ""
+      },
+      {
+        "icon": "KeyRound",
+        "title": {
+          "en": "Car/Moto Rental",
+          "ru": "Аренда Авто/Мото"
         },
         "description": ""
       },
@@ -404,35 +420,18 @@
         "description": ""
       },
       {
-        "icon": "ConciergeBell",
-        "title": {
-          "en": "Room Service",
-          "ru": "Рум-Сервис"
-        },
-        "description": ""
-      },
-      {
-        "icon": "Hand",
-        "title": {
-          "en": "Massage",
-          "ru": "Массаж"
-        },
-        "description": "",
-        "hideMobile": true
-      },
-      {
-        "icon": "KeyRound",
-        "title": {
-          "en": "Auto/Moto Rental",
-          "ru": "Аренда Авто/Мото"
-        },
-        "description": ""
-      },
-      {
         "icon": "Shirt",
         "title": {
           "en": "Daily Housekeeping",
           "ru": "Уборка Номеров"
+        },
+        "description": ""
+      },
+      {
+        "icon": "Bus",
+        "title": {
+          "en": "Free Beach Shuttle",
+          "ru": "Шаттл на Пляж"
         },
         "description": ""
       },
@@ -445,14 +444,6 @@
         "description": ""
       },
       {
-        "icon": "BatteryCharging",
-        "title": {
-          "en": "Power Bank Rental",
-          "ru": "Аренда Пауэрбанков"
-        },
-        "description": ""
-      },
-      {
         "icon": "WashingMachine",
         "title": {
           "en": "Laundry",
@@ -461,26 +452,10 @@
         "description": ""
       },
       {
-        "icon": "Activity",
+        "icon": "BatteryCharging",
         "title": {
-          "en": "Doctor on Call",
-          "ru": "Вызов Врача"
-        },
-        "description": ""
-      },
-      {
-        "icon": "Bus",
-        "title": {
-          "en": "Transport Service",
-          "ru": "Транспорт"
-        },
-        "description": ""
-      },
-      {
-        "icon": "Coins",
-        "title": {
-          "en": "Currency Exchange",
-          "ru": "Обмен Валюты"
+          "en": "Power Bank Rental",
+          "ru": "Аренда Пауэрбанков"
         },
         "description": ""
       },
@@ -509,6 +484,22 @@
         "description": ""
       },
       {
+        "icon": "Activity",
+        "title": {
+          "en": "Doctor on Call",
+          "ru": "Вызов Врача"
+        },
+        "description": ""
+      },
+      {
+        "icon": "Coins",
+        "title": {
+          "en": "Currency Exchange",
+          "ru": "Обмен Валюты"
+        },
+        "description": ""
+      },
+      {
         "icon": "Ban",
         "title": {
           "en": "Non-Smoking",
@@ -522,8 +513,7 @@
           "en": "Accessibility",
           "ru": "Доступность"
         },
-        "description": "",
-        "hideDesktop": true
+        "description": ""
       }
     ]
   },

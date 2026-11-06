@@ -13,6 +13,7 @@ import { SectionHeading } from "@/components/common/SectionHeading";
 import { SecondaryButton } from "@/components/common/SecondaryButton";
 import type { AmenitiesData } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
+import { bindShortWords } from "@/lib/typography";
 
 // Keep this map in sync with the `icon` values used in content/home.json under amenities.items.
 // Adding a new amenity with a different icon? Add the icon to both the import above and this map.
@@ -95,7 +96,7 @@ export function Amenities({ data }: AmenitiesProps) {
                     <Icon size={20} strokeWidth={1.2} className="text-brand-teal shrink-0" />
                   )}
                   <span className="font-sans text-sm text-charcoal">
-                    {keepSlashCompoundsWhole(t(item.title))}
+                    {keepSlashCompoundsWhole(bindShortWords(t(item.title)))}
                   </span>
                 </div>
               </FadeIn>

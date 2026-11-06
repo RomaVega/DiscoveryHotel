@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { joinSlashes, longestTitleLine, splitTitle } from "@/lib/typography";
+import { bindShortWords, joinSlashes, longestTitleLine, splitTitle } from "@/lib/typography";
 
 describe("splitTitle", () => {
   it.each([
@@ -52,5 +52,21 @@ describe("longestTitleLine", () => {
 describe("joinSlashes", () => {
   it("glues the halves of a slashed pair so the line cannot break after the slash", () => {
     expect(joinSlashes("Авто/Мото")).toBe("Авто/⁠Мото");
+  });
+});
+
+describe("bindShortWords", () => {
+  const NBSP = " ";
+  it("glues a one-letter Russian preposition or conjunction to the next word", () => {
+    expect(bindShortWords("Ресторан у Моря")).toBe(`Ресторан у${NBSP}Моря`);
+    expect(bindShortWords("Дайвинг и Снорклинг")).toBe(`Дайвинг и${NBSP}Снорклинг`);
+    expect(bindShortWords("Шаттл на Пляж")).toBe(`Шаттл на${NBSP}Пляж`);
+  });
+  it("keeps an ampersand with the word before it", () => {
+    expect(bindShortWords("Diving & Snorkeling")).toBe(`Diving${NBSP}& Snorkeling`);
+  });
+  it("leaves ordinary labels alone", () => {
+    expect(bindShortWords("Swimming Pool")).toBe("Swimming Pool");
+    expect(bindShortWords("Бассейн")).toBe("Бассейн");
   });
 });
