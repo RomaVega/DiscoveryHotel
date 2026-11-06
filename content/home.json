@@ -335,7 +335,7 @@
         "icon": "Sparkles",
         "title": {
           "en": "Ayurvedic Spa",
-          "ru": "Аюрведа и СПА"
+          "ru": "Аюрведический СПА"
         },
         "description": ""
       },
@@ -455,7 +455,7 @@
         "icon": "BatteryCharging",
         "title": {
           "en": "Power Bank Rental",
-          "ru": "Аренда Пауэрбанков"
+          "ru": "Пауэрбанк в Аренду"
         },
         "description": ""
       },
@@ -510,8 +510,8 @@
       {
         "icon": "Accessibility",
         "title": {
-          "en": "Accessibility",
-          "ru": "Доступность"
+          "en": "Wheelchair Ramps",
+          "ru": "Пандусы"
         },
         "description": ""
       }

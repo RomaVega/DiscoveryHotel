@@ -95,7 +95,11 @@ export function Amenities({ data }: AmenitiesProps) {
                   {Icon && (
                     <Icon size={20} strokeWidth={1.2} className="text-brand-teal shrink-0" />
                   )}
-                  <span className="font-sans text-sm text-charcoal">
+                  {/* hyphens-auto: a single long word is wider than the ~93px text
+                      column at 320px ("Аюрведический" by 27px, "Housekeeping" by
+                      11px); the browser's dictionary for <html lang> breaks it
+                      instead, which is why /ru pages must actually report "ru". */}
+                  <span className="font-sans text-sm text-charcoal hyphens-auto">
                     {keepSlashCompoundsWhole(bindShortWords(t(item.title)))}
                   </span>
                 </div>
