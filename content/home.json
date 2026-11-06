@@ -324,14 +324,6 @@
     },
     "items": [
       {
-        "icon": "Umbrella",
-        "title": {
-          "en": "Private Beach",
-          "ru": "Свой Пляж"
-        },
-        "description": ""
-      },
-      {
         "icon": "Waves",
         "title": {
           "en": "Swimming Pool",
@@ -340,10 +332,26 @@
         "description": ""
       },
       {
+        "icon": "Sparkles",
+        "title": {
+          "en": "Ayurvedic Spa",
+          "ru": "Аюрведический СПА"
+        },
+        "description": ""
+      },
+      {
+        "icon": "Fish",
+        "title": {
+          "en": "Diving & Snorkeling",
+          "ru": "Дайвинг и Снорклинг"
+        },
+        "description": ""
+      },
+      {
         "icon": "UtensilsCrossed",
         "title": {
-          "en": "Restaurant",
-          "ru": "Ресторан"
+          "en": "Seaside Restaurant",
+          "ru": "Ресторан у Моря"
         },
         "description": ""
       },
@@ -356,22 +364,6 @@
         "description": ""
       },
       {
-        "icon": "GlassWater",
-        "title": {
-          "en": "Bar",
-          "ru": "Бар"
-        },
-        "description": ""
-      },
-      {
-        "icon": "Sparkles",
-        "title": {
-          "en": "SPA",
-          "ru": "СПА"
-        },
-        "description": ""
-      },
-      {
         "icon": "Wifi",
         "title": {
           "en": "Fast Wi-Fi",
@@ -380,10 +372,26 @@
         "description": ""
       },
       {
-        "icon": "Bell",
+        "icon": "PlaneLanding",
         "title": {
-          "en": "24h Receptionist",
-          "ru": "Ресепшн 24/7"
+          "en": "Airport Transfer",
+          "ru": "Трансфер в Аэропорт"
+        },
+        "description": ""
+      },
+      {
+        "icon": "Compass",
+        "title": {
+          "en": "Tours & Excursions",
+          "ru": "Экскурсии и Туры"
+        },
+        "description": ""
+      },
+      {
+        "icon": "GlassWater",
+        "title": {
+          "en": "Bar",
+          "ru": "Бар"
         },
         "description": ""
       },
@@ -396,45 +404,20 @@
         "description": ""
       },
       {
-        "icon": "PlaneLanding",
-        "title": {
-          "en": "Airport Shuttle",
-          "ru": "Трансфер"
-        },
-        "description": ""
-      },
-      {
         "icon": "KeyRound",
         "title": {
-          "en": "Auto/Moto Rental",
+          "en": "Car/Moto Rental",
           "ru": "Аренда Авто/Мото"
         },
         "description": ""
       },
       {
-        "icon": "Compass",
+        "icon": "Bell",
         "title": {
-          "en": "Exclusive Tours",
-          "ru": "Туры и Экскурсии"
+          "en": "24h Receptionist",
+          "ru": "Ресепшн 24/7"
         },
         "description": ""
-      },
-      {
-        "icon": "Fish",
-        "title": {
-          "en": "Diving & Snorkeling",
-          "ru": "Дайвинг"
-        },
-        "description": ""
-      },
-      {
-        "icon": "Hand",
-        "title": {
-          "en": "Massage",
-          "ru": "Массаж"
-        },
-        "description": "",
-        "hideMobile": true
       },
       {
         "icon": "Shirt",
@@ -445,10 +428,34 @@
         "description": ""
       },
       {
+        "icon": "Bus",
+        "title": {
+          "en": "Free Beach Shuttle",
+          "ru": "Шаттл на Пляж"
+        },
+        "description": ""
+      },
+      {
+        "icon": "Car",
+        "title": {
+          "en": "Free Parking",
+          "ru": "Парковка"
+        },
+        "description": ""
+      },
+      {
         "icon": "WashingMachine",
         "title": {
           "en": "Laundry",
           "ru": "Прачечная"
+        },
+        "description": ""
+      },
+      {
+        "icon": "BatteryCharging",
+        "title": {
+          "en": "Power Bank Rental",
+          "ru": "Пауэрбанк в Аренду"
         },
         "description": ""
       },
@@ -469,42 +476,10 @@
         "description": ""
       },
       {
-        "icon": "Car",
-        "title": {
-          "en": "Free Parking",
-          "ru": "Парковка"
-        },
-        "description": ""
-      },
-      {
         "icon": "Shield",
         "title": {
           "en": "24 Hour Security",
           "ru": "Охрана 24/7"
-        },
-        "description": ""
-      },
-      {
-        "icon": "Ban",
-        "title": {
-          "en": "Non-Smoking",
-          "ru": "Без Курения"
-        },
-        "description": ""
-      },
-      {
-        "icon": "Coins",
-        "title": {
-          "en": "Currency Exchange",
-          "ru": "Обмен Валюты"
-        },
-        "description": ""
-      },
-      {
-        "icon": "Bus",
-        "title": {
-          "en": "Transport Service",
-          "ru": "Транспорт"
         },
         "description": ""
       },
@@ -517,13 +492,28 @@
         "description": ""
       },
       {
+        "icon": "Coins",
+        "title": {
+          "en": "Currency Exchange",
+          "ru": "Обмен Валюты"
+        },
+        "description": ""
+      },
+      {
+        "icon": "Ban",
+        "title": {
+          "en": "Non-Smoking",
+          "ru": "Без Курения"
+        },
+        "description": ""
+      },
+      {
         "icon": "Accessibility",
         "title": {
-          "en": "Accessibility",
-          "ru": "Доступность"
+          "en": "Wheelchair Ramps",
+          "ru": "Пандусы"
         },
-        "description": "",
-        "hideDesktop": true
+        "description": ""
       }
     ]
   },

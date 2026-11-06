@@ -59,6 +59,26 @@ export function splitTitle(text: string): string[] {
   return best ?? [words.join(" ")];
 }
 
+/** U+00A0 NO-BREAK SPACE. */
+const NBSP = "\u00a0";
+
+/**
+ * Keep the short words above off the line ends of a label that wraps on its
+ * own, as the Amenities grid does on a phone: "Ресторан у Моря" sets as
+ * "Ресторан" / "у Моря", not "Ресторан у" / "Моря", and an ampersand stays
+ * with the word before it. Same rule as `splitTitle`, applied by turning the
+ * one space after (or before) such a word into a no-break space.
+ */
+export function bindShortWords(text: string): string {
+  return text
+    .split(" ")
+    .reduce((out, word, i, words) => {
+      if (i === 0) return word;
+      const glue = BINDS_FORWARD.has(words[i - 1].toLowerCase()) || BINDS_BACKWARD.has(word) ? NBSP : " ";
+      return out + glue + word;
+    }, "");
+}
+
 /** Characters in the longest line `splitTitle` will set — what a tile must fit. */
 export function longestTitleLine(text: string): number {
   return Math.max(...splitTitle(text).map((line) => line.length));
