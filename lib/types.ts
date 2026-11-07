@@ -20,6 +20,10 @@ export interface HeroData {
   titleLine3: string;
   /** The location line under the stars: "Candidasa · East Bali". */
   subtitle: LocalizedString;
+  /** What the hotel is, under the location: "Cottages & Villas". */
+  tagline: LocalizedString;
+  /** What is on site, the last line: "Bar · Restaurant · Ayurvedic Spa". */
+  facilities: LocalizedString;
   image: string;
   imageMobile?: string;
   imagePoster?: string;

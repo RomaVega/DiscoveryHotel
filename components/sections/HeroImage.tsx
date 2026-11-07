@@ -303,6 +303,16 @@ export function HeroImage({ hero }: HeroImageProps) {
           {t(hero.subtitle)}
         </p>
 
+        {/* What the hotel is and what is on site — a quieter pair under the
+            place, one size down. Localized now; both were hard-coded English,
+            on /ru too. Same narrow-phone step-down as the location: the
+            Russian facilities line is 324px at 12px/0.18em, 307px at 0.14em
+            (fits 360) and 267px at 11px/0.1em (fits 320). */}
+        <div className="mt-4 flex flex-col items-center gap-1.5 font-sans font-normal text-[11px] tracking-[0.1em] min-[360px]:text-xs min-[360px]:tracking-[0.14em] min-[375px]:tracking-[0.18em] uppercase text-white/90 text-shadow-strong">
+          <p>{t(hero.tagline)}</p>
+          <p>{t(hero.facilities)}</p>
+        </div>
+
         {/* CTA. The shared BookNowButton, not a bespoke ghost button: the
             old one was white `font-light` 11px on `bg-black/15`, i.e. white
             text on whatever the video happened to be showing. Measured against
@@ -318,9 +328,9 @@ export function HeroImage({ hero }: HeroImageProps) {
             constant — which holds at any height, unlike a fixed margin. The
             constant depends on the title block's height, so it changes where
             the block does: below 375px "Discovery Candidasa" takes two lines,
-            and from md the type is larger. Measured Nov 2026, after the block
+            and from md and again from lg the type is larger. Measured Nov 2026, after the block
             became name / HOTEL / stars / location; re-measure if it changes. */}
-        <BookNowButton location="hero" variant="ghost" className="absolute left-1/2 top-[calc(75%+63px)] min-[375px]:top-[calc(75%+49px)] md:top-[calc(75%+28px)] -translate-x-1/2 -translate-y-1/2 whitespace-nowrap" />
+        <BookNowButton location="hero" variant="ghost" className="absolute left-1/2 top-[calc(75%+76px)] min-[375px]:top-[calc(75%+62px)] md:top-[calc(75%+38px)] lg:top-[calc(75%+44px)] -translate-x-1/2 -translate-y-1/2 whitespace-nowrap" />
       </div>
 
       {/* Scroll indicator */}

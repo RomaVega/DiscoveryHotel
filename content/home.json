@@ -7,6 +7,14 @@
       "en": "Candidasa · East Bali",
       "ru": "Чандидаса · Восточный Бали"
     },
+    "tagline": {
+      "en": "Cottages & Villas",
+      "ru": "Коттеджи и Виллы"
+    },
+    "facilities": {
+      "en": "Bar · Restaurant · Ayurvedic Spa",
+      "ru": "Бар · Ресторан · Аюрведический СПА"
+    },
     "image": "/images/hero/hero-og.jpg",
     "imageMobile": "/images/hero/hero-mobile.webp",
     "imagePoster": "/images/hero/hero-desktop-poster.webp",
