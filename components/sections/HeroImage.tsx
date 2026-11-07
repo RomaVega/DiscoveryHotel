@@ -303,14 +303,15 @@ export function HeroImage({ hero }: HeroImageProps) {
           {t(hero.subtitle)}
         </p>
 
-        {/* What the hotel is and what is on site — a quieter pair under the
-            place, one size down. Localized now; both were hard-coded English,
-            on /ru too. Same narrow-phone step-down as the location: the
-            Russian facilities line is 324px at 12px/0.18em, 307px at 0.14em
-            (fits 360) and 267px at 11px/0.1em (fits 320). */}
-        <div className="mt-4 flex flex-col items-center gap-1.5 font-sans font-normal text-[11px] tracking-[0.1em] min-[360px]:text-xs min-[360px]:tracking-[0.14em] min-[375px]:tracking-[0.18em] uppercase text-white/90 text-shadow-strong">
-          <p>{t(hero.tagline)}</p>
-          <p>{t(hero.facilities)}</p>
+        {/* What the hotel is and what is on site. Set apart from the location
+            by typeface, not a rule: the location is a label (Inter caps), this
+            describes the place, so it takes the name's italic serif in normal
+            case — the same voice as "Discovery Candidasa". Both lines used to
+            be Inter caps like the location and read as one list with it (and
+            were hard-coded English, on /ru too). */}
+        <div className="mt-5 flex flex-col items-center gap-0.5 font-serif italic font-semibold tracking-[0.02em] text-white text-shadow-strong">
+          <p className="text-xl">{t(hero.tagline)}</p>
+          <p className="text-lg">{t(hero.facilities)}</p>
         </div>
 
         {/* CTA. The shared BookNowButton, not a bespoke ghost button: the
@@ -330,7 +331,7 @@ export function HeroImage({ hero }: HeroImageProps) {
             the block does: below 375px "Discovery Candidasa" takes two lines,
             and from md and again from lg the type is larger. Measured Nov 2026, after the block
             became name / HOTEL / stars / location; re-measure if it changes. */}
-        <BookNowButton location="hero" variant="ghost" className="absolute left-1/2 top-[calc(75%+76px)] min-[375px]:top-[calc(75%+62px)] md:top-[calc(75%+38px)] lg:top-[calc(75%+44px)] -translate-x-1/2 -translate-y-1/2 whitespace-nowrap" />
+        <BookNowButton location="hero" variant="ghost" className="absolute left-1/2 top-[calc(75%+82px)] min-[375px]:top-[calc(75%+68px)] md:top-[calc(75%+44px)] lg:top-[calc(75%+50px)] -translate-x-1/2 -translate-y-1/2 whitespace-nowrap" />
       </div>
 
       {/* Scroll indicator */}
