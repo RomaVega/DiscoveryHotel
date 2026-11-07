@@ -18,7 +18,7 @@ export interface HeroData {
   titleLine1: string;
   titleLine2: string;
   titleLine3: string;
-  titleLine4?: string;
+  /** The location line under the stars: "Candidasa · East Bali". */
   subtitle: LocalizedString;
   image: string;
   imageMobile?: string;

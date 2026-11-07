@@ -132,14 +132,13 @@ export function HeroImage({ hero }: HeroImageProps) {
 
   const line1Ref = useRef<HTMLSpanElement>(null);
   const line2Ref = useRef<HTMLSpanElement>(null);
-  const line3Ref = useRef<HTMLSpanElement>(null);
-  const { tl } = useLanguage();
+  const { t, tl } = useLanguage();
 
   // Measure all title lines, find the widest, then stretch the narrower ones via letter-spacing.
   // Must wait for the serif webfont — measuring against fallback-font metrics produces wrong widths.
   useLayoutEffect(() => {
     const sync = () => {
-      [line1Ref, line2Ref, line3Ref].forEach(r => { if (r.current) r.current.style.letterSpacing = ""; });
+      [line1Ref, line2Ref].forEach(r => { if (r.current) r.current.style.letterSpacing = ""; });
       const refs = [line1Ref, line2Ref].map(r => r.current).filter(Boolean) as HTMLSpanElement[];
       const widths = refs.map(el => el.getBoundingClientRect().width);
       const max = Math.max(...widths);
@@ -269,13 +268,13 @@ export function HeroImage({ hero }: HeroImageProps) {
             <span ref={line2Ref}>{hero.titleLine2}</span>
           </span>
 
-          {hero.titleLine4 && (
-            <span className="block text-[2.625rem] md:text-[2.625rem] lg:text-[2.875rem] italic font-semibold mt-1 md:mt-2 leading-snug">
-              <span ref={line3Ref}>{hero.titleLine4}</span>
-            </span>
-          )}
-
-          <div className="w-fit mx-auto mt-10 md:mt-10">
+          {/* The name reads top to bottom as one unit — ORLOWSKY / Discovery
+              Candidasa / HOTEL — so HOTEL follows on at the name's own rhythm,
+              and the place goes last, under the stars, as a line of its own.
+              It used to be ORLOWSKY / Discovery Candidasa / Bali, then a gap,
+              then HOTEL: "Bali" read as part of the name and HOTEL as a
+              separate label. */}
+          <div className="w-fit mx-auto mt-4 md:mt-5">
             <span className="block text-xl md:text-xl lg:text-xl tracking-[0.3em] uppercase font-semibold">
               {hero.titleLine3}
             </span>
@@ -295,15 +294,14 @@ export function HeroImage({ hero }: HeroImageProps) {
           </div>
         </h1>
 
-        {/* Subtitle */}
-        <div className="mt-4 flex flex-col items-center gap-2">
-          <p className="font-sans font-light text-sm md:text-sm tracking-[0.2em] uppercase text-white/95 text-shadow-strong">
-            Cottages &amp; Villas
-          </p>
-          <p className="font-sans font-light text-xs md:text-xs tracking-[0.18em] uppercase text-white/80 text-shadow-strong">
-            Bar&nbsp;·&nbsp;Restaurant&nbsp;·&nbsp;Ayurvedic Spa
-          </p>
-        </div>
+        {/* Location — localized, unlike the name above it. Inter 400, not the
+            300 it used to be: white on a moving video at 14px. The tracking
+            steps down on narrow phones so the Russian line stays on one line
+            (313px at 0.2em; 299px at 0.16em fits 360, 264px at 13px/0.12em
+            fits 320). */}
+        <p className="mt-6 font-sans font-normal text-[13px] tracking-[0.12em] min-[360px]:text-sm min-[360px]:tracking-[0.16em] min-[400px]:tracking-[0.2em] uppercase text-white/95 text-shadow-strong">
+          {t(hero.subtitle)}
+        </p>
 
         {/* CTA. The shared BookNowButton, not a bespoke ghost button: the
             old one was white `font-light` 11px on `bg-black/15`, i.e. white
@@ -317,8 +315,12 @@ export function HeroImage({ hero }: HeroImageProps) {
             subtitle and the scroll arrow: the subtitle sits a fixed distance
             from the viewport's midline and the arrow is pinned to the bottom,
             so that gap's midpoint works out to 75% of viewport height plus a
-            constant — which holds at any height, unlike a fixed margin. */}
-        <BookNowButton location="hero" variant="ghost" className="absolute left-1/2 top-[calc(75%+72px)] md:top-[calc(75%+55px)] -translate-x-1/2 -translate-y-1/2 whitespace-nowrap" />
+            constant — which holds at any height, unlike a fixed margin. The
+            constant depends on the title block's height, so it changes where
+            the block does: below 375px "Discovery Candidasa" takes two lines,
+            and from md the type is larger. Measured Nov 2026, after the block
+            became name / HOTEL / stars / location; re-measure if it changes. */}
+        <BookNowButton location="hero" variant="ghost" className="absolute left-1/2 top-[calc(75%+63px)] min-[375px]:top-[calc(75%+49px)] md:top-[calc(75%+28px)] -translate-x-1/2 -translate-y-1/2 whitespace-nowrap" />
       </div>
 
       {/* Scroll indicator */}

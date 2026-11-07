@@ -36,7 +36,6 @@ const heroData = z.object({
   titleLine1: z.string(),
   titleLine2: z.string(),
   titleLine3: z.string(),
-  titleLine4: z.string().optional(),
   subtitle: localizedString,
   image: z.string(),
   imageMobile: z.string().optional(),
