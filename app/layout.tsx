@@ -11,8 +11,7 @@ import { ALL_ROUTES } from "@/lib/image-manifest";
 import { buildLangRedirectScript, enPathsWithRuTwin } from "@/lib/lang-redirect";
 import { SITE_URL, SITE_NAME, OG_IMAGE } from "@/lib/site";
 import { getWhatsAppNumber } from "@/lib/whatsapp";
-import { getContactData, getRatingAggregates } from "@/lib/content";
-import { aggregateRating } from "@/lib/jsonld";
+import { getContactData } from "@/lib/content";
 import "./globals.css";
 
 // Blocking pre-paint redirect: honours a stored language preference, an
@@ -157,7 +156,10 @@ export default function RootLayout({
                 { "@type": "LocationFeatureSpecification", "name": "Room Service",         "value": true },
                 { "@type": "LocationFeatureSpecification", "name": "Laundry Service",      "value": true },
               ],
-              "aggregateRating": aggregateRating(getRatingAggregates()),
+              // No aggregateRating. The site has no reviews of its own, and Google's
+              // review-snippet guidelines say not to republish ratings from other
+              // sites; breaking them can bring a manual action. The scores stay on
+              // the page — /reviews and the home band — linked to each platform.
               // Derived from contact.json rather than listed again here: this array
               // and the footer icons are the same claim about the same accounts, and
               // a second hardcoded copy is a second thing to forget. Three of the four

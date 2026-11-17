@@ -5,6 +5,7 @@ import type {
   DivingPageData, ExcursionsPageData, EventsPageData, CarRentalPageData,
   AboutPageData, ExperiencesHubData,
   FaqPageData, LocationPageData, LegalPageData, WeddingsPageData, Offer,
+  GuestReviewsPageData,
 } from "./types";
 import {
   homePageSchema, contactSchema, reviewsSchema,
@@ -12,6 +13,7 @@ import {
   divingPageSchema, excursionsPageSchema, eventsPageSchema, carRentalPageSchema,
   aboutPageSchema, experiencesHubSchema,
   faqPageSchema, locationPageSchema, legalPageSchema, weddingsPageSchema,
+  guestReviewsPageSchema,
 } from "./validation";
 
 import homeData from "@/content/home.json";
@@ -32,6 +34,7 @@ import locationData from "@/content/location.json";
 import privacyData from "@/content/privacy.json";
 import termsData from "@/content/terms.json";
 import weddingsData from "@/content/weddings.json";
+import guestReviewsData from "@/content/guest-reviews.json";
 
 export function getHomePageData(): HomePageData {
   return homePageSchema.parse(homeData);
@@ -63,6 +66,11 @@ export function getReviews(locale: Locale): ResolvedReview[] {
     author: resolve(review.author),
     text: resolve(review.text),
   }));
+}
+
+/** The /reviews page: copy, theme quotes and the hand-copied real reviews. */
+export function getGuestReviewsPageData(): GuestReviewsPageData {
+  return guestReviewsPageSchema.parse(guestReviewsData);
 }
 
 export function getRoomsPageData(): RoomsPageData {

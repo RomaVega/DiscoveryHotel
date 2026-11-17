@@ -3,6 +3,7 @@
 import { useEffect, useRef, useCallback, useState } from "react";
 import type { ResolvedReview } from "@/lib/types";
 import { useLanguage } from "@/lib/language-context";
+import { SecondaryButton } from "@/components/common/SecondaryButton";
 
 interface ReviewScrollerProps {
   reviews: ResolvedReview[];
@@ -294,6 +295,11 @@ export function ReviewScroller({ reviews, children }: ReviewScrollerProps) {
           </li>
         ))}
       </ul>
+
+      {/* The full page: real reviews copied word for word, with their sources. */}
+      <div className="mt-10 text-center">
+        <SecondaryButton href="/reviews">{tl.guestReviews.readAll}</SecondaryButton>
+      </div>
     </section>
   );
 }

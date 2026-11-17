@@ -75,6 +75,7 @@
       "experiences": "Experiences",
       "offers": "Offers",
       "gallery": "Gallery",
+      "reviews": "Reviews",
       "about": "About",
       "location": "Location",
       "transfer": "Transfer",
@@ -215,5 +216,42 @@
   },
   "rooms": {
     "taxIncluded": "Taxes & fees included"
+  },
+  "guestReviews": {
+    "filterAria": "Show reviews from",
+    "all": "All",
+    "outOf": "out of",
+    "disliked": "Disliked",
+    "reply": "Reply from the hotel",
+    "translatedFrom": {
+      "en": "Translated from English",
+      "ru": "Translated from Russian",
+      "de": "Translated from German"
+    },
+    "showOriginal": "Show original",
+    "stayed": "Stayed {date}",
+    "reviewedIn": "Reviewed in {date}",
+    "readOn": "Read on {platform}",
+    "readAll": "Read guest reviews",
+    "countries": {
+      "Australia": "Australia",
+      "Indonesia": "Indonesia",
+      "Poland": "Poland",
+      "Russia": "Russia",
+      "Singapore": "Singapore",
+      "United Kingdom": "United Kingdom"
+    },
+    "travellerTypes": {
+      "family": "Family",
+      "family-young-children": "Family with young children",
+      "couple": "Couple",
+      "group": "Group",
+      "solo": "Solo traveller"
+    },
+    "rooms": {
+      "deluxe-cottage": "Deluxe Cottage",
+      "two-bedroom-villa": "Two-Bedroom Villa",
+      "three-bedroom-villa": "Three-Bedroom Villa"
+    }
   }
 }

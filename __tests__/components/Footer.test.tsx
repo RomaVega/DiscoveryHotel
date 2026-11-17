@@ -51,7 +51,7 @@ describe("Footer", () => {
         .getAllByRole("link")
         .map((a) => a.textContent)
     ).toEqual([
-      "Rooms", "Dining", "Experiences", "Offers", "Gallery",
+      "Rooms", "Dining", "Experiences", "Offers", "Gallery", "Reviews",
       "Location", "Transfer", "About", "FAQ", "Contact", "Blog",
     ]);
     expect(
