@@ -66,6 +66,7 @@ components/
   common/               # Reusable primitives (SectionHeading, FadeIn, PrimaryButton, SecondaryButton, BookNowButton, ExperienceTile, TextLink)
 content/                # All site content as JSON
   blog/                 # Blog posts, <slug>.<en|ru>.md — the one Markdown exception (see Blog)
+  guest-reviews.json    # /reviews: hand-copied real reviews + page copy (see Guest Reviews)
 locales/                # en.json, ru.json — UI strings loaded by LanguageProvider
 lib/
   content.ts            # Typed JSON loaders — all pages must use these, never import JSON directly
@@ -73,6 +74,7 @@ lib/
   blog-meta.ts          # Post/index metadata and JSON-LD — keeps blog page files thin
   markdown.ts           # marked lexer wrapper + heading anchors / table of contents
   image-size.ts         # webpSize — reads a WebP's pixel size from its header (blog images)
+  guest-reviews.ts      # Resolves content/guest-reviews.json to one locale for /reviews (getGuestReviews, getReviewThemes)
   offers.ts             # offerEnquiryText — the offer WhatsApp text, shared by cards and posts
   types.ts              # Single source of truth for all data shapes
   language-context.tsx  # LanguageProvider + useLanguage hook (t, tl)
@@ -270,6 +272,18 @@ Posts live in `content/blog/<slug>.<en|ru>.md`: YAML frontmatter, validated by `
 - **Key facts.** `keyFacts` is the box under the hero: label/value rows plus any number of `links` (registration, official site, socials).
 - **SEO.** Title and description come from the frontmatter (`metaTitle` carries the brand once — `check-titles.js`). hreflang is emitted only when the same slug exists in both languages; a lone post has a canonical and nothing else. Sitemap entries use each post's own `updated` date, not `LAST_CONTENT_UPDATE`. JSON-LD is `BlogPosting` + breadcrumbs, plus `FAQPage` when the post has `faq` — Google ended FAQ rich results in May 2026, so that earns nothing visible in Google; it stays for other readers of the markup. **Never add `Event` markup for an event the hotel does not organise** — Google ties event results to the organiser's page and ticket link.
 - **Linking in.** `RelatedPosts` on `/location` and `/experiences` shows posts tagged `east-bali`; the footer's Explore list links `/blog`. Not in the main navbar until there are enough posts to justify it.
+
+## Guest Reviews
+
+`/reviews` and `/ru/reviews` show real reviews from `content/guest-reviews.json`, copied by hand from the hotel's public Google, Booking.com and Agoda listings (Tripadvisor blocks automated access — copy by hand). Rules:
+
+- **Word for word.** Passages are never edited, merged or tidied — typos stay — and are cut only at a sentence end; they render joined by " … ", so every cut is visible. `copiedOn` is the date the text was checked against the live listing.
+- **Only `text[language]` is the guest's.** `en` and `ru` must both exist; any version not in the review's own language is our translation and the card labels it ("Translated from Russian") with the original behind a native `<details>`. The schema refuses a translation whose title/passages/disliked shape differs from the original.
+- **Theme quotes** (`themes.items`) must be substrings of their review's text in both languages — the schema enforces it, so the band can only repeat what is on the wall.
+- **Dates:** Booking.com/Agoda give the month of stay (`date: YYYY-MM`, `dateKind: stay`). Google shows only "a year ago", which spans two years — set a `YYYY` only when it is certain, otherwise leave the date out.
+- **"Read on …" links** go to the listing URL from `content/reviews.json` aggregates, so the scores band and the cards cannot disagree.
+- **No review structured data**, and no `aggregateRating` on the Hotel entity: Google's review-snippet guidelines forbid marking up ratings or reviews taken from other sites, and breaking them can bring a manual action. The site-wide `aggregateRating` was removed for this reason (Nov 2026).
+- The home page's scrolling strip (`reviews` in `content/reviews.json`) is a separate, older set; it links to `/reviews`.
 
 ## Environment Variables
 

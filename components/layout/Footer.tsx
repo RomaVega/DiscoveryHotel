@@ -95,6 +95,7 @@ export function Footer({ contact }: FooterProps) {
     { label: f.links.experiences, href: "/experiences" },
     { label: f.links.offers,      href: "/offers" },
     { label: f.links.gallery,     href: "/gallery" },
+    { label: f.links.reviews,     href: "/reviews" },
     { label: f.links.location,    href: "/location" },
     { label: f.links.transfer,    href: "/transfer" },
     { label: f.links.about,       href: "/about" },

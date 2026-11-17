@@ -246,6 +246,118 @@ export interface ResolvedReview extends Omit<Review, "author" | "text"> {
   text: string;
 }
 
+// ── /reviews ────────────────────────────────────────────────────────────────
+
+export type ReviewPlatform = "google" | "booking" | "agoda" | "tripadvisor";
+
+/** Languages a review on /reviews was written in. Site locales plus the ones guests actually used. */
+export type ReviewLanguage = Locale | "de";
+
+export type TravellerType = "family" | "family-young-children" | "couple" | "group" | "solo";
+
+export type ReviewRoom = "deluxe-cottage" | "two-bedroom-villa" | "three-bedroom-villa";
+
+/**
+ * One language's version of a review. Passages are word-for-word excerpts and
+ * render joined by " … ", so a cut is always visible. Only the version in the
+ * review's own `language` is the guest's words; the others are our translations.
+ */
+export interface GuestReviewText {
+  title?: string;
+  passages: string[];
+  /** Booking.com keeps what a guest disliked in its own field. */
+  disliked?: string[];
+}
+
+/**
+ * A real review, copied by hand from a public listing for /reviews.
+ * Never edited, summarised or merged: the guest's words, cut only at a
+ * sentence end, typos included. See content/guest-reviews.json `about`.
+ */
+export interface GuestReview {
+  id: string;
+  platform: ReviewPlatform;
+  /** As the platform shows it, shortened to first name + initial for Google. */
+  author: string;
+  /** English country name; translated through `guestReviews.countries` in the locales. */
+  country?: string;
+  travellerType?: TravellerType;
+  room?: ReviewRoom;
+  /**
+   * YYYY-MM month of stay (Booking.com, Agoda), or the YYYY a Google review
+   * was certainly written in. Absent when the platform gives no reliable date —
+   * Google shows only "a year ago", which can mean either of two years.
+   */
+  date?: string;
+  dateKind?: "stay" | "review";
+  score: number;
+  scale: 5 | 10;
+  language: ReviewLanguage;
+  /** Keyed by language: `text[language]` is the original, en and ru must both exist. */
+  text: Partial<Record<ReviewLanguage, GuestReviewText>>;
+  reply?: {
+    language: ReviewLanguage;
+    text: Partial<Record<ReviewLanguage, string[]>>;
+  };
+  /** YYYY-MM-DD the excerpt was copied and checked against the live listing. */
+  copiedOn: string;
+}
+
+/** A short quote for the "What guests mention most" band, cut from one review. */
+export interface ReviewTheme {
+  title: LocalizedString;
+  review: string;
+  /** Must be a substring of that review's text in the same language — a test checks it. */
+  quote: { en: string; ru: string };
+}
+
+export interface GuestReviewsPageData {
+  heading: LocalizedString;
+  subtext: LocalizedString;
+  heroAlt: LocalizedString;
+  themes: {
+    label: LocalizedString;
+    heading: LocalizedString;
+    subtext: LocalizedString;
+    items: ReviewTheme[];
+  };
+  wall: {
+    label: LocalizedString;
+    heading: LocalizedString;
+    subtext: LocalizedString;
+    note: LocalizedString;
+  };
+  invite: {
+    heading: LocalizedString;
+    subtext: LocalizedString;
+    links: { platform: ReviewPlatform; label: LocalizedString; url: string }[];
+    note: LocalizedString;
+  };
+  reviews: GuestReview[];
+}
+
+/** A GuestReview flattened for one page locale — what the review wall renders. */
+export interface ResolvedGuestReview {
+  id: string;
+  platform: ReviewPlatform;
+  platformName: string;
+  sourceUrl: string;
+  author: string;
+  /** "Poland · Family · Three-Bedroom Villa" in the page's language. */
+  meta: string;
+  /** "Stayed July 2026" / "Reviewed in 2026", or null. */
+  dateLabel: string | null;
+  score: string;
+  scale: 5 | 10;
+  title?: string;
+  passages: string[];
+  disliked?: string[];
+  /** Set when the text shown is our translation: the original, its language and the label. */
+  translation: { label: string; language: ReviewLanguage; original: GuestReviewText } | null;
+  /** The hotel's public reply; `translatedFrom` is set when we translated it. */
+  reply?: { passages: string[]; translatedFrom: string | null };
+}
+
 export interface HomePageData {
   hero: HeroData;
   welcome: WelcomeData;

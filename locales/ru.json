@@ -75,6 +75,7 @@
       "experiences": "Впечатления",
       "offers": "Акции",
       "gallery": "Галерея",
+      "reviews": "Отзывы",
       "about": "О Нас",
       "location": "Расположение",
       "transfer": "Трансфер",
@@ -217,5 +218,42 @@
   },
   "rooms": {
     "taxIncluded": "Налоги и сборы включены"
+  },
+  "guestReviews": {
+    "filterAria": "Показать отзывы с площадки",
+    "all": "Все",
+    "outOf": "из",
+    "disliked": "Не понравилось",
+    "reply": "Ответ отеля",
+    "translatedFrom": {
+      "en": "Перевод с английского",
+      "ru": "Перевод с русского",
+      "de": "Перевод с немецкого"
+    },
+    "showOriginal": "Показать оригинал",
+    "stayed": "Проживание: {date}",
+    "reviewedIn": "Отзыв оставлен в {date} году",
+    "readOn": "Читать на {platform}",
+    "readAll": "Читать отзывы гостей",
+    "countries": {
+      "Australia": "Австралия",
+      "Indonesia": "Индонезия",
+      "Poland": "Польша",
+      "Russia": "Россия",
+      "Singapore": "Сингапур",
+      "United Kingdom": "Великобритания"
+    },
+    "travellerTypes": {
+      "family": "Семья",
+      "family-young-children": "Семья с маленькими детьми",
+      "couple": "Пара",
+      "group": "Группа",
+      "solo": "Один"
+    },
+    "rooms": {
+      "deluxe-cottage": "Коттедж Делюкс",
+      "two-bedroom-villa": "Вилла с двумя спальнями",
+      "three-bedroom-villa": "Вилла с тремя спальнями"
+    }
   }
 }

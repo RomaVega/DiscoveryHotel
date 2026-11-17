@@ -210,6 +210,101 @@ export const reviewsSchema = z.object({
   reviews: z.array(review),
 });
 
+// ── /reviews ────────────────────────────────────────────────────────────────
+
+const reviewLanguage = z.enum(["en", "ru", "de"]);
+
+const guestReviewText = z.object({
+  title: z.string().optional(),
+  passages: z.array(z.string().min(1)).min(1),
+  disliked: z.array(z.string().min(1)).optional(),
+});
+
+const guestReview = z.object({
+  id: z.string().regex(/^[a-z]+-[a-z]+-\d{4}(-\d{2})?$/, "id is <platform>-<name>-<YYYY[-MM]>"),
+  platform: z.enum(["google", "booking", "agoda", "tripadvisor"]),
+  author: z.string().min(1),
+  country: z.string().optional(),
+  travellerType: z.enum(["family", "family-young-children", "couple", "group", "solo"]).optional(),
+  room: z.enum(["deluxe-cottage", "two-bedroom-villa", "three-bedroom-villa"]).optional(),
+  date: z.string().regex(/^\d{4}(-\d{2})?$/, "date is YYYY-MM (stay) or YYYY").optional(),
+  dateKind: z.enum(["stay", "review"]).optional(),
+  score: z.number().positive(),
+  scale: z.union([z.literal(5), z.literal(10)]),
+  language: reviewLanguage,
+  text: z.partialRecord(reviewLanguage, guestReviewText),
+  reply: z.object({
+    language: reviewLanguage,
+    text: z.partialRecord(reviewLanguage, z.array(z.string().min(1)).min(1)),
+  }).optional(),
+  copiedOn: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "copiedOn must be YYYY-MM-DD"),
+})
+  .refine((r) => r.score <= r.scale, { message: "score cannot exceed its scale" })
+  .refine((r) => Boolean(r.date) === Boolean(r.dateKind), { message: "date and dateKind go together" })
+  .refine((r) => r.text[r.language] && r.text.en && r.text.ru, {
+    message: "text needs the original (text[language]) plus en and ru",
+  })
+  .refine((r) => {
+    // A translation that drops or merges a passage would no longer line up
+    // with the original the reader can open beside it.
+    const shape = (t?: z.infer<typeof guestReviewText>) =>
+      t ? `${t.passages.length}/${t.disliked?.length ?? 0}/${t.title ? 1 : 0}` : null;
+    const original = shape(r.text[r.language]);
+    return (["en", "ru"] as const).every((l) => shape(r.text[l]) === original);
+  }, { message: "every translation must have the same title/passages/disliked shape as the original" })
+  .refine((r) => !r.reply || (r.reply.text[r.reply.language] && r.reply.text.en && r.reply.text.ru), {
+    message: "reply needs the original plus en and ru",
+  });
+
+const pageCopy = z.object({
+  label: localizedString,
+  heading: localizedString,
+  subtext: localizedString,
+});
+
+export const guestReviewsPageSchema = z.object({
+  heading: localizedString,
+  subtext: localizedString,
+  heroAlt: localizedString,
+  themes: pageCopy.extend({
+    items: z.array(z.object({
+      title: localizedString,
+      review: z.string(),
+      quote: z.object({ en: z.string().min(1), ru: z.string().min(1) }),
+    })),
+  }),
+  wall: pageCopy.extend({ note: localizedString }),
+  invite: z.object({
+    heading: localizedString,
+    subtext: localizedString,
+    links: z.array(z.object({
+      platform: z.enum(["google", "booking", "agoda", "tripadvisor"]),
+      label: localizedString,
+      url: z.string().url(),
+    })),
+    note: localizedString,
+  }),
+  reviews: z.array(guestReview).min(1),
+}).superRefine((page, ctx) => {
+  const ids = new Set<string>();
+  for (const r of page.reviews) {
+    if (ids.has(r.id)) ctx.addIssue({ code: "custom", message: `duplicate review id ${r.id}` });
+    ids.add(r.id);
+  }
+  // A theme quote must be cut from its review, in both languages — otherwise
+  // the band could put words in a guest's mouth that the wall does not show.
+  for (const t of page.themes.items) {
+    const r = page.reviews.find((x) => x.id === t.review);
+    if (!r) { ctx.addIssue({ code: "custom", message: `theme points at unknown review ${t.review}` }); continue; }
+    for (const l of ["en", "ru"] as const) {
+      const body = (r.text[l]?.passages ?? []).join(" ");
+      if (!body.includes(t.quote[l])) {
+        ctx.addIssue({ code: "custom", message: `theme quote (${l}) is not in review ${t.review}` });
+      }
+    }
+  }
+});
+
 const roomDetail = z.object({
   title: localizedString,
   description: localizedString,

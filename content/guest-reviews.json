@@ -1,0 +1,761 @@
+{
+  "about": "Real reviews, copied by hand from the hotel's public listings and checked word for word against them on the date in copiedOn. Passages are never edited — typos stay — and are cut only at a sentence end. Only text[language] is the guest's; the other languages are our translations and render as such. To add one, copy it from the platform, keep the original, translate it into en and ru, and set copiedOn. Order here is display order.",
+  "heading": {
+    "en": "Guest Reviews",
+    "ru": "Отзывы Гостей"
+  },
+  "subtext": {
+    "en": "What guests write about us on Google, Booking.com and Agoda — in their own words.",
+    "ru": "Что гости пишут о нас на Google, Booking.com и Agoda — их собственными словами."
+  },
+  "heroAlt": {
+    "en": "Garden paths winding between the cottages and palm trees of Orlowsky Discovery Hotel, Candidasa",
+    "ru": "Садовые дорожки среди коттеджей и пальм Orlowsky Discovery Hotel, Чандидаса"
+  },
+  "themes": {
+    "label": {
+      "en": "What Stands Out",
+      "ru": "Главное"
+    },
+    "heading": {
+      "en": "What Guests Mention Most",
+      "ru": "О Чём Гости Пишут Чаще Всего"
+    },
+    "subtext": {
+      "en": "Four things that come up again and again, in guests' own words.",
+      "ru": "Четыре вещи, о которых гости пишут снова и снова, — их собственными словами."
+    },
+    "items": [
+      {
+        "title": {
+          "en": "The Staff",
+          "ru": "Персонал"
+        },
+        "review": "booking-daniel-2026-07",
+        "quote": {
+          "en": "The hotel’s staff deserve the highest praise. They were always kind, welcoming, and exceptionally helpful.",
+          "ru": "Персонал отеля заслуживает самой высокой похвалы. Все были неизменно добры, гостеприимны и исключительно отзывчивы."
+        }
+      },
+      {
+        "title": {
+          "en": "Room to Spread Out",
+          "ru": "Простор"
+        },
+        "review": "booking-leo-2024-05",
+        "quote": {
+          "en": "Our enormous villa had amazing ocean views and was very well appointed. The master bath was almost large enough to have a table tennis match in!",
+          "ru": "Наша огромная вилла с потрясающим видом на океан была отлично оборудована. Главная ванная была почти такой большой, что в ней можно было бы сыграть в настольный теннис!"
+        }
+      },
+      {
+        "title": {
+          "en": "A Slower Bali",
+          "ru": "Другой Ритм"
+        },
+        "review": "google-maria-2026-06",
+        "quote": {
+          "en": "Candidasa has a much slower and quieter rhythm compared to the busier parts of Bali, and I think Orlowsky Discovery captures that perfectly.",
+          "ru": "В Чандидасе жизнь течёт гораздо медленнее и тише, чем в оживлённых частях Бали, и, по-моему, Orlowsky Discovery передаёт это идеально."
+        }
+      },
+      {
+        "title": {
+          "en": "The Spa",
+          "ru": "Спа"
+        },
+        "review": "google-natalya-2025",
+        "quote": {
+          "en": "You come out of a massage feeling 10 years younger 😊.",
+          "ru": "Выходишь после массажа помолодевшая лет на 10ть 😊."
+        }
+      }
+    ]
+  },
+  "wall": {
+    "label": {
+      "en": "Reviews",
+      "ru": "Отзывы"
+    },
+    "heading": {
+      "en": "In Their Own Words",
+      "ru": "Своими Словами"
+    },
+    "subtext": {
+      "en": "A selection from every platform — including reviews that are not all praise.",
+      "ru": "Подборка со всех площадок — в том числе отзывы не только с похвалой."
+    },
+    "note": {
+      "en": "These reviews are copied word for word from the hotel's public listings on Google, Booking.com and Agoda. Where a guest wrote in another language, the translation is ours and is marked. This is a selection: every review, including the critical ones, can be read on each platform.",
+      "ru": "Отзывы скопированы дословно с открытых страниц отеля на Google, Booking.com и Agoda. Если гость писал на другом языке, перевод наш и отмечен. Это подборка: все отзывы, включая критические, можно прочитать на каждой площадке."
+    }
+  },
+  "invite": {
+    "heading": {
+      "en": "Stayed With Us?",
+      "ru": "Отдыхали у Нас?"
+    },
+    "subtext": {
+      "en": "A few honest lines help other travellers find their way to East Bali — and help us get better.",
+      "ru": "Несколько честных строк помогут другим путешественникам найти дорогу в Восточный Бали — а нам стать лучше."
+    },
+    "links": [
+      {
+        "platform": "google",
+        "label": {
+          "en": "Review us on Google",
+          "ru": "Отзыв на Google"
+        },
+        "url": "https://maps.app.goo.gl/T7DgnrrwoCuvrEZA7"
+      },
+      {
+        "platform": "tripadvisor",
+        "label": {
+          "en": "Review us on Tripadvisor",
+          "ru": "Отзыв на Tripadvisor"
+        },
+        "url": "https://www.tripadvisor.com/Hotel_Review-g312684-d3948674-Reviews-Discovery_Candidasa_Cottages_And_Villas-Candidasa_Karangasem_Bali.html"
+      }
+    ],
+    "note": {
+      "en": "Booking.com and Agoda invite guests to review by email after check-out.",
+      "ru": "Booking.com и Agoda приглашают оставить отзыв по электронной почте после выезда."
+    }
+  },
+  "reviews": [
+    {
+      "id": "booking-daniel-2026-07",
+      "platform": "booking",
+      "author": "Daniel",
+      "country": "Poland",
+      "travellerType": "family",
+      "room": "three-bedroom-villa",
+      "date": "2026-07",
+      "dateKind": "stay",
+      "score": 10,
+      "scale": 10,
+      "language": "en",
+      "text": {
+        "en": {
+          "title": "Warm hospitality, comfort, and great memories",
+          "passages": [
+            "This was our first visit to Bali, and staying at Orlowsky made it an unforgettable experience. We stayed in the three-bedroom villa with our family, and it was incredibly spacious, comfortable, and perfect for relaxing together.",
+            "The hotel’s staff deserve the highest praise. They were always kind, welcoming, and exceptionally helpful."
+          ]
+        },
+        "ru": {
+          "title": "Тёплое гостеприимство, комфорт и прекрасные воспоминания",
+          "passages": [
+            "Это был наш первый приезд на Бали, и благодаря Orlowsky он стал незабываемым. Мы жили всей семьёй в вилле с тремя спальнями — она была невероятно просторной, удобной и идеальной для совместного отдыха.",
+            "Персонал отеля заслуживает самой высокой похвалы. Все были неизменно добры, гостеприимны и исключительно отзывчивы."
+          ]
+        }
+      },
+      "copiedOn": "2026-11-17"
+    },
+    {
+      "id": "google-maria-2026-06",
+      "platform": "google",
+      "author": "Maria",
+      "date": "2026",
+      "dateKind": "review",
+      "score": 5,
+      "scale": 5,
+      "language": "en",
+      "text": {
+        "en": {
+          "passages": [
+            "The Ayurvedic spa was one of the highlights of our stay. I had one of the best Balinese massages I have ever experienced.",
+            "What makes this place so special is the feeling it gives you. Candidasa has a much slower and quieter rhythm compared to the busier parts of Bali, and I think Orlowsky Discovery captures that perfectly."
+          ]
+        },
+        "ru": {
+          "passages": [
+            "Аюрведический спа стал одним из главных впечатлений нашего отдыха. Мне сделали один из лучших балийских массажей в моей жизни.",
+            "Особенным это место делает ощущение, которое оно дарит. В Чандидасе жизнь течёт гораздо медленнее и тише, чем в оживлённых частях Бали, и, по-моему, Orlowsky Discovery передаёт это идеально."
+          ]
+        }
+      },
+      "copiedOn": "2026-11-17"
+    },
+    {
+      "id": "booking-adrian-2026-05",
+      "platform": "booking",
+      "author": "Adrian",
+      "country": "Australia",
+      "travellerType": "solo",
+      "room": "deluxe-cottage",
+      "date": "2026-05",
+      "dateKind": "stay",
+      "score": 10,
+      "scale": 10,
+      "language": "en",
+      "text": {
+        "en": {
+          "title": "I’ve already booked to go back",
+          "passages": [
+            "It’s perfectly located, short walk to the strip. The bungalows are very spacious. The staff are amazing, but it’s Bali, so of course they are! Lovely views to the gills too."
+          ]
+        },
+        "ru": {
+          "title": "Я уже забронировал следующий приезд",
+          "passages": [
+            "Отличное расположение — пара минут пешком до главной улицы. Бунгало очень просторные. Персонал потрясающий, но это же Бали, иначе и быть не может! И чудесный вид на островки Гили."
+          ]
+        }
+      },
+      "copiedOn": "2026-11-17"
+    },
+    {
+      "id": "google-natalya-2025",
+      "platform": "google",
+      "author": "Наталья С.",
+      "score": 5,
+      "scale": 5,
+      "language": "ru",
+      "text": {
+        "ru": {
+          "passages": [
+            "Тому архитектуру, который придумал сделать мол, хотелось бы сказать отдельное спасибо. В океане очень сильные течения (особенно во время отлива).",
+            "Здесь же за счет мола можно купаться, не опасаясь, что тебя затянет на глубину, в течении всего светового дня.",
+            "В отеле неоднократно посещала спа-салон. Девчонки умницы. Выше всяких похвал. Выходишь после массажа помолодевшая лет на 10ть 😊."
+          ]
+        },
+        "en": {
+          "passages": [
+            "I'd like to say a special thank-you to the architect who came up with the breakwater. The ocean has very strong currents (especially at low tide).",
+            "Here, thanks to the breakwater, you can swim all day long without fear of being pulled out into deep water.",
+            "I went to the hotel spa several times. The girls are wonderful. Beyond praise. You come out of a massage feeling 10 years younger 😊."
+          ]
+        }
+      },
+      "copiedOn": "2026-11-17"
+    },
+    {
+      "id": "agoda-ross-2024-08",
+      "platform": "agoda",
+      "author": "Ross",
+      "country": "Australia",
+      "travellerType": "couple",
+      "room": "deluxe-cottage",
+      "date": "2024-08",
+      "dateKind": "stay",
+      "score": 9.6,
+      "scale": 10,
+      "language": "en",
+      "text": {
+        "en": {
+          "title": "Beautiful Hotel",
+          "passages": [
+            "It is almost impossible to fault this hotel. It's a beautiful setting, staff are fantastic, gardens are immaculately kept.",
+            "It is not a cheap place to stay as far as Bali pricing goes but it is a really lovely place, in a beautiful setting & the staff were excellent."
+          ]
+        },
+        "ru": {
+          "title": "Красивый отель",
+          "passages": [
+            "К этому отелю почти невозможно придраться. Прекрасная обстановка, фантастический персонал, безупречно ухоженные сады.",
+            "По балийским меркам это недешёвое место, но очень красивое, в чудесной обстановке, и персонал был превосходным."
+          ]
+        }
+      },
+      "copiedOn": "2026-11-17"
+    },
+    {
+      "id": "google-agistri-2026-01",
+      "platform": "google",
+      "author": "Agistri P.",
+      "score": 5,
+      "scale": 5,
+      "language": "en",
+      "text": {
+        "en": {
+          "passages": [
+            "I had such a wonderful stay at Orlowsky Hotel. The view was beautiful, the room was clean, and the staff were very friendly.",
+            "I truly appreciate their honesty as well—my gold earring was accidentally left in the bathroom and I completely forgot about it, but the staff immediately contacted me and returned it safely."
+          ]
+        },
+        "ru": {
+          "passages": [
+            "Я замечательно провела время в Orlowsky Hotel. Красивый вид, чистый номер, очень дружелюбный персонал.",
+            "Отдельно ценю их честность: я случайно оставила в ванной золотую серёжку и совсем о ней забыла, но персонал сразу связался со мной и вернул её в целости."
+          ]
+        }
+      },
+      "copiedOn": "2026-11-17"
+    },
+    {
+      "id": "booking-yulia-2025-01",
+      "platform": "booking",
+      "author": "Yulia",
+      "country": "Russia",
+      "travellerType": "family",
+      "room": "deluxe-cottage",
+      "date": "2025-01",
+      "dateKind": "stay",
+      "score": 10,
+      "scale": 10,
+      "language": "ru",
+      "text": {
+        "ru": {
+          "passages": [
+            "Красивое, уютное место. Ухоженный сад, красивый вид на океан. Персонал очень дружелюбный, всегда готов помочь. Отличная еда в ресторане. Очень хороший спа с аюрведическими программами. Рекомендую"
+          ]
+        },
+        "en": {
+          "passages": [
+            "A beautiful, cosy place. A well-kept garden and a lovely ocean view. The staff are very friendly and always ready to help. Excellent food in the restaurant. A very good spa with Ayurvedic programmes. Recommended."
+          ]
+        }
+      },
+      "copiedOn": "2026-11-17"
+    },
+    {
+      "id": "booking-christian-2024-08",
+      "platform": "booking",
+      "author": "Christian",
+      "country": "United Kingdom",
+      "travellerType": "family",
+      "room": "three-bedroom-villa",
+      "date": "2024-08",
+      "dateKind": "stay",
+      "score": 9,
+      "scale": 10,
+      "language": "en",
+      "text": {
+        "en": {
+          "title": "Nice hotel and lovely staff. Take a trip to Virgin Beach it’s lovely.",
+          "passages": [
+            "Clean and well looked after by the lovely staff. Like everywhere in Bali, the staff were excellent and couldn’t do enough for us. Villa was good size and our little pool was good size and nice to cool down in."
+          ],
+          "disliked": [
+            "Food was ok but nothing to shout about.",
+            "Beach area isn’t really a beach, but it is nice and when the tide is going out you can swim and snorkel."
+          ]
+        },
+        "ru": {
+          "title": "Хороший отель и чудесный персонал. Съездите на Virgin Beach — там прекрасно.",
+          "passages": [
+            "Чисто и ухоженно — спасибо чудесному персоналу. Как и везде на Бали, персонал был великолепен и делал для нас всё возможное. Вилла хорошего размера, и наш маленький бассейн тоже — в нём приятно освежиться."
+          ],
+          "disliked": [
+            "Еда неплохая, но ничего особенного.",
+            "Пляжная зона — не совсем пляж, но там приятно, и во время отлива можно поплавать и поснорклить."
+          ]
+        }
+      },
+      "copiedOn": "2026-11-17"
+    },
+    {
+      "id": "google-jodie-2026-09",
+      "platform": "google",
+      "author": "Jodie M.",
+      "date": "2026",
+      "dateKind": "review",
+      "score": 5,
+      "scale": 5,
+      "language": "en",
+      "text": {
+        "en": {
+          "passages": [
+            "Best massage in all of Candidasa. 90 minutes is the perfect amount of time and the ladies have all worked there a long time. We have had 3 treatments there and every single time you feel so lucky for the experience.",
+            "Clean and very skilled staff. 100% recommend and will be back every time we come to Candidasa."
+          ]
+        },
+        "ru": {
+          "passages": [
+            "Лучший массаж во всей Чандидасе. 90 минут — идеальная продолжительность, а мастера работают здесь уже много лет. Мы были на трёх процедурах, и каждый раз чувствуешь, как тебе повезло.",
+            "Чисто, очень умелые мастера. Рекомендую на 100% и буду возвращаться каждый раз, когда мы приезжаем в Чандидасу."
+          ]
+        }
+      },
+      "copiedOn": "2026-11-17"
+    },
+    {
+      "id": "agoda-adam-2023-06",
+      "platform": "agoda",
+      "author": "Adam",
+      "country": "Singapore",
+      "travellerType": "family-young-children",
+      "room": "three-bedroom-villa",
+      "date": "2023-06",
+      "dateKind": "stay",
+      "score": 9.6,
+      "scale": 10,
+      "language": "en",
+      "text": {
+        "en": {
+          "passages": [
+            "A must stay for families with young children. The villa was equiped with a proper kitchen, 3 bedrooms, a living room with tv and subwoofer including a private pool that the kids enjoyed. The main swimming pool was facing the beach and you could enjoy watching sun rise and sunsets."
+          ]
+        },
+        "ru": {
+          "passages": [
+            "Обязательно для семей с маленькими детьми. В вилле настоящая кухня, 3 спальни, гостиная с телевизором и сабвуфером, а также собственный бассейн, который очень понравился детям. Главный бассейн обращён к пляжу — можно любоваться восходами и закатами."
+          ]
+        }
+      },
+      "copiedOn": "2026-11-17"
+    },
+    {
+      "id": "google-marina-2024",
+      "platform": "google",
+      "author": "Марина К.",
+      "score": 5,
+      "scale": 5,
+      "language": "ru",
+      "text": {
+        "ru": {
+          "passages": [
+            "Обожаем этот отель! Если вы устали от суеты, городского шума и толпы людей-вам сюда! Это райское место😍 приезжаем сюда пятый раз.",
+            "Это место не подойдет тем, кто приехал тусить и покорять ночной Бали, все тусовки и ночная жизнь далековато."
+          ]
+        },
+        "en": {
+          "passages": [
+            "We adore this hotel! If you're tired of the hustle, the city noise and the crowds, this is the place for you! It's a heavenly place 😍 this is our fifth time here.",
+            "This place won't suit those who come to party and take on Bali's nightlife — the parties and nightlife are a fair way off."
+          ]
+        }
+      },
+      "copiedOn": "2026-11-17"
+    },
+    {
+      "id": "booking-louise-2025-06",
+      "platform": "booking",
+      "author": "Louise",
+      "country": "Australia",
+      "travellerType": "group",
+      "room": "three-bedroom-villa",
+      "date": "2025-06",
+      "dateKind": "stay",
+      "score": 10,
+      "scale": 10,
+      "language": "en",
+      "text": {
+        "en": {
+          "title": "we always love staying here",
+          "passages": [
+            "the rooms were great, the hotel was fantastic, the area was peacefull and very relaxing, the all the staff were very helpful and friendly we love it there"
+          ]
+        },
+        "ru": {
+          "title": "Нам всегда нравится здесь останавливаться",
+          "passages": [
+            "Номера отличные, отель замечательный, вокруг тихо и очень спокойно, весь персонал очень отзывчивый и дружелюбный — нам здесь очень нравится"
+          ]
+        }
+      },
+      "copiedOn": "2026-11-17"
+    },
+    {
+      "id": "google-jessica-2026-08",
+      "platform": "google",
+      "author": "Jessica K.",
+      "date": "2026",
+      "dateKind": "review",
+      "score": 3,
+      "scale": 5,
+      "language": "de",
+      "text": {
+        "de": {
+          "passages": [
+            "Wir wurden vorab nicht informiert, dass der Strand eine Baustelle sein würde und das Meer dadurch nicht zugänglich.",
+            "Das Hotel war sehr bemüht und wirklich  freundlich, wir bekamen dann sogar eine Gratismassage, die auch sehr gut war.",
+            "Wir würden vielleicht wiederkommen, wenn der Strand fertig ist, aber nicht in dieses Zimmer. Vermutlich sind die zweistöckigen Häuser da angenehmer."
+          ]
+        },
+        "en": {
+          "passages": [
+            "We weren't told in advance that the beach would be a construction site, leaving the sea out of reach.",
+            "The hotel made a real effort and was genuinely friendly; we were even given a complimentary massage, which was very good too.",
+            "We might come back once the beach is finished, but not to this room. The two-storey houses are probably more comfortable."
+          ]
+        },
+        "ru": {
+          "passages": [
+            "Нас заранее не предупредили, что пляж будет стройплощадкой и к морю не подойти.",
+            "Отель очень старался и был по-настоящему дружелюбным — нам даже подарили массаж, и он тоже был очень хорош.",
+            "Возможно, мы вернёмся, когда пляж будет готов, но не в этот номер. Наверное, в двухэтажных домах комфортнее."
+          ]
+        }
+      },
+      "reply": {
+        "language": "en",
+        "text": {
+          "en": [
+            "We are sorry that the beach in front of the hotel was a construction site during your stay and that the noise and dust reached the spa and pool area.",
+            "We would be very happy to welcome you back once the beach work is finished — and next time we would gladly recommend one of the two-storey houses, which many returning guests find more comfortable."
+          ],
+          "ru": [
+            "Нам очень жаль, что во время вашего пребывания пляж перед отелем был стройплощадкой, а шум и пыль доходили до спа и бассейна.",
+            "Мы будем очень рады снова принять вас, когда работы на пляже закончатся, — и в следующий раз с удовольствием порекомендуем один из двухэтажных домов: многие постоянные гости находят их более удобными."
+          ]
+        }
+      },
+      "copiedOn": "2026-11-17"
+    },
+    {
+      "id": "google-dmitrii-2026-04",
+      "platform": "google",
+      "author": "Dmitrii K.",
+      "date": "2026",
+      "dateKind": "review",
+      "score": 5,
+      "scale": 5,
+      "language": "ru",
+      "text": {
+        "ru": {
+          "passages": [
+            "Номера в балийском стиле с высокими потолками!",
+            "Сервис реагирует на все запросы мгновенно, даже после 22 часов придут и помогут (как мне разоьраться с сейфом). Очень тихо, душевно и располагает к отдыху!"
+          ]
+        },
+        "en": {
+          "passages": [
+            "Balinese-style rooms with high ceilings!",
+            "The service responds to every request instantly — even after 10 pm someone will come and help (like when I couldn't work out the safe). Very quiet and soulful, it puts you in the mood to relax!"
+          ]
+        }
+      },
+      "copiedOn": "2026-11-17"
+    },
+    {
+      "id": "booking-leo-2024-05",
+      "platform": "booking",
+      "author": "Leo",
+      "country": "Singapore",
+      "travellerType": "family",
+      "room": "two-bedroom-villa",
+      "date": "2024-05",
+      "dateKind": "stay",
+      "score": 9,
+      "scale": 10,
+      "language": "en",
+      "text": {
+        "en": {
+          "passages": [
+            "A lovely property, right on the beach. Our enormous villa had amazing ocean views and was very well appointed. The master bath was almost large enough to have a table tennis match in!"
+          ]
+        },
+        "ru": {
+          "passages": [
+            "Прекрасный отель прямо у моря. Наша огромная вилла с потрясающим видом на океан была отлично оборудована. Главная ванная была почти такой большой, что в ней можно было бы сыграть в настольный теннис!"
+          ]
+        }
+      },
+      "copiedOn": "2026-11-17"
+    },
+    {
+      "id": "agoda-sergey-2025-02",
+      "platform": "agoda",
+      "author": "Sergey",
+      "travellerType": "solo",
+      "room": "deluxe-cottage",
+      "date": "2025-02",
+      "dateKind": "stay",
+      "score": 10,
+      "scale": 10,
+      "language": "en",
+      "text": {
+        "en": {
+          "title": "It's all good.",
+          "passages": [
+            "Very spacious rooms with good ventilation. Comfortable and well maintained garden, friendly staff and good service, delicious food with beautifully served in the restaurant. Convenient location."
+          ]
+        },
+        "ru": {
+          "title": "Всё хорошо.",
+          "passages": [
+            "Очень просторные номера с хорошей вентиляцией. Уютный ухоженный сад, дружелюбный персонал и хороший сервис, вкусная и красиво поданная еда в ресторане. Удобное расположение."
+          ]
+        }
+      },
+      "copiedOn": "2026-11-17"
+    },
+    {
+      "id": "google-giulia-2025",
+      "platform": "google",
+      "author": "Giulia R.",
+      "score": 4,
+      "scale": 5,
+      "language": "en",
+      "text": {
+        "en": {
+          "passages": [
+            "Beautiful hotel on the sea with private rooms surrounded by a fantastic, well-kept garden. Clean rooms, very friendly and helpful staff. Excellent à la carte breakfast. Plus, they found out it was my birthday and gave me a cake, a wonderful surprise - a sign of their great customer service! :)"
+          ]
+        },
+        "ru": {
+          "passages": [
+            "Красивый отель у моря: отдельные номера посреди фантастического ухоженного сада. Чистые номера, очень дружелюбный и отзывчивый персонал. Отличный завтрак à la carte. А ещё они узнали, что у меня день рождения, и подарили торт — чудесный сюрприз и знак прекрасного сервиса! :)"
+          ]
+        }
+      },
+      "copiedOn": "2026-11-17"
+    },
+    {
+      "id": "booking-mariya-2024-04",
+      "platform": "booking",
+      "author": "Mariya",
+      "country": "Russia",
+      "travellerType": "couple",
+      "room": "deluxe-cottage",
+      "date": "2024-04",
+      "dateKind": "stay",
+      "score": 10,
+      "scale": 10,
+      "language": "ru",
+      "text": {
+        "ru": {
+          "title": "Приятный отель с атмосферой уюта и заботы",
+          "passages": [
+            "Как только отказываешься на территории отеля, накрывает ощущение, что приехал в гости к любимым родственникам или друзьям : в воздухе витает душевность и доброжелательность!",
+            "Интересный заход в воду : в отлив можно поплавать и даже поснорклить, так как вода ощутимо уходит и благодаря волнорезам образуется естественный бассейн без волн."
+          ]
+        },
+        "en": {
+          "title": "A pleasant hotel with an atmosphere of cosiness and care",
+          "passages": [
+            "As soon as you arrive at the hotel, you get the feeling that you've come to visit beloved relatives or friends: warmth and kindness are in the air!",
+            "An interesting way into the water: at low tide you can swim and even snorkel, because the water recedes noticeably and the breakwaters form a natural pool without waves."
+          ]
+        }
+      },
+      "copiedOn": "2026-11-17"
+    },
+    {
+      "id": "booking-vicki-2025-07",
+      "platform": "booking",
+      "author": "Vicki",
+      "country": "Australia",
+      "travellerType": "family",
+      "room": "three-bedroom-villa",
+      "date": "2025-07",
+      "dateKind": "stay",
+      "score": 7,
+      "scale": 10,
+      "language": "en",
+      "text": {
+        "en": {
+          "passages": [
+            "The property presented well and the staff were lovely. Main Pool area was very nice and the spa staff were experienced and friendly. The restaurant was well staffed and attentive and the breakfasts were nice."
+          ],
+          "disliked": [
+            "The villa was not comfortable enough for 5 adults for a lengthy stay."
+          ]
+        },
+        "ru": {
+          "passages": [
+            "Отель производит хорошее впечатление, персонал чудесный. Зона у главного бассейна очень приятная, мастера спа опытные и дружелюбные. В ресторане хватает персонала, обслуживание внимательное, завтраки хорошие."
+          ],
+          "disliked": [
+            "Для пятерых взрослых при долгом проживании вилла оказалась недостаточно удобной."
+          ]
+        }
+      },
+      "copiedOn": "2026-11-17"
+    },
+    {
+      "id": "google-mike-2024",
+      "platform": "google",
+      "author": "Mike W.",
+      "score": 5,
+      "scale": 5,
+      "language": "en",
+      "text": {
+        "en": {
+          "passages": [
+            "Beautiful spot on the ocean front, with views across to Nusa Penida. Rooms are spacious, comfortable and super clean with all you could need. A short walk, or scooter ride, to all the shops and restaurants in Candidasa. Nothing to fault and highly recommended!"
+          ]
+        },
+        "ru": {
+          "passages": [
+            "Прекрасное место на берегу океана с видом на Нуса-Пениду. Номера просторные, удобные и безупречно чистые, в них есть всё необходимое. Несколько минут пешком или на скутере до всех магазинов и ресторанов Чандидасы. Не к чему придраться, очень рекомендую!"
+          ]
+        }
+      },
+      "copiedOn": "2026-11-17"
+    },
+    {
+      "id": "agoda-evgenii-2025-01",
+      "platform": "agoda",
+      "author": "Evgenii",
+      "country": "Indonesia",
+      "travellerType": "family-young-children",
+      "room": "deluxe-cottage",
+      "date": "2025-01",
+      "dateKind": "stay",
+      "score": 10,
+      "scale": 10,
+      "language": "ru",
+      "text": {
+        "ru": {
+          "passages": [
+            "Прекрасное расположение отеля, чистота номеров на высшем уровне. Обслуживание и услуги великолепны, а соотношение цены и качества просто идеально. Рекомендую это место для отдыха с маленькими детьми!!!"
+          ]
+        },
+        "en": {
+          "passages": [
+            "A wonderful location, and the rooms are spotlessly clean. The service and facilities are excellent, and the value for money is simply perfect. I recommend this place for a holiday with young children!!!"
+          ]
+        }
+      },
+      "copiedOn": "2026-11-17"
+    },
+    {
+      "id": "booking-olga-2024-03",
+      "platform": "booking",
+      "author": "Olga",
+      "country": "Russia",
+      "travellerType": "group",
+      "room": "two-bedroom-villa",
+      "date": "2024-03",
+      "dateKind": "stay",
+      "score": 10,
+      "scale": 10,
+      "language": "ru",
+      "text": {
+        "ru": {
+          "passages": [
+            "Любимый отель в Чандидасе. Великолепный персонал. Вкусные сырники на завтрак. Лучший выход к океану. Зелёная и тихая территория."
+          ]
+        },
+        "en": {
+          "passages": [
+            "Our favourite hotel in Candidasa. Wonderful staff. Delicious syrniki [cottage-cheese pancakes] for breakfast. The best access to the ocean. Green, quiet grounds."
+          ]
+        }
+      },
+      "copiedOn": "2026-11-17"
+    },
+    {
+      "id": "booking-natasha-2026-09",
+      "platform": "booking",
+      "author": "Natasha",
+      "country": "Australia",
+      "travellerType": "couple",
+      "room": "deluxe-cottage",
+      "date": "2026-09",
+      "dateKind": "stay",
+      "score": 9,
+      "scale": 10,
+      "language": "en",
+      "text": {
+        "en": {
+          "title": "Very relaxing and a nice way to start learning about east Bali",
+          "passages": [
+            "Location great grounds beautiful staff very friendly"
+          ]
+        },
+        "ru": {
+          "title": "Очень спокойно — и хорошее начало знакомства с Восточным Бали",
+          "passages": [
+            "Отличное расположение, красивая территория, очень дружелюбный персонал"
+          ]
+        }
+      },
+      "copiedOn": "2026-11-17"
+    }
+  ]
+}
